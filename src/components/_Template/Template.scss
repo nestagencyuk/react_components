@@ -1,0 +1,51 @@
+/// ----------------------------------------------------------------------
+
+/// Template
+
+/// ----------------------------------------------------------------------
+
+// ** THIS IS A TEMPLATE FOR COMPONENT STYLING ** //
+
+@import 'Base.scss';
+
+/// -------------------
+/// Template swatches
+/// -------------------
+
+/// Create component variables and a 'swatch' object for your element and its variants
+///
+///  - See if a swatch already exists in /assets/scss/base/_Swatches.scss for what you need. Most have been set up.
+///  - You can merge the swatch using the function merge() - example below.
+///  - Custom styles can just be added to the map as key, value pairs - these will override any previously merged
+///
+
+$template-pad: get-prop($spacing, 'lg');
+$template-border-width: 2px;
+
+$template: (
+  'primary': (
+    background-color: get-prop($colours, 'brand', 'one')
+  ),
+  'secondary': (
+    background-color: get-prop($colours, 'brand', 'two')
+  ),
+  'tertiary': (
+    background-color: get-prop($colours, 'ui', 'three')
+  ),
+);
+
+/// -------------------
+/// Template selectors
+/// -------------------
+
+.template {
+  @include apply-props($block-component); 
+  
+  @each $type in $template {
+    $type-name: nth($type, 1);
+    
+    &--#{$type-name} {
+      @include apply-props(get-prop($template, $type-name));
+    }
+  }
+}

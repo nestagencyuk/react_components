@@ -1,0 +1,42 @@
+/// ----------------------------------------------------------------------
+
+/// Base
+
+/// ----------------------------------------------------------------------
+
+///
+/// Include this file when access to core variables are needed such as:
+///
+/// - Colours
+/// - Typography
+/// - Swatches etc
+///
+/// This file won't generate any CSS.
+///
+
+/// -------------------
+/// Mixins
+/// -------------------
+
+@import 'mixins/Apply-props';
+@import 'mixins/Breakpoints';
+
+/// -------------------
+/// Functions
+/// -------------------
+
+@import 'functions/Get-prop';
+@import 'functions/Height-to-pad';
+@import 'functions/Rem';
+@import 'functions/Strip-unit';
+
+/// -------------------
+/// Config
+/// -------------------
+
+@import 'base/Colours';
+@import 'base/Layout';
+@import 'base/Movement';
+@import 'base/Typography';
+@import 'base/VisualStyles';
+@import 'base/Swatches';

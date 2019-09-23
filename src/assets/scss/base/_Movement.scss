@@ -1,0 +1,21 @@
+/// ----------------------------------------------------------------------
+
+/// Movement
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Animations & transitions
+/// -------------------
+
+$movement: (
+  animation: (
+    'infinite': 3s linear infinite,
+    'forwards': .2s linear forwards,
+    'forwards-ease': .3s ease forwards,
+  ),
+  transition: (
+    'ease': .3s ease,
+    'linear': .2s linear,
+  )
+);

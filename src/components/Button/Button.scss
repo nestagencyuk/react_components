@@ -1,0 +1,42 @@
+/// ----------------------------------------------------------------------
+
+/// Buttons
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+
+/// -------------------
+/// Button swatches
+/// -------------------
+
+$btn-pad: get-prop($spacing, 'lg');
+$btn-border-width: 2px;
+
+$btn: (
+  'primary': (
+    background-color: get-prop($colours, 'brand', 'one')
+  ),
+  'secondary': (
+    background-color: get-prop($colours, 'brand', 'two')
+  ),
+  'tertiary': (
+    background-color: get-prop($colours, 'ui', 'three')
+  ),
+);
+
+/// -------------------
+/// Button selectors
+/// -------------------
+
+.btn {
+  @include apply-props($block-component); 
+  
+  @each $type in $btn {
+    $type-name: nth($type, 1);
+    
+    &--#{$type-name} {
+      @include apply-props(get-prop($btn, $type-name));
+    }
+  }
+}

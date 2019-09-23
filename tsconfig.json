@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "esnext.asynciterable",
+      "es5",
+      "es7",
+      "es2015",
+      "es2017",
+      "dom"
+    ], 
+    "jsx": "react",
+    "baseUrl": "./src/",
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@hoc/*": [
+        "./hoc/*"
+      ]
+    }
+  },
+  "include": [
+    "./types.d.ts",
+    "./@types/**/*",
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}

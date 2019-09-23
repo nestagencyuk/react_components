@@ -1,0 +1,63 @@
+/// ----------------------------------------------------------------------
+
+/// Swatches
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Shadows
+/// -------------------
+
+$shadows: (
+  'one': 0 5px 10px 0 get-prop($colours, 'ui', 'four'),
+);
+
+/// -------------------
+/// Borders
+/// -------------------
+
+$borders: (
+  'one': solid 1px get-prop($colours, 'ui', 'three'),
+  'two': dashed 1px get-prop($colours, 'ui', 'four'),
+);
+
+/// -------------------
+/// Border radius
+/// -------------------
+
+$border-radii: (
+  'base': 5px,
+  'rounded': 999px,
+);
+
+/// -------------------
+/// Border radius
+/// -------------------
+
+$border-radii: (
+  'base': 5px,
+  'rounded': 999px,
+);
+
+/// -------------------
+/// States
+/// -------------------
+
+$states: (
+  'success': (
+  ),
+  'warning': (
+  ),
+  'error': (
+  ),
+  'disabled': (
+    opacity: .5,
+    pointer-events: none
+  ),
+  'hidden': (
+    display: none,
+  ),
+  'visible': (
+    display: block
+  )
+);

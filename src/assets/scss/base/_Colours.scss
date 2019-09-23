@@ -1,0 +1,38 @@
+/// ----------------------------------------------------------------------
+
+/// Colours
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Global palette
+/// -------------------
+
+$colours: (
+  brand: (
+    'one':  #b820a3,
+    'two':  #212fad,
+  ),
+  ui: (
+    'one':     #F8F8F8,
+    'two':     #F0F0F0,
+    'three':   #838383,
+    'four':    #3b3b3b,
+    'five':    #1d1d1d,
+  ),
+  state: (
+    'success':    #47bb57,
+    'warning':    #3ad387,
+    'error':      #ec4a58,
+    'info':       #cd69e0,
+  ),
+);
+
+/// -------------------
+/// Gradients
+/// -------------------
+
+$gradients: (
+  one: linear-gradient(90deg, #237bdf, get-prop($colours, 'brand', 'one'), #23df6b),
+  two: linear-gradient(90deg, #050885, get-prop($colours, 'brand', 'two'), #4600a1),
+);
