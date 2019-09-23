@@ -24,11 +24,6 @@
   "author": "Milly Billins @ Nest Agency Ltd",
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
-  "bit": {
-    "env": {},
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
-  },
   "dependencies": {
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
