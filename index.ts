@@ -29,7 +29,7 @@ const init = async (params: any) => {
         return runWebpack(webpackConfig)
     }
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 
@@ -48,7 +48,7 @@ const scaffold = async (params: any = {}) => {
   try {
     await buildScaffold(name, type, tmpDir, newDir)
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 

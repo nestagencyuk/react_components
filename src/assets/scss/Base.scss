@@ -16,19 +16,9 @@
 
 /// -------------------
 /// Mixins
-/// -------------------
+/// ------------------- 
 
-@import 'mixins/Apply-props';
-@import 'mixins/Breakpoints';
-
-/// -------------------
-/// Functions
-/// -------------------
-
-@import 'functions/Get-prop';
-@import 'functions/Height-to-pad';
-@import 'functions/Rem';
-@import 'functions/Strip-unit';
+@import '~scss-lib';
 
 /// -------------------
 /// Config

@@ -38,7 +38,7 @@ const config = (mode) => {
       modules: ['node_modules']
     },
     plugins: [
-      mode === 'dev' && new Bundle(),
+      // mode === 'dev' && new Bundle(),
       mode === 'dev' && new Output(),
       new Prettier({
         printWidth: 120,
