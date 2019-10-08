@@ -17,7 +17,7 @@ const config = (mode) => {
 
   return {
     context: src,
-    mode: mode === 'dev' ? 'development' : 'production',
+    mode: 'production', // For hooks to work whilst developinvg locally - https://github.com/facebook/react/issues/13991
     watch: mode === 'dev' ? true : false,
     entry: `${src}/Index.tsx`,
     optimization: {
@@ -29,6 +29,7 @@ const config = (mode) => {
       filename: 'index.js',
       libraryTarget: 'commonjs'
     },
+    externals: ['react'],
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       alias: {
@@ -39,7 +40,7 @@ const config = (mode) => {
     },
     plugins: [
       // mode === 'dev' && new Bundle(),
-      mode === 'dev' && new Output(),
+      // mode === 'dev' && new Output(),
       new Prettier({
         printWidth: 120,
         tabWidth: 2,

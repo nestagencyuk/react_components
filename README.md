@@ -1,29 +1,28 @@
 # Nest React Components
 
-This repository contains Nest's react components for use across all internal projects.
+This repository contains Nest's React components for use across all internal projects.
 
 ### Requirements: 
 - [Node.js](https://nodejs.org/) v4+
 - [React.js](https://reactjs.org/) v16+
 
 ### Usage:
-Install dependencies:
+Install:
 ```sh
 $ npm i nest-components
 ```
 
-Import the desired components into your .jsx or .tsx files. For the CSS import to work, your library consumer will need a way of handling CSS imports (webpack css-loader for example):
+Import the desired components into your .jsx or .tsx files. Including the CSS is optional - the styles fit our own branding so may not be suitable for client work. For the CSS import to work, your library consumer will need a way of handling CSS imports (webpack css-loader for example):
 
 ```js
 import { Button } from 'nest-components'
-import 'nest-components/dist/main.css'
+import 'nest-components/dist/main.css' // Optional
 
 ReactDOM.render(<Button />, document.getElementById('app'))
 ```
 
 ### Contributing
-
-To keep this repo lean and clean, it doesn't contain an example library consumer for you to see the components in context. Once you have cloned this repo, you will need to set up your own consumer project (with React, and whatever build tool you use e.g webpack). You can then use 'file:../my-path-to/react_components' in your package.json and run `npm i` to reference the local version of this package whilst you develop.
+To keep this repo lean and clean, it doesn't contain an example library consumer for you to see the components in context - you will need to set one up yourself. We advise using the [Nest React Boilerplate](https://github.com/nestagencyuk/react_boilerplate) as a starting point as it is already set up with React, TypeScript and Webpack. You can then clone this repository localy, and use 'file:../my-path-to/react_components' in your package.json. Run `npm i` to reference the local version of this package whilst you develop new components or make changes to existing components.
 
 ##### Develop
 Bundles all components using webpack, starts the dev server and watches for changes. If you have your consumer project set up to watch for changes it should trigger a recompile there as well.
@@ -34,7 +33,7 @@ $ npm run dev
 ##### Scaffold
 You can quickly scaffold a new component by running:
 ```sh
-$ NAME=MyNewComponent npm run scaffold:stateless
+$ NAME=MyNewComponent npm run scaffold
 ``` 
 OR
 ```sh

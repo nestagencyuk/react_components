@@ -1,10 +1,12 @@
 import * as React from 'react'
 import cx from 'classnames'
 
-// Styles
+/**
+ * Styles
+ */
 import './Button.scss'
 
-const Button: React.FunctionComponent<Button.IProps> = (props) => {
+const Button: React.FC<Button.IProps> = (props) => {
   const { className, href, type, submit, children, onClick } = props
   const Tag: any = href ? 'a' : 'button'
 

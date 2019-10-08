@@ -22,8 +22,11 @@ const init = async (params: any) => {
 
   try {
     switch (mode) {
-      case 'dev':
-        return server(webpackConfig, 3001)
+      // We cannot run in dev mode and start a WDS as it causes an issue with hooks
+      // and multiple React instances - https://github.com/facebook/react/issues/13991
+      // case 'dev':
+      //   await buildEntry(entryDir, entryName, srcDir)
+      //   return server(webpackConfig, 3001)
       default:
         await buildEntry(entryDir, entryName, srcDir)
         return runWebpack(webpackConfig)

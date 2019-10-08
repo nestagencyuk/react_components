@@ -15,13 +15,12 @@ configure({ adapter: new Adapter() })
 /**
  * Components
  */
-import { Template } from './'
+import { App } from './'
 
-describe('----- Template Component -----', () => {
-  const spy = sinon.spy()
-  const template = shallow(<Template type={'Primary'} />)
+describe('----- App Component -----', () => {
+  // const app = shallow(<App pages={[{ path: '/', config: { title: 'Test' }}]} />)
 
-  it('Renders <div>', () => {
-    expect(template.type()).to.equal('div')
-  })
+  // it('Renders <div>', () => {
+  //   expect(app.type()).to.equal('div')
+  // })
 })

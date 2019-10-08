@@ -15,13 +15,13 @@ configure({ adapter: new Adapter() })
 /**
  * Components
  */
-import { Template } from './'
+import { Navigation } from './'
 
-describe('----- Template Component -----', () => {
+describe('----- Navigation Component -----', () => {
   const spy = sinon.spy()
-  const template = shallow(<Template type={'Primary'} />)
+  const navigation = shallow(<Navigation links={[]} />)
 
-  it('Renders <div>', () => {
-    expect(template.type()).to.equal('div')
+  it('Renders <nav>', () => {
+    expect(navigation.type()).to.equal('nav')
   })
 })

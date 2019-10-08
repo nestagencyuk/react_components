@@ -19,3 +19,9 @@ $block-component: (
   padding-top: map-get($block-component-padding, 'top'),
   padding-bottom: map-get($block-component-padding, 'bottom'),
 );
+
+$list: (
+  list-style: none,
+  padding: 0,
+  margin: 0
+);

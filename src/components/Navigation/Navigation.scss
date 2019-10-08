@@ -1,0 +1,104 @@
+/// ----------------------------------------------------------------------
+
+/// Navigation
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+
+@keyframes colourCycle {
+  0% {
+    color: get-prop($colours, 'brand', 'one');
+  }
+  50% {
+    color: get-prop($colours, 'brand', 'two');
+  }
+  100% {
+    color: get-prop($colours, 'brand', 'one');
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(225deg);
+  }
+}
+
+/// -------------------
+/// Navigation swatches
+/// -------------------
+
+$navigation-pad: get-prop($spacing, 'lg');
+
+/// -------------------
+/// Navigation selectors
+/// -------------------
+
+.nav {
+  position: absolute;
+  max-width: 800px;
+  left: 50%;
+  transition: left ease-out 0.45s;
+  padding-top: $navigation-pad;
+  padding-bottom: $navigation-pad;
+}
+
+.nav__brand {
+  height: 2rem; 
+}
+
+.nav__img {
+  height: 100%;
+}
+
+.nav__list {
+  @include apply-props($list);
+  width: 100%;
+  display: flex;
+}
+
+.nav__item {
+  width: 100px;
+  text-align: center;
+}
+
+$diamond: 3rem;
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: get-prop($spacing, 'md');
+  font-size: get-prop($typography, 'small', 'font-size');
+  font-family: $font-family--alt;
+  text-decoration: none;
+  color: get-prop($colours, 'ui', 'three');
+
+  &:hover {
+    animation: colourCycle 3s linear infinite;
+  }
+  
+  &--active {
+    color: get-prop($colours, 'ui', 'one');
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background-color: get-prop($colours, 'brand', 'two');
+      width: $diamond;
+      height: $diamond;
+      border-radius: get-prop($border-radii, 'base');
+      z-index: -1;
+    }
+
+    &:hover::before {
+      animation: spin 1s ease infinite;
+    }
+  }
+}

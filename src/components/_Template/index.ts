@@ -1,1 +1,1 @@
-export { default as Template } from './Template.stateful'
+export { default as Template } from './Template'

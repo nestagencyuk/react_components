@@ -1,0 +1,60 @@
+/// ----------------------------------------------------------------------
+
+/// App
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700&display=swap');
+
+@keyframes woo {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+/// -------------------
+/// App swatches
+/// -------------------
+
+$app: ();
+
+/// -------------------
+/// App selectors
+/// -------------------
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  @include apply-props($block-component);
+}
+
+/// -------------------
+/// Custom Cursor
+/// -------------------
+
+$cursor-size: 3rem;
+
+.cursor {
+  position: absolute;
+  border: solid 1px get-prop($colours, 'brand', 'two');
+  width: $cursor-size;
+  height: $cursor-size;
+  margin-left: -$cursor-size / 2;
+  margin-top: -$cursor-size / 2;
+  border-radius: 5px;
+  pointer-events: none;
+  animation: woo 1s ease infinite;
+  opacity: 1;
+}

@@ -15,13 +15,13 @@ configure({ adapter: new Adapter() })
 /**
  * Components
  */
-import { Template } from './'
+import { Link } from './'
 
-describe('----- Template Component -----', () => {
+describe('----- Link Component -----', () => {
   const spy = sinon.spy()
-  const template = shallow(<Template type={'Primary'} />)
+  const link = shallow(<Link type={'Primary'} href={'/'}>Link</Link>)
 
-  it('Renders <div>', () => {
-    expect(template.type()).to.equal('div')
+  it('Renders <a>', () => {
+    expect(link.type()).to.equal('a')
   })
 })

@@ -6,29 +6,32 @@ import { expect } from 'chai'
 import { configure, shallow, mount } from 'enzyme'
 import register from 'ignore-styles'
 
-// Setup
+/**
+ * Setup
+ */
 register(['.scss'])
 configure({ adapter: new Adapter() })
 
-// Components
-import Button from '.'
+/**
+ * Components
+ */
+import { Button } from '.'
 
-describe('----- Component Rendering -----', () => {
+describe('----- Button Component -----', () => {
   const spy = sinon.spy()
+  const button = shallow(<Button type={'Primary'} onClick={spy}>Test</Button>)
 
-  describe('Button Component', () => {
-    const button = shallow(<Button type={'Primary'} onClick={spy}>Test</Button>)
-
-    it('Renders <button>', () => {
-      expect(button.type()).to.equal('button')
-    })
-    it('Renders <a>', () => {
-      const link = shallow(<Button type={'Primary'} href={'/'}>Test</Button>)
-      expect(link.type()).to.equal('a')
-    })
-    it('Simulates a click', () => {
-      button.find('button').simulate('click')
-      expect(spy).to.have.property('callCount', 1)
-    })
+  it('Renders <button>', () => {
+    expect(button.type()).to.equal('button')
+  })
+  
+  it('Renders <a>', () => {
+    const link = shallow(<Button type={'Primary'} href={'/'}>Test</Button>)
+    expect(link.type()).to.equal('a')
+  })
+  
+  it('Simulates a click', () => {
+    button.find('button').simulate('click')
+    expect(spy).to.have.property('callCount', 1)
   })
 })

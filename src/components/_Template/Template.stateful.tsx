@@ -3,7 +3,9 @@
 import * as React from 'react'
 import cx from 'classnames'
 
-// Styles
+/**
+ * Styles
+ */
 import './Template.scss'
 
 class Template extends React.Component<Template.IProps> {

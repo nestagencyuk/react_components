@@ -1,0 +1,42 @@
+/// ----------------------------------------------------------------------
+
+/// Link
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+
+/// -------------------
+/// Link swatches
+/// -------------------
+
+$link-pad: get-prop($spacing, 'lg');
+$link-border-width: 2px;
+
+$link: (
+  'primary': (
+    background-color: get-prop($colours, 'brand', 'one')
+  ),
+  'secondary': (
+    background-color: get-prop($colours, 'brand', 'two')
+  ),
+  'tertiary': (
+    background-color: get-prop($colours, 'ui', 'three')
+  ),
+);
+
+/// -------------------
+/// Link selectors
+/// -------------------
+
+.link {
+  @include apply-props($block-component); 
+  
+  @each $type in $link {
+    $type-name: nth($type, 1);
+    
+    &--#{$type-name} {
+      @include apply-props(get-prop($link, $type-name));
+    }
+  }
+}

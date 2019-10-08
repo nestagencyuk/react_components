@@ -15,13 +15,12 @@ configure({ adapter: new Adapter() })
 /**
  * Components
  */
-import { Template } from './'
+import { Header } from '.'
 
-describe('----- Template Component -----', () => {
-  const spy = sinon.spy()
-  const template = shallow(<Template type={'Primary'} />)
+describe('----- Page Component -----', () => {
+  // const page = shallow(<Page config={{ title: 'Test Page '}} />)
 
-  it('Renders <div>', () => {
-    expect(template.type()).to.equal('div')
-  })
+  // it('Renders <div>', () => {
+  //   expect(page.find(Foo)).to.have.lengthOf(3);
+  // })
 })
