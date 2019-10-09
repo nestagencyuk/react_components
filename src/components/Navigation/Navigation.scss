@@ -6,27 +6,6 @@
 
 @import 'Base.scss';
 
-@keyframes colourCycle {
-  0% {
-    color: get-prop($colours, 'brand', 'one');
-  }
-  50% {
-    color: get-prop($colours, 'brand', 'two');
-  }
-  100% {
-    color: get-prop($colours, 'brand', 'one');
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(225deg);
-  }
-}
-
 /// -------------------
 /// Navigation swatches
 /// -------------------
@@ -38,10 +17,6 @@ $navigation-pad: get-prop($spacing, 'lg');
 /// -------------------
 
 .nav {
-  position: absolute;
-  max-width: 800px;
-  left: 50%;
-  transition: left ease-out 0.45s;
   padding-top: $navigation-pad;
   padding-bottom: $navigation-pad;
 }
@@ -65,40 +40,15 @@ $navigation-pad: get-prop($spacing, 'lg');
   text-align: center;
 }
 
-$diamond: 3rem;
-
 .nav__link {
   position: relative;
   display: block;
-  padding: get-prop($spacing, 'md');
-  font-size: get-prop($typography, 'small', 'font-size');
+  padding: get-prop($spacing, 'sm');
   font-family: $font-family--alt;
   text-decoration: none;
-  color: get-prop($colours, 'ui', 'three');
+  color: get-prop($colours, 'ui', 'five');
 
-  &:hover {
-    animation: colourCycle 3s linear infinite;
-  }
-  
-  &--active {
-    color: get-prop($colours, 'ui', 'one');
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg);
-      background-color: get-prop($colours, 'brand', 'two');
-      width: $diamond;
-      height: $diamond;
-      border-radius: get-prop($border-radii, 'base');
-      z-index: -1;
-    }
-
-    &:hover::before {
-      animation: spin 1s ease infinite;
-    }
+  &--active, &:hover {
+    color: get-prop($colours, 'brand', 'one');
   }
 }

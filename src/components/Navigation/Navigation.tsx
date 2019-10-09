@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
-import { withRouter as withRRouter } from 'react-router-dom'
 import cx from 'classnames'
 
 /**
@@ -9,64 +7,55 @@ import cx from 'classnames'
 import './Navigation.scss'
 
 /**
+ * HOC
+ */
+import { withRouter } from 'react-router-dom'
+
+/**
  * Components
  */
 import { NavigationBrand, NavigationList, NavigationItem, NavigationLink } from './'
 
-const Navigation: React.FC<Navigation.IProps> = (props) => {
-  const { className, router, brand, links } = props
-  const [translateValue, setTV] = useState('50%')
+/**
+ * A simple, single level navigation component, allowing for lists to be positioned left,
+ * right, or centrally.
+ */
+const Navigation: React.FC<Navigation.IProps> = ({ className, style, history, brand, links, onClick }) => {
+  const leftLinks: Navigation.Link[] = links.filter((x) => x.location === 'left')
+  const rightLinks: Navigation.Link[] = links.filter((x) => x.location === 'right')
 
-  const leftLinks = links.filter((x: any) => x.location === 'left')
-  const rightLinks = links.filter((x: any) => x.location === 'right')
-  const isActive = (url: string) => router.history.location.pathname === url
+  const leftBrand = brand && brand.location === 'left'
+  const centerBrand = brand && brand.location === 'center'
+  const rightBrand = brand && brand.location === 'right'
 
-  useEffect(() => {
-    const activeIndex = links.find((x: any, i: any) => isActive(x.href))
-    const i = links.indexOf(activeIndex)
-    const distance = `calc(50% - ${document.querySelector('.nav__item').clientWidth * i}px - 50px)`
-    if (translateValue === distance) return
-    setTV(distance)
-  })
+  const isActive = (url: string) => history.location.pathname === url
+
+  const renderList = (links: Navigation.Link[]) =>
+    links.length > 0 && (
+      <NavigationList>
+        {links.map((x) => (
+          <NavigationItem key={`navItem-${x.text}`} active={isActive(x.href)}>
+            <NavigationLink {...x} active={isActive(x.href)}>
+              {x.text}
+            </NavigationLink>
+          </NavigationItem>
+        ))}
+      </NavigationList>
+    )
 
   return (
-    <nav className={cx(className, 'nav')} style={{ left: translateValue }}>
-      {brand && brand.location === 'left' && <NavigationBrand {...brand} />}
+    <nav className={cx(className, 'nav')} style={style} onClick={onClick}>
+      {leftBrand && <NavigationBrand {...brand} />}
 
-      {leftLinks.length > 0 && (
-        <NavigationList>
-          {leftLinks.map((x: any) => (
-            <NavigationItem key={`navItem-${x.text}`} active={isActive(x.href)}>
-              <NavigationLink href={x.href} active={isActive(x.href)}>
-                {x.text}
-              </NavigationLink>
-            </NavigationItem>
-          ))}
-        </NavigationList>
-      )}
+      {renderList(leftLinks)}
 
-      {brand && brand.location === 'center' && <NavigationBrand {...brand} />}
+      {centerBrand && <NavigationBrand {...brand} />}
 
-      {rightLinks.length > 0 && (
-        <NavigationList>
-          {rightLinks.map((x: any) => (
-            <NavigationItem key={`navItem-${x.text}`} active={isActive(x.href)}>
-              <NavigationLink href={x.href} active={isActive(x.href)}>
-                {x.text}
-              </NavigationLink>
-            </NavigationItem>
-          ))}
-        </NavigationList>
-      )}
+      {renderList(rightLinks)}
 
-      {brand && brand.location === 'right' && <NavigationBrand {...brand} />}
+      {rightBrand && <NavigationBrand {...brand} />}
     </nav>
   )
 }
 
-const withRouter = (Component: any) =>
-  withRRouter((props: any) => {
-    return <Component {...props} router={{ history: props.history, location: props.location }} />
-  })
-
-export default withRouter(Navigation)
+export default withRouter<any, any>(Navigation)

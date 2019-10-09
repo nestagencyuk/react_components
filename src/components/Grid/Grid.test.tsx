@@ -15,13 +15,13 @@
 // /**
 //  * Components
 //  */
-// import { Navigation } from './'
+// import { Grid } from './'
 
-// describe('----- Navigation Component -----', () => {
+// describe('----- Grid Component -----', () => {
 //   const spy = sinon.spy()
-//   const navigation = shallow(<Navigation />)
+//   const grid = shallow(<Grid />)
 
-//   it('Renders <nav>', () => {
-//     expect(navigation.type()).to.equal('nav')
+//   it('Renders <div>', () => {
+//     expect(grid.type()).to.equal('div')
 //   })
 // })

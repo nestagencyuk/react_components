@@ -6,10 +6,15 @@ import * as cx from 'classnames'
  */
 import './Header.scss'
 
-const Header = (props: any) => {
-  const { children } = props
-
-  return <header className={cx('header')}>{children}</header>
-}
+/**
+ * A simple header component with a heading and subheading
+ */
+const Header: React.FC<Header.IProps> = ({ className, heading, subheading, children }) => (
+  <header className={cx(className, 'header')}>
+    {heading && <h1>{heading}</h1>}
+    {subheading && <h1>{subheading}</h1>}
+    {children}
+  </header>
+)
 
 export default Header

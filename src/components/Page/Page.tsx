@@ -6,8 +6,7 @@ import { excludeFromObj } from 'typescript-lib-frontend'
  */
 import './Page.scss'
 
-const Page: React.FC<Page.IProps> = (props) => {
-  const { router, config, data } = props
+const Page: React.FC<Page.IProps> = ({ router, config, data }) => {
   const Component: React.FC<Page.IProps> = config.view
 
   return (

@@ -6,16 +6,26 @@ import cx from 'classnames'
  */
 import './Link.scss'
 
-const Link: React.SFC<Link.IProps> = (props) => {
-  const { className, type, href } = props
+/**
+ * Components
+ */
+import { Link as RouterLink } from 'react-router-dom'
 
+/**
+ * A simple link using React Router
+ */
+const Link: React.SFC<Link.IProps> = ({ className, type, href, children }) => {
   const linkClasses: Link.IClasses = {
     Primary: 'link--primary',
     Secondary: 'link--secondary',
     Tertiary: 'link--tertiary'
   }
 
-  return <a className={cx(className, 'link', linkClasses[type])}>Link</a>
+  return (
+    <RouterLink className={cx(className, 'link', linkClasses[type])} to={href}>
+      {children}
+    </RouterLink>
+  )
 }
 
 export default Link

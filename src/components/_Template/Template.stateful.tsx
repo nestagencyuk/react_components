@@ -8,6 +8,9 @@ import cx from 'classnames'
  */
 import './Template.scss'
 
+/**
+ * My stateful component
+ */
 class Template extends React.Component<Template.IProps> {
   state: Template.IState = {
     // ...

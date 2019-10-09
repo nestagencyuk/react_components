@@ -1,0 +1,27 @@
+/// ----------------------------------------------------------------------
+
+/// Text
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+
+/// -------------------
+/// Text selectors
+/// -------------------
+
+@each $type in $typography {
+  $type-name: nth($type, 1);
+  $type-props: nth($type, 2);
+
+  .#{$type-name} {
+    @include apply-props($type-props);
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: get-prop($spacing, 'md');
+    
+    &:last-child {
+      margin-bottom: 0
+    }
+  }
+}

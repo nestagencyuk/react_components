@@ -29,10 +29,11 @@ const config = (mode) => {
       filename: 'index.js',
       libraryTarget: 'commonjs'
     },
-    externals: ['react'],
+    externals: ['react', 'react-router-dom'],
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       alias: {
+        '@assets': `${src}/assets/`,
         '@components': `${src}/components/`,
         '@hoc': `${src}/hoc/`
       },

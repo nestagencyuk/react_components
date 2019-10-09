@@ -8,9 +8,10 @@ import cx from 'classnames'
  */
 import './Template.scss'
 
-const Template: React.FC<Template.IProps> = (props) => {
-  const { className, type } = props
-
+/**
+ * My component
+ */
+const Template: React.FC<Template.IProps> = ({ className, type }) => {
   const templateClasses: Template.IClasses = {
     Primary: 'template--primary',
     Secondary: 'template--secondary',

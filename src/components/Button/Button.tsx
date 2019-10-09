@@ -6,8 +6,7 @@ import cx from 'classnames'
  */
 import './Button.scss'
 
-const Button: React.FC<Button.IProps> = (props) => {
-  const { className, href, type, submit, children, onClick } = props
+const Button: React.FC<Button.IProps> = ({ className, href, type, submit, children, onClick }) => {
   const Tag: any = href ? 'a' : 'button'
 
   const btnClasses: Button.IClasses = {
