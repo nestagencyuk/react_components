@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
+import IGrid from './types'
 
 /**
  * Styles
@@ -9,21 +10,21 @@ import './Grid.scss'
 /**
  * A grid system using CSS Grid
  */
-const Grid: React.FunctionComponent<Grid.IProps> = ({ className, align, gutter, matchHeights, children }) => {
-  const alignXClasses: Grid.IAlignXClasses = {
+const Grid: React.FunctionComponent<IGrid.IProps> = ({ className, align, gutter, matchHeights, children }) => {
+  const alignXClasses: IGrid.IAlignXClasses = {
     Left: 'grid--left',
     Right: 'grid--right',
     Center: 'grid--center-x'
   }
 
-  const alignYClasses: Grid.IAlignYClasses = {
+  const alignYClasses: IGrid.IAlignYClasses = {
     Top: 'grid--top',
     Bottom: 'grid--bottom',
     Center: 'grid--center-y'
   }
 
   return (
-    <div
+    <section
       className={cx(
         className,
         'grid',
@@ -34,7 +35,7 @@ const Grid: React.FunctionComponent<Grid.IProps> = ({ className, align, gutter, 
       )}
     >
       {children}
-    </div>
+    </section>
   )
 }
 

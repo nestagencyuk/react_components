@@ -1,9 +1,8 @@
 import 'jsdom-global/register'
 import * as React from 'react'
 import * as Adapter from 'enzyme-adapter-react-16'
-import * as sinon from 'sinon'
 import { expect } from 'chai'
-import { configure, shallow, mount } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import register from 'ignore-styles'
 
 /**
@@ -18,10 +17,8 @@ configure({ adapter: new Adapter() })
 import { Template } from './'
 
 describe('----- Template Component -----', () => {
-  const spy = sinon.spy()
-  const template = shallow(<Template type={'Primary'} />)
-
-  it('Renders <div>', () => {
-    expect(template.type()).to.equal('div')
+  it('Renders the correct HTML', () => {
+    const template = shallow(<Template type={'Primary'} />)
+    expect(template.html()).to.equal('<div class="template template--primary">Template</div>')
   })
 })

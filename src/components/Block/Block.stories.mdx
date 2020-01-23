@@ -1,0 +1,21 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Block } from '.'
+
+<Meta title='Components|Block' component={Block} />
+
+# Block
+A simple buttons to allow users to carry out an action.
+ 
+## Base
+For use as a main call to action.
+
+<Preview>
+  <Story name='Base'>
+    <Block type={'fill'}>Primary Block</Block>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Block} />

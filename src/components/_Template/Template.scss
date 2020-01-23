@@ -22,7 +22,7 @@
 $template-pad: get-prop($spacing, 'lg');
 $template-border-width: 2px;
 
-$template: (
+$template-types: (
   'primary': (
     background-color: get-prop($colours, 'brand', 'one')
   ),
@@ -41,7 +41,7 @@ $template: (
 .template {
   @include apply-props($block-component); 
   
-  @each $type in $template {
+  @each $type in $template-types {
     $type-name: nth($type, 1);
     
     &--#{$type-name} {

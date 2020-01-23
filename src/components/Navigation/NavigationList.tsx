@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
+import Navigation from './types'
 
 /**
  * The list to hold the navigation links

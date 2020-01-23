@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { excludeFromObj } from 'typescript-lib-frontend'
+import Page from './types'
 
 /**
  * Styles

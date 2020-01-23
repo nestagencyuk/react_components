@@ -1,0 +1,47 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+
+<Meta title='Getting Started|Coding Standards' component={null} />
+
+# Coding Standards
+
+## Methodology
+- Ensure we foster an environment of learning, openness to new ideas and technologies. No idea/question is a silly one.
+- Where possible write code that is framework agnostic as the framework may not be relevant in future - e.g using functional setState in React components
+- Document and comment code. Make it easy for other developers to get stuck in. 
+- Keep documentation and READMEs up to date - documentation lives in the .mdx file with the component.
+- Write unit tests.
+- Keep accessibility at the front of your mind when designing and developing UI - check colour contrasts, semantic HTML, style focus & active states etc.
+- Separate business logic and presentation - markup should not be tied to styling.
+
+## Git branching
+We are using git-flow branching model.
+
+## Styling/CSS
+Presentation should be decoupled from logic. We should be able to remove all styles/theme and everything should still function. Styles should also not be tied to markup, e.g you should be able to apply any class to any HTML tag and it will render correctly. CSS should be compiled from SCSS, using properties from the config maps. SCSS should follow the structure:
+
+**src/assets/scss:**
+The SCSS in here should **never** generate any CSS, it is just where all global config, core variables and functions live. Access can then be included simply using @import 'Base.scss'; without worrying about any output duplication. There is a SCSS map for each setting group such as colour, typography, layout, movement etc. There is also a functions folder and SCSS function template, comments follow the sassDoc convention.
+
+**src/components/mycomponent**
+Component styles using base import^
+
+For consistency, make use of any existing functions such as get-prop(), merge() etc. All SCSS should be commented and follow the BEM naming convention. **Always** use classes, rather than tags or IDs to target elements (SVG `path` is possibly the only exception). Chaining descendent selectors should be avoided due to poor performance and reliance on markup structure, i.e try to adhere to a flat dependency hierarchy:
+
+Good: 
+```css
+  .nav
+  .list
+  .list__item
+  .list__link
+```
+Bad:
+```css
+  nav ul
+  nav > ul > li
+  nav > ul > li > a
+```
+
+<!-- 
+<Story name='Test'>
+  
+</Story> -->

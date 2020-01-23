@@ -17,5 +17,5 @@ $page: ();
 /// -------------------
 
 .page {
-  @include apply-props($block-component);
+  position: relative;
 }

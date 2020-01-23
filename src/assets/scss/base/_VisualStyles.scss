@@ -10,7 +10,7 @@
 
 $shadows: (
   'one': 0 5px 10px 0 get-prop($colours, 'ui', 'four'),
-);
+) !default;
 
 /// -------------------
 /// Borders
@@ -19,7 +19,7 @@ $shadows: (
 $borders: (
   'one': solid 1px get-prop($colours, 'ui', 'three'),
   'two': dashed 1px get-prop($colours, 'ui', 'four'),
-);
+) !default;
 
 /// -------------------
 /// Border radius
@@ -28,16 +28,7 @@ $borders: (
 $border-radii: (
   'base': 5px,
   'rounded': 999px,
-);
-
-/// -------------------
-/// Border radius
-/// -------------------
-
-$border-radii: (
-  'base': 5px,
-  'rounded': 999px,
-);
+) !default;
 
 /// -------------------
 /// States
@@ -60,4 +51,4 @@ $states: (
   'visible': (
     display: block
   )
-);
+) !default;

@@ -1,0 +1,27 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import '../dist/main.css'
+
+<Meta title='Getting Started|Introduction' component={null} />
+
+# Introduction
+
+This repository contains Nest's React components for use across the business. The main purpose of this project is to provide a single source of truth of components for use internally and across all client projects. When consuming this library for client projects, our brand CSS should be excluded.
+
+### Requirements: 
+- [Node.js](https://nodejs.org/) v9+
+- [React.js](https://reactjs.org/) v16+
+
+### Basic Usage:
+Install:
+```sh
+$ npm i nest-components
+```
+
+Import the desired components into your .jsx or .tsx files. Including the CSS is optional - the styles fit our own branding so may not be suitable for client work. For the CSS import to work, your library consumer will need a way of handling CSS imports (webpack css-loader for example):
+
+```js
+import { Button } from 'nest-components'
+import 'nest-components/dist/main.css' // Optional - only include if workng on Nest branded products
+
+ReactDOM.render(<Button />, document.getElementById('app'))
+```

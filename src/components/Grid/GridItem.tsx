@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
+import Grid from './types'
 
 /**
  * Grid item that sits within the main grid component.

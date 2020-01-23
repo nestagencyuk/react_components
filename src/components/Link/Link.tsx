@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
+import ILink from './types'
 
 /**
  * Styles
@@ -14,8 +15,8 @@ import { Link as RouterLink } from 'react-router-dom'
 /**
  * A simple link using React Router
  */
-const Link: React.SFC<Link.IProps> = ({ className, type, href, children }) => {
-  const linkClasses: Link.IClasses = {
+const Link: React.SFC<ILink.IProps> = ({ className, type, href, children }) => {
+  const linkClasses: ILink.IClasses = {
     Primary: 'link--primary',
     Secondary: 'link--secondary',
     Tertiary: 'link--tertiary'

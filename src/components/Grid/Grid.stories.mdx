@@ -1,0 +1,251 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
+import { Block } from '../Block'
+import { Grid, GridItem } from '.'
+
+<Meta title='Layout|Grid' component={Grid} />
+
+# Grid
+A simple CSS grid system. The basic system comprises of a 12 column grid.
+
+<Preview>
+  <Story name='Simple'>
+    <div>
+      <Grid>
+        <GridItem span={1}>
+          <Block />
+        </GridItem>
+        <GridItem span={11}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={2}>
+          <Block />
+        </GridItem>
+        <GridItem span={10}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={3}>
+          <Block />
+        </GridItem>
+        <GridItem span={9}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={4}>
+          <Block />
+        </GridItem>
+        <GridItem span={8}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={5}>
+          <Block />
+        </GridItem>
+        <GridItem span={7}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={6}>
+          <Block />
+        </GridItem>
+        <GridItem span={6}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={7}>
+          <Block />
+        </GridItem>
+        <GridItem span={5}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={8}>
+          <Block />
+        </GridItem>
+        <GridItem span={4}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={9}>
+          <Block />
+        </GridItem>
+        <GridItem span={3}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={10}>
+          <Block />
+        </GridItem>
+        <GridItem span={2}>
+          <Block />
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem span={11}>
+          <Block />
+        </GridItem>
+        <GridItem span={1}>
+          <Block />
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+By default the grid has no gutter, but this can be added via the 'gutter' prop:
+
+<Preview>
+  <Story name='Spaced'>
+    <div>
+      <Grid gutter>
+        <GridItem span={1}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={11}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={2}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={10}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={3}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={9}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={4}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={8}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={5}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={7}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={6}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={6}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={7}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={5}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={8}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={4}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={9}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={3}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={10}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={2}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={11}>
+          <Block>
+            <Text>Col 1</Text>
+          </Block>
+        </GridItem>
+        <GridItem span={1}>
+          <Block>
+            <Text>Col 2</Text>
+          </Block>
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+## Grid Prop Types
+<Props of={Grid} />
+
+## GridItem Prop Types
+<Props of={GridItem} />

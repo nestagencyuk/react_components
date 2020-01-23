@@ -1,0 +1,23 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Link } from '.'
+
+<Meta title='Components|Link' component={Link} />
+
+# Link
+A simple inline hyperlink using React Router.
+ 
+## Primary
+For use within paragraphs.
+
+<Preview>
+  <Story name='Primary'>
+    <MemoryRouter>
+      <Link type={'Primary'}>Primary Link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Link} />

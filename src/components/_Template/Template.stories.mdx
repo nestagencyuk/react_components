@@ -1,0 +1,21 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Template } from '.'
+
+<Meta title='Components|Template' component={Template} />
+
+# Template
+A simple buttons to allow users to carry out an action.
+ 
+## Primary
+For use as a main call to action.
+
+<Preview>
+  <Story name='Primary'>
+    <Template type={'Primary'}>Primary Button</Template>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Template} />

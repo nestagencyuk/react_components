@@ -7,21 +7,18 @@
 @import 'Base.scss';
 
 /// -------------------
-/// Link swatches
+/// Link config
 /// -------------------
 
-$link-pad: get-prop($spacing, 'lg');
-$link-border-width: 2px;
-
-$link: (
+$link-types: (
   'primary': (
-    background-color: get-prop($colours, 'brand', 'one')
+    color: get-prop($colours, 'brand', 'one')
   ),
   'secondary': (
-    background-color: get-prop($colours, 'brand', 'two')
+    color: get-prop($colours, 'brand', 'two')
   ),
   'tertiary': (
-    background-color: get-prop($colours, 'ui', 'three')
+    color: get-prop($colours, 'ui', 'three')
   ),
 );
 
@@ -30,13 +27,13 @@ $link: (
 /// -------------------
 
 .link {
-  @include apply-props($block-component); 
+  @include block-component;
   
-  @each $type in $link {
+  @each $type in $link-types {
     $type-name: nth($type, 1);
     
     &--#{$type-name} {
-      @include apply-props(get-prop($link, $type-name));
+      @include apply-props(get-prop($link-types, $type-name));
     }
   }
 }

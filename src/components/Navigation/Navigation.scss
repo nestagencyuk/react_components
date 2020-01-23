@@ -7,7 +7,7 @@
 @import 'Base.scss';
 
 /// -------------------
-/// Navigation swatches
+/// Navigation config
 /// -------------------
 
 $navigation-pad: get-prop($spacing, 'lg');
@@ -30,7 +30,7 @@ $navigation-pad: get-prop($spacing, 'lg');
 }
 
 .nav__list {
-  @include apply-props($list);
+  @include list;
   width: 100%;
   display: flex;
 }

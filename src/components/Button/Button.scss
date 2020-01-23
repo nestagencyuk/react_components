@@ -7,36 +7,70 @@
 @import 'Base.scss';
 
 /// -------------------
-/// Button swatches
+/// Button config
 /// -------------------
 
-$btn-pad: get-prop($spacing, 'lg');
+$btn-pad: get-prop($spacing, 'md');
 $btn-border-width: 2px;
 
-$btn: (
+$btn-types: (
   'primary': (
-    background-color: get-prop($colours, 'brand', 'one')
+    background-color: get-prop($colours, 'brand', 'one'),
+    
+    'focus': (
+      border-color: get-prop($colours, 'brand', 'two'),
+    )
   ),
   'secondary': (
-    background-color: get-prop($colours, 'brand', 'two')
+    background-color: get-prop($colours, 'brand', 'two'),
+    color: get-prop($colours, 'ui', 'one'),
+
+    'focus': (
+      border-color: get-prop($colours, 'brand', 'one'),
+    )
   ),
   'tertiary': (
-    background-color: get-prop($colours, 'ui', 'three')
-  ),
+    background-color: get-prop($colours, 'ui', 'three'),
+    color: get-prop($colours, 'ui', 'one'),
+
+    'focus': (
+      border-color: get-prop($colours, 'brand', 'two'),
+    )
+  )
 );
 
 /// -------------------
-/// Button selectors
+/// Button selectors 
 /// -------------------
 
 .btn {
-  @include apply-props($block-component); 
-  
-  @each $type in $btn {
+  @include block-component;
+  width: auto;
+  border-width: 2px;
+  border-color: transparent;
+  border-radius: get-prop($border-radii, 'rounded');
+  padding-left: $btn-pad;
+  padding-right: $btn-pad;
+  color: get-prop($colours, 'brand', 'two');
+  font-family: $font-family--alt;
+  font-weight: $font-bold;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    transition: get-prop($transition, 'ease');
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @each $type in $btn-types {
     $type-name: nth($type, 1);
     
     &--#{$type-name} {
-      @include apply-props(get-prop($btn, $type-name));
+      @include apply-props(get-prop($btn-types, $type-name));
     }
   }
 }

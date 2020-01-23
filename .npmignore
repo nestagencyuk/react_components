@@ -1,4 +1,7 @@
 # Source files
+.storybook
+
+# Source files
 src
 index.ts
 tsconfig.json

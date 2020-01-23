@@ -1,0 +1,40 @@
+/// ----------------------------------------------------------------------
+
+/// Block
+
+/// ----------------------------------------------------------------------
+
+@import 'Base.scss';
+
+/// -------------------
+/// Block swatches
+/// -------------------
+
+$block-pad: get-prop($spacing, 'xs');
+$block-border-width: 2px;
+
+$block-types: (
+  'fill': (
+    width: 100%,
+    height: 100%
+  ),
+);
+
+/// -------------------
+/// Block selectors
+/// -------------------
+
+.block {
+  display: block;
+  padding: $block-pad;
+  border: solid 1px get-prop($colours, 'ui', 'one');
+  background-color: get-prop($colours, 'ui', 'two');
+  
+  @each $type in $block-types {
+    $type-name: nth($type, 1);
+    
+    &--#{$type-name} {
+      @include apply-props(get-prop($block-types, $type-name));
+    }
+  }
+}

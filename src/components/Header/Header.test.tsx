@@ -1,9 +1,8 @@
 import 'jsdom-global/register'
 import * as React from 'react'
 import * as Adapter from 'enzyme-adapter-react-16'
-import * as sinon from 'sinon'
 import { expect } from 'chai'
-import { configure, shallow, mount } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import register from 'ignore-styles'
 
 /**
@@ -17,10 +16,15 @@ configure({ adapter: new Adapter() })
  */
 import { Header } from '.'
 
-describe('----- Page Component -----', () => {
-  // const page = shallow(<Page config={{ title: 'Test Page '}} />)
+describe('----- Header Component -----', () => {
+  it('Renders the correct HTML', () => {
+    const htmlA = shallow(<Header>Test</Header>)
+    expect(htmlA.html()).to.equal('<header class="header">Test</header>')
 
-  // it('Renders <div>', () => {
-  //   expect(page.find(Foo)).to.have.lengthOf(3);
-  // })
+    const htmlB = shallow(<Header heading={'Heading'} />)
+    expect(htmlB.html()).to.equal('<header class="header"><h1 class="alpha">Heading</h1></header>')
+
+    const htmlC = shallow(<Header heading={'Heading'} subheading={'Subheading'} />)
+    expect(htmlC.html()).to.equal('<header class="header"><h1 class="alpha">Heading</h1><h2 class="beta">Subheading</h2></header>')
+  })
 })

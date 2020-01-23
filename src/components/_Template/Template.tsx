@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import cx from 'classnames'
+import ITemplate from './types'
 
 /**
  * Styles
@@ -11,8 +12,8 @@ import './Template.scss'
 /**
  * My component
  */
-const Template: React.FC<Template.IProps> = ({ className, type }) => {
-  const templateClasses: Template.IClasses = {
+const Template: React.FC<ITemplate.IProps> = ({ className, type }) => {
+  const templateClasses: ITemplate.IClasses = {
     Primary: 'template--primary',
     Secondary: 'template--secondary',
     Tertiary: 'template--tertiary'

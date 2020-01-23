@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
+import Navigation from './types'
 
 /**
  * Display a logo as a clickable link

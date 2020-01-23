@@ -9,17 +9,18 @@ const Prettier = require('prettier-webpack-plugin')
 const Css = require('mini-css-extract-plugin')
 const AutoPrefix = require('autoprefixer')
 const Minify = require('cssnano')
+const Copy = require('copy-webpack-plugin')
 
 const config = (mode) => {
-  const root = path.resolve(process.cwd())
+  const root = path.resolve(__dirname)
   const src = `${root}/src/`
   const dist = `${root}/dist/`
 
   return {
     context: src,
-    mode: 'production', // For hooks to work whilst developinvg locally - https://github.com/facebook/react/issues/13991
+    mode: 'production', // For hooks to work whilst developing locally - https://github.com/facebook/react/issues/13991
     watch: mode === 'dev' ? true : false,
-    entry: `${src}/Index.tsx`,
+    entry: `${src}/index.ts`,
     optimization: {
       minimize: true
     },
@@ -35,7 +36,6 @@ const config = (mode) => {
       alias: {
         '@assets': `${src}/assets/`,
         '@components': `${src}/components/`,
-        '@hoc': `${src}/hoc/`
       },
       modules: ['node_modules']
     },

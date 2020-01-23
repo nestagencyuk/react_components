@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { server, runWebpack, buildScaffold, buildEntry } from 'typescript-lib-backend'
+import { runWebpack, buildScaffold, buildEntry } from 'typescript-lib-backend'
 
 /**
  * Environment variables
@@ -16,21 +16,13 @@ const init = async (params: any) => {
   const { mode = 'dev' } = params || {}
 
   const entryDir = path.resolve(__dirname, './src/')
-  const entryName = 'Index.tsx'
+  const entryName = 'index.ts'
   const srcDir = `${entryDir}/components/`
   const webpackConfig = require('./webpack.config.js')(mode)
 
   try {
-    switch (mode) {
-      // We cannot run in dev mode and start a WDS as it causes an issue with hooks
-      // and multiple React instances - https://github.com/facebook/react/issues/13991
-      // case 'dev':
-      //   await buildEntry(entryDir, entryName, srcDir)
-      //   return server(webpackConfig, 3001)
-      default:
-        await buildEntry(entryDir, entryName, srcDir)
-        return runWebpack(webpackConfig)
-    }
+    await buildEntry(entryDir, entryName, srcDir)
+    return runWebpack(webpackConfig)
   } catch (err) {
     console.error(err)
   }

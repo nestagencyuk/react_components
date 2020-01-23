@@ -4,24 +4,26 @@
 
 /// ----------------------------------------------------------------------
 
-$block-component-padding: height-to-pad(
-  $height: 60px,
-  $border-width: 0,
-  $line-height: $base-line-height,
-  $font-size: $base-font-size
-);
+$block-component-height: 2.5rem !default;
 
-$block-component: (
-  display: block,
-  line-height: $base-line-height,
-  font-size: $base-font-size,
-  border-width: 0,
-  padding-top: map-get($block-component-padding, 'top'),
-  padding-bottom: map-get($block-component-padding, 'bottom'),
-);
+@mixin block-component($height: $block-component-height, $border-width: 0) {
+  $block-component-padding: height-to-pad(
+    $height: $height,
+    $border-width: $border-width,
+    $line-height: $base-line-height,
+    $font-size: $base-font-size
+  );
+  
+  display: inline-block;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+  border-width: 0;
+  padding-top: get-prop($block-component-padding, 'top');
+  padding-bottom: get-prop($block-component-padding, 'bottom');
+}
 
-$list: (
-  list-style: none,
-  padding: 0,
-  margin: 0
-);
+@mixin list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
