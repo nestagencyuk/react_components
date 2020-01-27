@@ -1,6 +1,6 @@
 /// ----------------------------------------------------------------------
 
-/// Swatches
+/// Visual Styles
 
 /// ----------------------------------------------------------------------
 
@@ -36,10 +36,13 @@ $border-radii: (
 
 $states: (
   'success': (
+    background-color: get-prop($colours, 'state', 'success')
   ),
   'warning': (
+    background-color: get-prop($colours, 'state', 'warning')
   ),
   'error': (
+    background-color: get-prop($colours, 'state', 'error')
   ),
   'disabled': (
     opacity: .5,

@@ -16,6 +16,7 @@ $btn-border-width: 2px;
 $btn-types: (
   'primary': (
     background-color: get-prop($colours, 'brand', 'one'),
+    color: get-prop($colours, 'brand', 'two'),
     
     'focus': (
       border-color: get-prop($colours, 'brand', 'two'),
@@ -44,23 +45,14 @@ $btn-types: (
 /// -------------------
 
 .btn {
-  @include block-component;
-  width: auto;
-  border-width: 2px;
-  border-color: transparent;
+  @include reset-style;
+  @include flow-component;
+  @include interactive-component;
   border-radius: get-prop($border-radii, 'rounded');
   padding-left: $btn-pad;
   padding-right: $btn-pad;
-  color: get-prop($colours, 'brand', 'two');
   font-family: $font-family--alt;
   font-weight: $font-bold;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-5px);
-    transition: get-prop($transition, 'ease');
-  }
 
   &:focus {
     outline: none;

@@ -1,12 +1,10 @@
 declare namespace IBlock {
-    type Type = 'Fill';
-    type Class = 'block--fill';
     interface IProps {
-        className?: any;
-        type: Type;
+        className?: string;
+        type?: 'Fill';
     }
     interface IClasses {
-        [key: string]: Class;
+        [key: string]: 'block--fill';
     }
 }
 export default IBlock;

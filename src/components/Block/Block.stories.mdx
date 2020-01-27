@@ -5,14 +5,23 @@ import { Block } from '.'
 <Meta title='Components|Block' component={Block} />
 
 # Block
-A simple buttons to allow users to carry out an action.
- 
+A simple container to put content inside.
+
 ## Base
-For use as a main call to action.
+The base block style.
 
 <Preview>
   <Story name='Base'>
-    <Block type={'fill'}>Primary Block</Block>
+    <Block>Primary Block</Block>
+  </Story>
+</Preview>
+
+## Fill
+A block that fills its parent container.
+
+<Preview>
+  <Story name='Fill'>
+    <Block type={'Fill'}>Primary Block</Block>
   </Story>
 </Preview>
 

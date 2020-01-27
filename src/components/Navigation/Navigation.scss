@@ -30,7 +30,7 @@ $navigation-pad: get-prop($spacing, 'lg');
 }
 
 .nav__list {
-  @include list;
+  @include reset-list;
   width: 100%;
   display: flex;
 }

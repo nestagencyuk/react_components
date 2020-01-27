@@ -1,18 +1,15 @@
 declare namespace IButton {
-  type Type = 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
-  type Class = 'btn--primary' | 'btn--secondary' | 'btn--tertiary' | 'btn--action'
-
   interface IProps {
     className?: string
     href?: string
-    type: Type
+    type: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
     submit?: boolean
     children: string
     onClick?: (e: React.SyntheticEvent) => void
   }
 
   interface IClasses {
-    [key: string]: Class
+    [key: string]: 'btn--primary' | 'btn--secondary' | 'btn--tertiary' | 'btn--action'
   }
 }
 

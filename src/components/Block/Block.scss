@@ -7,7 +7,7 @@
 @import 'Base.scss';
 
 /// -------------------
-/// Block swatches
+/// Block config
 /// -------------------
 
 $block-pad: get-prop($spacing, 'xs');
@@ -17,7 +17,7 @@ $block-types: (
   'fill': (
     width: 100%,
     height: 100%
-  ),
+  )
 );
 
 /// -------------------
@@ -25,11 +25,8 @@ $block-types: (
 /// -------------------
 
 .block {
-  display: block;
-  padding: $block-pad;
-  border: solid 1px get-prop($colours, 'ui', 'one');
-  background-color: get-prop($colours, 'ui', 'two');
-  
+  @include block-component;
+
   @each $type in $block-types {
     $type-name: nth($type, 1);
     

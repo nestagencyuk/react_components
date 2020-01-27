@@ -1,18 +1,11 @@
 declare namespace ITemplate {
-  type Type = 'Primary' | 'Secondary' | 'Tertiary'
-  type Class = 'template--primary' | 'template--secondary' | 'template--tertiary' | 'template--action'
-
   interface IProps {
-    className?: any
-    type: Type
-  }
-
-  interface IState {
-    [key: string]: any
+    className?: string
+    type: 'Primary' | 'Secondary' | 'Tertiary'
   }
 
   interface IClasses {
-    [key: string]: Class
+    [key: string]: 'template--primary' | 'template--secondary' | 'template--tertiary' | 'template--action'
   }
 }
 

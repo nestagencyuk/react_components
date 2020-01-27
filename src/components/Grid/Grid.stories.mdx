@@ -6,238 +6,179 @@ import { Grid, GridItem } from '.'
 <Meta title='Layout|Grid' component={Grid} />
 
 # Grid
-A simple CSS grid system. The basic system comprises of a 12 column grid.
+A simple CSS grid system. The basic system comprises of a 12 column grid. The grid is however not reliant on multiple rows so is a little lighter when it comes to outputted markup.
 
 <Preview>
-  <Story name='Simple'>
+  <Story name='Base'>
     <div>
       <Grid>
         <GridItem span={1}>
-          <Block />
+          Base
         </GridItem>
         <GridItem span={11}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={2}>
-          <Block />
-        </GridItem>
-        <GridItem span={10}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={3}>
-          <Block />
-        </GridItem>
-        <GridItem span={9}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={4}>
-          <Block />
-        </GridItem>
-        <GridItem span={8}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={5}>
-          <Block />
-        </GridItem>
-        <GridItem span={7}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={6}>
-          <Block />
-        </GridItem>
-        <GridItem span={6}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={7}>
-          <Block />
-        </GridItem>
-        <GridItem span={5}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={8}>
-          <Block />
-        </GridItem>
-        <GridItem span={4}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={9}>
-          <Block />
-        </GridItem>
-        <GridItem span={3}>
-          <Block />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={10}>
-          <Block />
+          Base
         </GridItem>
         <GridItem span={2}>
-          <Block />
+          Base
         </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem span={11}>
-          <Block />
+        <GridItem span={10}>
+          Base
         </GridItem>
-        <GridItem span={1}>
-          <Block />
+        <GridItem span={3}>
+          Base
+        </GridItem>
+        <GridItem span={9}>
+          Base
+        </GridItem>
+        <GridItem span={4}>
+          Base
+        </GridItem>
+        <GridItem span={8}>
+          Base
+        </GridItem>
+        <GridItem span={5}>
+          Base
+        </GridItem>
+        <GridItem span={7}>
+          Base
+        </GridItem>
+        <GridItem span={6}>
+          Base
+        </GridItem>
+        <GridItem span={6}>
+          Base
         </GridItem>
       </Grid>
     </div>
   </Story>
 </Preview>
 
+## Gutter
+
 By default the grid has no gutter, but this can be added via the 'gutter' prop:
 
 <Preview>
-  <Story name='Spaced'>
+  <Story name='Gutter'>
     <div>
       <Grid gutter>
-        <GridItem span={1}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={11}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
-        </GridItem>
-      </Grid>
-      <Grid gutter>
-        <GridItem span={2}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={10}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
-        </GridItem>
-      </Grid>
-      <Grid gutter>
-        <GridItem span={3}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={9}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
-        </GridItem>
-      </Grid>
-      <Grid gutter>
-        <GridItem span={4}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={8}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
-        </GridItem>
-      </Grid>
-      <Grid gutter>
-        <GridItem span={5}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={7}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
-        </GridItem>
-      </Grid>
-      <Grid gutter>
         <GridItem span={6}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
+          Gutter
         </GridItem>
         <GridItem span={6}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+          Gutter
         </GridItem>
       </Grid>
-      <Grid gutter>
-        <GridItem span={7}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
+    </div>
+  </Story>
+</Preview>
+
+<!-- ## Match Heights
+
+If `GridItem` blocks have different amounts of content, you can even the look using `matchHeights`.
+
+<Preview>
+  <Story name='MatchHeights'>
+    <div>
+      <Grid>
+        <GridItem span={6}>
+          Match heights 
+          
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </GridItem>
+        <GridItem span={6}>
+          Match heights
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview> -->
+
+## Nested grids
+Grids can also be nested to create more complex layouts.
+
+<Preview>
+  <Story name='Nested'>
+    <div>
+      <Grid gutter>
         <GridItem span={5}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+          <Grid gutter>
+            <GridItem span={8}>
+              Nested
+            </GridItem>
+            <GridItem span={4}>
+              Nested
+            </GridItem>
+          </Grid>
+        </GridItem>
+        <GridItem span={7}>
+          <Grid gutter>
+            <GridItem span={6}>
+              Nested
+            </GridItem>
+            <GridItem span={6}>
+              Nested
+            </GridItem>
+          </Grid>
         </GridItem>
       </Grid>
+    </div>
+  </Story>
+</Preview>
+
+## Alignment
+The align prop aligns content withing a `GridItem`. Simple pass an object with an `x` or `y` value, or both.
+
+#### Alignment along the X Axis
+<Preview>
+  <Story name='XAlignment'>
+    <div> 
       <Grid gutter>
-        <GridItem span={8}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
+        <GridItem span={4} align={{ x: 'Left' }}>
+          Align
         </GridItem>
-        <GridItem span={4}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+        <GridItem span={4} align={{ x: 'Center' }}>
+          Align
+        </GridItem>
+        <GridItem span={4} align={{ x: 'Right' }}>
+          Align
         </GridItem>
       </Grid>
+    </div>
+  </Story>
+</Preview>
+
+#### Alignment along the Y Axis
+<Preview>
+  <Story name='YAlignment'>
+    <div> 
       <Grid gutter>
-        <GridItem span={9}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
+        <GridItem span={4} align={{ y: 'Top' }}>
+          Align
         </GridItem>
-        <GridItem span={3}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+        <GridItem span={4} align={{ y: 'Center' }}>
+          Align
+        </GridItem>
+        <GridItem span={4} align={{ y: 'Bottom' }}>
+          Align
         </GridItem>
       </Grid>
+    </div>
+  </Story>
+</Preview>
+
+#### Combined alignment
+<Preview>
+  <Story name='CombinedAlignment'>
+    <div>
       <Grid gutter>
-        <GridItem span={10}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
+        <GridItem span={4} align={{ x: 'Center', y: 'Top' }}>
+          Align
         </GridItem>
-        <GridItem span={2}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+        <GridItem span={4} align={{ x: 'Right', y: 'Center' }}>
+          Align
         </GridItem>
-      </Grid>
-      <Grid gutter>
-        <GridItem span={11}>
-          <Block>
-            <Text>Col 1</Text>
-          </Block>
-        </GridItem>
-        <GridItem span={1}>
-          <Block>
-            <Text>Col 2</Text>
-          </Block>
+        <GridItem span={4} align={{ x: 'Left', y: 'Bottom' }}>
+          Align
         </GridItem>
       </Grid>
     </div>

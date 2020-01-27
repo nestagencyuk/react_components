@@ -1,15 +1,7 @@
 /// <reference types="react" />
 declare namespace Grid {
-    type AlignX = 'Left' | 'Center' | 'Right';
-    type AlignY = 'Top' | 'Center' | 'Bottom';
-    type AlignXClass = 'grid--left' | 'grid--right' | 'grid--center-x';
-    type AlignYClass = 'grid--top' | 'grid--bottom' | 'grid--center-y';
     interface IProps {
         className?: string;
-        align?: {
-            x: AlignX;
-            y: AlignY;
-        };
         gutter?: boolean;
         matchHeights?: boolean;
         children: React.ReactElement<IItemProps> | React.ReactElement<IItemProps>[];
@@ -18,16 +10,16 @@ declare namespace Grid {
         className?: string;
         span?: any;
         align?: {
-            x: AlignX;
-            y: AlignY;
+            x?: 'Left' | 'Center' | 'Right';
+            y?: 'Top' | 'Center' | 'Bottom';
         };
         children: React.ReactNode | React.ReactNode[];
     }
     interface IAlignXClasses {
-        [key: string]: AlignXClass;
+        [key: string]: 'grid__item--left' | 'grid__item--right' | 'grid__item--center-x';
     }
     interface IAlignYClasses {
-        [key: string]: AlignYClass;
+        [key: string]: 'grid__item--top' | 'grid__item--bottom' | 'grid__item--center-y';
     }
 }
 export default Grid;

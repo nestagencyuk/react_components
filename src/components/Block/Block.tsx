@@ -8,7 +8,7 @@ import IBlock from './types'
 import './Block.scss'
 
 /**
- * Block Classes
+ * Block classes
  */
 const blockClasses: IBlock.IClasses = {
   Fill: 'block--fill'

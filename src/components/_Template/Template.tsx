@@ -10,16 +10,19 @@ import ITemplate from './types'
 import './Template.scss'
 
 /**
+ * Template classes
+ */
+const templateClasses: ITemplate.IClasses = {
+  Primary: 'template--primary',
+  Secondary: 'template--secondary',
+  Tertiary: 'template--tertiary'
+}
+
+/**
  * My component
  */
-const Template: React.FC<ITemplate.IProps> = ({ className, type }) => {
-  const templateClasses: ITemplate.IClasses = {
-    Primary: 'template--primary',
-    Secondary: 'template--secondary',
-    Tertiary: 'template--tertiary'
-  }
-
-  return <div className={cx(className, 'template', templateClasses[type])}>Template</div>
-}
+const Template: React.FC<ITemplate.IProps> = ({ className, type }) => (
+  <div className={cx(className, 'template', templateClasses[type])}>Template</div>
+)
 
 export default Template

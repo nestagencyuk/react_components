@@ -1,7 +1,7 @@
 # Nest React Components
 
 ### Usage:
-Usage is outlined in our [Documentation](eggs.nestagency.io/getting-started.)
+Usage is outlined in our [Documentation](twigs.nestagency.io/getting-started.)
 
 ### Contribution:
 
@@ -21,7 +21,7 @@ OR
 $ NAME=MyNewComponent npm run scaffold:stateful
 ``` 
 
-This will create a new stateless (functional) or stateful component folder with all the required files and some example variants. This is the best way of ensuring a new component complies with our coding standards and naming conventions.
+This will create a new stateless (functional) or stateful (using hooks) component folder with all the required files and some example variants. This is the best way of ensuring a new component complies with our coding standards and naming conventions.
 
 ###### Build
 Bundles everything using webpack and outputs to /dist/ ready to be republished to npm.

@@ -1,0 +1,31 @@
+<style>
+  :root {
+    --ui-one:     #F8F8F8;
+    --ui-two:     #F0F0F0;
+    --ui-three:   #838383;
+    --ui-four:    #3b3b3b;
+    --ui-five:    #1d1d1d;
+  }
+
+  [id^="story--components-block"] {
+    height: 200px;
+  }
+  
+  #story--layout-grid--base .grid__item {
+    border: solid 1px white;
+  }
+  
+  [id^="story--layout-grid"] .grid__item {
+    background-color: var(--ui-two);
+    min-height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  [id^="story--layout-grid"] .grid__item .grid__item {
+    background-color: var(--ui-one);
+  }
+  
+  [id$="-alignment"] .grid__item {
+    height: 50px;
+  }
+</style>

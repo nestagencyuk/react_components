@@ -4,26 +4,47 @@
 
 /// ----------------------------------------------------------------------
 
-$block-component-height: 2.5rem !default;
+/// -------------------
+/// Components
+/// -------------------
 
-@mixin block-component($height: $block-component-height, $border-width: 0) {
-  $block-component-padding: height-to-pad(
-    $height: $height,
-    $border-width: $border-width,
-    $line-height: $base-line-height,
-    $font-size: $base-font-size
-  );
+///
+/// Flow style components which should match with adjacent components and
+/// visually work together, such as buttons & form inputs.
+///
+$flow-height: 3rem;
+$flow-border-width: 2px;
+
+@mixin flow-component {
+  $padding: height-to-pad($flow-height, $flow-border-width, $base-line-height, $base-font-size);
   
   display: inline-block;
+  padding-top: get-prop($padding, 'top');
+  padding-bottom: get-prop($padding, 'bottom');
+  border-width: $flow-border-width;
   line-height: $base-line-height;
   font-size: $base-font-size;
-  border-width: 0;
-  padding-top: get-prop($block-component-padding, 'top');
-  padding-bottom: get-prop($block-component-padding, 'bottom');
 }
 
-@mixin list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+///
+/// Block style components which contain other components
+///
+@mixin block-component {
+  display: block;
+  padding: get-prop($spacing, 'md');
+  box-shadow: get-prop($shadows, 'two');
+  box-sizing: border-box;
+}
+
+///
+/// A global interactive style
+///
+@mixin interactive-component {
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: get-prop($shadows, 'one');
+    transition: get-prop($transition, 'ease');
+    transform: translate(1px, -1px);
+  }
 }

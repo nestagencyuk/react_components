@@ -18,7 +18,10 @@ import { Block } from './'
 
 describe('----- Block Component -----', () => {
   it('Renders the correct HTML', () => {
-    const block = shallow(<Block type={'Primary'} />)
-    expect(block.html()).to.equal('<div class="block block--primary">Block</div>')
+    const htmlA = shallow(<Block>Block</Block>)
+    expect(htmlA.html()).to.equal('<div class="block">Block</div>')
+
+    const htmlB = shallow(<Block type={'Fill'}>Block</Block>)
+    expect(htmlB.html()).to.equal('<div class="block block--fill">Block</div>')
   })
 })
