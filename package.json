@@ -4,6 +4,9 @@
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "nest-install": "./cli.js"
+  },
   "scripts": {
     "dev": "start-storybook --docs --port 3000 | ts-node --files index.ts init",
     "scaffold": "ts-node --files index.ts scaffold --name=$NAME",

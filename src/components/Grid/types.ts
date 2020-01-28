@@ -2,7 +2,6 @@ declare namespace Grid {
   interface IProps {
     className?: string
     gutter?: boolean
-    matchHeights?: boolean
     children: React.ReactElement<IItemProps> | React.ReactElement<IItemProps>[]
   }
 
