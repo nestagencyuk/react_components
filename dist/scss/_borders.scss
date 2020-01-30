@@ -1,0 +1,10 @@
+/// ----------------------------------------------------------------------
+
+/// Borders
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+$one: solid 1px map-get(colours.$ui, 'three') !default;
+$two: dashed 1px map-get(colours.$ui, 'four') !default;

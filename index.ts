@@ -8,13 +8,11 @@ const {} = process.env
 
 /**
  * Initialise all the things
- * 
+ *
  * @param {Object} params
  * The params passed by the command
  */
-const init = async (params: any) => {
-  const { mode = 'dev' } = params || {}
-
+const init = async ({ mode = 'dev' }: any = {}) => {
   const entryDir = path.resolve(__dirname, './src/')
   const entryName = 'index.ts'
   const srcDir = `${entryDir}/components/`
@@ -30,12 +28,11 @@ const init = async (params: any) => {
 
 /**
  * Scaffold a new component
- * 
+ *
  * @param {Object} params
  * Component options
  */
-const scaffold = async (params: any = {}) => {
-  const { name, type = 'stateless' } = params
+const scaffold = async ({ name, type = 'stateless' }: any = {}) => {
   const baseDir = path.resolve(__dirname, './src/components/')
   const tmpDir = `${baseDir}/_Template`
   const newDir = `${baseDir}/${name}`

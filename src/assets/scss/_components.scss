@@ -1,0 +1,61 @@
+/// ----------------------------------------------------------------------
+
+/// Components
+
+/// ----------------------------------------------------------------------
+
+@use 'typography';
+@use 'spacing';
+@use 'shadows';
+@use 'transitions';
+// @import '~scss-lib';
+
+/// -------------------
+/// Flow
+/// -------------------
+///
+/// Flow style components which should match with adjacent components and
+/// visually work together, such as buttons & form inputs.
+///
+$flow-height: 3rem !default;
+$flow-border-width: 2px !default;
+
+@mixin flow {
+  // $padding: height-to-pad($flow-height, $flow-border-width, typography.$base-line-height, typography.$base-font-size);
+  
+  display: inline-block;
+  // padding-top: get-prop($padding, 'top');
+  // padding-bottom: get-prop($padding, 'bottom');
+  border-width: $flow-border-width;
+  line-height: typography.$base-line-height;
+  font-size: typography.$base-font-size;
+}
+
+/// -------------------
+/// Block
+/// -------------------
+///
+/// Block style components which contain other components
+///
+@mixin block {
+  display: block;
+  padding: spacing.$md;
+  box-shadow: shadows.$one;
+  box-sizing: border-box;
+}
+
+/// -------------------
+/// Interactive
+/// -------------------
+///
+/// A global interactive style
+///
+@mixin interactive {
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: shadows.$one;
+    transition: transitions.$ease;
+    transform: translate(1px, -1px);
+  }
+}

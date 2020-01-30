@@ -56,6 +56,19 @@ const config = (mode) => {
         filename: 'main.css',
         chunkFilename: '[id].css'
       }),
+      new Copy([
+        {
+          from: `${src}/components/**/*.scss`,
+          to: `${dist}/scss/`,
+          flatten: true,
+          ignore: ['Template.scss']
+        },
+        {
+          from: `${src}/assets/**/*.scss`,
+          to: `${dist}/scss/`,
+          flatten: true,
+        },
+      ])
     ].filter((x) => !!x),
     module: {
       rules: [
@@ -101,8 +114,8 @@ const config = (mode) => {
               loader: 'file-loader',
               options: {
                 name: 'assets/img/[name].[ext]'
-              },
-            },
+              }
+            }
           ]
         }
       ]

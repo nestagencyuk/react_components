@@ -5,17 +5,23 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "nest-install": "./cli.js"
+    "react-components-install": "./cli.js"
   },
+  "files": [
+    "./dist/main.css",
+    "./dist/index.scss"
+  ],
   "scripts": {
     "dev": "start-storybook --docs --port 3000 | ts-node --files index.ts init",
     "scaffold": "ts-node --files index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files index.ts scaffold --name=$NAME --type=stateful",
-    "test": "nyc npm run test:unit",
+    "test": "nyc npm run test:unit && npm run test:cypress",
     "test:cypress": "cypress open",
     "test:unit": "ts-mocha -r tsconfig-paths/register src/**/*.test.t{s,sx}",
-    "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
-    "build": "npm run test && ts-node --files index.ts init --mode=prod && build-storybook --docs",
+    "test:coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
+    "build": "npm run build:components && npm run build:docs",
+    "build:components": "rm -rf ./dist && npm run test:unit && ts-node --files index.ts init --mode=prod",
+    "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir docs",
     "clean": "rm package-lock.json && rm -rf node_modules && npm i"
   },
   "repository": {
@@ -59,9 +65,9 @@
     "chai": "^4.2.0",
     "colors": "^1.3.3",
     "copy-webpack-plugin": "^5.0.4",
+    "coveralls": "^3.0.9",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
-    "coveralls": "^3.0.9",
     "cypress": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -74,12 +80,12 @@
     "make-runnable": "^1.3.6",
     "mini-css-extract-plugin": "^0.8.0",
     "mocha": "^6.2.0",
-    "node-sass": "^4.12.0",
     "nyc": "^15.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.18.2",
     "prettier-webpack-plugin": "^1.2.0",
     "react-docgen-typescript-loader": "^3.3.0",
+    "sass": "^1.25.0",
     "sass-loader": "^7.2.0",
     "sinon": "^7.4.2",
     "ts-loader": "^6.0.4",

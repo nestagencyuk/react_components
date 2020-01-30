@@ -10,8 +10,8 @@ import './Grid.scss'
 /**
  * A grid system using CSS Grid
  */
-const Grid: React.FunctionComponent<IGrid.IProps> = ({ className, gutter, matchHeights, children }) => (
-  <div className={cx(className, 'grid', { 'grid--gutter': gutter }, { 'grid--match': matchHeights })}>{children}</div>
+const Grid: React.FunctionComponent<IGrid.IProps> = ({ className, gutter, children }) => (
+  <div className={cx(className, 'grid', { 'grid--gutter': gutter })}>{children}</div>
 )
 
 export default Grid

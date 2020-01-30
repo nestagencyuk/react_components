@@ -1,0 +1,40 @@
+/// ----------------------------------------------------------------------
+
+/// States
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+/// -------------------
+/// Action
+/// -------------------
+
+$success: (
+  background-color: map-get(colours.$state, 'success')
+) !default;
+
+$warning: (
+  background-color: map-get(colours.$state, 'warning')
+) !default;
+
+$error: (
+  background-color: map-get(colours.$state, 'error')
+) !default;
+
+/// -------------------
+/// Visibility
+/// -------------------
+
+$disabled: (
+  opacity: .5,
+  pointer-events: none
+) !default;
+
+$hidden: (
+  display: none,
+) !default;
+
+$visible: (
+  display: block
+) !default;

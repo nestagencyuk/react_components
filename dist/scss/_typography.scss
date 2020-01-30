@@ -1,0 +1,76 @@
+/// ----------------------------------------------------------------------
+
+/// Typography
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Base config
+/// -------------------
+
+$base-font-size:    16px !default;
+$base-line-height:  1.5 !default;
+
+$font-family:       'Open Sans', sans-serif !default;
+$font-family--alt:  'Roboto Mono', sans-serif !default;
+
+$font-bold:         700 !default;
+$font-regular:      500 !default;
+$font-light:        300 !default;
+
+/// -------------------
+/// Type styles
+/// -------------------
+
+$alpha: (
+  font-size: 2.25rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-bold,
+  letter-spacing: 1px
+) !default;
+
+$beta: (
+  font-size: 1.75rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-bold,
+  letter-spacing: 1px,
+) !default;
+
+$gamma: (
+  font-size: 1.5rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+  letter-spacing: 1.2px,
+) !default;
+
+$delta: (
+  font-size: 1.125rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+) !default;
+
+$epsilon: (
+  font-size: 1rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+) !default;
+
+$intro: (
+  font-size: 0.875rem, 
+  font-family: $font-family,
+  font-weight: $font-regular,
+  letter-spacing: 1.2px,
+) !default;
+
+$p: (
+  font-size: 0.875rem,
+  font-family: $font-family,
+  font-weight: $font-light,
+) !default;
+
+$small: (
+  font-size: 0.75rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+  letter-spacing: 1.2px,
+) !default;

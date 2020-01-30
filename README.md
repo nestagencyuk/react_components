@@ -26,8 +26,16 @@ This will create a new stateless (functional) or stateful (using hooks) componen
 ###### Build
 Bundles everything using webpack and outputs to /dist/ ready to be republished to npm.
 ```sh
-$ npm run build:docs
+$ npm run build
 ``` 
+
+Run individual tasks:
+
+| Command | Description |
+|:-|:-|
+| `$ npm run build:components` | Build just the components |
+| `$ npm run build:docs` | Build just storybook documentation |
+
 
 ##### Testing
 Run all tests:
@@ -39,4 +47,6 @@ Run individual tests:
 
 | Command | Description |
 |:-|:-|
+| `$ npm run test:cypress` | Run automated browser tests |
 | `$ npm run test:unit` | Run component unit tests |
+| `$ npm run test:coverage` | Run coverage tests and send coverage report |

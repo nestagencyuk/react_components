@@ -4,19 +4,25 @@
 
 /// ----------------------------------------------------------------------
 
+/// -------------------
+/// List
+/// -------------------
 ///
 /// Reset those pesky list styles
 ///
-@mixin reset-list {
+@mixin list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/// -------------------
+/// Style
+/// -------------------
 ///
 /// A quick general style reset - useful for buttons
 ///
-@mixin reset-style {
+@mixin style {
   background: none;
   border: none;
 }

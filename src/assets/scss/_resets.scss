@@ -1,24 +1,28 @@
 /// ----------------------------------------------------------------------
 
-/// Movement
+/// Resets
 
 /// ----------------------------------------------------------------------
 
 /// -------------------
-/// Animations
+/// List
 /// -------------------
-
-$animation: (
-  'infinite': 3s linear infinite,
-  'forwards': .2s linear forwards,
-  'forwards-ease': .3s ease forwards,
-) !default;
+///
+/// Reset those pesky list styles
+///
+@mixin list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /// -------------------
-/// Transitions
+/// Style
 /// -------------------
-
-$transition: (
-  'linear': .2s linear,
-  'ease': .3s ease,
-) !default;
+///
+/// A quick general style reset - useful for buttons
+///
+@mixin style {
+  background: none;
+  border: none;
+}

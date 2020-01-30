@@ -1,0 +1,10 @@
+/// ----------------------------------------------------------------------
+
+/// Gradients
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+$one: linear-gradient(90deg, #237bdf, map-get(colours.$brand, 'one'), #23df6b) !default;
+$two: linear-gradient(90deg, #050885, map-get(colours.$brand, 'two'), #4600a1) !default;
