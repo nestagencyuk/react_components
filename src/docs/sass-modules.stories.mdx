@@ -1,5 +1,4 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
-import '../../dist/main.css'
 
 <Meta title='Getting Started|Sass Modules' component={null} />
 
@@ -7,17 +6,17 @@ import '../../dist/main.css'
 
 This package exports individual modules with each component, meaning you only have to include the styles that you need. [Modules](https://sass-lang.com/documentation/at-rules/use#configuring-modules) are a relatively new (and awesome!) feature of Sass which solves a lot of config/library related issues. We prefer this method as it provides maximum flexibility, allowing you to easily override default styles.
 
-### Requirements
+## Requirements
 - [Dart Sass](https://www.npmjs.com/package/sass) v1.25+ 
 
-### Basic Usage:
-To include the base styles without modification, simply include the module reference at the top of your component's .scss file.
+## Basic Usage:
+To include the base/default styles without modification, simply include the module reference at the top of your component's .scss file.
 
 Component.scss
 ```scss
 @use '~nest-components/dist/scss/Component';
 ```
-OR you can use the module but override the variables within:
+OR you can use the module but override the variables within to create truly unique variations!:
 
 Component.scss
 ```scss

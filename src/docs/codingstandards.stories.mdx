@@ -3,29 +3,29 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 <Meta title='Getting Started|Coding Standards' component={null} />
 
 # Coding Standards
-
-## Methodology
-- Ensure we foster an environment of learning, openness to new ideas and technologies. No idea/question is a silly one.
-- Where possible write code that is framework agnostic as the framework may not be relevant in future - e.g using functional setState in React components
-- Document and comment code. Make it easy for other developers to get stuck in. 
+Writing quality code is a core principle at Nest, even if it takes a little longer. We expect contributors to adhere to our best practices, outlined below:
+- Consider the developer experience, write code that is readable and easy for future developers to understand.
 - Keep documentation and READMEs up to date - documentation lives in the .mdx file with the component.
-- Write unit tests.
-- Keep accessibility at the front of your mind when designing and developing UI - check colour contrasts, semantic HTML, style focus & active states etc.
+- Write ALL the tests - we aim for maximum test coverage!
+- Where possible write code that is framework agnostic.
+- Keep accessibility in mind - check colour contrasts, use semantic HTML, style focus & active states etc.
 - Separate business logic and presentation - markup should not be tied to styling.
 
 ## Git branching
-We are using git-flow branching model.
+We use the [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/) branching model. Branches should be named appropriately. Large change requirements should be broken into smaller feature branches for easier code reviews.
 
-## Styling/CSS
-Presentation should be decoupled from logic. We should be able to remove all styles/theme and everything should still function. Styles should also not be tied to markup, e.g you should be able to apply any class to any HTML tag and it will render correctly. CSS should be compiled from SCSS, using properties from the config maps. SCSS should follow the structure:
+## Styles
+Presentation should be decoupled from logic. We should be able to remove all styles and everything should still function. Styles should also not be tied to markup structure, e.g you should be able to apply any class to any HTML tag and it will render correctly. CSS should be compiled from Sass, using properties from the modules in src/assets/scss. SCSS should follow the structure:
 
-**src/assets/scss:**
-The SCSS in here should **never** generate any CSS, it is just where all global config, core variables and functions live. Access can then be included simply using @import 'Base.scss'; without worrying about any output duplication. There is a SCSS map for each setting group such as colour, typography, layout, movement etc. There is also a functions folder and SCSS function template, comments follow the sassDoc convention.
+### Base styles
+*src/assets/scss*
 
-**src/components/mycomponent**
-Component styles using base import^
+The Sass in here should **never** generate any CSS, it is just where all global config, core variables and functions live. Modules can then be used with the `@use` rule, without worrying about any output duplication. There are variables and maps for each setting group such as colour, typography, layout, movement etc. Comments follow the [sassDoc](http://sassdoc.com/) convention.
 
-For consistency, make use of any existing functions such as get-prop(), merge() etc. All SCSS should be commented and follow the BEM naming convention. **Always** use classes, rather than tags or IDs to target elements (SVG `path` is possibly the only exception). Chaining descendent selectors should be avoided due to poor performance and reliance on markup structure, i.e try to adhere to a flat dependency hierarchy:
+### Component styles
+*src/components/mycomponent*
+
+For consistency, make use of any existing modules and functions such as `get-prop()`, `merge()` etc. All Sass should be [commented](http://sassdoc.com/) and follow the BEM naming convention. **Always** prefer classes, rather than tags or IDs to target elements. Chaining descendent selectors should be avoided due to poor performance and reliance on markup structure, i.e try to adhere to a flat dependency hierarchy:
 
 Good: 
 ```css
@@ -40,8 +40,3 @@ Bad:
   nav > ul > li
   nav > ul > li > a
 ```
-
-<!-- 
-<Story name='Test'>
-  
-</Story> -->

@@ -13,6 +13,6 @@ addParameters({
 })
 
 configure([
-  require.context('../src', false, /index\.stories\.mdx/),
+  require.context('../src', true, /index\.stories\.mdx/),
   require.context('../src', true, /\.stories\.(tsx|mdx)$/),
 ], module) 
