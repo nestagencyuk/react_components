@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Navigation from './types';
+/// <reference types="react" />
+import INavigation from './types'
 /**
  * Display a logo as a clickable link
  */
-declare const NavigationBrand: React.FC<Navigation.IBrandProps>;
-export default NavigationBrand;
+declare const NavigationBrand: ({ className, img, href }: INavigation.IBrandProps) => JSX.Element
+export default NavigationBrand

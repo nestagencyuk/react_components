@@ -1,7 +1,14 @@
-import * as React from 'react';
-import Navigation from './types';
+/// <reference types="react" />
+import INavigation from './types'
 /**
  * A Navigation link using React Router
  */
-declare const NavigationLink: React.FC<Navigation.ILinkProps>;
-export default NavigationLink;
+declare const NavigationLink: ({
+  className,
+  component,
+  href,
+  active,
+  children,
+  onClick
+}: INavigation.ILinkProps) => JSX.Element
+export default NavigationLink

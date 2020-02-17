@@ -1,24 +1,25 @@
-import * as React from 'react'
-import { excludeFromObj } from 'typescript-lib-frontend'
 import Page from './types'
+import * as React from 'react'
+import { Fragment } from 'react'
+import * as cx from 'classnames'
+import { excludeFromObj } from 'typescript-lib-frontend'
 
 /**
  * Styles
  */
-import './Page.scss'
+import 'scss-lib/dist/page.scss'
 
-const Page: React.FC<Page.IProps> = ({ router, config, data }) => {
+/**
+ * A simple page wrapper
+ */
+const Page = ({ className, config, data, children }: Page.IProps) => {
   const Component: React.FC<Page.IProps> = config.view
 
   return (
-    <main className={'page'}>
-      <Component
-        router={router}
-        config={excludeFromObj(config, ['view', 'content'])}
-        content={config.content}
-        data={data}
-      />
-    </main>
+    <Fragment>
+      <Component config={excludeFromObj(config, ['view', 'content'])} content={config.content} data={data} />
+      {children}
+    </Fragment>
   )
 }
 

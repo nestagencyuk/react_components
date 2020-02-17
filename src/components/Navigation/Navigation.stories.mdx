@@ -1,0 +1,96 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Navigation } from '.'
+
+<Meta title='Components|Navigation' component={Navigation} />
+
+# Navigation
+A simple inline hyperlink navigation using React Router.
+ 
+## Base
+A common navigation style.
+
+<Preview>
+  <Story name='Base'>
+    <MemoryRouter>
+      <Navigation 
+        brand={{ align: 'Center', img: { src: '/assets/img/logo.png', alt: 'My Company Logo'} }} 
+        links={[
+          { text: 'Home', align: 'Start', href: '/' },
+          { text: 'About', align: 'Start', href: '/' },
+          { text: 'Blog', align: 'Start', href: '/' },
+          { text: 'FAQs', align: 'End', href: '/' },
+          { text: 'Careers', align: 'End', href: '/' },
+          { text: 'Contact', align: 'End', href: '/' },
+        ]} 
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Alignment
+The navigation logo 
+
+### Start aligned
+
+<Preview>
+  <Story name='Align-Start'>
+    <MemoryRouter>
+      <Navigation 
+        brand={{ align: 'Start', img: { src: '/assets/img/logo.png', alt: 'My Company Logo'} }} 
+        links={[
+          { text: 'Home', align: 'Start', href: '/' },
+          { text: 'About', align: 'Start', href: '/' },
+          { text: 'Blog', align: 'Start', href: '/' },
+          { text: 'FAQs', align: 'Start', href: '/' },
+          { text: 'Careers', align: 'Start', href: '/' },
+          { text: 'Contact', align: 'Start', href: '/' },
+        ]} 
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### End aligned
+
+<Preview>
+  <Story name='Align-End'>
+    <MemoryRouter>
+      <Navigation 
+        brand={{ align: 'End', img: { src: '/assets/img/logo.png', alt: 'My Company Logo'} }} 
+        links={[
+          { text: 'Home', align: 'End', href: '/' },
+          { text: 'About', align: 'End', href: '/' },
+          { text: 'Blog', align: 'End', href: '/' },
+          { text: 'FAQs', align: 'End', href: '/' },
+          { text: 'Careers', align: 'End', href: '/' },
+          { text: 'Contact', align: 'End', href: '/' },
+        ]} 
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### Mixed alignment
+
+<Preview>
+  <Story name='Align-Mixed'>
+    <MemoryRouter>
+      <Navigation 
+        brand={{ align: 'Start', img: { src: '/assets/img/logo.png', alt: 'My Company Logo'} }} 
+        links={[
+          { text: 'Home', align: 'Start', href: '/' },
+          { text: 'About', align: 'Start', href: '/' },
+          { text: 'Blog', align: 'Start', href: '/' },
+          { text: 'FAQs', align: 'Start', href: '/' },
+          { text: 'Careers', align: 'End', href: '/' },
+          { text: 'Log in', align: 'End', href: '/' },
+        ]} 
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Navigation} />

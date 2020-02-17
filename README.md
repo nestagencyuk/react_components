@@ -1,17 +1,17 @@
 # Nest React Components
 
-### Usage:
-Usage is outlined in our [Documentation](twigs.nestagency.io/getting-started.)
+## Usage:
+Usage is outlined in our [Documentation](https://twigs.nestagency.io/getting-started)
 
-### Contribution:
+## Contribution:
 
-##### Develop
+### Develop
 Bundles all components using Storybook, starts the dev server and watches for changes.
 ```sh
 $ npm run dev
 ```
 
-##### Scaffold
+### Scaffold
 You can quickly scaffold a new component by running:
 ```sh
 $ NAME=MyNewComponent npm run scaffold
@@ -23,7 +23,7 @@ $ NAME=MyNewComponent npm run scaffold:stateful
 
 This will create a new stateless (functional) or stateful (using hooks) component folder with all the required files and some example variants. This is the best way of ensuring a new component complies with our coding standards and naming conventions.
 
-###### Build
+### Build
 Bundles everything using webpack and outputs to /dist/ ready to be republished to npm.
 ```sh
 $ npm run build
@@ -36,8 +36,7 @@ Run individual tasks:
 | `$ npm run build:components` | Build just the components |
 | `$ npm run build:docs` | Build just storybook documentation |
 
-
-##### Testing
+### Testing
 Run all tests:
 ```sh
 $ npm run test

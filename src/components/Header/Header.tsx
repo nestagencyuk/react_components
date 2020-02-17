@@ -1,22 +1,29 @@
+import IHeader from './types'
 import * as React from 'react'
 import * as cx from 'classnames'
-import Header from './types'
 
 /**
  * Styles
  */
-import './Header.scss'
+import 'scss-lib/dist/header.scss'
 
 /**
  * Components
  */
-import { Text } from '@components/Text'
+import { Text } from '../Text'
+
+/**
+ * Header classes
+ */
+const headerClasses: any = {
+  Fixed: 'header--fixed'
+}
 
 /**
  * A simple header component with a heading and subheading
  */
-const Header: React.FC<Header.IProps> = ({ className, heading, subheading, children }) => (
-  <header className={cx(className, 'header')}>
+const Header = ({ className, type, heading, subheading, children }: IHeader.IProps) => (
+  <header className={cx(className, 'header', headerClasses[type])}>
     {heading && (
       <Text tag={'h1'} type={'Alpha'}>
         {heading}

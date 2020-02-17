@@ -1,10 +1,11 @@
 declare namespace Page {
-    interface IProps {
-        router: any;
-        client?: any;
-        config: any;
-        content?: any;
-        data?: any;
-    }
+  interface IProps {
+    className?: string
+    client?: any
+    config: any
+    content?: any
+    data?: any
+    children?: any
+  }
 }
-export default Page;
+export default Page

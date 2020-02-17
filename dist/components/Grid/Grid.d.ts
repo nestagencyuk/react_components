@@ -1,11 +1,11 @@
-import * as React from 'react';
-import IGrid from './types';
+/// <reference types="react" />
+import IGrid from './types'
 /**
  * Styles
  */
-import './Grid.scss';
+import 'scss-lib/dist/grid.scss'
 /**
  * A grid system using CSS Grid
  */
-declare const Grid: React.FunctionComponent<IGrid.IProps>;
-export default Grid;
+declare const Grid: ({ className, gutter, children }: IGrid.IProps) => JSX.Element
+export default Grid

@@ -1,12 +1,21 @@
+import INavigation from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import Navigation from './types'
+
+/**
+ * Navigation list classes
+ */
+const navListClasses = {
+  Start: 'nav__list--start',
+  Center: 'nav__list--center',
+  End: 'nav__list--end'
+}
 
 /**
  * The list to hold the navigation links
  */
-const NavigationList: React.FC<Navigation.IListProps> = ({ className, children }) => (
-  <ul className={cx(className, 'nav__list')}>{children}</ul>
+const NavigationList = ({ className, align, children }: INavigation.IListProps) => (
+  <ul className={cx(className, 'nav__list', navListClasses[align])}>{children}</ul>
 )
 
 export default NavigationList

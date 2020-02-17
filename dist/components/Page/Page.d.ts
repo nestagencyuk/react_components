@@ -1,8 +1,11 @@
-import * as React from 'react';
-import Page from './types';
+/// <reference types="react" />
+import Page from './types'
 /**
  * Styles
  */
-import './Page.scss';
-declare const Page: React.FC<Page.IProps>;
-export default Page;
+import 'scss-lib/dist/page.scss'
+/**
+ * A simple page wrapper
+ */
+declare const Page: ({ className, config, data, children }: Page.IProps) => JSX.Element
+export default Page

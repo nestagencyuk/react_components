@@ -1,13 +1,8 @@
 // ** THIS IS JUST A TEMPLATE FOR NEW COMPONENTS ** //
 
+import ITemplate from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import ITemplate from './types'
-
-/**
- * Styles
- */
-import './Template.scss'
 
 /**
  * Template classes
@@ -21,7 +16,7 @@ const templateClasses: ITemplate.IClasses = {
 /**
  * My component
  */
-const Template: React.FC<ITemplate.IProps> = ({ className, type }) => (
+const Template = ({ className, type }: ITemplate.IProps) => (
   <div className={cx(className, 'template', templateClasses[type])}>Template</div>
 )
 

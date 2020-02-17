@@ -1,11 +1,11 @@
+import IButton from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import IButton from './types'
 
 /**
  * Styles
  */
-import './Button.scss'
+import 'scss-lib/dist/button.scss'
 
 /**
  * Components
@@ -25,7 +25,7 @@ const btnClasses: IButton.IClasses = {
 /**
  * A visual button that will also render as <a> if it has a href
  */
-const Button: React.FC<IButton.IProps> = ({ className, href, type, submit, children, onClick }) => {
+const Button = ({ className, href, type, submit, children, onClick }: IButton.IProps) => {
   const Tag: any = href ? RouterLink : 'button'
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 

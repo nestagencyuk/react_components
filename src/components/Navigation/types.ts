@@ -1,36 +1,36 @@
-declare namespace Navigation {
-  type Brand = {
-    img: string
-    location: 'left' | 'center' | 'right'
-  }
-
-  type Link = {
-    text: string
-    location?: 'left' | 'right'
-    href: string
-    onClick?: (e: React.SyntheticEvent) => void
-  }
-
+declare namespace INavigation {
   interface IProps {
     className?: any
     style?: any
     history?: any
-    brand?: Brand
-    links: Link[]
-    onClick: () => void
-  }
-
-  interface IState {
-    [key: string]: any
+    brand?: {
+      img?: {
+        src: string
+        alt: string
+      }
+      align?: 'Start' | 'Center' | 'End'
+    }
+    links: {
+      text: string
+      align: 'Start' | 'Center' | 'End'
+      href: string
+      onClick?: (e: React.SyntheticEvent) => void
+    }[]
+    children?: any
   }
 
   interface IBrandProps {
     className?: string
-    img?: string
+    img?: {
+      src?: string
+      alt?: string
+    }
+    href?: string
   }
 
   interface IListProps {
     className?: string
+    align?: 'Start' | 'Center' | 'End'
     children: React.ReactElement<IItemProps>[]
   }
 
@@ -51,4 +51,4 @@ declare namespace Navigation {
   }
 }
 
-export default Navigation
+export default INavigation

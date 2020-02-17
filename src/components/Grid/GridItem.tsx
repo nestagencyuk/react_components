@@ -1,17 +1,17 @@
+import IGrid from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import Grid from './types'
 
 /**
  * Grid item classes
  */
-const alignXClasses: Grid.IAlignXClasses = {
+const alignXClasses: IGrid.IAlignXClasses = {
   Left: 'grid__item--left',
   Right: 'grid__item--right',
   Center: 'grid__item--center-x'
 }
 
-const alignYClasses: Grid.IAlignYClasses = {
+const alignYClasses: IGrid.IAlignYClasses = {
   Top: 'grid__item--top',
   Bottom: 'grid__item--bottom',
   Center: 'grid__item--center-y'
@@ -20,7 +20,7 @@ const alignYClasses: Grid.IAlignYClasses = {
 /**
  * Grid item that sits within the main grid component.
  */
-const GridItem: React.FunctionComponent<Grid.IItemProps> = ({ className, span, align, children }) => (
+const GridItem = ({ className, span, align, children }: IGrid.IItemProps) => (
   <div
     className={cx(
       className,

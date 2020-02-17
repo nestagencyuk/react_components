@@ -1,11 +1,11 @@
-import * as React from 'react';
-import IBlock from './types';
+/// <reference types="react" />
+import IBlock from './types'
 /**
  * Styles
  */
-import './Block.scss';
+import 'scss-lib/dist/block.scss'
 /**
  * My component
  */
-declare const Block: React.FC<IBlock.IProps>;
-export default Block;
+declare const Block: ({ className, type, children }: IBlock.IProps) => JSX.Element
+export default Block

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import ILink from './types';
+/// <reference types="react" />
+import ILink from './types'
 /**
  * Styles
  */
-import './Link.scss';
+import 'scss-lib/dist/link.scss'
 /**
  * A simple link using React Router
  */
-declare const Link: React.SFC<ILink.IProps>;
-export default Link;
+declare const Link: ({ className, type, href, children }: ILink.IProps) => JSX.Element
+export default Link

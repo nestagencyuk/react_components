@@ -1,11 +1,11 @@
+import IBlock from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import IBlock from './types'
 
 /**
  * Styles
  */
-import './Block.scss'
+import 'scss-lib/dist/block.scss'
 
 /**
  * Block classes
@@ -17,7 +17,7 @@ const blockClasses: IBlock.IClasses = {
 /**
  * My component
  */
-const Block: React.FC<IBlock.IProps> = ({ className, type, children }) => (
+const Block = ({ className, type, children }: IBlock.IProps) => (
   <div className={cx(className, 'block', blockClasses[type])}>{children}</div>
 )
 

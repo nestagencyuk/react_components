@@ -1,14 +1,12 @@
-declare namespace Link {
-    type Type = 'Primary' | 'Secondary' | 'Tertiary';
-    type Class = 'link--primary' | 'link--secondary' | 'link--tertiary' | 'link--action';
-    interface IProps {
-        className?: string;
-        type: Type;
-        href: string;
-        children: string;
-    }
-    interface IClasses {
-        [key: string]: Class;
-    }
+declare namespace ILink {
+  interface IProps {
+    className?: string
+    type: 'Primary' | 'Secondary' | 'Tertiary'
+    href: string
+    children: string
+  }
+  interface IClasses {
+    [key: string]: 'link--primary' | 'link--secondary' | 'link--tertiary' | 'link--action'
+  }
 }
-export default Link;
+export default ILink

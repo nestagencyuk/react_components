@@ -1,8 +1,11 @@
-import * as React from 'react';
-import IText from './types';
+import * as React from 'react'
+import IText from './types'
 /**
  * Styles
  */
-import './Text.scss';
-declare const Text: React.FunctionComponent<IText.IProps>;
-export default Text;
+import 'scss-lib/dist/text.scss'
+/**
+ * A text component
+ */
+declare const Text: React.FunctionComponent<IText.IProps>
+export default Text

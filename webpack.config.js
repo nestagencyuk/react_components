@@ -35,7 +35,7 @@ const config = (mode) => {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       alias: {
         '@assets': `${src}/assets/`,
-        '@components': `${src}/components/`,
+        '@components': `${src}/components/`
       },
       modules: ['node_modules']
     },
@@ -56,19 +56,10 @@ const config = (mode) => {
         filename: 'main.css',
         chunkFilename: '[id].css'
       }),
-      new Copy([
-        {
-          from: `${src}/components/**/*.scss`,
-          to: `${dist}/scss/`,
-          flatten: true,
-          ignore: ['Template.scss']
-        },
-        {
-          from: `${src}/assets/**/*.scss`,
-          to: `${dist}/scss/`,
-          flatten: true,
-        },
-      ])
+      new Copy([{
+        from: `${src}/assets/**/*`,
+        to: dist
+      }])
     ].filter((x) => !!x),
     module: {
       rules: [
@@ -100,6 +91,7 @@ const config = (mode) => {
               loader: 'sass-loader',
               options: {
                 includePaths: [
+                  `${root}/node_modules/scss-lib/dist/`,
                   `${src}/assets/scss/`,
                   `${src}/components/`
                 ]
@@ -113,7 +105,7 @@ const config = (mode) => {
             {
               loader: 'file-loader',
               options: {
-                name: 'assets/img/[name].[ext]'
+                name: '/assets/img/[name].[ext]'
               }
             }
           ]

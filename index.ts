@@ -20,7 +20,8 @@ const init = async ({ mode = 'dev' }: any = {}) => {
 
   try {
     await buildEntry(entryDir, entryName, srcDir)
-    return runWebpack(webpackConfig)
+    runWebpack(webpackConfig)
+    return
   } catch (err) {
     console.error(err)
   }

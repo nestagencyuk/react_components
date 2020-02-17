@@ -1,4 +1,4 @@
-declare namespace Grid {
+declare namespace IGrid {
   interface IProps {
     className?: string
     gutter?: boolean
@@ -24,4 +24,4 @@ declare namespace Grid {
   }
 }
 
-export default Grid
+export default IGrid

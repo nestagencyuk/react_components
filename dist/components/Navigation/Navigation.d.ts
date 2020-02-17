@@ -1,10 +1,12 @@
-/// <reference types="react-router" />
-import * as React from 'react';
+/// <reference types="react" />
+import INavigation from './types'
 /**
  * Styles
  */
-import './Navigation.scss';
-declare const _default: React.ComponentClass<Pick<any, string | number | symbol> | (Pick<any, string | number | symbol> & {
-    wrappedComponentRef?: React.Ref<any>;
-}), any> & import("react-router").WithRouterStatics<any>;
-export default _default;
+import 'scss-lib/dist/navigation.scss'
+/**
+ * A simple, single level navigation component, allowing for lists to be positioned left,
+ * right, or centrally.
+ */
+declare const Navigation: ({ className, style, brand, links, children }: INavigation.IProps) => JSX.Element
+export default Navigation

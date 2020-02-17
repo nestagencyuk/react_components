@@ -1,10 +1,11 @@
 /// <reference types="react" />
-declare namespace Header {
-    interface IProps {
-        className?: string;
-        heading?: string;
-        subheading?: string;
-        children?: React.ReactNode;
-    }
+declare namespace IHeader {
+  interface IProps {
+    className?: string
+    type?: 'Fixed'
+    heading?: string
+    subheading?: string
+    children?: React.ReactNode
+  }
 }
-export default Header;
+export default IHeader
