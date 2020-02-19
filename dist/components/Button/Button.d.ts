@@ -1,11 +1,11 @@
 /// <reference types="react" />
-import IButton from './types';
+import IButton from './types'
 /**
  * Styles
  */
-import 'scss-lib/dist/button.scss';
+import 'scss-lib/dist/button.scss'
 /**
  * A visual button that will also render as <a> if it has a href
  */
-declare const Button: ({ className, href, type, submit, children, onClick }: IButton.IProps) => JSX.Element;
-export default Button;
+declare const Button: ({ className, href, type, submit, children, onClick }: IButton.IProps) => JSX.Element
+export default Button
