@@ -1,12 +1,9 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "./dist/main.css"
-  ],
   "scripts": {
     "dev": "start-storybook -s ./dist --docs --port 3002 | ts-node --files ./index.ts init",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
