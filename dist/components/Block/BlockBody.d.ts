@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import IBlock from './types'
+import IBlock from './types';
 /**
  * A block header
  */
-declare const BlockBody: ({ children }: IBlock.IBodyProps) => JSX.Element
-export default BlockBody
+declare const BlockBody: ({ children }: IBlock.IBodyProps) => JSX.Element;
+export default BlockBody;
