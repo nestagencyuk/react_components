@@ -1,5 +1,5 @@
 {
-  "name": "react-components",
+  "name": "@nestagencyuk/react_components",
   "version": "1.0.0",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
