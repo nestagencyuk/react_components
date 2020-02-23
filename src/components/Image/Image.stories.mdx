@@ -1,0 +1,21 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Image } from '.'
+
+<Meta title='Components|Image' component={Image} />
+
+# Image
+A simple image.
+ 
+## Primary
+Some description here.
+
+<Preview>
+  <Story name='Primary'>
+    <Image type={'Round'} size={'Small'} src={'https://source.unsplash.com/random/1000x1000'} alt={'My Image'} />
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Image} />

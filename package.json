@@ -8,7 +8,7 @@
     "./dist/main.css"
   ],
   "scripts": {
-    "dev": "start-storybook -s ./dist --docs --port 3000 | ts-node --files ./index.ts init",
+    "dev": "start-storybook -s ./dist --docs --port 3002 | ts-node --files ./index.ts init",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
     "test": "nyc npm run test:unit && npm run test:cypress",
@@ -39,9 +39,11 @@
     "classnames": "^2.2.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-intersection-observer": "^8.25.3",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
     "scss-lib": "file:../scss_lib",
+    "svg-inline-loader": "^0.8.2",
     "typescript-lib-frontend": "file:../typescript_lib-frontend"
   },
   "devDependencies": {

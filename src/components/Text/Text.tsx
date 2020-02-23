@@ -10,8 +10,7 @@ import 'scss-lib/dist/text.scss'
 /**
  * A text component
  */
-const Text: React.FunctionComponent<IText.IProps> = (props) => {
-  const { className, type, tag = 'p', children } = props
+const Text = ({ className, type, tag = 'p', children }: IText.IProps) => {
   const cssClass = tag === 'p' && !type ? 'p' : type
   const Tag: React.ElementType = tag
 

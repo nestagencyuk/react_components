@@ -7,5 +7,5 @@ import 'scss-lib/dist/select.scss'
 /**
  * My component
  */
-declare const Select: ({ className, placeholder, options }: ISelect.IProps) => JSX.Element
+declare const Select: ({ className, placeholder, options, value, onChange }: ISelect.IProps) => JSX.Element
 export default Select

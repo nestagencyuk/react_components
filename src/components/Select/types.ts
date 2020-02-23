@@ -6,6 +6,8 @@ declare namespace ISelect {
       value: string
       label: string
     }[]
+    value: string
+    onChange: (e: any) => void
   }
 }
 
