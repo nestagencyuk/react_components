@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import 'scss-lib/dist/input.scss'
+import '@nestagencyuk/scss_lib/dist/input.scss'
 
 /**
  * My component

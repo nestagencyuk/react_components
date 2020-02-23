@@ -3,7 +3,7 @@ import IHeader from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/header.scss';
+import '@nestagencyuk/scss_lib/dist/header.scss';
 /**
  * A simple header component with a heading and subheading
  */

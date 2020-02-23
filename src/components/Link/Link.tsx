@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import 'scss-lib/dist/link.scss'
+import '@nestagencyuk/scss_lib/dist/link.scss'
 
 /**
  * Components

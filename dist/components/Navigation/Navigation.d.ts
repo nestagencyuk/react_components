@@ -3,7 +3,7 @@ import INavigation from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/navigation.scss';
+import '@nestagencyuk/scss_lib/dist/navigation.scss';
 /**
  * A simple, single level navigation component, allowing for lists to be positioned left,
  * right, or centrally.

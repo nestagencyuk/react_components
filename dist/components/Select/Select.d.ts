@@ -3,7 +3,7 @@ import ISelect from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/select.scss';
+import '@nestagencyuk/scss_lib/dist/select.scss';
 /**
  * My component
  */

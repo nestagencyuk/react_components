@@ -6,8 +6,8 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import 'scss-lib/dist/footer.scss'
-import 'scss-lib/dist/keyframes.scss'
+import '@nestagencyuk/scss_lib/dist/footer.scss'
+import '@nestagencyuk/scss_lib/dist/keyframes.scss'
 
 /**
  * Components

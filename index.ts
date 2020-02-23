@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { runWebpack, buildScaffold, buildEntry } from 'typescript-lib-backend'
+import { runWebpack, buildScaffold, buildEntry } from '@nestagencyuk/typescript_lib-backend'
 
 /**
  * Environment variables

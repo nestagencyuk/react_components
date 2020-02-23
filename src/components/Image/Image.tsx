@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import 'scss-lib/dist/image.scss'
+import '@nestagencyuk/scss_lib/dist/image.scss'
 
 /**
  * Image classes

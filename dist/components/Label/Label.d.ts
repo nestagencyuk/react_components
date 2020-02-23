@@ -3,7 +3,7 @@ import ILabel from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/label.scss';
+import '@nestagencyuk/scss_lib/dist/label.scss';
 /**
  * My component
  */

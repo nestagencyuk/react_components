@@ -3,7 +3,7 @@ import Page from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/page.scss';
+import '@nestagencyuk/scss_lib/dist/page.scss';
 /**
  * A simple page wrapper
  */

@@ -3,7 +3,7 @@ import ILink from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/link.scss';
+import '@nestagencyuk/scss_lib/dist/link.scss';
 /**
  * A simple link using React Router
  */

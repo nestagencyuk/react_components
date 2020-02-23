@@ -3,7 +3,7 @@ import IList from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/list.scss';
+import '@nestagencyuk/scss_lib/dist/list.scss';
 /**
  * My component
  */

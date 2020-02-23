@@ -3,7 +3,7 @@ import IIcon from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/icon.scss';
+import '@nestagencyuk/scss_lib/dist/icon.scss';
 /**
  * Icon
  */

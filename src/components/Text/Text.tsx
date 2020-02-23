@@ -5,7 +5,7 @@ import IText from './types'
 /**
  * Styles
  */
-import 'scss-lib/dist/text.scss'
+import '@nestagencyuk/scss_lib/dist/text.scss'
 
 /**
  * A text component

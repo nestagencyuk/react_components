@@ -2,12 +2,12 @@ import Page from './types'
 import * as React from 'react'
 import { Fragment } from 'react'
 import * as cx from 'classnames'
-import { excludeFromObj } from 'typescript-lib-frontend'
+import { excludeFromObj } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
  * Styles
  */
-import 'scss-lib/dist/page.scss'
+import '@nestagencyuk/scss_lib/dist/page.scss'
 
 /**
  * A simple page wrapper

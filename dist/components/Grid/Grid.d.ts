@@ -3,7 +3,7 @@ import IGrid from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/grid.scss';
+import '@nestagencyuk/scss_lib/dist/grid.scss';
 /**
  * A grid system using CSS Grid
  */

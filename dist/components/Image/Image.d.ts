@@ -3,7 +3,7 @@ import IImage from './types';
 /**
  * Styles
  */
-import 'scss-lib/dist/image.scss';
+import '@nestagencyuk/scss_lib/dist/image.scss';
 /**
  * My component
  */

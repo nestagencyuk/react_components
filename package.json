@@ -32,6 +32,8 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
+    "@nestagencyuk/typescript_lib-frontend": "1.0.0",
+    "@nestagencyuk/scss_lib": "1.0.0",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -42,11 +44,10 @@
     "react-intersection-observer": "^8.25.3",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
-    "scss-lib": "file:../scss_lib",
-    "svg-inline-loader": "^0.8.2",
-    "typescript-lib-frontend": "file:../typescript_lib-frontend"
+    "svg-inline-loader": "^0.8.2"
   },
   "devDependencies": {
+    "@nestagencyuk/typescript_lib-backend": "1.0.0",
     "@storybook/addon-docs": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@types/chai": "^4.2.2",
@@ -91,7 +92,6 @@
     "ts-mocha": "^6.0.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.7.5",
-    "typescript-lib-backend": "file:../typescript_lib-backend",
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-dev-server": "^3.8.0",
