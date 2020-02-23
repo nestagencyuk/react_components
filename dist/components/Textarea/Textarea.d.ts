@@ -3,7 +3,7 @@ import ITextarea from './types';
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/input.scss';
+import '@nestagencyuk/scss_lib/dist/textarea.scss';
 /**
  * My component
  */
