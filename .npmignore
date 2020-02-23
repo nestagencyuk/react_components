@@ -1,8 +1,10 @@
 # Docs files
 .storybook
+docs
 
 # Source files
 src
 index.ts
+travis.yml
 tsconfig.json
 webpack.config.js
