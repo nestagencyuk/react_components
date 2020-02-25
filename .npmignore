@@ -1,0 +1,11 @@
+# Docs files
+.storybook
+docs
+
+# Source files
+.nyc_output
+src
+.travis.yml
+index.ts
+tsconfig.json
+webpack.config.js
