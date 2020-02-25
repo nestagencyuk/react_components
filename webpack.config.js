@@ -45,8 +45,8 @@ const config = (env) => {
     entry: {
       'index': `${src}/index.ts`,
     },
-    target: 'node',
-    externals: [ext()],
+    // target: 'node',
+    // externals: [ext()],
     output: {
       pathinfo: false,
       path: dist,

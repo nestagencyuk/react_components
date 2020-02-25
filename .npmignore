@@ -4,7 +4,6 @@ docs
 
 # Source files
 src
-.travis.yml
 .nyc_output
 index.ts
 tsconfig.json
