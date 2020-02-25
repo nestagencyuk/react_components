@@ -4,6 +4,7 @@ docs
 
 # Source files
 src
+.git
 .nyc_output
 index.ts
 tsconfig.json
