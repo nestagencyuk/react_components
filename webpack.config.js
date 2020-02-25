@@ -1,5 +1,4 @@
 const path = require('path')
-const ext = require('webpack-node-externals')
 
 /**
  * Plugins
@@ -45,8 +44,6 @@ const config = (env) => {
     entry: {
       'index': `${src}/index.ts`,
     },
-    target: 'node',
-    externals: [ext()],
     output: {
       pathinfo: false,
       path: dist,
@@ -56,7 +53,7 @@ const config = (env) => {
     },
     optimization: {
       minimize: true,
-      minimizer: [new Terser({})],
+      minimizer: [new Terser()],
       removeAvailableModules: false,
       removeEmptyChunks: false,
       splitChunks: {

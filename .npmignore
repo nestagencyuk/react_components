@@ -3,6 +3,7 @@
 docs
 
 # Source files
+.nyc_output
 src
 .travis.yml
 index.ts
