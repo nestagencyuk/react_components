@@ -4,6 +4,7 @@ docs
 
 # Source files
 src
+.git
 .travis.yml
 .nyc_output
 index.ts

@@ -1,4 +1,5 @@
 const path = require('path')
+const ext = require('webpack-node-externals')
 
 /**
  * Plugins
@@ -44,6 +45,8 @@ const config = (env) => {
     entry: {
       'index': `${src}/index.ts`,
     },
+    target: 'node',
+    externals: [ext()],
     output: {
       pathinfo: false,
       path: dist,
