@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "start-storybook -s ./dist --docs --port 3002 | ts-node --files ./index.ts init",
+    "dev": "start-storybook -s ./dist --docs --port 3002 | webpack-dev-server",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
     "test": "nyc npm run test:unit && npm run test:cypress",
@@ -13,7 +13,7 @@
     "test:unit": "ts-mocha -r tsconfig-paths/register ./src/**/*.test.t{s,sx}",
     "test:coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
     "build": "npm run build:components && npm run build:docs",
-    "build:components": "rm -rf ./dist && npm run test:unit && ts-node --files ./index.ts init --mode=prod",
+    "build:components": "rm -rf ./dist && npm run test:unit && webpack --env.NODE_ENV=production",
     "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir ./docs",
     "clean": "rm ./package-lock.json && rm -rf ./node_modules && npm i"
   },
@@ -29,8 +29,8 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
-    "@nestagencyuk/typescript_lib-frontend": "1.0.0",
     "@nestagencyuk/scss_lib": "1.0.1",
+    "@nestagencyuk/typescript_lib-frontend": "1.0.0",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -59,6 +59,7 @@
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "babel-preset-react-app": "9.1.1",
+    "brotli-webpack-plugin": "^1.1.0",
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^5.0.4",
     "coveralls": "^3.0.9",
@@ -67,8 +68,8 @@
     "cypress": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "fork-ts-checker-webpack-plugin": "^4.0.4",
     "fs-extra": "^8.1.0",
-    "html-webpack-plugin": "^3.2.0",
     "ignore-loader": "^0.1.2",
     "ignore-styles": "^5.0.1",
     "jsdom": "15.1.1",
@@ -90,8 +91,8 @@
     "typescript": "^3.7.5",
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^3.4.1",
-    "webpack-dev-server": "^3.8.0",
-    "write-file-webpack-plugin": "^4.5.1"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.8.0"
   },
   "nyc": {
     "exclude": []

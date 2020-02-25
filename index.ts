@@ -1,31 +1,5 @@
 import * as path from 'path'
-import { runWebpack, buildScaffold, buildEntry } from '@nestagencyuk/typescript_lib-backend'
-
-/**
- * Environment variables
- */
-const {} = process.env
-
-/**
- * Initialise all the things
- *
- * @param {Object} params
- * The params passed by the command
- */
-const init = async ({ mode = 'dev' }: any = {}) => {
-  const entryDir = path.resolve(__dirname, './src/')
-  const entryName = 'index.ts'
-  const srcDir = `${entryDir}/components/`
-  const webpackConfig = require('./webpack.config.js')(mode)
-
-  try {
-    await buildEntry(entryDir, entryName, srcDir)
-    runWebpack(webpackConfig)
-    return
-  } catch (err) {
-    console.error(err)
-  }
-}
+import { buildScaffold } from '@nestagencyuk/typescript_lib-backend'
 
 /**
  * Scaffold a new component
@@ -33,7 +7,7 @@ const init = async ({ mode = 'dev' }: any = {}) => {
  * @param {Object} params
  * Component options
  */
-const scaffold = async ({ name, type = 'stateless' }: any = {}) => {
+const scaffold = async ({ name, type = 'stateless' }: { name: string, type: 'stateful' | 'stateless'}) => {
   const baseDir = path.resolve(__dirname, './src/components/')
   const tmpDir = `${baseDir}/_Template`
   const newDir = `${baseDir}/${name}`
@@ -43,7 +17,9 @@ const scaffold = async ({ name, type = 'stateless' }: any = {}) => {
   } catch (err) {
     console.error(err)
   }
+
+  return 'Done scaffolding 🎉'
 }
 
-export { init, scaffold }
+export { scaffold }
 require('make-runnable/custom')({ printOutputFrame: false })

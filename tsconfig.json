@@ -15,15 +15,7 @@
       "dom"
     ], 
     "jsx": "react",
-    "baseUrl": "./src/",
-    "paths": {
-      "@assets/*": [
-        "./assets/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-    }
+    "baseUrl": "./src/"
   },
   "include": [
     "./src/**/*"

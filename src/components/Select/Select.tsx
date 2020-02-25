@@ -10,7 +10,7 @@ import '@nestagencyuk/scss_lib/dist/select.scss'
 /**
  * Components
  */
-import { Icon } from '../../components/Icon'
+import { Icon } from '../Icon'
 
 /**
  * My component

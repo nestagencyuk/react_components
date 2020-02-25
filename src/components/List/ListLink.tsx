@@ -14,13 +14,7 @@ const ListLink = ({ className, href, external, children }: IList.ILinkProps) => 
   const Tag = external ? 'a' : RouterLink
 
   return (
-    <Tag
-      className={cx(className, 'list__link')}
-      type={'Primary'}
-      to={href}
-      href={href}
-      target={external ? '_blank' : null}
-    >
+    <Tag className={cx(className, 'list__link')} type={'Primary'} to={href} href={href} target={external ? '_blank' : null}>
       {children}
     </Tag>
   )

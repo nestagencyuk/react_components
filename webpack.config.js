@@ -4,46 +4,79 @@ const path = require('path')
  * Plugins
  */
 const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Output = require('write-file-webpack-plugin')
 const Prettier = require('prettier-webpack-plugin')
 const Css = require('mini-css-extract-plugin')
+const Copy = require('copy-webpack-plugin')
 const AutoPrefix = require('autoprefixer')
 const Minify = require('cssnano')
-const Copy = require('copy-webpack-plugin')
+const Brotli = require('brotli-webpack-plugin')
+const Terser = require('terser-webpack-plugin')
+const ForkTs = require('fork-ts-checker-webpack-plugin')
 
-const config = (mode) => {
-  const root = path.resolve(__dirname)
-  const src = `${root}/src/`
-  const dist = `${root}/dist/`
+/**
+ * Paths
+ */
+const root = path.resolve(__dirname)
+const src = `${root}/src/`
+const dist = `${root}/dist/`
+
+/**
+ * Config
+ */
+const config = (env) => {
+  const mode = env.NODE_ENV || 'development'
+  const dev = mode === 'development'
+  console.log('MODE:', mode)
 
   return {
-    context: src,
-    mode: 'production', // For hooks to work whilst developing locally - https://github.com/facebook/react/issues/13991
-    watch: mode === 'dev' ? true : false,
-    entry: `${src}/index.ts`,
-    optimization: {
-      minimize: true
+    context: root,
+    mode: mode,
+    devtool: dev && 'inline-source-map',
+    devServer: {
+      contentBase: dist,
+      historyApiFallback: true,
+      compress: true,
+      host: '0.0.0.0',
+      disableHostCheck: true,
+      port: 3000
+    },
+    entry: {
+      'index': `${src}/index.ts`,
     },
     output: {
+      pathinfo: false,
       path: dist,
       publicPath: '/',
-      filename: 'index.js',
+      filename: '[name].js',
       libraryTarget: 'commonjs'
+    },
+    optimization: {
+      minimize: true,
+      minimizer: [new Terser({})],
+      removeAvailableModules: false,
+      removeEmptyChunks: false,
+      splitChunks: {
+        chunks: 'async',
+        minSize: 30000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 6,
+        maxInitialRequests: 4
+      },
     },
     externals: ['react', 'react-router-dom'],
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       alias: {
-        '@assets': `${src}/assets/`,
-        '@components': `${src}/components/`
+        'react': `${root}/node_modules/react`,
+        'react-router-dom': `${root}/node_modules/react-router-dom`
       },
       modules: ['node_modules']
     },
     plugins: [
-      // mode === 'dev' && new Bundle(),
-      // mode === 'dev' && new Output(),
-      new Prettier({
-        printWidth: 120,
+      dev && new Bundle(),
+      !dev && new Prettier({
+        printWidth: 125,
         tabWidth: 2,
         useTabs: false,
         semi: false,
@@ -58,15 +91,27 @@ const config = (mode) => {
       }),
       new Copy([{
         from: `${src}/assets/**/*`,
-        to: dist
-      }])
+        to: `${dist}/assets/`,
+        flatten: true
+      }]),
+      new Brotli({
+        asset: '[path].br[query]',
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
+      new ForkTs()
     ].filter((x) => !!x),
     module: {
       rules: [
         {
           test: /\.(tsx|ts)$/,
           exclude: /node_modules/,
-          loader: 'ts-loader'
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: dev ? true : false,
+            experimentalWatchApi: dev ? true : false
+          },
         },
         {
           test: /\.svg$/,
@@ -75,9 +120,9 @@ const config = (mode) => {
         {
           test: /\.(scss|css)$/,
           use: [
-            Css.loader,
+            dev ? 'style-loader' : Css.loader,
             'css-loader',
-            {
+            !dev && {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
@@ -91,22 +136,21 @@ const config = (mode) => {
               loader: 'sass-loader',
               options: {
                 includePaths: [
-                  `${root}/node_modules/scss-lib/dist/`,
                   `${src}/assets/scss/`,
                   `${src}/components/`
                 ]
               }
             }
-          ]
+          ].filter((x) => !!x)
         },
         {
-          test: /\.(jpg|png|gif|pdf|ico|zip|txt)$/,
+          test: /\.(jpg|png|gif|glb|pdf|ico|zip|txt|woff|woff2)$/,
           use: [
             {
               loader: 'file-loader',
               options: {
-                name: '/assets/img/[name].[ext]'
-              }
+                name: 'assets/[name].[ext]'
+              },
             }
           ]
         }
