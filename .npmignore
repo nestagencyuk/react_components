@@ -4,7 +4,8 @@ docs
 
 # Source files
 src
+.travis.yml
+.nyc_output
 index.ts
-travis.yml
 tsconfig.json
 webpack.config.js

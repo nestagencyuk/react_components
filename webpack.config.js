@@ -10,6 +10,7 @@ const Copy = require('copy-webpack-plugin')
 const AutoPrefix = require('autoprefixer')
 const Minify = require('cssnano')
 const Brotli = require('brotli-webpack-plugin')
+const Gzip = require('compression-webpack-plugin')
 const Terser = require('terser-webpack-plugin')
 const ForkTs = require('fork-ts-checker-webpack-plugin')
 
@@ -24,7 +25,7 @@ const dist = `${root}/dist/`
  * Config
  */
 const config = (env) => {
-  const mode = env.NODE_ENV || 'development'
+  const mode = env ? env.NODE_ENV : 'development'
   const dev = mode === 'development'
   console.log('MODE:', mode)
 
@@ -85,16 +86,23 @@ const config = (env) => {
         encoding: 'utf-8',
         extensions: ['.js', '.ts', '.tsx', '.jsx', '.json']
       }),
-      new Css({
+      !dev && new Css({
         filename: 'main.css',
         chunkFilename: '[id].css'
       }),
-      new Copy([{
+      !dev && new Copy([{
         from: `${src}/assets/**/*`,
         to: `${dist}/assets/`,
         flatten: true
       }]),
-      new Brotli({
+      !dev && new Gzip({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
+      !dev && new Brotli({
         asset: '[path].br[query]',
         test: /\.(js|css|html|svg)$/,
         threshold: 10240,
@@ -111,7 +119,7 @@ const config = (env) => {
           options: {
             transpileOnly: dev ? true : false,
             experimentalWatchApi: dev ? true : false
-          },
+          }
         },
         {
           test: /\.svg$/,
@@ -150,7 +158,7 @@ const config = (env) => {
               loader: 'file-loader',
               options: {
                 name: 'assets/[name].[ext]'
-              },
+              }
             }
           ]
         }
