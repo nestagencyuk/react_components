@@ -1,6 +1,6 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,6 +29,7 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
+    "@nestagencyuk/scss_lib": "^1.0.2",
     "@nestagencyuk/typescript_lib-frontend": "1.0.3",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
@@ -42,7 +43,6 @@
     "react-router-dom": "^5.1.0"
   },
   "devDependencies": {
-    "@nestagencyuk/scss_lib": "^1.0.2",
     "@nestagencyuk/typescript_lib-backend": "1.0.3",
     "@storybook/addon-docs": "^5.2.5",
     "@storybook/react": "^5.2.5",
