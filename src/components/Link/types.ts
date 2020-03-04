@@ -3,6 +3,8 @@ declare namespace ILink {
     className?: string
     type: 'Primary' | 'Secondary' | 'Tertiary'
     href: string
+    target?: string
+    external?: boolean
     children: string
   }
 

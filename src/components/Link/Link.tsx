@@ -24,10 +24,15 @@ const linkClasses: ILink.IClasses = {
 /**
  * A simple link using React Router
  */
-const Link = ({ className, type, href, children }: ILink.IProps) => (
-  <RouterLink className={cx(className, 'link', linkClasses[type])} to={href}>
-    {children}
-  </RouterLink>
-)
+const Link = ({ className, type, href, target, external, children }: ILink.IProps) =>
+  external ? (
+    <a className={cx(className, 'link', linkClasses[type])} href={href} target={target}>
+      {children}
+    </a>
+  ) : (
+    <RouterLink className={cx(className, 'link', linkClasses[type])} to={href}>
+      {children}
+    </RouterLink>
+  )
 
 export default Link
