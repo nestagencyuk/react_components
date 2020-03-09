@@ -5,19 +5,20 @@ import cx from 'classnames'
 /**
  * Components
  */
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 
 /**
  * A Navigation link using React Router
  */
-const NavigationLink = ({ className, component, href, active, children, onClick }: INavigation.ILinkProps) => {
-  const Tag: any = component || Link
-
-  return (
-    <Tag className={cx(className, 'nav__link', { 'nav__link--active': active })} to={href} onClick={onClick}>
+const NavigationLink = ({ className, href, target, external, active, children, onClick }: INavigation.ILinkProps) =>
+  external ? (
+    <a className={cx(className, 'nav__link', { 'nav__link--active': active })} href={href} target={target} onClick={onClick}>
       {children}
-    </Tag>
+    </a>
+  ) : (
+    <RouterLink className={cx(className, 'nav__link', { 'nav__link--active': active })} to={href} onClick={onClick}>
+      {children}
+    </RouterLink>
   )
-}
 
 export default NavigationLink

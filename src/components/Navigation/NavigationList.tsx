@@ -3,6 +3,11 @@ import * as React from 'react'
 import cx from 'classnames'
 
 /**
+ * Components
+ */
+import { NavigationItem, NavigationLink } from '.'
+
+/**
  * Navigation list classes
  */
 const navListClasses = {
@@ -14,8 +19,14 @@ const navListClasses = {
 /**
  * The list to hold the navigation links
  */
-const NavigationList = ({ className, align, children }: INavigation.IListProps) => (
-  <ul className={cx(className, 'nav__list', navListClasses[align])}>{children}</ul>
+const NavigationList = ({ align, items = [] }: INavigation.IListProps) => (
+  <ul className={cx('nav__list', navListClasses[align])}>
+    {items.map((x, i) => (
+      <NavigationItem key={`item-${i}`}>
+        <NavigationLink {...x}>{x.text}</NavigationLink>
+      </NavigationItem>
+    ))}
+  </ul>
 )
 
 export default NavigationList

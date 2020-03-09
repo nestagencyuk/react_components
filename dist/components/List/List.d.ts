@@ -7,5 +7,5 @@ import '@nestagencyuk/scss_lib/dist/list.scss';
 /**
  * My component
  */
-declare const List: ({ className, children }: IList.IProps) => JSX.Element;
+declare const List: ({ className, items }: IList.IProps) => JSX.Element;
 export default List;

@@ -3,17 +3,25 @@ declare namespace IFooter {
     interface IProps {
         className?: string;
         image?: IImage.IProps;
-        links?: {
-            className?: string;
+        links: {
             text: string;
-            href: string;
-        }[];
-        social?: {
-            text: string;
-            icon: 'Twitter' | 'Instagram';
+            align: 'Start' | 'End';
+            icon?: {
+                align: 'Start' | 'End';
+                name: string;
+            };
             href: string;
         }[];
         subInfo?: string;
+    }
+    interface IListProps {
+        items: any[];
+    }
+    interface IItemProps {
+        [key: string]: any;
+    }
+    interface ILinkProps {
+        [key: string]: any;
     }
 }
 export default IFooter;

@@ -1,3 +1,5 @@
+import ILink from '../Link/types'
+
 declare namespace INavigation {
   interface IProps {
     className?: any
@@ -20,7 +22,6 @@ declare namespace INavigation {
   }
 
   interface IBrandProps {
-    className?: string
     img?: {
       src?: string
       alt?: string
@@ -29,24 +30,17 @@ declare namespace INavigation {
   }
 
   interface IListProps {
-    className?: string
     align?: 'Start' | 'Center' | 'End'
-    children: React.ReactElement<IItemProps>[]
+    items: any[]
   }
 
   interface IItemProps {
-    className?: string
     active?: boolean
     children: React.ReactElement<ILinkProps>
   }
 
-  interface ILinkProps {
-    className?: string
-    component?: any
-    href: string
+  interface ILinkProps extends ILink.IProps {
     active: boolean
-    clicked?: boolean
-    children: string
     onClick?: (e: React.SyntheticEvent) => void
   }
 }

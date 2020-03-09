@@ -21,6 +21,9 @@ const brandAlignClasses = {
   End: 'nav--b-e'
 }
 
+/**
+ * Toggler
+ */
 const NavigationToggle = () => <button className={cx('nav__toggle')}>X</button>
 
 /**
@@ -28,8 +31,8 @@ const NavigationToggle = () => <button className={cx('nav__toggle')}>X</button>
  * right, or centrally.
  */
 const Navigation = ({ className, style, brand = {}, links = [], children }: INavigation.IProps) => {
-  const leftLinks = links.filter((x) => x.align === 'Start')
-  const rightLinks = links.filter((x) => x.align === 'End')
+  const startLinks = links.filter((x) => x.align === 'Start')
+  const endLinks = links.filter((x) => x.align === 'End')
 
   const brandStart = brand.align === 'Start'
   const brandCenter = brand.align === 'Center'
@@ -44,26 +47,19 @@ const Navigation = ({ className, style, brand = {}, links = [], children }: INav
    * @param {String} align
    * Where to render the list
    */
-  const renderList = (links: INavigation.IProps['links'], align: INavigation.IListProps['align']) =>
-    links.length > 0 && (
-      <NavigationList align={align}>
-        {links.map((x: any) => (
-          <NavigationItem key={`navItem-${x.text}`} active={x.active}>
-            <NavigationLink {...x}>{x.text}</NavigationLink>
-          </NavigationItem>
-        ))}
-      </NavigationList>
-    )
+  const renderList = (links: INavigation.IProps['links'], align: INavigation.IListProps['align']) => (
+    <NavigationList align={align} items={links} />
+  )
 
   return (
     <nav className={cx(className, 'nav', brandAlignClasses[brand.align])} style={style}>
       {brandStart && <NavigationBrand {...brand} />}
       {brandEnd && <NavigationToggle />}
-      {renderList(leftLinks, 'Start')}
+      {renderList(startLinks, 'Start')}
 
       {brandCenter && <NavigationBrand {...brand} />}
 
-      {renderList(rightLinks, 'End')}
+      {renderList(endLinks, 'End')}
       {brandEnd && <NavigationBrand {...brand} />}
       {(brandStart || brandCenter) && <NavigationToggle />}
 

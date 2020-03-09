@@ -1,18 +1,18 @@
 /// <reference types="react" />
+import ILink from '../Link/types';
 declare namespace IList {
     interface IProps {
         className?: string;
-        children: React.ReactElement<IItemProps>[];
+        items?: {
+            text: string;
+            href?: string;
+        }[];
     }
     interface IItemProps {
         className?: string;
-        children: React.ReactElement<ILinkProps> | string;
+        children: React.ReactElement<ILink.IProps> | string;
     }
-    interface ILinkProps {
-        className?: string;
-        href?: string;
-        external?: boolean;
-        children?: any;
+    interface ILinkProps extends ILink.IProps {
     }
 }
 export default IList;

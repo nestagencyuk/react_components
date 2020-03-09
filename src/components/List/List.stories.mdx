@@ -1,0 +1,53 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { List } from '.'
+
+<Meta title='Components|List' component={List} />
+
+# List
+A simple list.
+ 
+## Primary
+Some description here.
+
+<Preview>
+  <Story name='Primary'>
+    <List items={[
+      { text: 'Item 1' },
+      { text: 'Item 2' },
+      { text: 'Item 3' },
+    ]} />
+  </Story>
+</Preview>
+
+## Links
+Some description here.
+
+<Preview>
+  <Story name='Links'>
+    <MemoryRouter>
+      <List items={[
+        {
+          href: '/',
+          text: 'Item 1'
+        },
+        {
+          href: '/',
+          text: 'Item 2'
+        },
+        {
+          href: '/',
+          icon: {
+            align: 'Start',
+            name: 'download'
+          },
+          text: 'Item 3'
+        },
+      ]} />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={List} />

@@ -1,7 +1,7 @@
+/// <reference types="react" />
 import INavigation from './types';
-import * as React from 'react';
 /**
  * A navigation list item, with an active state
  */
-declare const NavigationItem: React.FC<INavigation.IItemProps>;
+declare const NavigationItem: ({ active, children }: INavigation.IItemProps) => JSX.Element;
 export default NavigationItem;

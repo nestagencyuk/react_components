@@ -5,6 +5,6 @@ import cx from 'classnames'
 /**
  * My component
  */
-const List = ({ className, children }: IList.IItemProps) => <li className={cx(className, 'list__item')}>{children}</li>
+const ListItem = ({ children }: IList.IItemProps) => <li className={cx('list__item')}>{children}</li>
 
-export default List
+export default ListItem

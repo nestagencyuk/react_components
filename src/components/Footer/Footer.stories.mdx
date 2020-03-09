@@ -13,7 +13,17 @@ Some description here.
 <Preview>
   <Story name='Primary'>
     <MemoryRouter>
-      <Footer image={{ type: 'Round', size: 'Small', src: '/assets/logo.png', alt: 'Logo' }} links={[{ text: 'Home', href: '/' }, { text: 'About', href: '/' }, { text: 'Contact', href: '/' }]} social={[{ text: 'Twitter', icon: 'Twitter', href: '/' }, { text: 'Instagram', icon: 'Instagram', href: '/' }]} subInfo={'Copyright | 2020 | 3414134234'} />
+      <Footer 
+        image={{ type: 'Round', size: 'Small', src: '/assets/logo.png', alt: 'Logo' }} 
+        links={[
+          { text: 'Home', align: 'Start', href: '/', }, 
+          { text: 'About', align: 'Start', href: '/', }, 
+          { text: 'Contact', align: 'Start', href: '/', },
+          { text: 'Twitter', align: 'End', href: '/', icon: { align: 'Start', name: 'twitter'} }, 
+          { text: 'Instagram', align: 'End', href: '/', icon: { align: 'Start', name: 'instagram'} }
+        ]}
+        subInfo={'Copyright | 2020 | 3414134234'} 
+      />
     </MemoryRouter>
   </Story>
 </Preview>

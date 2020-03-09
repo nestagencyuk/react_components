@@ -5,19 +5,15 @@ import cx from 'classnames'
 /**
  * Components
  */
-import { Link as RouterLink } from 'react-router-dom'
+import { Link } from '../Link'
 
 /**
  * My component
  */
-const ListLink = ({ className, href, external, children }: IList.ILinkProps) => {
-  const Tag = external ? 'a' : RouterLink
-
-  return (
-    <Tag className={cx(className, 'list__link')} type={'Primary'} to={href} href={href} target={external ? '_blank' : null}>
-      {children}
-    </Tag>
-  )
-}
+const ListLink = ({ className, href, children, ...other }: IList.ILinkProps) => (
+  <Link className={cx(className, 'list__link')} href={href} {...other}>
+    {children}
+  </Link>
+)
 
 export default ListLink

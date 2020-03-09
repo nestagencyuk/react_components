@@ -1,6 +1,6 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,7 +29,7 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
-    "@nestagencyuk/scss_lib": "^1.0.4",
+    "@nestagencyuk/scss_lib": "^1.0.5",
     "@nestagencyuk/typescript_lib-frontend": "^1.0.3",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
@@ -93,7 +93,8 @@
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "write-file-webpack-plugin": "^4.5.1"
   },
   "nyc": {
     "exclude": []

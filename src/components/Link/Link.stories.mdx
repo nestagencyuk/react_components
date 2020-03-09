@@ -13,18 +13,7 @@ For use within paragraphs.
 <Preview>
   <Story name='Primary'>
     <MemoryRouter>
-      <Link type={'Primary'} href={'/'}>Primary Link</Link>
-    </MemoryRouter>
-  </Story>
-</Preview>
-
-## Secondary
-For use within paragraphs.
-
-<Preview>
-  <Story name='Secondary'>
-    <MemoryRouter>
-      <Link type={'Secondary'} href={'/'}>Secondary Link</Link>
+      Lorem ipsum dolor sit <Link href={'/'}>primary link</Link>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </MemoryRouter>
   </Story>
 </Preview>
@@ -35,7 +24,26 @@ If the link isn't using React Router, flag it as `external`.
 <Preview>
   <Story name='External'>
     <MemoryRouter>
-      <Link type={'Primary'} href={'/'} external>External Link</Link>
+      Lorem ipsum dolor sit <Link href={'/'} external>external link</Link>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Icon
+If the link isn't using React Router, flag it as `external`.
+
+<Preview>
+  <Story name='Icon-Start'>
+    <MemoryRouter>
+      Lorem ipsum dolor sit <Link href={'/'} icon={{ align: 'Start', name: 'download'}} external>external link</Link>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Icon-End'>
+    <MemoryRouter>
+      Lorem ipsum dolor sit <Link href={'/'} icon={{ align: 'End', name: 'edit'}} external>external link</Link>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </MemoryRouter>
   </Story>
 </Preview>

@@ -7,5 +7,5 @@ import '@nestagencyuk/scss_lib/dist/link.scss';
 /**
  * A simple link using React Router
  */
-declare const Link: ({ className, type, href, target, external, children }: ILink.IProps) => JSX.Element;
+declare const Link: ({ className, type, href, target, external, icon, children }: ILink.IProps) => JSX.Element;
 export default Link;

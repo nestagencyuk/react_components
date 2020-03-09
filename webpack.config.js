@@ -4,6 +4,7 @@ const path = require('path')
  * Plugins
  */
 const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const Output = require('write-file-webpack-plugin')
 const Prettier = require('prettier-webpack-plugin')
 const Css = require('mini-css-extract-plugin')
 const Copy = require('copy-webpack-plugin')
@@ -39,7 +40,7 @@ const config = (env) => {
       compress: true,
       host: '0.0.0.0',
       disableHostCheck: true,
-      port: 3000
+      port: 3002
     },
     entry: {
       'index': `${src}/index.ts`,
@@ -49,21 +50,12 @@ const config = (env) => {
       path: dist,
       publicPath: '/',
       filename: '[name].js',
+      chunkFilename: '[name].js',
       libraryTarget: 'commonjs'
     },
     optimization: {
-      minimize: true,
-      minimizer: [new Terser()],
-      removeAvailableModules: false,
-      removeEmptyChunks: false,
-      splitChunks: {
-        chunks: 'async',
-        minSize: 30000,
-        maxSize: 0,
-        minChunks: 1,
-        maxAsyncRequests: 6,
-        maxInitialRequests: 4
-      },
+      minimize: dev ? false : true,
+      minimizer: dev ? [] : [new Terser()]
     },
     externals: ['react', 'react-router-dom'],
     resolve: {
@@ -75,7 +67,8 @@ const config = (env) => {
       modules: ['node_modules']
     },
     plugins: [
-      dev && new Bundle(),
+      // dev && new Bundle(),
+      dev && new Output(),
       !dev && new Prettier({
         printWidth: 125,
         tabWidth: 2,
@@ -86,11 +79,10 @@ const config = (env) => {
         encoding: 'utf-8',
         extensions: ['.js', '.ts', '.tsx', '.jsx', '.json']
       }),
-      !dev && new Css({
-        filename: 'main.css',
-        chunkFilename: '[id].css'
+      new Css({
+        filename: 'assets/main.css',
       }),
-      !dev && new Copy([{
+      new Copy([{
         from: `${src}/assets/**/*`,
         to: `${dist}/assets/`,
         flatten: true
@@ -128,7 +120,7 @@ const config = (env) => {
         {
           test: /\.(scss|css)$/,
           use: [
-            dev ? 'style-loader' : Css.loader,
+            Css.loader,
             'css-loader',
             !dev && {
               loader: 'postcss-loader',

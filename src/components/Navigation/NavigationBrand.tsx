@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom'
 /**
  * Display a logo as a clickable link
  */
-const NavigationBrand = ({ className, img = {}, href = '/' }: INavigation.IBrandProps) => (
-  <Link className={cx(className, 'nav__brand')} to={href}>
-    <img className={cx('nav__img')} src={img.src} />
+const NavigationBrand = ({ img = {}, href = '/' }: INavigation.IBrandProps) => (
+  <Link className={'nav__brand'} to={href}>
+    <img className={'nav__img'} src={img.src} />
   </Link>
 )
 

@@ -14,7 +14,6 @@ export { Label } from './components/Label';
 export { Link } from './components/Link';
 export { List } from './components/List';
 export { ListItem } from './components/List';
-export { ListLink } from './components/List';
 export { Navigation } from './components/Navigation';
 export { NavigationBrand } from './components/Navigation';
 export { NavigationList } from './components/Navigation';

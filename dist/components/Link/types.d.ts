@@ -1,14 +1,18 @@
 declare namespace ILink {
     interface IProps {
         className?: string;
-        type: 'Primary' | 'Secondary' | 'Tertiary';
-        href: string;
+        type?: 'Inverse';
+        href?: string;
         target?: string;
         external?: boolean;
+        icon?: {
+            align: 'Start' | 'End';
+            name: string;
+        };
         children: string;
     }
     interface IClasses {
-        [key: string]: 'link--primary' | 'link--secondary' | 'link--tertiary' | 'link--action';
+        [key: string]: 'link--inverse';
     }
 }
 export default ILink;
