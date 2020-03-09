@@ -4,15 +4,7 @@ declare namespace IFooter {
   interface IProps {
     className?: string
     image?: IImage.IProps
-    links: {
-      text: string
-      align: 'Start' | 'End'
-      icon?: {
-        align: 'Start' | 'End'
-        name: string
-      }
-      href: string
-    }[]
+    links: any
     subInfo?: string
   }
 

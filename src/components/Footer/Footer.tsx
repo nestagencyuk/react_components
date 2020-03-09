@@ -19,8 +19,8 @@ import { FooterList } from '.'
  * My component
  */
 const Footer = ({ className, image, links = [], subInfo }: IFooter.IProps) => {
-  const startLinks = links.filter((x) => x.align === 'Start')
-  const endLinks = links.filter((x) => x.align === 'End')
+  const startLinks = links.filter((x: any) => x.align === 'Start')
+  const endLinks = links.filter((x: any) => x.align === 'End')
 
   return (
     <footer className={cx(className, 'footer')}>
