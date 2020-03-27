@@ -1,18 +1,28 @@
+import { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
 import { Textarea } from '.'
 
 <Meta title='Components|Textarea' component={Textarea} />
 
 # Textarea
-A simple input.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
  
 ## Primary
-Some description here.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Primary'>
-    <Textarea type={'Primary'} />
+  <Story name='Base'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Textarea id={'textarea'} value={value} onChange={setValue} />
+        </div>
+      )
+    }}
   </Story>
 </Preview>
 

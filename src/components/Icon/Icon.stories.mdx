@@ -1,0 +1,86 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Icon } from '.'
+
+<Meta title='Components|Icon' component={Icon} />
+
+# Icon
+An icon collection covering most use cases;
+
+## Base
+The following icons are available:
+
+<Story name='Base'>
+  <ul className="icn-list">
+    <li className="icn-list__item"><Icon name={'Branch'} /><span className="icn-list__caption">Branch</span></li>
+    <li className="icn-list__item"><Icon name={'Caret-down'} /><span className="icn-list__caption">Caret-down</span></li>
+    <li className="icn-list__item"><Icon name={'Caret-left'} /><span className="icn-list__caption">Caret-left</span></li>
+    <li className="icn-list__item"><Icon name={'Caret-right'} /><span className="icn-list__caption">Caret-right</span></li>
+    <li className="icn-list__item"><Icon name={'Caret-up'} /><span className="icn-list__caption">Caret-up</span></li>
+    <li className="icn-list__item"><Icon name={'Caret'} /><span className="icn-list__caption">Caret</span></li>
+    <li className="icn-list__item"><Icon name={'Chevron-down'} /><span className="icn-list__caption">Chevron-down</span></li>
+    <li className="icn-list__item"><Icon name={'Chevron-left'} /><span className="icn-list__caption">Chevron-left</span></li>
+    <li className="icn-list__item"><Icon name={'Chevron-right'} /><span className="icn-list__caption">Chevron-right</span></li>
+    <li className="icn-list__item"><Icon name={'Chevron-up'} /><span className="icn-list__caption">Chevron-up</span></li>
+    <li className="icn-list__item"><Icon name={'Code'} /><span className="icn-list__caption">Code</span></li>
+    <li className="icn-list__item"><Icon name={'Code-alt'} /><span className="icn-list__caption">Code-alt</span></li>
+    <li className="icn-list__item"><Icon name={'Code-square-alt'} /><span className="icn-list__caption">Code-square-alt</span></li>
+    <li className="icn-list__item"><Icon name={'Controls'} /><span className="icn-list__caption">Controls</span></li>
+    <li className="icn-list__item"><Icon name={'Cross'} /><span className="icn-list__caption">Cross</span></li>
+    <li className="icn-list__item"><Icon name={'Dashboard'} /><span className="icn-list__caption">Dashboard</span></li>
+    <li className="icn-list__item"><Icon name={'Download'} /><span className="icn-list__caption">Download</span></li>
+    <li className="icn-list__item"><Icon name={'Edit'} /><span className="icn-list__caption">Edit</span></li>
+    <li className="icn-list__item"><Icon name={'Error'} /><span className="icn-list__caption">Error</span></li>
+    <li className="icn-list__item"><Icon name={'External'} /><span className="icn-list__caption">External</span></li>
+    <li className="icn-list__item"><Icon name={'Home'} /><span className="icn-list__caption">Home</span></li>
+    <li className="icn-list__item"><Icon name={'Image'} /><span className="icn-list__caption">Image</span></li>
+    <li className="icn-list__item"><Icon name={'Info'} /><span className="icn-list__caption">Info</span></li>
+    <li className="icn-list__item"><Icon name={'Instagram'} /><span className="icn-list__caption">Instagram</span></li>
+    <li className="icn-list__item"><Icon name={'Line'} /><span className="icn-list__caption">Line</span></li>
+    <li className="icn-list__item"><Icon name={'Link'} /><span className="icn-list__caption">Link</span></li>
+    <li className="icn-list__item"><Icon name={'LinkedIn'} /><span className="icn-list__caption">LinkedIn</span></li>
+    <li className="icn-list__item"><Icon name={'Message'} /><span className="icn-list__caption">Message</span></li>
+    <li className="icn-list__item"><Icon name={'Pie'} /><span className="icn-list__caption">Pie</span></li>
+    <li className="icn-list__item"><Icon name={'Pie-quarter'} /><span className="icn-list__caption">Pie-quarter</span></li>
+    <li className="icn-list__item"><Icon name={'Pie-quarter-alt'} /><span className="icn-list__caption">Pie-quarter-alt</span></li>
+    <li className="icn-list__item"><Icon name={'Success'} /><span className="icn-list__caption">Success</span></li>
+    <li className="icn-list__item"><Icon name={'Tick'} /><span className="icn-list__caption">Tick</span></li>
+    <li className="icn-list__item"><Icon name={'Tools'} /><span className="icn-list__caption">Tools</span></li>
+    <li className="icn-list__item"><Icon name={'Twitter'} /><span className="icn-list__caption">Twitter</span></li>
+    <li className="icn-list__item"><Icon name={'Upload'} /><span className="icn-list__caption">Upload</span></li>
+    <li className="icn-list__item"><Icon name={'User'} /><span className="icn-list__caption">User</span></li>
+  </ul> 
+</Story>
+
+## Sizes
+Medium is the default size so the prop can be omitted.
+
+<Preview>
+  <Story name='Sizes'>
+    <div>
+      <Icon name={'User'} size={'XSmall'} />
+      <Icon name={'User'} size={'Small'} />
+      <Icon name={'User'} />
+      <Icon name={'User'} size={'Large'} />
+    </div>
+  </Story>
+</Preview>
+
+## Colours
+Dark is the default colour so the prop can be omitted.
+
+<Preview>
+  <Story name='Colours'>
+    <div>
+      <Icon name={'User'} />
+      <Icon name={'User'} colour={'Light'} />
+      <Icon name={'User'} colour={'Success'} />
+      <Icon name={'User'} colour={'Warning'} />
+      <Icon name={'User'} colour={'Error'} />
+    </div>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Icon} />

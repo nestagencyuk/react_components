@@ -1,0 +1,127 @@
+import { useState } from 'react'
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
+import { Field } from '.'
+
+<Meta title='Components|Field' component={Field} />
+
+# Field
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Primary'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id={'name'} label={'Name'} type={'text'} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Custom Label
+You can pass a component to the label prop.
+
+<Preview>
+  <Story name='Label'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id={'field'} label={<div>Custom label!</div>} type={'text'} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Select
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Select'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id={'field'} label={'Age'} type={'select'} value={value} options={[{ value: 'option', label: 'Option' }]} searchable onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Checkbox
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Checkbox'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Field id={'field'} label={'Checkbox'} type={'checkbox'} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Radio
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Radio'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Field id={'field'} label={'Radio'} type={'radio'} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Custom
+You can also pass a component to the `type` prop.
+
+<Preview>
+  <Story name='Custom'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id={'field'} label={'Custom'} type={<p className={'p'}>I am a custom field!</p>} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## States
+Field states. Type to see the state change.
+
+<Preview>
+  <Story name='States'>
+    {() => {
+      const [value, setValue] = useState('')
+      const [state, setState] = useState(null)
+      const [msg, setMsg] = useState(null)
+      const handleChange = (value) => {
+        setValue(value)
+        if (value.length === 0) {
+          setState('Error')
+          setMsg('Please enter a value')
+        } else if (value.length > 0 && value.length < 3) {
+          setState('Warning')
+          setMsg('Please enter a longer value')
+        } else {
+          setState('Success')
+          setMsg('Hoorah!')
+        }
+      }
+      return (
+        <Field id={'field'} label={'Name'} type={'text'} value={value} state={state} msg={msg} onChange={handleChange} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Field} />

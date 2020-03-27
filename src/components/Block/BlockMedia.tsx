@@ -3,6 +3,11 @@ import * as React from 'react'
 import cx from 'classnames'
 
 /**
+ * Components
+ */
+import { Image } from '../Image'
+
+/**
  * Block media - image, video, canvas etc
  */
 const BlockMedia = ({ type, src, alt }: IBlock.IMediaProps) =>
@@ -11,7 +16,7 @@ const BlockMedia = ({ type, src, alt }: IBlock.IMediaProps) =>
       case 'Video':
         return <video className={'block__media'} src={src} />
       default:
-        return <img className={'block__media'} src={src} alt={alt} />
+        return <Image aspect={'1x1'} className={'block__media'} src={src} alt={alt} />
     }
   })()
 

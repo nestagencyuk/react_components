@@ -34,6 +34,19 @@ Tertiary buttons should be used in conjunction with primary buttons where there 
   </Story>
 </Preview>
 
+## Icon Button
+Icon button
+
+<Preview>
+  <Story name='Icon'>
+    <div>
+      <Button type={'Primary'} icon={{ name: 'Chevron-left', align: 'Left' }}>Icon Button</Button>
+      <Button type={'Secondary'} icon={{ name: 'Chevron-right', align: 'Right' }}>Icon Button</Button>
+      <Button type={'Tertiary'} icon={{ name: 'Chevron-right', align: 'Right' }}>Icon Button</Button>
+    </div>
+  </Story>
+</Preview>
+
 ## Prop Types
 
 <Props of={Button} />
@@ -44,8 +57,8 @@ The available Sass [variables](https://sass-lang.com/documentation/at-rules/use#
 
 | Variable | Description |
 |:-|:-|
-| `$btn-pad` | The left and right padding |
-| `$btn-border-radius` | Rounded or square corners |
-| `$btn-font-family` | Font family - defaults to base alternative font family |
-| `$btn-font-weight` | Font weight - defaults to base font bold weight |
-| `$btn-types` | A map containing different button variants |
+| `$padding` | The left and right padding |
+| `$border-radius` | Rounded or square corners |
+| `$font-family` | Font family - defaults to base alternative font family |
+| `$font-weight` | Font weight - defaults to base font bold weight |
+| `$types` | A map containing different button variants |

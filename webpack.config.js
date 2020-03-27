@@ -40,7 +40,7 @@ const config = (env) => {
       compress: true,
       host: '0.0.0.0',
       disableHostCheck: true,
-      port: 3002
+      port: 3003
     },
     entry: {
       'index': `${src}/index.ts`,

@@ -2,7 +2,7 @@ declare namespace IIcon {
   interface IProps {
     className?: string
     name: string
-    size?: 'XSmall' | 'Small' | 'Large'
+    size?: 'XSmall' | 'Small' | 'Medium' | 'Large'
     colour?: 'Dark' | 'Light' | 'Success' | 'Warning' | 'Error'
   }
 }

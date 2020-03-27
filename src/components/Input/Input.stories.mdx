@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
 import { Input } from '.'
 
 <Meta title='Components|Input' component={Input} />
@@ -7,12 +9,20 @@ import { Input } from '.'
 # Input
 A simple input.
  
-## Primary
+## Base
 Some description here.
 
 <Preview>
-  <Story name='Primary'>
-    <Input type={'Primary'}>Primary Input</Input>
+  <Story name='Base'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Input id={'input'} value={value} onChange={setValue} />
+        </div>
+      )
+    }}
   </Story>
 </Preview>
 

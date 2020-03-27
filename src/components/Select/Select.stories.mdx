@@ -1,18 +1,107 @@
+import { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Select } from '.'
+import { Text } from '../Text'
 
 <Meta title='Components|Select' component={Select} />
 
 # Select
-A simple select.
- 
-## Primary
-Some description here.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <Preview>
-  <Story name='Primary'>
-    <Select type={'Primary'}>Primary Select</Select>
+  <Story name='Base'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Optional
+Optional selects allow you to reselect `null`.
+
+<Preview>
+  <Story name='Optional'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Searchable
+Searchable selects allow the user to search for an option.
+
+<Preview>
+  <Story name='Searchable'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} searchable onChange={setValue} />
+        </div>  
+      )
+    }}
+  </Story>
+</Preview>
+
+## States
+Validation states.
+
+<Preview>
+  <Story name='States-Error'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Error'} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='States-Warning'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Warning'} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='States-Success'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Success'} searchable onChange={setValue} />
+        </div>
+      )
+    }}
   </Story>
 </Preview>
 

@@ -14,7 +14,7 @@ const Text = ({ className, type, tag = 'p', children }: IText.IProps) => {
   const cssClass = tag === 'p' && !type ? 'p' : type
   const Tag: React.ElementType = tag
 
-  return <Tag className={cx(className, cssClass && cssClass.toLowerCase())}>{children}</Tag>
+  return <Tag className={cx(className, cssClass.toLowerCase())}>{children}</Tag>
 }
 
 export default Text

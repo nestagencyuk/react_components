@@ -10,9 +10,11 @@ import '@nestagencyuk/scss_lib/dist/input.scss'
 /**
  * My component
  */
-const Input = ({ className, type, value, onChange }: IInput.IProps) => (
+const Input = ({ className, id, name, type, value, onChange }: IInput.IProps) => (
   <input
     className={cx(className, 'input')}
+    id={id}
+    name={name}
     type={type}
     value={value || ''}
     onChange={(e: any) => onChange(e.target.value)}

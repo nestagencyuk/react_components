@@ -10,13 +10,15 @@ import '@nestagencyuk/scss_lib/dist/textarea.scss'
 /**
  * My component
  */
-const Input = ({ className, value, onChange }: ITextarea.IProps) => (
+const Textarea = ({ className, id, name, value, onChange }: ITextarea.IProps) => (
   <textarea
     className={cx(className, 'textarea')}
-    value={value || ''}
+    id={id}
+    name={name}
     rows={6}
+    value={value || ''}
     onChange={(e: any) => onChange(e.target.value)}
   />
 )
 
-export default Input
+export default Textarea

@@ -13,6 +13,7 @@ import '@nestagencyuk/scss_lib/dist/icon.scss'
 const sizes = {
   XSmall: 'icn--xs',
   Small: 'icn--sm',
+  Medium: 'icn--md',
   Large: 'icn--lg'
 }
 
@@ -30,8 +31,8 @@ const colours = {
 /**
  * Icon
  */
-const Icon = ({ className, name, size, colour }: IIcon.IProps) => {
-  const icon = require(`../../assets/icons/${name}.svg`)
+const Icon = ({ className, name, size = 'Medium', colour = 'Dark' }: IIcon.IProps) => {
+  const icon = require(`../../assets/icons/${name.toLowerCase()}.svg`)
 
   return <span className={cx(className, 'icn', sizes[size], colours[colour])} dangerouslySetInnerHTML={{ __html: icon }} />
 }
