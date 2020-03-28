@@ -6,7 +6,6 @@ import cx from 'classnames'
  * Styles
  */
 import '@nestagencyuk/scss_lib/dist/footer.scss'
-import '@nestagencyuk/scss_lib/dist/keyframes.scss'
 
 /**
  * Components
@@ -25,7 +24,11 @@ const Footer = ({ className, image, links = [], subInfo }: IFooter.IProps) => {
   return (
     <footer className={cx(className, 'footer')}>
       <Grid gutter>
-        <GridItem span={2}>{image && <Image className={'footer__img'} aspect={'1x1'} {...image} />}</GridItem>
+        {image && <GridItem span={2}>
+          <div className={'footer__img'}>
+            <Image aspect={'1x1'} {...image} />
+          </div>
+        </GridItem>}
 
         <GridItem span={5}>
           <FooterList items={startLinks} />

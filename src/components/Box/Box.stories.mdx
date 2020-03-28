@@ -1,0 +1,102 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Box } from '.'
+
+<Meta title='Layout|Box' component={Box} />
+
+# Box
+A simple box for wrapping content. 
+
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+>Grey background is for demo purpose only.
+
+<Preview>
+  <Story name='Base'>
+    <Box>I'm in a box</Box>
+  </Story>
+</Preview>
+
+## Alignment
+The align prop aligns content within a `Box`. Pass an object with an `x` or `y` value, or both.
+
+### Alignment along the X Axis
+<Preview>
+  <Story name='XAlignment-Start'>
+    <Box align={{ x: 'Start' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='XAlignment-Center'>
+    <Box align={{ x: 'Center' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='XAlignment-End'>
+    <Box align={{ x: 'End' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+### Alignment along the Y Axis
+<Preview>
+  <Story name='YAlignment-Start'>
+    <Box align={{ y: 'Start' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='YAlignment-Center'>
+    <Box align={{ y: 'Center' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='YAlignment-End'>
+    <Box align={{ y: 'End' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+### Combined alignment
+<Preview>
+  <Story name='CombinedAlignment-Center-Center'>
+    <Box align={{ x: 'Center', y: 'Center' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='CombinedAlignment-End-Start'>
+    <Box align={{ x: 'End', y: 'Start' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='CombinedAlignment-Start-End'>
+    <Box align={{ x: 'Start', y: 'End' }}>
+      Align
+    </Box>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Box} />

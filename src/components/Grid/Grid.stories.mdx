@@ -1,12 +1,16 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Text } from '../Text'
-import { Block } from '../Block'
 import { Grid, GridItem } from '.'
 
 <Meta title='Layout|Grid' component={Grid} />
 
 # Grid
 A simple CSS grid system. The basic system comprises of a 12 column grid. The grid is however not reliant on multiple rows so is a little lighter when it comes to outputted markup.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+>Grey background is for demo purpose only.
 
 <Preview>
   <Story name='Base'>
@@ -98,66 +102,6 @@ Grids can also be nested to create more complex layouts.
               Nested
             </GridItem>
           </Grid>
-        </GridItem>
-      </Grid>
-    </div>
-  </Story>
-</Preview>
-
-## Alignment
-The align prop aligns content within a `GridItem`. Simple pass an object with an `x` or `y` value, or both.
-
-### Alignment along the X Axis
-<Preview>
-  <Story name='XAlignment'>
-    <div> 
-      <Grid gutter>
-        <GridItem span={4} align={{ x: 'Left' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Right' }}>
-          Align
-        </GridItem>
-      </Grid>
-    </div>
-  </Story>
-</Preview>
-
-### Alignment along the Y Axis
-<Preview>
-  <Story name='YAlignment'>
-    <div> 
-      <Grid gutter>
-        <GridItem span={4} align={{ y: 'Top' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ y: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ y: 'Bottom' }}>
-          Align
-        </GridItem>
-      </Grid>
-    </div>
-  </Story>
-</Preview>
-
-### Combined alignment
-<Preview>
-  <Story name='CombinedAlignment'>
-    <div>
-      <Grid gutter>
-        <GridItem span={4} align={{ x: 'Center', y: 'Top' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Right', y: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Left', y: 'Bottom' }}>
-          Align
         </GridItem>
       </Grid>
     </div>

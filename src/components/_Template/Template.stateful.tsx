@@ -8,7 +8,16 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import './Template.scss'
+// import '@nestagencyuk/scss_lib/dist/template.scss'
+
+/**
+ * Classes
+ */
+const templateClasses = {
+  Primary: 'template--primary',
+  Secondary: 'template--secondary',
+  Tertiary: 'template--tertiary'
+}
 
 /**
  * My stateful component
@@ -16,11 +25,6 @@ import './Template.scss'
 const Template = ({ className, type }: ITemplate.IProps) => {
   const [myState, setMyState] = useState(false)
 
-  const templateClasses: ITemplate.IClasses = {
-    Primary: 'template--primary',
-    Secondary: 'template--secondary',
-    Tertiary: 'template--tertiary'
-  }
 
   return (
     <div className={cx(className, 'template', templateClasses[type])}>

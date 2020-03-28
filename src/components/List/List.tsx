@@ -13,7 +13,7 @@ import '@nestagencyuk/scss_lib/dist/list.scss'
 import { ListItem, ListLink } from '.'
 
 /**
- * My component
+ * List of items
  */
 const List = ({ className, items = [] }: IList.IProps) => (
   <ul className={cx(className, 'list')}>

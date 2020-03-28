@@ -1,0 +1,78 @@
+import { Fragment, useContext, useState } from 'react'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { OpenContext, OpenProvider } from '../../context/OpenContext'
+import { Text } from '../Text'
+import { Button } from '../Button'
+import { Modal } from '.'
+
+<Meta title='Components|Modal' component={Modal} />
+
+# Modal
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Modal</Button>
+            {open && (
+              <Modal header={{ heading: 'Heading', subheading: 'Subheading'}}>
+                <Text>Lorem ipsum</Text>
+              </Modal>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Actions
+For use within paragraphs or other instances where a button would not be visually appropriate.
+
+<Preview>
+  <Story name='Actions'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return ( 
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Modal</Button>
+            {open && (
+              <Modal 
+                header={{ heading: 'Heading', subheading: 'Subheading'}} 
+                footer={{ 
+                  actions: [
+                    <Button key={'btn-close'} type={'Tertiary'} onClick={() => setOpen(false)}>Close</Button>,
+                    <Button key={'btn-ok'} type={'Primary'} onClick={() => setOpen(false)}>OK</Button>,
+                  ]
+                }}>
+                <Text>Lorem ipsum</Text>
+              </Modal>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Modal} />

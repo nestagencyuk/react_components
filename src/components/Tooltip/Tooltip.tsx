@@ -12,7 +12,7 @@ import '@nestagencyuk/scss_lib/dist/tooltip.scss'
 /**
  * A tooltip
  */
-const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: any) => {
+const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: ITooltip.IProps) => {
   const ref: any = useRef()
   const [open, setOpen] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })

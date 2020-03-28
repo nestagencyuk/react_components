@@ -52,6 +52,17 @@
     margin-top: 0.5rem;
     font-size: 0.75rem;
   }
+
+  /* Overlay */
+  [id^="story--components-overlay"] > div {
+    height: 500px;
+  }
+
+
+  /* Image */
+  [id^="story--components-image"] > div {
+    max-width: 250px;
+  }
   
 
   /* Grid */
@@ -74,15 +85,9 @@
   }
 
 
-  /* Block */
-  [id^="story--components-block"] > div {
-    height: 200px;
+  /* Box */
+  [id^="story--layout-box"] .box {
+    background-color: var(--ui-two);
+    min-height: 150px;
   }
-
-
-  /* Image */
-  [id^="story--components-image"] > div {
-    max-width: 250px;
-  }
-  
 </style>

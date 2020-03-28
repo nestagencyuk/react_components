@@ -7,20 +7,8 @@ declare namespace IGrid {
 
   interface IItemProps {
     className?: string
-    span?: any
-    align?: {
-      x?: 'Left' | 'Center' | 'Right'
-      y?: 'Top' | 'Center' | 'Bottom'
-    }
+    span?: number
     children: React.ReactNode | React.ReactNode[]
-  }
-
-  interface IAlignXClasses {
-    [key: string]: 'grid__item--left' | 'grid__item--right' | 'grid__item--center-x'
-  }
-
-  interface IAlignYClasses {
-    [key: string]: 'grid__item--top' | 'grid__item--bottom' | 'grid__item--center-y'
   }
 }
 

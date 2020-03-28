@@ -14,9 +14,9 @@ import { Icon } from '../Icon'
 import { Link as RouterLink } from 'react-router-dom'
 
 /**
- * Button classes
+ * Types
  */
-const btnClasses = {
+const types = {
   Primary: 'btn--primary',
   Secondary: 'btn--secondary',
   Tertiary: 'btn--tertiary',
@@ -24,9 +24,9 @@ const btnClasses = {
 }
 
 /**
- * Button classes
+ * Icon alignments
  */
-const btnAlignClasses = {
+const alignments = {
   Left: 'btn--l',
   Right: 'btn--r'
 }
@@ -39,7 +39,7 @@ const Button = ({ className, href, type, icon, submit, children, onClick }: IBut
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
   return (
-    <Tag className={cx(className, 'btn', btnClasses[type], btnAlignClasses[icon?.align])} type={btnType} to={href} onClick={onClick}>
+    <Tag className={cx(className, 'btn', types[type], alignments[icon?.align])} type={btnType} to={href} onClick={onClick}>
       {icon?.align === 'Left' && <Icon className={'btn__icn'} {...icon} />}
       {children}
       {icon?.align === 'Right' && <Icon className={'btn__icn'} {...icon} />}

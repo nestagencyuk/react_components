@@ -1,4 +1,4 @@
-declare namespace Page {
+declare namespace IPage {
   interface IProps {
     className?: string
     client?: any
@@ -9,4 +9,4 @@ declare namespace Page {
   }
 }
 
-export default Page
+export default IPage

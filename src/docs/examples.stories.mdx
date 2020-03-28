@@ -1,0 +1,148 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { MemoryRouter } from 'react-router-dom'
+import { Navigation } from '../components/Navigation'
+import { Footer } from '../components/Footer'
+import { Text } from '../components/Text'
+import { Button } from '../components/Button'
+import { Link } from '../components/Link'
+import { Box } from '../components/Box'
+import { Image } from '../components/Image'
+import { Grid, GridItem } from '../components/Grid'
+
+<Meta title='Examples|Page Layout' component={Grid} />
+
+# Examples
+Some examples of building layouts using components.
+ 
+## Layout
+A full page layout example.
+
+<Preview>
+  <Story name='Base'>
+    <div>
+      <MemoryRouter>
+        <Navigation 
+          brand={{
+            align: 'Center',
+            img: {
+              src: '/assets/logo.png',
+              alt: 'My Company Logo'
+            }
+          }} 
+          links={[{
+            text: 'Home',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'About',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'Blog',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'FAQs',
+            align: 'End',
+            href: '/'
+          }, {
+            text: 'Careers',
+            align: 'End',
+            href: '/'
+          }, {
+            text: 'Contact',
+            align: 'End',
+            href: '/'
+          }]} 
+        />
+        <Box className='p--xxl bg--ui-one m--b-lg' align={{ x: 'Center', y: 'Center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <Text type='Alpha' tag='h1' align='Center'>Heading</Text>
+            <Text type='Intro' align='Center'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio. 
+            </Text>
+            <Button type='Primary'>Call to Action</Button>
+          </div>
+        </Box>
+        <Grid className='m--b-lg'>
+          <GridItem span={6}>
+            <Image aspect={'1x1'} src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
+          </GridItem>
+          <GridItem span={6}>
+            <Box className='p--xxl' align={{ x: 'Center', y: 'Center' }}>
+              <div>
+                <Text type='Delta' tag='h2'>Heading</Text>
+                <Text type='Intro' tag='h5'>Sub Heading</Text>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio. 
+                </Text>
+                <Link href='/' icon={{
+                  align: 'End',
+                  name: 'Chevron-right'
+                }}>Lorem ipsum</Link>
+              </div>
+            </Box>
+          </GridItem>
+        </Grid>
+        <Grid className='m--b-lg'>
+          <GridItem span={6}>
+            <Box className='p--xxl' align={{ x: 'Center', y: 'Center' }}>
+              <div>
+                <Text type='Delta' tag='h2'>Heading</Text>
+                <Text type='Intro' tag='h5'>Sub Heading</Text>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio. 
+                </Text>
+                <Link href='/'  icon={{
+                  align: 'End',
+                  name: 'Chevron-right'
+                }}>Lorem ipsum</Link>
+              </div>
+            </Box>
+          </GridItem>
+          <GridItem span={6}>
+            <Image aspect='1x1' src='https://source.unsplash.com/random/1100x1100' alt='My Image' />
+          </GridItem>
+        </Grid>
+        <Footer 
+          image={{
+            type: 'Round',
+            size: 'Small',
+            src: '/assets/logo.png',
+            alt: 'Logo'
+          }} 
+          links={[{
+            text: 'Home',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'About',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'Contact',
+            align: 'Start',
+            href: '/'
+          }, {
+            text: 'Twitter',
+            align: 'End',
+            href: '/',
+            icon: {
+              align: 'Start',
+              name: 'twitter'
+            }
+          }, {
+            text: 'Instagram',
+            align: 'End',
+            href: '/',
+            icon: {
+              align: 'Start',
+              name: 'instagram'
+            }
+          }]} 
+          subInfo='Copyright | 2020 | 3414134234'
+        />
+      </MemoryRouter>
+    </div>
+  </Story>
+</Preview>

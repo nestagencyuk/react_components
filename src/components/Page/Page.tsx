@@ -1,4 +1,4 @@
-import Page from './types'
+import IPage from './types'
 import * as React from 'react'
 import { Fragment } from 'react'
 import * as cx from 'classnames'
@@ -12,8 +12,8 @@ import '@nestagencyuk/scss_lib/dist/page.scss'
 /**
  * A simple page wrapper
  */
-const Page = ({ className, config, data, children }: Page.IProps) => {
-  const Component: React.FC<Page.IProps> = config.view
+const Page = ({ className, config, data, children }: IPage.IProps) => {
+  const Component: React.FC<IPage.IProps> = config.view
 
   return (
     <Fragment>

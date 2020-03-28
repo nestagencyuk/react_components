@@ -1,0 +1,188 @@
+import { Fragment, useContext, useState } from 'react'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { OpenContext, OpenProvider } from '../../context/OpenContext'
+import { Alert } from '.'
+import { Text } from '../Text'
+import { Button } from '../Button'
+
+<Meta title='Components|Alert' component={Alert} />
+
+# Alert
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Alert</Button>
+            {open && (
+              <Alert>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Types
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Alert-Error'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Error Alert</Button>
+            {open && (
+              <Alert type={'Error'}>
+                There was an error!
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Alert-Warning'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Warning Alert</Button>
+            {open && (
+              <Alert type={'Warning'}>
+                I'm warning you...
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Alert-Success'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Success Alert</Button>
+            {open && (
+              <Alert type={'Success'}>
+                Wow, it worked!
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Timeout
+Set a timeout so that the alert disappeares after some time.
+
+<Preview>
+  <Story name='Alert-Timeout'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Success Alert</Button>
+            {open && (
+              <Alert type={'Success'} timeout={2000}>
+                Wow, it worked!
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Confirm
+An alert can be used to determine an action.
+
+<Preview>
+  <Story name='Confirm'>
+    {() => {
+      const App = () => {
+        const { open, setOpen } = useContext(OpenContext)
+        const [decision, setDecision] = useState(null)
+        return (
+          <Fragment>
+            <Button type={'Primary'} onClick={() => setOpen(true)}>Do something mad!</Button>
+            {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
+            {open && (
+              <Alert type={'Warning'} footer={{
+                actions: [
+                  <Button type={'Tertiary'} size={'Small'} onClick={() => { setDecision(false); setOpen(false) }}>
+                    No
+                  </Button>,
+                  <Button type={'Primary'} size={'Small'} onClick={() => { setDecision(true); setOpen(false) }}>
+                    Yes
+                  </Button>
+                ]
+              }}>
+                Are you sure you want to do this crazy thing?!
+              </Alert>
+            )}
+          </Fragment>
+        )
+      }
+      return (
+        <OpenProvider>
+          <App />
+        </OpenProvider>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Alert} />

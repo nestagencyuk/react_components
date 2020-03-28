@@ -16,29 +16,26 @@ import { Icon } from '../Icon'
 /**
  * Link classes
  */
-const linkClasses: ILink.IClasses = {
+const types = {
   Inverse: 'link--inverse'
 }
 
 const renderIcon = (icon: any, align: 'Start' | 'End') =>
-  icon && icon.align === align && <Icon className={'link__icn'} name={icon.name} />
+  icon?.align === align && <Icon className={'link__icn'} name={icon.name} />
 
 /**
  * A simple link using React Router
  */
-const Link = ({ className, type, href, target, external, icon, children }: ILink.IProps) =>
-  external ? (
-    <a className={cx(className, 'link', linkClasses[type])} href={href} target={target}>
+const Link = ({ className, type, href, target, external, icon, children }: ILink.IProps) => {
+  const Tag: any = external ? 'a' : RouterLink
+
+  return (
+    <Tag className={cx(className, 'link', types[type])} href={href} to={href} target={target}>
       {renderIcon(icon, 'Start')}
       <span>{children}</span>
       {renderIcon(icon, 'End')}
-    </a>
-  ) : (
-    <RouterLink className={cx(className, 'link', linkClasses[type])} to={href}>
-      {renderIcon(icon, 'Start')}
-      <span>{children}</span>
-      {renderIcon(icon, 'End')}
-    </RouterLink>
+    </Tag>
   )
+}
 
 export default Link

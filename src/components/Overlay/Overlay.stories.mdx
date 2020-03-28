@@ -1,0 +1,37 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
+import { Overlay } from '.'
+
+<Meta title='Components|Overlay' component={Overlay} />
+
+# Overlay
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    <div>
+      <Overlay />
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Inverse
+Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Inverse'>
+    <div>
+      <Overlay type='Inverse' />
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Overlay} />

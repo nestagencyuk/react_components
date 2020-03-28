@@ -8,7 +8,7 @@ import cx from 'classnames'
 import '@nestagencyuk/scss_lib/dist/label.scss'
 
 /**
- * My component
+ * A label
  */
 const Label = ({ className, for: htmlFor, children }: ILabel.IProps) => (
   <label className={cx(className, 'label')} htmlFor={htmlFor}>

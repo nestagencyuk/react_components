@@ -15,7 +15,7 @@ import { Text } from '../Text'
 /**
  * Header classes
  */
-const headerClasses: any = {
+const types = {
   Fixed: 'header--fixed'
 }
 
@@ -23,7 +23,7 @@ const headerClasses: any = {
  * A simple header component with a heading and subheading
  */
 const Header = ({ className, type, heading, subheading, children }: IHeader.IProps) => (
-  <header className={cx(className, 'header', headerClasses[type])}>
+  <header className={cx(className, 'header', types[type])}>
     {heading && (
       <Text tag={'h1'} type={'Alpha'}>
         {heading}

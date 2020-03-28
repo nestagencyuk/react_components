@@ -8,7 +8,7 @@ import cx from 'classnames'
 import '@nestagencyuk/scss_lib/dist/input.scss'
 
 /**
- * My component
+ * A user input
  */
 const Input = ({ className, id, name, type, value, onChange }: IInput.IProps) => (
   <input

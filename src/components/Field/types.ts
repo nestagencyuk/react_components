@@ -1,6 +1,10 @@
 declare namespace IField {
   interface IProps {
-    [key: string]: any
+    className?: string
+    id: string
+    label?: string
+    state: 'Success' | 'Warning' | 'Error',
+    msg?: string
   }
 }
 

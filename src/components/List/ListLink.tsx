@@ -8,7 +8,7 @@ import cx from 'classnames'
 import { Link } from '../Link'
 
 /**
- * My component
+ * List link
  */
 const ListLink = ({ className, href, children, ...other }: IList.ILinkProps) => (
   <Link className={cx(className, 'list__link')} href={href} {...other}>
