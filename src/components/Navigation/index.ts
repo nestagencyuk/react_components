@@ -1,4 +1,5 @@
 export { default as Navigation } from './Navigation'
+export { default as NavigationToggle } from './NavigationToggle'
 export { default as NavigationBrand } from './NavigationBrand'
 export { default as NavigationList } from './NavigationList'
 export { default as NavigationItem } from './NavigationItem'

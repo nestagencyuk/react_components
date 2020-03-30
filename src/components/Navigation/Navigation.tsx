@@ -1,5 +1,6 @@
 import INavigation from './types'
 import * as React from 'react'
+import { useState } from 'react'
 import cx from 'classnames'
 
 /**
@@ -10,27 +11,23 @@ import '@nestagencyuk/scss_lib/dist/navigation.scss'
 /**
  * Components
  */
-import { NavigationBrand, NavigationList, NavigationItem, NavigationLink } from '.'
+import { NavigationToggle, NavigationBrand, NavigationList } from '.'
 
 /**
  * Brand align styles
  */
-const brandAlignClasses = {
+const brandAlignment = {
   Start: 'nav--b-s',
   Center: 'nav--b-c',
   End: 'nav--b-e'
 }
 
 /**
- * Toggler
- */
-const NavigationToggle = () => <button className={cx('nav__toggle')}>X</button>
-
-/**
  * A simple, single level navigation component, allowing for lists to be positioned left,
  * right, or centrally.
  */
-const Navigation = ({ className, style, brand = {}, links = [], children }: INavigation.IProps) => {
+const Navigation = ({ className, style, brand, links = [], children }: INavigation.IProps) => {
+  const [open, setOpen] = useState(false)
   const startLinks = links.filter((x) => x.align === 'Start')
   const endLinks = links.filter((x) => x.align === 'End')
 
@@ -52,16 +49,20 @@ const Navigation = ({ className, style, brand = {}, links = [], children }: INav
   )
 
   return (
-    <nav className={cx(className, 'nav', brandAlignClasses[brand.align])} style={style}>
-      {brandStart && <NavigationBrand {...brand} />}
-      {brandEnd && <NavigationToggle />}
+    <nav className={cx(className, 'nav', brandAlignment[brand?.align], { 'nav--open': open })} style={style}>
+      <div className='nav__bar'>
+        {brandStart && <NavigationBrand {...brand} />}
+        <NavigationToggle open={open} onClick={setOpen} />
+        {(brandCenter || brandEnd) && <NavigationBrand {...brand} />}
+      </div>
+
       {renderList(startLinks, 'Start')}
 
-      {brandCenter && <NavigationBrand {...brand} />}
+      {/* {brandCenter && <NavigationBrand {...brand} />} */}
 
       {renderList(endLinks, 'End')}
-      {brandEnd && <NavigationBrand {...brand} />}
-      {(brandStart || brandCenter) && <NavigationToggle />}
+      {/* {brandEnd && <NavigationBrand {...brand} />}
+      {(brandStart || brandCenter) && <NavigationToggle open={open} onClick={setOpen} />} */}
 
       {children}
     </nav>
