@@ -31,6 +31,9 @@ const Navigation = ({ className, style, brand, links = [], children }: INavigati
   const startLinks = links.filter((x) => x.align === 'Start')
   const endLinks = links.filter((x) => x.align === 'End')
 
+  /**
+   * Brand positions
+   */
   const brandStart = brand.align === 'Start'
   const brandCenter = brand.align === 'Center'
   const brandEnd = brand.align === 'End'
@@ -55,16 +58,11 @@ const Navigation = ({ className, style, brand, links = [], children }: INavigati
         <NavigationToggle open={open} onClick={setOpen} />
         {(brandCenter || brandEnd) && <NavigationBrand {...brand} />}
       </div>
-
-      {renderList(startLinks, 'Start')}
-
-      {/* {brandCenter && <NavigationBrand {...brand} />} */}
-
-      {renderList(endLinks, 'End')}
-      {/* {brandEnd && <NavigationBrand {...brand} />}
-      {(brandStart || brandCenter) && <NavigationToggle open={open} onClick={setOpen} />} */}
-
-      {children}
+      <div className='nav__lists'>
+        {renderList(startLinks, 'Start')}
+        {renderList(endLinks, 'End')}
+        {children}
+      </div>
     </nav>
   )
 }

@@ -15,18 +15,9 @@ import SelectOptions from './SelectOptions'
 import { Icon } from '../Icon'
 
 /**
- * State classes
- */
-const selectClasses: any = {
-  Error: 'select__input--error',
-  Warning: 'select__input--warning',
-  Success: 'select__input--success'
-}
-
-/**
  * Determine which select type to render
  */
-const Select = ({ id, options, value, state, optional, searchable, onChange }: ISelect.IProps) => {
+const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.IProps) => {
   const [tempValue, setTempValue] = useState(null)
   const [open, setOpen] = useState(false)
 
@@ -59,7 +50,7 @@ const Select = ({ id, options, value, state, optional, searchable, onChange }: I
   return (
     <span className={cx('select')} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
       <input
-        className={cx('select__input', selectClasses[state])}
+        className={cx('select__input')}
         id={id}
         name={id}
         value={tempValue || ''}

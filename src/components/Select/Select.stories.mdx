@@ -60,51 +60,6 @@ Searchable selects allow the user to search for an option.
   </Story>
 </Preview>
 
-## States
-Validation states.
-
-<Preview>
-  <Story name='States-Error'>
-    {() => {
-      const [value, setValue] = useState(null)
-      return (
-        <div>
-          <Text>Value: {`${value}`}</Text>
-          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Error'} onChange={setValue} />
-        </div>
-      )
-    }}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name='States-Warning'>
-    {() => {
-      const [value, setValue] = useState(null)
-      return (
-        <div>
-          <Text>Value: {`${value}`}</Text>
-          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Warning'} onChange={setValue} />
-        </div>
-      )
-    }}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name='States-Success'>
-    {() => {
-      const [value, setValue] = useState(null)
-      return (
-        <div>
-          <Text>Value: {`${value}`}</Text>
-          <Select id={'select'} options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} state={'Success'} searchable onChange={setValue} />
-        </div>
-      )
-    }}
-  </Story>
-</Preview>
-
 ## Prop Types
 
 <Props of={Select} />
