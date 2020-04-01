@@ -7,5 +7,6 @@ docs
 src
 .travis.yml
 index.ts
+cypress.json
 tsconfig.json
 webpack.config.js
