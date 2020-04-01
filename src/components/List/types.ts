@@ -7,6 +7,7 @@ declare namespace IList {
       text: string
       href?: string
     }[]
+    children: React.ReactElement<IItemProps>[]
   }
 
   interface IItemProps {

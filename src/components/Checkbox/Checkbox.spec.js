@@ -1,5 +1,4 @@
 context('Checkbox', () => {
-
   describe(`Base`, () => {
     const id = 'components-checkbox--base'
 
@@ -7,7 +6,7 @@ context('Checkbox', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('#checkbox').click()
-      cy.get('.p').invoke('text').should('eq', 'Value: true')
+      cy.get('.text').invoke('text').should('eq', 'Value: true')
     })
   })
 
@@ -18,13 +17,13 @@ context('Checkbox', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('.checkbox:nth-of-type(1)').click()
-      cy.get('.p').invoke('text').should('eq', 'Values selected: ["cat"]')
+      cy.get('.text').invoke('text').should('eq', 'Values selected: ["cat"]')
 
       cy.get('.checkbox:nth-of-type(2)').click()
-      cy.get('.p').invoke('text').should('eq', 'Values selected: ["cat","dog"]')
+      cy.get('.text').invoke('text').should('eq', 'Values selected: ["cat","dog"]')
 
       cy.get('.checkbox:nth-of-type(3)').click()
-      cy.get('.p').invoke('text').should('eq', 'Values selected: ["cat","dog","horse"]')
+      cy.get('.text').invoke('text').should('eq', 'Values selected: ["cat","dog","horse"]')
     })
   })
 })

@@ -17,7 +17,7 @@ import { Loader } from '../Loader'
  */
 const types = {
   Rounded: 'img--rounded',
-  Round: 'img--round',
+  Round: 'img--round'
 }
 
 /**
@@ -34,7 +34,9 @@ const aspects = {
  */
 const Image = ({ className, type, aspect, src, alt }: IImage.IProps) => (
   <picture className={cx(className, 'img', types[type], aspects[aspect])}>
-    <span className={'img__loader'}><Loader type='Circle' /></span>
+    <span className={'img__loader'}>
+      <Loader type="Circle" />
+    </span>
     <source media="(min-width: 500px)" srcSet={src} />
     <img className={'img__item'} srcSet={src} alt={alt} />
   </picture>

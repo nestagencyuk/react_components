@@ -34,7 +34,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
       onChange(null)
     }
   }
-  
+
   /**
    * Handle when an option is selected
    */
@@ -43,8 +43,8 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
     setOpen(false)
   }
 
-  const filtered = searchable 
-    ? options.filter((x: any) => x.label?.toLowerCase().includes(tempValue?.toLowerCase() || '')) 
+  const filtered = searchable
+    ? options.filter((x: any) => x.label?.toLowerCase().includes(tempValue?.toLowerCase() || ''))
     : options
 
   return (
@@ -61,7 +61,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
       />
 
       <SelectOptions open={open} options={filtered} optional={optional} handleClick={handleClick} />
-      <Icon className={cx('select__icn')} name={open ? 'chevron-up' : 'chevron-down'} colour='Dark' size='Small' />
+      <Icon className={cx('select__icn')} name={open ? 'chevron-up' : 'chevron-down'} colour="Dark" size="Small" />
     </span>
   )
 }

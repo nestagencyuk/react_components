@@ -1,5 +1,4 @@
 context('Field', () => {
-
   describe(`Base`, () => {
     const id = 'components-field--states'
 

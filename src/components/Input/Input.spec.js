@@ -7,10 +7,10 @@ context('Input', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('#input').type('A value')
-      cy.get('.p').invoke('text').should('eq', 'Value: A value')
+      cy.get('.text').invoke('text').should('eq', 'Value: A value')
 
       cy.get('#input').clear().type('Another value')
-      cy.get('.p').invoke('text').should('eq', 'Value: Another value')
+      cy.get('.text').invoke('text').should('eq', 'Value: Another value')
     })
   })
 })

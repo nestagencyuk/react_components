@@ -53,15 +53,14 @@ const Navigation = ({ className, style, brand, links = [], children }: INavigati
 
   return (
     <nav className={cx(className, 'nav', brandAlignment[brand?.align], { 'nav--open': open })} style={style}>
-      <div className='nav__bar'>
+      <div className="nav__bar">
         {brandStart && <NavigationBrand {...brand} />}
         <NavigationToggle open={open} onClick={setOpen} />
         {(brandCenter || brandEnd) && <NavigationBrand {...brand} />}
       </div>
-      <div className='nav__lists'>
+      <div className="nav__lists">
         {renderList(startLinks, 'Start')}
         {renderList(endLinks, 'End')}
-        {children}
       </div>
     </nav>
   )

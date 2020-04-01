@@ -18,7 +18,7 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   /**
-   * Get the position
+   * Get the x & y positions
    */
   const getPosition = () => {
     if (!attachTo) return
@@ -26,10 +26,10 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
 
     const tooltipRect = ref.current.getBoundingClientRect()
     const attachRect = attachTo.getBoundingClientRect()
-  
+
     let x = 0
     let y = 0
-  
+
     switch (align) {
       case 'Left':
         x = attachRect.left - tooltipRect.width
@@ -48,10 +48,10 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
         y = attachRect.bottom
         break
     }
-      
+
     setPosition({ x, y })
   }
-  
+
   /**
    * Attach trigger events
    */
@@ -74,20 +74,21 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
     getPosition()
   }, [open])
 
-  return open ? createPortal(
-    <aside 
-      ref={ref} 
-      className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: open})} 
-      style={{
-        visibility: open ? 'visible' : 'hidden', 
-        left: `${position.x}px`, 
-        top: `${position.y}px`
-      }}
-    >
-      {children}
-    </aside>,
-    document.body
-  ) : null
+  return open
+    ? createPortal(
+        <aside
+          ref={ref}
+          className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: open })}
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`
+          }}
+        >
+          {children}
+        </aside>,
+        document.body
+      )
+    : null
 }
 
 export default Tooltip

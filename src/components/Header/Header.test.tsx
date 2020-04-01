@@ -22,9 +22,9 @@ describe('----- Header Component -----', () => {
     expect(htmlA.html()).to.equal('<header class="header">Test</header>')
 
     const htmlB = shallow(<Header heading={'Heading'} />)
-    expect(htmlB.html()).to.equal('<header class="header"><h1 class="alpha">Heading</h1></header>')
+    expect(htmlB.html()).to.equal('<header class="header"><h1 class="text text--alpha text--left">Heading</h1></header>')
 
     const htmlC = shallow(<Header heading={'Heading'} subheading={'Subheading'} />)
-    expect(htmlC.html()).to.equal('<header class="header"><h1 class="alpha">Heading</h1><h2 class="beta">Subheading</h2></header>')
+    expect(htmlC.html()).to.equal('<header class="header"><h1 class="text text--alpha text--left">Heading</h1><h2 class="text text--beta text--left">Subheading</h2></header>')
   })
 })

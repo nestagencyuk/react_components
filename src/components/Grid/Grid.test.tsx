@@ -97,51 +97,5 @@ describe('----- Grid Component -----', () => {
       </Grid>
     )
     expect(htmlC.html()).to.equal('<div class="grid grid--gutter"><div class="grid__item grid__item--5"><div class="grid grid--gutter"><div class="grid__item grid__item--8">Nested</div><div class="grid__item grid__item--4">Nested</div></div></div><div class="grid__item grid__item--7"><div class="grid grid--gutter"><div class="grid__item grid__item--6">Nested</div><div class="grid__item grid__item--6">Nested</div></div></div></div>')
-    
-    const htmlD = shallow(
-      <Grid gutter>
-        <GridItem span={4} align={{ x: 'Left' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Right' }}>
-          Align
-        </GridItem>
-      </Grid>
-    )
-    expect(htmlD.html()).to.equal('<div class="grid grid--gutter"><div class="grid__item grid__item--4 grid__item--left">Align</div><div class="grid__item grid__item--4 grid__item--center-x">Align</div><div class="grid__item grid__item--4 grid__item--right">Align</div></div>')
-    
-    const htmlE = shallow(
-      <Grid gutter>
-        <GridItem span={4} align={{ y: 'Top' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ y: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ y: 'Bottom' }}>
-          Align
-        </GridItem>
-      </Grid>
-    )
-    expect(htmlE.html()).to.equal('<div class="grid grid--gutter"><div class="grid__item grid__item--4 grid__item--top">Align</div><div class="grid__item grid__item--4 grid__item--center-y">Align</div><div class="grid__item grid__item--4 grid__item--bottom">Align</div></div>')
-    
-    const htmlF = shallow(
-      <Grid gutter>
-        <GridItem span={4} align={{ x: 'Center', y: 'Top' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Right', y: 'Center' }}>
-          Align
-        </GridItem>
-        <GridItem span={4} align={{ x: 'Left', y: 'Bottom' }}>
-          Align
-        </GridItem>
-      </Grid>
-    )
-    expect(htmlF.html()).to.equal('<div class="grid grid--gutter"><div class="grid__item grid__item--4 grid__item--center-x grid__item--top">Align</div><div class="grid__item grid__item--4 grid__item--right grid__item--center-y">Align</div><div class="grid__item grid__item--4 grid__item--left grid__item--bottom">Align</div></div>')
-
   })
 })

@@ -1,7 +1,6 @@
 import IModal from './types'
 import * as React from 'react'
-import { createPortal } from 'react-dom'
-import { useContext, Fragment } from 'react'
+import { Fragment } from 'react'
 import cx from 'classnames'
 
 /**
@@ -10,35 +9,20 @@ import cx from 'classnames'
 import '@nestagencyuk/scss_lib/dist/modal.scss'
 
 /**
- * Context
- */
-import { OpenContext } from '../../context/OpenContext'
-
-/**
  * Components
  */
 import { ModalClose, ModalHeader, ModalBody, ModalFooter } from '.'
-import { Overlay } from '../Overlay'
 
 /**
  * A modal using React portal to render at the DOM body root
  */
-const Modal = ({ header, footer, children }: IModal.IProps) => {
-  const { open, setOpen } = useContext(OpenContext)
-
-  return open ? createPortal(
-    <Fragment>
-      <Overlay onClick={() => setOpen(false)} />
-      <aside className={cx('modal')}>
-        <ModalClose onClick={setOpen} />
-        {header && <ModalHeader {...header} />}
-        {children && <ModalBody>{children}</ModalBody>}
-        {footer && <ModalFooter {...footer} />}
-      </aside>
-    </Fragment>
-    ,
-    document.body
-  ) : null
-}
+const Modal = ({ header, footer, children, onClose }: IModal.IProps) => (
+  <aside className={cx('modal')}>
+    <ModalClose onClick={onClose} />
+    {header && <ModalHeader {...header} />}
+    {children && <ModalBody>{children}</ModalBody>}
+    {footer && <ModalFooter {...footer} />}
+  </aside>
+)
 
 export default Modal

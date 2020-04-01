@@ -7,7 +7,7 @@ context('Radio', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('#radio').click()
-      cy.get('.p').invoke('text').should('eq', 'Value: true')
+      cy.get('.text').invoke('text').should('eq', 'Value: true')
     })
   })
 
@@ -18,13 +18,13 @@ context('Radio', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('.radio:nth-of-type(1)').click()
-      cy.get('.p').invoke('text').should('eq', 'Value selected: "cat"')
+      cy.get('.text').invoke('text').should('eq', 'Value selected: "cat"')
 
       cy.get('.radio:nth-of-type(2)').click()
-      cy.get('.p').invoke('text').should('eq', 'Value selected: "dog"')
+      cy.get('.text').invoke('text').should('eq', 'Value selected: "dog"')
 
       cy.get('.radio:nth-of-type(3)').click()
-      cy.get('.p').invoke('text').should('eq', 'Value selected: "horse"')
+      cy.get('.text').invoke('text').should('eq', 'Value selected: "horse"')
     })
   })
 })

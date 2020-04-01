@@ -20,7 +20,7 @@ import { FieldPicker } from '.'
 const states = {
   Success: 'field--success',
   Warning: 'field--warning',
-  Error: 'field--error',
+  Error: 'field--error'
 }
 
 /**
@@ -29,7 +29,7 @@ const states = {
 const icons: { [key: string]: string } = {
   Success: 'Success',
   Warning: 'Info',
-  Error: 'Error',
+  Error: 'Error'
 }
 
 /**
@@ -37,10 +37,17 @@ const icons: { [key: string]: string } = {
  */
 const Field = ({ className, label, state, msg, ...props }: IField.IProps) => (
   <div className={cx(className, 'field', states[state])}>
-    {label && (typeof label === 'object' ? label : <Label className='m m--r-md' for={props.id}>{label}</Label>)}
+    {label &&
+      (typeof label === 'object' ? (
+        label
+      ) : (
+        <Label className="m m--r-md" for={props.id}>
+          {label}
+        </Label>
+      ))}
 
     <FieldPicker state={state} {...props} />
-    
+
     {state && <Icon className={'field__icn'} name={icons[state]} colour={state} />}
     {msg && <p className={'field__msg'}>{msg}</p>}
   </div>

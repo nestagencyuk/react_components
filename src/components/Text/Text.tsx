@@ -17,7 +17,7 @@ const types = {
   Delta: 'text--delta',
   Epsilon: 'text--epsilon',
   Intro: 'text--intro',
-  P: 'text--p',
+  P: 'text--p'
 }
 
 /**

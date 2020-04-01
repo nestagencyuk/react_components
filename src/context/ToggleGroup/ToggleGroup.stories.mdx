@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Button } from '../../components/Button'
+import { ToggleGroupContext, ToggleGroup } from '.'
+
+<Meta title='Interaction|ToggleGroup' component={ToggleGroup} />
+
+# ToggleGroup
+A toggle group is similar to the singular [Toggle](/?path=/docs/context-toggle--base) however it allows for multiple toggleables in the same set. Useful for tabs, accordions and other similar hidden content.
+
+## Base
+The most concise way of accessing the toggle state would be to use Render Props (i.e a function as a child).
+
+<Preview>
+  <Story name='Base'>
+    <ToggleGroup>
+      {({ toggles, setToggled }) => (
+        <Fragment>
+          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )}
+    </ToggleGroup>
+  </Story>
+</Preview>
+
+## Context
+Alternatively, you can use `useContext` to access the toggle state.
+
+<Preview>
+  <Story name='Context'>
+    {() => {
+      const App = () => {
+        const { toggles, setToggled } = useContext(ToggleGroupContext)
+        return (
+          <Fragment>
+            <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          </Fragment>
+        )
+      }
+      return (
+        <ToggleGroup>
+          <App />
+        </ToggleGroup>
+      )
+    }}
+  </Story>
+</Preview>

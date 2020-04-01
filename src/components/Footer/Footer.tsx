@@ -24,11 +24,13 @@ const Footer = ({ className, image, links = [], subInfo }: IFooter.IProps) => {
   return (
     <footer className={cx(className, 'footer')}>
       <Grid gutter>
-        {image && <GridItem span={2}>
-          <div className={'footer__img'}>
-            <Image aspect={'1x1'} {...image} />
-          </div>
-        </GridItem>}
+        {image && (
+          <GridItem span={2}>
+            <div className={'footer__img'}>
+              <Image aspect={'1x1'} {...image} />
+            </div>
+          </GridItem>
+        )}
 
         <GridItem span={5}>
           <FooterList items={startLinks} />

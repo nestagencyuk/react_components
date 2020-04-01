@@ -3,7 +3,7 @@ declare namespace IField {
     className?: string
     id: string
     label?: string
-    state: 'Success' | 'Warning' | 'Error',
+    state: 'Success' | 'Warning' | 'Error'
     msg?: string
   }
 }

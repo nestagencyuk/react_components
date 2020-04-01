@@ -1,9 +1,10 @@
-import { Fragment, useContext, useState } from 'react'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { OpenContext, OpenProvider } from '../../context/OpenContext'
-import { Alert } from '.'
+import { Fragment, useContext, useState } from 'react'
+import { ToggleContext, Toggle } from '../../context/Toggle'
 import { Text } from '../Text'
 import { Button } from '../Button'
+import { Float } from '../Float'
+import { Alert } from '.'
 
 <Meta title='Components|Alert' component={Alert} />
 
@@ -15,26 +16,29 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Base'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
-        return (
-          <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Alert</Button>
-            {open && (
-              <Alert>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              </Alert>
-            )}
-          </Fragment>
-        )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+    <Alert inline>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </Alert>
+  </Story>
+</Preview>
+
+## Toggle
+To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/interaction-toggle--base) and [Float](/?path=/docs/layout-float--base).
+
+<Preview>
+  <Story name='Toggle'>
+    <Toggle>
+      {({ toggled, setToggled }) => (
+        <Fragment>
+          <Button type={'Primary'} onClick={() => setToggled(true)}>Open Alert</Button>
+          {toggled && <Float portal>
+            <Alert onClose={setToggled}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+            </Alert>
+          </Float>}
+        </Fragment>
+      )}
+    </Toggle>
   </Story>
 </Preview>
 
@@ -43,76 +47,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Alert-Error'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
-        return (
-          <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Error Alert</Button>
-            {open && (
-              <Alert type={'Error'}>
-                There was an error!
-              </Alert>
-            )}
-          </Fragment>
-        )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+    <Alert inline type={'Error'}>
+      There was an error!
+    </Alert>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Alert-Warning'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
-        return (
-          <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Warning Alert</Button>
-            {open && (
-              <Alert type={'Warning'}>
-                I'm warning you...
-              </Alert>
-            )}
-          </Fragment>
-        )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+    <Alert inline type={'Warning'}>
+      I'm warning you...
+    </Alert>
   </Story>
 </Preview>
 
 <Preview>
   <Story name='Alert-Success'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
-        return (
-          <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Success Alert</Button>
-            {open && (
-              <Alert type={'Success'}>
-                Wow, it worked!
-              </Alert>
-            )}
-          </Fragment>
-        )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+    <Alert inline type={'Success'}>
+      Wow, it worked!
+    </Alert>
   </Story>
 </Preview>
 
@@ -121,26 +74,18 @@ Set a timeout so that the alert disappeares after some time.
 
 <Preview>
   <Story name='Alert-Timeout'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
-        return (
-          <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Open Success Alert</Button>
-            {open && (
-              <Alert type={'Success'} timeout={2000}>
-                Wow, it worked!
-              </Alert>
-            )}
-          </Fragment>
-        )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+    <Toggle timeout={2000}>
+      {({ toggled, setToggled }) => (
+        <Fragment>
+          <Button type={'Primary'} onClick={() => setToggled(true)}>Open Success Alert</Button>
+          {toggled && <Float portal>
+            <Alert type={'Success'}>
+              Wow, it worked!
+            </Alert>
+          </Float>}
+        </Fragment>
+      )}
+    </Toggle>
   </Story>
 </Preview>
 
@@ -149,37 +94,31 @@ An alert can be used to determine an action.
 
 <Preview>
   <Story name='Confirm'>
-    {() => {
-      const App = () => {
-        const { open, setOpen } = useContext(OpenContext)
+    <Toggle>
+      {({ toggled, setToggled }) => {
         const [decision, setDecision] = useState(null)
         return (
           <Fragment>
-            <Button type={'Primary'} onClick={() => setOpen(true)}>Do something mad!</Button>
+            <Button type={'Primary'} onClick={() => setToggled(true)}>Do something mad!</Button>
             {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
-            {open && (
+            {toggled && <Float portal>
               <Alert type={'Warning'} footer={{
                 actions: [
-                  <Button type={'Tertiary'} size={'Small'} onClick={() => { setDecision(false); setOpen(false) }}>
+                  <Button type={'Tertiary'} size={'Small'} onClick={() => { setDecision(false); setToggled(false) }}>
                     No
                   </Button>,
-                  <Button type={'Primary'} size={'Small'} onClick={() => { setDecision(true); setOpen(false) }}>
+                  <Button type={'Primary'} size={'Small'} onClick={() => { setDecision(true); setToggled(false) }}>
                     Yes
                   </Button>
                 ]
               }}>
                 Are you sure you want to do this crazy thing?!
               </Alert>
-            )}
+            </Float>}
           </Fragment>
         )
-      }
-      return (
-        <OpenProvider>
-          <App />
-        </OpenProvider>
-      )
-    }}
+      }}
+    </Toggle>
   </Story>
 </Preview>
 

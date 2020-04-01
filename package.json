@@ -1,6 +1,6 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,8 +8,8 @@
     "dev": "start-storybook -s ./dist --docs --port 3002 | webpack-dev-server",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
-    "test": "nyc npm run test:unit && npm run test:cypress",
-    "test:cypress": "cypress run",
+    "test": "nyc npm run test:unit && cypress run",
+    "test:cypress": "cypress open",
     "test:unit": "ts-mocha -r tsconfig-paths/register ./src/**/*.test.t{s,sx}",
     "test:coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
     "build": "npm run build:components && npm run build:docs",

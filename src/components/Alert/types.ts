@@ -1,9 +1,9 @@
 declare namespace IAlert {
   interface IProps {
     type?: 'Success' | 'Warning' | 'Error' | 'Info'
-    timeout: number
-    footer: any
+    footer?: any
     children: any
+    onClose: () => {}
   }
 }
 
