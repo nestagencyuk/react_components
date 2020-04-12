@@ -1,12 +1,16 @@
+import { IIcon } from '../Icon/types'
+
 declare namespace IButton {
+  interface IButtonIcon extends IIcon.IProps {
+    align: 'Start' | 'End'
+  }
+
   interface IProps {
     className?: string
     href?: string
     type: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
-    icon?: {
-      name: string
-      align: 'Start' | 'End'
-    }
+    icon?: IButtonIcon
+    disabled?: boolean
     submit?: boolean
     children: string
     onClick?: (e: React.SyntheticEvent) => void

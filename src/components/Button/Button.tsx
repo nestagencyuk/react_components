@@ -34,7 +34,7 @@ const iconAlignment = {
 /**
  * A visual button that will also render as <a> if it has a href
  */
-const Button = ({ className, href, type, icon, submit, children, onClick }: IButton.IProps) => {
+const Button = ({ className, href, type, icon, submit, disabled, children, onClick }: IButton.IProps) => {
   const Tag = href ? RouterLink : 'button'
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
@@ -45,7 +45,7 @@ const Button = ({ className, href, type, icon, submit, children, onClick }: IBut
   const iconEnd = icon?.align === 'End'
 
   return (
-    <Tag className={cx(className, 'btn', types[type], iconAlignment[icon?.align])} type={btnType} to={href} onClick={onClick}>
+    <Tag className={cx(className, 'btn', types[type], iconAlignment[icon?.align])} type={btnType} to={href} disabled={disabled} onClick={onClick}>
       {iconStart && <Icon className='btn__icn' {...icon} />}
       {children}
       {iconEnd && <Icon className='btn__icn' {...icon} />}
