@@ -18,7 +18,7 @@ const ToggleGroup = ({ multiOpen, children }: any) => {
   const setToggled = (id: string) => {
     setToggles((prev: any) => ({
       ...(multiOpen ? prev : {}),
-      [id]: toggles[id] ? false : true
+      [id]: !toggles[id]
     }))
   }
 

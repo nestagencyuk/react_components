@@ -1,6 +1,7 @@
 declare namespace ILink {
   interface IProps {
     className?: string
+    component?: any
     type?: 'Inverse'
     href?: string
     target?: string
@@ -11,10 +12,6 @@ declare namespace ILink {
     }
     children: string
   }
-
-  interface IClasses {
-    [key: string]: 'link--inverse'
-  }
 }
 
-export default ILink
+export { ILink }

@@ -1,7 +1,6 @@
-import IPage from './types'
+import { IPage } from './types'
 import * as React from 'react'
 import { Fragment } from 'react'
-import * as cx from 'classnames'
 import { excludeFromObj } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
@@ -12,7 +11,7 @@ import '@nestagencyuk/scss_lib/dist/page.scss'
 /**
  * A simple page wrapper
  */
-const Page = ({ className, config, data, children }: IPage.IProps) => {
+const Page = ({ config, data, children }: IPage.IProps) => {
   const Component: React.FC<IPage.IProps> = config.view
 
   return (

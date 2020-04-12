@@ -1,4 +1,4 @@
-import IField from './types'
+import { IField } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -37,14 +37,11 @@ const icons: { [key: string]: string } = {
  */
 const Field = ({ className, label, state, msg, ...props }: IField.IProps) => (
   <div className={cx(className, 'field', states[state])}>
-    {label &&
-      (typeof label === 'object' ? (
-        label
-      ) : (
-        <Label className="m m--r-md" for={props.id}>
-          {label}
-        </Label>
-      ))}
+    {label && (
+      <Label className="m m--r-md" for={props.id}>
+        {label}
+      </Label>
+    )}
 
     <FieldPicker state={state} {...props} />
 

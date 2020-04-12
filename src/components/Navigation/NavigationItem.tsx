@@ -1,4 +1,4 @@
-import INavigation from './types'
+import { INavigation } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

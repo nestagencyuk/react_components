@@ -6,12 +6,12 @@ declare namespace ISelect {
     searchable?: boolean
     optional?: boolean
     placeholder?: string
-    options: {
+    options: Array<{
       value: string
       label: string
-    }[]
+    }>
     value: string
-    onChange: (e: any) => void
+    onChange: (e: string | string[]) => void
   }
 
   interface IOptionsProps {
@@ -19,4 +19,4 @@ declare namespace ISelect {
   }
 }
 
-export default ISelect
+export { ISelect }

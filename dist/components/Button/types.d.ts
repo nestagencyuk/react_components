@@ -6,7 +6,7 @@ declare namespace IButton {
         type: 'Primary' | 'Secondary' | 'Tertiary' | 'Action';
         icon?: {
             name: string;
-            align: 'Left' | 'Right';
+            align: 'Start' | 'End';
         };
         submit?: boolean;
         children: string;

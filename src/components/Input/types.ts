@@ -5,8 +5,8 @@ declare namespace IInput {
     name?: string
     type: 'text' | 'date' | 'number' | 'email' | 'url' | 'tel'
     value: string
-    onChange: (e: any) => void
+    onChange: (value: string) => void
   }
 }
 
-export default IInput
+export { IInput }

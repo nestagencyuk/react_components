@@ -1,4 +1,4 @@
-import ILabel from './types'
+import { ILabel } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

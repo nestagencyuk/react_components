@@ -1,24 +1,15 @@
-import IImage from '../Image/types'
+import { IButton } from '../Button/types'
 
 declare namespace IFooter {
+  interface IFooterButton extends IButton.IProps {
+    text: string
+  }
+
   interface IProps {
     className?: string
-    image?: IImage.IProps
-    links: any
+    actions: IFooterButton[]
     subInfo?: string
-  }
-
-  interface IListProps {
-    items: any[]
-  }
-
-  interface IItemProps {
-    [key: string]: any
-  }
-
-  interface ILinkProps {
-    [key: string]: any
   }
 }
 
-export default IFooter
+export { IFooter }

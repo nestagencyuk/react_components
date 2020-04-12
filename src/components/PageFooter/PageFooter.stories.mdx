@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { MemoryRouter } from 'react-router-dom'
+import { PageFooter } from '.'
+
+<Meta title='Layout|Page Footer' component={PageFooter} />
+
+# Page Footer
+A footer is a structural element used to identify the footer of a page, document, article, or section. A typically contains copyright and authorship information or navigational elements pertaining to the contents of the parent element.
+
+> For a component level footer, see [Footer](/?path=/docs/components-footer--base)
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    <MemoryRouter>
+      <PageFooter 
+        image={{ type: 'Round', src: '/assets/logo.png', alt: 'Logo' }} 
+        links={[
+          { text: 'Home', align: 'Start', href: '/', }, 
+          { text: 'About', align: 'Start', href: '/', }, 
+          { text: 'Contact', align: 'Start', href: '/', },
+          { text: 'Twitter', align: 'End', href: '/', icon: { align: 'Start', name: 'twitter'} }, 
+          { text: 'Instagram', align: 'End', href: '/', icon: { align: 'Start', name: 'instagram'} }
+        ]}
+        subInfo={'Copyright | 2020 | 3414134234'} 
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={PageFooter} />

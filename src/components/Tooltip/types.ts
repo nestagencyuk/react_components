@@ -4,4 +4,4 @@ declare namespace ITooltip {
   }
 }
 
-export default ITooltip
+export { ITooltip }

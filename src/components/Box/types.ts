@@ -1,12 +1,14 @@
+import { Alignment } from '../../types'
+
 declare namespace IBox {
   interface IProps {
     className?: string
     align?: {
-      x?: 'Start' | 'Center' | 'End'
-      y?: 'Start' | 'Center' | 'End'
+      x?: Alignment
+      y?: Alignment
     }
     children: any
   }
 }
 
-export default IBox
+export { IBox }

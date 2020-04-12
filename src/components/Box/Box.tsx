@@ -1,4 +1,4 @@
-import IBox from './types'
+import { IBox } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -7,7 +7,7 @@ import cx from 'classnames'
  */
 import '@nestagencyuk/scss_lib/dist/box.scss'
 import '@nestagencyuk/scss_lib/dist/keyframes.scss' // @todo - import this somewhere else
-import '@nestagencyuk/scss_lib/dist/utilities.scss' // @todo - import this somewhere else
+import '@nestagencyuk/scss_lib/dist/utility.scss' // @todo - import this somewhere else
 
 /**
  * Alignment classes

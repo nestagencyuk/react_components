@@ -1,6 +1,6 @@
 // ** THIS IS JUST A TEMPLATE FOR NEW COMPONENTS ** //
 
-import ITemplate from './types'
+import { ITemplate } from './types'
 import * as React from 'react'
 import { useState } from 'react'
 import cx from 'classnames'
@@ -22,14 +22,14 @@ const templateClasses = {
 /**
  * My stateful component
  */
-const Template = ({ className, type }: ITemplate.IProps) => {
+const Template = ({ className, type, children }: ITemplate.IProps) => {
   const [myState, setMyState] = useState(false)
-
 
   return (
     <div className={cx(className, 'template', templateClasses[type])}>
       My state: {myState ? 'On' : 'Off'}
       <button onClick={() => setMyState(true)}>Click me!</button>
+      {children}
     </div>
   )
 }

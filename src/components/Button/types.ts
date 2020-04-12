@@ -1,5 +1,3 @@
-import IIcon from '../Icon/types'
-
 declare namespace IButton {
   interface IProps {
     className?: string
@@ -7,7 +5,7 @@ declare namespace IButton {
     type: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
     icon?: {
       name: string
-      align: 'Left' | 'Right'
+      align: 'Start' | 'End'
     }
     submit?: boolean
     children: string
@@ -15,4 +13,4 @@ declare namespace IButton {
   }
 }
 
-export default IButton
+export { IButton }

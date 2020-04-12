@@ -1,4 +1,4 @@
-import IIcon from './types'
+import { IIcon } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

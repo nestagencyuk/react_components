@@ -1,6 +1,5 @@
-import IModal from './types'
+import { IModal } from './types'
 import * as React from 'react'
-import { Fragment } from 'react'
 import cx from 'classnames'
 
 /**
@@ -19,9 +18,9 @@ import { ModalClose, ModalHeader, ModalBody, ModalFooter } from '.'
 const Modal = ({ header, footer, children, onClose }: IModal.IProps) => (
   <aside className={cx('modal')}>
     <ModalClose onClick={onClose} />
-    {header && <ModalHeader {...header} />}
-    {children && <ModalBody>{children}</ModalBody>}
-    {footer && <ModalFooter {...footer} />}
+    <ModalHeader {...header} />
+    <ModalBody>{children}</ModalBody>
+    <ModalFooter {...footer} />
   </aside>
 )
 

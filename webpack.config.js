@@ -3,7 +3,7 @@ const path = require('path')
 /**
  * Plugins
  */
-const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Output = require('write-file-webpack-plugin')
 const Prettier = require('prettier-webpack-plugin')
 const Css = require('mini-css-extract-plugin')
@@ -32,7 +32,7 @@ const config = (env) => {
 
   return {
     context: root,
-    mode: mode,
+    mode: 'production',
     devtool: dev && 'inline-source-map',
     devServer: {
       contentBase: dist,
@@ -43,7 +43,7 @@ const config = (env) => {
       port: 3003
     },
     entry: {
-      'index': `${src}/index.ts`,
+      index: `${src}/index.ts`
     },
     output: {
       pathinfo: false,
@@ -51,17 +51,18 @@ const config = (env) => {
       publicPath: '/',
       filename: '[name].js',
       chunkFilename: '[name].js',
-      libraryTarget: 'commonjs'
+      library: '/',
+      libraryTarget: 'commonjs2'
     },
     optimization: {
-      minimize: dev ? false : true,
+      minimize: !dev,
       minimizer: dev ? [] : [new Terser()]
     },
     externals: ['react', 'react-router-dom'],
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       alias: {
-        'react': `${root}/node_modules/react`,
+        react: `${root}/node_modules/react`,
         'react-router-dom': `${root}/node_modules/react-router-dom`
       },
       modules: ['node_modules']
@@ -80,7 +81,7 @@ const config = (env) => {
         extensions: ['.js', '.ts', '.tsx', '.jsx', '.json']
       }),
       new Css({
-        filename: 'assets/main.css',
+        filename: 'assets/main.css'
       }),
       new Copy([{
         from: `${src}/assets/**/*`,
@@ -109,8 +110,8 @@ const config = (env) => {
           exclude: /node_modules/,
           loader: 'ts-loader',
           options: {
-            transpileOnly: dev ? true : false,
-            experimentalWatchApi: dev ? true : false
+            transpileOnly: dev,
+            experimentalWatchApi: dev
           }
         },
         {
@@ -128,7 +129,7 @@ const config = (env) => {
                 ident: 'postcss',
                 plugins: [
                   AutoPrefix(),
-                  Minify({ preset: 'default' }),
+                  Minify({ preset: 'default' })
                 ]
               }
             },

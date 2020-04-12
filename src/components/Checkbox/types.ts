@@ -8,4 +8,4 @@ declare namespace ICheckbox {
   }
 }
 
-export default ICheckbox
+export { ICheckbox }

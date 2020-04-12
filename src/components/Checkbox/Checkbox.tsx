@@ -1,4 +1,4 @@
-import ICheckbox from './types'
+import { ICheckbox } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

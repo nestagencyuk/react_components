@@ -7,4 +7,4 @@ declare namespace IOverlay {
   }
 }
 
-export default IOverlay
+export { IOverlay }

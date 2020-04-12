@@ -1,27 +1,16 @@
+import { IModal } from './types'
 import * as React from 'react'
-import cx from 'classnames'
 
 /**
  * Components
  */
-import { Text } from '../Text'
+import { Header } from '../Header'
 
 /**
  * The main modal header
  */
-const ModalHeader = ({ heading, subheading }: any) => (
-  <header className={cx('modal__header')}>
-    {heading && (
-      <Text tag={'h1'} type={'Beta'}>
-        {heading}
-      </Text>
-    )}
-    {subheading && (
-      <Text tag={'h2'} type={'Epsilon'}>
-        {subheading}
-      </Text>
-    )}
-  </header>
-)
+const ModalHeader = (props: IModal.IHeaderProps) => props.heading ? (
+  <Header className='modal__header' {...props} />
+) : null
 
 export default ModalHeader

@@ -104,12 +104,8 @@ An alert can be used to determine an action.
             {toggled && <Float portal>
               <Alert type={'Warning'} footer={{
                 actions: [
-                  <Button type={'Tertiary'} size={'Small'} onClick={() => { setDecision(false); setToggled(false) }}>
-                    No
-                  </Button>,
-                  <Button type={'Primary'} size={'Small'} onClick={() => { setDecision(true); setToggled(false) }}>
-                    Yes
-                  </Button>
+                  { text: 'No', type: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
+                  { text: 'Yes', type: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
                 ]
               }}>
                 Are you sure you want to do this crazy thing?!

@@ -23,8 +23,8 @@ const Toggle = ({ timeout, children }: any) => {
 
   return (
     <ToggleContext.Provider value={value}>
-      {typeof children === 'function' 
-        ? children(value) 
+      {typeof children === 'function'
+        ? children(value)
         : children}
     </ToggleContext.Provider>
   )

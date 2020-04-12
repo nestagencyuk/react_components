@@ -1,7 +1,7 @@
-import ITooltip from './types'
+import { ITooltip } from './types'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
-import { useContext, useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import cx from 'classnames'
 
 /**
@@ -13,8 +13,8 @@ import '@nestagencyuk/scss_lib/dist/tooltip.scss'
  * A tooltip
  */
 const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: ITooltip.IProps) => {
-  const ref: any = useRef()
-  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLElement>()
+  const [toggled, setToggled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   /**
@@ -57,7 +57,7 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
    */
   useEffect(() => {
     if (!attachTo) return
-    const event = () => setOpen((prev: boolean) => !prev)
+    const event = () => setToggled((prev: boolean) => !prev)
 
     if (trigger === 'hover') {
       attachTo.addEventListener('mouseenter', event)
@@ -72,22 +72,19 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
    */
   useEffect(() => {
     getPosition()
-  }, [open])
+  }, [toggled])
 
-  return open
+  return toggled
     ? createPortal(
-        <aside
-          ref={ref}
-          className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: open })}
-          style={{
-            left: `${position.x}px`,
-            top: `${position.y}px`
-          }}
-        >
-          {children}
-        </aside>,
-        document.body
-      )
+      <aside
+        ref={ref}
+        className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: toggled })}
+        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+      >
+        {children}
+      </aside>,
+      document.body
+    )
     : null
 }
 

@@ -1,3 +1,4 @@
+import { IField } from './types'
 import * as React from 'react'
 
 /**
@@ -15,6 +16,7 @@ const FieldPicker = ({ type, render, ...props }: any) => {
   if (typeof type === 'object') {
     return type
   }
+
   switch (type) {
     case 'select':
       return <Select {...props} />

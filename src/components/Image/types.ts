@@ -8,4 +8,4 @@ declare namespace IImage {
   }
 }
 
-export default IImage
+export { IImage }

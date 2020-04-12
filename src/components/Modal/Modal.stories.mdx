@@ -21,8 +21,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
       header={{ heading: 'Heading', subheading: 'Subheading'}} 
       footer={{ 
         actions: [
-          <Button key={'btn-close'} type={'Tertiary'} onClick={() => setToggled(false)}>Close</Button>,
-          <Button key={'btn-ok'} type={'Primary'} onClick={() => setToggled(false)}>OK</Button>,
+          { text: 'Close', type: 'Tertiary' },
+          { text: 'OK', type: 'Primary' },
         ]
       }}>
       <Text>
@@ -48,8 +48,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
                 header={{ heading: 'Heading', subheading: 'Subheading'}} 
                 footer={{ 
                   actions: [
-                    <Button key={'btn-close'} type={'Tertiary'} onClick={() => setToggled(false)}>Close</Button>,
-                    <Button key={'btn-ok'} type={'Primary'} onClick={() => setToggled(false)}>OK</Button>,
+                    { text: 'Close', type: 'Tertiary', onClick: () => setToggled(false) },
+                    { text: 'OK', type: 'Primary', onClick: () => setToggled(false) },
                   ]
                 }}
                 onClose={setToggled}>

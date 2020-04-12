@@ -14,11 +14,11 @@ configure({ adapter: new Adapter() })
 /**
  * Components
  */
-import { Accordion } from './'
+import { Collapse } from '.'
 
-describe('----- Accordion Component -----', () => {
+describe('----- Collapse Component -----', () => {
   it('Renders the correct HTML', () => {
-    // const htmlA = shallow(<Accordion type={'Primary'} />)
-    // expect(htmlA.html()).to.equal('<div class="accordion accordion--primary">Accordion</div>')
+    // const htmlA = shallow(<Collapse type={'Primary'} />)
+    // expect(htmlA.html()).to.equal('<div class="accordion accordion--primary">Collapse</div>')
   })
 })

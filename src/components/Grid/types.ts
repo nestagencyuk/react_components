@@ -2,7 +2,7 @@ declare namespace IGrid {
   interface IProps {
     className?: string
     gutter?: boolean
-    children: React.ReactElement<IItemProps> | React.ReactElement<IItemProps>[]
+    children: React.ReactElement<IItemProps> | Array<React.ReactElement<IItemProps>>
   }
 
   interface IItemProps {
@@ -12,4 +12,4 @@ declare namespace IGrid {
   }
 }
 
-export default IGrid
+export { IGrid }

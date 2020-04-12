@@ -8,4 +8,4 @@ declare namespace IField {
   }
 }
 
-export default IField
+export { IField }

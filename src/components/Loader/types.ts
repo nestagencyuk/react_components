@@ -5,4 +5,4 @@ declare namespace ILoader {
   }
 }
 
-export default ILoader
+export { ILoader }

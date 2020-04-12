@@ -1,4 +1,4 @@
-import ISelect from './types'
+import { ISelect } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -14,8 +14,8 @@ const SelectOptions = ({ open, options, optional, handleClick }: ISelect.IOption
         </li>
       )}
 
-      {options.map((x: any) => (
-        <li key={`option-${x.value}`} className={cx('select__option')} onClick={() => handleClick(x.label)}>
+      {options.map((x: any, i: number) => (
+        <li key={`option-${i}`} className={cx('select__option')} onClick={() => handleClick(x.label)}>
           {x.label}
         </li>
       ))}

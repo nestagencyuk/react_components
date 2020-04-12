@@ -1,4 +1,4 @@
-import ITextarea from './types'
+import { ITextarea } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

@@ -1,13 +1,15 @@
+import { Alignment } from '../../types'
+
 declare namespace IFloat {
   interface IProps {
     className?: string
     align?: {
-      x?: 'Start' | 'Center' | 'End'
-      y?: 'Start' | 'Center' | 'End'
+      x?: Alignment
+      y?: Alignment
     }
     portal?: boolean
-    children: any
+    children: React.ReactNode
   }
 }
 
-export default IFloat
+export { IFloat }

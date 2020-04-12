@@ -3,17 +3,16 @@ import ILink from '../Link/types';
 declare namespace IList {
     interface IProps {
         className?: string;
-        items?: {
+        items?: Array<{
             text: string;
             href?: string;
-        }[];
-        children: React.ReactElement<IItemProps>[];
+        }>;
+        children: Array<React.ReactElement<IItemProps>>;
     }
     interface IItemProps {
         className?: string;
         children: React.ReactElement<ILink.IProps> | string;
     }
-    interface ILinkProps extends ILink.IProps {
-    }
+    type ILinkProps = ILink.IProps;
 }
 export default IList;

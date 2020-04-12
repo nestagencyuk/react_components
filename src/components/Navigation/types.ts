@@ -1,36 +1,29 @@
-import ILink from '../Link/types'
+import { Alignment } from '../../types'
+import { ILink } from '../Link/types'
+import { IImage } from '../Image/types'
 
 declare namespace INavigation {
   interface IProps {
     className?: any
-    style?: any
-    history?: any
     brand?: {
-      img?: {
-        src: string
-        alt: string
-      }
-      align?: 'Start' | 'Center' | 'End'
+      image?: IImage.IProps
+      align?: Alignment
     }
-    links: {
-      text: string
-      align: 'Start' | 'Center' | 'End'
-      href: string
-      onClick?: (e: React.SyntheticEvent) => void
-    }[]
-    children?: any
+    links: ILinkProps[]
   }
 
   interface IBrandProps {
-    img?: {
-      src?: string
-      alt?: string
-    }
+    image?: IImage.IProps
     href?: string
   }
 
+  interface IToggleProps {
+    toggled: boolean
+    onClick: (bool: boolean) => void
+  }
+
   interface IListProps {
-    align?: 'Start' | 'Center' | 'End'
+    align?: Alignment
     items: any[]
   }
 
@@ -40,9 +33,11 @@ declare namespace INavigation {
   }
 
   interface ILinkProps extends ILink.IProps {
+    text: string
+    align: Alignment
     active: boolean
     onClick?: (e: React.SyntheticEvent) => void
   }
 }
 
-export default INavigation
+export { INavigation }

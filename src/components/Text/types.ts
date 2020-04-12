@@ -1,4 +1,4 @@
-declare namespace Text {
+declare namespace IText {
   interface IProps {
     className?: string
     children: any
@@ -8,4 +8,4 @@ declare namespace Text {
   }
 }
 
-export default Text
+export { IText }

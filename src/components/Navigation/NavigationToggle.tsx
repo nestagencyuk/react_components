@@ -1,3 +1,4 @@
+import { INavigation } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -9,10 +10,10 @@ import { Icon } from '../Icon'
 /**
  * Navigation Toggle
  */
-const NavigationToggle = ({ open, onClick }: any) => (
-  <button className={cx('nav__toggle')} onClick={() => onClick(!open)}>
+const NavigationToggle = ({ toggled, onClick }: INavigation.IToggleProps) => (
+  <button className={cx('nav__toggle')} onClick={() => onClick(!toggled)}>
     Toggle
-    <Icon name={open ? 'cross' : 'hamburger'} />
+    <Icon name={toggled ? 'cross' : 'hamburger'} />
   </button>
 )
 

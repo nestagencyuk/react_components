@@ -1,6 +1,5 @@
 context('Input', () => {
-
-  describe(`Base`, () => {
+  describe('Base', () => {
     const id = 'components-input--base'
 
     it('Types in a value', () => {

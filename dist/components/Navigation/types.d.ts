@@ -12,12 +12,12 @@ declare namespace INavigation {
             };
             align?: 'Start' | 'Center' | 'End';
         };
-        links: {
+        links: Array<{
             text: string;
             align: 'Start' | 'Center' | 'End';
             href: string;
             onClick?: (e: React.SyntheticEvent) => void;
-        }[];
+        }>;
         children?: any;
     }
     interface IBrandProps {

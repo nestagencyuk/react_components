@@ -1,4 +1,4 @@
-import ISelect from './types'
+import { ISelect } from './types'
 import * as React from 'react'
 import { useState } from 'react'
 import cx from 'classnames'
@@ -11,7 +11,7 @@ import '@nestagencyuk/scss_lib/dist/select.scss'
 /**
  * Components
  */
-import SelectOptions from './SelectOptions'
+import { SelectOptions } from '.'
 import { Icon } from '../Icon'
 
 /**
@@ -43,6 +43,9 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
     setOpen(false)
   }
 
+  /**
+   * Filter the options if a search value has been entered
+   */
   const filtered = searchable
     ? options.filter((x: any) => x.label?.toLowerCase().includes(tempValue?.toLowerCase() || ''))
     : options

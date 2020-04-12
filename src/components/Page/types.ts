@@ -9,4 +9,4 @@ declare namespace IPage {
   }
 }
 
-export default IPage
+export { IPage }

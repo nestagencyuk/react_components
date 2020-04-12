@@ -1,4 +1,4 @@
-import IImage from './types'
+import { IImage } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

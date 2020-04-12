@@ -1,4 +1,4 @@
-import IRadio from './types'
+import { IRadio } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

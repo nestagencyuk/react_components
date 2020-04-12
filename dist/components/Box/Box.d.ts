@@ -5,7 +5,7 @@ import IBox from './types';
  */
 import '@nestagencyuk/scss_lib/dist/box.scss';
 import '@nestagencyuk/scss_lib/dist/keyframes.scss';
-import '@nestagencyuk/scss_lib/dist/utilities.scss';
+import '@nestagencyuk/scss_lib/dist/utility.scss';
 /**
  * My component
  */

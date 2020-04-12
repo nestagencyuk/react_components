@@ -1,4 +1,4 @@
-import IButton from './types'
+import { IButton } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -26,9 +26,9 @@ const types = {
 /**
  * Icon alignments
  */
-const alignments = {
-  Left: 'btn--l',
-  Right: 'btn--r'
+const iconAlignment = {
+  Start: 'btn--start',
+  End: 'btn--end'
 }
 
 /**
@@ -39,10 +39,10 @@ const Button = ({ className, href, type, icon, submit, children, onClick }: IBut
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
   return (
-    <Tag className={cx(className, 'btn', types[type], alignments[icon?.align])} type={btnType} to={href} onClick={onClick}>
-      {icon?.align === 'Left' && <Icon className={'btn__icn'} {...icon} />}
+    <Tag className={cx(className, 'btn', types[type], iconAlignment[icon?.align])} type={btnType} to={href} onClick={onClick}>
+      {icon?.align === 'Start' && <Icon className={'btn__icn'} {...icon} />}
       {children}
-      {icon?.align === 'Right' && <Icon className={'btn__icn'} {...icon} />}
+      {icon?.align === 'End' && <Icon className={'btn__icn'} {...icon} />}
     </Tag>
   )
 }

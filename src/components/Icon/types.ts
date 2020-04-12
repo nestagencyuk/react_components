@@ -7,4 +7,4 @@ declare namespace IIcon {
   }
 }
 
-export default IIcon
+export { IIcon }

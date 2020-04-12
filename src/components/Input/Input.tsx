@@ -1,4 +1,4 @@
-import IInput from './types'
+import { IInput } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -17,7 +17,7 @@ const Input = ({ className, id, name, type, value, onChange }: IInput.IProps) =>
     name={name}
     type={type}
     value={value || ''}
-    onChange={(e: any) => onChange(e.target.value)}
+    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
   />
 )
 

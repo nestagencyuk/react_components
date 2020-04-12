@@ -1,4 +1,4 @@
-import IOverlay from './types'
+import { IOverlay } from './types'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import cx from 'classnames'

@@ -1,4 +1,4 @@
-import ILoader from './types'
+import { ILoader } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

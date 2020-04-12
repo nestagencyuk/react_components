@@ -8,4 +8,4 @@ declare namespace ITextarea {
   }
 }
 
-export default ITextarea
+export { ITextarea }

@@ -1,6 +1,5 @@
-import IAlert from './types'
+import { IAlert } from './types'
 import * as React from 'react'
-import { useContext } from 'react'
 import cx from 'classnames'
 
 /**
@@ -11,8 +10,7 @@ import '@nestagencyuk/scss_lib/dist/alert.scss'
 /**
  * Components
  */
-import { AlertClose, AlertBody, AlertFooter } from '.'
-import { Icon } from '../Icon'
+import { AlertClose, AlertIcon, AlertBody, AlertFooter } from '.'
 
 /**
  * Alert types
@@ -25,21 +23,14 @@ const types = {
 }
 
 /**
- * Icons
+ * An alert with states
  */
-const icons = {
-  Success: 'Success',
-  Warning: 'Info',
-  Error: 'Error',
-  Info: 'Info'
-}
-
 const Alert = ({ type = 'Info', footer, children, onClose }: IAlert.IProps) => (
   <aside className={cx('alert', types[type])}>
-    {onClose && <AlertClose onClick={onClose} />}
-    <Icon className={cx('alert__icn')} name={icons[type]} colour={type === 'Info' ? 'Dark' : type} />
-    {children && <AlertBody>{children}</AlertBody>}
-    {footer && <AlertFooter {...footer} />}
+    <AlertClose onClick={onClose} />
+    <AlertIcon type={type} />
+    <AlertBody>{children}</AlertBody>
+    <AlertFooter {...footer} />
   </aside>
 )
 

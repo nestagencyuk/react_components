@@ -1,4 +1,4 @@
-import IGrid from './types'
+import { IGrid } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 

@@ -1,6 +1,6 @@
+import { IText } from './types'
 import * as React from 'react'
 import cx from 'classnames'
-import IText from './types'
 
 /**
  * Styles
@@ -35,7 +35,7 @@ const alignments = {
 const Text = ({ className, type = 'P', tag = 'p', align = 'Left', children }: IText.IProps) => {
   const Tag: React.ElementType = tag
 
-  return <Tag className={cx(className, 'text', types[type], alignments[align])}>{children}</Tag>
+  return children ? <Tag className={cx(className, 'text', types[type], alignments[align])}>{children}</Tag> : null
 }
 
 export default Text
