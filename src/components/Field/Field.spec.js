@@ -1,6 +1,6 @@
 context('Field', () => {
   describe(`Base`, () => {
-    const id = 'components-field--states'
+    const id = 'forms-field--states'
 
     it('Types in a value', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

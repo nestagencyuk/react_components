@@ -1,16 +1,19 @@
+import { IIcon } from '../Icon/types'
+
 declare namespace ILink {
   interface IProps {
     className?: string
-    component?: any
+    component?: React.FunctionComponent
     type?: 'Inverse'
     href?: string
     target?: string
     external?: boolean
-    icon?: {
-      align: 'Start' | 'End'
-      name: string
-    }
+    icon?: IIconProps
     children: string
+  }
+
+  interface IIconProps extends IIcon.IProps {
+    align: 'Start' | 'End'
   }
 }
 

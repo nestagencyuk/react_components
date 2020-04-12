@@ -12,7 +12,7 @@ import '@nestagencyuk/scss_lib/dist/tooltip.scss'
 /**
  * A tooltip
  */
-const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: ITooltip.IProps) => {
+const Tooltip = ({ attachTo, trigger = 'Hover', align = 'Left', children }: ITooltip.IProps) => {
   const ref = useRef<HTMLElement>()
   const [toggled, setToggled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -59,7 +59,7 @@ const Tooltip = ({ attachTo, trigger = 'hover', align = 'left', children }: IToo
     if (!attachTo) return
     const event = () => setToggled((prev: boolean) => !prev)
 
-    if (trigger === 'hover') {
+    if (trigger === 'Hover') {
       attachTo.addEventListener('mouseenter', event)
       attachTo.addEventListener('mouseleave', event)
     } else {

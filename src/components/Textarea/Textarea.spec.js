@@ -1,7 +1,7 @@
 context('Textarea', () => {
 
   describe(`Base`, () => {
-    const id = 'components-textarea--base'
+    const id = 'forms-textarea--base'
 
     it('Types in a value', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

@@ -1,14 +1,16 @@
 import { IAlert } from './types'
 import * as React from 'react'
-import cx from 'classnames'
 
 /**
  * Components
  */
 import { Text } from '../Text'
 
+/**
+ * The main alert body
+ */
 const AlertBody = ({ children }: IAlert.IBodyProps) => (
-  <div className={cx('alert__body')}>
+  <div className='alert__body'>
     <Text>{children}</Text>
   </div>
 )

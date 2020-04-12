@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-// import '@nestagencyuk/scss_lib/dist/block.scss'
+import '@nestagencyuk/scss_lib/dist/block.scss'
 
 /**
  * Components
@@ -20,26 +20,34 @@ import { Link } from '../Link'
 /**
  * My component
  */
-const Block = ({ className, image, header, link, children }: IBlock.IProps) => (
-  <Grid className={cx(className, 'block m--b-lg')}>
-    {image?.align === 'Start' && <GridItem span={6}>
-      <Image aspect={'1x1'} {...image} />
-    </GridItem>}
+const Block = ({ className, image, header, link, children }: IBlock.IProps) => {
+  /**
+   * Image alignment
+   */
+  const imageStart = image?.align === 'Start'
+  const imageEnd = image?.align === 'End'
 
-    <GridItem span={6}>
-      <Box className='p--xxl' align={{ x: 'Center', y: 'Center' }}>
-        <div>
-          <BlockHeader {...header} />
-          <Text>{children}</Text>
-          <Link {...link}>{link?.text}</Link>
-        </div>
-      </Box>
-    </GridItem>
+  return (
+    <Grid className={cx(className, 'block m--b-lg')}>
+      {imageStart && <GridItem span={6}>
+        <Image aspect={'1x1'} {...image} />
+      </GridItem>}
 
-    {image?.align === 'End' && <GridItem span={6}>
-      <Image aspect={'1x1'} {...image} />
-    </GridItem>}
-  </Grid>
-)
+      <GridItem span={6}>
+        <Box className='p--xxl' align={{ x: 'Center', y: 'Center' }}>
+          <div>
+            <BlockHeader {...header} />
+            <Text>{children}</Text>
+            <Link {...link}>{link?.text}</Link>
+          </div>
+        </Box>
+      </GridItem>
+
+      {imageEnd && <GridItem span={6}>
+        <Image aspect='1x1' {...image} />
+      </GridItem>}
+    </Grid>
+  )
+}
 
 export default Block

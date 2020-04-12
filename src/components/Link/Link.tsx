@@ -1,4 +1,3 @@
-import { Alignment } from '../../types'
 import { ILink } from './types'
 import * as React from 'react'
 import cx from 'classnames'
@@ -22,22 +21,22 @@ const types = {
 }
 
 /**
- * Show an icon
- */
-const renderIcon = (icon: ILink.IProps['icon'], align: Alignment) =>
-  icon?.align === align && <Icon className={'link__icn'} name={icon.name} />
-
-/**
  * A simple link using React Router
  */
 const Link = ({ className, component, type, href, target, external, icon, children }: ILink.IProps) => {
   const Tag = component || (external ? 'a' : RouterLink)
 
+  /**
+   * Icon alignment
+   */
+  const iconStart = icon?.align === 'Start'
+  const iconEnd = icon?.align === 'End'
+
   return children ? (
     <Tag className={cx(className, 'link', types[type])} href={href} to={href} target={target}>
-      {renderIcon(icon, 'Start')}
+      {iconStart && <Icon className='link__icn' name={icon.name} />}
       <span>{children}</span>
-      {renderIcon(icon, 'End')}
+      {iconEnd && <Icon className='link__icn' name={icon.name} />}
     </Tag>
   ) : null
 }

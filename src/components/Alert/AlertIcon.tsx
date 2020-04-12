@@ -1,6 +1,5 @@
 import { IAlert } from './types'
 import * as React from 'react'
-import cx from 'classnames'
 
 /**
  * Components
@@ -20,6 +19,6 @@ const icons = {
 /**
  * Render alert actions
  */
-const AlertIcon = ({ type }: IAlert.IIconProps) => <Icon className={cx('alert__icn')} name={icons[type]} colour={type === 'Info' ? 'Dark' : type} />
+const AlertIcon = ({ type }: IAlert.IIconProps) => <Icon className='alert__icn' name={icons[type]} colour={type === 'Info' ? 'Dark' : type} />
 
 export default AlertIcon

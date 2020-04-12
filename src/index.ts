@@ -1,4 +1,5 @@
 export { Alert } from './components/Alert'
+export { Block } from './components/Block'
 export { Box } from './components/Box'
 export { Button } from './components/Button'
 export { Checkbox } from './components/Checkbox'

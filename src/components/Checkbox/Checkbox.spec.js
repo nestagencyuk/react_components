@@ -1,6 +1,6 @@
 context('Checkbox', () => {
   describe(`Base`, () => {
-    const id = 'components-checkbox--base'
+    const id = 'forms-checkbox--base'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -11,7 +11,7 @@ context('Checkbox', () => {
   })
 
   describe(`Group`, () => {
-    const id = 'components-checkbox--group'
+    const id = 'forms-checkbox--group'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

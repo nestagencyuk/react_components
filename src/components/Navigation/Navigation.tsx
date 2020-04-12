@@ -32,7 +32,7 @@ const Navigation = ({ className, brand, links = [] }: INavigation.IProps) => {
   const endLinks = links.filter((x) => x.align === 'End')
 
   /**
-   * Brand positions
+   * Brand alignment
    */
   const brandStart = brand?.align === 'Start'
   const brandCenter = brand?.align === 'Center'
@@ -40,12 +40,12 @@ const Navigation = ({ className, brand, links = [] }: INavigation.IProps) => {
 
   return (
     <nav className={cx(className, 'nav', brandAlignment[brand?.align], { 'nav--open': toggled })}>
-      <div className="nav__bar">
+      <div className='nav__bar'>
         {brandStart && <NavigationBrand {...brand} />}
         <NavigationToggle toggled={toggled} onClick={setToggled} />
         {(brandCenter || brandEnd) && <NavigationBrand {...brand} />}
       </div>
-      <div className="nav__lists">
+      <div className='nav__lists'>
         <NavigationList align={'Start'} items={startLinks} />
         <NavigationList align={'End'} items={endLinks} />
       </div>

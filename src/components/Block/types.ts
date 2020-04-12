@@ -1,22 +1,22 @@
 import { IImage } from '../Image/types'
-import { ILink } from '../Link/types'
 import { IHeader } from '../Header/types'
+import { ILink } from '../Link/types'
 
 declare namespace IBlock {
-  interface IBlockImage extends IImage.IProps {
+  interface IProps {
+    className?: string
+    image: IImageProps
+    header?: IHeader.IProps
+    link: ILinkProps
+    children: string
+  }
+
+  interface IImageProps extends IImage.IProps {
     align: 'Start' | 'End'
   }
 
-  interface IBlockLink extends ILink.IProps {
+  interface ILinkProps extends ILink.IProps {
     text: string
-  }
-
-  interface IProps {
-    className?: string
-    image: IBlockImage
-    header?: IHeader.IProps
-    link: IBlockLink
-    children: any
   }
 }
 

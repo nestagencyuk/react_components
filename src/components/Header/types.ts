@@ -1,7 +1,7 @@
 declare namespace IHeader {
   interface IProps {
     className?: string
-    heading?: string
+    heading: string
     subheading?: string
   }
 }

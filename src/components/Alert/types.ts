@@ -4,8 +4,8 @@ import { IFooter } from '../Footer/types'
 declare namespace IAlert {
   interface IProps {
     type?: UIState
-    footer?: any
-    children: any
+    footer?: IFooterProps
+    children: string
     onClose: () => void
   }
 
@@ -22,7 +22,7 @@ declare namespace IAlert {
   }
 
   interface IFooterProps extends IFooter.IProps {
-    type: UIState
+    type?: UIState
   }
 }
 

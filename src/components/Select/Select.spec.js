@@ -1,7 +1,7 @@
 context('Select', () => {
 
   describe(`Base`, () => {
-    const id = 'components-select--base'
+    const id = 'forms-select--base'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -17,7 +17,7 @@ context('Select', () => {
   })
 
   describe(`Optional`, () => {
-    const id = 'components-select--optional'
+    const id = 'forms-select--optional'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -37,7 +37,7 @@ context('Select', () => {
   })
 
   describe(`Searchable`, () => {
-    const id = 'components-select--searchable'
+    const id = 'forms-select--searchable'
 
     it('Types out a known option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

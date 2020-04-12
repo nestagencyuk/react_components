@@ -30,7 +30,7 @@ To create an alert popover, the base alert component can be combined with [Toggl
     <Toggle>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type={'Primary'} onClick={() => setToggled(true)}>Open Alert</Button>
+          <Button type='Primary' onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
             <Alert onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
@@ -47,7 +47,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Alert-Error'>
-    <Alert inline type={'Error'}>
+    <Alert inline type='Error'>
       There was an error!
     </Alert>
   </Story>
@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Alert-Warning'>
-    <Alert inline type={'Warning'}>
+    <Alert inline type='Warning'>
       I'm warning you...
     </Alert>
   </Story>
@@ -63,7 +63,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Alert-Success'>
-    <Alert inline type={'Success'}>
+    <Alert inline type='Success'>
       Wow, it worked!
     </Alert>
   </Story>
@@ -77,9 +77,9 @@ Set a timeout so that the alert disappeares after some time.
     <Toggle timeout={2000}>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type={'Primary'} onClick={() => setToggled(true)}>Open Success Alert</Button>
+          <Button type='Primary' onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert type={'Success'}>
+            <Alert type='Success'>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -99,10 +99,10 @@ An alert can be used to determine an action.
         const [decision, setDecision] = useState(null)
         return (
           <Fragment>
-            <Button type={'Primary'} onClick={() => setToggled(true)}>Do something mad!</Button>
+            <Button type='Primary' onClick={() => setToggled(true)}>Do something mad!</Button>
             {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
             {toggled && <Float portal>
-              <Alert type={'Warning'} footer={{
+              <Alert type='Warning' footer={{
                 actions: [
                   { text: 'No', type: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
                   { text: 'Yes', type: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },

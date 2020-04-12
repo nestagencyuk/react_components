@@ -1,6 +1,9 @@
 declare namespace ITooltip {
   interface IProps {
-    [key: string]: any
+    attachTo: HTMLElement
+    trigger?: 'Hover' | 'Click'
+    align?: 'Left' | 'Right' | 'Top' | 'Bottom'
+    children: React.ReactNode
   }
 }
 

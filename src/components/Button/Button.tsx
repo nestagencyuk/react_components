@@ -38,11 +38,17 @@ const Button = ({ className, href, type, icon, submit, children, onClick }: IBut
   const Tag = href ? RouterLink : 'button'
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
+  /**
+   * Icon alignment
+   */
+  const iconStart = icon?.align === 'Start'
+  const iconEnd = icon?.align === 'End'
+
   return (
     <Tag className={cx(className, 'btn', types[type], iconAlignment[icon?.align])} type={btnType} to={href} onClick={onClick}>
-      {icon?.align === 'Start' && <Icon className={'btn__icn'} {...icon} />}
+      {iconStart && <Icon className='btn__icn' {...icon} />}
       {children}
-      {icon?.align === 'End' && <Icon className={'btn__icn'} {...icon} />}
+      {iconEnd && <Icon className='btn__icn' {...icon} />}
     </Tag>
   )
 }
