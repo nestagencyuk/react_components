@@ -1,3 +1,4 @@
+import { IPaginate } from './types'
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 
@@ -9,7 +10,7 @@ import { PaginateContext } from '.'
 /**
  * Provide a boolean state
  */
-const Paginate = ({ limit = 1, children }: any) => {
+const Paginate = ({ limit = 1, children }: IPaginate.IProps) => {
   const [items, setItems] = useState([])
   const [current, setCurrent] = useState(0)
   const value = { items, current, setCurrent }

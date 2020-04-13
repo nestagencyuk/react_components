@@ -1,8 +1,12 @@
+import { IImage } from '../Image/types'
+
 declare namespace ISlider {
   interface IProps {
     className?: string
-    type: 'Primary' | 'Secondary' | 'Tertiary'
-    children: React.ReactNode
+    type?: 'Fade' | 'Slide'
+    tick?: number
+    items?: IImage.IProps[]
+    children: any
   }
 }
 

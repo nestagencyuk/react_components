@@ -1,20 +1,62 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Paginate } from '../../context/Paginate'
+import { Box } from '../Box'
+import { Image } from '../Image'
+import { Button } from '../Button'
 import { Slider } from '.'
 
 <Meta title='Components|Slider' component={Slider} />
 
 # Slider
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+A slider for displaying a series of content. Takes an `items` array of components which can contain whatever you want. 
  
 ## Base
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
   <Story name='Base'>
-    <Slider>Primary Slider</Slider>
+    <Slider items={[
+      <Box className='p--md bg--ui-one'><div>Slide 1</div></Box>,
+      <Box className='p--md bg--ui-two'><div>Slide 2</div></Box>,
+      <Box className='p--md bg--ui-one'><div>Slide 3</div></Box>,
+      <Box className='p--md bg--ui-two'><div>Slide 4</div></Box>
+    ]} />
+  </Story>
+</Preview>
+
+## Fade
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Fade'>
+    <Slider type='Fade' items={[
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1600x900' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1601x901' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1602x902' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1603x903' alt='My Image' />,
+    ]} />
+  </Story>
+</Preview>
+
+## Tick
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Tick'>
+    <Slider type='Fade' tick={2000} items={[
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1600x900' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1601x901' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1602x902' alt='My Image' />,
+      <Image aspect='16x9' src='https://source.unsplash.com/random/1603x903' alt='My Image' />,
+    ]} />
   </Story>
 </Preview>
 
 ## Prop Types
 
 <Props of={Slider} />
+
+## To Do
+
+- Add a composable implementation, e.g a `Slide` component
+- Have infinite slide appear more continious rather than going back to the start
