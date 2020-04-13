@@ -13,7 +13,7 @@ import cx from 'classnames'
 /**
  * Classes
  */
-const templateClasses = {
+const types = {
   Primary: 'template--primary',
   Secondary: 'template--secondary',
   Tertiary: 'template--tertiary'
@@ -26,7 +26,7 @@ const Template = ({ className, type, children }: ITemplate.IProps) => {
   const [myState, setMyState] = useState(false)
 
   return (
-    <div className={cx(className, 'template', templateClasses[type])}>
+    <div className={cx(className, 'template', types[type])}>
       My state: {myState ? 'On' : 'Off'}
       <button onClick={() => setMyState(true)}>Click me!</button>
       {children}

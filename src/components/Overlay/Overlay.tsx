@@ -18,8 +18,11 @@ const types = {
 /**
  * An overlay
  */
-const Overlay = ({ className, type, portal, onClick }: IOverlay.IProps) => {
-  const renderOverlay = () => <div className={cx(className, 'overlay', types[type])} onClick={onClick} />
+const Overlay = ({ className, type, portal, children, onClick }: IOverlay.IProps) => {
+  /**
+   * Render the component
+   */
+  const renderOverlay = () => <div className={cx(className, 'overlay', types[type])} onClick={onClick}>{children}</div>
 
   return portal ? createPortal(renderOverlay(), document.body) : renderOverlay()
 }

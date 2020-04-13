@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Pagination } from '.'
+
+<Meta title='Components|Pagination' component={Pagination} />
+
+# Pagination
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Base'>
+    <Pagination current={2} items={[0, 1, 2, 3, 4]} onPrev={() => alert('Prev')} onCurrent={(i) => alert(`Current ${i}`)} onNext={() => alert('Next')} />
+  </Story>
+</Preview>
+
+## Dots
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Dots'>
+    <Pagination type='Dots' current={2} items={[0, 1, 2, 3, 4]} onCurrent={(i) => alert(`Current ${i}`)} />
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Pagination} />

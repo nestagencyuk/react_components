@@ -1,7 +1,6 @@
-import { IImage } from '../Image/types'
 import { ISlider } from './types'
 import * as React from 'react'
-import { Fragment, Children, useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 import cx from 'classnames'
 
 /**
@@ -17,8 +16,7 @@ import { Paginate } from '../../context/Paginate'
 /**
  * Components
  */
-import { Image } from '../Image'
-import { Button } from '../Button'
+import { Pagination } from '../Pagination'
 
 /**
  * Types
@@ -72,13 +70,15 @@ const Slider = ({ type = 'Slide', tick, items }: ISlider.IProps) => (
 
       return (
         <section className={cx('slider', types[type])}>
+          {/* <Button className='slider__btn slider__btn--prev' type='Primary' onClick={() => setCurrent(prev)}>Prev</Button>
+          <Button className='slider__btn slider__btn--next' type='Primary' onClick={() => setCurrent(next)}>Next</Button> */}
+
           <div className='slider__body' style={bodyStyle}>
             {renderItems()}
           </div>
 
           <footer className='slider__footer'>
-            <Button type='Primary' onClick={() => setCurrent(prev)}>Prev</Button>
-            <Button type='Primary' onClick={() => setCurrent(next)}>Next</Button>
+            <Pagination type='Dots' current={current} items={Array.from(Array(total).keys())} onCurrent={(i) => setCurrent(i)} />
           </footer>
         </section>
       )

@@ -12,7 +12,7 @@ import cx from 'classnames'
 /**
  * Classes
  */
-const templateClasses = {
+const types = {
   Primary: 'template--primary',
   Secondary: 'template--secondary',
   Tertiary: 'template--tertiary'
@@ -22,7 +22,7 @@ const templateClasses = {
  * My component
  */
 const Template = ({ className, type, children }: ITemplate.IProps) => (
-  <div className={cx(className, 'template', templateClasses[type])}>{children}</div>
+  <div className={cx(className, 'template', types[type])}>{children}</div>
 )
 
 export default Template
