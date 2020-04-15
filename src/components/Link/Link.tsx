@@ -34,9 +34,9 @@ const Link = ({ className, component, type, href, target, external, icon, childr
 
   return children ? (
     <Tag className={cx(className, 'link', types[type])} href={href} to={href} target={target}>
-      {iconStart && <Icon className='link__icn' name={icon.name} />}
+      {iconStart && <Icon className="link__icn" name={icon.name} />}
       <span>{children}</span>
-      {iconEnd && <Icon className='link__icn' name={icon.name} />}
+      {iconEnd && <Icon className="link__icn" name={icon.name} />}
     </Tag>
   ) : null
 }

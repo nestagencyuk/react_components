@@ -9,11 +9,12 @@ import { Icon } from '../Icon'
 /**
  * A close button
  */
-const AlertClose = ({ onClick }: IAlert.ICloseProps) => onClick ? (
-  <button className='alert__close' onClick={() => onClick(false)}>
-    Close
-    <Icon name='cross' />
-  </button>
-) : null
+const AlertClose = ({ onClick }: IAlert.ICloseProps) =>
+  onClick ? (
+    <button className="alert__close" onClick={() => onClick(false)}>
+      Close
+      <Icon name="cross" />
+    </button>
+  ) : null
 
 export default AlertClose

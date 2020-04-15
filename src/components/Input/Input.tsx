@@ -15,7 +15,7 @@ const Input = ({ className, id, name, type, value, onChange }: IInput.IProps) =>
     className={cx(className, 'input')}
     id={id}
     name={name}
-    type={type}
+    type={type.toLowerCase()}
     value={value || ''}
     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
   />

@@ -10,11 +10,26 @@ import { Link as RouterLink } from 'react-router-dom'
 /**
  * A Navigation link using React Router
  */
-const NavigationLink = ({ className, component, href, target, active, external, children, onClick }: INavigation.ILinkProps) => {
+const NavigationLink = ({
+  className,
+  component,
+  href,
+  target,
+  active,
+  external,
+  children,
+  onClick
+}: INavigation.ILinkProps) => {
   const Tag = component || (external ? 'a' : RouterLink)
 
   return (
-    <Tag className={cx(className, 'nav__link', { 'nav__link--active': active })} href={href} to={href} target={target} onClick={onClick}>
+    <Tag
+      className={cx(className, 'nav__link', { 'nav__link--active': active })}
+      href={href}
+      to={href}
+      target={target}
+      onClick={onClick}
+    >
       <span>{children}</span>
     </Tag>
   )

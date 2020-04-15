@@ -17,11 +17,11 @@ import { Text } from '../Text'
  */
 const Header = ({ className, heading, subheading }: IHeader.IProps) => (
   <header className={cx(className, 'header')}>
-    <Text tag='h2' type='Gamma'>
+    <Text tag="h2" type="Gamma">
       {heading}
     </Text>
 
-    <Text tag='h3' type='Intro'>
+    <Text tag="h3" type="Intro">
       {subheading}
     </Text>
   </header>

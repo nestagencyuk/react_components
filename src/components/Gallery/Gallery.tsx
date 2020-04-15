@@ -1,6 +1,6 @@
 import { IGallery } from './types'
 import * as React from 'react'
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import cx from 'classnames'
 
 /**
@@ -71,18 +71,17 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
         return (
           <section ref={ref} className={cx(className, 'gallery', variants[variant])}>
             {toggled && (
-              <Float className='gallery__float' portal align={{ x: 'Center', y: 'Center' }}>
+              <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
                 <Overlay portal onClick={() => setToggled(false)} />
-                <Slider className='gallery__slider' type='Fade' init={init} nav='Buttons' items={items({ handleClick })} />
+                <Slider className="gallery__slider" type="Fade" init={init} nav="Buttons" items={items({ handleClick })} />
               </Float>
             )}
 
             {childItems.map((x: any, i: any) => (
-              <div key={`gallery-item-${i}`} className='gallery__item'>
+              <div key={`gallery-item-${i}`} className="gallery__item">
                 {x}
               </div>
             ))}
-
           </section>
         )
       }}
@@ -90,7 +89,9 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
   ) : (
     <section className={cx(className, 'gallery', variants[variant])}>
       {items.map((x: any, i: any) => (
-        <div key={`gallery-item-${i}`} className='gallery__item'>{x}</div>
+        <div key={`gallery-item-${i}`} className="gallery__item">
+          {x}
+        </div>
       ))}
     </section>
   )

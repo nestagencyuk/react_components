@@ -18,9 +18,7 @@ const types = {
  * A simple page header component
  */
 const PageHeader = ({ className, type, children }: IHeader.IProps) => (
-  <header className={cx(className, 'page-header', types[type])}>
-    {children}
-  </header>
+  <header className={cx(className, 'page-header', types[type])}>{children}</header>
 )
 
 export default PageHeader

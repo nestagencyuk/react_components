@@ -41,7 +41,7 @@ const Slider = ({ className, type = 'Slide', init = 0, tick, items, nav }: ISlid
 
       const bodyStyle = {
         width: `${100 * total}%`,
-        transform: type === 'Slide' ? `translateX(-${(100 / total * current)}%)` : null
+        transform: type === 'Slide' ? `translateX(-${(100 / total) * current}%)` : null
       }
 
       const showDots = nav ? nav === 'Dots' : true
@@ -77,27 +77,33 @@ const Slider = ({ className, type = 'Slide', init = 0, tick, items, nav }: ISlid
 
       return (
         <section className={cx(className, 'slider', types[type])}>
-          <div className='slider__body'>
-            <div className='slider__items' style={bodyStyle}>
+          <div className="slider__body">
+            <div className="slider__items" style={bodyStyle}>
               {renderItems()}
             </div>
 
             {showButtons && (
               <Fragment>
-                <button className='slider__btn slider__btn--prev' onClick={() => setCurrent(prev)}>
+                <button className="slider__btn slider__btn--prev" onClick={() => setCurrent(prev)}>
                   Prev
-                  <Icon name='chevron-left' size='Large' colour='Light' />
+                  <Icon name="chevron-left" size="Large" colour="Light" />
                 </button>
-                <button className='slider__btn slider__btn--next' onClick={() => setCurrent(next)}>
+                <button className="slider__btn slider__btn--next" onClick={() => setCurrent(next)}>
                   Next
-                  <Icon name='chevron-right' size='Large' colour='Light' />
+                  <Icon name="chevron-right" size="Large" colour="Light" />
                 </button>
               </Fragment>
             )}
           </div>
 
           {showDots && (
-            <Pagination className='slider__nav' type='Dots' current={current} items={Array.from(Array(total).keys())} onCurrent={(i) => setCurrent(i)} />
+            <Pagination
+              className="slider__nav"
+              type="Dots"
+              current={current}
+              items={Array.from(Array(total).keys())}
+              onCurrent={(i) => setCurrent(i)}
+            />
           )}
         </section>
       )

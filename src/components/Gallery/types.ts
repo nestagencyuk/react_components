@@ -3,7 +3,9 @@ declare namespace IGallery {
     className?: string
     variant?: 'Tiles' | 'Masonry'
     lightbox?: boolean
-    items: any
+    items: React.ReactNode[] | ((value: {
+      handleClick: (i: number) => void
+    }) => React.ReactNode[])
   }
 }
 

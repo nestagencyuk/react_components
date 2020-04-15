@@ -9,8 +9,6 @@ import { Header } from '../Header'
 /**
  * The main modal header
  */
-const ModalHeader = (props: IModal.IHeaderProps) => props.heading ? (
-  <Header className='modal__header' {...props} />
-) : null
+const ModalHeader = (props: IModal.IHeaderProps) => (props.heading ? <Header className="modal__header" {...props} /> : null)
 
 export default ModalHeader

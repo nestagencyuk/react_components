@@ -7,7 +7,7 @@ declare namespace IBlock {
     className?: string
     image: IImageProps
     header?: IHeader.IProps
-    link: ILinkProps
+    link?: ILinkProps
     children: string
   }
 

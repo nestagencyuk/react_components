@@ -45,10 +45,16 @@ const Button = ({ className, component, href, type, icon, submit, disabled, chil
   const iconEnd = icon?.align === 'End'
 
   return (
-    <Tag className={cx(className, 'btn', types[type], iconAlignment[icon?.align])} type={btnType} to={href} disabled={disabled} onClick={onClick}>
-      {iconStart && <Icon className='btn__icn' {...icon} />}
+    <Tag
+      className={cx(className, 'btn', types[type], iconAlignment[icon?.align])}
+      type={btnType}
+      to={href}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {iconStart && <Icon className="btn__icn" {...icon} />}
       {children}
-      {iconEnd && <Icon className='btn__icn' {...icon} />}
+      {iconEnd && <Icon className="btn__icn" {...icon} />}
     </Tag>
   )
 }

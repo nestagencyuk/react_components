@@ -25,9 +25,7 @@ const Paginate = ({ init = 0, limit = 1, children }: IPaginate.IProps) => {
 
   return (
     <PaginateContext.Provider value={value}>
-      {typeof children === 'function'
-        ? children(value)
-        : children}
+      {typeof children === 'function' ? children(value) : children}
     </PaginateContext.Provider>
   )
 }

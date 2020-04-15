@@ -20,19 +20,29 @@ const types = {
  */
 const Pagination = ({ className, type = 'Numbers', current, items, onPrev, onCurrent, onNext }: IPagination.IProps) => (
   <ul className={cx(className, 'pagination', types[type])}>
-    {onPrev && <li className={cx('pagination__item')}>
-      <button className={cx('pagination__btn')} onClick={onPrev}>Prev</button>
-    </li>}
+    {onPrev && (
+      <li className={cx('pagination__item')}>
+        <button className={cx('pagination__btn')} onClick={onPrev}>
+          Prev
+        </button>
+      </li>
+    )}
 
     {items.map((x, i) => (
       <li key={`pagination-item-${i}`} className={cx('pagination__item')}>
-        <button className={cx('pagination__btn', { 'pagination__btn--active': current === i })} onClick={() => onCurrent(i)}>{x}</button>
+        <button className={cx('pagination__btn', { 'pagination__btn--active': current === i })} onClick={() => onCurrent(i)}>
+          {x}
+        </button>
       </li>
     ))}
 
-    {onNext && <li className={cx('pagination__item')}>
-      <button className={cx('pagination__btn')} onClick={onNext}>Next</button>
-    </li>}
+    {onNext && (
+      <li className={cx('pagination__item')}>
+        <button className={cx('pagination__btn')} onClick={onNext}>
+          Next
+        </button>
+      </li>
+    )}
   </ul>
 )
 

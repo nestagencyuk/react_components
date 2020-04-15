@@ -12,7 +12,6 @@ import '@nestagencyuk/scss_lib/dist/block.scss'
  */
 import { BlockHeader } from '.'
 import { Grid, GridItem } from '../Grid'
-import { Text } from '../Text'
 import { Image } from '../Image'
 import { Box } from '../Box'
 import { Link } from '../Link'
@@ -28,24 +27,28 @@ const Block = ({ className, image, header, link, children }: IBlock.IProps) => {
   const imageEnd = image?.align === 'End'
 
   return (
-    <Grid className={cx(className, 'block m--b-lg')}>
-      {imageStart && <GridItem span={6}>
-        <Image aspect={'1x1'} {...image} />
-      </GridItem>}
+    <Grid className={cx(className, 'block')}>
+      {imageStart && (
+        <GridItem span={6}>
+          <Image aspect={'1x1'} {...image} />
+        </GridItem>
+      )}
 
       <GridItem span={6}>
-        <Box className='p--xxl' align={{ x: 'Center', y: 'Center' }}>
+        <Box className="p--xxl" align={{ x: 'Center', y: 'Center' }}>
           <div>
             <BlockHeader {...header} />
-            <Text>{children}</Text>
+            {children}
             <Link {...link}>{link?.text}</Link>
           </div>
         </Box>
       </GridItem>
 
-      {imageEnd && <GridItem span={6}>
-        <Image aspect='1x1' {...image} />
-      </GridItem>}
+      {imageEnd && (
+        <GridItem span={6}>
+          <Image aspect="1x1" {...image} />
+        </GridItem>
+      )}
     </Grid>
   )
 }

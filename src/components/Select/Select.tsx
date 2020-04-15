@@ -64,7 +64,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
       />
 
       <SelectOptions open={open} options={filtered} optional={optional} handleClick={handleClick} />
-      <Icon className={cx('select__icn')} name={open ? 'chevron-up' : 'chevron-down'} colour='Dark' size='Small' />
+      <Icon className={cx('select__icn')} name={open ? 'chevron-up' : 'chevron-down'} colour="Dark" size="Small" />
     </span>
   )
 }

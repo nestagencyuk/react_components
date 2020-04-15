@@ -6,11 +6,11 @@ declare namespace ISelect {
     searchable?: boolean
     optional?: boolean
     placeholder?: string
-    options: Array<{
+    options?: Array<{
       value: string
       label: string
     }>
-    value: string
+    value?: string | string[]
     onChange: (e: string | string[]) => void
   }
 

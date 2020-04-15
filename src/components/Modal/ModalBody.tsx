@@ -5,6 +5,7 @@ import cx from 'classnames'
 /**
  * Modal body
  */
-const ModalBody = ({ children }: IModal.IBodyProps) => children ? <div className={cx('modal__body')}>{children}</div> : null
+const ModalBody = ({ children }: IModal.IBodyProps) =>
+  children ? <div className={cx('modal__body')}>{children}</div> : null
 
 export default ModalBody

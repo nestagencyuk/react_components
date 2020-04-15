@@ -24,9 +24,7 @@ const Toggle = ({ timeout, children }: IToggle.IProps) => {
 
   return (
     <ToggleContext.Provider value={value}>
-      {typeof children === 'function'
-        ? children(value)
-        : children}
+      {typeof children === 'function' ? children(value) : children}
     </ToggleContext.Provider>
   )
 }

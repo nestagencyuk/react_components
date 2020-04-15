@@ -3,8 +3,8 @@ declare namespace IInput {
     className?: string
     id: string
     name?: string
-    type: 'text' | 'date' | 'number' | 'email' | 'url' | 'tel'
-    value: string
+    type: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
+    value?: string
     onChange: (value: string) => void
   }
 }

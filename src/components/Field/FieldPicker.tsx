@@ -12,17 +12,17 @@ import { Select } from '../Select'
 /**
  * Field picker
  */
-const FieldPicker = ({ type, render, ...props }: any) => {
+const FieldPicker = ({ type, ...props }: IField.IProps) => {
   if (typeof type === 'object') {
     return type
   }
 
   switch (type) {
-    case 'select':
+    case 'Select':
       return <Select {...props} />
-    case 'checkbox':
+    case 'Checkbox':
       return <Checkbox {...props} />
-    case 'radio':
+    case 'Radio':
       return <Radio {...props} />
     default:
       return <Input type={type} {...props} />

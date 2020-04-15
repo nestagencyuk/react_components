@@ -15,17 +15,18 @@ import { Button } from '../Button'
 /**
  * A footer for use within a component
  */
-const Footer = ({ className, actions, subInfo }: IFooter.IProps) => actions || subInfo ? (
-  <footer className={cx(className, 'footer')}>
-    <div className='footer__actions'>
-      {actions.map((x, i) => (
-        <Button key={`footer-btn-${i}`} {...x}>{x.text}</Button>
-      ))}
-    </div>
-    {subInfo && <div className='footer__sub'>
-      {subInfo}
-    </div>}
-  </footer>
-) : null
+const Footer = ({ className, actions, subInfo }: IFooter.IProps) =>
+  actions || subInfo ? (
+    <footer className={cx(className, 'footer')}>
+      <div className="footer__actions">
+        {actions.map((x, i) => (
+          <Button key={`footer-btn-${i}`} {...x}>
+            {x.text}
+          </Button>
+        ))}
+      </div>
+      {subInfo && <div className="footer__sub">{subInfo}</div>}
+    </footer>
+  ) : null
 
 export default Footer

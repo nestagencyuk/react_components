@@ -9,7 +9,7 @@ declare namespace ILink {
     target?: string
     external?: boolean
     icon?: IIconProps
-    children: string
+    children?: string
   }
 
   interface IIconProps extends IIcon.IProps {
