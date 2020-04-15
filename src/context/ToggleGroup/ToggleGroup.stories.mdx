@@ -25,6 +25,23 @@ The most concise way of accessing the toggle state would be to use Render Props 
   </Story>
 </Preview>
 
+## Multi
+Have multiple toggles at once.
+
+<Preview>
+  <Story name='Multi'>
+    <ToggleGroup multi>
+      {({ toggles, setToggled }) => (
+        <Fragment>
+          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )}
+    </ToggleGroup>
+  </Story>
+</Preview>
+
 ## Context
 Alternatively, you can use `useContext` to access the toggle state.
 

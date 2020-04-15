@@ -1,3 +1,4 @@
+import { IToggle } from './types'
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 
@@ -9,7 +10,7 @@ import { ToggleContext } from '.'
 /**
  * Provide a boolean state
  */
-const Toggle = ({ timeout, children }: any) => {
+const Toggle = ({ timeout, children }: IToggle.IProps) => {
   const [toggled, setToggled] = useState(false)
   const value = { toggled, setToggled }
 

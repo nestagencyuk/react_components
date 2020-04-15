@@ -10,9 +10,9 @@ import { PaginateContext } from '.'
 /**
  * Provide a boolean state
  */
-const Paginate = ({ limit = 1, children }: IPaginate.IProps) => {
+const Paginate = ({ init = 0, limit = 1, children }: IPaginate.IProps) => {
   const [items, setItems] = useState([])
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(init)
   const value = { items, current, setCurrent }
 
   /**

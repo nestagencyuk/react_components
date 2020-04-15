@@ -1,6 +1,6 @@
 import { ISlider } from './types'
 import * as React from 'react'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import cx from 'classnames'
 
 /**
@@ -16,6 +16,7 @@ import { Paginate } from '../../context/Paginate'
 /**
  * Components
  */
+import { Icon } from '../Icon'
 import { Pagination } from '../Pagination'
 
 /**
@@ -29,8 +30,8 @@ const types = {
 /**
  * My component
  */
-const Slider = ({ type = 'Slide', tick, items }: ISlider.IProps) => (
-  <Paginate limit={1}>
+const Slider = ({ className, type = 'Slide', init = 0, tick, items, nav }: ISlider.IProps) => (
+  <Paginate init={init} limit={1}>
     {({ items: pageItems, current, setCurrent }) => {
       const total = items.length
       const max = total - 1
@@ -43,6 +44,9 @@ const Slider = ({ type = 'Slide', tick, items }: ISlider.IProps) => (
         transform: type === 'Slide' ? `translateX(-${(100 / total * current)}%)` : null
       }
 
+      const showDots = nav ? nav === 'Dots' : true
+      const showButtons = nav ? nav === 'Buttons' : true
+
       /**
        * Render slide items
        */
@@ -51,9 +55,12 @@ const Slider = ({ type = 'Slide', tick, items }: ISlider.IProps) => (
           const itemStyle = {
             transform: type === 'Fade' ? `translateX(-${100 * i}%)` : null
           }
-
           return (
-            <div key={`slide-${i}`} className={cx('slider__item', { 'slider__item--active': pageItems.includes(i) })} style={itemStyle}>
+            <div
+              key={`slide-${i}`}
+              className={cx('slider__item', { 'slider__item--active': pageItems.includes(i) })}
+              style={itemStyle}
+            >
               {x}
             </div>
           )
@@ -69,17 +76,29 @@ const Slider = ({ type = 'Slide', tick, items }: ISlider.IProps) => (
       }, [current])
 
       return (
-        <section className={cx('slider', types[type])}>
-          {/* <Button className='slider__btn slider__btn--prev' type='Primary' onClick={() => setCurrent(prev)}>Prev</Button>
-          <Button className='slider__btn slider__btn--next' type='Primary' onClick={() => setCurrent(next)}>Next</Button> */}
+        <section className={cx(className, 'slider', types[type])}>
+          <div className='slider__body'>
+            <div className='slider__items' style={bodyStyle}>
+              {renderItems()}
+            </div>
 
-          <div className='slider__body' style={bodyStyle}>
-            {renderItems()}
+            {showButtons && (
+              <Fragment>
+                <button className='slider__btn slider__btn--prev' onClick={() => setCurrent(prev)}>
+                  Prev
+                  <Icon name='chevron-left' size='Large' colour='Light' />
+                </button>
+                <button className='slider__btn slider__btn--next' onClick={() => setCurrent(next)}>
+                  Next
+                  <Icon name='chevron-right' size='Large' colour='Light' />
+                </button>
+              </Fragment>
+            )}
           </div>
 
-          <footer className='slider__footer'>
-            <Pagination type='Dots' current={current} items={Array.from(Array(total).keys())} onCurrent={(i) => setCurrent(i)} />
-          </footer>
+          {showDots && (
+            <Pagination className='slider__nav' type='Dots' current={current} items={Array.from(Array(total).keys())} onCurrent={(i) => setCurrent(i)} />
+          )}
         </section>
       )
     }}

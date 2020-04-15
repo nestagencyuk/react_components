@@ -11,12 +11,27 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <Preview>
   <Story name='Base'>
-    <Image aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
+    <Image aspect='1x1' src='https://source.unsplash.com/random/100x100' alt='My Image' />
+  </Story>
+</Preview>
+
+## Source Set
+Load different images based on screen size, using the `srcSet` prop.
+
+<Preview>
+  <Story name='SourceSet'>
+    <Image aspect='1x1' src='https://source.unsplash.com/random/100x100' srcSet={[{ media: '(min-width: 500px)', srcSet: 'https://source.unsplash.com/random/1000x1000'}]} alt='My Image' />
   </Story>
 </Preview>
 
 ## Aspect Ratios
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nasdisi ut aliqasuip ex ea commodo consequat.
+
+<Preview>
+  <Story name='7x3'>
+    <Image aspect='7x3' src='https://source.unsplash.com/random/700x300' alt='My Image' />
+  </Story>
+</Preview>
 
 <Preview>
   <Story name='16x9'>
@@ -51,6 +66,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <Preview>
   <Story name='Round'>
     <Image type='Round' aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
+  </Story>
+</Preview>
+
+## Caption
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Caption'>
+    <Image type='Rounded' aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' caption='A caption' />
   </Story>
 </Preview>
 

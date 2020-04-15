@@ -34,8 +34,8 @@ const iconAlignment = {
 /**
  * A visual button that will also render as <a> if it has a href
  */
-const Button = ({ className, href, type, icon, submit, disabled, children, onClick }: IButton.IProps) => {
-  const Tag = href ? RouterLink : 'button'
+const Button = ({ className, component, href, type, icon, submit, disabled, children, onClick }: IButton.IProps) => {
+  const Tag = component || (href ? RouterLink : 'button')
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
   /**

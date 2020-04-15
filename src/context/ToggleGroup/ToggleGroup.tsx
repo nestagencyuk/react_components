@@ -1,3 +1,4 @@
+import { IToggleGroup } from './types'
 import * as React from 'react'
 import { useState } from 'react'
 
@@ -9,7 +10,7 @@ import { ToggleGroupContext } from '.'
 /**
  * Open and close many things
  */
-const ToggleGroup = ({ multiOpen, children }: any) => {
+const ToggleGroup = ({ multi, children }: IToggleGroup.IProps) => {
   const [toggles, setToggles] = useState<any>({})
 
   /**
@@ -17,7 +18,7 @@ const ToggleGroup = ({ multiOpen, children }: any) => {
    */
   const setToggled = (id: string) => {
     setToggles((prev: any) => ({
-      ...(multiOpen ? prev : {}),
+      ...(multi ? prev : {}),
       [id]: !toggles[id]
     }))
   }

@@ -33,10 +33,10 @@ const alignments = {
 /**
  * A text component
  */
-const Text = ({ className, type = 'P', tag = 'p', align = 'Left', children }: IText.IProps) => {
+const Text = ({ className, type = 'P', tag = 'p', align = 'Left', inverse, children }: IText.IProps) => {
   const Tag: React.ElementType = tag
 
-  return children ? <Tag className={cx(className, 'text', types[type], alignments[align])}>{children}</Tag> : null
+  return children ? <Tag className={cx(className, 'text', types[type], alignments[align], { 'text--inverse': inverse })}>{children}</Tag> : null
 }
 
 export default Text

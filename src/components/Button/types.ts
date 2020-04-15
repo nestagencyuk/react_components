@@ -7,6 +7,7 @@ declare namespace IButton {
 
   interface IProps {
     className?: string
+    component?: React.FunctionComponent
     href?: string
     type: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
     icon?: IButtonIcon

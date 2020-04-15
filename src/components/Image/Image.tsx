@@ -26,20 +26,22 @@ const types = {
 const aspects = {
   '1x1': 'img--1x1',
   '4x3': 'img--4x3',
-  '16x9': 'img--16x9'
+  '16x9': 'img--16x9',
+  '7x3': 'img--7x3'
 }
 
 /**
- * My component
+ * An image with source set
  */
-const Image = ({ className, type, aspect, src, alt }: IImage.IProps) => (
-  <picture className={cx(className, 'img', types[type], aspects[aspect])}>
-    <span className={'img__loader'}>
-      <Loader type='Circle' />
-    </span>
-    <source media='(min-width: 500px)' srcSet={src} />
-    <img className={'img__item'} srcSet={src} alt={alt} />
-  </picture>
+const Image = ({ className, type, aspect, src, srcSet = [], alt, caption }: IImage.IProps) => (
+  <figure className={cx(className, 'img', types[type], aspects[aspect])}>
+    <picture className='img__picture'>
+      <span className={'img__loader'}><Loader type='Circle' /></span>
+      {srcSet.map((x, i) => <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />)}
+      <img className={'img__img'} src={src} alt={alt} />
+    </picture>
+    {caption && <figcaption className='img__caption'>{caption}</figcaption>}
+  </figure>
 )
 
 export default Image
