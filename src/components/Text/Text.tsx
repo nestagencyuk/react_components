@@ -37,7 +37,9 @@ const Text = ({ className, variant = 'P', tag = 'p', align = 'Left', inverse, ch
   const Tag: React.ElementType = tag
 
   return children ? (
-    <Tag className={cx(className, 'text', variants[variant], alignments[align], { 'text--inverse': inverse })}>{children}</Tag>
+    <Tag className={cx(className, 'text', variants[variant], alignments[align], { 'text--inverse': inverse })}>
+      {children}
+    </Tag>
   ) : null
 }
 

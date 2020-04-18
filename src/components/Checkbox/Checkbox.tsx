@@ -21,16 +21,11 @@ const Checkbox = ({ className, id, name, value, onChange }: ICheckbox.IProps) =>
       className={cx('checkbox__input')}
       id={id}
       name={name}
-      type='checkbox'
+      type="checkbox"
       checked={value || false}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
     />
-    <Icon
-      className={cx('checkbox__icn', { 'checkbox__icn--checked': value })}
-      name='tick'
-      colour='Light'
-      size='Small'
-    />
+    <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="tick" colour="Light" size="Small" />
   </label>
 )
 

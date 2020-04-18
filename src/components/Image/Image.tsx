@@ -38,16 +38,16 @@ const aspects = {
  */
 const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption }: IImage.IProps) => (
   <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
-    <picture className='img__picture'>
-      <span className='img__loader'>
-        <Loader variant='Circle' />
+    <picture className="img__picture">
+      <span className="img__loader">
+        <Loader variant="Circle" />
       </span>
       {srcSet.map((x, i) => (
         <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
       ))}
       <img className={'img__img'} src={src} alt={alt} />
     </picture>
-    {caption && <figcaption className='img__caption'>{caption}</figcaption>}
+    {caption && <figcaption className="img__caption">{caption}</figcaption>}
   </figure>
 )
 
