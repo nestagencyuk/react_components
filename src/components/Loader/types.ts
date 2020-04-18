@@ -1,7 +1,7 @@
 declare namespace ILoader {
   interface IProps {
     className?: string
-    type?: 'Circle' | 'Bounce' | 'Bars'
+    variant?: 'Circle' | 'Bounce' | 'Bars'
   }
 }
 

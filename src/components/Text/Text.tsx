@@ -10,7 +10,7 @@ import '@nestagencyuk/scss_lib/dist/text.scss'
 /**
  * Types
  */
-const types = {
+const variants = {
   Alpha: 'text--alpha',
   Beta: 'text--beta',
   Gamma: 'text--gamma',
@@ -33,11 +33,11 @@ const alignments = {
 /**
  * A text component
  */
-const Text = ({ className, type = 'P', tag = 'p', align = 'Left', inverse, children }: IText.IProps) => {
+const Text = ({ className, variant = 'P', tag = 'p', align = 'Left', inverse, children }: IText.IProps) => {
   const Tag: React.ElementType = tag
 
   return children ? (
-    <Tag className={cx(className, 'text', types[type], alignments[align], { 'text--inverse': inverse })}>{children}</Tag>
+    <Tag className={cx(className, 'text', variants[variant], alignments[align], { 'text--inverse': inverse })}>{children}</Tag>
   ) : null
 }
 

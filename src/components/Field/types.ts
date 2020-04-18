@@ -1,11 +1,14 @@
+import { UIState } from '../../types'
+import { IInput } from '../Input/types'
+
 declare namespace IField {
   interface IProps {
     className?: string
     id: string
     label?: string
     value?: any
-    type?: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel' | 'Select' | 'Checkbox' | 'Radio'
-    state: 'Success' | 'Warning' | 'Error'
+    type?: 'Select' | 'Checkbox' | 'Radio' | IInput.IProps['type']
+    state?: UIState
     msg?: string
     options?: any[]
     onChange: (e: any) => void

@@ -10,7 +10,7 @@ import '@nestagencyuk/scss_lib/dist/pagination.scss'
 /**
  * Types
  */
-const types = {
+const variants = {
   Numbers: 'pagination--numbers',
   Dots: 'pagination--dots'
 }
@@ -18,8 +18,8 @@ const types = {
 /**
  * Pagination dots
  */
-const Pagination = ({ className, type = 'Numbers', current, items, onPrev, onCurrent, onNext }: IPagination.IProps) => (
-  <ul className={cx(className, 'pagination', types[type])}>
+const Pagination = ({ className, variant = 'Numbers', current, items, onPrev, onCurrent, onNext }: IPagination.IProps) => (
+  <ul className={cx(className, 'pagination', variants[variant])}>
     {onPrev && (
       <li className={cx('pagination__item')}>
         <button className={cx('pagination__btn')} onClick={onPrev}>

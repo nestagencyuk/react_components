@@ -19,8 +19,8 @@ const icons = {
 /**
  * Render alert actions
  */
-const AlertIcon = ({ type }: IAlert.IIconProps) => (
-  <Icon className="alert__icn" name={icons[type]} colour={type === 'Info' ? 'Dark' : type} />
+const AlertIcon = ({ variant }: IAlert.IIconProps) => (
+  <Icon className='alert__icn' name={icons[variant]} colour={variant === 'Info' ? 'Dark' : variant} />
 )
 
 export default AlertIcon

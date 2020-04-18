@@ -26,7 +26,7 @@ The `portal` prop is perfect for creating content that renders over the main pag
     <Toggle>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type={'Primary'} onClick={() => setToggled(!toggled)}>{toggled ? 'Close' : 'Toggle'} Float</Button>
+          <Button onClick={() => setToggled(!toggled)}>{toggled ? 'Close' : 'Toggle'} Float</Button>
           {toggled && <Float portal>
             I am floating!
           </Float>}

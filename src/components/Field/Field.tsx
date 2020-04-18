@@ -20,16 +20,18 @@ import { FieldPicker } from '.'
 const states = {
   Success: 'field--success',
   Warning: 'field--warning',
-  Error: 'field--error'
+  Error: 'field--error',
+  Info: 'field--info'
 }
 
 /**
  * Validation icons
  */
-const icons: { [key: string]: string } = {
+const icons = {
   Success: 'Success',
   Warning: 'Info',
-  Error: 'Error'
+  Error: 'Error',
+  Info: 'Info'
 }
 
 /**
@@ -38,7 +40,7 @@ const icons: { [key: string]: string } = {
 const Field = ({ className, label, state, msg, ...props }: IField.IProps) => (
   <div className={cx(className, 'field', states[state])}>
     {label && (
-      <Label className="m m--r-md" for={props.id}>
+      <Label className='m m--r-md' for={props.id}>
         {label}
       </Label>
     )}

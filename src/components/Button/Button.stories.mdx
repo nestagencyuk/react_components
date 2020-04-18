@@ -12,7 +12,7 @@ For use as a main call to action.
 
 <Preview>
   <Story name='Primary'>
-    <Button type='Primary'>Primary Button</Button>
+    <Button>Primary Button</Button>
   </Story>
 </Preview>
 
@@ -21,7 +21,7 @@ Secondary buttons should be used sparingly, in instances where a primary button 
 
 <Preview>
   <Story name='Secondary'>
-    <Button type='Secondary'>Secondary Button</Button>
+    <Button variant='Secondary'>Secondary Button</Button>
   </Story>
 </Preview>
 
@@ -30,7 +30,7 @@ Tertiary buttons should be used in conjunction with primary buttons where there 
 
 <Preview>
   <Story name='Tertiary'>
-    <Button type='Tertiary'>Tertiary Button</Button>
+    <Button variant='Tertiary'>Tertiary Button</Button>
   </Story>
 </Preview>
 
@@ -40,7 +40,7 @@ If the `href` prop is supplied, the button will render correctly as an `<a>` tag
 <Preview>
   <Story name='Link'>
     <MemoryRouter>
-      <Button type='Primary' href='/'>Link Button</Button>
+      <Button href='/'>Link Button</Button>
     </MemoryRouter>
   </Story>
 </Preview>
@@ -51,9 +51,9 @@ Icon button
 <Preview>
   <Story name='Icon'>
     <div>
-      <Button type='Primary' icon={{ name: 'Chevron-left', align: 'Start' }}>Icon Button</Button>
-      <Button type='Secondary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
-      <Button type='Tertiary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
+      <Button icon={{ name: 'Chevron-left', align: 'Start' }}>Icon Button</Button>
+      <Button variant='Secondary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
+      <Button variant='Tertiary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
     </div>
   </Story>
 </Preview>

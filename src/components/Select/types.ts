@@ -2,7 +2,6 @@ declare namespace ISelect {
   interface IProps {
     className?: string
     id: string
-    state?: 'Success' | 'Warning' | 'Error'
     searchable?: boolean
     optional?: boolean
     placeholder?: string

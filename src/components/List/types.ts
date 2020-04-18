@@ -12,7 +12,7 @@ declare namespace IList {
 
   interface IItemProps {
     className?: string
-    children: React.ReactElement<ILink.IProps> | string
+    children: React.ReactElement<ILinkProps> | string
   }
 
   type ILinkProps = ILink.IProps

@@ -12,10 +12,12 @@ import { Select } from '../Select'
 /**
  * Field picker
  */
-const FieldPicker = ({ type, ...props }: IField.IProps) => {
+const FieldPicker = ({ type = 'Text', ...props }: IField.IProps) => {
   if (typeof type === 'object') {
     return type
   }
+
+  console.log(type)
 
   switch (type) {
     case 'Select':
