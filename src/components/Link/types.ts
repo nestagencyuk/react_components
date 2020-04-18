@@ -4,7 +4,7 @@ declare namespace ILink {
   interface IProps {
     className?: string
     component?: React.FunctionComponent
-    type?: 'Inverse'
+    variant?: 'Inverse'
     href?: string
     target?: string
     external?: boolean

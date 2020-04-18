@@ -16,7 +16,7 @@ const Radio = ({ className, id, name, value, onChange }: IRadio.IProps) => (
       className={cx('radio__input')}
       id={id}
       name={name}
-      type={'radio'}
+      type='radio'
       checked={value || false}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
     />

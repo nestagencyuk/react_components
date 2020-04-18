@@ -13,9 +13,9 @@ import '@nestagencyuk/scss_lib/dist/alert.scss'
 import { AlertClose, AlertIcon, AlertBody, AlertFooter } from '.'
 
 /**
- * Alert types
+ * Variants
  */
-const types = {
+const variants = {
   Success: 'alert--success',
   Warning: 'alert--warning',
   Error: 'alert--error',
@@ -25,10 +25,10 @@ const types = {
 /**
  * An alert with states
  */
-const Alert = ({ type = 'Info', footer, children, onClose }: IAlert.IProps) => (
-  <aside className={cx('alert', types[type])}>
+const Alert = ({ variant = 'Info', footer, children, onClose }: IAlert.IProps) => (
+  <aside className={cx('alert', variants[variant])}>
     <AlertClose onClick={onClose} />
-    <AlertIcon type={type} />
+    <AlertIcon variant={variant} />
     <AlertBody>{children}</AlertBody>
     <AlertFooter {...footer} />
   </aside>

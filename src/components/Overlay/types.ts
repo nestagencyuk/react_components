@@ -1,7 +1,7 @@
 declare namespace IOverlay {
   interface IProps {
     className?: string
-    type?: 'Inverse'
+    variant?: 'Inverse'
     portal?: boolean
     children?: React.ReactNode
     onClick?: () => void

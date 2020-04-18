@@ -4,7 +4,7 @@ declare namespace ITextarea {
     id: string
     name?: string
     value: string
-    onChange: (e: any) => void
+    onChange: (value: string) => void
   }
 }
 

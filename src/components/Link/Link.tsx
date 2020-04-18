@@ -14,16 +14,16 @@ import { Link as RouterLink } from 'react-router-dom'
 import { Icon } from '../Icon'
 
 /**
- * Link classes
+ * Variants
  */
-const types = {
+const variants = {
   Inverse: 'link--inverse'
 }
 
 /**
  * A simple link using React Router
  */
-const Link = ({ className, component, type, href, target, external, icon, children }: ILink.IProps) => {
+const Link = ({ className, component, variant, href, target, external, icon, children }: ILink.IProps) => {
   const Tag = component || (external ? 'a' : RouterLink)
 
   /**
@@ -33,10 +33,10 @@ const Link = ({ className, component, type, href, target, external, icon, childr
   const iconEnd = icon?.align === 'End'
 
   return children ? (
-    <Tag className={cx(className, 'link', types[type])} href={href} to={href} target={target}>
-      {iconStart && <Icon className="link__icn" name={icon.name} />}
+    <Tag className={cx(className, 'link', variants[variant])} href={href} to={href} target={target}>
+      {iconStart && <Icon className='link__icn' name={icon.name} />}
       <span>{children}</span>
-      {iconEnd && <Icon className="link__icn" name={icon.name} />}
+      {iconEnd && <Icon className='link__icn' name={icon.name} />}
     </Tag>
   ) : null
 }

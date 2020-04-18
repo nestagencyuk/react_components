@@ -18,7 +18,7 @@ import { Template } from './'
 
 describe('----- Template Component -----', () => {
   it('Renders the correct HTML', () => {
-    const htmlA = shallow(<Template type={'Primary'}>Template</Template>)
+    const htmlA = shallow(<Template>Template</Template>)
     expect(htmlA.html()).to.equal('<div class="template template--primary">Template</div>')
   })
 })

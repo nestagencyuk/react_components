@@ -13,7 +13,7 @@ import { Icon } from '../Icon'
  */
 const CollapseHeader = ({ className, active, heading, onClick }: ICollapse.IHeaderProps) => (
   <button className={cx(className, 'collapse__header')} onClick={onClick}>
-    <Text className="collapse__heading" type="Intro" tag="span">
+    <Text className='collapse__heading' variant='Intro' tag='span'>
       {heading}
     </Text>
     <Icon name={active ? 'Chevron-up' : 'Chevron-down'} />

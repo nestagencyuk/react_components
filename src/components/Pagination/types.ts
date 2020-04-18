@@ -1,7 +1,7 @@
 declare namespace IPagination {
   interface IProps {
     className?: string
-    type?: 'Numbers' | 'Dots'
+    variant?: 'Numbers' | 'Dots'
     current: number
     items: any[]
     onPrev?: () => void

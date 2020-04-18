@@ -1,7 +1,7 @@
 declare namespace IHeader {
   interface IProps {
     className?: string
-    type?: 'Fixed'
+    variant?: 'Fixed'
     children?: React.ReactNode
   }
 }

@@ -18,7 +18,7 @@ For use to indicate a boolean value.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Checkbox id={'checkbox'} value={value} onChange={setValue} />
+          <Checkbox id='checkbox' value={value} onChange={setValue} />
         </div>
       )
     }}
@@ -38,9 +38,9 @@ For use to indicate multiple boolean values.
       return (
         <div>
           <Text>Values selected: {JSON.stringify(values)}</Text>
-          <Checkbox name={'checkbox'} value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
-          <Checkbox name={'checkbox'} value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
-          <Checkbox name={'checkbox'} value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
+          <Checkbox id='checkbox' value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
+          <Checkbox id='checkbox' value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
+          <Checkbox id='checkbox' value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
         </div>
       )
     }}

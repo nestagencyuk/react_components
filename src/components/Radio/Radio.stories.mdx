@@ -18,7 +18,7 @@ For use to indicate a boolean value.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Radio id={'radio'} value={value} onChange={setValue} />
+          <Radio id='radio' value={value} onChange={setValue} />
         </div> 
       )
     }}
@@ -35,9 +35,9 @@ For use to indicate multiple boolean values.
       return (
         <div>
           <Text>Value selected: {JSON.stringify(value)}</Text>
-          <Radio name={'radio'} value={value === 'cat'} onChange={(value) => setValue('cat', value)} />
-          <Radio name={'radio'} value={value === 'dog'} onChange={(value) => setValue('dog', value)} />
-          <Radio name={'radio'} value={value === 'horse'} onChange={(value) => setValue('horse', value)} />
+          <Radio id='radio' value={value === 'cat'} onChange={(value) => setValue('cat', value)} />
+          <Radio id='radio' value={value === 'dog'} onChange={(value) => setValue('dog', value)} />
+          <Radio id='radio' value={value === 'horse'} onChange={(value) => setValue('horse', value)} />
         </div>
       )
     }}

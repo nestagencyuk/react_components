@@ -16,9 +16,9 @@ The most concise way of accessing the toggle state would be to use Render Props 
     <ToggleGroup>
       {({ toggles, setToggled }) => (
         <Fragment>
-          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
         </Fragment>
       )}
     </ToggleGroup>
@@ -33,9 +33,9 @@ Have multiple toggles at once.
     <ToggleGroup multi>
       {({ toggles, setToggled }) => (
         <Fragment>
-          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
         </Fragment>
       )}
     </ToggleGroup>
@@ -52,9 +52,9 @@ Alternatively, you can use `useContext` to access the toggle state.
         const { toggles, setToggled } = useContext(ToggleGroupContext)
         return (
           <Fragment>
-            <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-            <Button className='m m--r-md' type={'Primary'} onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-            <Button type={'Primary'} onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
           </Fragment>
         )
       }

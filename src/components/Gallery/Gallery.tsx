@@ -39,13 +39,13 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
    */
   const masonry = () => {
     const items = ref.current.querySelectorAll('.gallery__item')
+
     for (let x = 0; x < items.length; x++) {
       const item = items[x] as HTMLElement
       const rowHeight = parseInt(window.getComputedStyle(ref.current).getPropertyValue('grid-auto-rows'))
       const rowGap = parseInt(window.getComputedStyle(ref.current).getPropertyValue('grid-row-gap'))
       const innerItem = item.querySelector('.img')
       const rowSpan = Math.ceil((innerItem.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap))
-
       item.style.gridRowEnd = `span ${rowSpan}`
     }
   }
@@ -74,14 +74,14 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
         return (
           <section ref={ref} className={cx(className, 'gallery', variants[variant])}>
             {toggled && (
-              <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
+              <Float className='gallery__float' portal align={{ x: 'Center', y: 'Center' }}>
                 <Overlay portal onClick={() => setToggled(false)} />
-                <Slider className="gallery__slider" type="Fade" init={init} nav="Buttons" items={childItems} />
+                <Slider className='gallery__slider' variant='Fade' init={init} nav='Buttons' items={childItems} />
               </Float>
             )}
 
             {childItems.map((x: any, i: any) => (
-              <div key={`gallery-item-${i}`} className="gallery__item">
+              <div key={`gallery-item-${i}`} className='gallery__item'>
                 {x}
               </div>
             ))}
@@ -93,7 +93,7 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
     <section className={cx(className, 'gallery', variants[variant])}>
       {Array.isArray(items) &&
         items.map((x: any, i: any) => (
-          <div key={`gallery-item-${i}`} className="gallery__item">
+          <div key={`gallery-item-${i}`} className='gallery__item'>
             {x}
           </div>
         ))}

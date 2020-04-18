@@ -10,7 +10,7 @@ import '@nestagencyuk/scss_lib/dist/input.scss'
 /**
  * A user input
  */
-const Input = ({ className, id, name, type, value, onChange }: IInput.IProps) => (
+const Input = ({ className, id, name, type = 'Text', value, onChange }: IInput.IProps) => (
   <input
     className={cx(className, 'input')}
     id={id}

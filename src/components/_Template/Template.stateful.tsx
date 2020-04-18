@@ -13,7 +13,7 @@ import cx from 'classnames'
 /**
  * Classes
  */
-const types = {
+const variants = {
   Primary: 'template--primary',
   Secondary: 'template--secondary',
   Tertiary: 'template--tertiary'
@@ -22,11 +22,11 @@ const types = {
 /**
  * My stateful component
  */
-const Template = ({ className, type, children }: ITemplate.IProps) => {
+const Template = ({ className, variant = 'Primary', children }: ITemplate.IProps) => {
   const [myState, setMyState] = useState(false)
 
   return (
-    <div className={cx(className, 'template', types[type])}>
+    <div className={cx(className, 'template', variants[variant])}>
       My state: {myState ? 'On' : 'Off'}
       <button onClick={() => setMyState(true)}>Click me!</button>
       {children}
