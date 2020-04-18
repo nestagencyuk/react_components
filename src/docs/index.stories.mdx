@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import '../../dist/assets/main.css'
+import '../../dist/assets/logo.png'
 
 <Meta title='Getting Started|Introduction' component={null} />
 
@@ -15,7 +16,7 @@ This repository contains Nest's React components for use across the business. Th
 ## Usage:
 Install:
 ```sh
-$ npm i nest-components
+$ npm i @nestagencyuk/react_components
 ```
 
 Import the desired components into your .jsx or .tsx files. This will include the components in their unstyled format. To include styles, read our [style docs](/?path=/docs/getting-started-sass-modules--page)
@@ -25,23 +26,3 @@ import { Button } from 'nest-components'
 
 ReactDOM.render(<Button />, document.getElementById('app'))
 ```
-
-## To Do
-Features & ideas still to complete:
-
-### Components
-- [ ] Table
-- [ ] Card
-- [ ] Multi select
-
-<!-- ### Interactions
-- [ ]  -->
-
-### General
-- [ ] Change "type" prop to "variant"
-- [ ] Document utility classes
-- [ ] Document SCSS library
-- [ ] Add example dashboard style page
-- [ ] Add example page with modals & alerts
-- [ ] Add A11y improvements
-- [ ] Write cypress tests for modals, alerts, tooltips & other Interactions
