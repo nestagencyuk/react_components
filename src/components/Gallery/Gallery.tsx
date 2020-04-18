@@ -63,17 +63,20 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
     <Toggle>
       {({ toggled, setToggled }: any) => {
         const [init, setInit] = useState(0)
+
         const handleClick = (i: number) => {
           setToggled(true)
           setInit(i)
         }
-        const childItems = items({ handleClick })
+
+        const childItems = typeof items === 'function' && items({ handleClick })
+
         return (
           <section ref={ref} className={cx(className, 'gallery', variants[variant])}>
             {toggled && (
               <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
                 <Overlay portal onClick={() => setToggled(false)} />
-                <Slider className="gallery__slider" type="Fade" init={init} nav="Buttons" items={items({ handleClick })} />
+                <Slider className="gallery__slider" type="Fade" init={init} nav="Buttons" items={childItems} />
               </Float>
             )}
 
@@ -88,11 +91,12 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
     </Toggle>
   ) : (
     <section className={cx(className, 'gallery', variants[variant])}>
-      {items.map((x: any, i: any) => (
-        <div key={`gallery-item-${i}`} className="gallery__item">
-          {x}
-        </div>
-      ))}
+      {Array.isArray(items) &&
+        items.map((x: any, i: any) => (
+          <div key={`gallery-item-${i}`} className="gallery__item">
+            {x}
+          </div>
+        ))}
     </section>
   )
 }
