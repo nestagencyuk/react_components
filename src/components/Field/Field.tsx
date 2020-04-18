@@ -20,16 +20,18 @@ import { FieldPicker } from '.'
 const states = {
   Success: 'field--success',
   Warning: 'field--warning',
-  Error: 'field--error'
+  Error: 'field--error',
+  Info: 'field--info'
 }
 
 /**
  * Validation icons
  */
-const icons: { [key: string]: string } = {
+const icons = {
   Success: 'Success',
   Warning: 'Info',
-  Error: 'Error'
+  Error: 'Error',
+  Info: 'Info'
 }
 
 /**

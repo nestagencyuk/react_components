@@ -40,7 +40,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
     <Toggle>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type={'Primary'} onClick={() => setToggled(true)}>Open Modal</Button>
+          <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
             <Float portal align={{ x: 'Center', y: 'Center' }}>
               <Overlay portal onClick={() => setToggled(false)} />

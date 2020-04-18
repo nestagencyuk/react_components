@@ -8,17 +8,17 @@ import * as cx from 'classnames'
 import '@nestagencyuk/scss_lib/dist/page-header.scss'
 
 /**
- * Header classes
+ * Variants
  */
-const types = {
+const variants = {
   Fixed: 'page-header--fixed'
 }
 
 /**
  * A simple page header component
  */
-const PageHeader = ({ className, type, children }: IHeader.IProps) => (
-  <header className={cx(className, 'page-header', types[type])}>{children}</header>
+const PageHeader = ({ className, variant, children }: IHeader.IProps) => (
+  <header className={cx(className, 'page-header', variants[variant])}>{children}</header>
 )
 
 export default PageHeader

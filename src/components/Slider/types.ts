@@ -1,7 +1,7 @@
 declare namespace ISlider {
   interface IProps {
     className?: string
-    type?: 'Fade' | 'Slide'
+    variant?: 'Fade' | 'Slide'
     nav?: 'Buttons' | 'Dots'
     init?: number
     tick?: number

@@ -14,7 +14,7 @@ The most concise way of accessing the toggle state would be to use Render Props 
 <Preview>
   <Story name='Base'>
     <Toggle>
-      {({ toggled, setToggled }) => <Button type='Primary' onClick={() => setToggled(!toggled)}>{toggled ? 'Untoggle' : 'Toggle me!'}</Button>}
+      {({ toggled, setToggled }) => <Button onClick={() => setToggled(!toggled)}>{toggled ? 'Untoggle' : 'Toggle me!'}</Button>}
     </Toggle>
   </Story>
 </Preview>
@@ -28,7 +28,7 @@ Alternatively, you can use `useContext` to access the toggle state.
       const App = () => {
         const { toggled, setToggled } = useContext(ToggleContext)
         return (
-          <Button type='Primary' onClick={() => setToggled(!toggled)}>{toggled ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled(!toggled)}>{toggled ? 'Untoggle' : 'Toggle me!'}</Button>
         )
       }
       return (

@@ -15,7 +15,7 @@ import { Loader } from '../Loader'
 /**
  * Image classes
  */
-const types = {
+const variants = {
   Rounded: 'img--rounded',
   Round: 'img--round'
 }
@@ -36,11 +36,11 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image = ({ className, type, aspect, src, srcSet = [], alt, caption }: IImage.IProps) => (
-  <figure className={cx(className, 'img', types[type], aspects[aspect])}>
+const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption }: IImage.IProps) => (
+  <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
     <picture className="img__picture">
-      <span className={'img__loader'}>
-        <Loader type="Circle" />
+      <span className="img__loader">
+        <Loader variant="Circle" />
       </span>
       {srcSet.map((x, i) => (
         <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />

@@ -16,7 +16,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Base'>
-    <Alert inline>
+    <Alert>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </Alert>
   </Story>
@@ -30,7 +30,7 @@ To create an alert popover, the base alert component can be combined with [Toggl
     <Toggle>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type='Primary' onClick={() => setToggled(true)}>Open Alert</Button>
+          <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
             <Alert onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
@@ -48,7 +48,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 ### Error
 <Preview>
   <Story name='Alert-Error'>
-    <Alert inline type='Error'>
+    <Alert variant='Error'>
       There was an error!
     </Alert>
   </Story>
@@ -57,7 +57,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 ### Warning
 <Preview>
   <Story name='Alert-Warning'>
-    <Alert inline type='Warning'>
+    <Alert variant='Warning'>
       I'm warning you...
     </Alert>
   </Story>
@@ -66,7 +66,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 ### Success
 <Preview>
   <Story name='Alert-Success'>
-    <Alert inline type='Success'>
+    <Alert variant='Success'>
       Wow, it worked!
     </Alert>
   </Story>
@@ -80,9 +80,9 @@ Set a timeout so that the alert disappeares after some time.
     <Toggle timeout={2000}>
       {({ toggled, setToggled }) => (
         <Fragment>
-          <Button type='Primary' onClick={() => setToggled(true)}>Open Success Alert</Button>
+          <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert type='Success'>
+            <Alert variant='Success'>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -102,13 +102,13 @@ An alert can be used to determine an action.
         const [decision, setDecision] = useState(null)
         return (
           <Fragment>
-            <Button type='Primary' onClick={() => setToggled(true)}>Do something mad!</Button>
+            <Button onClick={() => setToggled(true)}>Do something mad!</Button>
             {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
             {toggled && <Float portal>
-              <Alert type='Warning' footer={{
+              <Alert variant='Warning' footer={{
                 actions: [
-                  { text: 'No', type: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
-                  { text: 'Yes', type: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
+                  { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
+                  { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
                 ]
               }}>
                 Are you sure you want to do this crazy thing?!
@@ -124,7 +124,3 @@ An alert can be used to determine an action.
 ## Prop Types
 
 <Props of={Alert} />
-
-## To Do
-- A11y improvements - trap focus within an alert when it appears if a user action is required
-- Write Cypress tests

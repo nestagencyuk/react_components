@@ -14,9 +14,9 @@ import { Icon } from '../Icon'
 import { Link as RouterLink } from 'react-router-dom'
 
 /**
- * Types
+ * Variants
  */
-const types = {
+const variants = {
   Primary: 'btn--primary',
   Secondary: 'btn--secondary',
   Tertiary: 'btn--tertiary',
@@ -34,7 +34,17 @@ const iconAlignment = {
 /**
  * A visual button that will also render as <a> if it has a href
  */
-const Button = ({ className, component, href, type, icon, submit, disabled, children, onClick }: IButton.IProps) => {
+const Button = ({
+  className,
+  component,
+  href,
+  variant = 'Primary',
+  icon,
+  submit,
+  disabled,
+  children,
+  onClick
+}: IButton.IProps) => {
   const Tag = component || (href ? RouterLink : 'button')
   const btnType = submit ? 'submit' : !href ? 'button' : undefined
 
@@ -46,7 +56,7 @@ const Button = ({ className, component, href, type, icon, submit, disabled, chil
 
   return (
     <Tag
-      className={cx(className, 'btn', types[type], iconAlignment[icon?.align])}
+      className={cx(className, 'btn', variants[variant], iconAlignment[icon?.align])}
       type={btnType}
       to={href}
       disabled={disabled}

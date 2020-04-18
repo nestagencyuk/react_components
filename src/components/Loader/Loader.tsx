@@ -10,7 +10,7 @@ import '@nestagencyuk/scss_lib/dist/loader.scss'
 /**
  * Types
  */
-const types = {
+const variants = {
   Circle: 'loader--circle',
   Bounce: 'loader--bounce',
   Bars: 'loader--bars'
@@ -19,8 +19,8 @@ const types = {
 /**
  * Loader
  */
-const Loader = ({ className, type = 'Circle' }: ILoader.IProps) => {
-  return <div className={cx(className, 'loader', types[type])} />
+const Loader = ({ className, variant = 'Circle' }: ILoader.IProps) => {
+  return <div className={cx(className, 'loader', variants[variant])} />
 }
 
 export default Loader

@@ -1,7 +1,6 @@
 import { ISelect } from './types'
 import * as React from 'react'
 import { useState } from 'react'
-import cx from 'classnames'
 
 /**
  * Styles
@@ -24,8 +23,8 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
   /**
    * Handle change
    */
-  const handleChange = (value: any) => {
-    const isOption = value && options.find((x: any) => x.label.toLowerCase() === value.toLowerCase())
+  const handleChange = (value: string) => {
+    const isOption = value && options.find((x) => x.label.toLowerCase() === value.toLowerCase())
     setTempValue(value)
     if (isOption) {
       onChange(isOption.value)
@@ -47,13 +46,13 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
    * Filter the options if a search value has been entered
    */
   const filtered = searchable
-    ? options.filter((x: any) => x.label?.toLowerCase().includes(tempValue?.toLowerCase() || ''))
+    ? options.filter((x) => x.label?.toLowerCase().includes(tempValue?.toLowerCase() || ''))
     : options
 
   return (
-    <span className={cx('select')} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
+    <span className="select" onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
       <input
-        className={cx('select__input')}
+        className="select__input"
         id={id}
         name={id}
         value={tempValue || ''}
@@ -64,7 +63,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
       />
 
       <SelectOptions open={open} options={filtered} optional={optional} handleClick={handleClick} />
-      <Icon className={cx('select__icn')} name={open ? 'chevron-up' : 'chevron-down'} colour="Dark" size="Small" />
+      <Icon className="select__icn" name={open ? 'chevron-up' : 'chevron-down'} colour="Dark" size="Small" />
     </span>
   )
 }

@@ -9,21 +9,21 @@ import cx from 'classnames'
 import '@nestagencyuk/scss_lib/dist/overlay.scss'
 
 /**
- * Types
+ * Variants
  */
-const types = {
+const variants = {
   Inverse: 'overlay--inverse'
 }
 
 /**
  * An overlay
  */
-const Overlay = ({ className, type, portal, children, onClick }: IOverlay.IProps) => {
+const Overlay = ({ className, variant, portal, children, onClick }: IOverlay.IProps) => {
   /**
    * Render the component
    */
   const renderOverlay = () => (
-    <div className={cx(className, 'overlay', types[type])} onClick={onClick}>
+    <div className={cx(className, 'overlay', variants[variant])} onClick={onClick}>
       {children}
     </div>
   )

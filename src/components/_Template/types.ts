@@ -1,7 +1,7 @@
 declare namespace ITemplate {
   interface IProps {
     className?: string
-    type: 'Primary' | 'Secondary' | 'Tertiary'
+    variant?: 'Primary' | 'Secondary' | 'Tertiary'
     children: React.ReactNode
   }
 }

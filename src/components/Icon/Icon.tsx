@@ -25,7 +25,8 @@ const colours = {
   Light: 'icn--light',
   Success: 'icn--success',
   Warning: 'icn--warning',
-  Error: 'icn--error'
+  Error: 'icn--error',
+  Info: 'icn--info'
 }
 
 /**
