@@ -11,9 +11,9 @@ import { Icon } from '../Icon'
  */
 const AlertClose = ({ onClick }: IAlert.ICloseProps) =>
   onClick ? (
-    <button className='alert__close' onClick={() => onClick(false)}>
+    <button className="alert__close" onClick={() => onClick(false)}>
       Close
-      <Icon name='cross' />
+      <Icon name="cross" />
     </button>
   ) : null
 
