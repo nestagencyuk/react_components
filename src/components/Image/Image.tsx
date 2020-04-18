@@ -24,10 +24,13 @@ const types = {
  * Image aspects
  */
 const aspects = {
-  '1x1': 'img--1x1',
-  '4x3': 'img--4x3',
+  '7x3': 'img--7x3',
   '16x9': 'img--16x9',
-  '7x3': 'img--7x3'
+  '4x3': 'img--4x3',
+  '2x3': 'img--2x3',
+  '3x4': 'img--3x4',
+  '4x5': 'img--4x5',
+  '1x1': 'img--1x1'
 }
 
 /**
