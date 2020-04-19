@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useState } from 'react'
+import { Text } from '../Text'
 import { Image } from '../Image'
 import { Box } from '../Box'
 import { Gallery } from '.'
@@ -24,6 +25,53 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     ]} />
   </Story>
 </Preview>
+
+## Masonry
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Masonry'>
+    <Gallery variant='Masonry' items={[
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 1</Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Maecenas pharetra convallis posuere morbi leo urna. Dui faucibus in ornare quam viverra. Leo a diam sollicitudin tempor id eu. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Eget est lorem ipsum dolor sit amet. Tellus orci ac auctor augue mauris augue. Risus quis varius quam quisque id. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Curabitur vitae nunc sed velit dignissim sodales.
+        </div>
+      </Box>,
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 2</Text>
+          Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Eget est lorem ipsum dolor sit amet. Tellus orci ac auctor augue mauris augue. Risus quis varius quam quisque id. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Curabitur vitae nunc sed velit dignissim sodales.
+        </div>
+      </Box>,
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 3</Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Eget est lorem ipsum dolor sit amet. Tellus orci ac auctor augue mauris augue. Risus quis varius quam quisque id. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Curabitur vitae nunc sed velit dignissim sodales.
+        </div>
+      </Box>,
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 4</Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Maecenas pharetra convallis posuere morbi leo urna. Dui faucibus in ornare quam viverra. Leo a diam sollicitudin tempor id eu. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Eget est lorem ipsum dolor sit amet. Tellus orci ac auctor augue mauris augue.
+        </div>
+      </Box>,
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 5</Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra convallis posuere morbi leo urna. Dui faucibus in ornare quam viverra. Leo a diam sollicitudin tempor id eu. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Eget est lorem ipsum dolor sit amet. 
+        </div>
+      </Box>,
+      <Box className='p--md bg--ui-one'>
+        <div>
+          <Text variant='Gamma' tag='h3'>Heading 6</Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Maecenas pharetra convallis posuere morbi leo urna. Dui faucibus in ornare quam viverra. Leo a diam sollicitudin tempor id eu Tellus orci ac auctor augue mauris augue. Risus quis varius quam quisque id. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Curabitur vitae nunc sed velit dignissim sodales. Risus quis varius quam quisque id. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Curabitur vitae nunc sed velit dignissim sodales.
+        </div>
+      </Box>,
+    ]} />
+  </Story>
+</Preview>
+
 
 ## Lightbox
 To create a lightbox/slider effect, you must pass `handleClick` to a button within each gallery item to trigger opening the lightbox.
@@ -57,7 +105,7 @@ To create a lightbox/slider effect, you must pass `handleClick` to a button with
 To create a lightbox/slider effect, you must pass `handleClick` to a button within each gallery item to trigger opening the lightbox.
 
 <Preview>
-  <Story name='Masonry'>
+  <Story name='Lightbox-Masonry'>
     <Gallery variant='Masonry' lightbox items={({ handleClick }) => [
       <div style={{ cursor: 'pointer' }} onClick={() => handleClick(0)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
@@ -68,22 +116,22 @@ To create a lightbox/slider effect, you must pass `handleClick` to a button with
       <div style={{ cursor: 'pointer' }} onClick={() => handleClick(2)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1001x1001' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(4)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(3)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1002x1003' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(3)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(4)}>
         <Image aspect='4x3' src='https://source.unsplash.com/random/801x601' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(0)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(5)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1003x1003' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(2)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(6)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1004x1004' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(5)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(7)}>
         <Image aspect='4x3' src='https://source.unsplash.com/random/802x602' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(1)}>
+      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(8)}>
         <Image aspect='4x3' src='https://source.unsplash.com/random/803x603' alt='My Image' />
       </div>,
     ]} />
