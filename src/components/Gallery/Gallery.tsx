@@ -50,7 +50,9 @@ const LightBoxGallery = ({ className, variant, items }: IGallery.IProps) => (
   <Toggle>
     {({ toggled, setToggled }: any) => {
       const ref = useRef<HTMLElement>()
-      const refs = useRef<Array<React.RefObject<HTMLDivElement>>>(Array.from(Array(typeof items === 'function' && items({}).length).keys()).map(() => createRef()))
+      const refs = useRef<Array<React.RefObject<HTMLDivElement>>>(
+        Array.from(Array(typeof items === 'function' && items({}).length).keys()).map(() => createRef())
+      )
       const [init, setInit] = useState(0)
 
       /**
@@ -75,14 +77,14 @@ const LightBoxGallery = ({ className, variant, items }: IGallery.IProps) => (
       return (
         <section ref={ref} className={cx(className, 'gallery', variants[variant])}>
           {toggled && (
-            <Float className='gallery__float' portal align={{ x: 'Center', y: 'Center' }}>
+            <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
               <Overlay portal onClick={() => setToggled(false)} />
-              <Slider className='gallery__slider' variant='Fade' init={init} nav='Buttons' items={childItems} />
+              <Slider className="gallery__slider" variant="Fade" init={init} nav="Buttons" items={childItems} />
             </Float>
           )}
 
           {childItems.map((x: any, i: any) => (
-            <div ref={refs.current[i]} key={`gallery-item-${i}`} className='gallery__item'>
+            <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
               {x}
             </div>
           ))}
@@ -114,7 +116,7 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
     <section ref={ref} className={cx(className, 'gallery', variants[variant])}>
       {Array.isArray(items) &&
         items.map((x: any, i: any) => (
-          <div ref={refs.current[i]} key={`gallery-item-${i}`} className='gallery__item'>
+          <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
             {x}
           </div>
         ))}

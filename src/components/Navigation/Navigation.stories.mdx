@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { MemoryRouter } from 'react-router-dom'
 import { Navigation } from '.'
+import logo from  '../../assets/img/logo.png'
 
 <Meta title='Layout|Navigation' component={Navigation} />
 
@@ -14,7 +15,7 @@ A common navigation style.
   <Story name='Base'>
     <MemoryRouter>
       <Navigation 
-        brand={{ align: 'Center', image: { src: '/assets/logo.png', alt: 'My Company Logo'} }} 
+        brand={{ align: 'Center', image: { src: logo, alt: 'My Company Logo'} }} 
         links={[
           { text: 'Home', align: 'Start', href: '/' },
           { text: 'About', align: 'Start', href: '/' },
@@ -56,7 +57,7 @@ The navigation logo
   <Story name='Align-Start'>
     <MemoryRouter>
       <Navigation 
-        brand={{ align: 'Start', image: { src: '/assets/logo.png', alt: 'My Company Logo'} }} 
+        brand={{ align: 'Start', image: { src: logo, alt: 'My Company Logo'} }} 
         links={[
           { text: 'Home', align: 'Start', href: '/' },
           { text: 'About', align: 'Start', href: '/' },
@@ -76,7 +77,7 @@ The navigation logo
   <Story name='Align-End'>
     <MemoryRouter>
       <Navigation 
-        brand={{ align: 'End', image: { src: '/assets/logo.png', alt: 'My Company Logo'} }} 
+        brand={{ align: 'End', image: { src: logo, alt: 'My Company Logo'} }} 
         links={[
           { text: 'Home', align: 'End', href: '/' },
           { text: 'About', align: 'End', href: '/' },
@@ -96,7 +97,7 @@ The navigation logo
   <Story name='Align-Mixed'>
     <MemoryRouter>
       <Navigation 
-        brand={{ align: 'Start', image: { src: '/assets/logo.png', alt: 'My Company Logo'} }} 
+        brand={{ align: 'Start', image: { src: logo, alt: 'My Company Logo'} }} 
         links={[
           { text: 'Home', align: 'Start', href: '/' },
           { text: 'About', align: 'Start', href: '/' },
