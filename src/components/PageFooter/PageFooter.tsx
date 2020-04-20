@@ -23,7 +23,7 @@ const PageFooter = ({ className, image, links = [], subInfo }: IPageFooter.IProp
 
   return (
     <footer className={cx(className, 'page-footer')}>
-      <Grid className='page-footer__body' gutter>
+      <Grid className="page-footer__body" gutter>
         {image && (
           <GridItem span={2}>
             <div className={'page-footer__img'}>
