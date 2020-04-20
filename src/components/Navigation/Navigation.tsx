@@ -29,6 +29,7 @@ const brandAlignment = {
 const Navigation = ({ className, brand, links = [] }: INavigation.IProps) => {
   const [toggled, setToggled] = useState(false)
   const startLinks = links.filter((x) => x.align === 'Start')
+  const centerLinks = links.filter((x) => x.align === 'Center')
   const endLinks = links.filter((x) => x.align === 'End')
 
   /**
@@ -47,6 +48,7 @@ const Navigation = ({ className, brand, links = [] }: INavigation.IProps) => {
       </div>
       <div className="nav__lists">
         <NavigationList align={'Start'} items={startLinks} />
+        <NavigationList align={'Center'} items={centerLinks} />
         <NavigationList align={'End'} items={endLinks} />
       </div>
     </nav>
