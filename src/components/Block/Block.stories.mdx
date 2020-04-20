@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { MemoryRouter } from 'react-router-dom'
+import { Text } from '../Text'
 import { Block } from '.'
 
 <Meta title='Layout|Block' component={Block} />
@@ -14,7 +15,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name='Base'>
     <MemoryRouter>
       <Block image={{ align: 'Start', src: 'https://source.unsplash.com/random/1000x1000', alt: 'Block Image'}} header={{ heading: 'Heading', subheading: 'Sub Heading'}}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </Text>
+      </Block>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Condensed
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Condensed'>
+    <MemoryRouter>
+      <Block variant='Condensed' image={{ align: 'Start', src: 'https://source.unsplash.com/random/1000x1000', alt: 'Block Image'}} header={{ heading: 'Heading', subheading: 'Sub Heading'}}>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </Text>
       </Block>
     </MemoryRouter>
   </Story>
@@ -27,7 +45,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name='Link'>
     <MemoryRouter>
       <Block image={{ align: 'Start', src: 'https://source.unsplash.com/random/1000x1000', alt: 'Block Image'}} header={{ heading: 'Heading', subheading: 'Sub Heading'}} link={{ href: '/', text: 'Lorem' }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </Text>
       </Block>
     </MemoryRouter>
   </Story>
@@ -40,7 +60,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name='AlignEnd'>
     <MemoryRouter>
       <Block image={{ align: 'End', src: 'https://source.unsplash.com/random/1000x1000', alt: 'Block Image'}} link={{ href: '/', text: 'Lorem' }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </Text>
       </Block>
     </MemoryRouter>
   </Story>

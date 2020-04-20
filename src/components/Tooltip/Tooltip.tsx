@@ -13,9 +13,9 @@ import '@nestagencyuk/scss_lib/dist/tooltip.scss'
  * A tooltip
  */
 const Tooltip = ({ attachTo, trigger = 'Hover', align = 'Left', children }: ITooltip.IProps) => {
-  const ref = useRef<HTMLElement>()
   const [toggled, setToggled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const ref = useRef<HTMLElement>()
 
   /**
    * Get the x & y positions

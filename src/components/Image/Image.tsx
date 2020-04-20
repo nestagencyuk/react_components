@@ -1,5 +1,6 @@
 import { IImage } from './types'
 import * as React from 'react'
+import { useRef, useEffect, useState } from 'react'
 import cx from 'classnames'
 
 /**
@@ -36,19 +37,41 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption }: IImage.IProps) => (
-  <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
-    <picture className="img__picture">
-      <span className="img__loader">
-        <Loader variant="Circle" />
-      </span>
-      {srcSet.map((x, i) => (
-        <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
-      ))}
-      <img className={'img__img'} src={src} alt={alt} />
-    </picture>
-    {caption && <figcaption className="img__caption">{caption}</figcaption>}
-  </figure>
-)
+const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onLoad }: IImage.IProps) => {
+  const ref = useRef<HTMLImageElement>()
+  const [loading, setLoading] = useState(true)
+
+  /**
+   * Set loading
+   */
+  useEffect(() => {
+    ref.current.addEventListener('load', () => setLoading(false))
+  }, [])
+
+  /**
+   * On load, trigger an onLoad fn if necessary
+   */
+  useEffect(() => {
+    if (loading || !onLoad) return
+    onLoad()
+  }, [loading])
+
+  return (
+    <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
+      <picture className="img__picture">
+        {loading && (
+          <span className="img__loader">
+            <Loader variant="Circle" />
+          </span>
+        )}
+        {srcSet.map((x, i) => (
+          <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
+        ))}
+        <img ref={ref} className={'img__img'} src={src} alt={alt} />
+      </picture>
+      {caption && <figcaption className="img__caption">{caption}</figcaption>}
+    </figure>
+  )
+}
 
 export default Image

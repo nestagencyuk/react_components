@@ -5,24 +5,27 @@ import '../../dist/assets/logo.png'
 <Meta title='Getting Started|Introduction' component={null} />
 
 # Introduction
-
 This repository contains Nest's React components for use across the business. The main purpose of this project is to provide a single source of truth of components for use internally and across all client projects.
 
-## Requirements: 
+## Requirements
 - [Node.js](https://nodejs.org/) v9+
 - [React.js](https://reactjs.org/) v16+
 - [Sass](https://www.npmjs.com/package/sass) v1.25+ (for component style modules only)
 
-## Usage:
-Install:
-```sh
+## Usage
+Simply install from npm:
+
+```zsh
 $ npm i @nestagencyuk/react_components
 ```
 
-Import the desired components into your .jsx or .tsx files. This will include the components in their unstyled format. To include styles, read our [style docs](/?path=/docs/getting-started-sass-modules--page)
+Import the desired components into your .jsx or .tsx files. This will include the components in their unstyled format. To include styles, include the compiled `main.css` file straight into your project.
+
+> For creating themes and overriding our base styles, see our [style docs](/?path=/docs/getting-started-styles--page)
 
 ```js
 import { Button } from 'nest-components'
+import '@nestagencyuk/react_components/dist/assets/main.css' // Optional
 
 ReactDOM.render(<Button />, document.getElementById('app'))
 ```

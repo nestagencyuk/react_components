@@ -5,6 +5,7 @@ import { ILink } from '../Link/types'
 declare namespace IBlock {
   interface IProps {
     className?: string
+    variant?: 'Large' | 'Condensed'
     image: IImageProps
     header?: IHeader.IProps
     link?: ILinkProps
