@@ -33,12 +33,13 @@ const variants = {
  */
 const masonry = (wrapper: any, items: any) => {
   if (!wrapper) return
-  const gap = window.getComputedStyle(wrapper).getPropertyValue('grid-column-gap')
+  const rowHeight = parseInt(window.getComputedStyle(wrapper).getPropertyValue('grid-auto-rows'))
+  const rowGap = parseInt(window.getComputedStyle(wrapper).getPropertyValue('grid-gap'))
 
   items.forEach((x: any) => {
     const item = x.current.firstChild as HTMLElement
-    console.log(parseInt(gap))
-    x.current.style.gridRowEnd = `span ${item.clientHeight + parseInt(gap)}`
+    const rowSpan = Math.ceil((item.clientHeight + rowGap) / (rowHeight + rowGap))
+    x.current.style.gridRowEnd = `span ${rowSpan}`
   })
 }
 
@@ -102,7 +103,7 @@ const Gallery = ({ className, variant = 'Tiles', items, lightbox }: IGallery.IPr
    * Determine if masonry grid and resize
    */
   useEffect(() => {
-    if (variant !== 'Masonry') return
+    if (lightbox || variant !== 'Masonry') return
     masonry(ref.current, refs.current)
     window.addEventListener('resize', () => masonry(ref.current, refs.current))
   }, [])

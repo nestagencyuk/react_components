@@ -19,7 +19,7 @@ const alignment = {
 /**
  * The list to hold the navigation links
  */
-const NavigationList = ({ align, items = [] }: INavigation.IListProps) => (
+const NavigationList = ({ align, items = [] }: INavigation.IListProps) => items.length > 0 ? (
   <ul className={cx('nav__list', alignment[align])}>
     {items.map((x, i) => (
       <NavigationItem key={`item-${i}`}>
@@ -27,6 +27,6 @@ const NavigationList = ({ align, items = [] }: INavigation.IListProps) => (
       </NavigationItem>
     ))}
   </ul>
-)
+) : null
 
 export default NavigationList

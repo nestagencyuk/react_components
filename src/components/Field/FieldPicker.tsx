@@ -17,8 +17,6 @@ const FieldPicker = ({ type = 'Text', ...props }: IField.IProps) => {
     return type
   }
 
-  console.log(type)
-
   switch (type) {
     case 'Select':
       return <Select {...props} />
