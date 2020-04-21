@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { MemoryRouter } from 'react-router-dom'
 import { PageFooter } from '.'
+import logo from '../../assets/img/logo.png'
 
 <Meta title='Layout|Page Footer' component={PageFooter} />
 
@@ -16,7 +17,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
   <Story name='Base'>
     <MemoryRouter>
       <PageFooter 
-        image={{ type: 'Round', src: '/assets/logo.png', alt: 'Logo' }} 
+        image={{ type: 'Round', aspect: '1x1', src: logo, alt: 'Logo' }} 
         links={[
           { text: 'Home', align: 'Start', href: '/', }, 
           { text: 'About', align: 'Start', href: '/', }, 

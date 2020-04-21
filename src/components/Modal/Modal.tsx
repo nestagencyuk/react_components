@@ -15,8 +15,8 @@ import { ModalClose, ModalHeader, ModalBody, ModalFooter } from '.'
 /**
  * A modal using React portal to render at the DOM body root
  */
-const Modal = ({ header, footer, children, onClose }: IModal.IProps) => (
-  <aside className={cx('modal')}>
+const Modal = ({ className, header, footer, children, onClose }: IModal.IProps) => (
+  <aside className={cx(className, 'modal')}>
     <ModalClose onClick={onClose} />
     <ModalHeader {...header} />
     <ModalBody>{children}</ModalBody>

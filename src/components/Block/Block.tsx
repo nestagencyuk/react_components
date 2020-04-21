@@ -38,7 +38,7 @@ const Block = ({ className, variant = 'Large', image, header, link, children }: 
     <Grid className={cx(className, 'block')}>
       {imageStart && (
         <GridItem span={variants[variant]}>
-          <Image aspect={'1x1'} {...image} />
+          <Image aspect="1x1" {...image} />
         </GridItem>
       )}
 

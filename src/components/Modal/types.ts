@@ -3,6 +3,7 @@ import { IFooter } from '../Footer/types'
 
 declare namespace IModal {
   interface IProps {
+    className?: string
     header?: IHeaderProps
     footer?: IFooterProps
     children: React.ReactNode
