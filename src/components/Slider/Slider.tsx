@@ -77,20 +77,20 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: IS
 
       return (
         <section className={cx(className, 'slider', variants[variant])}>
-          <div className='slider__body'>
-            <div className='slider__items' style={bodyStyle}>
+          <div className="slider__body">
+            <div className="slider__items" style={bodyStyle}>
               {renderItems()}
             </div>
 
             {showButtons && (
               <Fragment>
-                <button className='slider__btn slider__btn--prev' onClick={() => setCurrent(prev)}>
+                <button className="slider__btn slider__btn--prev" onClick={() => setCurrent(prev)}>
                   Prev
-                  <Icon name='chevron-left' size='Large' colour='Light' />
+                  <Icon name="chevron-left" size="Large" colour="Light" />
                 </button>
-                <button className='slider__btn slider__btn--next' onClick={() => setCurrent(next)}>
+                <button className="slider__btn slider__btn--next" onClick={() => setCurrent(next)}>
                   Next
-                  <Icon name='chevron-right' size='Large' colour='Light' />
+                  <Icon name="chevron-right" size="Large" colour="Light" />
                 </button>
               </Fragment>
             )}
@@ -98,8 +98,8 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: IS
 
           {showDots && (
             <Pagination
-              className='slider__nav'
-              variant='Dots'
+              className="slider__nav"
+              variant="Dots"
               current={current}
               items={Array.from(Array(total).keys())}
               onCurrent={(i) => setCurrent(i)}

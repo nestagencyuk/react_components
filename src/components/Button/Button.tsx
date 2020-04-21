@@ -62,9 +62,9 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {iconStart && <Icon className='btn__icn' {...icon} />}
+      {iconStart && <Icon className="btn__icn" {...icon} />}
       {children}
-      {iconEnd && <Icon className='btn__icn' {...icon} />}
+      {iconEnd && <Icon className="btn__icn" {...icon} />}
     </Tag>
   )
 }
