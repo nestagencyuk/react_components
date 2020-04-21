@@ -50,9 +50,9 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
     : options
 
   return (
-    <span className="select" onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
+    <span className='select' onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
       <input
-        className="select__input"
+        className='select__input'
         id={id}
         name={id}
         value={tempValue || ''}
@@ -63,7 +63,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
       />
 
       <SelectOptions open={open} options={filtered} optional={optional} handleClick={handleClick} />
-      <Icon className="select__icn" name={open ? 'chevron-up' : 'chevron-down'} colour="Dark" size="Small" />
+      <Icon className='select__icn' name={open ? 'chevron-up' : 'chevron-down'} colour='Dark' size='Small' />
     </span>
   )
 }

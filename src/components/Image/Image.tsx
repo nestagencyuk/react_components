@@ -58,10 +58,10 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onL
 
   return (
     <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
-      <picture className="img__picture">
+      <picture className='img__picture'>
         {loading && (
-          <span className="img__loader">
-            <Loader variant="Circle" />
+          <span className='img__loader'>
+            <Loader variant='Circle' />
           </span>
         )}
         {srcSet.map((x, i) => (
@@ -69,7 +69,7 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onL
         ))}
         <img ref={ref} className={'img__img'} src={src} alt={alt} />
       </picture>
-      {caption && <figcaption className="img__caption">{caption}</figcaption>}
+      {caption && <figcaption className='img__caption'>{caption}</figcaption>}
     </figure>
   )
 }

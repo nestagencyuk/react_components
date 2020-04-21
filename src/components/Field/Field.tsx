@@ -40,7 +40,7 @@ const icons = {
 const Field = ({ className, label, state, msg, ...props }: IField.IProps) => (
   <div className={cx(className, 'field', states[state])}>
     {label && (
-      <Label className="m m--r-md" for={props.id}>
+      <Label className='m m--r-md' for={props.id}>
         {label}
       </Label>
     )}
