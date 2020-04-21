@@ -27,7 +27,7 @@ const PageFooter = ({ className, image, links = [], subInfo }: IPageFooter.IProp
         {image && (
           <GridItem span={2}>
             <div className={'page-footer__img'}>
-              <Image aspect={'1x1'} {...image} />
+              <Image {...image} />
             </div>
           </GridItem>
         )}
