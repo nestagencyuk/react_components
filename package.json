@@ -1,6 +1,6 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -16,6 +16,7 @@
     "build": "npm run lint && npm run build:components && npm run build:docs && npm run test:coverage",
     "build:components": "rm -rf ./dist && webpack --env.NODE_ENV=production",
     "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir ./docs",
+    "serve": "webpack-dev-server",
     "clean": "rm ./package-lock.json && rm -rf ./node_modules && npm i"
   },
   "repository": {
