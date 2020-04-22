@@ -25,6 +25,7 @@ const variants = {
  * Image aspects
  */
 const aspects = {
+  '4x1': 'img--4x1',
   '7x3': 'img--7x3',
   '16x9': 'img--16x9',
   '4x3': 'img--4x3',

@@ -24,14 +24,6 @@ const variants = {
 }
 
 /**
- * Icon alignments
- */
-const iconAlignment = {
-  Start: 'btn--start',
-  End: 'btn--end'
-}
-
-/**
  * A visual button that will also render as <a> if it has a href
  */
 const Button = ({
@@ -56,14 +48,14 @@ const Button = ({
 
   return (
     <Tag
-      className={cx(className, 'btn', variants[variant], iconAlignment[icon?.align])}
+      className={cx(className, 'btn', variants[variant])}
       type={btnType}
       to={href}
       disabled={disabled}
       onClick={onClick}
     >
       {iconStart && <Icon className="btn__icn" {...icon} />}
-      {children}
+      <span>{children}</span>
       {iconEnd && <Icon className="btn__icn" {...icon} />}
     </Tag>
   )

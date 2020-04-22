@@ -10,8 +10,8 @@ import { Link } from '../Link'
 /**
  * My component
  */
-const PageFooterLink = ({ className, href, children, ...other }: IPageFooter.ILinkProps) => (
-  <Link className={cx(className, 'page-footer__link')} variant="Inverse" href={href} {...other}>
+const PageFooterLink = ({ className, children, ...props }: IPageFooter.ILinkProps) => (
+  <Link className={cx(className, 'page-footer__link')} {...props}>
     {children}
   </Link>
 )

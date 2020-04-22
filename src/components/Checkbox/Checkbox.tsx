@@ -15,14 +15,15 @@ import { Icon } from '../Icon'
 /**
  * A checkbox
  */
-const Checkbox = ({ className, id, name, value, onChange }: ICheckbox.IProps) => (
-  <label className={cx(className, 'checkbox', { 'checkbox--checked': value })}>
+const Checkbox = ({ className, id, name, value, disabled, onChange }: ICheckbox.IProps) => (
+  <label className={cx(className, 'checkbox', { 'checkbox--checked': value }, { 'checkbox--disabled': disabled })}>
     <input
       className={cx('checkbox__input')}
       id={id}
       name={name}
       type="checkbox"
       checked={value || false}
+      disabled={disabled}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
     />
     <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="tick" colour="Light" size="Small" />

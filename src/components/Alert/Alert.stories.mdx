@@ -22,27 +22,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
   </Story>
 </Preview>
 
-## Toggle
-To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/interaction-toggle--base) and [Float](/?path=/docs/layout-float--base).
-
-<Preview>
-  <Story name='Toggle'>
-    <Toggle>
-      {({ toggled, setToggled }) => (
-        <Fragment>
-          <Button onClick={() => setToggled(true)}>Open Alert</Button>
-          {toggled && <Float portal>
-            <Alert onClose={setToggled}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
-            </Alert>
-          </Float>}
-        </Fragment>
-      )}
-    </Toggle>
-  </Story>
-</Preview>
-
-## Types
+## Variants
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 ### Error
@@ -69,6 +49,26 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
     <Alert variant='Success'>
       Wow, it worked!
     </Alert>
+  </Story>
+</Preview>
+
+## Toggle
+To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/interaction-toggle--base) and [Float](/?path=/docs/layout-float--base).
+
+<Preview>
+  <Story name='Toggle'>
+    <Toggle>
+      {({ toggled, setToggled }) => (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Open Alert</Button>
+          {toggled && <Float portal>
+            <Alert onClose={setToggled}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+            </Alert>
+          </Float>}
+        </Fragment>
+      )}
+    </Toggle>
   </Story>
 </Preview>
 

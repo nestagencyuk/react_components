@@ -10,8 +10,8 @@ import { Link } from '../Link'
 /**
  * List link
  */
-const ListLink = ({ className, href, children, ...other }: IList.ILinkProps) => (
-  <Link className={cx(className, 'list__link')} href={href} {...other}>
+const ListLink = ({ className, children, ...props }: IList.ILinkProps) => (
+  <Link className={cx(className, 'list__link')} {...props}>
     {children}
   </Link>
 )

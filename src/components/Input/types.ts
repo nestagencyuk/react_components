@@ -5,6 +5,7 @@ declare namespace IInput {
     name?: string
     type: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
     value?: string
+    disabled?: boolean
     onChange: (value: string) => void
   }
 }

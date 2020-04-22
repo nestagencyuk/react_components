@@ -14,7 +14,30 @@ For use within paragraphs.
 <Preview>
   <Story name='Base'>
     <MemoryRouter>
-      <Link href='/'>primary link</Link>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, <Link href='/'>primary link</Link> posuere quis elementum non, commodo molestie odio.
+      </Text>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Variants
+Lorem.
+
+### Primary
+<Preview>
+  <Story name='Primary'>
+    <MemoryRouter>
+      <Link variant='Primary' href='/' external>Primary link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### Secondary
+<Preview>
+  <Story name='Secondary'>
+    <MemoryRouter>
+      <Link variant='Secondary' href='/' external>Secondary link</Link>
     </MemoryRouter>
   </Story>
 </Preview>
