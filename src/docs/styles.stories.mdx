@@ -18,7 +18,7 @@ $ npm i @nestagencyuk/scss_lib
 This package contains all of the styles you see here in this component library, but in their pre-compiled state; ready for theming. Each component and config is exported as individual "modules", meaning you only have to include the styles that you need. [Modules](https://sass-lang.com/documentation/at-rules/use#configuring-modules) are a relatively new (and awesome!) feature of Sass which solve a lot of config/library related issues. We prefer this method as it provides maximum flexibility, allowing you to easily override default styles.
 
 ### Setup
-Create an `index.scss` file somewhere in your project and paste the code below. You can omit files that you find unnecessary as you become familiar with how the theming works - this is simply to demonstrate the options available.
+Create an `index.scss` file somewhere in your project and paste the code below. You can omit files that you find unnecessary as you become familiar with how the theming works - this is simply to demonstrate the options available. 
 
 ```scss
 /// ----------------------------------------------------------------------
@@ -121,6 +121,8 @@ Each config file has a set of overrideable variables which you can pass to the m
 ```
 
 > For these changes to apply everywhere, config files should always come first so that the variables are set before 
+
+> When adding your brand colours, we advise your `$brand-one` be the darker of the two.
 
 #### Config
 Components will work in exactly the same way, although some have more powerful overrides available which will auto-generate BEM modifiers for you. A good example is the Button component, which has a `$types` map. To change the button types, simply override the whole map:

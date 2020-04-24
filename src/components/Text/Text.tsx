@@ -18,7 +18,7 @@ const variants = {
   Epsilon: 'text--epsilon',
   Intro: 'text--intro',
   P: 'text--p',
-  Small: 'text--small'
+  Small: 'text--sm'
 }
 
 /**

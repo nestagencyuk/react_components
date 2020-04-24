@@ -17,13 +17,14 @@ import { Icon } from '../Icon'
  * Variants
  */
 const variants = {
-  Inverse: 'link--inverse'
+  Primary: 'link--primary',
+  Secondary: 'link--secondary'
 }
 
 /**
  * A simple link using React Router
  */
-const Link = ({ className, component, variant, href, target, external, icon, children }: ILink.IProps) => {
+const Link = ({ className, component, variant = 'Primary', href, target, external, icon, children }: ILink.IProps) => {
   const Tag = component || (external ? 'a' : RouterLink)
 
   /**

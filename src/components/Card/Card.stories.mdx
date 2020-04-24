@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { MemoryRouter } from 'react-router-dom'
+import { Text } from '../Text'
+import { Card } from '.'
+
+<Meta title='Components|Card' component={Card} />
+
+# Card
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Base'>
+    <MemoryRouter>
+      <Card
+        image={{
+          aspect: '16x9',
+          src: 'https://source.unsplash.com/random/1600x900',
+          alt: 'My Image'
+        }}
+        header={{
+          heading: 'Heading',
+          size: 'Small',
+          subheading: 'Sub Heading',
+        }}
+        footer={{
+          actions: [
+            { text: 'Read More', variant: 'Primary', size: 'Small', href: '/' },
+          ],
+          subInfo: 'Sub info'
+        }}
+      >
+      <Text variant='Small'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Text>
+      </Card>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Card} />

@@ -17,17 +17,18 @@ import { Box } from '../Box'
 import { Link } from '../Link'
 
 /**
- * Variants
+ * Sizes
  */
-const variants = {
-  Large: 6,
-  Condensed: 4
+const sizes = {
+  Small: 2,
+  Medium: 4,
+  Large: 6
 }
 
 /**
  * My component
  */
-const Block = ({ className, variant = 'Large', image, header, link, children }: IBlock.IProps) => {
+const Block = ({ className, size = 'Medium', image, header, link, children }: IBlock.IProps) => {
   /**
    * Image alignment
    */
@@ -37,15 +38,15 @@ const Block = ({ className, variant = 'Large', image, header, link, children }: 
   return (
     <Grid className={cx(className, 'block')}>
       {imageStart && (
-        <GridItem span={variants[variant]}>
+        <GridItem span={sizes[size]}>
           <Image aspect="1x1" {...image} />
         </GridItem>
       )}
 
-      <GridItem span={12 - variants[variant]}>
-        <Box className="p--xxl" align={{ x: 'Center', y: 'Center' }}>
+      <GridItem span={12 - sizes[size]}>
+        <Box className={cx(size === 'Small' ? 'p--l-xl p--r-xl' : 'p--xxl')} align={{ x: 'Center', y: 'Center' }}>
           <div>
-            <BlockHeader {...header} />
+            <BlockHeader size={size} {...header} />
             {children}
             <Link {...link}>{link?.text}</Link>
           </div>
@@ -53,7 +54,7 @@ const Block = ({ className, variant = 'Large', image, header, link, children }: 
       </GridItem>
 
       {imageEnd && (
-        <GridItem span={variants[variant]}>
+        <GridItem span={sizes[size]}>
           <Image aspect="1x1" {...image} />
         </GridItem>
       )}

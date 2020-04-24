@@ -11,7 +11,7 @@ import { Image } from '../Image'
  */
 const NavigationBrand = ({ image, href = '/' }: INavigation.IBrandProps) => (
   <a className="nav__brand" href={href}>
-    <Image className="nav__img" aspect={image.aspect} src={image.src} alt={image.alt} />
+    <Image className="nav__img" {...image} />
   </a>
 )
 
