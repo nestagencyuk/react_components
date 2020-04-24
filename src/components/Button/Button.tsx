@@ -24,11 +24,12 @@ const variants = {
 }
 
 /**
- * Icon alignments
+ * Sizes
  */
-const iconAlignment = {
-  Start: 'btn--start',
-  End: 'btn--end'
+const sizes = {
+  Small: 'btn--sm',
+  Medium: 'btn--md',
+  Large: 'btn--lg'
 }
 
 /**
@@ -39,6 +40,7 @@ const Button = ({
   component,
   href,
   variant = 'Primary',
+  size = 'Medium',
   icon,
   submit,
   disabled,
@@ -56,14 +58,14 @@ const Button = ({
 
   return (
     <Tag
-      className={cx(className, 'btn', variants[variant], iconAlignment[icon?.align])}
+      className={cx(className, 'btn', variants[variant], sizes[size])}
       type={btnType}
       to={href}
       disabled={disabled}
       onClick={onClick}
     >
       {iconStart && <Icon className="btn__icn" {...icon} />}
-      {children}
+      <span>{children}</span>
       {iconEnd && <Icon className="btn__icn" {...icon} />}
     </Tag>
   )

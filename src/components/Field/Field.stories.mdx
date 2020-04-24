@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
+import { Button } from '../Button'
 import { Text } from '../Text'
 import { Field } from '.'
 
@@ -16,7 +17,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     {() => {
       const [value, setValue] = useState('')
       return (
-        <Field id='field' label='Name' value={value} onChange={setValue} />
+        <Fragment>
+          <Field id='field' label='Name' value={value} onChange={setValue} />
+          <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
+        </Fragment>
       )
     }}
   </Story>

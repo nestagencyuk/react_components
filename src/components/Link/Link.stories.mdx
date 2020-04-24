@@ -14,18 +14,51 @@ For use within paragraphs.
 <Preview>
   <Story name='Base'>
     <MemoryRouter>
-      <Link href='/'>primary link</Link>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, <Link href='/'>primary link</Link> posuere quis elementum non, commodo molestie odio.
+      </Text>
     </MemoryRouter>
   </Story>
 </Preview>
 
-## External
-If the link isn't using React Router, flag it as `external`.
+## Variants
+Lorem.
 
+### Primary
+<Preview>
+  <Story name='Primary'>
+    <MemoryRouter>
+      <Link variant='Primary' href='/'>primary link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### Secondary
+<Preview>
+  <Story name='Secondary'>
+    <MemoryRouter>
+      <Link variant='Secondary' href='/'>Secondary link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Routing
+If the link isn't using React Router, flag it as `external` to render a normal `<a>` or you can pass a custom Link component via the `component` prop.
+
+### External
 <Preview>
   <Story name='External'>
     <MemoryRouter>
       <Link href='/' external>external link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### Custom
+<Preview>
+  <Story name='Custom'>
+    <MemoryRouter>
+      <Link component={() => <a>custom link</a>} href='/'>custom link</Link>
     </MemoryRouter>
   </Story>
 </Preview>

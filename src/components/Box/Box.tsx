@@ -27,8 +27,8 @@ const alignY = {
 /**
  * My component
  */
-const Box = ({ className, align, children }: IBox.IProps) => (
-  <div className={cx(className, 'box', alignX[align?.x], alignY[align?.y])}>{children}</div>
+const Box = ({ className, align, fill, children }: IBox.IProps) => (
+  <div className={cx(className, 'box', alignX[align?.x], alignY[align?.y], { 'box--fill': fill })}>{children}</div>
 )
 
 export default Box

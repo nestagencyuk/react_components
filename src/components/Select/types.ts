@@ -10,6 +10,7 @@ declare namespace ISelect {
       label: string
     }>
     value?: string | string[]
+    disabled?: boolean
     onChange: (e: string | string[]) => void
   }
 

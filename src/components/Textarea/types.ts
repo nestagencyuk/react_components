@@ -4,6 +4,7 @@ declare namespace ITextarea {
     id: string
     name?: string
     value: string
+    disabled?: boolean
     onChange: (value: string) => void
   }
 }

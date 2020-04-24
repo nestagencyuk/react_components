@@ -1,6 +1,7 @@
 import { ISelect } from './types'
 import * as React from 'react'
 import { useState } from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
@@ -16,7 +17,7 @@ import { Icon } from '../Icon'
 /**
  * Determine which select type to render
  */
-const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.IProps) => {
+const Select = ({ id, options, value, optional, searchable, disabled, onChange }: ISelect.IProps) => {
   const [tempValue, setTempValue] = useState(null)
   const [open, setOpen] = useState(false)
 
@@ -50,7 +51,12 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
     : options
 
   return (
-    <span className="select" onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
+    <span
+      className={cx('select', { 'select--disabled': disabled })}
+      onFocus={() => setOpen(true)}
+      onBlur={() => setOpen(false)}
+      tabIndex={-1}
+    >
       <input
         className="select__input"
         id={id}
@@ -58,6 +64,7 @@ const Select = ({ id, options, value, optional, searchable, onChange }: ISelect.
         value={tempValue || ''}
         readOnly={!searchable}
         placeholder={searchable ? 'Type to search...' : '-- Select --'}
+        disabled={disabled}
         onFocus={() => setOpen(true)}
         onChange={(e) => handleChange(e.target.value)}
       />

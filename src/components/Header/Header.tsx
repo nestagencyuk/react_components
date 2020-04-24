@@ -13,15 +13,33 @@ import '@nestagencyuk/scss_lib/dist/header.scss'
 import { Text } from '../Text'
 
 /**
+ * Sizes
+ */
+const sizes: any = {
+  Small: {
+    heading: 'Intro',
+    subheading: 'Small'
+  },
+  Medium: {
+    heading: 'Epsilon',
+    subheading: 'Intro'
+  },
+  Large: {
+    heading: 'Gamma',
+    subheading: 'Intro'
+  }
+}
+
+/**
  * A simple header component with a heading and subheading
  */
-const Header = ({ className, heading, subheading }: IHeader.IProps) => (
+const Header = ({ className, size = 'Medium', heading, subheading }: IHeader.IProps) => (
   <header className={cx(className, 'header')}>
-    <Text tag="h2" variant="Gamma">
+    <Text tag="h2" variant={sizes[size].heading}>
       {heading}
     </Text>
 
-    <Text tag="h3" variant="Intro">
+    <Text tag="h3" variant={sizes[size].subheading}>
       {subheading}
     </Text>
   </header>

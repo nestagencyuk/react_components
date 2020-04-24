@@ -7,6 +7,7 @@ declare namespace IBox {
       x?: Alignment
       y?: Alignment
     }
+    fill?: boolean
     children: any
   }
 }
