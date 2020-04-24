@@ -51,7 +51,12 @@ const Select = ({ id, options, value, optional, searchable, disabled, onChange }
     : options
 
   return (
-    <span className={cx('select', { 'select--disabled': disabled })} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} tabIndex={-1}>
+    <span
+      className={cx('select', { 'select--disabled': disabled })}
+      onFocus={() => setOpen(true)}
+      onBlur={() => setOpen(false)}
+      tabIndex={-1}
+    >
       <input
         className="select__input"
         id={id}

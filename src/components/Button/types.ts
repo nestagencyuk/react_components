@@ -1,3 +1,4 @@
+import { Size } from '../../types'
 import { IIcon } from '../Icon/types'
 
 declare namespace IButton {
@@ -6,6 +7,7 @@ declare namespace IButton {
     component?: React.FC
     href?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
+    size?: Size
     icon?: IIconProps
     disabled?: boolean
     submit?: boolean

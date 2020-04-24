@@ -11,7 +11,7 @@ import cx from 'classnames'
 // import '@nestagencyuk/scss_lib/dist/template.scss'
 
 /**
- * Classes
+ * Variants
  */
 const variants = {
   Primary: 'template--primary',

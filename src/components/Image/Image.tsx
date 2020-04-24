@@ -1,6 +1,6 @@
 import { IImage } from './types'
 import * as React from 'react'
-import { useRef, useEffect, useState } from 'react'
+import { useState } from 'react'
 import cx from 'classnames'
 
 /**
@@ -12,6 +12,10 @@ import '@nestagencyuk/scss_lib/dist/image.scss'
  * Components
  */
 import { Loader } from '../Loader'
+import { Overlay } from '../Overlay'
+import { Button } from '../Button'
+import { Text } from '../Text'
+import { Box } from '../Box'
 
 /**
  * Image classes
@@ -38,24 +42,17 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onLoad }: IImage.IProps) => {
-  const ref = useRef<HTMLImageElement>()
+const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, overlay, onLoad }: IImage.IProps) => {
   const [loading, setLoading] = useState(true)
 
   /**
    * Set loading
    */
-  useEffect(() => {
-    ref.current.addEventListener('load', () => setLoading(false))
-  }, [])
-
-  /**
-   * On load, trigger an onLoad fn if necessary
-   */
-  useEffect(() => {
-    if (loading || !onLoad) return
+  const handleLoad = () => {
+    setLoading(false)
+    if (!onLoad) return
     onLoad()
-  }, [loading])
+  }
 
   return (
     <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
@@ -68,9 +65,24 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onL
         {srcSet.map((x, i) => (
           <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
         ))}
-        <img ref={ref} className={'img__img'} src={src} alt={alt} />
+        <img className={'img__img'} src={src} alt={alt} onLoad={handleLoad} />
       </picture>
       {caption && <figcaption className="img__caption">{caption}</figcaption>}
+      {overlay && (
+        <Overlay className={cx('img__overlay', { 'img__overlay--hover': overlay.hover })}>
+          <Box align={{ x: 'Center', y: 'Center' }} fill>
+            <div>
+              <Text tag="h2" variant="Intro" align="Center" inverse>
+                {overlay?.heading}
+              </Text>
+              <Text variant="Small" align="Center" inverse>
+                {overlay?.text}
+              </Text>
+              {overlay.button && <Button {...overlay.button}>{overlay.button.text}</Button>}
+            </div>
+          </Box>
+        </Overlay>
+      )}
     </figure>
   )
 }

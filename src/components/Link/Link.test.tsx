@@ -21,7 +21,7 @@ import { Link } from './'
 describe('----- Link Component -----', () => {
   it('Renders the correct HTML', () => {
     const htmlA = mount(<MemoryRouter><Link href={'/'}>Test</Link></MemoryRouter>)
-    expect(htmlA.find('a').html()).to.equal('<a class="link" href="/"><span>Test</span></a>')
+    expect(htmlA.find('a').html()).to.equal('<a class="link link--primary" href="/"><span>Test</span></a>')
   })
   
   it('Simulates a click', () => {

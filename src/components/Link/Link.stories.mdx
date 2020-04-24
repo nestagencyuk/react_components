@@ -28,7 +28,7 @@ Lorem.
 <Preview>
   <Story name='Primary'>
     <MemoryRouter>
-      <Link variant='Primary' href='/' external>Primary link</Link>
+      <Link variant='Primary' href='/'>primary link</Link>
     </MemoryRouter>
   </Story>
 </Preview>
@@ -37,18 +37,28 @@ Lorem.
 <Preview>
   <Story name='Secondary'>
     <MemoryRouter>
-      <Link variant='Secondary' href='/' external>Secondary link</Link>
+      <Link variant='Secondary' href='/'>Secondary link</Link>
     </MemoryRouter>
   </Story>
 </Preview>
 
-## External
-If the link isn't using React Router, flag it as `external`.
+## Routing
+If the link isn't using React Router, flag it as `external` to render a normal `<a>` or you can pass a custom Link component via the `component` prop.
 
+### External
 <Preview>
   <Story name='External'>
     <MemoryRouter>
       <Link href='/' external>external link</Link>
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+### Custom
+<Preview>
+  <Story name='Custom'>
+    <MemoryRouter>
+      <Link component={() => <a>custom link</a>} href='/'>custom link</Link>
     </MemoryRouter>
   </Story>
 </Preview>

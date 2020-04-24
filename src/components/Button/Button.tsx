@@ -24,6 +24,15 @@ const variants = {
 }
 
 /**
+ * Sizes
+ */
+const sizes = {
+  Small: 'btn--sm',
+  Medium: 'btn--md',
+  Large: 'btn--lg'
+}
+
+/**
  * A visual button that will also render as <a> if it has a href
  */
 const Button = ({
@@ -31,6 +40,7 @@ const Button = ({
   component,
   href,
   variant = 'Primary',
+  size = 'Medium',
   icon,
   submit,
   disabled,
@@ -48,7 +58,7 @@ const Button = ({
 
   return (
     <Tag
-      className={cx(className, 'btn', variants[variant])}
+      className={cx(className, 'btn', variants[variant], sizes[size])}
       type={btnType}
       to={href}
       disabled={disabled}

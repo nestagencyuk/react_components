@@ -70,13 +70,12 @@ const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbo
       {lightbox ? (
         <GalleryLightbox ref={refs} items={items} />
       ) : (
-        Array.isArray(items) && (
-          items.map((x: any, i: any) => (
-            <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
-              {x}
-            </div>
-          ))
-        )
+        Array.isArray(items) &&
+        items.map((x: any, i: any) => (
+          <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
+            {x}
+          </div>
+        ))
       )}
     </section>
   )
