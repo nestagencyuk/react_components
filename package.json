@@ -1,6 +1,6 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -16,7 +16,7 @@
     "build": "npm run lint && npm run build:components && npm run build:docs && npm run test:coverage",
     "build:components": "rm -rf ./dist && webpack --env.NODE_ENV=production",
     "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir ./docs",
-    "deploy": "gps && gps --tags && npm publish",
+    "deploy": "git push && git push --tags && npm publish",
     "clean": "rm ./package-lock.json && rm -rf ./node_modules && npm i"
   },
   "repository": {
@@ -31,7 +31,7 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
-    "@nestagencyuk/scss_lib": "^1.0.15",
+    "@nestagencyuk/scss_lib": "^1.0.16",
     "@nestagencyuk/typescript_lib-frontend": "^1.0.3",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",

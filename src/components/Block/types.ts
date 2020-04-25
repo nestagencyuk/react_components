@@ -1,6 +1,6 @@
 import { IImage } from '../Image/types'
 import { IHeader } from '../Header/types'
-import { ILink } from '../Link/types'
+import { IButton } from '../Button/types'
 
 declare namespace IBlock {
   interface IProps {
@@ -8,7 +8,7 @@ declare namespace IBlock {
     size?: 'Small' | 'Medium' | 'Large'
     image: IImageProps
     header?: IHeader.IProps
-    link?: ILinkProps
+    button?: IButtonProps
     children: string
   }
 
@@ -16,7 +16,7 @@ declare namespace IBlock {
     align: 'Start' | 'End'
   }
 
-  interface ILinkProps extends ILink.IProps {
+  interface IButtonProps extends IButton.IProps {
     text: string
   }
 }

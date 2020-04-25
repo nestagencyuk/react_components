@@ -45,9 +45,18 @@ const fetchInstagramItems = async (token: string) => {
 }
 
 /**
+ * Sizes
+ */
+const sizes = {
+  Small: 4,
+  Medium: 3,
+  Large: 2
+}
+
+/**
  * My component
  */
-const SocialFeed = ({ className, variant = 'Instagram', username, limit = 9 }: ISocialFeed.IProps) => {
+const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', username, limit = 9 }: ISocialFeed.IProps) => {
   const [items, setItems] = useState([])
 
   /**
@@ -88,7 +97,7 @@ const SocialFeed = ({ className, variant = 'Instagram', username, limit = 9 }: I
         return (
           <Grid gutter>
             {items.map((x, i) => (
-              <GridItem key={`griditem-${i}`} span={4}>
+              <GridItem key={`griditem-${i}`} span={12 / sizes[size]}>
                 <a href={x.permalink} target="_blank" rel="noopener noreferrer">
                   {x.type === 'IMAGE' && <Image aspect="1x1" src={x.src} alt={x.alt} />}
                 </a>
