@@ -14,7 +14,7 @@ import { BlockHeader } from '.'
 import { Grid, GridItem } from '../Grid'
 import { Image } from '../Image'
 import { Box } from '../Box'
-import { Link } from '../Link'
+import { Button } from '../Button'
 
 /**
  * Sizes
@@ -26,9 +26,9 @@ const sizes = {
 }
 
 /**
- * My component
+ * Block component
  */
-const Block = ({ className, size = 'Medium', image, header, link, children }: IBlock.IProps) => {
+const Block = ({ className, size = 'Medium', image, header, button, children }: IBlock.IProps) => {
   /**
    * Image alignment
    */
@@ -48,7 +48,7 @@ const Block = ({ className, size = 'Medium', image, header, link, children }: IB
           <div>
             <BlockHeader size={size} {...header} />
             {children}
-            <Link {...link}>{link?.text}</Link>
+            <Button {...button}>{button?.text}</Button>
           </div>
         </Box>
       </GridItem>

@@ -5,7 +5,7 @@ docs
 # Source files
 .nyc_output
 src
-.travis.yml
+.eslintrc
 index.ts
 cypress.json
 tsconfig.json
