@@ -3,11 +3,8 @@ import { ILink } from '../Link/types'
 declare namespace IList {
   interface IProps {
     className?: string
-    items?: Array<{
-      text: string
-      href?: string
-    }>
-    children: Array<React.ReactElement<IItemProps>>
+    items?: ILinkProps[]
+    children?: Array<React.ReactElement<IItemProps>>
   }
 
   interface IItemProps {
@@ -15,7 +12,9 @@ declare namespace IList {
     children: React.ReactElement<ILinkProps> | string
   }
 
-  type ILinkProps = ILink.IProps
+  interface ILinkProps extends ILink.IProps {
+    text: string
+  }
 }
 
 export { IList }
