@@ -56,7 +56,7 @@ const Button = ({
   const iconStart = icon?.align === 'Start'
   const iconEnd = icon?.align === 'End'
 
-  return (
+  return children ? (
     <Tag
       className={cx(className, 'btn', variants[variant], sizes[size])}
       type={btnType}
@@ -68,7 +68,7 @@ const Button = ({
       <span>{children}</span>
       {iconEnd && <Icon className="btn__icn" {...icon} />}
     </Tag>
-  )
+  ) : null
 }
 
 export default Button
