@@ -16,7 +16,7 @@
     "build": "npm run lint && npm run build:components && npm run build:docs && npm run test:coverage",
     "build:components": "rm -rf ./dist && webpack --env.NODE_ENV=production",
     "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir ./docs",
-    "deploy": "gps && gps --tags && npm publish",
+    "deploy": "git push && git push --tags && npm publish",
     "clean": "rm ./package-lock.json && rm -rf ./node_modules && npm i"
   },
   "repository": {
