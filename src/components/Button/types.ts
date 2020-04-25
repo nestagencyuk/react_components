@@ -11,7 +11,7 @@ declare namespace IButton {
     icon?: IIconProps
     disabled?: boolean
     submit?: boolean
-    children: string
+    children?: string
     onClick?: (e: React.SyntheticEvent) => void
   }
 
