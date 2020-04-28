@@ -76,15 +76,15 @@ const Tooltip = ({ attachTo, trigger = 'Hover', align = 'Left', children }: IToo
 
   return toggled
     ? createPortal(
-        <aside
-          ref={ref}
-          className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: toggled })}
-          style={{ left: `${position.x}px`, top: `${position.y}px` }}
-        >
-          {children}
-        </aside>,
-        document.body
-      )
+      <aside
+        ref={ref}
+        className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: toggled })}
+        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+      >
+        {children}
+      </aside>,
+      document.body
+    )
     : null
 }
 
