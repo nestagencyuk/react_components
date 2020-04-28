@@ -15,21 +15,20 @@ import { ListItem, ListLink } from '.'
 /**
  * List of items
  */
-const List = ({ className, items = [], children }: IList.IProps) => (
+const List = ({ className, items }: IList.IProps) => items ? (
   <ul className={cx(className, 'list')}>
-    {children ||
-      items.map((x, i) =>
-        x.href ? (
-          <ListItem key={`item-${i}`}>
-            <ListLink {...x}>{x.text}</ListLink>
-          </ListItem>
-        ) : (
-          <ListItem key={`item-${i}`} {...x}>
-            {x.text}
-          </ListItem>
-        )
-      )}
+    {items.map((x, i) =>
+      x.href ? (
+        <ListItem key={`item-${i}`}>
+          <ListLink {...x}>{x.text}</ListLink>
+        </ListItem>
+      ) : (
+        <ListItem key={`item-${i}`} {...x}>
+          {x.text}
+        </ListItem>
+      )
+    )}
   </ul>
-)
+) : null
 
 export default List

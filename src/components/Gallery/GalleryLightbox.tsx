@@ -36,7 +36,7 @@ const GalleryLightbox = ({ items }: IGallery.IProps, ref: any) => (
         <Fragment>
           {toggled && (
             <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay portal onClick={() => setToggled(false)} />
+              <Overlay portal fixed onClick={() => setToggled(false)} />
               <Slider className="gallery__slider" variant="Fade" init={init} nav="Buttons" items={childItems} />
             </Float>
           )}

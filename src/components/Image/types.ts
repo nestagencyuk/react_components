@@ -10,7 +10,6 @@ declare namespace IImage {
     }>
     alt: string
     caption?: string
-    overlay?: any
     onLoad?: () => void
   }
 }

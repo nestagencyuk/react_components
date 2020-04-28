@@ -3,6 +3,7 @@ declare namespace IOverlay {
     className?: string
     variant?: 'Inverse'
     portal?: boolean
+    fixed?: boolean
     children?: React.ReactNode
     onClick?: () => void
   }
