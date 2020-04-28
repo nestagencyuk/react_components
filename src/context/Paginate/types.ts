@@ -3,8 +3,8 @@ declare namespace IPaginate {
     init?: number
     limit?: number
     children:
-    | React.ReactNode
-    | ((value: { items: number[], current: number, setCurrent: (current: number) => void }) => React.ReactNode)
+      | React.ReactNode
+      | ((value: { items: number[]; current: number; setCurrent: (current: number) => void }) => React.ReactNode)
   }
 }
 
