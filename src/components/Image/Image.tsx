@@ -12,10 +12,6 @@ import '@nestagencyuk/scss_lib/dist/image.scss'
  * Components
  */
 import { Loader } from '../Loader'
-import { Overlay } from '../Overlay'
-import { Button } from '../Button'
-import { Text } from '../Text'
-import { Box } from '../Box'
 
 /**
  * Image classes
@@ -42,7 +38,7 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, overlay, onLoad }: IImage.IProps) => {
+const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onLoad }: IImage.IProps) => {
   const [loading, setLoading] = useState(true)
 
   /**
@@ -54,7 +50,7 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, ove
     onLoad()
   }
 
-  return (
+  return src ? (
     <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
       <picture className="img__picture">
         {loading && (
@@ -68,23 +64,8 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, ove
         <img className={'img__img'} src={src} alt={alt} onLoad={handleLoad} />
       </picture>
       {caption && <figcaption className="img__caption">{caption}</figcaption>}
-      {overlay && (
-        <Overlay className={cx('img__overlay', { 'img__overlay--hover': overlay.hover })}>
-          <Box align={{ x: 'Center', y: 'Center' }} fill>
-            <div>
-              <Text tag="h2" variant="Intro" align="Center" inverse>
-                {overlay?.heading}
-              </Text>
-              <Text variant="Small" align="Center" inverse>
-                {overlay?.text}
-              </Text>
-              {overlay.button && <Button {...overlay.button}>{overlay.button.text}</Button>}
-            </div>
-          </Box>
-        </Overlay>
-      )}
     </figure>
-  )
+  ) : null
 }
 
 export default Image

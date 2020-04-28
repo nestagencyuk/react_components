@@ -26,8 +26,8 @@ const variants = {
 /**
  * Fetch instagram
  */
-const fetchInstagramToken = async (username: string) => {
-  const res = await fetch(`https://${username.replace('@', '')}-token.herokuapp.com/token.json`, { method: 'GET' })
+const fetchInstagramToken = async (username: string, signal: AbortSignal) => {
+  const res = await fetch(`https://${username.replace('@', '')}-token.herokuapp.com/token.json`, { method: 'GET', signal })
   const json = await await res.json()
   return json.token
 }
@@ -35,10 +35,10 @@ const fetchInstagramToken = async (username: string) => {
 /**
  * Fetch insta items
  */
-const fetchInstagramItems = async (token: string) => {
+const fetchInstagramItems = async (token: string, signal: AbortSignal) => {
   const res = await fetch(
     `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${token}`,
-    { method: 'GET' }
+    { method: 'GET', signal }
   )
   const json = await await res.json()
   return json
@@ -62,18 +62,22 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
   /**
    * Set items
    */
-  const getItems = async (username: string) => {
+  const getItems = async (username: string, signal: AbortSignal) => {
     switch (variant) {
       case 'Instagram': {
-        const token = await fetchInstagramToken(username)
-        const items = await fetchInstagramItems(token)
-        const final = items.data?.map((x: any) => ({
-          permalink: x.permalink,
-          type: x.media_type,
-          src: x.media_url,
-          alt: x.caption
-        }))
-        setItems(final.slice(0, limit))
+        try {
+          const token = await fetchInstagramToken(username, signal)
+          const items = await fetchInstagramItems(token, signal)
+          const final = items.data?.map((x: any) => ({
+            permalink: x.permalink,
+            type: x.media_type,
+            src: x.media_url,
+            alt: x.caption
+          }))
+          setItems(final.slice(0, limit))
+        } catch (err) {
+          console.log(err)
+        }
         break
       }
       default:
@@ -85,7 +89,9 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
    * Fetch posts
    */
   useEffect(() => {
-    getItems(username)
+    const abort = new AbortController()
+    getItems(username, abort.signal)
+    return () => abort.abort()
   }, [])
 
   /**
@@ -109,7 +115,7 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
     }
   }
 
-  return (
+  return username ? (
     <div className={cx(className, 'socialfeed', variants[variant])}>
       {renderPosts()}
       {items.length === 0 && (
@@ -118,7 +124,7 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
         </Box>
       )}
     </div>
-  )
+  ) : null
 }
 
 export default SocialFeed

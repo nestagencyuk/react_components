@@ -36,7 +36,7 @@ const sizes = {
 const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbox }: IGallery.IProps) => {
   const ref = useRef<HTMLElement>()
   const refs = useRef<Array<React.RefObject<HTMLDivElement>>>(
-    Array.from(Array((typeof items === 'function' ? items({}) : items).length).keys()).map(() => createRef())
+    Array.from(Array((typeof items === 'function' ? items({}) : items)?.length).keys()).map(() => createRef())
   )
 
   /**
@@ -65,7 +65,7 @@ const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbo
     window.addEventListener('resize', () => masonry(ref.current, refs.current))
   }, [])
 
-  return (
+  return items ? (
     <section ref={ref} className={cx(className, 'gallery', variants[variant], sizes[size])}>
       {lightbox ? (
         <GalleryLightbox ref={refs} items={items} />
@@ -78,7 +78,7 @@ const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbo
         ))
       )}
     </section>
-  )
+  ) : null
 }
 
 export default Gallery

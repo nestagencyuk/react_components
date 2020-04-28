@@ -30,7 +30,7 @@ const variants = {
 /**
  * My component
  */
-const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: ISlider.IProps) => (
+const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: ISlider.IProps) => items ? (
   <Paginate init={init} limit={1}>
     {({ items: pageItems, current, setCurrent }) => {
       const total = items.length
@@ -109,6 +109,6 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: IS
       )
     }}
   </Paginate>
-)
+) : null
 
 export default Slider

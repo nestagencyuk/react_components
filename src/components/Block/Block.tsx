@@ -35,7 +35,7 @@ const Block = ({ className, size = 'Medium', image, header, button, children }: 
   const imageStart = image?.align === 'Start'
   const imageEnd = image?.align === 'End'
 
-  return (
+  return children ? (
     <Grid className={cx(className, 'block')}>
       {imageStart && (
         <GridItem span={sizes[size]}>
@@ -59,7 +59,7 @@ const Block = ({ className, size = 'Medium', image, header, button, children }: 
         </GridItem>
       )}
     </Grid>
-  )
+  ) : null
 }
 
 export default Block

@@ -43,8 +43,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
           <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
             <Float portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay portal onClick={() => setToggled(false)} />
-              <Modal 
+              <Overlay portal fixed onClick={() => setToggled(false)} /> 
+              <Modal
                 header={{ heading: 'Heading', subheading: 'Subheading'}} 
                 footer={{ 
                   actions: [

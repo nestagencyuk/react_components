@@ -4,7 +4,6 @@ declare namespace IList {
   interface IProps {
     className?: string
     items?: ILinkProps[]
-    children?: Array<React.ReactElement<IItemProps>>
   }
 
   interface IItemProps {
