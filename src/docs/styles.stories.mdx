@@ -18,7 +18,24 @@ $ npm i @nestagencyuk/scss_lib
 This package contains all of the styles you see here in this component library, but in their pre-compiled state; ready for theming. Each component and config is exported as individual "modules", meaning you only have to include the styles that you need. [Modules](https://sass-lang.com/documentation/at-rules/use#configuring-modules) are a relatively new (and awesome!) feature of Sass which solve a lot of config/library related issues. We prefer this method as it provides maximum flexibility, allowing you to easily override default styles.
 
 ### Setup
-Create an `index.scss` file somewhere in your project and paste the code below. You can omit files that you find unnecessary as you become familiar with how the theming works - this is simply to demonstrate the options available. 
+Create an `index.scss` file somewhere in your project and paste the code below. This will import all the component styles from the library, ready for theming.
+
+```scss
+/// ----------------------------------------------------------------------
+
+/// Main style index
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Base lib
+/// ------------------- 
+
+@use '@nestagencyuk/scss_lib'; 
+
+```
+
+Alternatively, you can include each individual component style if you want to be really specific about what you want to include. These are all the available components, functions, mixins etc:
 
 ```scss
 /// ----------------------------------------------------------------------
@@ -85,7 +102,7 @@ Create an `index.scss` file somewhere in your project and paste the code below. 
 @use '@nestagencyuk/scss_lib/dist/text';
 @use '@nestagencyuk/scss_lib/dist/textarea';
 @use '@nestagencyuk/scss_lib/dist/tooltip';
-@use '@nestagencyuk/scss_lib/dist/utilities';
+@use '@nestagencyuk/scss_lib/dist/utility';
 
 /// -------------------
 /// Functions
@@ -111,25 +128,61 @@ Create an `index.scss` file somewhere in your project and paste the code below. 
 ### Making changes
 
 #### Config
-Each config file has a set of overrideable variables which you can pass to the module. For example, to change the core colours, simply pass the new variable to the module using the `@use` directive:
+Each config file has a set of overrideable variables which you can pass to the module. For example, to change the core colours, simply pass the new variable to the module using the `@use` directive, so that your `index.scss` looks like:
 
 ```scss
+/// ----------------------------------------------------------------------
+
+/// Main style index
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Theme variables
+/// ------------------- 
+
 @use '@nestagencyuk/scss_lib/dist/_colours' with (
   $brand-one: green,
   $brand-two: pink,
 );
+
+/// -------------------
+/// Base lib
+/// ------------------- 
+
+@use '@nestagencyuk/scss_lib'; 
+
 ```
 
-> For these changes to apply everywhere, config files should always come first so that the variables are set before 
+When adding your brand colours, we advise your `$brand-one` be the darker of the two.
 
-> When adding your brand colours, we advise your `$brand-one` be the darker of the two.
+> **NOTE:** For these changes to apply everywhere, config files should always come first so that the variables are set before 
 
-#### Config
-Components will work in exactly the same way, although some have more powerful overrides available which will auto-generate BEM modifiers for you. A good example is the Button component, which has a `$types` map. To change the button types, simply override the whole map:
+#### Components
+Components will work in exactly the same way, although some have more powerful overrides available which will auto-generate BEM modifiers for you. A good example is the Button component, which has a `$variants` map. To change the button types, simply override the whole map:
 
 ```scss
+/// ----------------------------------------------------------------------
+
+/// Main style index
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Theme variables
+/// ------------------- 
+
+@use '@nestagencyuk/scss_lib/dist/_colours' with (
+  $brand-one: green,
+  $brand-two: pink,
+);
+
+/// -------------------
+/// Components
+/// ------------------- 
+
 @use '@nestagencyuk/scss_lib/dist/button' with (
-  $types: (
+  $variants: (
     primary: (
       background-color: colours.$brand-one,
       color: colours.$brand-two,
@@ -149,6 +202,13 @@ Components will work in exactly the same way, although some have more powerful o
     // and so forth...
   )
 );
+
+/// -------------------
+/// Base lib
+/// ------------------- 
+
+@use '@nestagencyuk/scss_lib'; 
+
 ```
 
-For each component's available variables, see their respective page here in the docs! Scss will also fail to compile if the variable is not found.
+Obviously you can split this out into separate files as your project grows. For each component's available variables, see their respective page here in the docs! Scss will also fail to compile if the variable is not found.

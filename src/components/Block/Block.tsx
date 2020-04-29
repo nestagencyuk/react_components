@@ -44,7 +44,7 @@ const Block = ({ className, size = 'Medium', image, header, button, children }: 
       )}
 
       <GridItem span={12 - sizes[size]}>
-        <Box className={cx(size === 'Small' ? 'p--l-xl p--r-xl' : 'p--xxl')} align={{ x: 'Center', y: 'Center' }}>
+        <Box className={cx(size === 'Small' ? 'p--l-xl p--r-xl' : 'p--xxl')} align={{ x: 'Center', y: 'Center' }} fill>
           <div>
             <BlockHeader size={size} {...header} />
             {children}
