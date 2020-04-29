@@ -4,7 +4,7 @@ import { IImage } from '../Image/types'
 
 declare namespace INavigation {
   interface IProps {
-    className?: any
+    className?: string
     brand?: {
       image?: IImage.IProps
       align?: Alignment

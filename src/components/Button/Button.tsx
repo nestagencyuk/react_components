@@ -58,7 +58,7 @@ const Button = ({
 
   return children ? (
     <Tag
-      className={cx(className, 'btn', variants[variant], sizes[size])}
+      className={cx(className, 'btn', variants[variant], sizes[size], { 'btn--disabled': disabled })}
       type={btnType}
       to={href}
       disabled={disabled}
