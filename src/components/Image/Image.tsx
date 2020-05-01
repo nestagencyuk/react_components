@@ -41,7 +41,6 @@ const aspects = {
 const Image = ({ className, variant, aspect, src, srcSet = [], alt = 'Image', caption, onLoad }: IImage.IProps) => {
   const [loading, setLoading] = useState(true)
 
-  console.log(alt)
   /**
    * Set loading
    */
