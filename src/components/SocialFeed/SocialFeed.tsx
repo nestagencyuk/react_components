@@ -68,11 +68,11 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
         try {
           const token = await fetchInstagramToken(username, signal)
           const items = await fetchInstagramItems(token, signal)
-          const final = items.data?.map((x: any) => ({
+          const final = items.data?.map((x: any, i: number) => ({
             permalink: x.permalink,
             type: x.media_type,
             src: x.media_url,
-            alt: x.caption
+            alt: `instagram-img-${i}`
           }))
           setItems(final.slice(0, limit))
         } catch (err) {
@@ -105,7 +105,7 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
             {items.map((x, i) => (
               <GridItem key={`griditem-${i}`} span={12 / sizes[size]}>
                 <a href={x.permalink} target="_blank" rel="noopener noreferrer">
-                  {(x.type === 'IMAGE' || x.type === 'CAROUSEL_ALBUM') && <Image aspect="1x1" src={x.src} alt={x.alt} />}
+                  {(x.type === 'IMAGE' || x.type === 'CAROUSEL_ALBUM') && <Image aspect="1x1" src={x.src} alt={x.alt || undefined} />}
                   {x.type === 'VIDEO' && <video style={{ width: '100%' }} src={x.src} />}
                 </a>
               </GridItem>

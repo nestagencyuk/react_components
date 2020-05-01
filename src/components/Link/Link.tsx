@@ -34,7 +34,7 @@ const Link = ({ className, component, variant = 'Primary', href, target, externa
   const iconEnd = icon?.align === 'End'
 
   return children ? (
-    <Tag className={cx(className, 'link', variants[variant])} href={href} to={href} target={target}>
+    <Tag className={cx(className, 'link', variants[variant])} href={href} to={href} target={target} rel={external ? 'noopener' : undefined}>
       {iconStart && <Icon className="link__icn" name={icon.name} />}
       <span>{children}</span>
       {iconEnd && <Icon className="link__icn" name={icon.name} />}
