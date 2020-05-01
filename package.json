@@ -1,11 +1,10 @@
 {
   "name": "@nestagencyuk/react_components",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "lint": "eslint --ext .tsx,.ts . --fix",
     "dev": "start-storybook --docs --port 3002 | webpack-dev-server",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
@@ -13,7 +12,7 @@
     "test:cypress": "cypress open",
     "test:unit": "ts-mocha -r tsconfig-paths/register ./src/**/*.test.t{s,sx}",
     "test:coverage": "npm run test && codecov --disable=gcov",
-    "build": "npm run lint && npm run build:components && npm run build:docs && npm run test:coverage",
+    "build": "npm run build:components && npm run build:docs && npm run test:coverage",
     "build:components": "rm -rf ./dist && webpack --env.NODE_ENV=production",
     "build:docs": "rm -rf ./docs && build-storybook --docs --output-dir ./docs",
     "deploy": "npm run build && git push && git push --tags && npm publish",
