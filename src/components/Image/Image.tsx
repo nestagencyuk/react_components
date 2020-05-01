@@ -38,9 +38,10 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onLoad }: IImage.IProps) => {
+const Image = ({ className, variant, aspect, src, srcSet = [], alt = 'Image', caption, onLoad }: IImage.IProps) => {
   const [loading, setLoading] = useState(true)
 
+  console.log(alt)
   /**
    * Set loading
    */
@@ -61,7 +62,7 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt, caption, onL
         {srcSet.map((x, i) => (
           <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
         ))}
-        <img className={'img__img'} src={src} alt={alt} onLoad={handleLoad} />
+        <img className='img__img' src={src} alt={alt} onLoad={handleLoad} />
       </picture>
       {caption && <figcaption className="img__caption">{caption}</figcaption>}
     </figure>

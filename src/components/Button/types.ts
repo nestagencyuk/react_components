@@ -5,7 +5,6 @@ declare namespace IButton {
   interface IProps {
     className?: string
     component?: React.FC
-    to?: string
     href?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
     size?: Size
