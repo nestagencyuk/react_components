@@ -105,7 +105,9 @@ const SocialFeed = ({ className, variant = 'Instagram', size = 'Medium', usernam
             {items.map((x, i) => (
               <GridItem key={`griditem-${i}`} span={12 / sizes[size]}>
                 <a href={x.permalink} target="_blank" rel="noopener noreferrer">
-                  {(x.type === 'IMAGE' || x.type === 'CAROUSEL_ALBUM') && <Image aspect="1x1" src={x.src} alt={x.alt || undefined} />}
+                  {(x.type === 'IMAGE' || x.type === 'CAROUSEL_ALBUM') && (
+                    <Image aspect="1x1" src={x.src} alt={x.alt || undefined} />
+                  )}
                   {x.type === 'VIDEO' && <video style={{ width: '100%' }} src={x.src} />}
                 </a>
               </GridItem>

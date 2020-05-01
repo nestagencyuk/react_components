@@ -62,7 +62,7 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt = 'Image', ca
         {srcSet.map((x, i) => (
           <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
         ))}
-        <img className='img__img' src={src} alt={alt} onLoad={handleLoad} />
+        <img className="img__img" src={src} alt={alt} onLoad={handleLoad} />
       </picture>
       {caption && <figcaption className="img__caption">{caption}</figcaption>}
     </figure>
