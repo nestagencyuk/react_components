@@ -31,8 +31,8 @@
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
-    "@nestagencyuk/scss_lib": "^1.0.20",
-    "@nestagencyuk/typescript_lib-frontend": "^1.0.3",
+    "@nestagencyuk/scss_lib": "^1.0.0",
+    "@nestagencyuk/typescript_lib-frontend": "^1.0.0",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
