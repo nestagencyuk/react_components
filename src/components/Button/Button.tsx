@@ -11,7 +11,6 @@ import '@nestagencyuk/scss_lib/dist/button.scss'
  * Components
  */
 import { Icon } from '../Icon'
-import { Link as RouterLink } from 'react-router-dom'
 
 /**
  * Variants
@@ -39,6 +38,7 @@ const Button = ({
   className,
   component,
   href,
+  to,
   variant = 'Primary',
   size = 'Medium',
   icon,
@@ -47,8 +47,7 @@ const Button = ({
   children,
   onClick
 }: IButton.IProps) => {
-  const Tag = component || (href ? RouterLink : 'button')
-  const btnType = submit ? 'submit' : !href ? 'button' : undefined
+  const Tag: React.FC<{ [key: string]: any }> | string = component || (href ? 'a' : 'button')
 
   /**
    * Icon alignment
@@ -59,8 +58,9 @@ const Button = ({
   return children ? (
     <Tag
       className={cx(className, 'btn', variants[variant], sizes[size], { 'btn--disabled': disabled })}
-      type={btnType}
-      to={href}
+      type={submit ? 'submit' : !href ? 'button' : undefined}
+      href={href}
+      to={to}
       disabled={disabled}
       onClick={onClick}
     >

@@ -3,9 +3,10 @@ import { IIcon } from '../Icon/types'
 declare namespace ILink {
   interface IProps {
     className?: string
-    component?: React.FunctionComponent
+    component?: React.FC
     variant?: 'Primary' | 'Secondary'
     href?: string
+    to?: string
     target?: string
     external?: boolean
     icon?: IIconProps

@@ -10,7 +10,6 @@ import '@nestagencyuk/scss_lib/dist/link.scss'
 /**
  * Components
  */
-import { Link as RouterLink } from 'react-router-dom'
 import { Icon } from '../Icon'
 
 /**
@@ -24,8 +23,8 @@ const variants = {
 /**
  * A simple link using React Router
  */
-const Link = ({ className, component, variant = 'Primary', href, target, external, icon, children }: ILink.IProps) => {
-  const Tag = component || (external ? 'a' : RouterLink)
+const Link = ({ className, component, variant = 'Primary', href, to, target, external, icon, children }: ILink.IProps) => {
+  const Tag: React.FC<{ [key: string]: any }> | string = component || 'a'
 
   /**
    * Icon alignment
@@ -37,7 +36,7 @@ const Link = ({ className, component, variant = 'Primary', href, target, externa
     <Tag
       className={cx(className, 'link', variants[variant])}
       href={href}
-      to={href}
+      to={to}
       target={target}
       rel={external ? 'noopener' : undefined}
     >
