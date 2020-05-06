@@ -19,7 +19,7 @@ const List = ({ className, items }: IList.IProps) =>
   items ? (
     <ul className={cx(className, 'list')}>
       {items.map((x, i) =>
-        x.href ? (
+        x.href || x.to ? (
           <ListItem key={`item-${i}`}>
             <ListLink {...x}>{x.text}</ListLink>
           </ListItem>

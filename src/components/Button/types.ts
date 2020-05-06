@@ -6,6 +6,7 @@ declare namespace IButton {
     className?: string
     component?: React.FC
     href?: string
+    to?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Action'
     size?: Size
     icon?: IIconProps

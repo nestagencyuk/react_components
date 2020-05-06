@@ -1,12 +1,12 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, Link } from 'react-router-dom'
 import { Navigation } from '.'
 import logo from  '../../assets/img/logo.png'
 
 <Meta title='Layout|Navigation' component={Navigation} />
 
 # Navigation
-A simple inline hyperlink navigation using React Router.
+A simple inline hyperlink navigation with the option to pass in your own link component (e.g Gatsby link or React Router link).
  
 ## Base
 A common navigation style.
@@ -17,12 +17,12 @@ A common navigation style.
       <Navigation 
         brand={{ align: 'Center', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
-          { text: 'Home', align: 'Start', href: '/' },
-          { text: 'About', align: 'Start', href: '/' },
-          { text: 'Blog', align: 'Start', href: '/' },
-          { text: 'FAQs', align: 'End', href: '/' },
-          { text: 'Careers', align: 'End', href: '/' },
-          { text: 'Contact', align: 'End', href: '/' },
+          { component: Link, text: 'Home', align: 'Start', href: '/' },
+          { component: Link, text: 'About', align: 'Start', href: '/' },
+          { component: Link, text: 'Blog', align: 'Start', href: '/' },
+          { component: Link, text: 'FAQs', align: 'End', href: '/' },
+          { component: Link, text: 'Careers', align: 'End', href: '/' },
+          { component: Link, text: 'Contact', align: 'End', href: '/' },
         ]} 
       />
     </MemoryRouter>
@@ -36,12 +36,12 @@ A common navigation style.
     <MemoryRouter>
       <Navigation 
         links={[
-          { text: 'Home', align: 'Center', href: '/' },
-          { text: 'About', align: 'Center', href: '/' },
-          { text: 'Blog', align: 'Center', href: '/' },
-          { text: 'FAQs', align: 'Center', href: '/' },
-          { text: 'Careers', align: 'Center', href: '/' },
-          { text: 'Contact', align: 'Center', href: '/' },
+          { component: Link, text: 'Home', align: 'Center', href: '/' },
+          { component: Link, text: 'About', align: 'Center', href: '/' },
+          { component: Link, text: 'Blog', align: 'Center', href: '/' },
+          { component: Link, text: 'FAQs', align: 'Center', href: '/' },
+          { component: Link, text: 'Careers', align: 'Center', href: '/' },
+          { component: Link, text: 'Contact', align: 'Center', href: '/' },
         ]} 
       />
     </MemoryRouter>
@@ -59,12 +59,12 @@ The navigation logo
       <Navigation 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
-          { text: 'Home', align: 'Start', href: '/' },
-          { text: 'About', align: 'Start', href: '/' },
-          { text: 'Blog', align: 'Start', href: '/' },
-          { text: 'FAQs', align: 'Start', href: '/' },
-          { text: 'Careers', align: 'Start', href: '/' },
-          { text: 'Contact', align: 'Start', href: '/' },
+          { component: Link, text: 'Home', align: 'Start', href: '/' },
+          { component: Link, text: 'About', align: 'Start', href: '/' },
+          { component: Link, text: 'Blog', align: 'Start', href: '/' },
+          { component: Link, text: 'FAQs', align: 'Start', href: '/' },
+          { component: Link, text: 'Careers', align: 'Start', href: '/' },
+          { component: Link, text: 'Contact', align: 'Start', href: '/' },
         ]} 
       />
     </MemoryRouter>
@@ -79,12 +79,12 @@ The navigation logo
       <Navigation 
         brand={{ align: 'End', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
-          { text: 'Home', align: 'End', href: '/' },
-          { text: 'About', align: 'End', href: '/' },
-          { text: 'Blog', align: 'End', href: '/' },
-          { text: 'FAQs', align: 'End', href: '/' },
-          { text: 'Careers', align: 'End', href: '/' },
-          { text: 'Contact', align: 'End', href: '/' },
+          { component: Link, text: 'Home', align: 'End', href: '/' },
+          { component: Link, text: 'About', align: 'End', href: '/' },
+          { component: Link, text: 'Blog', align: 'End', href: '/' },
+          { component: Link, text: 'FAQs', align: 'End', href: '/' },
+          { component: Link, text: 'Careers', align: 'End', href: '/' },
+          { component: Link, text: 'Contact', align: 'End', href: '/' },
         ]} 
       />
     </MemoryRouter>
@@ -99,12 +99,12 @@ The navigation logo
       <Navigation 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
-          { text: 'Home', align: 'Start', href: '/' },
-          { text: 'About', align: 'Start', href: '/' },
-          { text: 'Blog', align: 'Start', href: '/' },
-          { text: 'FAQs', align: 'Start', href: '/' },
-          { text: 'Careers', align: 'End', href: '/' },
-          { text: 'Log in', align: 'End', href: '/' },
+          { component: Link, text: 'Home', align: 'Start', href: '/' },
+          { component: Link, text: 'About', align: 'Start', href: '/' },
+          { component: Link, text: 'Blog', align: 'Start', href: '/' },
+          { component: Link, text: 'FAQs', align: 'Start', href: '/' },
+          { component: Link, text: 'Careers', align: 'End', href: '/' },
+          { component: Link, text: 'Log in', align: 'End', href: '/' },
         ]} 
       />
     </MemoryRouter>
