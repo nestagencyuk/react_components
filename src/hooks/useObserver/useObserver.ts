@@ -33,10 +33,7 @@ const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1] }: In
 
     observer.current = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          console.log(entry)
-          setEntry(entry)
-        })
+        entries.forEach((entry) => setEntry(entry))
       },
       {
         root,
