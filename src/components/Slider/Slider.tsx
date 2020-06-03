@@ -28,7 +28,7 @@ const variants = {
 }
 
 /**
- * My component
+ * Slider
  */
 const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: ISlider.IProps) =>
   items ? (

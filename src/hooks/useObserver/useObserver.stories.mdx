@@ -10,20 +10,7 @@ import { useObserver } from '.'
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-
-```js
-const [entry, ref] = useObserver({
-  root: null,
-  rootMargin: '100px',
-  threshold: 1
-})
-return (
-  <div ref={ref} style={{ backgroundColor: entry?.intersectionRatio === 1 ? 'red' : 'blue', height: '500px', marginBottom: '1000px' }}>
-    If I am fully visible, I will be red! Scroll down to see the change.
-  </div>
-)
-```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 <Preview>
   <Story name='Base'>

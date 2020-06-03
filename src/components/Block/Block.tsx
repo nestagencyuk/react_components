@@ -1,5 +1,7 @@
 import { IBlock } from './types'
+import { IGrid } from '../Grid/types'
 import * as React from 'react'
+import { forwardRef } from 'react'
 import cx from 'classnames'
 
 /**
@@ -17,6 +19,11 @@ import { Box } from '../Box'
 import { Button } from '../Button'
 
 /**
+ * Forward the ref
+ */
+const RefGrid = forwardRef(Grid) as (props: IGrid.IProps & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement
+
+/**
  * Sizes
  */
 const sizes = {
@@ -28,7 +35,13 @@ const sizes = {
 /**
  * Block component
  */
-const Block = ({ className, size = 'Medium', image, header, button, children }: IBlock.IProps) => {
+const Block = (
+  { className, size = 'Medium', image, header, button, children }: IBlock.IProps,
+  ref: React.Ref<HTMLDivElement>
+) => {
+  const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
+  const Comp = passRef ? RefGrid : Grid
+
   /**
    * Image alignment
    */
@@ -36,7 +49,7 @@ const Block = ({ className, size = 'Medium', image, header, button, children }: 
   const imageEnd = image?.align === 'End'
 
   return children ? (
-    <Grid className={cx(className, 'block')}>
+    <Comp {...passRef} className={cx(className, 'block')}>
       {imageStart && (
         <GridItem span={sizes[size]}>
           <Image aspect="1x1" {...image} />
@@ -58,7 +71,7 @@ const Block = ({ className, size = 'Medium', image, header, button, children }: 
           <Image aspect="1x1" {...image} />
         </GridItem>
       )}
-    </Grid>
+    </Comp>
   ) : null
 }
 

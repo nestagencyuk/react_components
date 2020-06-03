@@ -5,11 +5,11 @@ import { useState, useCallback, useRef, useEffect } from 'react'
  *
  * @param {Number} steps
  */
-const buildThresholdList = (steps: number) => {
+const buildThresholdList = (steps: number | number[]) => {
   let thresholds: number[] = []
 
   for (let i = 1.0; i <= steps; i++) {
-    const ratio = i / steps
+    const ratio = i / (Array.isArray(steps) ? steps[0] : steps)
     thresholds = [...thresholds, ratio]
   }
 
@@ -23,33 +23,37 @@ const buildThresholdList = (steps: number) => {
  * @param {Object} options
  * Options object for the intersection API
  */
-const useObserver = ({ root = null, rootMargin = '0px', threshold = 0, thresholdList = null }: any = {}) => {
+const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1] }: IntersectionObserverInit = {}) => {
   const [entry, setEntry] = useState(null)
-  const observer = useRef<any>()
+  const observer = useRef<IntersectionObserver>()
+  const ref = useRef<HTMLElement>()
 
-  const options = {
-    root,
-    rootMargin,
-    threshold: thresholdList ? buildThresholdList(thresholdList) : threshold
-  }
-
-  const ref = useCallback((node) => {
+  const setRef = useCallback((node) => {
     if (!node) return
-    (ref as any).current = node
 
-    observer.current = new IntersectionObserver((entries: any) => {
-      entries.forEach((entry: any) => {
-        setEntry(entry)
-      })
-    }, options)
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log(entry)
+          setEntry(entry)
+        })
+      },
+      {
+        root,
+        rootMargin,
+        threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
+      }
+    )
+
     observer.current.observe(node)
+    ref.current = node
   }, [])
 
   useEffect(() => {
-    return () => observer.current.disconnect()
+    return () => observer?.current?.disconnect()
   }, [])
 
-  return [entry, ref]
+  return [entry, setRef]
 }
 
 export default useObserver

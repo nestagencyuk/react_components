@@ -17,7 +17,7 @@ import { Slider } from '../Slider'
 /**
  * Lightbox style
  */
-const GalleryLightbox = ({ items }: IGallery.IProps, ref: any) => (
+const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => (
   <Toggle>
     {({ toggled, setToggled }: any) => {
       const [init, setInit] = useState(0)
@@ -41,7 +41,7 @@ const GalleryLightbox = ({ items }: IGallery.IProps, ref: any) => (
             </Float>
           )}
 
-          {childItems.map((x: any, i: any) => (
+          {childItems.map((x, i) => (
             <div ref={ref.current[i]} key={`gallery-item-${i}`} className="gallery__item">
               {x}
             </div>
