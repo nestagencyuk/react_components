@@ -23,24 +23,32 @@ const buildThresholdList = (steps: number | number[]) => {
  * @param {Object} options
  * Options object for the intersection API
  */
-const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1] }: IntersectionObserverInit = {}) => {
+const useObserver = ({
+  root = null,
+  rootMargin = '0px',
+  threshold = [0, 1],
+  unobserve = false
+}: IntersectionObserverInit & { unobserve?: boolean } = {}) => {
   const [entry, setEntry] = useState(null)
   const observer = useRef<IntersectionObserver>()
   const ref = useRef<HTMLElement>()
+  const options = {
+    root,
+    rootMargin,
+    threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
+  }
 
   const setRef = useCallback((node) => {
     if (!node) return
 
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => setEntry(entry))
-      },
-      {
-        root,
-        rootMargin,
-        threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
-      }
-    )
+    observer.current = new IntersectionObserver((entries, self) => {
+      entries.forEach((entry) => {
+        setEntry(entry)
+        if (unobserve && entry.isIntersecting) {
+          self.unobserve(entry.target)
+        }
+      })
+    }, options)
 
     observer.current.observe(node)
     ref.current = node

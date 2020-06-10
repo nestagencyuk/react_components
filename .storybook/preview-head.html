@@ -104,3 +104,31 @@
     min-height: 250px;
   }
 </style>
+
+<script>
+  const invertBg = () => {
+    const inverse = document.querySelectorAll('[id*="inverse"]')
+    inverse.forEach((x) => {
+      x.parentElement.parentElement.style.backgroundColor = '#333'
+    })
+  }
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    setTimeout(() => {
+      invertBg()
+      
+      const targetNode = document.getElementById('docs-root')
+      const config = { attributes: true, childList: true, subtree: true }
+
+      const callback = (mutationsList, observer) => {
+        for (const x of mutationsList) {
+          if (x.type === 'childList') {
+            invertBg()
+          }
+        }
+      };
+      const observer = new MutationObserver(callback)
+      observer.observe(targetNode, config)
+    }, 1000)
+  });
+</script>

@@ -39,7 +39,7 @@ const Block = (
   { className, size = 'Medium', image, header, button, children }: IBlock.IProps,
   ref: React.Ref<HTMLDivElement>
 ) => {
-  const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
+  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
   const Comp = passRef ? RefGrid : Grid
 
   /**

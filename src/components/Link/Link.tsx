@@ -17,7 +17,9 @@ import { Icon } from '../Icon'
  */
 const variants = {
   Primary: 'link--primary',
-  Secondary: 'link--secondary'
+  Secondary: 'link--secondary',
+  Tertiary: 'link--tertiary',
+  Inverse: 'link--inverse'
 }
 
 /**

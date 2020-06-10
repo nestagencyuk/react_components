@@ -19,7 +19,7 @@ import { Slider } from '../Slider'
  */
 const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => (
   <Toggle>
-    {({ toggled, setToggled }: any) => {
+    {({ toggled, setToggled }) => {
       const [init, setInit] = useState(0)
 
       /**
