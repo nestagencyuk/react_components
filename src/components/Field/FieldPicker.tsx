@@ -8,6 +8,7 @@ import { Input } from '../Input'
 import { Checkbox } from '../Checkbox'
 import { Radio } from '../Radio'
 import { Select } from '../Select'
+import { Textarea } from '../Textarea'
 
 /**
  * Field picker
@@ -24,6 +25,8 @@ const FieldPicker = ({ type = 'Text', ...props }: IField.IProps) => {
       return <Checkbox {...props} />
     case 'Radio':
       return <Radio {...props} />
+    case 'Textarea':
+      return <Textarea {...props} />
     default:
       return <Input type={type} {...props} />
   }

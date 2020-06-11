@@ -18,7 +18,7 @@ import { PageFooterItem, PageFooterLink } from '.'
 const PageFooterList = ({ items = [] }: IPageFooter.IListProps) => (
   <ul className={cx('page-footer__list')}>
     {items.map((x, i) =>
-      x.href ? (
+      x.href || x.to ? (
         <PageFooterItem key={`item-${i}`}>
           <PageFooterLink {...x}>{x.text}</PageFooterLink>
         </PageFooterItem>

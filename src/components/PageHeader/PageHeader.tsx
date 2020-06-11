@@ -1,4 +1,4 @@
-import { IHeader } from './types'
+import { IPageHeader } from './types'
 import * as React from 'react'
 import * as cx from 'classnames'
 
@@ -17,7 +17,7 @@ const variants = {
 /**
  * A simple page header component
  */
-const PageHeader = ({ className, variant, children }: IHeader.IProps) => (
+const PageHeader = ({ className, variant, children }: IPageHeader.IProps) => (
   <header className={cx(className, 'page-header', variants[variant])}>{children}</header>
 )
 

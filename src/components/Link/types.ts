@@ -4,7 +4,7 @@ declare namespace ILink {
   interface IProps {
     className?: string
     component?: React.FC
-    variant?: 'Primary' | 'Secondary'
+    variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Inverse'
     href?: string
     to?: string
     target?: string

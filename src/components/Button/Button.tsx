@@ -19,6 +19,7 @@ const variants = {
   Primary: 'btn--primary',
   Secondary: 'btn--secondary',
   Tertiary: 'btn--tertiary',
+  Inverse: 'btn--inverse',
   Action: 'btn--action'
 }
 

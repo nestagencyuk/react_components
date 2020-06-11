@@ -5,8 +5,14 @@ import cx from 'classnames'
 /**
  * Grid item that sits within the main grid component.
  */
-const GridItem = ({ className, span, children }: IGrid.IItemProps) => (
-  <div className={cx(className, 'grid__item', span && `grid__item--${span}`)}>{children}</div>
-)
+const GridItem = ({ className, style, span, children }: IGrid.IItemProps, ref: React.Ref<HTMLDivElement>) => {
+  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
+
+  return (
+    <div {...passRef} className={cx(className, 'grid__item', span && `grid__item--${span}`)} style={style}>
+      {children}
+    </div>
+  )
+}
 
 export default GridItem

@@ -3,7 +3,7 @@ declare namespace ITextarea {
     className?: string
     id: string
     name?: string
-    value: string
+    value?: string
     disabled?: boolean
     onChange: (value: string) => void
   }
