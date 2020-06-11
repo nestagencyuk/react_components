@@ -1,4 +1,4 @@
-declare namespace IHeader {
+declare namespace IPageHeader {
   interface IProps {
     className?: string
     variant?: 'Fixed'
@@ -6,4 +6,4 @@ declare namespace IHeader {
   }
 }
 
-export { IHeader }
+export { IPageHeader }

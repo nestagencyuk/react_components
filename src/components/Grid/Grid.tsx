@@ -10,8 +10,14 @@ import '@nestagencyuk/scss_lib/dist/grid.scss'
 /**
  * A grid system using CSS Grid
  */
-const Grid = ({ className, gutter, children }: IGrid.IProps) => (
-  <div className={cx(className, 'grid', { 'grid--gutter': gutter })}>{children}</div>
-)
+const Grid = ({ className, style, gutter, children }: IGrid.IProps, ref: React.Ref<HTMLDivElement>) => {
+  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
+
+  return (
+    <div {...passRef} className={cx(className, 'grid', { 'grid--gutter': gutter })} style={style}>
+      {children}
+    </div>
+  )
+}
 
 export default Grid

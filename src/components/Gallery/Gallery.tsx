@@ -44,12 +44,12 @@ const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbo
    *
    * @todo make into a hook?
    */
-  const masonry = (wrapper: any, items: any) => {
+  const masonry = (wrapper: HTMLElement, items: Array<React.RefObject<HTMLElement>>) => {
     if (!wrapper) return
     const rowHeight = parseInt(window.getComputedStyle(wrapper).getPropertyValue('grid-auto-rows'))
     const rowGap = parseInt(window.getComputedStyle(wrapper).getPropertyValue('grid-gap'))
 
-    items.forEach((x: any) => {
+    items.forEach((x) => {
       const item = x.current.firstChild as HTMLElement
       const rowSpan = Math.ceil((item.clientHeight + rowGap) / (rowHeight + rowGap))
       x.current.style.gridRowEnd = `span ${rowSpan}`
@@ -71,7 +71,7 @@ const Gallery = ({ className, variant = 'Tiles', size = 'Medium', items, lightbo
         <GalleryLightbox ref={refs} items={items} />
       ) : (
         Array.isArray(items) &&
-        items.map((x: any, i: any) => (
+        items.map((x, i) => (
           <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
             {x}
           </div>

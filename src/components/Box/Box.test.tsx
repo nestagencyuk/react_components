@@ -1,4 +1,3 @@
-import 'jsdom-global/register'
 import * as React from 'react'
 import * as Adapter from 'enzyme-adapter-react-16'
 import { expect } from 'chai'
