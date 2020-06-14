@@ -12,42 +12,34 @@
     tab-size: 2 !important; 
   }
 
+
   /* Forms */
-  #story--forms-field--select,
-  [id^="story--forms-select"] {
+  [id^="-select"] {
     min-height: 250px;
   }
 
+
   /* Icons */
-  #story--components-icon--base {
-    margin-top: 1rem;
+  [id*="-icon"] > div {
+    display: inline-flex;
   }
 
-  .icn-list {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 1rem;
-  }
-
-  .icn-list__item {
-    width: 100%;
-    min-height: 70px;
+  [id*="-icon"] .demo {
+    width: 100px;
+    height: 100px;
     padding: 1rem;
+    margin-right: 1rem;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    background: #FFFFFF;
     box-shadow: rgba(0,0,0,0.10) 0 1px 3px 0;
     border: 1px solid rgba(0,0,0,.1);
   }
 
-  .icn-list__caption {
+  [id*="-icon"] span:not(.icn) {
     display: block;
     width: 100%;
     text-align: center;
@@ -55,59 +47,60 @@
     font-size: 0.75rem;
   }
 
+
   /* Overlay */
-  [id^="story--components-overlay"] > div {
+  [id*="-overlay"] > div {
     height: 500px;
   }
 
 
   /* Image */
-  [id^="story--components-image"] > div {
+  [id*="-image"] > div {
     max-width: 250px;
   }
   
 
   /* Card */
-  [id^="story--components-card"] > div {
+  [id*="-card"] > div {
     max-width: 350px;
   }
   
 
   /* Grid */
-  #story--layout-grid--base .grid__item {
+  [id*="-grid-base"] .grid__item {
     border: solid 1px white;
   }
 
-  [id^="story--layout-grid"] .grid__item {
+  [id*="-grid"] .grid__item {
     background-color: var(--ui-two);
     min-height: 50px;
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  [id^="story--layout-grid"] .grid__item .grid__item {
+  [id*="-grid"] .grid__item .grid__item {
     background-color: var(--ui-two);
   }
   
-  [id$="-alignment"] .grid__item {
+  [id*="-alignment"] .grid__item {
     height: 50px;
   }
 
 
   /* Box */
-  [id^="story--layout-box"] .box {
+  [id*="-box"] .box {
     background-color: var(--ui-two);
     min-height: 150px;
   }
 
   /* Float */
-  [id^="story--layout-float"] {
+  [id*="-float"] {
     min-height: 250px;
   }
 </style>
 
 <script>
   const invertBg = () => {
-    const inverse = document.querySelectorAll('[id*="inverse"]')
+    const inverse = [...document.querySelectorAll('[id*="inverse"]'), ...document.querySelectorAll('[id*="light"]')]
     inverse.forEach((x) => {
       x.parentElement.parentElement.style.backgroundColor = '#333'
     })

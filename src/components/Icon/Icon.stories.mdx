@@ -1,86 +1,110 @@
+import { Fragment } from 'react'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Icon } from '.'
+/**
+ * Decorator
+ */
+const nameDecorator = story => <div className="demo">{story()}<span>{story().props.name}</span></div>
 
-<Meta title='Components|Icon' component={Icon} />
+<Meta title='Components|Base/Icon' component={Icon} />
 
-# Icon
-An icon collection covering most use cases;
+# Iconasdasd
+An icon collection covering most use cases.
 
 ## Base
 The following icons are available:
 
-<Story name='Base'>
-  <ul className="icn-list">
-    <li className="icn-list__item"><Icon name={'Branch'} /><span className="icn-list__caption">Branch</span></li>
-    <li className="icn-list__item"><Icon name={'Caret-down'} /><span className="icn-list__caption">Caret-down</span></li>
-    <li className="icn-list__item"><Icon name={'Caret-left'} /><span className="icn-list__caption">Caret-left</span></li>
-    <li className="icn-list__item"><Icon name={'Caret-right'} /><span className="icn-list__caption">Caret-right</span></li>
-    <li className="icn-list__item"><Icon name={'Caret-up'} /><span className="icn-list__caption">Caret-up</span></li>
-    <li className="icn-list__item"><Icon name={'Caret'} /><span className="icn-list__caption">Caret</span></li>
-    <li className="icn-list__item"><Icon name={'Chevron-down'} /><span className="icn-list__caption">Chevron-down</span></li>
-    <li className="icn-list__item"><Icon name={'Chevron-left'} /><span className="icn-list__caption">Chevron-left</span></li>
-    <li className="icn-list__item"><Icon name={'Chevron-right'} /><span className="icn-list__caption">Chevron-right</span></li>
-    <li className="icn-list__item"><Icon name={'Chevron-up'} /><span className="icn-list__caption">Chevron-up</span></li>
-    <li className="icn-list__item"><Icon name={'Code'} /><span className="icn-list__caption">Code</span></li>
-    <li className="icn-list__item"><Icon name={'Code-alt'} /><span className="icn-list__caption">Code-alt</span></li>
-    <li className="icn-list__item"><Icon name={'Code-square-alt'} /><span className="icn-list__caption">Code-square-alt</span></li>
-    <li className="icn-list__item"><Icon name={'Controls'} /><span className="icn-list__caption">Controls</span></li>
-    <li className="icn-list__item"><Icon name={'Cross'} /><span className="icn-list__caption">Cross</span></li>
-    <li className="icn-list__item"><Icon name={'Dashboard'} /><span className="icn-list__caption">Dashboard</span></li>
-    <li className="icn-list__item"><Icon name={'Download'} /><span className="icn-list__caption">Download</span></li>
-    <li className="icn-list__item"><Icon name={'Edit'} /><span className="icn-list__caption">Edit</span></li>
-    <li className="icn-list__item"><Icon name={'Error'} /><span className="icn-list__caption">Error</span></li>
-    <li className="icn-list__item"><Icon name={'External'} /><span className="icn-list__caption">External</span></li>
-    <li className="icn-list__item"><Icon name={'Home'} /><span className="icn-list__caption">Home</span></li>
-    <li className="icn-list__item"><Icon name={'Image'} /><span className="icn-list__caption">Image</span></li>
-    <li className="icn-list__item"><Icon name={'Info'} /><span className="icn-list__caption">Info</span></li>
-    <li className="icn-list__item"><Icon name={'Instagram'} /><span className="icn-list__caption">Instagram</span></li>
-    <li className="icn-list__item"><Icon name={'Line'} /><span className="icn-list__caption">Line</span></li>
-    <li className="icn-list__item"><Icon name={'Link'} /><span className="icn-list__caption">Link</span></li>
-    <li className="icn-list__item"><Icon name={'LinkedIn'} /><span className="icn-list__caption">LinkedIn</span></li>
-    <li className="icn-list__item"><Icon name={'Message'} /><span className="icn-list__caption">Message</span></li>
-    <li className="icn-list__item"><Icon name={'Pinterest'} /><span className="icn-list__caption">Pinterest</span></li>
-    <li className="icn-list__item"><Icon name={'Pie'} /><span className="icn-list__caption">Pie</span></li>
-    <li className="icn-list__item"><Icon name={'Pie-quarter'} /><span className="icn-list__caption">Pie-quarter</span></li>
-    <li className="icn-list__item"><Icon name={'Pie-quarter-alt'} /><span className="icn-list__caption">Pie-quarter-alt</span></li>
-    <li className="icn-list__item"><Icon name={'Success'} /><span className="icn-list__caption">Success</span></li>
-    <li className="icn-list__item"><Icon name={'Tick'} /><span className="icn-list__caption">Tick</span></li>
-    <li className="icn-list__item"><Icon name={'Tools'} /><span className="icn-list__caption">Tools</span></li>
-    <li className="icn-list__item"><Icon name={'Twitter'} /><span className="icn-list__caption">Twitter</span></li>
-    <li className="icn-list__item"><Icon name={'Upload'} /><span className="icn-list__caption">Upload</span></li>
-    <li className="icn-list__item"><Icon name={'User'} /><span className="icn-list__caption">User</span></li>
-  </ul> 
-</Story>
+<Preview>
+  <Story name='Branch' decorators={[nameDecorator]}><Icon name='Branch' /></Story>
+  <Story name='Caret-down' decorators={[nameDecorator]}><Icon name='Caret-down' /></Story>
+  <Story name='Caret-left' decorators={[nameDecorator]}><Icon name='Caret-left' /></Story>
+  <Story name='Caret-right' decorators={[nameDecorator]}><Icon name='Caret-right' /></Story>
+  <Story name='Caret-up' decorators={[nameDecorator]}><Icon name='Caret-up' /></Story>
+  <Story name='Caret' decorators={[nameDecorator]}><Icon name='Caret' /></Story>
+  <Story name='Chevron-down' decorators={[nameDecorator]}><Icon name='Chevron-down' /></Story>
+  <Story name='Chevron-left' decorators={[nameDecorator]}><Icon name='Chevron-left' /></Story>
+  <Story name='Chevron-right' decorators={[nameDecorator]}><Icon name='Chevron-right' /></Story>
+  <Story name='Chevron-up' decorators={[nameDecorator]}><Icon name='Chevron-up' /></Story>
+  <Story name='Code' decorators={[nameDecorator]}><Icon name='Code' /></Story>
+  <Story name='Code-alt' decorators={[nameDecorator]}><Icon name='Code-alt' /></Story>
+  <Story name='Code-square-alt' decorators={[nameDecorator]}><Icon name='Code-square-alt' /></Story>
+  <Story name='Controls' decorators={[nameDecorator]}><Icon name='Controls' /></Story>
+  <Story name='Cross' decorators={[nameDecorator]}><Icon name='Cross' /></Story>
+  <Story name='Dashboard' decorators={[nameDecorator]}><Icon name='Dashboard' /></Story>
+  <Story name='Download' decorators={[nameDecorator]}><Icon name='Download' /></Story>
+  <Story name='Edit' decorators={[nameDecorator]}><Icon name='Edit' /></Story>
+  <Story name='Exclamation' decorators={[nameDecorator]}><Icon name='Error' /></Story>
+  <Story name='External' decorators={[nameDecorator]}><Icon name='External' /></Story>
+  <Story name='Home' decorators={[nameDecorator]}><Icon name='Home' /></Story>
+  <Story name='Image' decorators={[nameDecorator]}><Icon name='Image' /></Story>
+  <Story name='Info' decorators={[nameDecorator]}><Icon name='Info' /></Story>
+  <Story name='Instagram' decorators={[nameDecorator]}><Icon name='Instagram' /></Story>
+  <Story name='Line' decorators={[nameDecorator]}><Icon name='Line' /></Story>
+  <Story name='Link' decorators={[nameDecorator]}><Icon name='Link' /></Story>
+  <Story name='LinkedIn' decorators={[nameDecorator]}><Icon name='LinkedIn' /></Story>
+  <Story name='Message' decorators={[nameDecorator]}><Icon name='Message' /></Story>
+  <Story name='Pinterest' decorators={[nameDecorator]}><Icon name='Pinterest' /></Story>
+  <Story name='Pie' decorators={[nameDecorator]}><Icon name='Pie' /></Story>
+  <Story name='Pie-quarter' decorators={[nameDecorator]}><Icon name='Pie-quarter' /></Story>
+  <Story name='Pie-quarter-alt' decorators={[nameDecorator]}><Icon name='Pie-quarter-alt' /></Story>
+  <Story name='Successs' decorators={[nameDecorator]}><Icon name='Success' /></Story>
+  <Story name='Tick' decorators={[nameDecorator]}><Icon name='Tick' /></Story>
+  <Story name='Tools' decorators={[nameDecorator]}><Icon name='Tools' /></Story>
+  <Story name='Twitter' decorators={[nameDecorator]}><Icon name='Twitter' /></Story>
+  <Story name='Upload' decorators={[nameDecorator]}><Icon name='Upload' /></Story>
+  <Story name='User' decorators={[nameDecorator]}><Icon name='User' /></Story>
+</Preview> 
 
 ## Sizes
 Medium is the default size so the prop can be omitted.
 
+### XSmall
 <Preview>
-  <Story name='Sizes'>
-    <div>
-      <Icon name={'User'} size={'XSmall'} />
-      <Icon name={'User'} size={'Small'} />
-      <Icon name={'User'} />
-      <Icon name={'User'} size={'Large'} />
-    </div>
-  </Story>
+  <Story name='XSmall'><Icon name='User' size='XSmall' /></Story>
+</Preview>
+
+### Small
+<Preview>
+  <Story name='Small'><Icon name='User' size='Small' /></Story>
+</Preview>
+
+### Medium
+<Preview>
+  <Story name='Medium'><Icon name='User' size='Medium' /></Story>
+</Preview>
+
+### Large
+<Preview>
+  <Story name='Large'><Icon name='User' size='Large' /></Story>
 </Preview>
 
 ## Colours
-Dark is the default colour so the prop can be omitted.
+Dark is the default colour so the prop can be omitted. 
 
+### Dark
 <Preview>
-  <Story name='Colours'>
-    <div>
-      <Icon name={'User'} />
-      <Icon name={'User'} colour={'Light'} />
-      <Icon name={'User'} colour={'Success'} />
-      <Icon name={'User'} colour={'Warning'} />
-      <Icon name={'User'} colour={'Error'} />
-    </div>
-  </Story>
+  <Story name='Dark'><Icon name='User' colour='Dark' /></Story> 
+</Preview>
+
+### Light
+<Preview>
+  <Story name='Light'><Icon name='User' colour='Light' /></Story>
+</Preview>
+
+### Success 
+<Preview>
+  <Story name='Success'><Icon name='User' colour='Success' /></Story>
+</Preview>
+
+### Warning
+<Preview>
+  <Story name='Warning'><Icon name='User' colour='Warning' /></Story>
+</Preview>
+
+### Error
+<Preview>
+  <Story name='Error'><Icon name='User' colour='Error' /></Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Icon} />

@@ -3,16 +3,10 @@ import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
 
 addParameters({
   docs: {
-    container: DocsContainer,
     page: DocsPage,
+    container: DocsContainer,
   },
   options: {
-    name: 'Nest Component Library',
-    // theme: themes.dark,
+    name: 'Nest Component Library'
   },
 })
-
-configure([
-  require.context('../src', true, /index\.stories\.mdx/),
-  require.context('../src', true, /\.stories\.(tsx|mdx)$/),
-], module) 
