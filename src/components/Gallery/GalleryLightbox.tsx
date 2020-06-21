@@ -5,7 +5,7 @@ import { useState, Fragment, forwardRef } from 'react'
 /**
  * Components
  */
-import { Toggle } from '../../context/Toggle'
+import { useToggle } from '../../hooks/useToggle'
 
 /**
  * Components
@@ -17,39 +17,36 @@ import { Slider } from '../Slider'
 /**
  * Lightbox style
  */
-const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => (
-  <Toggle>
-    {({ toggled, setToggled }) => {
-      const [init, setInit] = useState(0)
+const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => {
+  const [toggled, setToggled] = useToggle()
+  const [init, setInit] = useState(0)
 
-      /**
-       * Toggle the slider visibility
-       */
-      const handleClick = (i: number) => {
-        setToggled(true)
-        setInit(i)
-      }
+  /**
+   * Toggle the slider visibility
+   */
+  const handleClick = (i: number) => {
+    setToggled(true)
+    setInit(i)
+  }
 
-      const childItems = typeof items === 'function' && items({ handleClick })
+  const childItems = typeof items === 'function' && items({ toggled, handleClick })
 
-      return (
-        <Fragment>
-          {toggled && (
-            <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay portal fixed onClick={() => setToggled(false)} />
-              <Slider className="gallery__slider" variant="Fade" init={init} nav="Buttons" items={childItems} />
-            </Float>
-          )}
+  return (
+    <Fragment>
+      {toggled && (
+        <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
+          <Overlay portal fixed onClick={() => setToggled(false)} />
+          <Slider className="gallery__slider" variant="Fade" init={init} nav="Buttons" items={childItems} />
+        </Float>
+      )}
 
-          {childItems.map((x, i) => (
-            <div ref={ref.current[i]} key={`gallery-item-${i}`} className="gallery__item">
-              {x}
-            </div>
-          ))}
-        </Fragment>
-      )
-    }}
-  </Toggle>
-)
+      {childItems.map((x, i) => (
+        <div ref={ref.current[i]} key={`gallery-item-${i}`} className="gallery__item">
+          {x}
+        </div>
+      ))}
+    </Fragment>
+  )
+}
 
 export default forwardRef(GalleryLightbox)

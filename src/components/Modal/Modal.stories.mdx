@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
-import { ToggleContext, Toggle } from '../../context/Toggle'
+import { useToggle } from '../../hooks/useToggle'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { Overlay } from '../Overlay'
@@ -37,8 +37,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 <Preview>
   <Story name='Toggle'>
-    <Toggle>
-      {({ toggled, setToggled }) => (
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
@@ -60,8 +61,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
             </Float>
           )}
         </Fragment>
-      )}
-    </Toggle>
+      )
+    }}
   </Story>
 </Preview>
 

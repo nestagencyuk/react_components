@@ -4,7 +4,7 @@ import { Icon } from '.'
 /**
  * Decorator
  */
-const nameDecorator = story => <div className="demo">{story()}<span>{story().props.name}</span></div>
+const nameDecorator = story => <div className="demo">{story()}<span className="demo__caption">{story().props.name}</span></div>
 
 <Meta title='Components|Base/Icon' component={Icon} />
 

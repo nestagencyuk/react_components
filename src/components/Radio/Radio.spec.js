@@ -1,7 +1,7 @@
 context('Radio', () => {
 
   describe(`Base`, () => {
-    const id = 'forms-radio--base'
+    const id = 'components-forms-radio--base'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -12,7 +12,7 @@ context('Radio', () => {
   })
 
   describe(`Group`, () => {
-    const id = 'forms-radio--group'
+    const id = 'components-forms-radio--group'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

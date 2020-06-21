@@ -14,7 +14,7 @@ const ModalClose = ({ onClick }: IModal.ICloseProps) =>
   onClick ? (
     <button className={cx('modal__close')} onClick={() => onClick(false)}>
       Close
-      <Icon name={'cross'} />
+      <Icon name={'Cross'} />
     </button>
   ) : null
 

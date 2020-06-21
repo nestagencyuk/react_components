@@ -3,10 +3,10 @@ import { Fragment, useContext, useState } from 'react'
 import { Button } from '../../components/Button'
 import { ToggleGroupContext, ToggleGroup } from '.'
 
-<Meta title='Interaction|ToggleGroup' component={ToggleGroup} />
+<Meta title='Context|Toggle Group' component={ToggleGroup} />
 
-# ToggleGroup
-A toggle group is similar to the singular [Toggle](/?path=/docs/interaction-toggle--base) however it allows for multiple toggleables in the same set. Useful for tabs, accordions and other similar hidden content.
+# Toggle Group
+This is the Context implementation of the [Toggle Group hook](/?path=/docs/hooks-toggle-group--base). Its recommended use is for controlling global state of multiple toggleable components such as alerts, modals, drawers etc. More localised usage should use the hook instead.
 
 ## Base
 The most concise way of accessing the toggle state would be to use Render Props (i.e a function as a child).

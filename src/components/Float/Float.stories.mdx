@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
-import { ToggleContext, Toggle } from '../../context/Toggle'
+import { useToggle } from '../../hooks/useToggle'
 import { Button } from '../Button'
 import { Float } from '.'
 
@@ -23,16 +23,17 @@ The `portal` prop is perfect for creating content that renders over the main pag
 
 <Preview>
   <Story name='Portal'>
-    <Toggle>
-      {({ toggled, setToggled }) => (
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
         <Fragment>
           <Button onClick={() => setToggled(!toggled)}>{toggled ? 'Close' : 'Toggle'} Float</Button>
           {toggled && <Float portal>
             I am floating!
           </Float>}
         </Fragment>
-      )}
-    </Toggle>
+      )
+    }}
   </Story>
 </Preview>
 

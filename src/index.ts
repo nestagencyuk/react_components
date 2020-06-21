@@ -102,12 +102,16 @@ export { ITextarea } from './components/Textarea/types'
 export { Tooltip } from './components/Tooltip'
 export { ITooltip } from './components/Tooltip/types'
 
-export { Paginate } from './context/Paginate'
-export { Toggle } from './context/Toggle'
 export { ToggleGroup } from './context/ToggleGroup'
 
+export { useManageArray } from './hooks/useManageArray'
 export { useMousePos } from './hooks/useMousePos'
 export { useObserver } from './hooks/useObserver'
+export { usePagination } from './hooks/usePagination'
 export { useRaf } from './hooks/useRaf'
 export { useScroll } from './hooks/useScroll'
+export { useToggle } from './hooks/useToggle'
+export { useToggleGroup } from './hooks/useToggleGroup'
 export { useTypeEffect } from './hooks/useTypeEffect'
+
+require('./index.scss')
