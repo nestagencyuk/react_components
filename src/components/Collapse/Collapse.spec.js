@@ -1,6 +1,6 @@
 context('Collapse', () => {
   describe(`Base`, () => {
-    const id = 'components-collapse--base'
+    const id = 'components-base-collapse--base'
 
     it('Choose first option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -11,7 +11,7 @@ context('Collapse', () => {
   })
 
   describe(`Multiple`, () => {
-    const id = 'components-collapse--multiple'
+    const id = 'components-base-collapse--multiple'
 
     it('Choose first option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

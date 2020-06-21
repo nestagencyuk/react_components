@@ -24,9 +24,12 @@ const Checkbox = ({ className, id, name, value, disabled, onChange }: ICheckbox.
       type="checkbox"
       checked={value || false}
       disabled={disabled}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        e.stopPropagation()
+        onChange(e.target.checked)
+      }}
     />
-    <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="tick" colour="Light" size="Small" />
+    <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="Tick" colour="Light" size="Small" />
   </label>
 )
 

@@ -1,6 +1,6 @@
 context('Input', () => {
   describe('Base', () => {
-    const id = 'forms-input--base'
+    const id = 'components-forms-input--base'
 
     it('Types in a value', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)

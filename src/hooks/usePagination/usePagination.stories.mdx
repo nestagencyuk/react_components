@@ -1,0 +1,114 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Button } from '../../components/Button'
+import { usePagination } from '.'
+
+<Meta title='Hooks|Pagination' component={null} />
+
+# Pagination
+Pagination provides a generic way to show a section of an array, useful for creating components such as pagination or sliders.
+ 
+## Base
+The most concise way of accessing the pagination state is to use the custom hook.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const { items, current, setCurrent } = usePagination()
+      return (
+        <Fragment>
+          <div>Current: {current}</div>
+          {Array.from(Array(6).keys()).map((x, i) => (
+            items.includes(i) && <div key={`item-${i}`}>Item {i}</div>
+          ))}
+          <Button disabled={current === 0} onClick={() => setCurrent(current - 1 < 0 ? 0 : current - 1)}>Prev</Button>
+          <Button disabled={current === 5} onClick={() => setCurrent(current + 1 > 5 ? 5 : current + 1)}>Next</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Init
+Set the `init` prop to initialise the pagination from a value other than 0.
+
+<Preview>
+  <Story name='Init'>
+    {() => {
+      const { items, current, setCurrent } = usePagination({ init: 2 })
+      return (
+        <Fragment>
+          <div>Current: {current}</div>
+          {Array.from(Array(6).keys()).map((x, i) => (
+            items.includes(i) && <div key={`item-${i}`}>Item {i}</div>
+          ))}
+          <Button disabled={current === 0} onClick={() => setCurrent(current - 3 < 0 ? 0 : current - 1)}>Prev</Button>
+          <Button disabled={current === 6} onClick={() => setCurrent(current + 3 > 5 ? 3 : current + 1)}>Next</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Limit
+Set the `limit` prop and adjust the current index to show more items per page. This example has a limit of 3 per page.
+
+<Preview>
+  <Story name='Limit'>
+    {() => {
+      const { items, current, setCurrent } = usePagination({ limit: 3 })
+      return (
+        <Fragment>
+          <div>Current: {current}</div>
+          {Array.from(Array(6).keys()).map((x, i) => (
+            items.includes(i) && <div key={`item-${i}`}>Item {i}</div>
+          ))}
+          <Button disabled={current === 0} onClick={() => setCurrent(current - 3 < 0 ? 0 : current - 1)}>Prev</Button>
+          <Button disabled={current === 6} onClick={() => setCurrent(current + 3 > 5 ? 3 : current + 1)}>Next</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Infinite
+Simply set the current page back to the start for an infinite loop.
+
+<Preview>
+  <Story name='Infinite'>
+    {() => {
+      const { items, current, setCurrent } = usePagination({ limit: 1 })
+      return (
+        <Fragment>
+          <div>Current: {current}</div>
+          {Array.from(Array(6).keys()).map((x, i) => (
+            items.includes(i) && <div key={`item-${i}`}>Item {i}</div>
+          ))}
+          <Button onClick={() => setCurrent(current - 1 < 0 ? 5 : current - 1)}>Prev</Button>
+          <Button onClick={() => setCurrent(current + 1 > 5 ? 0 : current + 1)}>Next</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Infinite With Limit
+Infinite loop with multiple items per page.
+
+<Preview>
+  <Story name='Infinite-Limit'>
+    {() => {
+      const { items, current, setCurrent } = usePagination({ limit: 3 })
+      return (
+        <Fragment>
+          <div>Current: {current}</div>
+          {Array.from(Array(6).keys()).map((x, i) => (
+            items.includes(i) && <div key={`item-${i}`}>Item {i}</div>
+          ))}
+          <Button onClick={() => setCurrent(current - 3 < 0 ? 3 : current - 1)}>Prev</Button>
+          <Button onClick={() => setCurrent(current + 3 > 5 ? 0 : current + 1)}>Next</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

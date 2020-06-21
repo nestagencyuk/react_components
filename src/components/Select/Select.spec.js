@@ -1,7 +1,7 @@
 context('Select', () => {
 
   describe(`Base`, () => {
-    const id = 'forms-select--base'
+    const id = 'components-forms-select--base'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -17,7 +17,7 @@ context('Select', () => {
   })
 
   describe(`Optional`, () => {
-    const id = 'forms-select--optional'
+    const id = 'components-forms-select--optional'
 
     it('Choose an option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
@@ -37,15 +37,17 @@ context('Select', () => {
   })
 
   describe(`Searchable`, () => {
-    const id = 'forms-select--searchable'
+    const id = 'components-forms-select--searchable'
 
     it('Types out a known option', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('#select').type('Option 1')
+      cy.get('.select__option:nth-child(2)').click()
       cy.get('.text').invoke('text').should('eq', 'Value: option-1')
 
       cy.get('#select').clear().type('option 1')
+      cy.get('.select__option:nth-child(2)').click()
       cy.get('.text').invoke('text').should('eq', 'Value: option-1')
     })
 
@@ -60,11 +62,11 @@ context('Select', () => {
       cy.visit(`http://localhost:3002/iframe.html?id=${id}`)
 
       cy.get('#select').focus()
-      cy.get('.select__option:nth-child(1)').click()
+      cy.get('.select__option:nth-child(2)').click()
       cy.get('.text').invoke('text').should('eq', 'Value: option-1')
 
       cy.get('#select').focus().clear()
-      cy.get('.select__option:nth-child(2)').click()
+      cy.get('.select__option:nth-child(3)').click()
       cy.get('.text').invoke('text').should('eq', 'Value: option-2')
     })
   })

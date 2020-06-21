@@ -1,12 +1,12 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
-import { ToggleContext, Toggle } from '../../context/Toggle'
+import { useToggle } from '../../hooks/useToggle'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { Float } from '../Float'
 import { Alert } from '.'
 
-<Meta title='Components|Alert' component={Alert} />
+<Meta title='Components|Base/Alert' component={Alert} />
 
 # Alert
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
@@ -53,12 +53,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ## Toggle
-To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/interaction-toggle--base) and [Float](/?path=/docs/layout-float--base).
+To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/hooks-toggle--base) and [Float](/?path=/docs/layout-float--base).
 
 <Preview>
   <Story name='Toggle'>
-    <Toggle>
-      {({ toggled, setToggled }) => (
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
@@ -67,18 +68,19 @@ To create an alert popover, the base alert component can be combined with [Toggl
             </Alert>
           </Float>}
         </Fragment>
-      )}
-    </Toggle>
+      )
+    }}
   </Story>
 </Preview>
 
 ## Timeout
-Set a timeout so that the alert disappeares after some time.
+Set a timeout so that the alert disappears after some time.
 
 <Preview>
   <Story name='Alert-Timeout'>
-    <Toggle timeout={2000}>
-      {({ toggled, setToggled }) => (
+    {() => {
+      const [toggled, setToggled] = useToggle({ timeout: 3000 })
+      return (
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
@@ -87,8 +89,8 @@ Set a timeout so that the alert disappeares after some time.
             </Alert>
           </Float>}
         </Fragment>
-      )}
-    </Toggle>
+      )
+    }}
   </Story>
 </Preview>
 
@@ -97,27 +99,26 @@ An alert can be used to determine an action.
 
 <Preview>
   <Story name='Confirm'>
-    <Toggle>
-      {({ toggled, setToggled }) => {
-        const [decision, setDecision] = useState(null)
-        return (
-          <Fragment>
-            <Button onClick={() => setToggled(true)}>Do something mad!</Button>
-            {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
-            {toggled && <Float portal>
-              <Alert variant='Warning' footer={{
-                actions: [
-                  { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
-                  { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
-                ]
-              }}>
-                Are you sure you want to do this crazy thing?!
-              </Alert>
-            </Float>}
-          </Fragment>
-        )
-      }}
-    </Toggle>
+    {() => {
+      const [decision, setDecision] = useState(null)
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Do something mad!</Button>
+          {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
+          {toggled && <Float portal>
+            <Alert variant='Warning' footer={{
+              actions: [
+                { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
+                { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
+              ]
+            }}>
+              Are you sure you want to do this crazy thing?!
+            </Alert>
+          </Float>}
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 

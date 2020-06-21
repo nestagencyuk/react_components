@@ -12,7 +12,7 @@ import { Icon } from '../Icon'
 const NavigationToggle = ({ toggled, onClick }: INavigation.IToggleProps) => (
   <button className="nav__toggle" onClick={() => onClick(!toggled)}>
     Toggle
-    <Icon name={toggled ? 'cross' : 'hamburger'} />
+    <Icon name={toggled ? 'Cross' : 'Hamburger'} />
   </button>
 )
 
