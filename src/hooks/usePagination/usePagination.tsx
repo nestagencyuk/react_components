@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react'
 /**
  * Provide a pagination state
  */
-const usePagination = ({ init = 0, limit = 1 }: any = {}): { items: number[], current: number, setCurrent: React.Dispatch<React.SetStateAction<number>> } => {
+const usePagination = ({ init = 0, limit = 1 }: any = {}): {
+  items: number[]
+  current: number
+  setCurrent: React.Dispatch<React.SetStateAction<number>>
+} => {
   const [items, setItems] = useState([])
   const [current, setCurrent] = useState(init)
 

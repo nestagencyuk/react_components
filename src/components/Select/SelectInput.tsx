@@ -11,7 +11,17 @@ import { Checkbox } from '../Checkbox'
 /**
  * Search input
  */
-const SelectInput: React.FC<any> = ({ id, value, searchValue, options, multi, searchable, disabled, onChange, onSearchChange }) => {
+const SelectInput: React.FC<any> = ({
+  id,
+  value,
+  searchValue,
+  options,
+  multi,
+  searchable,
+  disabled,
+  onChange,
+  onSearchChange
+}) => {
   const [shownValue, setShownValue] = useState('')
   const [placeholder, setPlaceholder] = useState(searchable ? 'Type to search...' : '-- Select --')
 
@@ -29,7 +39,7 @@ const SelectInput: React.FC<any> = ({ id, value, searchValue, options, multi, se
    */
   useEffect(() => {
     if (multi) {
-      const num = value ? value.length < 10 ? value.length : '10+' : 0
+      const num = value ? (value.length < 10 ? value.length : '10+') : 0
 
       if (searchable) {
         setPlaceholder(`${num} Selected`)

@@ -95,7 +95,13 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
   }, [values])
 
   return (
-    <div ref={ref} className={cx('select', { 'select--disabled': disabled })} tabIndex={-1} onFocus={handleFocus} onBlur={handleBlur}>
+    <div
+      ref={ref}
+      className={cx('select', { 'select--disabled': disabled })}
+      tabIndex={-1}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       <div>
         {/* {multi && values && (
           values.map((x) => (
@@ -113,17 +119,27 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
           multi={multi}
           searchable={searchable}
           disabled={disabled}
-          onChange={onChange} onSearchChange={setSearchValue}
+          onChange={onChange}
+          onSearchChange={setSearchValue}
         />
 
-        {multi && values?.length > 0 && <button className="select__clear" onClick={() => resetItems([])}>
-          <Icon name="Cross" size="XSmall" />
-        </button>}
+        {multi && values?.length > 0 && (
+          <button className="select__clear" onClick={() => resetItems([])}>
+            <Icon name="Cross" size="XSmall" />
+          </button>
+        )}
 
         <Icon className="select__icn" name={focused ? 'Chevron-up' : 'Chevron-down'} colour="Dark" size="Small" />
       </div>
 
-      <SelectOptions open={focused} values={values} options={filtered} optional={optional} multi={multi} onClick={handleClick} />
+      <SelectOptions
+        open={focused}
+        values={values}
+        options={filtered}
+        optional={optional}
+        multi={multi}
+        onClick={handleClick}
+      />
     </div>
   )
 }

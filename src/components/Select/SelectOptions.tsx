@@ -23,13 +23,9 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({ open, values, options,
     {options.map((x) => (
       <li key={x.value} className="select__option">
         <button className={cx('select__btn', { 'p--l-xxl': multi })} title={x.label} onClick={() => onClick(x.value)}>
-
-          {multi && <Checkbox
-            className="select__checkbox"
-            id={x.label}
-            value={values?.includes(x.value)}
-            onChange={() => {}}
-          />}
+          {multi && (
+            <Checkbox className="select__checkbox" id={x.label} value={values?.includes(x.value)} onChange={() => {}} />
+          )}
 
           {options.find((y) => y.value === x.value)?.label}
         </button>
