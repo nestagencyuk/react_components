@@ -6,7 +6,7 @@ declare namespace IGallery {
     variant?: 'Tiles' | 'Masonry'
     size?: Size
     lightbox?: boolean
-    items: React.ReactNode[] | ((value: { handleClick?: (i: number) => void }) => React.ReactNode[])
+    items: React.ReactNode[] | ((value: { toggled?: boolean, handleClick?: (i: number) => void }) => React.ReactNode[])
   }
 }
 

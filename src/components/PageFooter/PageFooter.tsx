@@ -41,7 +41,11 @@ const PageFooter = ({ className, image, links = [], subInfo }: IPageFooter.IProp
         </GridItem>
       </Grid>
 
-      {subInfo && <div className={'page-footer__sub'}>{subInfo}</div>}
+      {subInfo && (
+        <div className={'page-footer__sub'}>
+          {subInfo}
+        </div>
+      )}
     </footer>
   )
 }

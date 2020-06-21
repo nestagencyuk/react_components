@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Button } from '../../components/Button'
+import { useToggleGroup } from '.'
+
+<Meta title='Hooks|Toggle Group' component={null} />
+
+# ToggleGroup
+A toggle group is similar to the singular [Toggle](/?path=/docs/hooks-toggle--base) however it allows for multiple toggleables in the same set. Useful for tabs, accordions and other similar hidden content.
+
+## Base
+The most concise way of accessing the toggle state would be to use Render Props (i.e a function as a child).
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const [toggles, setToggled] = useToggleGroup()
+      return (
+        <Fragment>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Multi
+Have multiple toggles at once.
+
+<Preview>
+  <Story name='Multi'>
+    {() => {
+      const [toggles, setToggled] = useToggleGroup({ multi: true })
+      return (
+        <Fragment>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

@@ -11,7 +11,7 @@ import '@nestagencyuk/scss_lib/dist/slider.scss'
 /**
  * Context
  */
-import { Paginate } from '../../context/Paginate'
+import { usePagination } from '../../hooks/usePagination'
 
 /**
  * Components
@@ -30,86 +30,83 @@ const variants = {
 /**
  * Slider
  */
-const Slider = ({ className, variant = 'Slide', init = 0, tick, items, nav }: ISlider.IProps) =>
-  items ? (
-    <Paginate init={init} limit={1}>
-      {({ items: pageItems, current, setCurrent }) => {
-        const total = items.length
-        const max = total - 1
-        const min = 0
-        const prev = current - 1 < min ? max : current - 1
-        const next = current + 1 > max ? min : current + 1
+const Slider = ({ className, variant = 'Slide', init = 0, tick, items: pItems, nav }: ISlider.IProps) => {
+  const { items, current, setCurrent } = usePagination({ init, limit: 1 })
 
-        const bodyStyle = {
-          width: `${100 * total}%`,
-          transform: variant === 'Slide' ? `translateX(-${(100 / total) * current}%)` : null
-        }
+  const total = pItems.length
+  const max = total - 1
+  const min = 0
+  const prev = current - 1 < min ? max : current - 1
+  const next = current + 1 > max ? min : current + 1
 
-        const showDots = nav ? nav === 'Dots' : true
-        const showButtons = nav ? nav === 'Buttons' : true
+  const bodyStyle = {
+    width: `${100 * total}%`,
+    transform: variant === 'Slide' ? `translateX(-${(100 / total) * current}%)` : null
+  }
 
-        /**
-         * Render slide items
-         */
-        const renderItems = () =>
-          items.map((x, i) => {
-            const itemStyle = {
-              transform: variant === 'Fade' ? `translateX(-${100 * i}%)` : null
-            }
-            return (
-              <div
-                key={`slide-${i}`}
-                className={cx('slider__item', { 'slider__item--active': pageItems.includes(i) })}
-                style={itemStyle}
-              >
-                {x}
-              </div>
-            )
-          })
+  const showDots = nav ? nav === 'Dots' : true
+  const showButtons = nav ? nav === 'Buttons' : true
 
-        /**
-         * Auto slide
-         */
-        useEffect(() => {
-          if (!tick) return
-          const handleTick = setTimeout(() => setCurrent(next), tick)
-          return () => clearTimeout(handleTick)
-        }, [current])
+  /**
+   * Render slide items
+   */
+  const renderItems = () =>
+    pItems.map((x, i) => {
+      const itemStyle = {
+        transform: variant === 'Fade' ? `translateX(-${100 * i}%)` : null
+      }
+      return (
+        <div
+          key={`slide-${i}`}
+          className={cx('slider__item', { 'slider__item--active': items.includes(i) })}
+          style={itemStyle}
+        >
+          {x}
+        </div>
+      )
+    })
 
-        return (
-          <section className={cx(className, 'slider', variants[variant])}>
-            <div className="slider__body">
-              <div className="slider__items" style={bodyStyle}>
-                {renderItems()}
-              </div>
+  /**
+   * Auto slide
+   */
+  useEffect(() => {
+    if (!tick) return
+    const handleTick = setTimeout(() => setCurrent(next), tick)
+    return () => clearTimeout(handleTick)
+  }, [current])
 
-              {showButtons && (
-                <Fragment>
-                  <button className="slider__btn slider__btn--prev" onClick={() => setCurrent(prev)}>
-                    Prev
-                    <Icon name="chevron-left" size="Large" colour="Light" />
-                  </button>
-                  <button className="slider__btn slider__btn--next" onClick={() => setCurrent(next)}>
-                    Next
-                    <Icon name="chevron-right" size="Large" colour="Light" />
-                  </button>
-                </Fragment>
-              )}
-            </div>
+  return pItems ? (
+    <section className={cx(className, 'slider', variants[variant])}>
+      <div className="slider__body">
+        <div className="slider__items" style={bodyStyle}>
+          {renderItems()}
+        </div>
 
-            {showDots && (
-              <Pagination
-                className="slider__nav"
-                variant="Dots"
-                current={current}
-                items={Array.from(Array(total).keys())}
-                onCurrent={(i) => setCurrent(i)}
-              />
-            )}
-          </section>
-        )
-      }}
-    </Paginate>
+        {showButtons && (
+          <Fragment>
+            <button className="slider__btn slider__btn--prev" onClick={() => setCurrent(prev)}>
+              Prev
+              <Icon name="Chevron-left" size="Large" colour="Light" />
+            </button>
+            <button className="slider__btn slider__btn--next" onClick={() => setCurrent(next)}>
+              Next
+              <Icon name="Chevron-right" size="Large" colour="Light" />
+            </button>
+          </Fragment>
+        )}
+      </div>
+
+      {showDots && (
+        <Pagination
+          className="slider__nav"
+          variant="Dots"
+          current={current}
+          items={Array.from(Array(total).keys())}
+          onCurrent={(i) => setCurrent(i)}
+        />
+      )}
+    </section>
   ) : null
+}
 
 export default Slider
