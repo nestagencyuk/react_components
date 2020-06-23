@@ -9,7 +9,7 @@ import { Icon } from '../Icon'
 /**
  * A close button
  */
-const AlertClose = ({ onClick }: IAlert.ICloseProps) =>
+const AlertClose: React.FC<IAlert.ICloseProps> = ({ onClick }) =>
   onClick ? (
     <button className="alert__close" onClick={() => onClick(false)}>
       Close

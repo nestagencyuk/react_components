@@ -6,7 +6,7 @@ import cx from 'classnames'
 /**
  * Body for the collapse panel
  */
-const CollapseBody = ({ active, children }: ICollapse.IBodyProps) => {
+const CollapseBody: React.FC<ICollapse.IBodyProps> = ({ active, children }) => {
   const ref = useRef<HTMLDivElement>()
   const maxHeight = active ? ref?.current?.scrollHeight : 0
 

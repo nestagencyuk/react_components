@@ -21,7 +21,7 @@ const variants = {
 /**
  * My component
  */
-const Template = ({ className, variant = 'Primary', children }: ITemplate.IProps) => (
+const Template: React.FC<ITemplate.IProps> = ({ className, variant = 'Primary', children }) => (
   <div className={cx(className, 'template', variants[variant])}>{children}</div>
 )
 

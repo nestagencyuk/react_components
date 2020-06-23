@@ -15,7 +15,22 @@ declare namespace ISelect {
     onChange: (value: string | string[]) => void
   }
 
+  interface IInputProps {
+    id: string
+    value: string | string[]
+    searchValue: string
+    options?: Array<{
+      value: string
+      label: string
+    }>
+    multi: boolean
+    searchable: boolean
+    disabled: boolean
+    onChange: (value: string) => void
+  }
+
   interface IOptionsProps {
+    id: string
     open: boolean
     values: string[]
     options: Array<{

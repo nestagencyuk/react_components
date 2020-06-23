@@ -1,14 +1,11 @@
-import { Fragment } from 'react'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { nameDecorator } from '../../../.storybook/decorators.js'
+import { Fragment } from 'react'
 import { Icon } from '.'
-/**
- * Decorator
- */
-const nameDecorator = story => <div className="demo">{story()}<span className="demo__caption">{story().props.name}</span></div>
 
 <Meta title='Components|Base/Icon' component={Icon} />
 
-# Iconasdasd
+# Icon
 An icon collection covering most use cases.
 
 ## Base

@@ -1,4 +1,5 @@
 import { IAlert } from './types'
+import { IIcon } from '../Icon/types'
 import * as React from 'react'
 
 /**
@@ -9,7 +10,7 @@ import { Icon } from '../Icon'
 /**
  * Icons
  */
-const icons = {
+const icons: IIcon.IIconTypes = {
   Success: 'Success',
   Warning: 'Info',
   Error: 'Error',
@@ -19,7 +20,7 @@ const icons = {
 /**
  * Render alert actions
  */
-const AlertIcon = ({ variant }: IAlert.IIconProps) => (
+const AlertIcon: React.FC<IAlert.IIconProps> = ({ variant }) => (
   <Icon className="alert__icn" name={icons[variant]} colour={variant === 'Info' ? 'Dark' : variant} />
 )
 
