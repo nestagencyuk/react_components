@@ -25,7 +25,7 @@ const alignY = {
 /**
  * A simple box/container component
  */
-const Box = ({ className, align, fill, children }: IBox.IProps, ref: React.Ref<HTMLDivElement>) => {
+const Box: React.FC<IBox.IProps> = ({ className, align, fill, children }, ref: React.Ref<HTMLDivElement>) => {
   const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
 
   return (

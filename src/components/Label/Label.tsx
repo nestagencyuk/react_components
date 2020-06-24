@@ -10,8 +10,8 @@ import '@nestagencyuk/scss_lib/dist/label.scss'
 /**
  * A label
  */
-const Label = ({ className, for: htmlFor, children }: ILabel.IProps) => (
-  <label className={cx(className, 'label')} htmlFor={htmlFor}>
+const Label: React.FC<ILabel.IProps> = ({ className, for: htmlFor, children }) => (
+  <label className={cx(className, 'label')} htmlFor={htmlFor} aria-label={htmlFor}>
     {children}
   </label>
 )

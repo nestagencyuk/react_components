@@ -18,7 +18,7 @@ import { Icon } from '../Icon'
 /**
  * Determine which select type to render
  */
-const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi, searchable, disabled, onChange }) => {
+const Select: React.FC<ISelect.IProps> = ({ id, options, value = null, optional, multi, searchable, disabled, onChange }) => {
   const ref = useRef<HTMLDivElement>()
   const [focused, setFocused] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
@@ -72,11 +72,19 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
   }
 
   /**
+   * Reset all items
+   */
+  const handleReset = () => {
+    resetItems([])
+    setFocused(false)
+  }
+
+  /**
    * Component mount
    */
   useEffect(() => {
     if (typeof value === 'string') {
-      handleClick(value)
+      onChange(value)
     } else if (multi && Array.isArray(value)) {
       value.forEach((x) => handleClick(x))
     }
@@ -95,22 +103,8 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
   }, [values])
 
   return (
-    <div
-      ref={ref}
-      className={cx('select', { 'select--disabled': disabled })}
-      tabIndex={-1}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
+    <div ref={ref} className={cx('select', { 'select--disabled': disabled })} tabIndex={-1} data-testid={id} onFocus={handleFocus} onBlur={handleBlur}>
       <div>
-        {/* {multi && values && (
-          values.map((x) => (
-            <span key={x}>
-              {options.find((y) => y.value === x)?.label}
-              <button onClick={() => deleteItem(x)}>X</button>
-            </span>
-          )))} */}
-
         <SelectInput
           id={id}
           value={value}
@@ -119,12 +113,11 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
           multi={multi}
           searchable={searchable}
           disabled={disabled}
-          onChange={onChange}
-          onSearchChange={setSearchValue}
+          onChange={setSearchValue}
         />
 
         {multi && values?.length > 0 && (
-          <button className="select__clear" onClick={() => resetItems([])}>
+          <button className="select__clear" title="Clear" onClick={handleReset}>
             <Icon name="Cross" size="XSmall" />
           </button>
         )}
@@ -132,14 +125,7 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value, optional, multi,
         <Icon className="select__icn" name={focused ? 'Chevron-up' : 'Chevron-down'} colour="Dark" size="Small" />
       </div>
 
-      <SelectOptions
-        open={focused}
-        values={values}
-        options={filtered}
-        optional={optional}
-        multi={multi}
-        onClick={handleClick}
-      />
+      <SelectOptions id={id} open={focused} values={values} options={filtered} optional={optional} multi={multi} onClick={handleClick} />
     </div>
   )
 }

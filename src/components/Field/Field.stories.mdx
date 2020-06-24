@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { demoDecorator } from '../../../.storybook/decorators.js'
 import { useState, Fragment } from 'react'
 import { Button } from '../Button'
 import { Text } from '../Text'
@@ -61,11 +62,17 @@ You can pass a component to the label prop.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Select'>
+  <Story name='Select' decorators={[demoDecorator]}>
     {() => {
       const [value, setValue] = useState('')
       return (
-        <Field id='field' label='Age' type='Select' value={value} options={[{ value: 'option', label: 'Option' }]} searchable onChange={setValue} />
+        <Field id='field' label='Age' type='Select' value={value} options={[
+          { value: '1-9', label: '1 - 9' },
+          { value: '10-19', label: '10 - 19' },
+          { value: '20-29', label: '20 - 29' },
+          { value: '30-39', label: '30 - 39' },
+          { value: '40-49', label: '40 - 49' },
+        ]} searchable onChange={setValue} />
       )
     }}
   </Story>

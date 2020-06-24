@@ -15,7 +15,7 @@ import { CollapseHeader, CollapseBody } from '.'
 /**
  * Collapsible panel component
  */
-const Collapse = ({ className, active, header, children, onToggle }: ICollapse.IProps) => (
+const Collapse: React.FC<ICollapse.IProps> = ({ className, active, header, children, onToggle }) => (
   <div className={cx(className, 'collapse')}>
     <CollapseHeader active={active} {...header} onClick={onToggle} />
     <CollapseBody active={active}>{children}</CollapseBody>

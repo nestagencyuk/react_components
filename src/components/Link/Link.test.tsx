@@ -1,31 +1,11 @@
-import 'jsdom-global/register'
 import * as React from 'react'
-import { MemoryRouter } from 'react-router-dom'
-import * as Adapter from 'enzyme-adapter-react-16'
-import * as sinon from 'sinon'
-import { expect } from 'chai'
-import { configure, shallow, mount } from 'enzyme'
-import register from 'ignore-styles'
+import { render } from '@testing-library/react'
+import { Link } from '.'
 
-/**
- * Setup
- */
-register(['.scss'])
-configure({ adapter: new Adapter() })
-
-/**
- * Components
- */
-import { Link } from './'
-
-describe('----- Link Component -----', () => {
-  it('Renders the correct HTML', () => {
-    const htmlA = mount(<MemoryRouter><Link href={'/'}>Test</Link></MemoryRouter>)
-    expect(htmlA.find('a').html()).to.equal('<a class="link link--primary" href="/"><span>Test</span></a>')
-  })
-  
-  it('Simulates a click', () => {
-    const htmlB = mount(<MemoryRouter><Link href={'/'}>Test</Link></MemoryRouter>)
-    htmlB.find('a').simulate('click', { button: 0 })
+describe('Link Component', () => {
+  it('Renders without crashing', () => {
+    const mountComponentInContext = () => render(<Link href="/">Test</Link>)
+    const { asFragment } = mountComponentInContext()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

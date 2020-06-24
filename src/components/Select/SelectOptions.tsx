@@ -10,8 +10,8 @@ import { Checkbox } from '../Checkbox'
 /**
  * Render a filtered list or the original list of options
  */
-const SelectOptions: React.FC<ISelect.IOptionsProps> = ({ open, values, options, multi, optional, onClick }) => (
-  <ul className="select__options" style={{ display: open ? 'block' : 'none' }}>
+const SelectOptions: React.FC<ISelect.IOptionsProps> = ({ id, open, values, options, multi, optional, onClick }) => (
+  <ul className="select__options" data-testid={`${id}-options`} style={{ display: open ? 'block' : 'none' }}>
     {optional && (
       <li className="select__option">
         <button className="select__btn" onClick={() => onClick(null)}>

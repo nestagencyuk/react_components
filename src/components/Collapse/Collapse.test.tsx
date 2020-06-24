@@ -1,24 +1,11 @@
-
 import * as React from 'react'
-import * as Adapter from 'enzyme-adapter-react-16'
-import { expect } from 'chai'
-import { configure, shallow } from 'enzyme'
-import register from 'ignore-styles'
-
-/**
- * Setup
- */
-register(['.scss'])
-configure({ adapter: new Adapter() })
-
-/**
- * Components
- */
+import { render } from '@testing-library/react'
 import { Collapse } from '.'
 
-describe('----- Collapse Component -----', () => {
-  it('Renders the correct HTML', () => {
-    // const htmlA = shallow(<Collapse type={'Primary'} />)
-    // expect(htmlA.html()).to.equal('<div class="accordion accordion--primary">Collapse</div>')
+describe('Collapse Component', () => {
+  it('Renders without crashing', () => {
+    const mountComponentInContext = () => render(<Collapse active={true} header={{ heading: 'Test'}}>test</Collapse>)
+    const { asFragment } = mountComponentInContext()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

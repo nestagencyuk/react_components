@@ -1,4 +1,5 @@
 import { IField } from './types'
+import { IIcon } from '../Icon/types'
 import * as React from 'react'
 import cx from 'classnames'
 
@@ -27,7 +28,7 @@ const states = {
 /**
  * Validation icons
  */
-const icons = {
+const icons: IIcon.IIconTypes = {
   Success: 'Success',
   Warning: 'Info',
   Error: 'Error',

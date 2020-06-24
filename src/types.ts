@@ -1,8 +1,8 @@
 /**
  * Global Types
  */
-declare type Alignment = 'Start' | 'Center' | 'End'
-declare type Size = 'Small' | 'Medium' | 'Large'
-declare type UIState = 'Success' | 'Warning' | 'Error' | 'Info'
+type Alignment = 'Start' | 'Center' | 'End'
+type Size = 'Small' | 'Medium' | 'Large'
+type UIState = 'Success' | 'Warning' | 'Error' | 'Info'
 
 export { Alignment, Size, UIState }

@@ -35,8 +35,8 @@ const sizes = {
 /**
  * Block component
  */
-const Block = (
-  { className, size = 'Medium', image, header, button, children }: IBlock.IProps,
+const Block: React.FC<IBlock.IProps> = (
+  { className, size = 'Medium', image, header, button, children },
   ref: React.Ref<HTMLDivElement>
 ) => {
   const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
@@ -52,7 +52,7 @@ const Block = (
     <Comp {...passRef} className={cx(className, 'block')}>
       {imageStart && (
         <GridItem span={sizes[size]}>
-          <Image aspect="1x1" {...image} />
+          <Image {...image} />
         </GridItem>
       )}
 
@@ -68,7 +68,7 @@ const Block = (
 
       {imageEnd && (
         <GridItem span={sizes[size]}>
-          <Image aspect="1x1" {...image} />
+          <Image {...image} />
         </GridItem>
       )}
     </Comp>

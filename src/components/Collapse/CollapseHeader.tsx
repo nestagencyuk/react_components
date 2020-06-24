@@ -11,7 +11,7 @@ import { Icon } from '../Icon'
 /**
  * Header part of the collapse panel
  */
-const CollapseHeader = ({ className, active, heading, onClick }: ICollapse.IHeaderProps) => (
+const CollapseHeader: React.FC<ICollapse.IHeaderProps> = ({ className, active, heading, onClick }) => (
   <button className={cx(className, 'collapse__header')} onClick={onClick}>
     <Text className="collapse__heading" variant="Intro" tag="span">
       {heading}

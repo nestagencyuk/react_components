@@ -1,0 +1,2146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component Base Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Disabled Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select select--disabled"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        disabled=""
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Initial value Multi Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value="2 Selected"
+      />
+      <button
+        class="select__clear"
+        title="Clear"
+      >
+        <span
+          class="icn icn--xs icn--dark"
+        >
+          <svg
+            class="icn__svg"
+            viewBox="0 0 12 12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Cross
+            </title>
+            <path
+              class="icn__path"
+              d="M11,9.41,7.54,6,11,2.54,9.41,1,6,4.47,2.53,1.05,1,2.58,4.47,6,1.05,9.47,2.58,11,6,7.53,9.46,11Z"
+            />
+          </svg>
+        </span>
+      </button>
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option One"
+        >
+          <label
+            class="select__checkbox checkbox checkbox--checked"
+          >
+            <input
+              class="checkbox__input"
+              id="Option One"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn checkbox__icn--checked icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Two"
+        >
+          <label
+            class="select__checkbox checkbox checkbox--checked"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Two"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn checkbox__icn--checked icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Three"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Three"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Four"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Four"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Five"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Five"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Six"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Six"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Seven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Seven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eight"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eight"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Nine"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Nine"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Ten"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Ten"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eleven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eleven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Initial value Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value="Option One"
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Multi Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value="0 Selected"
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option One"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option One"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Two"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Two"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Three"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Three"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Four"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Four"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Five"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Five"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Six"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Six"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Seven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Seven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eight"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eight"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Nine"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Nine"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Ten"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Ten"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eleven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eleven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Multi Searchable Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="Type to search..."
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option One"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option One"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Two"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Two"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Three"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Three"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Four"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Four"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Five"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Five"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Six"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Six"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Seven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Seven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eight"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eight"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Nine"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Nine"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Ten"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Ten"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn p--l-xxl"
+          title="Option Eleven"
+        >
+          <label
+            class="select__checkbox checkbox"
+          >
+            <input
+              class="checkbox__input"
+              id="Option Eleven"
+              type="checkbox"
+            />
+            <span
+              class="checkbox__icn icn icn--sm icn--light"
+            >
+              <svg
+                class="checkbox__icn-svg icn__svg"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Tick
+                </title>
+                <path
+                  class="checkbox__icn-path icn__path"
+                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+                />
+              </svg>
+            </span>
+          </label>
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Optional Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="-- Select --"
+        readonly=""
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+        >
+          -- Select --
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select Component Searchable Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="Type to search..."
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      >
+        <svg
+          class="select__icn-svg icn__svg"
+          viewBox="0 0 12 12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Chevron-down
+          </title>
+          <path
+            class="select__icn-path icn__path"
+            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+        >
+          -- Select --
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
