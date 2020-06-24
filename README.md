@@ -21,7 +21,7 @@ $ NAME=MyNewComponent npm run scaffold
 ``` 
 OR
 ```sh
-$ NAME=MyNewComponent npm run scaffold:stateful
+$ NAME=MyNewComponent npm run scaffold:stateful 
 ``` 
 
 This will create a new stateless (functional) or stateful (using hooks) component folder with all the required files and some example variants. This is the best way of ensuring a new component complies with our coding standards and naming conventions.
