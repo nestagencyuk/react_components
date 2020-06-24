@@ -385,14 +385,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox checkbox--checked"
+            data-testid="Option One"
           >
             <input
               class="checkbox__input"
+              data-testid="Option One-input"
               id="Option One"
               type="checkbox"
             />
             <span
-              class="checkbox__icn checkbox__icn--checked icn icn--sm icn--light"
+              class="checkbox__icn checkbox__icn--checked icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -421,14 +423,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox checkbox--checked"
+            data-testid="Option Two"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Two-input"
               id="Option Two"
               type="checkbox"
             />
             <span
-              class="checkbox__icn checkbox__icn--checked icn icn--sm icn--light"
+              class="checkbox__icn checkbox__icn--checked icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -457,14 +461,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Three"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Three-input"
               id="Option Three"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -493,14 +499,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Four"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Four-input"
               id="Option Four"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -529,14 +537,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Five"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Five-input"
               id="Option Five"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -565,14 +575,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Six"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Six-input"
               id="Option Six"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -601,14 +613,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Seven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Seven-input"
               id="Option Seven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -637,14 +651,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eight"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eight-input"
               id="Option Eight"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -673,14 +689,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Nine"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Nine-input"
               id="Option Nine"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -709,14 +727,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Ten"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Ten-input"
               id="Option Ten"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -745,14 +765,16 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eleven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eleven-input"
               id="Option Eleven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -983,14 +1005,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option One"
           >
             <input
               class="checkbox__input"
+              data-testid="Option One-input"
               id="Option One"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1019,14 +1043,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Two"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Two-input"
               id="Option Two"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1055,14 +1081,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Three"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Three-input"
               id="Option Three"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1091,14 +1119,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Four"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Four-input"
               id="Option Four"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1127,14 +1157,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Five"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Five-input"
               id="Option Five"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1163,14 +1195,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Six"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Six-input"
               id="Option Six"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1199,14 +1233,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Seven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Seven-input"
               id="Option Seven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1235,14 +1271,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eight"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eight-input"
               id="Option Eight"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1271,14 +1309,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Nine"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Nine-input"
               id="Option Nine"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1307,14 +1347,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Ten"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Ten-input"
               id="Option Ten"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1343,14 +1385,16 @@ exports[`Select Component Multi Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eleven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eleven-input"
               id="Option Eleven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1424,14 +1468,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option One"
           >
             <input
               class="checkbox__input"
+              data-testid="Option One-input"
               id="Option One"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1460,14 +1506,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Two"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Two-input"
               id="Option Two"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1496,14 +1544,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Three"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Three-input"
               id="Option Three"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1532,14 +1582,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Four"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Four-input"
               id="Option Four"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1568,14 +1620,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Five"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Five-input"
               id="Option Five"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1604,14 +1658,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Six"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Six-input"
               id="Option Six"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1640,14 +1696,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Seven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Seven-input"
               id="Option Seven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1676,14 +1734,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eight"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eight-input"
               id="Option Eight"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1712,14 +1772,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Nine"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Nine-input"
               id="Option Nine"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1748,14 +1810,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Ten"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Ten-input"
               id="Option Ten"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1784,14 +1848,16 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
         >
           <label
             class="select__checkbox checkbox"
+            data-testid="Option Eleven"
           >
             <input
               class="checkbox__input"
+              data-testid="Option Eleven-input"
               id="Option Eleven"
               type="checkbox"
             />
             <span
-              class="checkbox__icn icn icn--sm icn--light"
+              class="checkbox__icn icn icn--md icn--dark"
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
