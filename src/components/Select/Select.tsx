@@ -18,7 +18,16 @@ import { Icon } from '../Icon'
 /**
  * Determine which select type to render
  */
-const Select: React.FC<ISelect.IProps> = ({ id, options, value = null, optional, multi, searchable, disabled, onChange }) => {
+const Select: React.FC<ISelect.IProps> = ({
+  id,
+  options,
+  value = null,
+  optional,
+  multi,
+  searchable,
+  disabled,
+  onChange
+}) => {
   const ref = useRef<HTMLDivElement>()
   const [focused, setFocused] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
@@ -103,7 +112,14 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value = null, optional,
   }, [values])
 
   return (
-    <div ref={ref} className={cx('select', { 'select--disabled': disabled })} tabIndex={-1} data-testid={id} onFocus={handleFocus} onBlur={handleBlur}>
+    <div
+      ref={ref}
+      className={cx('select', { 'select--disabled': disabled })}
+      tabIndex={-1}
+      data-testid={id}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       <div>
         <SelectInput
           id={id}
@@ -125,7 +141,15 @@ const Select: React.FC<ISelect.IProps> = ({ id, options, value = null, optional,
         <Icon className="select__icn" name={focused ? 'Chevron-up' : 'Chevron-down'} colour="Dark" size="Small" />
       </div>
 
-      <SelectOptions id={id} open={focused} values={values} options={filtered} optional={optional} multi={multi} onClick={handleClick} />
+      <SelectOptions
+        id={id}
+        open={focused}
+        values={values}
+        options={filtered}
+        optional={optional}
+        multi={multi}
+        onClick={handleClick}
+      />
     </div>
   )
 }

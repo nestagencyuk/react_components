@@ -16,7 +16,10 @@ import { Icon } from '../Icon'
  * A checkbox
  */
 const Checkbox: React.FC<ICheckbox.IProps> = ({ className, id, name, value, disabled, onChange }) => (
-  <label className={cx(className, 'checkbox', { 'checkbox--checked': value }, { 'checkbox--disabled': disabled })} data-testid={id}>
+  <label
+    className={cx(className, 'checkbox', { 'checkbox--checked': value }, { 'checkbox--disabled': disabled })}
+    data-testid={id}
+  >
     <input
       className={cx('checkbox__input')}
       id={id}

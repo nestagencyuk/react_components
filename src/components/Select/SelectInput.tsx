@@ -5,7 +5,16 @@ import { useEffect, useState } from 'react'
 /**
  * Search input
  */
-const SelectInput: React.FC<ISelect.IInputProps> = ({ id, value, searchValue, options, multi, searchable, disabled, onChange }) => {
+const SelectInput: React.FC<ISelect.IInputProps> = ({
+  id,
+  value,
+  searchValue,
+  options,
+  multi,
+  searchable,
+  disabled,
+  onChange
+}) => {
   const initPlaceholder = searchable ? 'Type to search...' : '-- Select --'
   const [shownValue, setShownValue] = useState('')
   const [placeholder, setPlaceholder] = useState(initPlaceholder)
@@ -14,7 +23,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({ id, value, searchValue, op
    * Set value and placeholders if multi-select
    */
   const handleMulti = () => {
-    const num = value ? value.length < 10 ? value.length : '10+' : 0
+    const num = value ? (value.length < 10 ? value.length : '10+') : 0
 
     if (searchable) {
       setPlaceholder(`${num} Selected`)
