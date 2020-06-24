@@ -3,9 +3,9 @@
 docs
 
 # Source files
-.nyc_output
-src
 .eslintrc
+coverage
+src
 index.ts
 cypress.json
 tsconfig.json
