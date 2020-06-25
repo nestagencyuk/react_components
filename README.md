@@ -62,4 +62,4 @@ To create a new release:
 - When finished, run `git flow release finish vX.X.X` and add any relevant commit messages. You **must** add a tag message otherwise the release will fail.
 - The release branch should now be merged into both `develop` and `master`. Now you just need to run `npm run deploy` and you're done! The CI pipeline will handle the rest.
 
-> *Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
+> *Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work. 
