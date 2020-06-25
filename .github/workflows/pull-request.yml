@@ -1,0 +1,24 @@
+name: Latest release
+
+on:
+  pull_request:
+    branches: 
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+      
+    - name: Install & Build
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        npm ci
+        npm run test
+        npm run build:components
