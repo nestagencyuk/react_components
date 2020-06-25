@@ -1,4 +1,4 @@
-# Nest React Components
+# React Components
 ![Latest release](https://github.com/nestagencyuk/react_components/workflows/Latest%20release/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ad5d505b-eb09-4889-bc8c-d29cbb3f8b02/deploy-status)](https://app.netlify.com/sites/twigs-react-components/deploys)
 [![codecov](https://codecov.io/gh/nestagencyuk/react_components/branch/master/graph/badge.svg?token=JHZN4BD36F)](https://codecov.io/gh/nestagencyuk/react_components)
@@ -62,4 +62,4 @@ To create a new release:
 - When finished, run `git flow release finish vX.X.X` and add any relevant commit messages. You **must** add a tag message otherwise the release will fail.
 - The release branch should now be merged into both `develop` and `master`. Now you just need to run `npm run deploy` and you're done! The CI pipeline will handle the rest.
 
-> *Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
+> *Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work. 
