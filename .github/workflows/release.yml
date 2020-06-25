@@ -16,6 +16,8 @@ jobs:
         fetch-depth: 0
       
     - name: Install & Build
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
         npm ci
         npm run test:coverage
@@ -31,9 +33,7 @@ jobs:
     - name: Publish
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
-        echo $NPM_TOKEN
         echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
         npm publish --access public
 

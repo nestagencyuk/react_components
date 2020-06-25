@@ -10,7 +10,7 @@
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
     "test": "jest",
     "test:cypress": "cypress open",
-    "test:unit": "jest --watch",
+    "test:unit": "jest --watch --verbose",
     "test:coverage": "npm run test && codecov --disable=gcov",
     "build": "npm run build:components && npm run build:docs",
     "build:components": "rm -rf ./dist && webpack --env.NODE_ENV=production",
