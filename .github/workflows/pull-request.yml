@@ -16,8 +16,6 @@ jobs:
         fetch-depth: 0
       
     - name: Install & Build
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
         npm ci
         npm run test
