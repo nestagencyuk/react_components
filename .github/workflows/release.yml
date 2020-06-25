@@ -23,6 +23,8 @@ jobs:
 
     - name: Tag & Push Tags
       run: |
+        git config --global user.email "ts@nestagency.io"
+        git config --global user.name "Nest CI Bot 🤖"
         npm version from-git --allow-same-version -m "Upgrade to %s [skip-ci]"
         git push && git push --tags
 
