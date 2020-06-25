@@ -1,4 +1,4 @@
-# Nest React Components
+# React Components
 ![Latest release](https://github.com/nestagencyuk/react_components/workflows/Latest%20release/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ad5d505b-eb09-4889-bc8c-d29cbb3f8b02/deploy-status)](https://app.netlify.com/sites/twigs-react-components/deploys)
 [![codecov](https://codecov.io/gh/nestagencyuk/react_components/branch/master/graph/badge.svg?token=JHZN4BD36F)](https://codecov.io/gh/nestagencyuk/react_components)
