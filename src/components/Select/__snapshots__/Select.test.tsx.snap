@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select Component Base Renders without crashing 1`] = `
+exports[`----- Select Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -156,7 +156,7 @@ exports[`Select Component Base Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Disabled Renders without crashing 1`] = `
+exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select select--disabled"
@@ -313,7 +313,7 @@ exports[`Select Component Disabled Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Initial value Multi Renders without crashing 1`] = `
+exports[`----- Select Component ----- Initial value Multi Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -799,7 +799,7 @@ exports[`Select Component Initial value Multi Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Initial value Renders without crashing 1`] = `
+exports[`----- Select Component ----- Initial value Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -955,7 +955,7 @@ exports[`Select Component Initial value Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Multi Renders without crashing 1`] = `
+exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -1419,7 +1419,7 @@ exports[`Select Component Multi Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Multi Searchable Renders without crashing 1`] = `
+exports[`----- Select Component ----- Multi Searchable Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -1882,7 +1882,7 @@ exports[`Select Component Multi Searchable Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Optional Renders without crashing 1`] = `
+exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"
@@ -2047,7 +2047,7 @@ exports[`Select Component Optional Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Select Component Searchable Renders without crashing 1`] = `
+exports[`----- Select Component ----- Searchable Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="select"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Box Component Renders without crashing 1`] = `
+exports[`----- Box Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="box"

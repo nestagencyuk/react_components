@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox Component Renders checked correctly without crashing 1`] = `
+exports[`----- Checkbox Component ----- Renders checked correctly without crashing 1`] = `
 <DocumentFragment>
   <label
     class="checkbox checkbox--checked"
@@ -34,7 +34,7 @@ exports[`Checkbox Component Renders checked correctly without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Checkbox Component Renders disabled correctly without crashing 1`] = `
+exports[`----- Checkbox Component ----- Renders disabled correctly without crashing 1`] = `
 <DocumentFragment>
   <label
     class="checkbox checkbox--disabled"
@@ -68,7 +68,7 @@ exports[`Checkbox Component Renders disabled correctly without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Checkbox Component Renders without crashing 1`] = `
+exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <label
     class="checkbox"
