@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Component Renders without crashing 1`] = `
+exports[`----- Input Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <input
     class="input"
