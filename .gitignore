@@ -1,4 +1,5 @@
 # Package files
+.env
 coverage
 node_modules
 dist

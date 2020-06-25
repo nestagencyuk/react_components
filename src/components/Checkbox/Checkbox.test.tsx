@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { Checkbox } from '.'
 
-describe('Checkbox Component', () => {
+describe('----- Checkbox Component -----', () => {
   let value: boolean = false
   const mockFn = jest.fn((val) => { value = val })
   const baseProps = {

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { Select } from '.'
 
-describe('Select Component', () => {
+describe('----- Select Component -----', () => {
   let value: string[] = null
   const mockFn = jest.fn((val) => { value = val })
   const baseProps = {

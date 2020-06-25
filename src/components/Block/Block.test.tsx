@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Block } from '.'
 
-describe('Block Component', () => {
+describe('----- Block Component -----', () => {
   it('Renders without crashing', () => {
     const mountComponentInContext = () => render(
       <Block 
