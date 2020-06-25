@@ -52,3 +52,14 @@ Run individual tests:
 | `$ npm run test:cypress` | Run automated browser tests |
 | `$ npm run test:unit` | Run component unit tests |
 | `$ npm run test:coverage` | Run coverage tests and send coverage report |
+
+### Release
+To create a new release: 
+
+- First ensure that you're on the `develop` branch and all pull requests and branches have been pulled and merged in (incl. master as the version may have been bumped).
+- Using [Git Flow](https://github.com/nvie/gitflow/wiki/Mac-OS-X)*, run `git flow release start vX.X.X`, replacing the `X.X.X` with the appropriate new version number, incremented by one. Follow semvar practices, e.g vX.0.0 denotes a major version, v0.X.0 is a minor version and v0.0.X is a patch. See the package.json for the most recent version number.
+- Carry out any last minute work on the release branch and commit as normal.
+- When finished, run `git flow release finish vX.X.X` and add any relevant commit messages. You **must** add a tag message otherwise the release will fail.
+- The release branch should now be merged into both `develop` and `master`. Now you just need to run `npm run deploy` and you're done! The CI pipeline will handle the rest.
+
+> *Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
