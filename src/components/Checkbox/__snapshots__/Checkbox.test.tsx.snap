@@ -2,7 +2,7 @@
 
 exports[`----- Checkbox Component ----- Renders checked correctly without crashing 1`] = `
 <DocumentFragment>
-  <label
+  <span
     class="checkbox checkbox--checked"
     data-testid="checkbox-test"
   >
@@ -14,7 +14,7 @@ exports[`----- Checkbox Component ----- Renders checked correctly without crashi
       type="checkbox"
     />
     <span
-      class="checkbox__icn checkbox__icn--checked icn icn--md icn--dark"
+      class="checkbox__icn checkbox__icn--checked icn icn--md icn--light"
     >
       <svg
         class="checkbox__icn-svg icn__svg"
@@ -30,13 +30,13 @@ exports[`----- Checkbox Component ----- Renders checked correctly without crashi
         />
       </svg>
     </span>
-  </label>
+  </span>
 </DocumentFragment>
 `;
 
 exports[`----- Checkbox Component ----- Renders disabled correctly without crashing 1`] = `
 <DocumentFragment>
-  <label
+  <span
     class="checkbox checkbox--disabled"
     data-testid="checkbox-test"
   >
@@ -48,7 +48,7 @@ exports[`----- Checkbox Component ----- Renders disabled correctly without crash
       type="checkbox"
     />
     <span
-      class="checkbox__icn icn icn--md icn--dark"
+      class="checkbox__icn icn icn--md icn--light"
     >
       <svg
         class="checkbox__icn-svg icn__svg"
@@ -64,13 +64,13 @@ exports[`----- Checkbox Component ----- Renders disabled correctly without crash
         />
       </svg>
     </span>
-  </label>
+  </span>
 </DocumentFragment>
 `;
 
 exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
-  <label
+  <span
     class="checkbox"
     data-testid="checkbox-test"
   >
@@ -81,7 +81,7 @@ exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
       type="checkbox"
     />
     <span
-      class="checkbox__icn icn icn--md icn--dark"
+      class="checkbox__icn icn icn--md icn--light"
     >
       <svg
         class="checkbox__icn-svg icn__svg"
@@ -97,6 +97,6 @@ exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
         />
       </svg>
     </span>
-  </label>
+  </span>
 </DocumentFragment>
 `;

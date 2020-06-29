@@ -5,6 +5,7 @@ declare namespace IField {
   interface IProps {
     className?: string
     id: string
+    name?: string
     label?: string
     value?: any
     type?: 'Select' | 'Checkbox' | 'Radio' | 'Textarea' | IInput.IProps['type']
