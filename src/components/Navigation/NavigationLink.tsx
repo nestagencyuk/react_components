@@ -1,11 +1,11 @@
-import { INavigation } from './types'
-import * as React from 'react'
-import cx from 'classnames'
+import { INavigation } from './types';
+import * as React from 'react';
+import cx from 'classnames';
 
 /**
  * A Navigation link using React Router
  */
-const NavigationLink = ({
+const NavigationLink: React.FC<INavigation.ILinkProps> = ({
   className,
   component,
   href,
@@ -15,8 +15,8 @@ const NavigationLink = ({
   external,
   children,
   onClick
-}: INavigation.ILinkProps) => {
-  const Tag: React.FC<{ [key: string]: any }> | string = component || 'a'
+}) => {
+  const Tag: React.FC<{ [key: string]: any }> | string = component || 'a';
 
   return (
     <Tag
@@ -29,7 +29,7 @@ const NavigationLink = ({
     >
       <span>{children}</span>
     </Tag>
-  )
-}
+  );
+};
 
-export default NavigationLink
+export default NavigationLink;

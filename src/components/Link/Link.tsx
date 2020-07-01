@@ -1,16 +1,16 @@
-import { ILink } from './types'
-import * as React from 'react'
-import cx from 'classnames'
+import { ILink } from './types';
+import * as React from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/link.scss'
+import '@nestagencyuk/scss_lib/dist/link.scss';
 
 /**
  * Components
  */
-import { Icon } from '../Icon'
+import { Icon } from '../Icon';
 
 /**
  * Variants
@@ -20,19 +20,29 @@ const variants = {
   Secondary: 'link--secondary',
   Tertiary: 'link--tertiary',
   Inverse: 'link--inverse'
-}
+};
 
 /**
  * A simple link using React Router
  */
-const Link = ({ className, component, variant = 'Primary', href, to, target, external, icon, children }: ILink.IProps) => {
-  const Tag: React.FC<{ [key: string]: any }> | string = component || 'a'
+const Link: React.FC<ILink.IProps> = ({
+  className,
+  component,
+  variant = 'Primary',
+  href,
+  to,
+  target,
+  external,
+  icon,
+  children
+}) => {
+  const Tag: React.FC<{ [key: string]: any }> | string = component || 'a';
 
   /**
    * Icon alignment
    */
-  const iconStart = icon?.align === 'Start'
-  const iconEnd = icon?.align === 'End'
+  const iconStart = icon?.align === 'Start';
+  const iconEnd = icon?.align === 'End';
 
   return children ? (
     <Tag
@@ -46,7 +56,7 @@ const Link = ({ className, component, variant = 'Primary', href, to, target, ext
       <span>{children}</span>
       {iconEnd && <Icon className="link__icn" name={icon.name} />}
     </Tag>
-  ) : null
-}
+  ) : null;
+};
 
-export default Link
+export default Link;
