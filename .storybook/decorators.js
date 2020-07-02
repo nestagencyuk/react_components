@@ -30,7 +30,7 @@ const scrollDecorator = story => (
 );
 
 /**
- * Force a large container for scrollable demos
+ * Add a dark background for light components
  */
 const inverseDecorator = story => (
   <div className="demo demo--inverse">
