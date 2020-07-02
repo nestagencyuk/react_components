@@ -1,23 +1,23 @@
-import { ISlider } from './types'
-import * as React from 'react'
-import { Fragment, useEffect } from 'react'
-import cx from 'classnames'
+import { ISlider } from './types';
+import * as React from 'react';
+import { Fragment, useEffect } from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/slider.scss'
+import '@nestagencyuk/scss_lib/dist/slider.scss';
 
 /**
  * Context
  */
-import { usePagination } from '../../hooks/usePagination'
+import { usePagination } from '../../hooks/usePagination';
 
 /**
  * Components
  */
-import { Icon } from '../Icon'
-import { Pagination } from '../Pagination'
+import { Icon } from '../Icon';
+import { Pagination } from '../Pagination';
 
 /**
  * Types
@@ -25,27 +25,27 @@ import { Pagination } from '../Pagination'
 const variants = {
   Fade: 'slider--fade',
   Slide: 'slider--slide'
-}
+};
 
 /**
  * Slider
  */
-const Slider = ({ className, variant = 'Slide', init = 0, tick, items: pItems, nav }: ISlider.IProps) => {
-  const { items, current, setCurrent } = usePagination({ init, limit: 1 })
+const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init = 0, tick, items: pItems, nav }) => {
+  const { items, current, setCurrent } = usePagination({ init, limit: 1 });
 
-  const total = pItems.length
-  const max = total - 1
-  const min = 0
-  const prev = current - 1 < min ? max : current - 1
-  const next = current + 1 > max ? min : current + 1
+  const total = pItems.length;
+  const max = total - 1;
+  const min = 0;
+  const prev = current - 1 < min ? max : current - 1;
+  const next = current + 1 > max ? min : current + 1;
 
   const bodyStyle = {
     width: `${100 * total}%`,
     transform: variant === 'Slide' ? `translateX(-${(100 / total) * current}%)` : null
-  }
+  };
 
-  const showDots = nav ? nav === 'Dots' : true
-  const showButtons = nav ? nav === 'Buttons' : true
+  const showDots = nav ? nav === 'Dots' : true;
+  const showButtons = nav ? nav === 'Buttons' : true;
 
   /**
    * Render slide items
@@ -54,7 +54,7 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items: pItems, n
     pItems.map((x, i) => {
       const itemStyle = {
         transform: variant === 'Fade' ? `translateX(-${100 * i}%)` : null
-      }
+      };
       return (
         <div
           key={`slide-${i}`}
@@ -63,17 +63,17 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items: pItems, n
         >
           {x}
         </div>
-      )
-    })
+      );
+    });
 
   /**
    * Auto slide
    */
   useEffect(() => {
-    if (!tick) return
-    const handleTick = setTimeout(() => setCurrent(next), tick)
-    return () => clearTimeout(handleTick)
-  }, [current])
+    if (!tick) return;
+    const handleTick = setTimeout(() => setCurrent(next), tick);
+    return () => clearTimeout(handleTick);
+  }, [current]);
 
   return pItems ? (
     <section className={cx(className, 'slider', variants[variant])}>
@@ -106,7 +106,7 @@ const Slider = ({ className, variant = 'Slide', init = 0, tick, items: pItems, n
         />
       )}
     </section>
-  ) : null
-}
+  ) : null;
+};
 
-export default Slider
+export default Slider;

@@ -1,17 +1,17 @@
-import { IImage } from './types'
-import * as React from 'react'
-import { useState } from 'react'
-import cx from 'classnames'
+import { IImage } from './types';
+import * as React from 'react';
+import { useState } from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/image.scss'
+import '@nestagencyuk/scss_lib/dist/image.scss';
 
 /**
  * Components
  */
-import { Loader } from '../Loader'
+import { Loader } from '../Loader';
 
 /**
  * Image classes
@@ -19,7 +19,7 @@ import { Loader } from '../Loader'
 const variants = {
   Rounded: 'img--rounded',
   Round: 'img--round'
-}
+};
 
 /**
  * Image aspects
@@ -33,22 +33,31 @@ const aspects = {
   '3x4': 'img--3x4',
   '4x5': 'img--4x5',
   '1x1': 'img--1x1'
-}
+};
 
 /**
  * An image with source set
  */
-const Image = ({ className, variant, aspect, src, srcSet = [], alt = 'Image', caption, onLoad }: IImage.IProps) => {
-  const [loading, setLoading] = useState(true)
+const Image: React.FC<IImage.IProps> = ({
+  className,
+  variant,
+  aspect,
+  src,
+  srcSet = [],
+  alt = 'Image',
+  caption,
+  onLoad
+}) => {
+  const [loading, setLoading] = useState(true);
 
   /**
    * Set loading
    */
   const handleLoad = () => {
-    setLoading(false)
-    if (!onLoad) return
-    onLoad()
-  }
+    setLoading(false);
+    if (!onLoad) return;
+    onLoad();
+  };
 
   return src ? (
     <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
@@ -65,7 +74,7 @@ const Image = ({ className, variant, aspect, src, srcSet = [], alt = 'Image', ca
       </picture>
       {caption && <figcaption className="img__caption">{caption}</figcaption>}
     </figure>
-  ) : null
-}
+  ) : null;
+};
 
-export default Image
+export default Image;

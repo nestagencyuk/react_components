@@ -1,21 +1,21 @@
-import { IList } from './types'
-import * as React from 'react'
-import cx from 'classnames'
+import { IList } from './types';
+import * as React from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/list.scss'
+import '@nestagencyuk/scss_lib/dist/list.scss';
 
 /**
  * Components
  */
-import { ListItem, ListLink } from '.'
+import { ListItem, ListLink } from '.';
 
 /**
  * List of items
  */
-const List = ({ className, items }: IList.IProps) =>
+const List: React.FC<IList.IProps> = ({ className, items }) =>
   items ? (
     <ul className={cx(className, 'list')}>
       {items.map((x, i) =>
@@ -30,6 +30,6 @@ const List = ({ className, items }: IList.IProps) =>
         )
       )}
     </ul>
-  ) : null
+  ) : null;
 
-export default List
+export default List;

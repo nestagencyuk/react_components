@@ -1,16 +1,16 @@
-import { ITextarea } from './types'
-import * as React from 'react'
-import cx from 'classnames'
+import { ITextarea } from './types';
+import * as React from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/textarea.scss'
+import '@nestagencyuk/scss_lib/dist/textarea.scss';
 
 /**
  * My component
  */
-const Textarea = ({ className, id, name, value, disabled, onChange }: ITextarea.IProps) => (
+const Textarea: React.FC<ITextarea.IProps> = ({ className, id, name, value, disabled, onChange }) => (
   <textarea
     className={cx(className, 'textarea', { 'textarea--disabled': disabled })}
     id={id}
@@ -20,6 +20,6 @@ const Textarea = ({ className, id, name, value, disabled, onChange }: ITextarea.
     disabled={disabled}
     onChange={(e: any) => onChange(e.target.value)}
   />
-)
+);
 
-export default Textarea
+export default Textarea;
