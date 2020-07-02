@@ -34,6 +34,7 @@ exports[`----- Block Component ----- Renders without crashing 1`] = `
     >
       <div
         class="p--xxl box box--center-x box--center-y box--fill"
+        data-testid="grid-item-inner"
       >
         <div>
           <header
@@ -50,7 +51,7 @@ exports[`----- Block Component ----- Renders without crashing 1`] = `
               Sub Heading
             </h3>
           </header>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Testtesttest
         </div>
       </div>
     </div>
