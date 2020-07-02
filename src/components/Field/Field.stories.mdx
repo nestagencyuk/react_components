@@ -98,9 +98,30 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         : prev.filter(x => x !== name))
       return (
         <Fragment>
-          <Field id='checkbox-cat' name='field-checkbox-group' label='Cat' type='Checkbox' value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
-          <Field id='checkbox-dog' name='field-checkbox-group' label='Dog' type='Checkbox' value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
-          <Field id='checkbox-horse' name='field-checkbox-group' label='Horse' type='Checkbox' value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
+          <Field 
+            id='checkbox-cat' 
+            name='field-checkbox-group' 
+            label='Cat' 
+            type='Checkbox' 
+            value={values.includes('cat')} 
+            onChange={(value) => handleChange('cat', value)} 
+          />
+          <Field 
+            id='checkbox-dog' 
+            name='field-checkbox-group' 
+            label='Dog' 
+            type='Checkbox' 
+            value={values.includes('dog')} 
+            onChange={(value) => handleChange('dog', value)} 
+          />
+          <Field 
+            id='checkbox-horse' 
+            name='field-checkbox-group' 
+            label='Horse' 
+            type='Checkbox' 
+            value={values.includes('horse')} 
+            onChange={(value) => handleChange('horse', value)} 
+          />
         </Fragment>
       )
     }}

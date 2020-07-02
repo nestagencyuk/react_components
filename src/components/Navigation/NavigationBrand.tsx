@@ -1,18 +1,18 @@
-import { INavigation } from './types'
-import * as React from 'react'
+import { INavigation } from './types';
+import * as React from 'react';
 
 /**
  * Components
  */
-import { Image } from '../Image'
+import { Image } from '../Image';
 
 /**
  * Display a logo as a clickable link
  */
-const NavigationBrand = ({ image, href = '/' }: INavigation.IBrandProps) => (
+const NavigationBrand: React.FC<INavigation.IBrandProps> = ({ image, href = '/' }) => (
   <a className="nav__brand" href={href}>
     <Image className="nav__img" {...image} />
   </a>
-)
+);
 
-export default NavigationBrand
+export default NavigationBrand;

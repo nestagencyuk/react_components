@@ -1,21 +1,21 @@
-import { IPageFooter } from './types'
-import * as React from 'react'
-import cx from 'classnames'
+import { IPageFooter } from './types';
+import * as React from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/list.scss'
+import '@nestagencyuk/scss_lib/dist/list.scss';
 
 /**
  * Components
  */
-import { PageFooterItem, PageFooterLink } from '.'
+import { PageFooterItem, PageFooterLink } from '.';
 
 /**
  * My component
  */
-const PageFooterList = ({ items = [] }: IPageFooter.IListProps) => (
+const PageFooterList: React.FC<IPageFooter.IListProps> = ({ items = [] }) => (
   <ul className={cx('page-footer__list')}>
     {items.map((x, i) =>
       x.href || x.to ? (
@@ -29,6 +29,6 @@ const PageFooterList = ({ items = [] }: IPageFooter.IListProps) => (
       )
     )}
   </ul>
-)
+);
 
-export default PageFooterList
+export default PageFooterList;

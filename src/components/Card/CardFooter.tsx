@@ -1,14 +1,15 @@
-import { ICard } from './types'
-import * as React from 'react'
+import { ICard } from './types';
+import * as React from 'react';
 
 /**
  * Components
  */
-import { Footer } from '../Footer'
+import { Footer } from '../Footer';
 
 /**
  * Render alert actions
  */
-const CardFooter = (props: ICard.IFooterProps) => (props.actions ? <Footer className="card__footer" {...props} /> : null)
+const CardFooter: React.FC<ICard.IFooterProps> = (props) =>
+  props.actions ? <Footer className="card__footer" {...props} /> : null;
 
-export default CardFooter
+export default CardFooter;

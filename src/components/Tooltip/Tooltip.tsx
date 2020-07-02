@@ -1,78 +1,78 @@
-import { ITooltip } from './types'
-import * as React from 'react'
-import { createPortal } from 'react-dom'
-import { useEffect, useState, useRef } from 'react'
-import cx from 'classnames'
+import { ITooltip } from './types';
+import * as React from 'react';
+import { createPortal } from 'react-dom';
+import { useEffect, useState, useRef } from 'react';
+import cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/tooltip.scss'
+import '@nestagencyuk/scss_lib/dist/tooltip.scss';
 
 /**
  * A tooltip
  */
-const Tooltip = ({ attachTo, trigger = 'Hover', align = 'Left', children }: ITooltip.IProps) => {
-  const [toggled, setToggled] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const ref = useRef<HTMLElement>()
+const Tooltip: React.FC<ITooltip.IProps> = ({ attachTo, trigger = 'Hover', align = 'Left', children }) => {
+  const [toggled, setToggled] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const ref = useRef<HTMLElement>();
 
   /**
    * Get the x & y positions
    */
   const getPosition = () => {
-    if (!attachTo) return
-    if (!ref.current) return
+    if (!attachTo) return;
+    if (!ref.current) return;
 
-    const tooltipRect = ref.current.getBoundingClientRect()
-    const attachRect = attachTo.getBoundingClientRect()
+    const tooltipRect = ref.current.getBoundingClientRect();
+    const attachRect = attachTo.getBoundingClientRect();
 
-    let x = 0
-    let y = 0
+    let x = 0;
+    let y = 0;
 
     switch (align) {
       case 'Left':
-        x = attachRect.left - tooltipRect.width
-        y = attachRect.top + attachTo.clientHeight / 2
-        break
+        x = attachRect.left - tooltipRect.width;
+        y = attachRect.top + attachTo.clientHeight / 2;
+        break;
       case 'Right':
-        x = attachRect.right
-        y = attachRect.top + attachTo.clientHeight / 2
-        break
+        x = attachRect.right;
+        y = attachRect.top + attachTo.clientHeight / 2;
+        break;
       case 'Top':
-        x = attachRect.left + attachTo.clientWidth / 2
-        y = attachRect.top - tooltipRect.height
-        break
+        x = attachRect.left + attachTo.clientWidth / 2;
+        y = attachRect.top - tooltipRect.height;
+        break;
       case 'Bottom':
-        x = attachRect.left + attachTo.clientWidth / 2
-        y = attachRect.bottom
-        break
+        x = attachRect.left + attachTo.clientWidth / 2;
+        y = attachRect.bottom;
+        break;
     }
 
-    setPosition({ x, y })
-  }
+    setPosition({ x, y });
+  };
 
   /**
    * Attach trigger events
    */
   useEffect(() => {
-    if (!attachTo) return
-    const event = () => setToggled((prev: boolean) => !prev)
+    if (!attachTo) return;
+    const event = () => setToggled((prev: boolean) => !prev);
 
     if (trigger === 'Hover') {
-      attachTo.addEventListener('mouseenter', event)
-      attachTo.addEventListener('mouseleave', event)
+      attachTo.addEventListener('mouseenter', event);
+      attachTo.addEventListener('mouseleave', event);
     } else {
-      attachTo.addEventListener(trigger, event)
+      attachTo.addEventListener(trigger, event);
     }
-  }, [attachTo])
+  }, [attachTo]);
 
   /**
    * Render tooltip
    */
   useEffect(() => {
-    getPosition()
-  }, [toggled])
+    getPosition();
+  }, [toggled]);
 
   return toggled
     ? createPortal(
@@ -85,7 +85,7 @@ const Tooltip = ({ attachTo, trigger = 'Hover', align = 'Left', children }: IToo
         </aside>,
         document.body
       )
-    : null
-}
+    : null;
+};
 
-export default Tooltip
+export default Tooltip;

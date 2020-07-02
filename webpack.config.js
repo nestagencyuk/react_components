@@ -1,34 +1,33 @@
-const path = require('path')
+const path = require('path');
 
 /**
  * Plugins
  */
 // const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Output = require('write-file-webpack-plugin')
-const Prettier = require('prettier-webpack-plugin')
-const Css = require('mini-css-extract-plugin')
-const Copy = require('copy-webpack-plugin')
-const AutoPrefix = require('autoprefixer')
-const Minify = require('cssnano')
-const Brotli = require('brotli-webpack-plugin')
-const Gzip = require('compression-webpack-plugin')
-const Terser = require('terser-webpack-plugin')
-const ForkTs = require('fork-ts-checker-webpack-plugin')
+const Output = require('write-file-webpack-plugin');
+const Css = require('mini-css-extract-plugin');
+const Copy = require('copy-webpack-plugin');
+const AutoPrefix = require('autoprefixer');
+const Minify = require('cssnano');
+const Brotli = require('brotli-webpack-plugin');
+const Gzip = require('compression-webpack-plugin');
+const Terser = require('terser-webpack-plugin');
+const ForkTs = require('fork-ts-checker-webpack-plugin');
 
 /**
  * Paths
  */
-const root = path.resolve(__dirname)
-const src = `${root}/src/`
-const dist = `${root}/dist/`
+const root = path.resolve(__dirname);
+const src = `${root}/src/`;
+const dist = `${root}/dist/`;
 
 /**
  * Config
  */
 const config = (env) => {
-  const mode = env ? env.NODE_ENV : 'development'
-  const dev = mode === 'development'
-  console.log('MODE:', mode)
+  const mode = env ? env.NODE_ENV : 'development';
+  const dev = mode === 'development';
+  console.log('MODE:', mode);
 
   return {
     context: root,
@@ -70,37 +69,31 @@ const config = (env) => {
     plugins: [
       // dev && new Bundle(),
       dev && new Output(),
-      !dev && new Prettier({
-        printWidth: 125,
-        tabWidth: 2,
-        useTabs: false,
-        semi: false,
-        singleQuote: true,
-        arrowParens: 'always',
-        encoding: 'utf-8',
-        extensions: ['.js', '.ts', '.tsx', '.jsx', '.json']
-      }),
       new Css({
         filename: 'assets/main.css'
       }),
-      new Copy([{
-        from: `${src}/assets/**/*`,
-        to: `${dist}/assets/`,
-        flatten: true
-      }]),
-      !dev && new Gzip({
-        filename: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: /\.(js|css|html|svg)$/,
-        threshold: 10240,
-        minRatio: 0.8
-      }),
-      !dev && new Brotli({
-        asset: '[path].br[query]',
-        test: /\.(js|css|html|svg)$/,
-        threshold: 10240,
-        minRatio: 0.8
-      }),
+      new Copy([
+        {
+          from: `${src}/assets/**/*`,
+          to: `${dist}/assets/`,
+          flatten: true
+        }
+      ]),
+      !dev &&
+        new Gzip({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8
+        }),
+      !dev &&
+        new Brotli({
+          asset: '[path].br[query]',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8
+        }),
       new ForkTs()
     ].filter((x) => !!x),
     module: {
@@ -127,19 +120,13 @@ const config = (env) => {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                plugins: [
-                  AutoPrefix(),
-                  Minify({ preset: 'default' })
-                ]
+                plugins: [AutoPrefix(), Minify({ preset: 'default' })]
               }
             },
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [
-                  `${src}/assets/scss/`,
-                  `${src}/components/`
-                ]
+                includePaths: [`${src}/assets/scss/`, `${src}/components/`]
               }
             }
           ].filter((x) => !!x)
@@ -157,7 +144,7 @@ const config = (env) => {
         }
       ]
     }
-  }
-}
+  };
+};
 
-module.exports = config
+module.exports = config;

@@ -1,16 +1,16 @@
-import { IHeader } from './types'
-import * as React from 'react'
-import * as cx from 'classnames'
+import { IHeader } from './types';
+import * as React from 'react';
+import * as cx from 'classnames';
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/header.scss'
+import '@nestagencyuk/scss_lib/dist/header.scss';
 
 /**
  * Components
  */
-import { Text } from '../Text'
+import { Text } from '../Text';
 
 /**
  * Sizes
@@ -28,12 +28,12 @@ const sizes: any = {
     heading: 'Gamma',
     subheading: 'Intro'
   }
-}
+};
 
 /**
  * A simple header component with a heading and subheading
  */
-const Header = ({ className, size = 'Medium', heading, subheading }: IHeader.IProps) => (
+const Header: React.FC<IHeader.IProps> = ({ className, size = 'Medium', heading, subheading }) => (
   <header className={cx(className, 'header')}>
     <Text tag="h2" variant={sizes[size].heading}>
       {heading}
@@ -43,6 +43,6 @@ const Header = ({ className, size = 'Medium', heading, subheading }: IHeader.IPr
       {subheading}
     </Text>
   </header>
-)
+);
 
-export default Header
+export default Header;
