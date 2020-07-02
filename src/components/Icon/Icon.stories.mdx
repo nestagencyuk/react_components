@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { iconDecorator } from '../../../.storybook/decorators.js'
+import { iconDecorator, inverseDecorator } from '../../../.storybook/decorators.js'
 import { Fragment } from 'react'
 import { Icon } from '.'
 
@@ -85,7 +85,7 @@ Dark is the default colour so the prop can be omitted.
 
 ### Light
 <Preview>
-  <Story name='Light'><Icon name='User' colour='Light' /></Story>
+  <Story name='Light' decorators={[inverseDecorator]}><Icon name='User' colour='Light' /></Story>
 </Preview>
 
 ### Success 
