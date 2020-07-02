@@ -1,15 +1,20 @@
 import React from 'react';
 
 /**
- * Demo Decorator
+ * Demo decorator
  */
 const demoDecorator = story => <div className="demo">{story()}</div>;
 
 /**
- * Demo and Name Decorator
+ * Select decorator
  */
-const nameDecorator = story => (
-  <div className="demo">
+const selectDecorator = story => <div className="demo demo--select">{story()}</div>;
+
+/**
+ * Demo and name decorator
+ */
+const iconDecorator = story => (
+  <div className="demo demo--icn">
     {story()}
     <span className="demo__caption">{story().props.name}</span>
   </div>
@@ -19,9 +24,18 @@ const nameDecorator = story => (
  * Force a large container for scrollable demos
  */
 const scrollDecorator = story => (
-  <div className="demo" style={{ height: '1000px' }}>
+  <div className="demo demo--scroll">
     {story()}
   </div>
 );
 
-export { demoDecorator, nameDecorator, scrollDecorator };
+/**
+ * Force a large container for scrollable demos
+ */
+const inverseDecorator = story => (
+  <div className="demo demo--inverse">
+    {story()}
+  </div>
+);
+
+export { demoDecorator, selectDecorator, iconDecorator, scrollDecorator, inverseDecorator };
