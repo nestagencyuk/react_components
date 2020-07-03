@@ -3,7 +3,7 @@ const path = require('path')
 /**
  * Plugins
  */
-// const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Output = require('write-file-webpack-plugin')
 const Css = require('mini-css-extract-plugin')
 const Copy = require('copy-webpack-plugin')
@@ -67,7 +67,7 @@ const config = (env) => {
       modules: ['node_modules']
     },
     plugins: [
-      // dev && new Bundle(),
+      dev && new Bundle(),
       dev && new Output(),
       new Css({
         filename: 'assets/main.css'
@@ -76,7 +76,10 @@ const config = (env) => {
         {
           from: `${src}/assets/**/*`,
           to: `${dist}/assets/`,
-          flatten: true
+          flatten: true,
+          globOptions: {
+            ignore: ['**/scss/**', '**/icons/**']
+          }
         }
       ]),
       !dev &&
@@ -127,11 +130,10 @@ const config = (env) => {
               loader: 'sass-loader',
               options: {
                 includePaths: [
-                  `${root}/node_modules/scss_lib/`,
+                  `${root}/node_modules/@nestagencyuk/scss_lib/dist/`,
                   `${src}/assets/scss/config/`,
-                  `${src}/assets/scss/functions/`,
-                  `${src}/assets/scss/mixins/`,
                   `${src}/assets/scss/global/`,
+                  `${src}/assets/scss/mixins/`,
                   `${src}/components/`
                 ]
               }

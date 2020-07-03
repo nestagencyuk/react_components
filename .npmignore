@@ -3,6 +3,7 @@
 docs
 
 # Source files
+.github
 .eslintrc
 coverage
 src

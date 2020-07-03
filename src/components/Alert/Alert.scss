@@ -13,6 +13,7 @@
 @use 'shadows';
 @use 'utilities';
 @use 'resets';
+@use 'states';
 @use 'z-index';
 
 /// -------------------
@@ -31,14 +32,14 @@ $close-size: 1.5rem !default;
   position: relative;
   box-sizing: border-box;
   max-width: 800px;
-  background-color: white;
+  background-color: white; 
   box-shadow: shadows.$one;
   animation: fadeInTop movement.$base animations.$forwards-ease;
   border-radius: corners.$base;
   z-index: z-index.$alert;
 
   &--error {
-    border: solid 2px colours.$state-error;
+    border: solid 2px colours.$state-warning;
   }
 
   &--warning {
@@ -79,7 +80,7 @@ $close-size: 1.5rem !default;
 .alert__icn {
   position: absolute;
   left: $padding-x;
-  top: $padding-y + 0.25rem;
+  top: $padding-y + 0.25rem; 
 }
 
 /// -------------------
