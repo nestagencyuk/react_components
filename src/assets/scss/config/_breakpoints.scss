@@ -1,0 +1,23 @@
+/// ----------------------------------------------------------------------
+
+/// Breakpoints
+
+/// ----------------------------------------------------------------------
+
+$xxs:     350px     !default;
+$xs:      500px     !default;
+$sm:      768px     !default;
+$md:      992px     !default;
+$lg:      1200px    !default;
+$xl:      1400px    !default;
+$xxl:     1600px    !default;
+
+$all: (
+  xxs: $xxs,
+  xs:  $xs,
+  sm:  $sm,
+  md:  $md,
+  lg:  $lg,
+  xl:  $xl,
+  xxl: $xxl,
+);

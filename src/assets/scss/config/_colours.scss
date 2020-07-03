@@ -1,0 +1,53 @@
+/// ----------------------------------------------------------------------
+
+/// Colours
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Brand
+/// -------------------
+
+$brand-one: #2d2e82 !default;
+$brand-two: #00ffd4 !default;
+
+$brand: (
+  one: $brand-one, 
+  two: $brand-two,
+);
+  
+/// -------------------
+/// UI (backgrounds, borders etc)
+/// -------------------
+
+$ui-one: #F8F8F8 !default;
+$ui-two: #ececec !default;
+$ui-three: #c0c0c0 !default;
+$ui-four: #818181 !default;
+$ui-five: #444444 !default;
+$ui-six: #131313 !default;
+
+$ui: (
+  one: $ui-one,
+  two: $ui-two,
+  three: $ui-three,
+  four: $ui-four,
+  five: $ui-five,
+  six: $ui-six
+);
+
+/// -------------------
+/// UI States
+/// -------------------
+
+$state-success: #47bb57 !default;
+$state-warning: #ecc545 !default;
+$state-error: #ec4a58 !default;
+$state-info: #cd69e0 !default;
+
+$state: (
+  success: $state-success,
+  warning: $state-warning,
+  error: $state-error,
+  info: $state-info
+);

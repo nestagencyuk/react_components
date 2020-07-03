@@ -1,0 +1,82 @@
+/// ----------------------------------------------------------------------
+
+/// Loader
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'colours';
+@use 'corners';
+@use 'animations';
+@use 'typography';
+@use 'spacing';
+@use 'utilities';
+
+/// -------------------
+/// Loader config
+/// -------------------
+
+$size: 3rem !default;
+$bg-colour: colours.$brand-two !default;
+
+/// -------------------
+/// Loader selectors
+/// -------------------
+
+.loader {
+  position: relative;
+  
+  &--circle {
+    width: 2rem;
+    height: 2rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+      transform: scale(0);
+      border-radius: corners.$round;
+      border: solid 4px $bg-colour;
+      animation: zoomIn 0.8s animations.$alternate-ease;
+      opacity: 0.5;
+    }
+    
+    &::after {
+      animation-delay: 0.4s;
+    }
+  }
+  
+  &--bounce {
+    width: 0.65rem;
+    height: 0.65rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: corners.$round;
+      background-color: $bg-colour;
+      animation: moveFadeUp 0.5s animations.$alternate-ease;
+      opacity: 0.5;
+    }
+    
+    &::before {
+      left: 0;
+    }
+    
+    &::after {
+      left: 1rem;
+      animation-delay: 0.25s;
+    }
+  }
+}

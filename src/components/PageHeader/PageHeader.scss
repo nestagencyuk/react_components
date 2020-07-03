@@ -1,0 +1,35 @@
+/// ----------------------------------------------------------------------
+
+/// Page Header
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+@use 'z-index';
+
+/// -------------------
+/// Page Header config
+/// -------------------
+
+$padding-x: 0 !default;
+$padding-y: 0 !default;
+$bg-colour: colours.$ui-two !default;
+
+/// -------------------
+/// Page Header selectors
+/// -------------------
+
+.page-header {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: $padding-y $padding-x;
+  background-color: $bg-colour;
+  z-index: z-index.$page-header;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

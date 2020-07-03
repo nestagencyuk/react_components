@@ -4,11 +4,6 @@ import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
 /**
- * Styles
- */
-// import '@nestagencyuk/scss_lib/dist/socialfeed.scss'
-
-/**
  * Components
  */
 import { Grid, GridItem } from '../Grid'

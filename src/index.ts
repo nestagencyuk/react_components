@@ -113,5 +113,3 @@ export { useScroll } from './hooks/useScroll'
 export { useToggle } from './hooks/useToggle'
 export { useToggleGroup } from './hooks/useToggleGroup'
 export { useTypeEffect } from './hooks/useTypeEffect'
-
-require('./index.scss')

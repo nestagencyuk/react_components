@@ -1,0 +1,95 @@
+/// ----------------------------------------------------------------------
+
+/// Gallery
+
+/// ----------------------------------------------------------------------
+
+@use 'movement';
+@use 'animations';
+@use 'transitions';
+@use 'spacing';
+@use 'max-widths';
+@use 'breakpoint';
+@use 'z-index';
+@use 'px';
+
+/// -------------------
+/// Gallery config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+$gutter: spacing.$md !default;
+
+/// -------------------
+/// Gallery selectors
+/// -------------------
+
+.gallery {
+  display: block;
+  
+  &--tiles {
+    display: grid;
+    grid-gap: $gutter;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+  }
+  
+  &--masonry {
+    @include breakpoint.up('sm') {
+      display: grid;
+      grid-gap: px.px($gutter);
+      grid-auto-rows: 1px;
+    }
+  }
+
+  &--sm {
+    @include breakpoint.up('sm') {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &--md {
+    @include breakpoint.up('sm') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &--lg {
+    @include breakpoint.up('sm') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/// -------------------
+/// Gallery selectors
+/// -------------------
+
+.gallery__item {
+  .gallery--masonry & {
+    margin-bottom: $gutter;
+    
+    @include breakpoint.up('sm') {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/// -------------------
+/// Gallery selectors
+/// -------------------
+
+.gallery__slider {
+  animation: fadeInTop movement.$base animations.$forwards-ease;
+}
+
+/// -------------------
+/// Gallery selectors
+/// -------------------
+
+.gallery__float.float {
+  width: 100%;
+  max-width: max-widths.$lg;
+  z-index: z-index.$top + 1;
+}

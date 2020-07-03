@@ -1,0 +1,100 @@
+/// ----------------------------------------------------------------------
+
+/// Page Footer
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'spacing';
+@use 'max-widths';
+@use 'borders';
+@use 'animations';
+@use 'breakpoint';
+@use 'corners';
+@use 'colours';
+@use 'typography';
+@use 'components';
+@use 'resets';
+
+/// -------------------
+/// Page Footer config
+/// -------------------
+
+$padding-x: spacing.$xxl !default;
+$max-width: max-widths.$xl !default;
+$bg-colour: colours.$ui-six !default;
+$item-margin-x: spacing.$sm !default;
+$item-margin-y: spacing.$sm !default;
+$sub-border-top: borders.$ui-two !default;
+$sub-bg-colour: transparent !default; 
+
+/// -------------------
+/// Page Footer selectors
+/// -------------------
+
+.page-footer {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: $bg-colour;
+  padding: $padding-x;
+}
+
+/// -------------------
+/// Page Footer selectors
+/// -------------------
+
+.page-footer__body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+}
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.page-footer__img {
+  width: 100%;
+  max-width: 100px;
+  
+  & > .img {
+    background-image: none;
+  }
+}
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.page-footer__list {
+  @include resets.list;
+}
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.page-footer__item {
+  margin: $item-margin-y $item-margin-x;
+}
+
+/// ------------------- 
+/// Footer media
+/// -------------------
+
+.page-footer__link {}
+
+/// -------------------
+/// Footer media
+/// -------------------
+
+.page-footer__sub {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  border-top: $sub-border-top;
+  background-color: $sub-bg-colour;
+}
+

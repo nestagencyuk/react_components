@@ -1,0 +1,85 @@
+/// ----------------------------------------------------------------------
+
+/// Pagination
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'colours';
+@use 'borders';
+@use 'typography';
+@use 'spacing';
+@use 'corners';
+@use 'transitions';
+@use 'resets';
+
+/// -------------------
+/// Pagination config
+/// -------------------
+
+$item-margin-x: spacing.$xs !default;
+$item-margin-y: spacing.$xs !default;
+$dot-size: 1.25rem !default;
+$dot-border: borders.$brand-one !default;
+$dot-bg-colour: colours.$brand-one !default;
+$dot-bg-colour--hover: colours.$brand-one !default;
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination {
+  @include resets.list;
+  display: flex;
+  align-items: center;
+
+  &--dots {
+    
+  }
+
+  &--numbers {
+
+  }
+}
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination__item {
+  margin-left: $item-margin-x / 2;
+  margin-right: $item-margin-x / 2;
+  margin-top: $item-margin-y;
+  margin-bottom: $item-margin-y;
+}
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination__btn {
+  .pagination--dots & {
+    font-size: 0;
+    width: $dot-size;
+    height: $dot-size;
+    border: $dot-border;
+    border-radius: corners.$round;
+    transition: background-color transitions.$ease, transform transitions.$ease;
+    transform: scale(0.75);
+    opacity: 0.5;
+    cursor: pointer;
+    
+    &--active {
+      background-color: $dot-bg-colour;
+      transform: scale(1);
+      opacity: 1;
+    }
+    
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none; 
+      background-color: $dot-bg-colour--hover;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+/// ----------------------------------------------------------------------
+
+/// Transitions
+
+/// ----------------------------------------------------------------------
+
+@use 'movement';
+
+$linear: movement.$base linear !default;
+$ease: movement.$base ease !default;
+$cubic: movement.$base cubic-bezier(1, 0.01, 0.5, 1) !default;

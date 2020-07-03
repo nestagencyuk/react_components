@@ -1,0 +1,46 @@
+/// ----------------------------------------------------------------------
+
+/// States
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+@use 'borders';
+
+/// -------------------
+/// Action
+/// -------------------
+
+@mixin success {
+  background-color: colours.$state-success;
+}
+
+@mixin warning {
+  background-color: colours.$state-warning;
+}
+
+@mixin error {
+  background-color: colours.$state-error;
+}
+
+/// -------------------
+/// Visibility
+/// -------------------
+
+@mixin disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
+@mixin hidden {
+  display: none;
+}
+
+@mixin visible {
+  display: block;
+}
+
+@mixin focus {
+  outline: none;
+  border: borders.$brand-two;
+}

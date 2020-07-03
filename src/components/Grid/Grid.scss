@@ -1,0 +1,46 @@
+/// ----------------------------------------------------------------------
+
+/// Grid
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'spacing';
+@use 'breakpoint';
+
+/// -------------------
+/// Grid config
+/// -------------------
+
+$columns: 12 !default;
+$gutter: spacing.$xl !default;
+
+/// -------------------
+/// Grid selectors
+/// -------------------
+ 
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+
+  &--gutter {
+    grid-gap: $gutter;
+    grid-row-gap: $gutter;
+  }
+}
+
+/// -------------------
+/// Grid item
+/// -------------------
+ 
+.grid__item {
+  grid-column: span $columns;
+  
+  @include breakpoint.up('sm') {
+    @for $i from 0 through $columns {  
+      &--#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
