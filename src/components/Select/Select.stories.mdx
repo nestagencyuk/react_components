@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { demoDecorator } from '../../../.storybook/decorators.js'
+import { selectDecorator } from '../../../.storybook/decorators.js'
 import { useState } from 'react'
 import { Text } from '../Text'
 import { Select } from '.'
@@ -13,7 +13,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sead do eiusmod tempor 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <Preview>
-  <Story name='Base' decorators={[demoDecorator]}>
+  <Story name='Base' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -30,7 +30,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <Preview>
-  <Story name='Initial-Value' decorators={[demoDecorator]}>
+  <Story name='Initial-Value' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -47,7 +47,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Optional selects allow you to reselect `null`.
 
 <Preview>
-  <Story name='Optional' decorators={[demoDecorator]}>
+  <Story name='Optional' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -64,7 +64,7 @@ Optional selects allow you to reselect `null`.
 Searchable selects allow the user to search for an option.
 
 <Preview>
-  <Story name='Multi' decorators={[demoDecorator]}>
+  <Story name='Multi' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -75,7 +75,7 @@ Searchable selects allow the user to search for an option.
       )
     }}
   </Story>
-  <Story name='Multi-Long' decorators={[demoDecorator]}>
+  <Story name='Multi-Long' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -113,7 +113,7 @@ Searchable selects allow the user to search for an option.
 Searchable selects allow the user to search for an option.
 
 <Preview>
-  <Story name='Searchable' decorators={[demoDecorator]}>
+  <Story name='Searchable' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -124,7 +124,7 @@ Searchable selects allow the user to search for an option.
       )
     }}
   </Story>
-  <Story name='Multi-Searchable' decorators={[demoDecorator]}>
+  <Story name='Multi-Searchable' decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
@@ -162,7 +162,7 @@ Searchable selects allow the user to search for an option.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 <Preview>
-  <Story name='Disabled' decorators={[demoDecorator]}>
+  <Story name='Disabled' decorators={[selectDecorator]}>
     <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={''} disabled onChange={() => {}} />
   </Story>
 </Preview>

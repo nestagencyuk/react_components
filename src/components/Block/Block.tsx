@@ -1,27 +1,27 @@
-import { IBlock } from './types';
-import { IGrid } from '../Grid/types';
-import * as React from 'react';
-import { forwardRef } from 'react';
-import cx from 'classnames';
+import { IBlock } from './types'
+import { IGrid } from '../Grid/types'
+import * as React from 'react'
+import { forwardRef } from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/block.scss';
+import '@nestagencyuk/scss_lib/dist/block.scss'
 
 /**
  * Components
  */
-import { BlockHeader } from '.';
-import { Grid, GridItem } from '../Grid';
-import { Image } from '../Image';
-import { Box } from '../Box';
-import { Button } from '../Button';
+import { BlockHeader } from '.'
+import { Grid, GridItem } from '../Grid'
+import { Image } from '../Image'
+import { Box } from '../Box'
+import { Button } from '../Button'
 
 /**
  * Forward the ref
  */
-const RefGrid = forwardRef(Grid) as (props: IGrid.IProps & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement;
+const RefGrid = forwardRef(Grid) as (props: IGrid.IProps & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement
 
 /**
  * Sizes
@@ -30,7 +30,7 @@ const sizes = {
   Small: 2,
   Medium: 4,
   Large: 6
-};
+}
 
 /**
  * Block component
@@ -39,14 +39,14 @@ const Block: React.FC<IBlock.IProps> = (
   { className, size = 'Medium', image, header, button, children },
   ref: React.Ref<HTMLDivElement>
 ) => {
-  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {});
-  const Comp = passRef ? RefGrid : Grid;
+  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
+  const Comp = passRef ? RefGrid : Grid
 
   /**
    * Image alignment
    */
-  const imageStart = image?.align === 'Start';
-  const imageEnd = image?.align === 'End';
+  const imageStart = image?.align === 'Start'
+  const imageEnd = image?.align === 'End'
 
   return children ? (
     <Comp {...passRef} className={cx(className, 'block')}>
@@ -72,7 +72,7 @@ const Block: React.FC<IBlock.IProps> = (
         </GridItem>
       )}
     </Comp>
-  ) : null;
-};
+  ) : null
+}
 
-export default Block;
+export default Block
