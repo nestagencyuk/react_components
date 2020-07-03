@@ -1,0 +1,89 @@
+/// ----------------------------------------------------------------------
+
+/// Modal
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+@use 'animations';
+@use 'breakpoint';
+@use 'transitions';
+@use 'corners';
+@use 'borders';
+@use 'shadows';
+@use 'spacing';
+@use 'resets';
+@use 'z-index';
+@use 'utilities';
+
+/// -------------------
+/// Modal config
+/// -------------------
+
+$padding-x: spacing.$lg !default;
+$padding-y: spacing.$lg !default;
+$bg-colour: white !default;
+$close-size: 1.5rem !default;
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 800px;
+  min-width: 250px;
+  background-color: $bg-colour;
+  box-shadow: shadows.$one;
+  animation: fadeInTop 0.3s animations.$forwards-ease;
+  border-radius: corners.$base;
+  z-index: z-index.$modal;
+  
+  @include breakpoint.up('sm') {
+    min-width: 500px;
+  }
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__close {
+  @include resets.style;
+  position: absolute;
+  right: $padding-x;
+  top: $padding-y;
+  width: $close-size;
+  height: $close-size;
+  font-size: 0;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity transitions.$ease;
+  cursor: pointer;
+  z-index: z-index.$top + 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__header {}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__body {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__footer {}

@@ -5,7 +5,8 @@ import cx from 'classnames';
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/box.scss';
+
+import './Box.scss'
 
 /**
  * Alignment classes

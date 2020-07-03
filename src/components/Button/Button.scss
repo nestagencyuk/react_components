@@ -1,0 +1,171 @@
+/// ----------------------------------------------------------------------
+
+/// Buttons
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'get-prop';
+@use 'spacing';
+@use 'corners';
+@use 'colours';
+@use 'borders';
+@use 'typography';
+@use 'transitions';
+@use 'components';
+@use 'states';
+@use 'resets';
+@use 'utilities';
+
+/// -------------------
+/// Button config
+/// -------------------
+
+$padding-x: spacing.$xl !default;
+$border-radius: corners.$base !default;
+$font-family: typography.$font-family--alt !default;
+$font-weight: typography.$font-bold !default;
+$transition: all transitions.$ease !default;
+ 
+$variants: (
+  'primary': (
+    background-color: colours.$brand-one,
+    color: white,
+
+    'hover': (
+      background-color: colours.$brand-two,
+    )
+  ),
+  'secondary': (
+    border-color: colours.$brand-two,
+    color: colours.$brand-two,
+
+    'hover': (
+      border-color: colours.$brand-one,
+      color: colours.$brand-one,
+    )
+  ),
+  'tertiary': (
+    background-color: colours.$ui-one,
+
+    'hover': (
+      color: colours.$brand-one,
+    )
+  ),
+  'inverse': (
+    border-color: white,
+    color: white,
+
+    'hover': (
+      border-color: colours.$brand-two,
+      color: colours.$brand-two,
+    )
+  ),
+) !default;
+
+$sizes: (
+  'sm': (
+    padding-left: $padding-x * 0.5,
+    padding-right: $padding-x * 0.5,
+  ),
+  'lg': (
+    padding-left: $padding-x * 1.5,
+    padding-right: $padding-x * 1.5,
+  )
+) !default;
+
+/// -------------------
+/// Button selectors 
+/// -------------------
+
+.btn {
+  @include resets.style;
+  @include components.flow;
+  position: relative;
+  border-radius: $border-radius; 
+  font-family: $font-family;
+  font-weight: $font-weight;
+  transition: $transition;
+  user-select: none;
+  text-decoration: none;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  align-self: center;
+  cursor: pointer;
+
+  @each $variant in $variants {
+    $variant-name: nth($variant, 1);
+    
+    &--#{$variant-name} {
+      @include apply-props.apply-props(map-get($variants, $variant-name));
+    }
+  }
+
+  @each $size in $sizes {
+    $size-name: nth($size, 1);
+    
+    &--#{$size-name} {
+      @include apply-props.apply-props(map-get($sizes, $size-name));
+    }
+  }
+
+  &:focus {
+    @include states.focus;
+  }
+  
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+}
+
+/// -------------------
+/// Button icon 
+/// -------------------
+
+.btn__icn.icn {
+  &:first-child {
+    transform: translateX(-$padding-x / 2);
+
+    .btn--sm & {
+      transform: translateX(-$padding-x / 3.5); 
+    }
+
+    .btn--lg & {
+      transform: translateX(-$padding-x); 
+    }
+  }
+  
+  &:last-child {
+    transform: translateX($padding-x / 2);
+
+    .btn--sm & {
+      transform: translateX($padding-x / 3.5); 
+    }
+
+    .btn--lg & {
+      transform: translateX($padding-x); 
+    }
+  }
+}
+
+/// -------------------
+/// Button icon path
+/// -------------------
+
+.btn__icn-path {
+  transition: $transition;
+
+  @each $variant in $variants {
+    $variant-name: nth($variant, 1);
+    $variant-props: nth($variant, 2);
+    
+    .btn--#{$variant-name} & {
+      fill: map-get($variant-props, 'color');
+    }
+
+    .btn--#{$variant-name}:hover & {
+      fill: get-prop.get-prop($variant-props, 'hover', 'color');
+    }
+  }
+}

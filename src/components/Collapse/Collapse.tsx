@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/collapse.scss'
+import './Collapse.scss'
 
 /**
  * Components

@@ -1,0 +1,17 @@
+/// ----------------------------------------------------------------------
+
+/// Animations
+
+/// ----------------------------------------------------------------------
+
+$alternate-linear: infinite alternate linear !default;
+$alternate-ease: infinite alternate ease !default;
+$alternate-cubic: infinite alternate cubic-bezier(1, 0.01, 0.5, 1) !default;
+
+$infinite-linear: infinite linear !default;
+$infinite-ease: infinite ease !default;
+$infinite-cubic: infinite cubic-bezier(1, 0.01, 0.5, 1) !default;
+
+$forwards-linear: forwards linear !default;
+$forwards-ease: forwards ease !default;
+$forwards-cubic: forwards cubic-bezier(1, 0.01, 0.5, 1) !default;

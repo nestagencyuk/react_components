@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/label.scss'
+import './Label.scss'
 
 /**
  * A label

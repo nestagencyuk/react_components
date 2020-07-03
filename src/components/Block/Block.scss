@@ -1,0 +1,31 @@
+/// ----------------------------------------------------------------------
+
+/// Block
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+
+/// -------------------
+/// Block config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Block selectors
+/// -------------------
+
+.block {
+  box-sizing: border-box;
+}
+
+/// -------------------
+/// Block header
+/// -------------------
+
+.block__header.header {
+  padding: 0;
+  border-bottom: none;
+}

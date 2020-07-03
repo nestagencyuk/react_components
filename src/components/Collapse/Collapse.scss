@@ -1,0 +1,85 @@
+/// ----------------------------------------------------------------------
+
+/// Collapse
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'spacing';
+@use 'corners';
+@use 'colours';
+@use 'animations';
+@use 'transitions';
+@use 'borders';
+@use 'shadows';
+@use 'states';
+@use 'typography';
+@use 'resets';
+@use 'utilities';
+@use 'z-index';
+
+/// -------------------
+/// Collapse config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+$header-box-shadow: shadows.$one !default;
+$header-border-radius: corners.$base !default;
+$header-border: borders.$mid solid transparent !default;
+
+/// -------------------
+/// Collapse selectors
+/// -------------------
+
+.collapse {
+  display: block;
+}
+
+/// -------------------
+/// Collapse header
+/// -------------------
+
+.collapse__header {
+  @include resets.style;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: $header-box-shadow;
+  border-radius: $header-border-radius;
+  padding: $padding-y $padding-x;
+  border: $header-border;
+  z-index: z-index.$default;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// Collapse heading
+/// -------------------
+
+.collapse__heading.text {
+  margin-bottom: 0;
+}
+
+/// -------------------
+/// Collapse body
+/// -------------------
+
+.collapse__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height transitions.$ease, padding transitions.$ease;
+  padding: 0 $padding-x;
+  
+  &--active {
+    padding: $padding-y $padding-x;
+  }
+}
