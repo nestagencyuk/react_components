@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { inverseDecorator } from '../../../.storybook/decorators.js'
 import { MemoryRouter } from 'react-router-dom'
 import { Text } from '../Text'
 import { Link } from '.'
@@ -13,7 +14,7 @@ For use within paragraphs.
 
 <Preview>
   <Story name='Base'>
-    <MemoryRouter>
+    <MemoryRouter> 
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, <Link href='/'>primary link</Link> posuere quis elementum non, commodo molestie odio.
       </Text>
@@ -53,7 +54,7 @@ Lorem.
 
 ### Inverse
 <Preview>
-  <Story name='Inverse'>
+  <Story name='Inverse' decorators={[inverseDecorator]}>
     <MemoryRouter>
       <Link variant='Inverse' href='/'>Inverse link</Link>
     </MemoryRouter>
