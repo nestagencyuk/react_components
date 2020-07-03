@@ -1,15 +1,16 @@
-import { Alignment } from '../../types'
+import { Alignment } from '../../types';
 
 declare namespace IBox {
   interface IProps {
-    className?: string
+    className?: string;
     align?: {
-      x?: Alignment
-      y?: Alignment
-    }
-    fill?: boolean
-    children: any
+      x?: Alignment;
+      y?: Alignment;
+    };
+    fill?: boolean;
+    children: any;
+    testId?: string;
   }
 }
 
-export { IBox }
+export { IBox };
