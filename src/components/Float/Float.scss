@@ -13,8 +13,6 @@
 /// Float config
 /// -------------------
 
-$padding-x: spacing.$md !default;
-$padding-y: spacing.$md !default;
 $offset-x: 0 !default;
 $offset-y: 0 !default;
 
@@ -25,36 +23,35 @@ $offset-y: 0 !default;
 .float {
   position: fixed;
   box-sizing: border-box;
-  padding: $padding-y $padding-x;
   z-index: z-index.$top + 1;
-  
+
   &--start-y {
     top: $offset-y;
   }
-  
+
   &--center-y {
     top: 50%;
     transform: translateY(-50%);
   }
-  
+
   &--end-y {
     bottom: $offset-y;
   }
-  
+
   &--start-x {
     left: $offset-x;
   }
-  
+
   &--center-x {
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-    
+
     @include breakpoint.up('sm') {
       width: auto;
     }
   }
-  
+
   &--end-x {
     right: $offset-x;
   }

@@ -13,7 +13,6 @@
 /// -------------------
 
 .animate {
-  opacity: 0;
   transition: transitions.$ease;
 
   &--fade-in {
@@ -34,5 +33,9 @@
 
   &--fade-in-right {
     animation: fadeInRight movement.$base animations.$forwards-ease;
+  }
+
+  &--swipe-in-left {
+    animation: swipeInLeft movement.$base animations.$forwards-ease;
   }
 }
