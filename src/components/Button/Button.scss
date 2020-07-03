@@ -4,87 +4,33 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
-@use 'get-prop';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
 @use 'colours';
 @use 'borders';
 @use 'typography';
 @use 'transitions';
-@use 'components';
 @use 'states';
-@use 'resets';
-@use 'utilities';
 
 /// -------------------
 /// Button config
 /// -------------------
 
 $padding-x: spacing.$xl !default;
-$border-radius: corners.$base !default;
-$font-family: typography.$font-family--alt !default;
-$font-weight: typography.$font-bold !default;
 $transition: all transitions.$ease !default;
- 
-$variants: (
-  'primary': (
-    background-color: colours.$brand-one,
-    color: white,
-
-    'hover': (
-      background-color: colours.$brand-two,
-    )
-  ),
-  'secondary': (
-    border-color: colours.$brand-two,
-    color: colours.$brand-two,
-
-    'hover': (
-      border-color: colours.$brand-one,
-      color: colours.$brand-one,
-    )
-  ),
-  'tertiary': (
-    background-color: colours.$ui-one,
-
-    'hover': (
-      color: colours.$brand-one,
-    )
-  ),
-  'inverse': (
-    border-color: white,
-    color: white,
-
-    'hover': (
-      border-color: colours.$brand-two,
-      color: colours.$brand-two,
-    )
-  ),
-) !default;
-
-$sizes: (
-  'sm': (
-    padding-left: $padding-x * 0.5,
-    padding-right: $padding-x * 0.5,
-  ),
-  'lg': (
-    padding-left: $padding-x * 1.5,
-    padding-right: $padding-x * 1.5,
-  )
-) !default;
 
 /// -------------------
 /// Button selectors 
 /// -------------------
 
 .btn {
-  @include resets.style;
-  @include components.flow;
+  @include lib.resets-style;
+  @include lib.components-flow;
   position: relative;
-  border-radius: $border-radius; 
-  font-family: $font-family;
-  font-weight: $font-weight;
+  border-radius: corners.$base; 
+  font-family: typography.$font-family--alt;
+  font-weight: typography.$font-bold;
   transition: $transition;
   user-select: none;
   text-decoration: none;
@@ -93,20 +39,51 @@ $sizes: (
   align-self: center;
   cursor: pointer;
 
-  @each $variant in $variants {
-    $variant-name: nth($variant, 1);
-    
-    &--#{$variant-name} {
-      @include apply-props.apply-props(map-get($variants, $variant-name));
+  &--primary {
+    background-color: colours.$brand-one;
+    color: white;
+
+    &:hover {
+      background-color: colours.$brand-two;
     }
   }
 
-  @each $size in $sizes {
-    $size-name: nth($size, 1);
-    
-    &--#{$size-name} {
-      @include apply-props.apply-props(map-get($sizes, $size-name));
+  &--secondary {
+    border-color: colours.$brand-two;
+    color: colours.$brand-two;
+
+    &:hover {
+      border-color: colours.$brand-one;
+      color: colours.$brand-one;
     }
+  }
+  
+  &--tertiary {
+    background-color: colours.$ui-one;
+
+    &:hover {
+      color: colours.$brand-one;
+    }
+  }
+  
+  &--inverse {
+    border-color: white;
+    color: white;
+
+    &:hover {
+      border-color: colours.$brand-two;
+      color: colours.$brand-two;
+    }
+  }
+
+  &--sm {
+    padding-left: $padding-x * 0.5;
+    padding-right: $padding-x * 0.5;
+  }
+  
+  &--lg {
+    padding-left: $padding-x * 1.5;
+    padding-right: $padding-x * 1.5;
   }
 
   &:focus {
@@ -153,19 +130,34 @@ $sizes: (
 /// Button icon path
 /// -------------------
 
-.btn__icn-path {
+.btn__icn-path.icn__path {
   transition: $transition;
 
-  @each $variant in $variants {
-    $variant-name: nth($variant, 1);
-    $variant-props: nth($variant, 2);
-    
-    .btn--#{$variant-name} & {
-      fill: map-get($variant-props, 'color');
-    }
+  .btn--primary & {
+    fill: white;
+  }
 
-    .btn--#{$variant-name}:hover & {
-      fill: get-prop.get-prop($variant-props, 'hover', 'color');
-    }
+  .btn--primary:hover & {
+    fill: colours.$brand-two;
+  }
+
+  .btn--secondary & {
+    fill: colours.$brand-two;
+  }
+  
+  .btn--secondary:hover {
+    fill: colours.$brand-one;
+  }
+  
+  .btn--tertiary:hover & {
+    fill: colours.$brand-one;
+  }
+  
+  .btn--inverse & {
+    fill: white;
+  }
+
+  .btn--inverse:hover  {
+    fill: colours.$brand-two;
   }
 }

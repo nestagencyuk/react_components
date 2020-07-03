@@ -4,16 +4,14 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
 @use 'borders';
 @use 'colours';
 @use 'typography';
-@use 'components';
 @use 'transitions';
 @use 'states';
-@use 'resets';
 
 /// -------------------
 /// Textarea config
@@ -31,8 +29,8 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .textarea {
-  @include resets.style;
-  @include components.flow;
+  @include lib.resets-style;
+  @include lib.components-flow;
   padding-left: $padding-x;
   padding-right: $padding-x;
   border-radius: $border-radius; 

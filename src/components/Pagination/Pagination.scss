@@ -4,14 +4,12 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
 @use 'borders';
-@use 'typography';
 @use 'spacing';
 @use 'corners';
 @use 'transitions';
-@use 'resets';
 
 /// -------------------
 /// Pagination config
@@ -20,16 +18,13 @@
 $item-margin-x: spacing.$xs !default;
 $item-margin-y: spacing.$xs !default;
 $dot-size: 1.25rem !default;
-$dot-border: borders.$brand-one !default;
-$dot-bg-colour: colours.$brand-one !default;
-$dot-bg-colour--hover: colours.$brand-one !default;
 
 /// -------------------
 /// Pagination selectors
 /// -------------------
 
 .pagination {
-  @include resets.list;
+  @include lib.resets-list;
   display: flex;
   align-items: center;
 
@@ -62,7 +57,7 @@ $dot-bg-colour--hover: colours.$brand-one !default;
     font-size: 0;
     width: $dot-size;
     height: $dot-size;
-    border: $dot-border;
+    border: borders.$brand-one;
     border-radius: corners.$round;
     transition: background-color transitions.$ease, transform transitions.$ease;
     transform: scale(0.75);
@@ -70,7 +65,7 @@ $dot-bg-colour--hover: colours.$brand-one !default;
     cursor: pointer;
     
     &--active {
-      background-color: $dot-bg-colour;
+      background-color: colours.$brand-one;
       transform: scale(1);
       opacity: 1;
     }
@@ -79,7 +74,7 @@ $dot-bg-colour--hover: colours.$brand-one !default;
     &:focus,
     &:hover {
       outline: none; 
-      background-color: $dot-bg-colour--hover;
+      background-color: colours.$brand-one;
     }
   }
 }

@@ -4,29 +4,15 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
 @use 'spacing';
-@use 'max-widths';
 @use 'borders';
-@use 'animations';
-@use 'breakpoint';
-@use 'corners';
-@use 'colours';
-@use 'typography';
-@use 'components';
-@use 'resets';
 
 /// -------------------
 /// Footer config
 /// -------------------
 
 $padding-x: spacing.$md !default;
-$padding-y: spacing.$md !default; 
-$border-top: borders.$ui-two !default;
-$bg-colour: transparent !default; 
-$actions-bg-colour: transparent !default;
-$sub-border-top: borders.$ui-two !default;
-$sub-bg-colour: colours.$ui-one !default; 
+$padding-y: spacing.$md !default;
 
 /// -------------------
 /// Footer selectors
@@ -35,8 +21,8 @@ $sub-bg-colour: colours.$ui-one !default;
 .footer {
   width: 100%;
   box-sizing: border-box;
-  border-top: $border-top;
-  background-color: $bg-colour;
+  border-top: borders.$ui-two;
+  background-color: transparent;
 }
 
 /// -------------------
@@ -50,7 +36,6 @@ $sub-bg-colour: colours.$ui-one !default;
   box-sizing: border-box;
   width: 100%;
   padding: $padding-y $padding-x;
-  background-color: $actions-bg-colour;
 }
 
 /// -------------------
@@ -61,6 +46,4 @@ $sub-bg-colour: colours.$ui-one !default;
   width: 100%;
   box-sizing: border-box;
   padding: ($padding-y / 2) $padding-x;
-  border-top: $sub-border-top;
-  background-color: $sub-bg-colour;
 }

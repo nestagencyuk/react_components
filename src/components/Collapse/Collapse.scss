@@ -4,18 +4,13 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
-@use 'colours';
-@use 'animations';
 @use 'transitions';
 @use 'borders';
 @use 'shadows';
 @use 'states';
-@use 'typography';
-@use 'resets';
-@use 'utilities';
 @use 'z-index';
 
 /// -------------------
@@ -24,10 +19,6 @@
 
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$md !default;
-
-$header-box-shadow: shadows.$one !default;
-$header-border-radius: corners.$base !default;
-$header-border: borders.$mid solid transparent !default;
 
 /// -------------------
 /// Collapse selectors
@@ -42,16 +33,16 @@ $header-border: borders.$mid solid transparent !default;
 /// -------------------
 
 .collapse__header {
-  @include resets.style;
+  @include lib.resets-style;
   display: flex;
   width: 100%;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  box-shadow: $header-box-shadow;
-  border-radius: $header-border-radius;
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
   padding: $padding-y $padding-x;
-  border: $header-border;
+  border: borders.$mid solid transparent;
   z-index: z-index.$default;
   cursor: pointer;
 

@@ -4,10 +4,8 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
-@use 'typography';
-@use 'spacing';
 
 /// -------------------
 /// Icon config
@@ -36,13 +34,10 @@ $colours: (
 .icn {
   display: inline-block;
 
-  @each $size in $sizes {
-    $size-name: nth($size, 1);
-    $size-prop: nth($size, 2);
-    
-    &--#{$size-name} {
-      width: $size-prop;
-      height: $size-prop;
+  @each $name, $prop in $sizes {
+    &--#{$name} {
+      width: $prop;
+      height: $prop;
     }
   }
 }
@@ -57,12 +52,9 @@ $colours: (
 }
 
 .icn__path {
-  @each $colour in $colours {
-    $colour-name: nth($colour, 1);
-    $colour-prop: nth($colour, 2);
-    
-    .icn--#{$colour-name} & {
-      fill: $colour-prop;
+  @each $name, $prop in $colours {
+    .icn--#{$name} & {
+      fill: $prop;
     }
   }
 }

@@ -4,19 +4,10 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
-@use 'breakpoint';
-@use 'utilities';
+@use 'breakpoints';
 @use 'z-index';
-
-/// -------------------
-/// Float config
-/// -------------------
-
-$padding-x: spacing.$md !default;
-$padding-y: spacing.$md !default;
-$offset-x: 0 !default;
-$offset-y: 0 !default;
 
 /// -------------------
 /// Float selectors
@@ -25,11 +16,11 @@ $offset-y: 0 !default;
 .float {
   position: fixed;
   box-sizing: border-box;
-  padding: $padding-y $padding-x;
+  padding: spacing.$md;
   z-index: z-index.$top + 1;
   
   &--start-y {
-    top: $offset-y;
+    top: 0;
   }
   
   &--center-y {
@@ -38,11 +29,11 @@ $offset-y: 0 !default;
   }
   
   &--end-y {
-    bottom: $offset-y;
+    bottom: 0;
   }
   
   &--start-x {
-    left: $offset-x;
+    left: 0;
   }
   
   &--center-x {
@@ -50,13 +41,13 @@ $offset-y: 0 !default;
     left: 50%;
     transform: translateX(-50%);
     
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       width: auto;
     }
   }
   
   &--end-x {
-    right: $offset-x;
+    right: 0;
   }
 
   &--center-y#{&}--center-x {

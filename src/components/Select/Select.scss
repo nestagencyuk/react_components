@@ -4,18 +4,15 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
 @use 'borders';
 @use 'colours';
 @use 'typography';
-@use 'resets';
-@use 'components';
 @use 'transitions';
 @use 'states';
 @use 'z-index';
-@use 'utilities';
 
 /// -------------------
 /// Select config
@@ -23,10 +20,6 @@
 
 $padding-x: spacing.$sm !default;
 $bg-colour: colours.$ui-one !default;
-$border-radius: corners.$base !default;
-$font-family: typography.$font-family--alt !default;
-$font-weight: typography.$font-light !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
 /// Select wrapper
@@ -51,16 +44,16 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__input {
-  @include resets.style;
-  @include components.flow;
+  @include lib.resets-style;
+  @include lib.components-flow;
   width: 100%;
   padding-left: $padding-x;
   padding-right: $padding-x * 2.5; 
-  font-family: $font-family;
-  font-weight: $font-weight;
-  border-radius: $border-radius;
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  border-radius: corners.$base;
   background-color: $bg-colour;
-  transition: $transition;
+  transition: all transitions.$ease;
   appearance: none;
 
   .field--error & {
@@ -89,13 +82,13 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__options {
-  @include resets.list;
+  @include lib.resets-list;
   display: block;
   position: absolute;
   top: 100%;
   width: 100%;
   background-color: $bg-colour;
-  border-radius: $border-radius;
+  border-radius: corners.$base;
   max-height: 250px;
   overflow-y: auto;
   z-index: z-index.$top - 1;
@@ -106,7 +99,7 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__option {
-  @include resets.style;
+  @include lib.resets-style;
   position: relative;
 }
 
@@ -115,10 +108,10 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__btn {
-  @include resets.style;
+  @include lib.resets-style;
   width: 100%;
   font-size: typography.$base-font-size;
-  font-family: $font-family;
+  font-family: typography.$font-family;
   text-align: left;
   padding: spacing.$md;
   white-space: nowrap;
@@ -133,7 +126,7 @@ $transition: all transitions.$ease !default;
   }
 
   &--sm {
-    @include resets.style;
+    @include lib.resets-style;
     padding: $padding-x / 2;
   }
 }
@@ -143,12 +136,12 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__clear {
-  @include resets.style;
-  @include utilities.center-y;
+  @include lib.resets-style;
+  @include lib.utilities-center-y;
   padding: $padding-x / 2; 
   right: ($padding-x * 2) + spacing.$xs;
   background-color: colours.$ui-two;
-  border-radius: $border-radius;
+  border-radius: corners.$base;
 }
 
 /// -------------------
@@ -156,7 +149,7 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__checkbox {
-  @include utilities.center-y;
+  @include lib.utilities-center-y;
   left: $padding-x;
   pointer-events: none;
 }
@@ -166,7 +159,7 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .select__icn {
-  @include utilities.center-y;
+  @include lib.utilities-center-y;
   right: $padding-x;
   width: $padding-x;
   height: $padding-x;

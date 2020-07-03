@@ -4,17 +4,14 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'colours';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'animations';
-@use 'breakpoint';
+@use 'breakpoints';
 @use 'transitions';
 @use 'corners';
-@use 'borders';
 @use 'shadows';
 @use 'spacing';
-@use 'resets';
 @use 'z-index';
-@use 'utilities';
 
 /// -------------------
 /// Modal config
@@ -22,7 +19,6 @@
 
 $padding-x: spacing.$lg !default;
 $padding-y: spacing.$lg !default;
-$bg-colour: white !default;
 $close-size: 1.5rem !default;
 
 /// -------------------
@@ -34,13 +30,12 @@ $close-size: 1.5rem !default;
   box-sizing: border-box;
   max-width: 800px;
   min-width: 250px;
-  background-color: $bg-colour;
+  background-color: white;
   box-shadow: shadows.$one;
-  animation: fadeInTop 0.3s animations.$forwards-ease;
   border-radius: corners.$base;
   z-index: z-index.$modal;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     min-width: 500px;
   }
 }
@@ -50,7 +45,7 @@ $close-size: 1.5rem !default;
 /// -------------------
 
 .modal__close {
-  @include resets.style;
+  @include lib.resets-style;
   position: absolute;
   right: $padding-x;
   top: $padding-y;

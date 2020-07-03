@@ -4,10 +4,8 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
 @use 'spacing';
 @use 'colours';
-@use 'typography';
 
 /// -------------------
 /// Field config
@@ -15,8 +13,6 @@
 
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$md !default;
-$margin-x: 0 !default;
-$margin-y: spacing.$md !default;
 
 /// -------------------
 /// Field swatches
@@ -28,7 +24,7 @@ $margin-y: spacing.$md !default;
   grid-template-columns: 1fr 2fr 2rem;
   grid-template-rows: auto;
   align-items: center;
-  margin: $margin-y $margin-x;
+  margin: spacing.$md 0;
 }
 
 /// -------------------

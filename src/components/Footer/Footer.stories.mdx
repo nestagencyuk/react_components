@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { MemoryRouter } from 'react-router-dom'
+import { Text } from '../Text'
 import { Footer } from '.'
 
 <Meta title='Components|Base/Footer' component={Footer} />
@@ -20,7 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
           { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => alert('No') },
           { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => alert('Yes') },
         ]}
-        subInfo='Copyright | 2020 | 3414134234'
+        subInfo={<Text variant="Epsilon">Copyright | 2020 | 3414134234</Text>}
       />
     </MemoryRouter>
   </Story>

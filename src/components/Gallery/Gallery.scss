@@ -4,21 +4,19 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'movement';
 @use 'animations';
+@use 'breakpoints';
 @use 'transitions';
 @use 'spacing';
 @use 'max-widths';
-@use 'breakpoint';
 @use 'z-index';
-@use 'px';
 
 /// -------------------
 /// Gallery config
 /// -------------------
 
-$padding-x: spacing.$md !default;
-$padding-y: spacing.$md !default;
 $gutter: spacing.$md !default;
 
 /// -------------------
@@ -36,27 +34,27 @@ $gutter: spacing.$md !default;
   }
   
   &--masonry {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       display: grid;
-      grid-gap: px.px($gutter);
+      grid-gap: lib.fn-px($gutter);
       grid-auto-rows: 1px;
     }
   }
 
   &--sm {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
   &--md {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &--lg {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -70,7 +68,7 @@ $gutter: spacing.$md !default;
   .gallery--masonry & {
     margin-bottom: $gutter;
     
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       margin-bottom: 0;
     }
   }

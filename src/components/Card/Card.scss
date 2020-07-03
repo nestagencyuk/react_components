@@ -4,15 +4,10 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
-@use 'colours';
-@use 'animations';
-@use 'transitions';
 @use 'shadows';
-@use 'utilities';
-@use 'resets';
-@use 'z-index';
 
 /// -------------------
 /// Card config
@@ -20,9 +15,6 @@
 
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$md !default;
-$bg-colour: white !default;
-$box-shadow: shadows.$one !default;
-$border-radius: corners.$base !default;
 
 /// -------------------
 /// Card selectors
@@ -32,9 +24,9 @@ $border-radius: corners.$base !default;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: $bg-colour;
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
+  background-color: white;
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
 }
 
 /// -------------------
