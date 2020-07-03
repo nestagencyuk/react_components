@@ -4,28 +4,10 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
-@use 'gradients';
 @use 'corners';
-@use 'typography';
 @use 'spacing';
-@use 'components';
-@use 'animations';
-@use 'transitions';
-@use 'z-index';
-@use 'utilities';
-
-/// -------------------
-/// Image config
-/// -------------------
-
-$bg-colour: transparent !default;
-$caption-bg-colour: colours.$ui-one !default;
-$caption-margin-x: 0 !default;
-$caption-margin-y: 0 !default;
-$caption-padding-x: 0 !default;
-$caption-padding-y: 0 !default;
 
 /// ------------------
 /// Image selectors
@@ -34,7 +16,7 @@ $caption-padding-y: 0 !default;
 .img {
   position: relative;
   margin: 0;
-  background-color: $bg-colour;
+  background-color: transparent;
 }
 
 /// ------------------
@@ -97,7 +79,7 @@ $caption-padding-y: 0 !default;
 /// ------------------
 
 .img__loader {
-  @include utilities.center;
+  @include lib.utilities-center;
   color: white;
 }
 
@@ -119,7 +101,6 @@ $caption-padding-y: 0 !default;
 
 .img__caption {
   width: 100%;
-  margin: $caption-margin-y $caption-margin-x;
-  padding: $caption-padding-y $caption-padding-x;
-  background-color: $caption-bg-colour;
+  margin: 0;
+  padding: spacing.$md 0;
 }

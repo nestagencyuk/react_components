@@ -4,11 +4,10 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'movement';
 @use 'transitions';
 @use 'spacing';
-@use 'utilities';
-@use 'resets';
 
 /// -------------------
 /// Slider config
@@ -70,8 +69,8 @@ $nav-margin-y: spacing.$md !default;
 /// -------------------
 
 .slider__btn {
-  @include resets.style;
-  @include utilities.center-y;
+  @include lib.resets-style;
+  @include lib.utilities-center-y;
   font-size: 0;
   padding: spacing.$xs;
   cursor: pointer;

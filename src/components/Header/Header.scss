@@ -4,19 +4,8 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
-@use 'borders';
-@use 'colours';
 @use 'spacing';
-@use 'z-index';
-
-/// -------------------
-/// Header config
-/// -------------------
-
-$padding-x: spacing.$lg !default;
-$padding-y: spacing.$lg !default;
-$border-bottom: borders.$ui-two !default;
+@use 'borders';
 
 /// -------------------
 /// Header selectors
@@ -26,6 +15,6 @@ $border-bottom: borders.$ui-two !default;
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: $border-bottom;
-  padding: $padding-y $padding-x;
+  border-bottom: borders.$ui-two;
+  padding: spacing.$lg;
 }

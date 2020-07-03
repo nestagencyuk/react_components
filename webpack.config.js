@@ -130,7 +130,6 @@ const config = (env) => {
               loader: 'sass-loader',
               options: {
                 includePaths: [
-                  `${root}/node_modules/@nestagencyuk/scss_lib/dist/`,
                   `${src}/assets/scss/config/`,
                   `${src}/assets/scss/global/`,
                   `${src}/assets/scss/mixins/`,

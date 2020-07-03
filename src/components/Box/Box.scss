@@ -4,15 +4,8 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
-@use 'breakpoint';
-
-/// -------------------
-/// Box config
-/// -------------------
-
-$padding-x: spacing.$md !default;
-$padding-y: spacing.$md !default;
 
 /// -------------------
 /// Box selectors
@@ -22,8 +15,8 @@ $padding-y: spacing.$md !default;
   display: grid;
   position: relative;
   box-sizing: border-box;
-  padding: $padding-y $padding-x;
-  
+  padding: spacing.$md;
+
   &--start-y {
     align-items: start;
   }

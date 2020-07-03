@@ -12,8 +12,6 @@
 /// Overlay config
 /// -------------------
 
-$bg-colour: black !default;
-$bg-colour--inverse: white !default;
 $opacity: 0.75 !default;
 
 /// -------------------
@@ -26,12 +24,11 @@ $opacity: 0.75 !default;
   left: 0;
   width: 100%;
   height: 100%;
-  animation: fadeIn 0.3s animations.$forwards-ease;
-  background-color: rgba($bg-colour, $opacity);
+  background-color: rgba(black, $opacity);
   z-index: z-index.$default;
   
   &--inverse {
-    background-color: rgba($bg-colour--inverse, $opacity);
+    background-color: rgba(white, $opacity);
   }
   
   &--fixed {

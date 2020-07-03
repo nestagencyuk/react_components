@@ -4,16 +4,14 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'typography';
-@use 'resets';
 @use 'colours';
-@use 'corners';
 @use 'transitions';
 @use 'animations';
-@use 'breakpoint';
+@use 'breakpoints';
 @use 'max-widths';
-@use 'utilities';
 @use 'z-index';
 
 /// -------------------
@@ -22,17 +20,8 @@
 
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$md !default;
-$max-width: max-widths.$xl !default;
-$bar-bg-colour: colours.$ui-two !default;
-$lists-bg-colour: colours.$ui-two !default;
 $brand-width: 50px !default;
 $toggle-size: spacing.$lg !default;
-$item-margin: spacing.$md !default;
-$link-padding-x: 0 !default;
-$link-padding-y: spacing.$sm !default;
-$link-colour: colours.$ui-five !default;
-$link-colour-hover: colours.$brand-one !default;
-$link-font-family: typography.$font-family--alt !default;
 
 /// -------------------
 /// Navigation selectors
@@ -40,12 +29,12 @@ $link-font-family: typography.$font-family--alt !default;
 
 .nav {
   position: relative; 
-  max-width: $max-width;
+  max-width: max-widths.$xl;
   margin-left: auto;
   margin-right: auto;
   z-index: z-index.$top;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     padding: $padding-y $padding-x;
   }
 }
@@ -61,7 +50,7 @@ $link-font-family: typography.$font-family--alt !default;
   padding: $padding-y $padding-x;
   z-index: z-index.$top + 1;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     position: absolute;
     padding: 0;
     top: 0; 
@@ -72,7 +61,7 @@ $link-font-family: typography.$font-family--alt !default;
     }
     
     .nav--b-c > & {
-      @include utilities.center-x;
+      @include lib.utilities-center-x;
       width: $brand-width;
     }
 
@@ -87,7 +76,7 @@ $link-font-family: typography.$font-family--alt !default;
 /// -------------------
 
 .nav__toggle {
-  @include resets.style;
+  @include lib.resets-style;
   grid-area: toggle;
   align-self: center;
   width: $toggle-size;
@@ -98,7 +87,7 @@ $link-font-family: typography.$font-family--alt !default;
   transition: opacity transitions.$ease;
   cursor: pointer;
 
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     display: none;
   }
 
@@ -119,12 +108,12 @@ $link-font-family: typography.$font-family--alt !default;
   width: $brand-width;
   height: auto;
   
-  @include breakpoint.up('sm') {
-    @include utilities.center-y;
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    @include lib.utilities-center-y;
   }
   
   .nav--b-e & {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       right: 0;
     }
   }
@@ -132,7 +121,7 @@ $link-font-family: typography.$font-family--alt !default;
   .nav__lists & {
     display: none;
     
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       display: block;
     }
   }
@@ -155,9 +144,9 @@ $link-font-family: typography.$font-family--alt !default;
   right: 0;
   padding-left: $padding-x;
   padding-right: $padding-x;
-  background-color: $lists-bg-colour;
+  background-color: white;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     display: grid;
     position: relative;
     padding: 0;
@@ -173,21 +162,21 @@ $link-font-family: typography.$font-family--alt !default;
   }
   
   .nav--b-c & {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto $brand-width auto;
       grid-template-areas: 'links-start brand links-end';
     }
   }
   
   .nav--b-s & {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: $brand-width auto auto;
       grid-template-areas: 'brand links-start links-end';
     }
   }
   
   .nav--b-e & {
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto auto $brand-width;
       grid-template-areas: 'links-start links-end brand';
     }
@@ -199,11 +188,11 @@ $link-font-family: typography.$font-family--alt !default;
 /// -------------------
 
 .nav__list {
-  @include resets.list;
+  @include lib.resets-list;
   width: 100%;
   position: relative;
 
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     display: flex;
   }
 
@@ -214,7 +203,7 @@ $link-font-family: typography.$font-family--alt !default;
   &--center {
     grid-area: links-center;
 
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       justify-content: center;
     }
   }
@@ -222,7 +211,7 @@ $link-font-family: typography.$font-family--alt !default;
   &--end {
     grid-area: links-end;
 
-    @include breakpoint.up('sm') {
+    @include lib.breakpoint-up(breakpoints.$sm) {
       justify-content: flex-end;
     }
   }
@@ -235,9 +224,9 @@ $link-font-family: typography.$font-family--alt !default;
 .nav__item {
   text-align: center;
 
-  @include breakpoint.up('sm') {
-    margin-left: $item-margin;
-    margin-right: $item-margin;
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    margin-left: spacing.$md;
+    margin-right: spacing.$md;
   }
 }
 
@@ -250,17 +239,17 @@ $link-font-family: typography.$font-family--alt !default;
   display: block;
   text-decoration: none;
   text-align: left;
-  padding: $link-padding-y $link-padding-x;
-  font-family: $link-font-family;
-  color: $link-colour;
+  padding: spacing.$sm 0;
+  font-family: typography.$font-family;
+  color: colours.$ui-five;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     width: auto;
     text-align: center;
   }
 
   &--active, 
   &:hover {
-    color: $link-colour-hover;
+    color: colours.$brand-two;
   }
 }

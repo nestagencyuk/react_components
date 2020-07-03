@@ -4,14 +4,12 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
-@use 'borders';
 @use 'corners';
 @use 'spacing';
 @use 'transitions';
 @use 'states';
-@use 'utilities'; 
 @use 'z-index'; 
 
 /// -------------------
@@ -19,10 +17,6 @@
 /// -------------------
 
 $size: 1.5rem !default;
-$bg-colour: colours.$ui-two !default;
-$bg-colour--checked: colours.$ui-five !default;
-$border-radius: corners.$base !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
 /// Checkbox selectors
@@ -33,11 +27,11 @@ $transition: all transitions.$ease !default;
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
-  background-color: $bg-colour;
-  border-radius: $border-radius;
+  background-color: colours.$ui-two;
+  border-radius: corners.$base;
   height: $size;
   width: $size;
-  transition: $transition;
+  transition: all transitions.$ease;
 
   &--disabled,
   &:disabled {
@@ -46,7 +40,7 @@ $transition: all transitions.$ease !default;
 
   &:checked,
   &--checked {
-    background-color: $bg-colour--checked;
+    background-color: colours.$ui-five;
   }
 
   &:focus-within {
@@ -59,7 +53,7 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .checkbox__input {
-  @include utilities.center;
+  @include lib.utilities-center;
   cursor: pointer;
   opacity: 0;
   width: $size * 1.75;
@@ -73,7 +67,7 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .checkbox__icn {
-  @include utilities.center;
+  @include lib.utilities-center;
   display: none;
 
   .checkbox__input:checked + &,

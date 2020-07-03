@@ -3,6 +3,7 @@ import { IFooter } from '../Footer/types'
 
 declare namespace IAlert {
   interface IProps {
+    className?: string
     variant?: UIState
     footer?: IFooterProps
     children: string

@@ -25,8 +25,8 @@ const variants = {
 /**
  * An alert with states
  */
-const Alert: React.FC<IAlert.IProps> = ({ variant = 'Info', footer, children, onClose }) => (
-  <aside className={cx('alert', variants[variant])}>
+const Alert: React.FC<IAlert.IProps> = ({ className, variant = 'Info', footer, children, onClose }) => (
+  <aside className={cx(className, 'alert', variants[variant])}>
     <AlertClose onClick={onClose} />
     <AlertIcon variant={variant} />
     <AlertBody>{children}</AlertBody>

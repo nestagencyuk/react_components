@@ -63,7 +63,7 @@ To create an alert popover, the base alert component can be combined with [Toggl
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
-            <Alert onClose={setToggled}>
+            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -84,7 +84,7 @@ Set a timeout so that the alert disappears after some time.
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert variant='Success'>
+            <Alert className="animate animate--fade-in-top" variant='Success'>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -107,7 +107,7 @@ An alert can be used to determine an action.
           <Button onClick={() => setToggled(true)}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
           {toggled && <Float portal>
-            <Alert variant='Warning' footer={{
+            <Alert className="animate animate--fade-in-top" variant='Warning' footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },

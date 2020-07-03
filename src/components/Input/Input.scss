@@ -4,42 +4,34 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'corners';
-@use 'borders';
 @use 'colours';
 @use 'typography';
-@use 'components';
 @use 'transitions';
 @use 'states';
-@use 'resets';
 
 /// -------------------
 /// Input config
 /// -------------------
 
 $padding-x: spacing.$sm !default;
-$bg-colour: colours.$ui-one !default;
-$border-radius: corners.$base !default;
-$font-family: typography.$font-family !default;
-$font-weight: typography.$font-light !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
 /// Input selectors 
 /// -------------------
 
 .input {
-  @include resets.style;
-  @include components.flow;
+  @include lib.resets-style;
+  @include lib.components-flow;
   padding-left: $padding-x;
   padding-right: $padding-x;
-  border-radius: $border-radius; 
-  background-color: $bg-colour;
-  font-family: $font-family;
-  font-weight: $font-weight;
-  transition: $transition;
+  border-radius: corners.$base; 
+  background-color: colours.$ui-one;
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  transition: all transitions.$ease;
 
   .field--error & {
     border-color: colours.$state-error; 

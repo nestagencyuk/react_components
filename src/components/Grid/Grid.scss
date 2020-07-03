@@ -4,9 +4,9 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
-@use 'breakpoint';
+@use 'breakpoints';
 
 /// -------------------
 /// Grid config
@@ -36,7 +36,7 @@ $gutter: spacing.$xl !default;
 .grid__item {
   grid-column: span $columns;
   
-  @include breakpoint.up('sm') {
+  @include lib.breakpoint-up(breakpoints.$sm) {
     @for $i from 0 through $columns {  
       &--#{$i} {
         grid-column: span $i;

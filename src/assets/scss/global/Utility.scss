@@ -4,10 +4,9 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'colours';
-@use 'resets';
-@use 'utilities';
 @use 'max-widths';
 
 /// -------------------
@@ -146,7 +145,7 @@ $directions: (
 
 .reset {
   &--btn {
-    @include resets.style;
+    @include lib.resets-style;
     width: 100%;
     cursor: pointer;
   }
@@ -165,7 +164,7 @@ $directions: (
 } 
 
 .fill {
-  @include utilities.center;
+  @include lib.utilities-center;
   width: 100%;
 } 
 

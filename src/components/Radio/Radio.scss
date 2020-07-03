@@ -4,24 +4,17 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
-@use 'borders';
 @use 'corners';
-@use 'spacing';
 @use 'transitions';
 @use 'states';
-@use 'utilities';
 
 /// -------------------
 /// Radio swatches
 /// -------------------
 
 $size: 1.5rem !default;
-$bg-colour: colours.$ui-two !default;
-$bg-colour--checked: colours.$ui-five !default;
-$border-radius: corners.$round !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
 /// Radio selectors
@@ -31,12 +24,12 @@ $transition: all transitions.$ease !default;
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  background-color: $bg-colour;
-  border-radius: $border-radius;
+  background-color: colours.$ui-two;
+  border-radius: corners.$round;
   height: $size;
   width: $size;
   box-sizing: border-box;
-  transition: $transition;
+  transition: all transitions.$ease;
   cursor: pointer;
 
   &--disabled,
@@ -46,7 +39,7 @@ $transition: all transitions.$ease !default;
 
   &--checked,
   &:checked {
-    background-color: $bg-colour--checked;
+    background-color: colours.$ui-five;
   }
 
   &:focus-within {
@@ -69,12 +62,12 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .radio__icn {
-  @include utilities.center;
+  @include lib.utilities-center;
   display: none;
   width: $size * 0.5;
   height: $size * 0.5;
   background-color: white;
-  border-radius: $border-radius;
+  border-radius: corners.$round;
 
   .radio:checked > &,
   .radio--checked > & {

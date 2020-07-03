@@ -8,14 +8,6 @@
 @use 'z-index';
 
 /// -------------------
-/// Page Header config
-/// -------------------
-
-$padding-x: 0 !default;
-$padding-y: 0 !default;
-$bg-colour: colours.$ui-two !default;
-
-/// -------------------
 /// Page Header selectors
 /// -------------------
 
@@ -23,8 +15,8 @@ $bg-colour: colours.$ui-two !default;
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  padding: $padding-y $padding-x;
-  background-color: $bg-colour;
+  padding: 0;
+  background-color: colours.$ui-two;
   z-index: z-index.$page-header;
 
   &--fixed {

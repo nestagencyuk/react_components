@@ -4,25 +4,15 @@
 
 /// ----------------------------------------------------------------------
 
-@use 'apply-props';
-@use 'colours';
-@use 'typography';
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
-@use 'resets';
-
-/// -------------------
-/// List config
-/// -------------------
-
-$item-margin-x: 0 !default;
-$item-margin-y: spacing.$sm !default;
 
 /// -------------------
 /// List selectors
 /// -------------------
 
 .list {
-  @include resets.list;
+  @include lib.resets-list;
 }
 
 /// -------------------
@@ -30,7 +20,7 @@ $item-margin-y: spacing.$sm !default;
 /// -------------------
 
 .list__item {
-  margin: $item-margin-y $item-margin-x;
+  margin: spacing.$md 0;
 }
 
 /// -------------------
