@@ -1,11 +1,11 @@
-import { IRadio } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { IRadio } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/radio.scss';
+import './Radio.scss'
 
 /**
  * A Radio button
@@ -23,6 +23,6 @@ const Radio: React.FC<IRadio.IProps> = ({ className, id, name, value, disabled, 
     />
     <span className={cx('radio__icn', { 'radio__icn--checked': value })} />
   </label>
-);
+)
 
-export default Radio;
+export default Radio

@@ -1,33 +1,33 @@
-const path = require('path');
+const path = require('path')
 
 /**
  * Plugins
  */
 // const Bundle = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Output = require('write-file-webpack-plugin');
-const Css = require('mini-css-extract-plugin');
-const Copy = require('copy-webpack-plugin');
-const AutoPrefix = require('autoprefixer');
-const Minify = require('cssnano');
-const Brotli = require('brotli-webpack-plugin');
-const Gzip = require('compression-webpack-plugin');
-const Terser = require('terser-webpack-plugin');
-const ForkTs = require('fork-ts-checker-webpack-plugin');
+const Output = require('write-file-webpack-plugin')
+const Css = require('mini-css-extract-plugin')
+const Copy = require('copy-webpack-plugin')
+const AutoPrefix = require('autoprefixer')
+const Minify = require('cssnano')
+const Brotli = require('brotli-webpack-plugin')
+const Gzip = require('compression-webpack-plugin')
+const Terser = require('terser-webpack-plugin')
+const ForkTs = require('fork-ts-checker-webpack-plugin')
 
 /**
  * Paths
  */
-const root = path.resolve(__dirname);
-const src = `${root}/src/`;
-const dist = `${root}/dist/`;
+const root = path.resolve(__dirname)
+const src = `${root}/src/`
+const dist = `${root}/dist/`
 
 /**
  * Config
  */
 const config = (env) => {
-  const mode = env ? env.NODE_ENV : 'development';
-  const dev = mode === 'development';
-  console.log('MODE:', mode);
+  const mode = env ? env.NODE_ENV : 'development'
+  const dev = mode === 'development'
+  console.log('MODE:', mode)
 
   return {
     context: root,
@@ -80,20 +80,20 @@ const config = (env) => {
         }
       ]),
       !dev &&
-        new Gzip({
-          filename: '[path].gz[query]',
-          algorithm: 'gzip',
-          test: /\.(js|css|html|svg)$/,
-          threshold: 10240,
-          minRatio: 0.8
-        }),
+      new Gzip({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
       !dev &&
-        new Brotli({
-          asset: '[path].br[query]',
-          test: /\.(js|css|html|svg)$/,
-          threshold: 10240,
-          minRatio: 0.8
-        }),
+      new Brotli({
+        asset: '[path].br[query]',
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
       new ForkTs()
     ].filter((x) => !!x),
     module: {
@@ -126,7 +126,14 @@ const config = (env) => {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [`${src}/assets/scss/`, `${src}/components/`]
+                includePaths: [
+                  `${root}/node_modules/scss_lib/`,
+                  `${src}/assets/scss/config/`,
+                  `${src}/assets/scss/functions/`,
+                  `${src}/assets/scss/mixins/`,
+                  `${src}/assets/scss/global/`,
+                  `${src}/components/`
+                ]
               }
             }
           ].filter((x) => !!x)
@@ -144,7 +151,7 @@ const config = (env) => {
         }
       ]
     }
-  };
-};
+  }
+}
 
-module.exports = config;
+module.exports = config

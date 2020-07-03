@@ -1,0 +1,54 @@
+/// ----------------------------------------------------------------------
+
+/// Box
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+@use 'breakpoint';
+
+/// -------------------
+/// Box config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Box selectors
+/// -------------------
+
+.box {
+  display: grid;
+  position: relative;
+  box-sizing: border-box;
+  padding: $padding-y $padding-x;
+  
+  &--start-y {
+    align-items: start;
+  }
+  
+  &--center-y {
+    align-items: center;
+  }
+  
+  &--end-y {
+    align-items: end;
+  }
+  
+  &--start-x {
+    justify-content: start;
+  }
+  
+  &--center-x {
+    justify-content: center;
+  }
+  
+  &--end-x {
+    justify-content: end;
+  }
+
+  &--fill {
+    height: 100%;
+  }
+}

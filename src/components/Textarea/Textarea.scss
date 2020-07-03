@@ -1,0 +1,64 @@
+/// ----------------------------------------------------------------------
+
+/// Textarea
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'spacing';
+@use 'corners';
+@use 'borders';
+@use 'colours';
+@use 'typography';
+@use 'components';
+@use 'transitions';
+@use 'states';
+@use 'resets';
+
+/// -------------------
+/// Textarea config
+/// -------------------
+
+$padding-x: spacing.$sm !default;
+$bg-colour: colours.$ui-one !default;
+$border-radius: corners.$base !default;
+$font-family: typography.$font-family--alt !default;
+$font-weight: typography.$font-light !default;
+$transition: all transitions.$ease !default;
+
+/// -------------------
+/// Textarea selectors 
+/// -------------------
+
+.textarea {
+  @include resets.style;
+  @include components.flow;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  border-radius: $border-radius; 
+  background-color: $bg-colour;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  transition: $transition;
+
+  .field--error & {
+    border-color: colours.$state-error;
+  }
+
+  .field--warning & {
+    border-color: colours.$state-warning;
+  }
+
+  .field--success & {
+    border-color: colours.$state-success;
+  }
+
+  &:focus {
+    @include states.focus;
+  }
+  
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+}

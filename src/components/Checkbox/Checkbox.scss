@@ -1,0 +1,83 @@
+/// ----------------------------------------------------------------------
+
+/// Checkbox
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'colours';
+@use 'borders';
+@use 'corners';
+@use 'spacing';
+@use 'transitions';
+@use 'states';
+@use 'utilities'; 
+@use 'z-index'; 
+
+/// -------------------
+/// Checkbox swatches
+/// -------------------
+
+$size: 1.5rem !default;
+$bg-colour: colours.$ui-two !default;
+$bg-colour--checked: colours.$ui-five !default;
+$border-radius: corners.$base !default;
+$transition: all transitions.$ease !default;
+
+/// -------------------
+/// Checkbox selectors
+/// -------------------
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background-color: $bg-colour;
+  border-radius: $border-radius;
+  height: $size;
+  width: $size;
+  transition: $transition;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &:checked,
+  &--checked {
+    background-color: $bg-colour--checked;
+  }
+
+  &:focus-within {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// Hide default input
+/// -------------------
+
+.checkbox__input {
+  @include utilities.center;
+  cursor: pointer;
+  opacity: 0;
+  width: $size * 1.75;
+  height: $size * 1.75;
+  margin: 0;
+  z-index: z-index.$default;
+}
+
+/// -------------------
+/// Checkbox icon
+/// -------------------
+
+.checkbox__icn {
+  @include utilities.center;
+  display: none;
+
+  .checkbox__input:checked + &,
+  .checkbox--checked > & {
+    display: block;
+  }
+}

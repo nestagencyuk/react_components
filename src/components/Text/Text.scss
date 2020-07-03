@@ -1,0 +1,93 @@
+/// ----------------------------------------------------------------------
+
+/// Text
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'merge';
+@use 'breakpoint'; 
+@use 'typography'; 
+@use 'spacing'; 
+
+/// -------------------
+/// Text config
+/// -------------------
+
+$margin-bottom: spacing.$sm !default;
+
+$variants: (
+  'inverse': (
+    color: white
+  ),
+  'bold': (
+    font-weight: typography.$font-bold
+  ),
+) !default;
+
+$alignments: (
+  'left': (
+    text-align: left
+  ),
+  'center': (
+    text-align: center
+  ),
+  'right': (
+    text-align: right
+  )
+) !default;
+
+/// -------------------
+/// Text selectors
+/// -------------------
+
+html {
+  font-size: typography.$base-font-size * 0.65;
+  
+  @include breakpoint.up('xxs') {
+    font-size: typography.$base-font-size * 0.85;
+  }
+  
+  @include breakpoint.up('sm') {
+    font-size: typography.$base-font-size;
+  }
+}
+
+body {
+  font-family: typography.$font-family;
+  line-height: typography.$base-line-height;
+  font-display: swap;
+}
+
+/// -------------------
+/// Text selectors
+/// -------------------
+
+$merged: merge.merge(typography.$all, $variants);
+
+.text {
+  margin-top: 0;
+  margin-bottom: $margin-bottom;
+
+  @each $variant in $merged {
+    $variant-name: nth($variant, 1);
+    
+    &--#{$variant-name} {
+      @include apply-props.apply-props(map-get($merged, $variant-name));
+    }
+  }
+
+  @each $alignment in $alignments {
+    $alignment-name: nth($alignment, 1);
+    
+    &--#{$alignment-name} {
+      @include apply-props.apply-props(map-get($alignments, $alignment-name));
+    }
+  }
+
+  &:only-child,
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+

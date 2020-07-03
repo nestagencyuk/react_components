@@ -1,0 +1,62 @@
+/// ----------------------------------------------------------------------
+
+/// Components
+
+/// ----------------------------------------------------------------------
+
+@use 'typography';
+@use 'spacing';
+@use 'shadows';
+@use 'borders';
+@use 'transitions';
+@use 'height-to-pad';
+ 
+/// -------------------
+/// Flow
+/// -------------------
+///
+/// Flow style components which should match with adjacent components and
+/// visually work together, such as buttons & form inputs.
+///
+$flow-height: 3rem !default;
+$flow-border-width: borders.$mid !default;
+$flow-line-height: typography.$base-line-height !default;
+$flow-font-size: typography.$base-font-size !default;
+$flow-padding: height-to-pad.height-to-pad($flow-height, $flow-border-width, $flow-line-height, $flow-font-size);
+
+@mixin flow {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  box-sizing: border-box;
+  border: $flow-border-width solid transparent;
+  line-height: $flow-line-height;
+  font-size: $flow-font-size;
+  padding-top: map-get($flow-padding, 'top');
+  padding-bottom: map-get($flow-padding, 'bottom');
+
+  &--sm {
+    padding-top: map-get($flow-padding, 'top') / 2;
+    padding-bottom: map-get($flow-padding, 'bottom') / 2;
+  }
+
+  &--lg {
+    padding-top: map-get($flow-padding, 'top') * 1.5;
+    padding-bottom: map-get($flow-padding, 'bottom') * 1.5;
+  }
+}
+
+/// -------------------
+/// Block
+/// -------------------
+///
+/// Block style components which contain other components
+///
+$block-padding-x:  spacing.$md !default;
+$block-padding-y:  spacing.$md !default;
+
+@mixin block {
+  display: block;
+  box-sizing: border-box;
+  padding: $block-padding-y $block-padding-x;
+}

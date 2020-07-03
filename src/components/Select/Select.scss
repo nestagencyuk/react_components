@@ -1,0 +1,173 @@
+/// ----------------------------------------------------------------------
+
+/// Select
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'spacing';
+@use 'corners';
+@use 'borders';
+@use 'colours';
+@use 'typography';
+@use 'resets';
+@use 'components';
+@use 'transitions';
+@use 'states';
+@use 'z-index';
+@use 'utilities';
+
+/// -------------------
+/// Select config
+/// -------------------
+
+$padding-x: spacing.$sm !default;
+$bg-colour: colours.$ui-one !default;
+$border-radius: corners.$base !default;
+$font-family: typography.$font-family--alt !default;
+$font-weight: typography.$font-light !default;
+$transition: all transitions.$ease !default;
+
+/// -------------------
+/// Select wrapper
+/// -------------------
+
+.select {
+  display: inline-block;
+  position: relative;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &:focus-within {
+    outline: none;
+  }
+}
+
+/// -------------------
+/// Select input
+/// -------------------
+
+.select__input {
+  @include resets.style;
+  @include components.flow;
+  width: 100%;
+  padding-left: $padding-x;
+  padding-right: $padding-x * 2.5; 
+  font-family: $font-family;
+  font-weight: $font-weight;
+  border-radius: $border-radius;
+  background-color: $bg-colour;
+  transition: $transition;
+  appearance: none;
+
+  .field--error & {
+    border-color: colours.$state-error; 
+  }
+
+  .field--warning & {
+    border-color: colours.$state-warning;
+  }
+
+  .field--success & {
+    border-color: colours.$state-success;
+  }
+
+  &:read-only {
+    cursor: pointer;
+  }
+  
+  &:focus {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// False options list
+/// -------------------
+
+.select__options {
+  @include resets.list;
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: $bg-colour;
+  border-radius: $border-radius;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: z-index.$top - 1;
+}
+
+/// -------------------
+/// Select option
+/// -------------------
+
+.select__option {
+  @include resets.style;
+  position: relative;
+}
+
+/// -------------------
+/// Select button
+/// -------------------
+
+.select__btn {
+  @include resets.style;
+  width: 100%;
+  font-size: typography.$base-font-size;
+  font-family: $font-family;
+  text-align: left;
+  padding: spacing.$md;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: colours.$ui-two;
+    outline: none;
+  }
+
+  &--sm {
+    @include resets.style;
+    padding: $padding-x / 2;
+  }
+}
+
+/// -------------------
+/// Select button
+/// -------------------
+
+.select__clear {
+  @include resets.style;
+  @include utilities.center-y;
+  padding: $padding-x / 2; 
+  right: ($padding-x * 2) + spacing.$xs;
+  background-color: colours.$ui-two;
+  border-radius: $border-radius;
+}
+
+/// -------------------
+/// Select checkbox
+/// -------------------
+
+.select__checkbox {
+  @include utilities.center-y;
+  left: $padding-x;
+  pointer-events: none;
+}
+
+/// -------------------
+/// Select chevron icon 
+/// -------------------
+
+.select__icn {
+  @include utilities.center-y;
+  right: $padding-x;
+  width: $padding-x;
+  height: $padding-x;
+}

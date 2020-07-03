@@ -1,0 +1,38 @@
+/// ----------------------------------------------------------------------
+
+/// Breakpoints
+
+/// ----------------------------------------------------------------------
+
+@use 'breakpoints';
+
+/// -------------------
+/// Breakpoint up 
+/// -------------------
+///
+/// Set styles within a breakpoint and larger
+///
+/// @param {String} $size
+/// The breakpoint size
+///
+@mixin up($size) { 
+  @media (min-width: map-get(breakpoints.$all, $size)) {
+    @content;
+  }
+}
+
+/// -------------------
+/// Breakpoint down 
+/// -------------------
+///
+/// Set styles within a breakpoint and smaller
+///
+/// @param {String} $size
+/// The breakpoint size
+///
+@mixin down($size) {
+  @media (max-width: map-get(breakpoints.$all, $size)) {
+    @content;
+  }
+}
+

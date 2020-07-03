@@ -1,11 +1,11 @@
-import { IInput } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { IInput } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/input.scss';
+import './Input.scss'
 
 /**
  * A user input
@@ -20,6 +20,6 @@ const Input: React.FC<IInput.IProps> = ({ className, id, name, type = 'Text', va
     disabled={disabled}
     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
   />
-);
+)
 
-export default Input;
+export default Input

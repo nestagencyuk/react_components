@@ -1,0 +1,125 @@
+/// ----------------------------------------------------------------------
+
+/// Image
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'colours';
+@use 'gradients';
+@use 'corners';
+@use 'typography';
+@use 'spacing';
+@use 'components';
+@use 'animations';
+@use 'transitions';
+@use 'z-index';
+@use 'utilities';
+
+/// -------------------
+/// Image config
+/// -------------------
+
+$bg-colour: transparent !default;
+$caption-bg-colour: colours.$ui-one !default;
+$caption-margin-x: 0 !default;
+$caption-margin-y: 0 !default;
+$caption-padding-x: 0 !default;
+$caption-padding-y: 0 !default;
+
+/// ------------------
+/// Image selectors
+/// ------------------
+
+.img {
+  position: relative;
+  margin: 0;
+  background-color: $bg-colour;
+}
+
+/// ------------------
+/// Image selectors
+/// ------------------
+
+.img__picture {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  height: 0;
+  width: 100%;
+
+  // Landscape
+  .img--4x1 & {
+    padding-top: 25%;
+  }
+
+  .img--7x3 & {
+    padding-top: 42%;
+  }
+
+  .img--4x3 & {
+    padding-top: 75%;
+  }
+
+  .img--16x9 & {
+    padding-top: 56.25%;
+  }
+
+  // Portrait
+  .img--2x3 & {
+    padding-top: 150%;
+  }
+
+  .img--3x4 & {
+    padding-top: 133%;
+  }
+
+  .img--4x5 & {
+    padding-top: 125%;
+  }
+
+  // Square
+  .img--1x1 & {
+    padding-top: 100%;
+  }
+
+  .img--rounded & {
+    border-radius: corners.$base;
+  }
+
+  .img--round & {
+    border-radius: corners.$round;
+  }
+}
+
+/// -------------------
+/// Image loader
+/// ------------------
+
+.img__loader {
+  @include utilities.center;
+  color: white;
+}
+
+/// ------------------
+/// Image item
+/// ------------------
+
+.img__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/// ------------------
+/// Image item
+/// ------------------
+
+.img__caption {
+  width: 100%;
+  margin: $caption-margin-y $caption-margin-x;
+  padding: $caption-padding-y $caption-padding-x;
+  background-color: $caption-bg-colour;
+}

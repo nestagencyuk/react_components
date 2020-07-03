@@ -1,0 +1,88 @@
+/// ----------------------------------------------------------------------
+
+/// Typography
+
+/// ----------------------------------------------------------------------
+
+/// -------------------
+/// Base config
+/// -------------------
+
+$base-font-size:    16px !default;
+$base-line-height:  1.5 !default;
+
+$font-family:       ('Open Sans', sans-serif) !default;
+$font-family--alt:  ('Ubuntu', sans-serif) !default; 
+
+$font-thin:         100 !default;
+$font-light:        300 !default;
+$font-regular:      400 !default;
+$font-medium:       500 !default;
+$font-bold:         700 !default;
+$font-black:        900 !default;
+
+/// -------------------
+/// Type styles
+/// -------------------
+
+$alpha: (
+  font-size: 3rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-bold,
+  letter-spacing: 1px
+) !default;
+
+$beta: (
+  font-size: 2.5rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-bold,
+  letter-spacing: 1px,
+) !default;
+
+$gamma: (
+  font-size: 2.25rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+  letter-spacing: 1.2px,
+) !default;
+
+$delta: (
+  font-size: 2rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+) !default;
+
+$epsilon: (
+  font-size: 1.75rem, 
+  font-family: $font-family--alt,
+  font-weight: $font-regular,
+) !default;
+
+$intro: (
+  font-size: 1.25rem, 
+  font-family: $font-family,
+  font-weight: $font-light,
+) !default;
+
+$p: (
+  font-size: 1rem,
+  font-family: $font-family,
+  font-weight: $font-light,
+) !default;
+
+$small: (
+  font-size: 0.85rem, 
+  font-family: $font-family,
+  font-weight: $font-regular,
+) !default;
+
+$all: (
+  alpha: $alpha,
+  beta: $beta,
+  gamma: $gamma,
+  delta: $delta,
+  epsilon: $epsilon,
+  intro: $intro,
+  p: $p,
+  small: $small
+);

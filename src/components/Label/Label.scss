@@ -1,0 +1,30 @@
+/// ----------------------------------------------------------------------
+
+/// Label
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'colours';
+@use 'typography';
+@use 'spacing';
+@use 'components';
+
+/// -------------------
+/// Label config
+/// -------------------
+
+$font-family: typography.$font-family--alt !default;
+$font-weight: typography.$font-regular !default;
+
+/// -------------------
+/// Label selectors
+/// -------------------
+
+.label {
+  @include components.flow;
+  vertical-align: top;
+  align-self: start;
+  font-weight: $font-weight;
+  font-family: $font-family;
+}

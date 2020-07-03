@@ -1,0 +1,122 @@
+/// ----------------------------------------------------------------------
+
+/// Link
+
+/// ----------------------------------------------------------------------
+
+@use 'apply-props';
+@use 'get-prop';
+@use 'colours';
+@use 'spacing';
+@use 'transitions';
+@use 'typography';
+@use 'z-index';
+
+/// -------------------
+/// Link config
+/// -------------------
+
+$font-weight: typography.$font-bold !default;
+$font-family: typography.$font-family !default;
+$transition: 
+  background-color transitions.$ease, 
+  color transitions.$ease, 
+  fill transitions.$ease !default;
+
+$variants: (
+  'primary': (
+    color: colours.$brand-one,
+    border-bottom: solid 2px colours.$brand-one,
+
+    'hover': (
+      color: colours.$brand-two,
+      border-color: colours.$brand-two
+    )
+  ),
+  'secondary': (
+    color: colours.$brand-two,
+    font-family: typography.$font-family--alt,
+    border-bottom: solid 2px colours.$brand-two,
+
+    'hover': (
+      color: colours.$brand-one,
+      border-color: colours.$brand-one
+    )
+  ),
+  'tertiary': (
+    color: colours.$ui-five,
+    border-bottom: solid 2px colours.$ui-five,
+
+    'hover': (
+      color: colours.$brand-one,
+      border-color: colours.$brand-two
+    )
+  ),
+  'inverse': (
+    color: white,
+    font-family: typography.$font-family--alt,
+    border-bottom: solid 2px white,
+
+    'hover': (
+      color: colours.$brand-two,
+      border-color: colours.$brand-two
+    )
+  ),
+) !default;
+
+/// -------------------
+/// Link selectors
+/// -------------------
+
+.link {
+  display: inline-flex;
+  vertical-align: baseline;
+  align-items: center;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  text-decoration: none;
+  transition: transitions.$ease;
+  
+  @each $variant in $variants {
+    $variant-name: nth($variant, 1);
+    
+    &--#{$variant-name} {
+      @include apply-props.apply-props(map-get($variants, $variant-name));
+    }
+  }
+}
+
+/// -------------------
+/// Link icon
+/// -------------------
+
+.link__icn {
+  &:first-child {
+    margin-right: spacing.$xxs;
+  }
+
+  &:last-child {
+    margin-left: spacing.$xxs;
+  }
+}
+
+/// -------------------
+/// Link icon path
+/// -------------------
+
+.link__icn-path {
+  transition: $transition;
+
+  @each $variant in $variants {
+    $variant-name: nth($variant, 1);
+    $variant-props: nth($variant, 2);
+    
+    .link--#{$variant-name} & {
+      fill: map-get($variant-props, 'color');
+    }
+
+    .link--#{$variant-name}:hover & {
+      fill: get-prop.get-prop($variant-props, 'hover', 'color');
+    }
+  }
+}
