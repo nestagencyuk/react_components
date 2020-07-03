@@ -96,12 +96,21 @@
   }
 }
 
+@keyframes swipeInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /// -------------------
 /// Blink
 /// -------------------
 
 @keyframes blink {
-  from, 
+  from,
   to {
     opacity: 1;
   }

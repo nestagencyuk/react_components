@@ -1,0 +1,39 @@
+import { Fragment, useContext, useState } from 'react'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { drawerDecorater, demoDecorator } from '../../../.storybook/decorators.js'
+import { useToggle } from '../../hooks/useToggle'
+import { Button } from '../Button'
+import { Text } from '../Text'
+import { Drawer } from '.'
+import { Overlay } from '../Overlay';
+import { Float } from '../Float';
+
+<Meta title="Components|Base/Drawer" component={Drawer} />
+
+# Drawer
+
+A simple drawer that can be used to show/hide content on a specified side of the browser.
+
+<Preview>
+  <Story name='Toggle'>
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(!toggled)}>Open Drawer</Button>
+          {
+            toggled && 
+              <Drawer open={toggled} onClick={() => setToggled(false)}>
+                <Text>
+                  Item 1
+                </Text>
+                  <Text>
+                  Item 2
+                </Text>
+              </Drawer>
+          }
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

@@ -18,24 +18,24 @@
   box-sizing: border-box;
   padding: spacing.$md;
   z-index: z-index.$top + 1;
-  
+
   &--start-y {
     top: 0;
   }
-  
+
   &--center-y {
     top: 50%;
     transform: translateY(-50%);
   }
-  
+
   &--end-y {
     bottom: 0;
   }
-  
+
   &--start-x {
     left: 0;
   }
-  
+
   &--center-x {
     width: 100%;
     left: 50%;
@@ -45,7 +45,7 @@
       width: auto;
     }
   }
-  
+
   &--end-x {
     right: 0;
   }
