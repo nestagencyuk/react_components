@@ -74,11 +74,21 @@ const config = (env) => {
       }),
       new Copy([
         {
+          context: src,
           from: `${src}/assets/**/*`,
           to: `${dist}/assets/`,
           flatten: true,
           globOptions: {
-            ignore: ['**/scss/**', '**/icons/**']
+            ignore: ['**/icons/**']
+          }
+        },
+        {
+          context: src,
+          from: `${src}/components/**/*.scss`,
+          to: `${dist}/assets/`,
+          flatten: true,
+          globOptions: {
+            ignore: ['**/icons/**']
           }
         }
       ]),

@@ -4,15 +4,18 @@ import { drawerDecorater, demoDecorator } from '../../../.storybook/decorators.j
 import { useToggle } from '../../hooks/useToggle'
 import { Button } from '../Button'
 import { Text } from '../Text'
-import { Drawer } from '.'
 import { Overlay } from '../Overlay';
 import { Float } from '../Float';
+import { Drawer } from '.'
 
 <Meta title="Components|Base/Drawer" component={Drawer} />
 
 # Drawer
 
 A simple drawer that can be used to show/hide content on a specified side of the browser.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 <Preview>
   <Story name='Toggle'>
@@ -21,19 +24,22 @@ A simple drawer that can be used to show/hide content on a specified side of the
       return (
         <Fragment>
           <Button onClick={() => setToggled(!toggled)}>Open Drawer</Button>
-          {
-            toggled && 
-              <Drawer open={toggled} onClick={() => setToggled(false)}>
+          {toggled && (
+            <Drawer onClick={() => setToggled(false)}>
+              <Text>
+                Item 1
+              </Text>
                 <Text>
-                  Item 1
-                </Text>
-                  <Text>
-                  Item 2
-                </Text>
-              </Drawer>
-          }
+                Item 2
+              </Text>
+            </Drawer>
+          )}
         </Fragment>
       )
     }}
   </Story>
 </Preview>
+
+## Prop Types
+
+<Props of={Drawer} />

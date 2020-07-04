@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
  * @param {String} text
  * The string to process
  */
-const useTypeEffect = (wait: boolean, text: string, speed: number = 100) => {
+const useTypeEffect = ({ wait, text, speed = 100 }: any = {}) => {
   const [typed, setText] = useState('')
   let timer: any = null
 

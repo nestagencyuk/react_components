@@ -103,22 +103,22 @@ To create a lightbox effect, pass the `lightbox` boolean prop. Your items array 
 <Preview>
   <Story name='Lightbox'>
     <Gallery lightbox items={({ handleClick }) => [
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(0)}>
+      <div className="interactive" onClick={() => handleClick(0)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(1)}>
+      <div className="interactive" onClick={() => handleClick(1)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1002x1002' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(2)}>
+      <div className="interactive" onClick={() => handleClick(2)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1003x1003' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(3)}>
+      <div className="interactive" onClick={() => handleClick(3)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1004x1004' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(4)}>
+      <div className="interactive" onClick={() => handleClick(4)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1005x1005' alt='My Image' />
       </div>,
-      <div style={{ cursor: 'pointer' }} onClick={() => handleClick(5)}>
+      <div className="interactive" onClick={() => handleClick(5)}>
         <Image aspect='1x1' src='https://source.unsplash.com/random/1006x1006' alt='My Image' />
       </div>,
     ]} />

@@ -8,7 +8,7 @@ import { lerp } from '@nestagencyuk/typescript_lib-frontend'
  * @param {String} acceleration
  * Add for a smooth effect
  */
-const useMousePos = (acceleration: number = 0) => {
+const useMousePos = ({ acceleration = 0 }: any = {}) => {
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 

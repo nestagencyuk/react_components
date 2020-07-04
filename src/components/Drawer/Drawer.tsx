@@ -1,36 +1,45 @@
-import * as React from 'react';
-import { IDrawer } from './types';
+import * as React from 'react'
+import { useEffect, Fragment } from 'react'
+import { IDrawer } from './types'
 
 /**
  * Styles
  */
-import './Drawer.scss';
+import './Drawer.scss'
 
 /**
  * Components
  */
-import { Float } from '../Float';
-import { Overlay } from '../Overlay';
+import { Float } from '../Float'
+import { Overlay } from '../Overlay'
 
-const Drawer: React.FC<IDrawer.IProps> = ({ onClick, children }) => {
-  const escapeKeyCode = 27;
-
-  React.useEffect(() => {
-    window.addEventListener('keydown', (e) => {
+/**
+ * A drawer container that slides out and overlays the main body
+ */
+const Drawer: React.FC<IDrawer.IProps> = ({ children, onClick }) => {
+  /**
+   * Close drawer on esc key press
+   */
+  useEffect(() => {
+    const escapeKeyCode = 27
+    const handleKeydown = (e: KeyboardEvent) => {
       if (e.keyCode === escapeKeyCode) {
-        onClick();
+        onClick()
       }
-    });
-  }, []);
+    }
+
+    window.addEventListener('keydown', handleKeydown)
+    return () => window.removeEventListener('keydown', handleKeydown)
+  }, [])
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Overlay portal fixed onClick={onClick} />
       <Float className="drawer animate animate--swipe-in-left" portal align={{ x: 'Start', y: 'Start' }}>
         <div>{children}</div>
       </Float>
-    </React.Fragment>
-  );
-};
+    </Fragment>
+  )
+}
 
-export default Drawer;
+export default Drawer

@@ -137,15 +137,11 @@ $transition: all transitions.$ease !default;
     fill: white;
   }
 
-  .btn--primary:hover & {
-    fill: colours.$brand-two;
-  }
-
   .btn--secondary & {
     fill: colours.$brand-two;
   }
   
-  .btn--secondary:hover {
+  .btn--secondary:hover & {
     fill: colours.$brand-one;
   }
   
