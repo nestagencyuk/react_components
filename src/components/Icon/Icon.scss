@@ -1,0 +1,60 @@
+/// ----------------------------------------------------------------------
+
+/// Icon
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+
+/// -------------------
+/// Icon config
+/// -------------------
+
+$sizes: (
+  xs: 0.5rem,
+  sm: 0.75rem,
+  md: 1rem,
+  lg: 1.5rem,
+  xl: 2rem,
+) !default;
+
+$colours: (
+  dark: colours.$ui-five,
+  light: colours.$ui-one,
+  success: colours.$state-success,
+  warning: colours.$state-warning,
+  error: colours.$state-error,
+) !default;
+
+/// -------------------
+/// Icon selectors
+/// -------------------
+
+.icn {
+  display: inline-block;
+
+  @each $name, $prop in $sizes {
+    &--#{$name} {
+      width: $prop;
+      height: $prop;
+    }
+  }
+}
+
+/// -------------------
+/// Icon svg
+/// -------------------
+
+.icn__svg {
+  display: flex;
+  fill: inherit;
+}
+
+.icn__path {
+  @each $name, $prop in $colours {
+    .icn--#{$name} & {
+      fill: $prop;
+    }
+  }
+}

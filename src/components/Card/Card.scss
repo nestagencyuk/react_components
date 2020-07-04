@@ -1,0 +1,54 @@
+/// ----------------------------------------------------------------------
+
+/// Card
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'shadows';
+
+/// -------------------
+/// Card config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Card selectors
+/// -------------------
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
+}
+
+/// -------------------
+/// Card header
+/// -------------------
+
+.card__header {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Card body
+/// -------------------
+
+.card__body {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Card footer
+/// -------------------
+
+.card__footer.footer {
+  background-color: transparent;
+}

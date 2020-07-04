@@ -5,9 +5,10 @@
 /// ----------------------------------------------------------------------
 
 /// -------------------
-/// Global imports
-/// ------------------- 
+/// Global syles
+/// -------------------
 
-@import '@nestagencyuk/scss_lib/dist/animate.scss';
-@import '@nestagencyuk/scss_lib/dist/keyframes';
-@import '@nestagencyuk/scss_lib/dist/utility';
+@import 'Animate';
+@import 'Body';
+@import 'Keyframes';
+@import 'Utility';

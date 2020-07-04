@@ -1,0 +1,56 @@
+/// ----------------------------------------------------------------------
+
+/// Inputs
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'colours';
+@use 'typography';
+@use 'transitions';
+@use 'states';
+
+/// -------------------
+/// Input config
+/// -------------------
+
+$padding-x: spacing.$sm !default;
+
+/// -------------------
+/// Input selectors 
+/// -------------------
+
+.input {
+  @include lib.resets-style;
+  @include lib.components-flow;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  border-radius: corners.$base; 
+  background-color: colours.$ui-one;
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  transition: all transitions.$ease;
+
+  .field--error & {
+    border-color: colours.$state-error; 
+  }
+
+  .field--warning & {
+    border-color: colours.$state-warning;
+  }
+
+  .field--success & {
+    border-color: colours.$state-success;
+  }
+
+  &:focus {
+    @include states.focus;
+  }
+  
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+}

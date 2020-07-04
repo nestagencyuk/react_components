@@ -1,0 +1,41 @@
+/// ----------------------------------------------------------------------
+
+/// Animate
+
+/// ----------------------------------------------------------------------
+
+@use 'movement';
+@use 'transitions';
+@use 'animations';
+
+/// -------------------
+/// Animate selectors
+/// -------------------
+
+.animate {
+  transition: transitions.$ease;
+
+  &--fade-in {
+    animation: fadeIn movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-top {
+    animation: fadeInTop movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-bottom {
+    animation: fadeInBottom movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-left {
+    animation: fadeInLeft movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-right {
+    animation: fadeInRight movement.$base animations.$forwards-ease;
+  }
+
+  &--swipe-in-left {
+    animation: swipeInLeft movement.$base animations.$forwards-ease;
+  }
+}

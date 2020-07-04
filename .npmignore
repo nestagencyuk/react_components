@@ -3,6 +3,7 @@
 docs
 
 # Source files
+.github
 .eslintrc
 coverage
 src
@@ -10,3 +11,5 @@ index.ts
 cypress.json
 tsconfig.json
 webpack.config.js
+empty-module.js
+jest.config.js

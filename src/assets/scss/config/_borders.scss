@@ -1,0 +1,39 @@
+/// ----------------------------------------------------------------------
+
+/// Borders
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+/// -------------------
+/// Thickness
+/// -------------------
+
+$thin: 1px !default;
+$mid: 2px !default;
+$thick: 5px !default;
+
+/// -------------------
+/// Brand
+/// -------------------
+
+$brand-one: solid $mid colours.$brand-one !default;
+$brand-two: solid $mid colours.$brand-two !default;
+
+/// -------------------
+/// UI
+/// -------------------
+
+$ui-one: solid $thin colours.$ui-one !default;
+$ui-two: solid $thin colours.$ui-two !default;
+$ui-three: solid $thin colours.$ui-three !default;
+$ui-four: solid $thin colours.$ui-four !default;
+
+/// -------------------
+/// State
+/// -------------------
+
+$state-success: solid $thin colours.$state-success !default;
+$state-warning: solid $thin colours.$state-error !default;
+$state-error: solid $thin colours.$state-warning !default;

@@ -1,0 +1,38 @@
+/// ----------------------------------------------------------------------
+
+/// Overlay
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+@use 'animations';
+@use 'z-index';
+
+/// -------------------
+/// Overlay config
+/// -------------------
+
+$opacity: 0.75 !default;
+
+/// -------------------
+/// Overlay selectors
+/// -------------------
+
+.overlay { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(black, $opacity);
+  z-index: z-index.$default;
+  
+  &--inverse {
+    background-color: rgba(white, $opacity);
+  }
+  
+  &--fixed {
+    position: fixed;
+    z-index: z-index.$overlay;
+  }
+}

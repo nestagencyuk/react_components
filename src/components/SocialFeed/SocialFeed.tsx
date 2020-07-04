@@ -1,36 +1,31 @@
-import { ISocialFeed } from './types';
-import * as React from 'react';
-import { useEffect, useState } from 'react';
-import cx from 'classnames';
-
-/**
- * Styles
- */
-// import '@nestagencyuk/scss_lib/dist/socialfeed.scss'
+import { ISocialFeed } from './types'
+import * as React from 'react'
+import { useEffect, useState } from 'react'
+import cx from 'classnames'
 
 /**
  * Components
  */
-import { Grid, GridItem } from '../Grid';
-import { Image } from '../Image';
-import { Loader } from '../Loader';
-import { Box } from '../Box';
+import { Grid, GridItem } from '../Grid'
+import { Image } from '../Image'
+import { Loader } from '../Loader'
+import { Box } from '../Box'
 
 /**
  * Variants
  */
 const variants = {
   Instagram: 'socialfeed--instagram'
-};
+}
 
 /**
  * Fetch instagram
  */
 const fetchInstagramToken = async (username: string, signal: AbortSignal) => {
-  const res = await fetch(`https://${username.replace('@', '')}-token.herokuapp.com/token.json`, { method: 'GET', signal });
-  const json = await await res.json();
-  return json.token;
-};
+  const res = await fetch(`https://${username.replace('@', '')}-token.herokuapp.com/token.json`, { method: 'GET', signal })
+  const json = await await res.json()
+  return json.token
+}
 
 /**
  * Fetch insta items
@@ -39,10 +34,10 @@ const fetchInstagramItems = async (token: string, signal: AbortSignal) => {
   const res = await fetch(
     `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${token}`,
     { method: 'GET', signal }
-  );
-  const json = await await res.json();
-  return json;
-};
+  )
+  const json = await await res.json()
+  return json
+}
 
 /**
  * Sizes
@@ -51,7 +46,7 @@ const sizes = {
   Small: 4,
   Medium: 3,
   Large: 2
-};
+}
 
 /**
  * My component
@@ -63,7 +58,7 @@ const SocialFeed: React.FC<ISocialFeed.IProps> = ({
   username,
   limit = 9
 }) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([])
 
   /**
    * Set items
@@ -72,33 +67,33 @@ const SocialFeed: React.FC<ISocialFeed.IProps> = ({
     switch (variant) {
       case 'Instagram': {
         try {
-          const token = await fetchInstagramToken(username, signal);
-          const items = await fetchInstagramItems(token, signal);
+          const token = await fetchInstagramToken(username, signal)
+          const items = await fetchInstagramItems(token, signal)
           const final = items.data?.map((x: any, i: number) => ({
             permalink: x.permalink,
             type: x.media_type,
             src: x.media_url,
             alt: `instagram-img-${i}`
-          }));
-          setItems(final.slice(0, limit));
+          }))
+          setItems(final?.slice(0, limit) || [])
         } catch (err) {
-          console.log(err);
+          console.log(err)
         }
-        break;
+        break
       }
       default:
-        break;
+        break
     }
-  };
+  }
 
   /**
    * Fetch posts
    */
   useEffect(() => {
-    const abort = new AbortController();
-    getItems(username, abort.signal);
-    return () => abort.abort();
-  }, []);
+    const abort = new AbortController()
+    getItems(username, abort.signal)
+    return () => abort.abort()
+  }, [])
 
   /**
    * Render posts
@@ -119,9 +114,9 @@ const SocialFeed: React.FC<ISocialFeed.IProps> = ({
               </GridItem>
             ))}
           </Grid>
-        );
+        )
     }
-  };
+  }
 
   return username ? (
     <div className={cx(className, 'socialfeed', variants[variant])}>
@@ -132,7 +127,7 @@ const SocialFeed: React.FC<ISocialFeed.IProps> = ({
         </Box>
       )}
     </div>
-  ) : null;
-};
+  ) : null
+}
 
-export default SocialFeed;
+export default SocialFeed

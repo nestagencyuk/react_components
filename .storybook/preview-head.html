@@ -1,127 +1,31 @@
 <style>
-  :root {
-    --ui-one:     #F8F8F8;
-    --ui-two:     #F0F0F0;
-    --ui-three:   #838383;
-    --ui-four:    #3b3b3b;
-    --ui-five:    #1d1d1d;
+  .demo {
+    display: inline-block;
   }
 
-  /* General */
-  pre code { 
-    tab-size: 2 !important; 
+  .demo--select {
+    height: 350px;
   }
 
-
-  /* Forms */
-  [id*="-select"] .demo {
-    min-height: 350px;
+  .demo--icn {
+    width: 200px;
   }
 
-
-  /* Icons */
-  [id*="-icon"] > div {
-    display: inline-flex;
+  .demo--scroll {
+    height: 1000px;
   }
 
-  [id*="-icon"] .demo {
-    width: 100px;
-    height: 100px;
+  .demo--inverse {
+    background-color: #333333;
     padding: 1rem;
-    margin-right: 1rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,0.10) 0 1px 3px 0;
-    border: 1px solid rgba(0,0,0,.1);
   }
 
-  [id*="-icon"] .demo__caption {
-    display: block;
+  .demo--drawer {
     width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
-    font-size: 0.75rem;
+    height: 50vh;
   }
 
-
-  /* Overlay */
-  [id*="-overlay"] > div {
-    height: 500px;
-  }
-
-
-  /* Image */
-  [id*="-image"] > div {
-    max-width: 250px;
-  }
-  
-
-  /* Card */
-  [id*="-card"] > div {
-    max-width: 350px;
-  }
-  
-
-  /* Grid */
-  [id*="-grid-base"] .grid__item {
-    border: solid 1px white;
-  }
-
-  [id*="-grid"] .grid__item {
-    background-color: var(--ui-two);
-    min-height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  [id*="-grid"] .grid__item .grid__item {
-    background-color: var(--ui-two);
-  }
-  
-  [id*="-alignment"] .grid__item {
-    height: 50px;
-  }
-
-
-  /* Box */
-  [id*="-box"] .box {
-    background-color: var(--ui-two);
-    min-height: 150px;
-  }
-
-  /* Float */
-  [id*="-float"] {
-    min-height: 250px;
+  .demo__caption {
+    display: block;
   }
 </style>
-
-<script>
-  const invertBg = () => {
-    const inverse = [...document.querySelectorAll('[id*="inverse"]'), ...document.querySelectorAll('[id*="light"]')]
-    inverse.forEach((x) => {
-      x.parentElement.parentElement.style.backgroundColor = '#333'
-    })
-  }
-
-  window.addEventListener('DOMContentLoaded', (event) => {
-    setTimeout(() => {
-      invertBg()
-      
-      const targetNode = document.getElementById('docs-root')
-      const config = { attributes: true, childList: true, subtree: true }
-
-      const callback = (mutationsList, observer) => {
-        for (const x of mutationsList) {
-          if (x.type === 'childList') {
-            invertBg()
-          }
-        }
-      };
-      const observer = new MutationObserver(callback)
-      observer.observe(targetNode, config)
-    }, 1000)
-  });
-</script>

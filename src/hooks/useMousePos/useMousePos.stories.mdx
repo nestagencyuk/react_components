@@ -33,7 +33,7 @@ Pass a decimal to add an accelation/deceleration effect.
 <Preview>
   <Story name='Lerp'>
     {() => {
-      const [position] = useMousePos(0.1)
+      const [position] = useMousePos({ acceleration: 0.1})
       return (
         <div style={{ height: '1000px' }}>
           <h4>Position X:</h4>

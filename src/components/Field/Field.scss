@@ -1,0 +1,67 @@
+/// ----------------------------------------------------------------------
+
+/// Field
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+@use 'colours';
+
+/// -------------------
+/// Field config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Field swatches
+/// -------------------
+
+.field {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr 2rem;
+  grid-template-rows: auto;
+  align-items: center;
+  margin: spacing.$md 0;
+}
+
+/// -------------------
+/// Validation icon
+/// -------------------
+
+.field__label {
+  &--interactive {
+    cursor: pointer;
+  }
+}
+
+/// -------------------
+/// Validation icon
+/// -------------------
+
+.field__icn {
+  margin-left: spacing.$md;
+}
+
+/// -------------------
+/// Validation message
+/// -------------------
+
+.field__msg {
+  text-align: right;
+  grid-column: span 2;
+
+  .field--error & {
+    color: colours.$state-error;
+  }
+
+  .field--warning & {
+    color: colours.$state-warning;
+  }
+
+  .field--success & {
+    color: colours.$state-success;
+  }
+}

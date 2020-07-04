@@ -1,0 +1,166 @@
+/// ----------------------------------------------------------------------
+
+/// Select
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'borders';
+@use 'colours';
+@use 'typography';
+@use 'transitions';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// Select config
+/// -------------------
+
+$padding-x: spacing.$sm !default;
+$bg-colour: colours.$ui-one !default;
+
+/// -------------------
+/// Select wrapper
+/// -------------------
+
+.select {
+  display: inline-block;
+  position: relative;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &:focus-within {
+    outline: none;
+  }
+}
+
+/// -------------------
+/// Select input
+/// -------------------
+
+.select__input {
+  @include lib.resets-style;
+  @include lib.components-flow;
+  width: 100%;
+  padding-left: $padding-x;
+  padding-right: $padding-x * 2.5; 
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  border-radius: corners.$base;
+  background-color: $bg-colour;
+  transition: all transitions.$ease;
+  appearance: none;
+
+  .field--error & {
+    border-color: colours.$state-error; 
+  }
+
+  .field--warning & {
+    border-color: colours.$state-warning;
+  }
+
+  .field--success & {
+    border-color: colours.$state-success;
+  }
+
+  &:read-only {
+    cursor: pointer;
+  }
+  
+  &:focus {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// False options list
+/// -------------------
+
+.select__options {
+  @include lib.resets-list;
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: $bg-colour;
+  border-radius: corners.$base;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: z-index.$top - 1;
+}
+
+/// -------------------
+/// Select option
+/// -------------------
+
+.select__option {
+  @include lib.resets-style;
+  position: relative;
+}
+
+/// -------------------
+/// Select button
+/// -------------------
+
+.select__btn {
+  @include lib.resets-style;
+  width: 100%;
+  font-size: typography.$base-font-size;
+  font-family: typography.$font-family;
+  text-align: left;
+  padding: spacing.$md;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: colours.$ui-two;
+    outline: none;
+  }
+
+  &--sm {
+    @include lib.resets-style;
+    padding: $padding-x / 2;
+  }
+}
+
+/// -------------------
+/// Select button
+/// -------------------
+
+.select__clear {
+  @include lib.resets-style;
+  @include lib.utilities-center-y;
+  padding: $padding-x / 2; 
+  right: ($padding-x * 2) + spacing.$xs;
+  background-color: colours.$ui-two;
+  border-radius: corners.$base;
+}
+
+/// -------------------
+/// Select checkbox
+/// -------------------
+
+.select__checkbox {
+  @include lib.utilities-center-y;
+  left: $padding-x;
+  pointer-events: none;
+}
+
+/// -------------------
+/// Select chevron icon 
+/// -------------------
+
+.select__icn {
+  @include lib.utilities-center-y;
+  right: $padding-x;
+  width: $padding-x;
+  height: $padding-x;
+}

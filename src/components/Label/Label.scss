@@ -1,0 +1,22 @@
+/// ----------------------------------------------------------------------
+
+/// Label
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'typography';
+@use 'spacing';
+
+/// -------------------
+/// Label selectors
+/// -------------------
+
+.label {
+  @include lib.components-flow;
+  vertical-align: top;
+  align-self: start;
+  font-weight: typography.$font-family--alt;
+  font-family: typography.$font-regular;
+}

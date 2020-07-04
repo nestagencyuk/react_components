@@ -1,16 +1,11 @@
-import { IPageFooter } from './types';
-import * as React from 'react';
-import cx from 'classnames';
-
-/**
- * Styles
- */
-import '@nestagencyuk/scss_lib/dist/list.scss';
+import { IPageFooter } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Components
  */
-import { PageFooterItem, PageFooterLink } from '.';
+import { PageFooterItem, PageFooterLink } from '.'
 
 /**
  * My component
@@ -29,6 +24,6 @@ const PageFooterList: React.FC<IPageFooter.IListProps> = ({ items = [] }) => (
       )
     )}
   </ul>
-);
+)
 
-export default PageFooterList;
+export default PageFooterList

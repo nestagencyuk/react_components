@@ -1,0 +1,25 @@
+/// ----------------------------------------------------------------------
+
+/// Drawer
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+@use 'spacing';
+
+/// -------------------
+/// Drawer swatches
+/// -------------------
+
+$bg-colour: colours.$ui-one !default;
+
+/// -------------------
+/// Drawer selectors
+/// -------------------
+
+.drawer {
+  min-width: 200px;
+  height: 100vh;
+  padding: spacing.$md;
+  background-color: $bg-colour;
+}

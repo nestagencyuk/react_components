@@ -44,8 +44,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
           <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
             <Float portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay portal fixed onClick={() => setToggled(false)} /> 
-              <Modal
+              <Overlay className="animate animate--fade-in" portal fixed onClick={() => setToggled(false)} /> 
+              <Modal 
+                className="animate animate--fade-in-top"
                 header={{ heading: 'Heading', subheading: 'Subheading'}} 
                 footer={{ 
                   actions: [

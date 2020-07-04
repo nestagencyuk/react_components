@@ -1,0 +1,95 @@
+/// ----------------------------------------------------------------------
+
+/// Slider
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'movement';
+@use 'transitions';
+@use 'spacing';
+
+/// -------------------
+/// Slider config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+$nav-margin-x: 0 !default;
+$nav-margin-y: spacing.$md !default;
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider {}
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider__body {
+  overflow: hidden;
+  position: relative;
+}
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider__items {
+  display: flex;
+  align-items: center;
+
+  .slider--slide & {
+    transition: transform transitions.$ease;
+    will-change: transform;
+  }
+}
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider__item {
+  flex: 1;
+
+  .slider--fade & {
+    transition: opacity transitions.$ease;
+    opacity: 0;
+    
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider__btn {
+  @include lib.resets-style;
+  @include lib.utilities-center-y;
+  font-size: 0;
+  padding: spacing.$xs;
+  cursor: pointer;
+  
+  &--prev {
+    left: 0;
+  }
+  
+  &--next {
+    right: 0;
+  }
+}
+
+/// -------------------
+/// Slider selectors
+/// -------------------
+
+.slider__nav {
+  display: flex;
+  justify-content: center;
+  margin: $nav-margin-y $nav-margin-x;
+}

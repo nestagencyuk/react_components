@@ -1,11 +1,11 @@
-import { IPagination } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { IPagination } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/pagination.scss';
+import './Pagination.scss'
 
 /**
  * Types
@@ -13,7 +13,7 @@ import '@nestagencyuk/scss_lib/dist/pagination.scss';
 const variants = {
   Numbers: 'pagination--numbers',
   Dots: 'pagination--dots'
-};
+}
 
 /**
  * Pagination dots
@@ -52,6 +52,6 @@ const Pagination: React.FC<IPagination.IProps> = ({
       </li>
     )}
   </ul>
-);
+)
 
-export default Pagination;
+export default Pagination

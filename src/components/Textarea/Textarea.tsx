@@ -1,11 +1,11 @@
-import { ITextarea } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { ITextarea } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
  */
-import '@nestagencyuk/scss_lib/dist/textarea.scss';
+import './Textarea.scss'
 
 /**
  * My component
@@ -20,6 +20,6 @@ const Textarea: React.FC<ITextarea.IProps> = ({ className, id, name, value, disa
     disabled={disabled}
     onChange={(e: any) => onChange(e.target.value)}
   />
-);
+)
 
-export default Textarea;
+export default Textarea

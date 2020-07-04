@@ -1,0 +1,76 @@
+/// ----------------------------------------------------------------------
+
+/// Radio
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'corners';
+@use 'transitions';
+@use 'states';
+
+/// -------------------
+/// Radio swatches
+/// -------------------
+
+$size: 1.5rem !default;
+
+/// -------------------
+/// Radio selectors
+/// -------------------
+
+.radio {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: colours.$ui-two;
+  border-radius: corners.$round;
+  height: $size;
+  width: $size;
+  box-sizing: border-box;
+  transition: all transitions.$ease;
+  cursor: pointer;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &--checked,
+  &:checked {
+    background-color: colours.$ui-five;
+  }
+
+  &:focus-within {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// Hide default input
+/// -------------------
+
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/// -------------------
+/// Radio icon
+/// -------------------
+
+.radio__icn {
+  @include lib.utilities-center;
+  display: none;
+  width: $size * 0.5;
+  height: $size * 0.5;
+  background-color: white;
+  border-radius: corners.$round;
+
+  .radio:checked > &,
+  .radio--checked > & {
+    display: block;
+  }
+}

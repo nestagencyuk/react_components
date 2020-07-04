@@ -8,7 +8,7 @@ import { lerp } from '@nestagencyuk/typescript_lib-frontend'
  * @param {String} acceleration
  * Add for a smooth effect
  */
-const useScroll = (acceleration: number = 0) => {
+const useScroll = ({ acceleration = 0 }: any = {}) => {
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 

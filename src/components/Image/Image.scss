@@ -1,0 +1,106 @@
+/// ----------------------------------------------------------------------
+
+/// Image
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'corners';
+@use 'spacing';
+
+/// ------------------
+/// Image selectors
+/// ------------------
+
+.img {
+  position: relative;
+  margin: 0;
+  background-color: transparent;
+}
+
+/// ------------------
+/// Image selectors
+/// ------------------
+
+.img__picture {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  height: 0;
+  width: 100%;
+
+  // Landscape
+  .img--4x1 & {
+    padding-top: 25%;
+  }
+
+  .img--7x3 & {
+    padding-top: 42%;
+  }
+
+  .img--4x3 & {
+    padding-top: 75%;
+  }
+
+  .img--16x9 & {
+    padding-top: 56.25%;
+  }
+
+  // Portrait
+  .img--2x3 & {
+    padding-top: 150%;
+  }
+
+  .img--3x4 & {
+    padding-top: 133%;
+  }
+
+  .img--4x5 & {
+    padding-top: 125%;
+  }
+
+  // Square
+  .img--1x1 & {
+    padding-top: 100%;
+  }
+
+  .img--rounded & {
+    border-radius: corners.$base;
+  }
+
+  .img--round & {
+    border-radius: corners.$round;
+  }
+}
+
+/// -------------------
+/// Image loader
+/// ------------------
+
+.img__loader {
+  @include lib.utilities-center;
+  color: white;
+}
+
+/// ------------------
+/// Image item
+/// ------------------
+
+.img__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/// ------------------
+/// Image item
+/// ------------------
+
+.img__caption {
+  width: 100%;
+  margin: 0;
+  padding: spacing.$md 0;
+}

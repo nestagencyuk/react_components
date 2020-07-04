@@ -1,0 +1,80 @@
+/// ----------------------------------------------------------------------
+
+/// Pagination
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'borders';
+@use 'spacing';
+@use 'corners';
+@use 'transitions';
+
+/// -------------------
+/// Pagination config
+/// -------------------
+
+$item-margin-x: spacing.$xs !default;
+$item-margin-y: spacing.$xs !default;
+$dot-size: 1.25rem !default;
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination {
+  @include lib.resets-list;
+  display: flex;
+  align-items: center;
+
+  &--dots {
+    
+  }
+
+  &--numbers {
+
+  }
+}
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination__item {
+  margin-left: $item-margin-x / 2;
+  margin-right: $item-margin-x / 2;
+  margin-top: $item-margin-y;
+  margin-bottom: $item-margin-y;
+}
+
+/// -------------------
+/// Pagination selectors
+/// -------------------
+
+.pagination__btn {
+  .pagination--dots & {
+    font-size: 0;
+    width: $dot-size;
+    height: $dot-size;
+    border: borders.$brand-one;
+    border-radius: corners.$round;
+    transition: background-color transitions.$ease, transform transitions.$ease;
+    transform: scale(0.75);
+    opacity: 0.5;
+    cursor: pointer;
+    
+    &--active {
+      background-color: colours.$brand-one;
+      transform: scale(1);
+      opacity: 1;
+    }
+    
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none; 
+      background-color: colours.$brand-one;
+    }
+  }
+}
