@@ -5,6 +5,7 @@ docs
 # Source files
 .github
 .eslintrc
+.prettierrc
 coverage
 src
 index.ts
