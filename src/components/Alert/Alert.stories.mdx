@@ -1,0 +1,127 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { useToggle } from '../../hooks/useToggle'
+import { Text } from '../Text'
+import { Button } from '../Button'
+import { Float } from '../Float'
+import { Alert } from '.'
+
+<Meta title='Components|Base/Alert' component={Alert} />
+
+# Alert
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    <Alert>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </Alert>
+  </Story>
+</Preview>
+
+## Variants
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+### Error
+<Preview>
+  <Story name='Alert-Error'>
+    <Alert variant='Error'>
+      There was an error!
+    </Alert>
+  </Story>
+</Preview>
+
+### Warning
+<Preview>
+  <Story name='Alert-Warning'>
+    <Alert variant='Warning'>
+      I'm warning you...
+    </Alert>
+  </Story>
+</Preview>
+
+### Success
+<Preview>
+  <Story name='Alert-Success'>
+    <Alert variant='Success'>
+      Wow, it worked!
+    </Alert>
+  </Story>
+</Preview>
+
+## Toggle
+To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/hooks-toggle--base) and [Float](/?path=/docs/layout-float--base).
+
+<Preview>
+  <Story name='Toggle'>
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Open Alert</Button>
+          {toggled && <Float portal>
+            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+            </Alert>
+          </Float>}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Timeout
+Set a timeout so that the alert disappears after some time.
+
+<Preview>
+  <Story name='Alert-Timeout'>
+    {() => {
+      const [toggled, setToggled] = useToggle({ timeout: 3000 })
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
+          {toggled && <Float portal>
+            <Alert className="animate animate--fade-in-top" variant='Success'>
+              Wow, it worked!
+            </Alert>
+          </Float>}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Confirm
+An alert can be used to determine an action.
+
+<Preview>
+  <Story name='Confirm'>
+    {() => {
+      const [decision, setDecision] = useState(null)
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Do something mad!</Button>
+          {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
+          {toggled && <Float portal>
+            <Alert className="animate animate--fade-in-top" variant='Warning' footer={{
+              actions: [
+                { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
+                { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
+              ]
+            }}>
+              Are you sure you want to do this crazy thing?!
+            </Alert>
+          </Float>}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Alert} />

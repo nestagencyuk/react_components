@@ -1,0 +1,39 @@
+name: Latest release
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+      
+    - name: Install & Build
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        npm ci
+        npm run test:coverage
+        npm run build:components
+
+    - name: Tag & Push Tags
+      run: |
+        git config --global user.email "ts@nestagency.io"
+        git config --global user.name "Nest CI Bot 🤖"
+        npm version from-git --allow-same-version -m "Upgrade to %s [skip-ci]"
+        git push && git push --tags
+
+    - name: Publish
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        npm publish --access public
+

@@ -1,0 +1,11 @@
+/// ----------------------------------------------------------------------
+
+/// Gradients
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+$one: linear-gradient(90deg, #237bdf, colours.$brand-one, #23df6b) !default;
+$two: linear-gradient(90deg, #050885, colours.$brand-two, #4600a1) !default;
+$three: linear-gradient(90deg, colours.$ui-two, colours.$ui-one, colours.$ui-two) !default;

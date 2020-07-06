@@ -1,0 +1,25 @@
+/// ----------------------------------------------------------------------
+
+/// Max-widths
+
+/// ----------------------------------------------------------------------
+
+$xxs:     150px      !default;
+$xs:      200px      !default;
+$sm:      350px      !default;
+$md:      500px     !default;
+$lg:      750px     !default;
+$xl:      1200px     !default;
+$xxl:     1400px     !default;
+$xxxl:     1800px     !default;
+
+$all: (
+  xxs: $xxs,
+  xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl,
+  xxxl: $xxxl,
+) !default;

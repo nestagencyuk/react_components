@@ -1,0 +1,120 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { useToggle } from '../../hooks/useToggle'
+import { Button } from '../Button'
+import { Float } from '.'
+
+<Meta title='Components|Layout/Float' component={Float} />
+
+# Float
+Float content somewhere on the screen using `position: fixed`.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Base'>
+    <Float align={{ x: 'Center', y: 'Center' }}>Float</Float>
+  </Story>
+</Preview>
+
+## Portal
+The `portal` prop is perfect for creating content that renders over the main page body - e.g Alerts, Modals.
+
+<Preview>
+  <Story name='Portal'>
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(!toggled)}>{toggled ? 'Close' : 'Toggle'} Float</Button>
+          {toggled && <Float portal>
+            I am floating!
+          </Float>}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Alignment
+The align prop aligns content within a `Float`. Pass an object with an `x` or `y` value, or both.
+
+### Alignment along the X Axis
+<Preview>
+  <Story name='XAlignment-Start'>
+    <Float align={{ x: 'Start' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='XAlignment-Center'>
+    <Float align={{ x: 'Center' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='XAlignment-End'>
+    <Float align={{ x: 'End' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+### Alignment along the Y Axis
+<Preview>
+  <Story name='YAlignment-Start'>
+    <Float align={{ y: 'Start' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='YAlignment-Center'>
+    <Float align={{ y: 'Center' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='YAlignment-End'>
+    <Float align={{ y: 'End' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+### Combined alignment
+<Preview>
+  <Story name='CombinedAlignment-Center-Center'>
+    <Float align={{ x: 'Center', y: 'Center' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='CombinedAlignment-End-Start'>
+    <Float align={{ x: 'End', y: 'Start' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='CombinedAlignment-Start-End'>
+    <Float align={{ x: 'Start', y: 'End' }}>
+      Align
+    </Float>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Float} />

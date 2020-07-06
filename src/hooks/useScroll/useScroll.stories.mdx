@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Button } from '../../components/Button'
+import { useScroll } from '.'
+
+<Meta title='Hooks|Scroll' component={null} />
+
+# Scroll
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const [scroll] = useScroll()
+      return (
+        <div style={{ height: '1000px' }}>
+          <h4>Scroll X:</h4>
+          <p>{`${scroll.x}`}</p>
+          <h4>Scroll Y:</h4>
+          <p>{`${scroll.y}`}</p>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Acceleration
+Pass a decimal to add an accelation/deceleration effect.
+
+<Preview>
+  <Story name='Acceleration'>
+    {() => {
+      const [scroll] = useScroll({ acceleration: 0.1 })
+      return (
+        <div style={{ height: '1000px' }}>
+          <h4>Scroll X:</h4>
+          <p>{`${scroll.x}`}</p>
+          <h4>Scroll Y:</h4>
+          <p>{`${scroll.y}`}</p>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>

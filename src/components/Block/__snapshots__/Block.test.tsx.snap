@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Block Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="block grid"
+  >
+    <div
+      class="grid__item grid__item--4"
+    >
+      <figure
+        class="img img--1x1"
+      >
+        <picture
+          class="img__picture"
+        >
+          <span
+            class="img__loader"
+          >
+            <div
+              class="loader loader--circle"
+            />
+          </span>
+          <img
+            alt="Block Image"
+            class="img__img"
+            src="https://source.unsplash.com/random/1000x1000"
+          />
+        </picture>
+      </figure>
+    </div>
+    <div
+      class="grid__item grid__item--8"
+    >
+      <div
+        class="p--xxl box box--center-x box--center-y box--fill"
+        data-testid="grid-item-inner"
+      >
+        <div>
+          <header
+            class="block__header header"
+          >
+            <h2
+              class="text text--epsilon text--left"
+            >
+              Heading
+            </h2>
+            <h3
+              class="text text--intro text--left"
+            >
+              Sub Heading
+            </h3>
+          </header>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,255 @@
+/// ----------------------------------------------------------------------
+
+/// Navigation
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'typography';
+@use 'colours';
+@use 'transitions';
+@use 'animations';
+@use 'breakpoints';
+@use 'max-widths';
+@use 'z-index';
+
+/// -------------------
+/// Navigation config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+$brand-width: 50px !default;
+$toggle-size: spacing.$lg !default;
+
+/// -------------------
+/// Navigation selectors
+/// -------------------
+
+.nav {
+  position: relative; 
+  max-width: max-widths.$xl;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: z-index.$top;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    padding: $padding-y $padding-x;
+  }
+}
+
+/// -------------------
+/// Navigation Bar
+/// -------------------
+
+.nav__bar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: $padding-y $padding-x;
+  z-index: z-index.$top + 1;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    position: absolute;
+    padding: 0;
+    top: 0; 
+    bottom: 0;
+
+    .nav--b-s > & {
+      left: $padding-x;
+    }
+    
+    .nav--b-c > & {
+      @include lib.utilities-center-x;
+      width: $brand-width;
+    }
+
+    .nav--b-e > & {
+      right: $padding-x;
+    }
+  }
+}
+
+/// -------------------
+/// Navigation toggler for mobile
+/// -------------------
+
+.nav__toggle {
+  @include lib.resets-style;
+  grid-area: toggle;
+  align-self: center;
+  width: $toggle-size;
+  height: $toggle-size;
+  font-size: 0;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity transitions.$ease;
+  cursor: pointer;
+
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    display: none;
+  }
+
+  .nav--b-s > & {
+    justify-self: end;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/// -------------------
+/// Navigation logo/img
+/// -------------------
+
+.nav__brand {
+  width: $brand-width;
+  height: auto;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    @include lib.utilities-center-y;
+  }
+  
+  .nav--b-e & {
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      right: 0;
+    }
+  }
+  
+  .nav__lists & {
+    display: none;
+    
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      display: block;
+    }
+  }
+}
+
+.nav__img {
+  width: 100%;
+  height: auto;
+  background-image: none;
+}
+
+/// -------------------
+/// Navigation list
+/// -------------------
+
+.nav__lists {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  background-color: white;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    display: grid;
+    position: relative;
+    padding: 0;
+    background: none;
+    grid-template-columns: auto;
+    grid-template-areas: 'links-start links-center links-end';
+  }
+  
+  .nav--open & {
+    display: block;
+    animation: fadeInTop 0.3s animations.$forwards-ease;
+    z-index: z-index.$top;
+  }
+  
+  .nav--b-c & {
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      grid-template-columns: auto $brand-width auto;
+      grid-template-areas: 'links-start brand links-end';
+    }
+  }
+  
+  .nav--b-s & {
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      grid-template-columns: $brand-width auto auto;
+      grid-template-areas: 'brand links-start links-end';
+    }
+  }
+  
+  .nav--b-e & {
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      grid-template-columns: auto auto $brand-width;
+      grid-template-areas: 'links-start links-end brand';
+    }
+  }
+}
+
+/// -------------------
+/// Navigation list
+/// -------------------
+
+.nav__list {
+  @include lib.resets-list;
+  width: 100%;
+  position: relative;
+
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    display: flex;
+  }
+
+  &--start {
+    grid-area: links-start;
+  }
+  
+  &--center {
+    grid-area: links-center;
+
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      justify-content: center;
+    }
+  }
+  
+  &--end {
+    grid-area: links-end;
+
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      justify-content: flex-end;
+    }
+  }
+}
+
+/// -------------------
+/// Navigation list item
+/// -------------------
+
+.nav__item {
+  text-align: center;
+
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    margin-left: spacing.$md;
+    margin-right: spacing.$md;
+  }
+}
+
+/// -------------------
+/// Navigation actual link
+/// -------------------
+
+.nav__link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-align: left;
+  padding: spacing.$sm 0;
+  font-family: typography.$font-family;
+  color: colours.$ui-five;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    width: auto;
+    text-align: center;
+  }
+
+  &--active, 
+  &:hover {
+    color: colours.$brand-two;
+  }
+}

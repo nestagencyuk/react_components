@@ -1,0 +1,109 @@
+/// ----------------------------------------------------------------------
+
+/// Alert
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'colours';
+@use 'animations';
+@use 'transitions';
+@use 'movement';
+@use 'shadows';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// Alert config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+$close-size: 1.5rem !default;
+
+/// -------------------
+/// Alert selectors
+/// -------------------
+
+.alert {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 800px;
+  background-color: white; 
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
+  z-index: z-index.$alert;
+
+  &--error {
+    border: solid 2px colours.$state-warning;
+  }
+
+  &--warning {
+    border: solid 2px colours.$state-warning;
+  }
+
+  &--success {
+    border: solid 2px colours.$state-success;
+  }
+}
+
+/// -------------------
+/// Alert close button
+/// -------------------
+
+.alert__close {
+  @include lib.resets-style;
+  position: absolute;
+  right: $padding-x;
+  top: $padding-x;
+  width: $close-size;
+  height: $close-size;
+  font-size: 0;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity transitions.$ease;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/// -------------------
+/// Alert icon
+/// -------------------
+
+.alert__icn {
+  position: absolute;
+  left: $padding-x;
+  top: $padding-y + 0.25rem; 
+}
+
+/// -------------------
+/// Alert header
+/// -------------------
+
+.alert__header {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Alert body
+/// -------------------
+
+.alert__body {
+  padding-left: $padding-x * 3;
+  padding-right: $padding-x * 3;
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+}
+
+/// -------------------
+/// Alert footer
+/// -------------------
+
+.alert__footer {
+  background-color: transparent;
+}

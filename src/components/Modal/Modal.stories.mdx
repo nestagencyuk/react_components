@@ -1,0 +1,72 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { useToggle } from '../../hooks/useToggle'
+import { Text } from '../Text'
+import { Button } from '../Button'
+import { Overlay } from '../Overlay'
+import { Float } from '../Float'
+import { Modal } from '.'
+
+<Meta title='Components|Base/Modal' component={Modal} />
+
+# Modal
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    <Modal 
+      header={{ heading: 'Heading', subheading: 'Subheading'}} 
+      footer={{ 
+        actions: [
+          { text: 'Close', variant: 'Tertiary', size: 'Small' },
+          { text: 'OK', variant: 'Primary', size: 'Small' },
+        ]
+      }}>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Text>
+    </Modal>
+  </Story>
+</Preview>
+
+## Toggle
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Toggle'>
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button onClick={() => setToggled(true)}>Open Modal</Button>
+          {toggled && (
+            <Float portal align={{ x: 'Center', y: 'Center' }}>
+              <Overlay className="animate animate--fade-in" portal fixed onClick={() => setToggled(false)} /> 
+              <Modal 
+                className="animate animate--fade-in-top"
+                header={{ heading: 'Heading', subheading: 'Subheading'}} 
+                footer={{ 
+                  actions: [
+                    { text: 'Close', variant: 'Tertiary', size: 'Small', onClick: () => setToggled(false) },
+                    { text: 'OK', variant: 'Primary', size: 'Small', onClick: () => setToggled(false) },
+                  ]
+                }}
+                onClose={setToggled}>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </Text>
+              </Modal>
+            </Float>
+          )}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Modal} />

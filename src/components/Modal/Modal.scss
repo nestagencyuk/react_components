@@ -1,0 +1,84 @@
+/// ----------------------------------------------------------------------
+
+/// Modal
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'animations';
+@use 'breakpoints';
+@use 'transitions';
+@use 'corners';
+@use 'shadows';
+@use 'spacing';
+@use 'z-index';
+
+/// -------------------
+/// Modal config
+/// -------------------
+
+$padding-x: spacing.$lg !default;
+$padding-y: spacing.$lg !default;
+$close-size: 1.5rem !default;
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 800px;
+  min-width: 250px;
+  background-color: white;
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
+  z-index: z-index.$modal;
+  
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    min-width: 500px;
+  }
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__close {
+  @include lib.resets-style;
+  position: absolute;
+  right: $padding-x;
+  top: $padding-y;
+  width: $close-size;
+  height: $close-size;
+  font-size: 0;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity transitions.$ease;
+  cursor: pointer;
+  z-index: z-index.$top + 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__header {}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__body {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__footer {}

@@ -1,0 +1,117 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Image } from '.'
+
+<Meta title='Components|Base/Image' component={Image} />
+
+# Image
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Base'>
+    <Image aspect='1x1' src='https://source.unsplash.com/random/500x500' alt='My Image' />
+  </Story>
+</Preview>
+
+## Variants
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### Rounded
+<Preview>
+  <Story name='Rounded'>
+    <Image variant='Rounded' aspect='1x1' src='https://source.unsplash.com/random/1001x1001' alt='My Image' />
+  </Story>
+</Preview>
+
+### Round
+<Preview>
+  <Story name='Round'>
+    <Image variant='Round' aspect='1x1' src='https://source.unsplash.com/random/1002x1002' alt='My Image' />
+  </Story>
+</Preview>
+
+## Source Set
+Load different images based on screen size, using the `srcSet` prop.
+
+<Preview>
+  <Story name='SourceSet'>
+    <Image aspect='1x1' src='https://source.unsplash.com/random/101x101' srcSet={[{ media: '(min-width: 500px)', srcSet: 'https://source.unsplash.com/random/1000x1000'}]} alt='My Image' />
+  </Story>
+</Preview>
+
+## Aspect Ratios
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nasdisi ut aliqasuip ex ea commodo consequat.
+
+### Landscape
+#### 4x1
+<Preview>
+  <Story name='4x1'>
+    <Image aspect='4x1' src='https://source.unsplash.com/random/400x100' alt='My Image' />
+  </Story>
+</Preview>
+
+#### 7x3
+<Preview>
+  <Story name='7x3'>
+    <Image aspect='7x3' src='https://source.unsplash.com/random/700x300' alt='My Image' />
+  </Story>
+</Preview>
+
+#### 16x9
+<Preview>
+  <Story name='16x9'>
+    <Image aspect='16x9' src='https://source.unsplash.com/random/1600x900' alt='My Image' />
+  </Story>
+</Preview>
+
+#### 4x3
+<Preview>
+  <Story name='4x3'>
+    <Image aspect='4x3' src='https://source.unsplash.com/random/400x300' alt='My Image' />
+  </Story>
+</Preview>
+
+### Portrait
+#### 2x3
+<Preview>
+  <Story name='2x3'>
+    <Image aspect='2x3' src='https://source.unsplash.com/random/200x300' alt='My Image' />
+  </Story>
+</Preview>
+
+#### 3x4
+<Preview>
+  <Story name='3x4'>
+    <Image aspect='3x4' src='https://source.unsplash.com/random/300x400' alt='My Image' />
+  </Story>
+</Preview>
+
+#### 4x5
+<Preview>
+  <Story name='4x5'>
+    <Image aspect='4x5' src='https://source.unsplash.com/random/400x500' alt='My Image' />
+  </Story>
+</Preview>
+
+### Square
+#### 1x1
+<Preview>
+  <Story name='1x1'>
+    <Image aspect='1x1' src='https://source.unsplash.com/random/1000x1000' alt='My Image' />
+  </Story>
+</Preview>
+
+## Caption
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Caption'>
+    <Image variant='Rounded' aspect='1x1' src='https://source.unsplash.com/random/1003x1003' alt='My Image' caption='A caption' />
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Image} />

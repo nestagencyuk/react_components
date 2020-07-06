@@ -1,0 +1,35 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import '../../dist/assets/main.css'
+import '../../dist/assets/logo.png'
+
+<Meta title='Getting Started|Introduction' component={null} />
+
+# Introduction
+![Latest release](https://github.com/nestagencyuk/react_components/workflows/Latest%20release/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ad5d505b-eb09-4889-bc8c-d29cbb3f8b02/deploy-status)](https://app.netlify.com/sites/twigs-react-components/deploys)
+[![codecov](https://codecov.io/gh/nestagencyuk/react_components/branch/master/graph/badge.svg?token=JHZN4BD36F)](https://codecov.io/gh/nestagencyuk/react_components)
+
+This repository contains Nest's React components for use across the business. The main purpose of this project is to provide a single source of truth of components for use internally and across all client projects.
+
+## Requirements
+- [Node.js](https://nodejs.org/) v9+
+- [React.js](https://reactjs.org/) v16+
+- [Sass](https://www.npmjs.com/package/sass) v1.25+ (for component style modules only)
+
+## Usage
+Simply install from npm:
+
+```zsh
+$ npm i @nestagencyuk/react_components
+```
+
+Import the desired components into your .jsx or .tsx files. This will include the components in their unstyled format. To include styles, include the compiled `main.css` file straight into your project.
+
+> For creating themes and overriding our base styles, see our [style docs](/?path=/docs/getting-started-styles--page)
+
+```js
+import { Button } from 'nest-components'
+import '@nestagencyuk/react_components/dist/assets/main.css' // Optional
+
+ReactDOM.render(<Button />, document.getElementById('app'))
+```

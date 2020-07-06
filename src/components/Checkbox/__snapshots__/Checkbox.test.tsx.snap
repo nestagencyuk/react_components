@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Checkbox Component ----- Renders checked correctly without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="checkbox checkbox--checked"
+    data-testid="checkbox-test"
+  >
+    <input
+      checked=""
+      class="checkbox__input"
+      data-testid="checkbox-test-input"
+      id="checkbox-test"
+      type="checkbox"
+    />
+    <span
+      class="checkbox__icn checkbox__icn--checked icn icn--md icn--light"
+    >
+      <svg
+        class="checkbox__icn-svg icn__svg"
+        viewBox="0 0 12 12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Tick
+        </title>
+        <path
+          class="checkbox__icn-path icn__path"
+          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+        />
+      </svg>
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`----- Checkbox Component ----- Renders disabled correctly without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="checkbox checkbox--disabled"
+    data-testid="checkbox-test"
+  >
+    <input
+      class="checkbox__input"
+      data-testid="checkbox-test-input"
+      disabled=""
+      id="checkbox-test"
+      type="checkbox"
+    />
+    <span
+      class="checkbox__icn icn icn--md icn--light"
+    >
+      <svg
+        class="checkbox__icn-svg icn__svg"
+        viewBox="0 0 12 12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Tick
+        </title>
+        <path
+          class="checkbox__icn-path icn__path"
+          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+        />
+      </svg>
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="checkbox"
+    data-testid="checkbox-test"
+  >
+    <input
+      class="checkbox__input"
+      data-testid="checkbox-test-input"
+      id="checkbox-test"
+      type="checkbox"
+    />
+    <span
+      class="checkbox__icn icn icn--md icn--light"
+    >
+      <svg
+        class="checkbox__icn-svg icn__svg"
+        viewBox="0 0 12 12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Tick
+        </title>
+        <path
+          class="checkbox__icn-path icn__path"
+          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
+        />
+      </svg>
+    </span>
+  </span>
+</DocumentFragment>
+`;

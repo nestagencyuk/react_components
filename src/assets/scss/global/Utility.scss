@@ -1,0 +1,187 @@
+/// ----------------------------------------------------------------------
+
+/// Utilities
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'colours';
+@use 'max-widths';
+
+/// -------------------
+/// Config
+/// -------------------
+
+$directions: (
+  top: 't',
+  bottom: 'b',
+  left: 'l',
+  right: 'r'
+);
+
+/// -------------------
+/// Margins
+/// -------------------
+
+.m {
+  &--0 {
+    margin: 0;
+  }
+
+  @each $size in spacing.$all {
+    $size-name: nth($size, 1);
+    $size-prop: nth($size, 2);
+
+    &--#{$size-name} {
+      margin: $size-prop;
+    }
+  }
+
+  @each $direction in $directions {
+    $direction-name: nth($direction, 1);
+    $direction-prop: nth($direction, 2);
+
+    @each $size in spacing.$all {
+      $size-name: nth($size, 1);
+      $size-prop: nth($size, 2);
+
+      &--#{$direction-prop}-#{$size-name} {
+        margin-#{$direction-name}: $size-prop;
+      }
+    }
+  }
+}
+
+/// -------------------
+/// Padding
+/// -------------------
+
+.p {
+  &--0 {
+    padding: 0;
+  }
+
+  @each $size in spacing.$all {
+    $size-name: nth($size, 1);
+    $size-prop: nth($size, 2);
+
+    &--#{$size-name} {
+      padding: $size-prop;
+    }
+  }
+
+  @each $direction in $directions {
+    $direction-name: nth($direction, 1);
+    $direction-prop: nth($direction, 2);
+
+    @each $size in spacing.$all {
+      $size-name: nth($size, 1);
+      $size-prop: nth($size, 2);
+
+      &--#{$direction-prop}-#{$size-name} {
+        padding-#{$direction-name}: $size-prop;
+      }
+    }
+  }
+}
+
+/// -------------------
+/// Backgrounds
+/// -------------------
+
+.bg {
+  @each $colour in colours.$brand {
+    $colour-name: nth($colour, 1);
+    $colour-prop: nth($colour, 2);
+
+    &--brand-#{$colour-name} {
+      background-color: $colour-prop;
+    }
+  }
+
+  @each $colour in colours.$ui {
+    $colour-name: nth($colour, 1);
+    $colour-prop: nth($colour, 2);
+
+    &--ui-#{$colour-name} {
+      background-color: $colour-prop;
+    }
+  }
+
+  @each $colour in colours.$state {
+    $colour-name: nth($colour, 1);
+    $colour-prop: nth($colour, 2);
+
+    &--state-#{$colour-name} {
+      background-color: $colour-prop;
+    }
+  }
+}
+
+/// -------------------
+/// Max Widths
+/// -------------------
+
+.mw {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  @each $width in max-widths.$all {
+    $width-name: nth($width, 1);
+    $width-prop: nth($width, 2);
+
+    &--#{$width-name} {
+      max-width: $width-prop;
+    }
+  }
+}
+
+/// -------------------
+/// Resets
+/// -------------------
+
+.reset {
+  &--btn {
+    @include lib.resets-style;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+/// -------------------
+/// Position
+/// -------------------
+
+.sticky {
+  position: sticky;
+
+  &--top {
+    top: 0;
+  }
+}
+
+.fill {
+  @include lib.utilities-center;
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow {
+  &--hide {
+    overflow: hidden;
+  }
+}
+
+/// -------------------
+/// Interactivity
+/// -------------------
+
+.interactive {
+  cursor: pointer;
+}

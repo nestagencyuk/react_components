@@ -1,0 +1,49 @@
+/// ----------------------------------------------------------------------
+
+/// Footer
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+@use 'borders';
+
+/// -------------------
+/// Footer config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  border-top: borders.$ui-two;
+  background-color: transparent;
+}
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Footer selectors
+/// -------------------
+
+.footer__sub {
+  width: 100%;
+  box-sizing: border-box;
+  padding: ($padding-y / 2) $padding-x;
+}

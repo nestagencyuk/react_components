@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { inverseDecorator } from '../../../.storybook/decorators.js'
+import { Text } from '../Text'
+import { Overlay } from '.'
+
+<Meta title='Components|Layout/Overlay' component={Overlay} />
+
+# Overlay
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Base'>
+    <div>
+      <Overlay />
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Variants
+Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+### Inverse
+<Preview>
+  <Story name='Inverse' decorators={[inverseDecorator]}>
+    <div>
+      <Overlay variant='Inverse' />
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Fixed
+Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Fixed'>
+    <div>
+      <Overlay fixed />
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Content
+Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Content'>
+    <div>
+      <Overlay variant='Inverse'>
+        <Text className='m--t-md'>I'm inside the overlay</Text>
+      </Overlay>
+      <Text>I'm underneath the overlay</Text>
+    </div>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Overlay} />

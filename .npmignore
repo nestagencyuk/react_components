@@ -1,0 +1,16 @@
+# Docs files
+.storybook
+docs
+
+# Source files
+.github
+.eslintrc
+.prettierrc
+coverage
+src
+index.ts
+cypress.json
+tsconfig.json
+webpack.config.js
+empty-module.js
+jest.config.js

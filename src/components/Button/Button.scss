@@ -1,0 +1,159 @@
+/// ----------------------------------------------------------------------
+
+/// Buttons
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'colours';
+@use 'borders';
+@use 'typography';
+@use 'transitions';
+@use 'states';
+
+/// -------------------
+/// Button config
+/// -------------------
+
+$padding-x: spacing.$xl !default;
+$transition: all transitions.$ease !default;
+
+/// -------------------
+/// Button selectors 
+/// -------------------
+
+.btn {
+  @include lib.resets-style;
+  @include lib.components-flow;
+  position: relative;
+  border-radius: corners.$base; 
+  font-family: typography.$font-family--alt;
+  font-weight: typography.$font-bold;
+  transition: $transition;
+  user-select: none;
+  text-decoration: none;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  align-self: center;
+  cursor: pointer;
+
+  &--primary {
+    background-color: colours.$brand-one;
+    color: white;
+
+    &:hover {
+      background-color: colours.$brand-two;
+    }
+  }
+
+  &--secondary {
+    border-color: colours.$brand-two;
+    color: colours.$brand-two;
+
+    &:hover {
+      border-color: colours.$brand-one;
+      color: colours.$brand-one;
+    }
+  }
+  
+  &--tertiary {
+    background-color: colours.$ui-one;
+
+    &:hover {
+      color: colours.$brand-one;
+    }
+  }
+  
+  &--inverse {
+    border-color: white;
+    color: white;
+
+    &:hover {
+      border-color: colours.$brand-two;
+      color: colours.$brand-two;
+    }
+  }
+
+  &--sm {
+    padding-left: $padding-x * 0.5;
+    padding-right: $padding-x * 0.5;
+  }
+  
+  &--lg {
+    padding-left: $padding-x * 1.5;
+    padding-right: $padding-x * 1.5;
+  }
+
+  &:focus {
+    @include states.focus;
+  }
+  
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+}
+
+/// -------------------
+/// Button icon 
+/// -------------------
+
+.btn__icn.icn {
+  &:first-child {
+    transform: translateX(-$padding-x / 2);
+
+    .btn--sm & {
+      transform: translateX(-$padding-x / 3.5); 
+    }
+
+    .btn--lg & {
+      transform: translateX(-$padding-x); 
+    }
+  }
+  
+  &:last-child {
+    transform: translateX($padding-x / 2);
+
+    .btn--sm & {
+      transform: translateX($padding-x / 3.5); 
+    }
+
+    .btn--lg & {
+      transform: translateX($padding-x); 
+    }
+  }
+}
+
+/// -------------------
+/// Button icon path
+/// -------------------
+
+.btn__icn-path.icn__path {
+  transition: $transition;
+
+  .btn--primary & {
+    fill: white;
+  }
+
+  .btn--secondary & {
+    fill: colours.$brand-two;
+  }
+  
+  .btn--secondary:hover & {
+    fill: colours.$brand-one;
+  }
+  
+  .btn--tertiary:hover & {
+    fill: colours.$brand-one;
+  }
+  
+  .btn--inverse & {
+    fill: white;
+  }
+
+  .btn--inverse:hover  {
+    fill: colours.$brand-two;
+  }
+}

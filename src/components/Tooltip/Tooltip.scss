@@ -1,0 +1,48 @@
+/// ----------------------------------------------------------------------
+
+/// Tooltip
+
+/// ----------------------------------------------------------------------
+
+@use 'spacing';
+@use 'corners';
+@use 'animations';
+@use 'z-index';
+
+/// -------------------
+/// Tooltip config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$xs !default;
+$border-radius: corners.$base !default;
+$bg-colour: rgba(black, 0.85) !default;
+
+/// -------------------
+/// Tooltip swatches
+/// -------------------
+
+.tooltip {
+  position: fixed;
+  background-color: $bg-colour;
+  border-radius: $border-radius;
+  padding: $padding-y $padding-x;
+  color: white;
+  z-index: z-index.$tooltip;
+
+  &--left {
+    animation: centerFadeInLeft 0.3s forwards ease;
+  }
+  
+  &--right {
+    animation: centerFadeInRight 0.3s forwards ease;
+  }
+  
+  &--top {
+    animation: centerFadeInBottom 0.3s forwards ease;
+  }
+  
+  &--bottom {
+    animation: centerFadeInTop 0.3s forwards ease;
+  }
+}

@@ -1,0 +1,76 @@
+/// ----------------------------------------------------------------------
+
+/// Collapse
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'transitions';
+@use 'borders';
+@use 'shadows';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// Collapse config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Collapse selectors
+/// -------------------
+
+.collapse {
+  display: block;
+}
+
+/// -------------------
+/// Collapse header
+/// -------------------
+
+.collapse__header {
+  @include lib.resets-style;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: shadows.$one;
+  border-radius: corners.$base;
+  padding: $padding-y $padding-x;
+  border: borders.$mid solid transparent;
+  z-index: z-index.$default;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// Collapse heading
+/// -------------------
+
+.collapse__heading.text {
+  margin-bottom: 0;
+}
+
+/// -------------------
+/// Collapse body
+/// -------------------
+
+.collapse__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height transitions.$ease, padding transitions.$ease;
+  padding: 0 $padding-x;
+  
+  &--active {
+    padding: $padding-y $padding-x;
+  }
+}

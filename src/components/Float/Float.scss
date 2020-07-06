@@ -1,0 +1,58 @@
+/// ----------------------------------------------------------------------
+
+/// Float
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'breakpoints';
+@use 'z-index';
+
+/// -------------------
+/// Float selectors
+/// -------------------
+
+.float {
+  position: fixed;
+  box-sizing: border-box;
+  padding: spacing.$md;
+  z-index: z-index.$top + 1;
+
+  &--start-y {
+    top: 0;
+  }
+
+  &--center-y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--end-y {
+    bottom: 0;
+  }
+
+  &--start-x {
+    left: 0;
+  }
+
+  &--center-x {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    @include lib.breakpoint-up(breakpoints.$sm) {
+      width: auto;
+    }
+  }
+
+  &--end-x {
+    right: 0;
+  }
+
+  &--center-y#{&}--center-x {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

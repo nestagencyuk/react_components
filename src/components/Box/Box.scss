@@ -1,0 +1,47 @@
+/// ----------------------------------------------------------------------
+
+/// Box
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+
+/// -------------------
+/// Box selectors
+/// -------------------
+
+.box {
+  display: grid;
+  position: relative;
+  box-sizing: border-box;
+  padding: spacing.$md;
+
+  &--start-y {
+    align-items: start;
+  }
+  
+  &--center-y {
+    align-items: center;
+  }
+  
+  &--end-y {
+    align-items: end;
+  }
+  
+  &--start-x {
+    justify-content: start;
+  }
+  
+  &--center-x {
+    justify-content: center;
+  }
+  
+  &--end-x {
+    justify-content: end;
+  }
+
+  &--fill {
+    height: 100%;
+  }
+}

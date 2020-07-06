@@ -1,0 +1,115 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '../Text'
+import { Grid, GridItem } from '.'
+
+<Meta title='Components|Layout/Grid' component={Grid} />
+
+# Grid
+A simple CSS grid system. The basic system comprises of a 12 column grid. The grid is however not reliant on multiple rows so is a little lighter when it comes to outputted markup.
+ 
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+> **NOTE:** Grey background is for demo purpose only.
+
+<Preview>
+  <Story name='Base'>
+    <div>
+      <Grid>
+        <GridItem span={1}>
+          Base
+        </GridItem>
+        <GridItem span={11}>
+          Base
+        </GridItem>
+        <GridItem span={2}>
+          Base
+        </GridItem>
+        <GridItem span={10}>
+          Base
+        </GridItem>
+        <GridItem span={3}>
+          Base
+        </GridItem>
+        <GridItem span={9}>
+          Base
+        </GridItem>
+        <GridItem span={4}>
+          Base
+        </GridItem>
+        <GridItem span={8}>
+          Base
+        </GridItem>
+        <GridItem span={5}>
+          Base
+        </GridItem>
+        <GridItem span={7}>
+          Base
+        </GridItem>
+        <GridItem span={6}>
+          Base
+        </GridItem>
+        <GridItem span={6}>
+          Base
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+## Gutter
+
+By default the grid has no gutter, but this can be added via the 'gutter' prop:
+
+<Preview>
+  <Story name='Gutter'>
+    <div>
+      <Grid gutter>
+        <GridItem span={6}>
+          Gutter
+        </GridItem>
+        <GridItem span={6}>
+          Gutter
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+## Nested grids
+Grids can also be nested to create more complex layouts.
+
+<Preview>
+  <Story name='Nested'>
+    <div>
+      <Grid gutter>
+        <GridItem span={5}>
+          <Grid gutter>
+            <GridItem span={8}>
+              Nested
+            </GridItem>
+            <GridItem span={4}>
+              Nested
+            </GridItem>
+          </Grid>
+        </GridItem>
+        <GridItem span={7}>
+          <Grid gutter>
+            <GridItem span={6}>
+              Nested
+            </GridItem>
+            <GridItem span={6}>
+              Nested
+            </GridItem>
+          </Grid>
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+## Grid Prop Types
+<Props of={Grid} />
+
+## GridItem Prop Types
+<Props of={GridItem} />

@@ -1,0 +1,8 @@
+# Package files
+.env
+coverage
+node_modules
+dist
+docs
+!src/docs
+.DS_Store

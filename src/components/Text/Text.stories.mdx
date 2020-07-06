@@ -1,0 +1,95 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Text } from '.'
+
+<Meta title='Components|Base/Text' component={Text} />
+
+# Text
+A text component which renders a text tag. Styles are decoupled from markup so using a `h1` tag alongside `Intro` variant could be a valid use case.
+ 
+## Headings
+<Preview>
+  <Story name='Alpha'>
+    <Text tag='h1' variant='Alpha'>Alpha</Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Beta'>
+    <Text tag='h2' variant='Beta'>Beta</Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Gamma'>
+    <Text tag='h3' variant='Gamma'>Gamma</Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Delta'>
+    <Text tag='h4' variant='Delta'>Delta</Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Epsilon'>
+    <Text tag='h5' variant='Epsilon'>Epsilon</Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Intro'>
+    <Text tag='p' variant='Intro'>
+      Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
+    </Text>
+  </Story>
+</Preview>
+
+## Paragraph
+<Preview>
+  <Story name='Paragraph'>
+    <Text tag='p'>
+      Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
+    </Text>
+  </Story>
+</Preview>
+
+## Small
+<Preview>
+  <Story name='Small'>
+    <Text variant='Small'>
+      Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
+    </Text>
+  </Story>
+</Preview>
+
+## Alignment
+Align the text.
+
+<Preview>
+  <Story name='Align-Left'>
+    <Text align='Left'>
+      Meatball ham hock rump.
+    </Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Align-Center'>
+    <Text align='Center'>
+      Meatball ham hock rump.
+    </Text>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='Align-Right'>
+    <Text align='Right'>
+      Meatball ham hock rump.
+    </Text>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Text} />
