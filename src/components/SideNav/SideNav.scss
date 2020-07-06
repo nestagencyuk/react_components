@@ -1,0 +1,95 @@
+/// ----------------------------------------------------------------------
+
+/// side-nav
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'colours';
+@use 'transitions';
+@use 'animations';
+@use 'typography';
+@use 'z-index';
+@use 'breakpoints';
+
+/// -------------------
+/// side-nav config
+/// -------------------
+
+$nav-left: spacing.$md * 4;
+$nav-height: 70px;
+
+@keyframes navList {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/// -------------------
+/// side-nav selectors
+/// -------------------
+
+.side-nav {
+  position: relative;
+  z-index: z-index.$top;
+  padding: 0;
+  background-color: map-get(colours.$ui, 'one');
+}
+
+/// -------------------
+/// side-nav selectors
+/// -------------------
+
+.side-nav__list {
+  @include lib.resets-list;
+  margin-left: spacing.$md;
+  transform-origin: top;
+  animation: navList 0.3s forwards ease;
+}
+/// -------------------
+/// side-nav item
+/// -------------------
+
+.side-nav__item {
+  .side-nav--horizontal & {
+    position: relative;
+  }
+}
+/// -------------------
+/// side-nav link
+/// -------------------
+
+.side-nav__link {
+  @include lib.resets-style;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1;
+  font-size: typography.$base-font-size;
+  font-family: typography.$font-family--alt;
+  padding: spacing.$lg spacing.$md;
+  text-decoration: none;
+  white-space: nowrap;
+  color: map-get(colours.$ui, 'five');
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: rgba(black, 0.025);
+
+  &:hover {
+    color: map-get(colours.$brand, 'two');
+  }
+
+  .side-nav--vertical & {
+    text-align: left;
+  }
+
+  .side-nav__item:nth-child(2n) & {
+    background-color: rgba(white, 0.025);
+  }
+}
