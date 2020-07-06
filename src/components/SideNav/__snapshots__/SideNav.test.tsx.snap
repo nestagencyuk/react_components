@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- SideNav Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <nav
+    class="sideNav sideNav--vertical"
+  >
+    <ul
+      class="sideNav__list sideNav__list--0"
+    >
+      <li
+        class="sideNav__item"
+      >
+        <a
+          class="sideNav__link"
+          href="/"
+        >
+          <span
+            class="m--r-xs icn icn--md icn--dark"
+          >
+            <svg
+              class="m--r-xs-svg icn__svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Home
+              </title>
+              <path
+                class="m--r-xs-path icn__path"
+                d="M6,3.07l4.32,4v4.4H7.44V8.61H4.56v2.88H1.68V7.09Zm5.76,2.79L6,.51.24,5.85l.65.71L6,1.82l5.11,4.74Z"
+              />
+            </svg>
+          </span>
+          Home
+        </a>
+      </li>
+      <li
+        class="sideNav__item"
+      >
+        <button
+          class="sideNav__link"
+        >
+          <span
+            class="m--r-xs icn icn--md icn--dark"
+          >
+            <svg
+              class="m--r-xs-svg icn__svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Home
+              </title>
+              <path
+                class="m--r-xs-path icn__path"
+                d="M6,3.07l4.32,4v4.4H7.44V8.61H4.56v2.88H1.68V7.09Zm5.76,2.79L6,.51.24,5.85l.65.71L6,1.82l5.11,4.74Z"
+              />
+            </svg>
+          </span>
+          About
+        </button>
+      </li>
+      <li
+        class="sideNav__item"
+      >
+        <a
+          class="sideNav__link"
+          href="/test"
+        >
+          <span
+            class="m--r-xs icn icn--md icn--dark"
+          >
+            <svg
+              class="m--r-xs-svg icn__svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Home
+              </title>
+              <path
+                class="m--r-xs-path icn__path"
+                d="M6,3.07l4.32,4v4.4H7.44V8.61H4.56v2.88H1.68V7.09Zm5.76,2.79L6,.51.24,5.85l.65.71L6,1.82l5.11,4.74Z"
+              />
+            </svg>
+          </span>
+          Test
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
