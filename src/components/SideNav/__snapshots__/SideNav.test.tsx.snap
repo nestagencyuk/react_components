@@ -3,16 +3,16 @@
 exports[`----- SideNav Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <nav
-    class="sideNav sideNav--vertical"
+    class="side-nav side-nav--vertical"
   >
     <ul
-      class="sideNav__list sideNav__list--0"
+      class="side-nav__list side-nav__list--0"
     >
       <li
-        class="sideNav__item"
+        class="side-nav__item"
       >
         <a
-          class="sideNav__link"
+          class="side-nav__link"
           href="/"
         >
           <span
@@ -36,10 +36,10 @@ exports[`----- SideNav Component ----- Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        class="sideNav__item"
+        class="side-nav__item"
       >
         <button
-          class="sideNav__link"
+          class="side-nav__link"
         >
           <span
             class="m--r-xs icn icn--md icn--dark"
@@ -62,10 +62,10 @@ exports[`----- SideNav Component ----- Renders without crashing 1`] = `
         </button>
       </li>
       <li
-        class="sideNav__item"
+        class="side-nav__item"
       >
         <a
-          class="sideNav__link"
+          class="side-nav__link"
           href="/test"
         >
           <span
