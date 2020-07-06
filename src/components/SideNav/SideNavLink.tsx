@@ -24,20 +24,20 @@ const NavigationLink: React.FC<ISideNav.ILinkProps> = ({ className, component, h
     if (component) {
       const Tag: any = component
       return (
-        <Tag className={cx(className, 'sideNav__link')} to={href}>
+        <Tag className={cx(className, 'side-nav__link')} to={href}>
           {renderChildren}
         </Tag>
       )
     } else {
       return (
-        <RouterLink className={cx(className, 'sideNav__link')} to={href}>
+        <RouterLink className={cx(className, 'side-nav__link')} to={href}>
           {renderChildren}
         </RouterLink>
       )
     }
   } else {
     return (
-      <button className={cx(className, 'sideNav__link')} onClick={onClick}>
+      <button className={cx(className, 'side-nav__link')} onClick={onClick}>
         {renderChildren}
       </button>
     )

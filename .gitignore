@@ -6,4 +6,3 @@ dist
 docs
 !src/docs
 .DS_Store
-src/.DS_Store

@@ -13,7 +13,7 @@ const NavigationList = ({ className, depth, open, children }: ISideNav.IListProp
   return (
     <ul
       ref={ref}
-      className={cx(className, 'sideNav__list', `sideNav__list--${depth}`, { 'sideNav__list--open': open })}
+      className={cx(className, 'side-nav__list', `side-nav__list--${depth}`, { 'side-nav__list--open': open })}
       style={{ maxHeight }}
     >
       {children}

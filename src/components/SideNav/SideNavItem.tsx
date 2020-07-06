@@ -6,7 +6,7 @@ import { ISideNav } from './types'
  * The list item to render within the  navigation
  */
 const NavigationItem: React.FC<ISideNav.IItemProps> = ({ className, children }) => {
-  return <li className={cx(className, 'sideNav__item')}>{children}</li>
+  return <li className={cx(className, 'side-nav__item')}>{children}</li>
 }
 
 export default NavigationItem

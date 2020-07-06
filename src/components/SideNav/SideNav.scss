@@ -1,6 +1,6 @@
 /// ----------------------------------------------------------------------
 
-/// SideNav
+/// side-nav
 
 /// ----------------------------------------------------------------------
 
@@ -14,22 +14,11 @@
 @use 'breakpoints';
 
 /// -------------------
-/// SideNav config
+/// side-nav config
 /// -------------------
 
 $nav-left: spacing.$md * 4;
 $nav-height: 70px;
-
-@keyframes fadeInNav {
-  0% {
-    left: $nav-left - spacing.$sm;
-    opacity: 0;
-  }
-  100% {
-    left: $nav-left;
-    opacity: 1;
-  }
-}
 
 @keyframes navList {
   0% {
@@ -43,48 +32,43 @@ $nav-height: 70px;
 }
 
 /// -------------------
-/// SideNav selectors
+/// side-nav selectors
 /// -------------------
 
-.sideNav {
+.side-nav {
   position: relative;
   z-index: z-index.$top;
-
-  &--vertical {
-    padding: 0;
-    background-color: map-get(colours.$ui, 'one');
-  }
+  padding: 0;
+  background-color: map-get(colours.$ui, 'one');
 }
 
 /// -------------------
-/// SideNav selectors
+/// side-nav selectors
 /// -------------------
 
-.sideNav__list {
+.side-nav__list {
   @include lib.resets-list;
-
-  .sideNav--vertical & & {
-    margin-left: spacing.$md;
-    transform-origin: top;
-    animation: navList 0.3s forwards ease;
-  }
+  margin-left: spacing.$md;
+  transform-origin: top;
+  animation: navList 0.3s forwards ease;
 }
 /// -------------------
-/// SideNav item
+/// side-nav item
 /// -------------------
 
-.sideNav__item {
-  .sideNav--horizontal & {
+.side-nav__item {
+  .side-nav--horizontal & {
     position: relative;
   }
 }
 /// -------------------
-/// SideNav link
+/// side-nav link
 /// -------------------
 
-.sideNav__link {
+.side-nav__link {
   @include lib.resets-style;
   display: inline-block;
+  width: 100%;
   box-sizing: border-box;
   line-height: 1;
   font-size: typography.$base-font-size;
@@ -95,35 +79,17 @@ $nav-height: 70px;
   color: map-get(colours.$ui, 'five');
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: rgba(black, 0.025);
 
   &:hover {
     color: map-get(colours.$brand, 'two');
   }
 
-  .sideNav--horizontal & {
-    @include lib.breakpoint-up(breakpoints.$sm) {
-      padding: spacing.$sm;
-    }
-  }
-
-  .sideNav--vertical & {
-    width: 100%;
+  .side-nav--vertical & {
     text-align: left;
   }
 
-  .sideNav--vertical .sideNav__item:nth-child(2n) & {
-    background-color: rgba(black, 0.025);
-  }
-
-  .sideNav--inverse & {
-    color: white;
-
-    &:hover {
-      background-color: rgba(white, 0.1) !important;
-    }
-  }
-
-  .sideNav--inverse.sideNav--vertical .sideNav__item:nth-child(2n) & {
+  .side-nav__item:nth-child(2n) & {
     background-color: rgba(white, 0.025);
   }
 }

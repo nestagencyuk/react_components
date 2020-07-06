@@ -61,7 +61,7 @@ const Navigation = ({ className, links, children }: any) => {
   }, [])
 
   return (
-    <nav className={cx(className, 'sideNav', 'sideNav--vertical')}>
+    <nav className={cx(className, 'side-nav', 'side-nav--vertical')}>
       {renderList(links, nodes, 0)}
       {children}
     </nav>
