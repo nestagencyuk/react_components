@@ -1,5 +1,5 @@
 {
-  "name": "@nestagencyuk/react_components",
+  "name": "@nestagencyuk/react_century-logistics-components",
   "version": "1.1.1",
   "description": "A collection of React pure components, built with TypeScript",
   "main": "./dist/index.js",
@@ -20,15 +20,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nestagencyuk/react_components.git"
+    "url": "git+https://github.com/nestagencyuk/react_century-logistics-components.git"
   },
   "keywords": [
     "react",
     "typescript"
   ],
-  "author": "Milly Billins @ Nest Agency Ltd",
+  "author": "Alex Basey-Fisher",
   "license": "ISC",
-  "homepage": "https://github.com/nestagencyuk/react_components#readme",
+  "homepage": "https://github.com/nestagencyuk/react_century-logistics-components#readme",
   "dependencies": {
     "@nestagencyuk/scss_lib": "^1.1.2",
     "@nestagencyuk/typescript_lib-frontend": "^1.0.5",
