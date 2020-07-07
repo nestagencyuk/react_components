@@ -5,13 +5,13 @@
 /// ----------------------------------------------------------------------
 
 @use '@nestagencyuk/scss_lib' as lib;
-@use 'spacing';
 @use 'corners';
 @use 'colours';
 @use 'animations';
 @use 'transitions';
 @use 'movement';
 @use 'shadows';
+@use 'spacing';
 @use 'states';
 @use 'z-index';
 
@@ -31,21 +31,35 @@ $close-size: 1.5rem !default;
   position: relative;
   box-sizing: border-box;
   max-width: 800px;
-  background-color: white; 
+  padding: spacing.$md;
+  background-color: white;
   box-shadow: shadows.$one;
   border-radius: corners.$base;
   z-index: z-index.$alert;
+  border: 2px solid;
 
-  &--error {
-    border: solid 2px colours.$state-warning;
-  }
-
-  &--warning {
-    border: solid 2px colours.$state-warning;
+  &--info {
+    border-color: colours.$state-info;
+    background-color: colours.$state-info-secondary;
+    color: colours.$state-info;
   }
 
   &--success {
-    border: solid 2px colours.$state-success;
+    border-color: colours.$state-success;
+    background-color: colours.$state-success-secondary;
+    color: colours.$state-success;
+  }
+
+  &--warning {
+    border-color: colours.$state-warning;
+    background-color: colours.$state-warning-secondary;
+    color: colours.$state-warning;
+  }
+
+  &--error {
+    border-color: colours.$state-error;
+    background-color: colours.$state-error-secondary;
+    color: colours.$state-error;
   }
 }
 
@@ -78,26 +92,7 @@ $close-size: 1.5rem !default;
 .alert__icn {
   position: absolute;
   left: $padding-x;
-  top: $padding-y + 0.25rem; 
-}
-
-/// -------------------
-/// Alert header
-/// -------------------
-
-.alert__header {
-  padding: $padding-y $padding-x;
-}
-
-/// -------------------
-/// Alert body
-/// -------------------
-
-.alert__body {
-  padding-left: $padding-x * 3;
-  padding-right: $padding-x * 3;
-  padding-top: $padding-y;
-  padding-bottom: $padding-y;
+  top: $padding-y + 0.25rem;
 }
 
 /// -------------------

@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useToggle } from '../../hooks/useToggle'
+import { ProgressBar } from '.'
+import { Button } from '../Button'
+import { Fragment, useState, useEffect } from 'react'
+
+<Meta title="Components|Base/ProgressBar" component={ProgressBar} />
+
+# Progress Bar
+
+A simple progress bar that displays progress to a user.
+
+## Base
+
+A simple progress bar.
+
+<Preview>
+  <Story name="Base">
+    <ProgressBar width="65%" />
+  </Story>
+</Preview>
+
+## Animated
+
+Animate values in or out, useful for showing loading or timeout states.
+
+<Preview>
+  <Story name="Animate Up">
+    {() => {
+      const startingValue = 0;
+      const [value, setValue] = useState(startingValue)
+      const countDown = () => {
+        setValue(100 + startingValue)
+      }
+      
+      return (
+        <Fragment>
+          <Button className="m--b-sm" onClick={() => countDown()}>
+            Animate in
+          </Button>
+          <ProgressBar width={`${value}%`} />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

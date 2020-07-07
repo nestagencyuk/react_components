@@ -35,7 +35,7 @@ const sizes: any = {
  */
 const Header: React.FC<IHeader.IProps> = ({ className, size = 'Medium', heading, subheading }) => (
   <header className={cx(className, 'header')}>
-    <Text tag="h2" variant={sizes[size].heading}>
+    <Text tag="h2" variant={sizes[size].heading} className="text--bold">
       {heading}
     </Text>
 

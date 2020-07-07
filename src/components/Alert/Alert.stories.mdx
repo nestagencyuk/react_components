@@ -12,33 +12,29 @@ import { Alert } from '.'
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+A simple alert component for presenting Info, Success, Warning and Error messages to your users.
 
 <Preview>
   <Story name='Base'>
-    <Alert>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <Alert header={{
+      heading: "Lorem ipsum dolor sit amet"
+    }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit
     </Alert>
   </Story>
 </Preview>
 
 ## Variants
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+Pass a value to the `variant` prop to have your desired alert rendered.
 
-### Error
+### Info
 <Preview>
-  <Story name='Alert-Error'>
-    <Alert variant='Error'>
-      There was an error!
-    </Alert>
-  </Story>
-</Preview>
-
-### Warning
-<Preview>
-  <Story name='Alert-Warning'>
-    <Alert variant='Warning'>
-      I'm warning you...
+  <Story name='Alert-Info'>
+    <Alert variant='Info' header={{
+      heading: "Info",
+      size: "Small",
+    }}>
+      Useful information.
     </Alert>
   </Story>
 </Preview>
@@ -46,8 +42,33 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 ### Success
 <Preview>
   <Story name='Alert-Success'>
-    <Alert variant='Success'>
-      Wow, it worked!
+    <Alert variant='Success' header={{
+      heading: "Success",
+      size: "Small",
+    }}>
+       Wow, it worked!
+    </Alert>
+  </Story>
+</Preview>
+
+### Warning
+<Preview>
+  <Story name='Alert-Warning'>
+    <Alert variant='Warning' header={{
+      heading: "Warning"
+    }}>
+      I'm warning you...
+    </Alert>
+  </Story>
+</Preview>
+
+### Error
+<Preview>
+  <Story name='Alert-Error'>
+    <Alert variant='Error' header={{
+      heading: "Error"
+    }}>
+      There was an error!
     </Alert>
   </Story>
 </Preview>

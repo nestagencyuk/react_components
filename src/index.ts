@@ -78,6 +78,8 @@ export { IPage } from './components/Page/types'
 export { PageFooter } from './components/PageFooter'
 export { IPageFooter } from './components/PageFooter/types'
 
+export { ProgressBar } from './components/ProgressBar'
+
 export { PageHeader } from './components/PageHeader'
 export { IPageHeader } from './components/PageHeader/types'
 
