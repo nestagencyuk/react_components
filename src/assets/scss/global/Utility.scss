@@ -17,7 +17,7 @@ $directions: (
   top: 't',
   bottom: 'b',
   left: 'l',
-  right: 'r',
+  right: 'r'
 );
 
 /// -------------------
@@ -32,7 +32,7 @@ $directions: (
   @each $size in spacing.$all {
     $size-name: nth($size, 1);
     $size-prop: nth($size, 2);
-    
+
     &--#{$size-name} {
       margin: $size-prop;
     }
@@ -45,7 +45,7 @@ $directions: (
     @each $size in spacing.$all {
       $size-name: nth($size, 1);
       $size-prop: nth($size, 2);
-      
+
       &--#{$direction-prop}-#{$size-name} {
         margin-#{$direction-name}: $size-prop;
       }
@@ -65,7 +65,7 @@ $directions: (
   @each $size in spacing.$all {
     $size-name: nth($size, 1);
     $size-prop: nth($size, 2);
-    
+
     &--#{$size-name} {
       padding: $size-prop;
     }
@@ -78,7 +78,7 @@ $directions: (
     @each $size in spacing.$all {
       $size-name: nth($size, 1);
       $size-prop: nth($size, 2);
-      
+
       &--#{$direction-prop}-#{$size-name} {
         padding-#{$direction-name}: $size-prop;
       }
@@ -94,7 +94,7 @@ $directions: (
   @each $colour in colours.$brand {
     $colour-name: nth($colour, 1);
     $colour-prop: nth($colour, 2);
-    
+
     &--brand-#{$colour-name} {
       background-color: $colour-prop;
     }
@@ -103,7 +103,7 @@ $directions: (
   @each $colour in colours.$ui {
     $colour-name: nth($colour, 1);
     $colour-prop: nth($colour, 2);
-    
+
     &--ui-#{$colour-name} {
       background-color: $colour-prop;
     }
@@ -112,7 +112,7 @@ $directions: (
   @each $colour in colours.$state {
     $colour-name: nth($colour, 1);
     $colour-prop: nth($colour, 2);
-    
+
     &--state-#{$colour-name} {
       background-color: $colour-prop;
     }
@@ -132,7 +132,7 @@ $directions: (
   @each $width in max-widths.$all {
     $width-name: nth($width, 1);
     $width-prop: nth($width, 2);
-    
+
     &--#{$width-name} {
       max-width: $width-prop;
     }

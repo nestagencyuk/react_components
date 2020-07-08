@@ -1,0 +1,123 @@
+import { MemoryRouter } from 'react-router-dom'
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { SideNav } from '.'
+
+<Meta title="Components|Base/SideNav" component={SideNav} />
+
+# Side Nav
+
+A simple side navigation with nested items.
+
+## Base
+
+For use as a side navigation bar, accepts an array of config objects.
+
+<Preview>
+  <Story name="Vertical">
+    <MemoryRouter>
+      <SideNav
+        links={[
+          {
+            href: '/',
+            text: 'Home',
+            icon: {
+              name: 'Home'
+            }
+          },
+          {
+            href: '/about',
+            text: 'About',
+            icon: {
+              name: 'Dashboard'
+            }
+          },
+          {
+            text: 'Mammals',
+            icon: {
+              name: 'Tools'
+            },
+            children: [
+              {
+                href: '/mammals/cats',
+                text: 'Cats',
+                icon: {
+                  name: 'Info'
+                }
+              },
+              {
+                text: 'Dogs',
+                icon: {
+                  name: 'Line'
+                },
+                children: [
+                  {
+                    href: '/mammals/dogs/labrador',
+                    text: 'Labrador',
+                    icon: {
+                      name: 'Pie'
+                    }
+                  },
+                  {
+                    href: '/mammals/dogs/terrier',
+                    text: 'Terrier',
+                    icon: {
+                      name: 'Edit'
+                    }
+                  }
+                ]
+              },
+              {
+                text: 'Horses',
+                icon: {
+                  name: 'LinkedIn'
+                },
+                children: [
+                  {
+                    href: '/mammals/horses/thoroughbred',
+                    text: 'Thoroughbred',
+                    icon: {
+                      name: 'Message'
+                    }
+                  },
+                  {
+                    href: '/mammals/horses/arabian',
+                    text: 'Arabian',
+                    icon: {
+                      name: 'Upload'
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            text: 'Reptiles',
+            icon: {
+              name: 'Success'
+            },
+            children: [
+              {
+                href: '/reptiles/iguana',
+                text: 'Iguana',
+                icon: {
+                  name: 'Download'
+                }
+              },
+              {
+                href: '/reptiles/gecko',
+                text: 'Gecko',
+                icon: {
+                  name: 'Error'
+                }
+              }
+            ]
+          }
+        ]}
+      />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={SideNav} />
