@@ -76,6 +76,20 @@ $transition: all transitions.$ease !default;
   &:disabled {
     @include states.disabled;
   }
+
+  .btn-group > & {
+    border-radius: 0;
+  }
+
+  .btn-group > &:first-child {
+    border-top-left-radius: corners.$base;
+    border-bottom-left-radius: corners.$base;
+  }
+
+  .btn-group > &:last-child {
+    border-top-right-radius: corners.$base;
+    border-bottom-right-radius: corners.$base;
+  }
 }
 
 /// -------------------
@@ -125,27 +139,5 @@ $transition: all transitions.$ease !default;
 
   .btn--secondary:hover & {
     fill: #fff;
-  }
-}
-
-/// -------------------
-/// Button group
-/// -------------------
-
-.btn {
-  &__group {
-    & > .btn {
-      border-radius: 0;
-    }
-
-    & > .btn:first-child {
-      border-top-left-radius: corners.$base;
-      border-bottom-left-radius: corners.$base;
-    }
-
-    & > .btn:last-child {
-      border-top-right-radius: corners.$base;
-      border-bottom-right-radius: corners.$base;
-    }
   }
 }
