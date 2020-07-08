@@ -34,11 +34,15 @@ $close-size: 1.5rem !default;
   height: 10px;
   background-color: colours.$state-info;
   transition: width 5s ease-in-out;
+}
 
-  &__container {
-    position: relative;
-    width: 100%;
-    height: 10px;
-    background-color: #f2f2f2;
-  }
+/// -------------------
+/// Progress Bar container
+/// -------------------
+
+.progress-bar__container {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #f2f2f2;
 }
