@@ -1,26 +1,25 @@
-import { IImage } from '../Image/types';
-import { ReactNode } from 'react';
+import { IImage } from '../Image/types'
 
 declare namespace IPageFooter {
   interface IProps {
-    className?: string;
-    image?: IImage.IProps;
-    links: any;
-    subInfo?: string;
+    className?: string
+    image?: IImage.IProps
+    links: any
+    subInfo?: React.ReactNode
   }
 
   interface IListProps {
-    items: any[];
+    items: any[]
   }
 
   interface IItemProps {
-    [key: string]: any;
+    [key: string]: any
   }
 
   interface ILinkProps {
-    [key: string]: any;
-    children: any;
+    [key: string]: any
+    children: any
   }
 }
 
-export { IPageFooter };
+export { IPageFooter }

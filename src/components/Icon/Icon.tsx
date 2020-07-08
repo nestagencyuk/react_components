@@ -38,7 +38,7 @@ const colours = {
  * Icon
  */
 const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => (
-  <span className={cx(className, 'icn', sizes[size], !className && colours[colour])}>
+  <span className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour])}>
     <IconPicker className={className} name={name} />
   </span>
 )

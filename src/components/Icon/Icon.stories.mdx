@@ -76,7 +76,16 @@ Medium is the default size so the prop can be omitted.
 </Preview>
 
 ## Colours
-Dark is the default colour so the prop can be omitted. 
+`Dark` is the default colour so the prop can be omitted. If set to `Inherit` then the icon colour will inherit from the `fill` property of its parent.
+
+### Inherit
+<Preview>
+  <Story name='Inherit'>
+    <div style={{ fill: 'blue' }}>
+      <Icon name='User' colour='Inherit' />
+    </div>
+  </Story> 
+</Preview>
 
 ### Dark
 <Preview>

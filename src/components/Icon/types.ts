@@ -44,7 +44,7 @@ declare namespace IIcon {
     | 'Upload'
     | 'User'
     size?: 'XSmall' | 'Small' | 'Medium' | 'Large'
-    colour?: 'Dark' | 'Inverse' | UIState
+    colour?: 'Inherit' | 'Dark' | 'Inverse' | UIState
   }
 
   type IIconTypes = { [key in UIState]: IIcon.IProps['name'] }
