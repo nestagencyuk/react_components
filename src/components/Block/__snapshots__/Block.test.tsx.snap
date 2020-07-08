@@ -41,7 +41,7 @@ exports[`----- Block Component ----- Renders without crashing 1`] = `
             class="block__header header"
           >
             <h2
-              class="text text--epsilon text--left"
+              class="text--bold text text--epsilon text--left"
             >
               Heading
             </h2>
