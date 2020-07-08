@@ -10,7 +10,7 @@ import './Button.scss'
 /**
  * Components
  */
-import { Icon } from '../Icon'
+import { ButtonIcon } from '.'
 
 /**
  * Variants
@@ -65,9 +65,9 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {iconStart && <Icon className="btn__icn" {...icon} />}
+      {iconStart && <ButtonIcon {...icon} />}
       <span>{children}</span>
-      {iconEnd && <Icon className="btn__icn" {...icon} />}
+      {iconEnd && <ButtonIcon {...icon} />}
     </Tag>
   ) : null
 }

@@ -78,27 +78,18 @@
 /// Swipe
 /// -------------------
 
-@keyframes swipeOutLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes swipeOutRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
 @keyframes swipeInLeft {
   0% {
     transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeInRight {
+  0% {
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(0);

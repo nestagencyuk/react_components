@@ -86,11 +86,11 @@ const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init =
           <Fragment>
             <button className="slider__btn slider__btn--prev" onClick={() => setCurrent(prev)}>
               Prev
-              <Icon name="Chevron-left" size="Large" colour="Light" />
+              <Icon name="Chevron-left" size="Large" colour="Inverse" />
             </button>
             <button className="slider__btn slider__btn--next" onClick={() => setCurrent(next)}>
               Next
-              <Icon name="Chevron-right" size="Large" colour="Light" />
+              <Icon name="Chevron-right" size="Large" colour="Inverse" />
             </button>
           </Fragment>
         )}

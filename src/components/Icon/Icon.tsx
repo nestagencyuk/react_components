@@ -27,7 +27,7 @@ const sizes = {
  */
 const colours = {
   Dark: 'icn--dark',
-  Light: 'icn--light',
+  Inverse: 'icn--inverse',
   Success: 'icn--success',
   Warning: 'icn--warning',
   Error: 'icn--error',
@@ -38,7 +38,7 @@ const colours = {
  * Icon
  */
 const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => (
-  <span className={cx(className, 'icn', sizes[size], colours[colour])}>
+  <span className={cx(className, 'icn', sizes[size], !className && colours[colour])}>
     <IconPicker className={className} name={name} />
   </span>
 )

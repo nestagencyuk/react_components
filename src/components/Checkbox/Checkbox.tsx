@@ -30,7 +30,7 @@ const Checkbox: React.FC<ICheckbox.IProps> = ({ className, id, name, value, disa
       disabled={disabled}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
     />
-    <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="Tick" colour="Light" />
+    <Icon className={cx('checkbox__icn', { 'checkbox__icn--checked': value })} name="Tick" colour="Inverse" />
   </span>
 )
 

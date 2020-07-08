@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 /**
  * Provide a boolean state
  */
-const useToggle = ({ timeout }: IToggle.IArgs = {}): [boolean, (bool: boolean) => void] => {
-  const [toggled, setToggled] = useState<boolean>(false)
+const useToggle = ({ timeout }: IToggle.IProps = {}): [IToggle.IState, React.Dispatch<React.SetStateAction<IToggle.IState>>] => {
+  const [toggled, setToggled] = useState<IToggle.IState>(false)
 
   /**
    * Close automatically if timeout set

@@ -1,10 +1,10 @@
-// import { IPagination } from './types'
+import { IPagination } from './types'
 import { useState, useEffect } from 'react'
 
 /**
  * Provide a pagination state
  */
-const usePagination = ({ init = 0, limit = 1 }: any = {}): {
+const usePagination = ({ init = 0, limit = 1 }: IPagination.IProps = {}): {
   items: number[]
   current: number
   setCurrent: React.Dispatch<React.SetStateAction<number>>
