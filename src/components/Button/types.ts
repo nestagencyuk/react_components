@@ -19,6 +19,11 @@ declare namespace IButton {
   interface IIconProps extends IIcon.IProps {
     align: 'Start' | 'End'
   }
+
+  interface IBtnGroup {
+    children: React.ReactNode
+    className?: string
+  }
 }
 
 export { IButton }

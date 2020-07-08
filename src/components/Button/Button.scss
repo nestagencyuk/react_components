@@ -21,14 +21,14 @@ $padding-x: spacing.$xl !default;
 $transition: all transitions.$ease !default;
 
 /// -------------------
-/// Button selectors 
+/// Button selectors
 /// -------------------
 
 .btn {
   @include lib.resets-style;
   @include lib.components-flow;
   position: relative;
-  border-radius: corners.$base; 
+  border-radius: corners.$base;
   font-family: typography.$font-family--alt;
   font-weight: typography.$font-bold;
   transition: $transition;
@@ -49,30 +49,12 @@ $transition: all transitions.$ease !default;
   }
 
   &--secondary {
-    border-color: colours.$brand-two;
-    color: colours.$brand-two;
+    border-color: colours.$ui-four;
+    color: colours.$ui-four;
 
     &:hover {
-      border-color: colours.$brand-one;
-      color: colours.$brand-one;
-    }
-  }
-  
-  &--tertiary {
-    background-color: colours.$ui-one;
-
-    &:hover {
-      color: colours.$brand-one;
-    }
-  }
-  
-  &--inverse {
-    border-color: white;
-    color: white;
-
-    &:hover {
-      border-color: colours.$brand-two;
-      color: colours.$brand-two;
+      color: #fff;
+      background-color: colours.$ui-four;
     }
   }
 
@@ -80,7 +62,7 @@ $transition: all transitions.$ease !default;
     padding-left: $padding-x * 0.5;
     padding-right: $padding-x * 0.5;
   }
-  
+
   &--lg {
     padding-left: $padding-x * 1.5;
     padding-right: $padding-x * 1.5;
@@ -89,15 +71,29 @@ $transition: all transitions.$ease !default;
   &:focus {
     @include states.focus;
   }
-  
+
   &--disabled,
   &:disabled {
     @include states.disabled;
   }
+
+  .btn-group > & {
+    border-radius: 0;
+  }
+
+  .btn-group > &:first-child {
+    border-top-left-radius: corners.$base;
+    border-bottom-left-radius: corners.$base;
+  }
+
+  .btn-group > &:last-child {
+    border-top-right-radius: corners.$base;
+    border-bottom-right-radius: corners.$base;
+  }
 }
 
 /// -------------------
-/// Button icon 
+/// Button icon
 /// -------------------
 
 .btn__icn.icn {
@@ -105,23 +101,23 @@ $transition: all transitions.$ease !default;
     transform: translateX(-$padding-x / 2);
 
     .btn--sm & {
-      transform: translateX(-$padding-x / 3.5); 
+      transform: translateX(-$padding-x / 3.5);
     }
 
     .btn--lg & {
-      transform: translateX(-$padding-x); 
+      transform: translateX(-$padding-x);
     }
   }
-  
+
   &:last-child {
     transform: translateX($padding-x / 2);
 
     .btn--sm & {
-      transform: translateX($padding-x / 3.5); 
+      transform: translateX($padding-x / 3.5);
     }
 
     .btn--lg & {
-      transform: translateX($padding-x); 
+      transform: translateX($padding-x);
     }
   }
 }
@@ -138,22 +134,10 @@ $transition: all transitions.$ease !default;
   }
 
   .btn--secondary & {
-    fill: colours.$brand-two;
-  }
-  
-  .btn--secondary:hover & {
-    fill: colours.$brand-one;
-  }
-  
-  .btn--tertiary:hover & {
-    fill: colours.$brand-one;
-  }
-  
-  .btn--inverse & {
-    fill: white;
+    fill: colours.$ui-four;
   }
 
-  .btn--inverse:hover  {
-    fill: colours.$brand-two;
+  .btn--secondary:hover & {
+    fill: #fff;
   }
 }

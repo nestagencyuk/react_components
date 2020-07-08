@@ -8,19 +8,19 @@
 /// Brand
 /// -------------------
 
-$brand-one: #2d2e82 !default;
-$brand-two: #00ffd4 !default;
+$brand-one: #4db0da !default;
+$brand-two: #18769d !default;
 
 $brand: (
-  one: $brand-one, 
-  two: $brand-two,
+  one: $brand-one,
+  two: $brand-two
 );
-  
+
 /// -------------------
 /// UI (backgrounds, borders etc)
 /// -------------------
 
-$ui-one: #F8F8F8 !default;
+$ui-one: #f8f8f8 !default;
 $ui-two: #ececec !default;
 $ui-three: #c0c0c0 !default;
 $ui-four: #818181 !default;
