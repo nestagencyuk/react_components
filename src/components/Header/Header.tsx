@@ -15,7 +15,7 @@ import { Text } from '../Text'
 /**
  * Sizes
  */
-const sizes: any = {
+const sizes: IHeader.Sizes = {
   Small: {
     heading: 'Intro',
     subheading: 'Small'

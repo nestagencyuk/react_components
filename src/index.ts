@@ -66,8 +66,8 @@ export { ILoader } from './components/Loader/types'
 export { Modal } from './components/Modal'
 export { IModal } from './components/Modal/types'
 
-export { Navigation } from './components/Navigation'
-export { INavigation } from './components/Navigation/types'
+export { Navbar } from './components/Navbar'
+export { INavbar } from './components/Navbar/types'
 
 export { Overlay } from './components/Overlay'
 export { IOverlay } from './components/Overlay/types'

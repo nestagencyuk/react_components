@@ -15,8 +15,8 @@
 
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$md !default;
-$nav-margin-x: 0 !default;
-$nav-margin-y: spacing.$md !default;
+$navbar-margin-x: 0 !default;
+$navbar-margin-y: spacing.$md !default;
 
 /// -------------------
 /// Slider selectors
@@ -88,8 +88,8 @@ $nav-margin-y: spacing.$md !default;
 /// Slider selectors
 /// -------------------
 
-.slider__nav {
+.slider__navbar {
   display: flex;
   justify-content: center;
-  margin: $nav-margin-y $nav-margin-x;
+  margin: $navbar-margin-y $navbar-margin-x;
 }

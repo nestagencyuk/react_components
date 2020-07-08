@@ -1,6 +1,6 @@
 /// ----------------------------------------------------------------------
 
-/// Navigation
+/// Navbar
 
 /// ----------------------------------------------------------------------
 
@@ -15,7 +15,7 @@
 @use 'z-index';
 
 /// -------------------
-/// Navigation config
+/// Navbar config
 /// -------------------
 
 $padding-x: spacing.$md !default;
@@ -24,10 +24,10 @@ $brand-width: 50px !default;
 $toggle-size: spacing.$lg !default;
 
 /// -------------------
-/// Navigation selectors
+/// Navbar selectors
 /// -------------------
 
-.nav {
+.navbar {
   position: relative; 
   max-width: max-widths.$xl;
   margin-left: auto;
@@ -40,10 +40,10 @@ $toggle-size: spacing.$lg !default;
 }
 
 /// -------------------
-/// Navigation Bar
+/// Navbar Bar
 /// -------------------
 
-.nav__bar {
+.navbar__bar {
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -56,26 +56,26 @@ $toggle-size: spacing.$lg !default;
     top: 0; 
     bottom: 0;
 
-    .nav--b-s > & {
+    .navbar--b-s > & {
       left: $padding-x;
     }
     
-    .nav--b-c > & {
+    .navbar--b-c > & {
       @include lib.utilities-center-x;
       width: $brand-width;
     }
 
-    .nav--b-e > & {
+    .navbar--b-e > & {
       right: $padding-x;
     }
   }
 }
 
 /// -------------------
-/// Navigation toggler for mobile
+/// Navbar toggler for mobile
 /// -------------------
 
-.nav__toggle {
+.navbar__toggle {
   @include lib.resets-style;
   grid-area: toggle;
   align-self: center;
@@ -91,7 +91,7 @@ $toggle-size: spacing.$lg !default;
     display: none;
   }
 
-  .nav--b-s > & {
+  .navbar--b-s > & {
     justify-self: end;
   }
 
@@ -101,10 +101,10 @@ $toggle-size: spacing.$lg !default;
 }
 
 /// -------------------
-/// Navigation logo/img
+/// Navbar logo/img
 /// -------------------
 
-.nav__brand {
+.navbar__brand {
   width: $brand-width;
   height: auto;
   
@@ -112,13 +112,13 @@ $toggle-size: spacing.$lg !default;
     @include lib.utilities-center-y;
   }
   
-  .nav--b-e & {
+  .navbar--b-e & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       right: 0;
     }
   }
   
-  .nav__lists & {
+  .navbar__lists & {
     display: none;
     
     @include lib.breakpoint-up(breakpoints.$sm) {
@@ -127,17 +127,17 @@ $toggle-size: spacing.$lg !default;
   }
 }
 
-.nav__img {
+.navbar__img {
   width: 100%;
   height: auto;
   background-image: none;
 }
 
 /// -------------------
-/// Navigation list
+/// Navbar list
 /// -------------------
 
-.nav__lists {
+.navbar__lists {
   display: none;
   position: absolute;
   left: 0;
@@ -155,27 +155,27 @@ $toggle-size: spacing.$lg !default;
     grid-template-areas: 'links-start links-center links-end';
   }
   
-  .nav--open & {
+  .navbar--open & {
     display: block;
     animation: fadeInTop 0.3s animations.$forwards-ease;
     z-index: z-index.$top;
   }
   
-  .nav--b-c & {
+  .navbar--b-c & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto $brand-width auto;
       grid-template-areas: 'links-start brand links-end';
     }
   }
   
-  .nav--b-s & {
+  .navbar--b-s & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: $brand-width auto auto;
       grid-template-areas: 'brand links-start links-end';
     }
   }
   
-  .nav--b-e & {
+  .navbar--b-e & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto auto $brand-width;
       grid-template-areas: 'links-start links-end brand';
@@ -184,10 +184,10 @@ $toggle-size: spacing.$lg !default;
 }
 
 /// -------------------
-/// Navigation list
+/// Navbar list
 /// -------------------
 
-.nav__list {
+.navbar__list {
   @include lib.resets-list;
   width: 100%;
   position: relative;
@@ -218,10 +218,10 @@ $toggle-size: spacing.$lg !default;
 }
 
 /// -------------------
-/// Navigation list item
+/// Navbar list item
 /// -------------------
 
-.nav__item {
+.navbar__item {
   text-align: center;
 
   @include lib.breakpoint-up(breakpoints.$sm) {
@@ -231,10 +231,10 @@ $toggle-size: spacing.$lg !default;
 }
 
 /// -------------------
-/// Navigation actual link
+/// Navbar actual link
 /// -------------------
 
-.nav__link {
+.navbar__link {
   position: relative;
   display: block;
   text-decoration: none;

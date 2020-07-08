@@ -5,7 +5,7 @@ import { expect } from 'chai'
  */
 import { createNavNodes } from '.'
 
-describe('----- Create Navigation Nodes -----', () => {
+describe('----- Create Navbar Nodes -----', () => {
   it('Turn links array into a tree object', () => {
     const actual: any = [
       {

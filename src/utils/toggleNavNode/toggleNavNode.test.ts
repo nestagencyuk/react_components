@@ -5,7 +5,7 @@ import { expect } from 'chai'
  */
 import { toggleNavNode } from '.'
 
-describe('----- Open Navigation Nodes -----', () => {
+describe('----- Open Navbar Nodes -----', () => {
   it('Toggle open a node', () => {
     const actual = {
       Mammals: {

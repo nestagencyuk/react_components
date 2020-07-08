@@ -30,7 +30,7 @@ const variants = {
 /**
  * Slider
  */
-const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init = 0, tick, items: pItems, nav }) => {
+const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init = 0, tick, items: pItems, navbar }) => {
   const { items, current, setCurrent } = usePagination({ init, limit: 1 })
 
   const total = pItems.length
@@ -44,8 +44,8 @@ const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init =
     transform: variant === 'Slide' ? `translateX(-${(100 / total) * current}%)` : null
   }
 
-  const showDots = nav ? nav === 'Dots' : true
-  const showButtons = nav ? nav === 'Buttons' : true
+  const showDots = navbar ? navbar === 'Dots' : true
+  const showButtons = navbar ? navbar === 'Buttons' : true
 
   /**
    * Render slide items
@@ -98,7 +98,7 @@ const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init =
 
       {showDots && (
         <Pagination
-          className="slider__nav"
+          className="slider__navbar"
           variant="Dots"
           current={current}
           items={Array.from(Array(total).keys())}

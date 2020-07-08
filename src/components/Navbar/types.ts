@@ -2,7 +2,7 @@ import { Alignment } from '../../types'
 import { ILink } from '../Link/types'
 import { IImage } from '../Image/types'
 
-declare namespace INavigation {
+declare namespace INavbar {
   interface IProps {
     className?: string
     brand?: {
@@ -40,4 +40,4 @@ declare namespace INavigation {
   }
 }
 
-export { INavigation }
+export { INavbar }

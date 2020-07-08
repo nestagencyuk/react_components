@@ -1,20 +1,20 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { MemoryRouter, Link } from 'react-router-dom'
-import { Navigation } from '.'
+import { Navbar } from '.'
 import logo from  '../../assets/img/logo.png'
 
-<Meta title='Components|Layout/Navigation' component={Navigation} />
+<Meta title='Components|Navigation/Navbar' component={Navbar} />
 
-# Navigation
-A simple inline hyperlink navigation with the option to pass in your own link component (e.g Gatsby link or React Router link).
+# Navbar
+A simple inline hyperlink navbarigation with the option to pass in your own link component (e.g Gatsby link or React Router link).
  
 ## Base
-A common navigation style.
+A common navbarigation style.
 
 <Preview>
   <Story name='Base'>
     <MemoryRouter>
-      <Navigation 
+      <Navbar 
         brand={{ align: 'Center', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
           { component: Link, text: 'Home', align: 'Start', to: '/' },
@@ -34,7 +34,7 @@ A common navigation style.
 <Preview>
   <Story name='No-Brand'>
     <MemoryRouter>
-      <Navigation 
+      <Navbar 
         links={[
           { component: Link, text: 'Home', align: 'Center', to: '/' },
           { component: Link, text: 'About', align: 'Center', to: '/' },
@@ -49,14 +49,14 @@ A common navigation style.
 </Preview>
 
 ## Alignment
-The navigation logo 
+The navbarigation logo 
 
 ### Start aligned
 
 <Preview>
   <Story name='Align-Start'>
     <MemoryRouter>
-      <Navigation 
+      <Navbar 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
           { component: Link, text: 'Home', align: 'Start', to: '/' },
@@ -76,7 +76,7 @@ The navigation logo
 <Preview>
   <Story name='Align-End'>
     <MemoryRouter>
-      <Navigation 
+      <Navbar 
         brand={{ align: 'End', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
           { component: Link, text: 'Home', align: 'End', to: '/' },
@@ -96,7 +96,7 @@ The navigation logo
 <Preview>
   <Story name='Align-Mixed'>
     <MemoryRouter>
-      <Navigation 
+      <Navbar 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
         links={[
           { component: Link, text: 'Home', align: 'Start', to: '/' },
@@ -113,4 +113,4 @@ The navigation logo
 
 ## Prop Types
 
-<Props of={Navigation} />
+<Props of={Navbar} />

@@ -1,5 +1,5 @@
 /**
- * Create an object of nodes for toggling nav node state
+ * Create an object of nodes for toggling navbar node state
  *
  * @param {Array} links
  * The array of links to process
