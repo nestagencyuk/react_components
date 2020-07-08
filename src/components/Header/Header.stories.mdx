@@ -1,43 +1,51 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Header } from '.'
 
-<Meta title='Components|Base/Header' component={Header} />
+<Meta title="Components|Base/Header" component={Header} />
 
-# Header 
-A header.
+# Header
+
+A simple header component, used in composition with other components e.g. [Modal](?path=/docs/components-base-modal--base).
 
 > **NOTE:** For a top-level page header, see [Page Header](/?path=/docs/layout-page-header--base)
- 
+
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+This is the header in its simplest form.
 
 <Preview>
-  <Story name='Base'>
-    <Header heading='Heading' subheading='Sub Heading' />
+  <Story name="Base">
+    <Header heading="Heading" subheading="Sub Heading" />
   </Story>
 </Preview>
 
 ## Sizes
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+Pass a value to the `size` prop and you'll see the desired header rendered.
+
+`Medium` is the default value, so the prop can be omitted.
 
 ### Small
+
 <Preview>
-  <Story name='Small'>
-    <Header size='Small' heading='Heading' subheading='Sub Heading' />
+  <Story name="Small">
+    <Header size="Small" heading="Heading" subheading="Sub Heading" />
   </Story>
 </Preview>
 
 ### Medium
+
 <Preview>
-  <Story name='Medium'>
-    <Header size='Medium' heading='Heading' subheading='Sub Heading' />
+  <Story name="Medium">
+    <Header size="Medium" heading="Heading" subheading="Sub Heading" />
   </Story>
 </Preview>
 
 ### Large
+
 <Preview>
-  <Story name='Large'>
-    <Header size='Large' heading='Heading' subheading='Sub Heading' />
+  <Story name="Large">
+    <Header size="Large" heading="Heading" subheading="Sub Heading" />
   </Story>
 </Preview>
 

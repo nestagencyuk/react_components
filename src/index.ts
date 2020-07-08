@@ -95,9 +95,6 @@ export { ISelect } from './components/Select/types'
 export { Slider } from './components/Slider'
 export { ISlider } from './components/Slider/types'
 
-export { SocialFeed } from './components/SocialFeed'
-export { ISocialFeed } from './components/SocialFeed/types'
-
 export { SideNav } from './components/SideNav'
 export { ISideNav } from './components/SideNav/types'
 
