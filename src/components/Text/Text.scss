@@ -10,6 +10,12 @@
 @use 'spacing'; 
 
 /// -------------------
+/// Font imports
+/// -------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700&family=Ubuntu:wght@300;500;700&display=swap');
+
+/// -------------------
 /// Text config
 /// -------------------
 
@@ -71,6 +77,16 @@ body {
 
   &--right {
     text-align: right;
+  }
+
+  &--screen-reader {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
   }
 
   &:only-child,

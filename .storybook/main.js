@@ -9,9 +9,11 @@ module.exports = {
     '../src/**/*.stories.@(ts|mdx)',
   ],
   addons: [
-    '@storybook/addon-viewport/register',
-    '@storybook/addon-backgrounds/register',
+    '@storybook/addon-a11y',
+    '@storybook/addon-viewport',
+    '@storybook/addon-backgrounds',
     '@storybook/preset-typescript',
+    '@storybook/addon-backgrounds/register',
     {
       name: '@storybook/addon-docs',
       options: {

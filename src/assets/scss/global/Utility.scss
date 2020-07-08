@@ -128,7 +128,7 @@ $directions: (
   margin-right: auto;
   width: 100%;
   box-sizing: border-box;
-
+  
   @each $width in max-widths.$all {
     $width-name: nth($width, 1);
     $width-prop: nth($width, 2);
@@ -137,51 +137,4 @@ $directions: (
       max-width: $width-prop;
     }
   }
-}
-
-/// -------------------
-/// Resets
-/// -------------------
-
-.reset {
-  &--btn {
-    @include lib.resets-style;
-    width: 100%;
-    cursor: pointer;
-  }
-}
-
-/// -------------------
-/// Position
-/// -------------------
-
-.sticky {
-  position: sticky;
-
-  &--top {
-    top: 0;
-  }
-} 
-
-.fill {
-  @include lib.utilities-center;
-  width: 100%;
-} 
-
-.relative {
-  position: relative;
-}
-
-.overflow {
-  &--hide {
-    overflow: hidden;
-  }
-}
-
-/// -------------------
-/// Interactivity
-/// -------------------
-
-.interactive {
-  cursor: pointer;
 }

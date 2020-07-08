@@ -4,7 +4,7 @@ import { useState } from 'react'
 /**
  * Open and close many things
  */
-const ToggleGroup = ({ multi }: IToggleGroup.IProps = {}): [{ [key: string]: any }, (id: string) => void] => {
+const useToggleGroup = ({ multi }: IToggleGroup.IProps = {}): [{ [key: string]: object }, (id: string) => void] => {
   const [toggles, setToggles] = useState<{ [key: string]: any }>({})
 
   /**
@@ -20,4 +20,4 @@ const ToggleGroup = ({ multi }: IToggleGroup.IProps = {}): [{ [key: string]: any
   return [toggles, setToggled]
 }
 
-export default ToggleGroup
+export default useToggleGroup
