@@ -6,10 +6,10 @@ import { Block } from '.'
 <Meta title='Components|Layout/Block' component={Block} />
 
 # Block
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
- 
+A block component that renders any optional combination of an image, heading, body text or button.
+
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+This is the block using all optional props.
 
 <Preview>
   <Story name='Base'>
@@ -23,8 +23,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
-## Sizes
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## Variants
+Pass a value to the `size` prop and you'll see the desired block rendered.
+
+`Medium` is the default value, so the prop can be omitted.
 
 ### Small
 <Preview>
@@ -66,7 +68,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## With Button
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pass a config object to the `button` prop to render a button.
 
 <Preview>
   <Story name='Link'>
@@ -81,7 +83,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## Image Alignment
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pass an `align` property to the `image` prop to align the image.
 
 <Preview>
   <Story name='AlignEnd'>

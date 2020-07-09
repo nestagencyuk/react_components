@@ -6,7 +6,15 @@ import { Text } from '.'
 # Text
 A text component which renders a text tag. Styles are decoupled from markup so using a `h1` tag alongside `Intro` variant could be a valid use case.
  
-## Headings
+## Variants
+Pass a value to the `tag` prop to alter the HTML Tag rendered.
+
+`p` is the default value, so the prop can be omitted.
+
+Pass a value to the `variant` prop to alter the CSS used to style the tag.
+
+`P` is the default value, so the prop can be omitted.
+
 <Preview>
   <Story name='Alpha'>
     <Text tag='h1' variant='Alpha'>Alpha</Text>
@@ -64,11 +72,13 @@ A text component which renders a text tag. Styles are decoupled from markup so u
 </Preview>
 
 ## Alignment
-Align the text.
+Pass a value to the `align` prop and you'll see the desired text rendered.
+
+`Left` is the default value, so the prop can be omitted.
 
 <Preview>
   <Story name='Align-Left'>
-    <Text align='Left'>
+    <Text>
       Meatball ham hock rump.
     </Text>
   </Story>
