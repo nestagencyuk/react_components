@@ -133,12 +133,12 @@ const Select: React.FC<ISelect.IProps> = ({
         />
 
         {multi && values?.length > 0 && (
-          <button className="select__clear" title="Clear" onClick={handleReset}>
-            <Icon name="Cross" size="XSmall" />
+          <button className='select__clear' title='Clear' onClick={handleReset}>
+            <Icon name='Cross' size='XSmall' />
           </button>
         )}
 
-        <Icon className="select__icn" name={focused ? 'Chevron-up' : 'Chevron-down'} colour="Dark" size="Small" />
+        <Icon className='select__icn' name={focused ? 'Chevron-up' : 'Chevron-down'} colour='Dark' size='Small' />
       </div>
 
       <SelectOptions

@@ -1,8 +1,8 @@
-declare namespace IPagination {
+declare namespace IUsePagination {
   interface IProps {
     init?: number
     limit?: number
   }
 }
 
-export { IPagination }
+export { IUsePagination }

@@ -14,11 +14,7 @@ exports[`----- Checkbox Component ----- Renders checked correctly without crashi
       type="checkbox"
     />
     <span
-<<<<<<< HEAD
-      class="checkbox__icn checkbox__icn--checked icn icn--md icn--light"
-=======
       class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
->>>>>>> boilerplate/master
     >
       <svg
         class="checkbox__icn-svg icn__svg"
@@ -52,11 +48,7 @@ exports[`----- Checkbox Component ----- Renders disabled correctly without crash
       type="checkbox"
     />
     <span
-<<<<<<< HEAD
-      class="checkbox__icn icn icn--md icn--light"
-=======
       class="checkbox__icn icn icn--md icn--inverse"
->>>>>>> boilerplate/master
     >
       <svg
         class="checkbox__icn-svg icn__svg"
@@ -89,11 +81,7 @@ exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
       type="checkbox"
     />
     <span
-<<<<<<< HEAD
-      class="checkbox__icn icn icn--md icn--light"
-=======
       class="checkbox__icn icn icn--md icn--inverse"
->>>>>>> boilerplate/master
     >
       <svg
         class="checkbox__icn-svg icn__svg"

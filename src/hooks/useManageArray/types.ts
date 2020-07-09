@@ -1,7 +1,7 @@
-declare namespace IManageArray {
+declare namespace IUseManageArray {
   interface IProps {
     key?: string
   }
 }
 
-export { IManageArray }
+export { IUseManageArray }

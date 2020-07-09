@@ -33,7 +33,7 @@ const NavbarLink: React.FC<INavbar.ILinkProps> = ({
       rel={external ? 'noopener' : undefined}
       onClick={onClick}
     >
-      <Icon className="m--r-lg" {...icon} />
+      {icon && <Icon className='m--r-lg' {...icon} />}
       <span>{children}</span>
     </Tag>
   )

@@ -1,4 +1,4 @@
-declare namespace IToggleTree {
+declare namespace IUseToggleTree {
   interface IProps {
     multi?: boolean
   }
@@ -11,4 +11,4 @@ declare namespace IToggleTree {
   }
 }
 
-export { IToggleTree }
+export { IUseToggleTree }

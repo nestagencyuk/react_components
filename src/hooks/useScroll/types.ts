@@ -1,4 +1,4 @@
-declare namespace IScroll {
+declare namespace IUseScroll {
   interface IProps {
     acceleration?: number
   }
@@ -6,4 +6,4 @@ declare namespace IScroll {
   interface IState { x: number, y: number }
 }
 
-export { IScroll }
+export { IUseScroll }

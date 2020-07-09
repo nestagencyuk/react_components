@@ -17,7 +17,8 @@ This is the alert in its most basic form, using all default props.
 <Preview>
   <Story name='Base'>
     <Alert header={{
-      heading: "Lorem ipsum dolor sit amet"
+      heading: 'Alert heading',
+      size: 'Small'
     }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit
     </Alert>
@@ -33,8 +34,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 <Preview>
   <Story name='Alert-Info'>
     <Alert variant='Info' header={{
-      heading: "Info",
-      size: "Small",
+      heading: 'Info',
+      size: 'Small',
     }}>
       Useful information.
     </Alert>
@@ -45,8 +46,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 <Preview>
   <Story name='Alert-Success'>
     <Alert variant='Success' header={{
-      heading: "Success",
-      size: "Small",
+      heading: 'Success',
+      size: 'Small',
     }}>
        Wow, it worked!
     </Alert>
@@ -57,7 +58,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 <Preview>
   <Story name='Alert-Warning'>
     <Alert variant='Warning' header={{
-      heading: "Warning"
+      heading: 'Warning',
+      size: 'Small'
     }}>
       I'm warning you...
     </Alert>
@@ -68,7 +70,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 <Preview>
   <Story name='Alert-Error'>
     <Alert variant='Error' header={{
-      heading: "Error"
+      heading: 'Error',
+      size: 'Small'
     }}>
       There was an error!
     </Alert>
@@ -86,7 +89,7 @@ To create an alert popover, the base alert component can be combined with [Toggl
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
+            <Alert className='animate animate--fade-in-top'  onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -107,7 +110,7 @@ Set a timeout so that the alert disappears after some time.
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant='Success'>
+            <Alert className='animate animate--fade-in-top' variant='Success'>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -130,13 +133,13 @@ An alert can be used to determine an action.
           <Button onClick={() => setToggled(true)}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant='Warning' footer={{
+            <Alert className='animate animate--fade-in-top' variant='Warning' footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
               ]
             }}>
-              Are you sure you want to do this crazy thing?!
+              Are you sure you want to do this?!
             </Alert>
           </Float>}
         </Fragment>

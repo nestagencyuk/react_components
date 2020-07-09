@@ -1,4 +1,4 @@
-import { IMousePos } from './types'
+import { IUseMousePos } from './types'
 import { useEffect } from 'react'
 import { useRaf } from '../useRaf'
 import { lerp } from '@nestagencyuk/typescript_lib-frontend'
@@ -9,7 +9,7 @@ import { lerp } from '@nestagencyuk/typescript_lib-frontend'
  * @param {Object} options
  * An options config
  */
-const useMousePos = ({ acceleration = 0 }: IMousePos.IProps = {}): [IMousePos.IState] => {
+const useMousePos = ({ acceleration = 0 }: IUseMousePos.IProps = {}): [IUseMousePos.IState] => {
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 

@@ -13,7 +13,7 @@ import { Icon } from '../Icon'
  */
 const CollapseHeader: React.FC<ICollapse.IHeaderProps> = ({ className, open, heading, onClick }) => (
   <button className={cx(className, 'collapse__header')} onClick={onClick}>
-    <Text className="collapse__heading" variant="Intro" tag="span">
+    <Text className='collapse__heading' variant='Intro' tag='span'>
       {heading}
     </Text>
     <Icon name={open ? 'Chevron-up' : 'Chevron-down'} />

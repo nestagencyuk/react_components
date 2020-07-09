@@ -1,21 +1,19 @@
 import { MemoryRouter } from 'react-router-dom'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { SideNav } from '.'
+import { Navtree } from '.'
 
-<Meta title="Components|Base/SideNav" component={SideNav} />
+<Meta title='Components|Navigation/Navtree' component={Navtree} />
 
-# Side Nav
-
-A simple side navigation with nested items.
+# Navtree
+A navigation that takes on a vertical, tree like structure.
 
 ## Base
-
-For use as a side navigation bar, accepts an array of config objects.
+For use as a side navigation bar, accepts an array of link objects.
 
 <Preview>
-  <Story name="Vertical">
+  <Story name='Base'>
     <MemoryRouter>
-      <SideNav
+      <Navtree
         links={[
           {
             href: '/',
@@ -120,4 +118,4 @@ For use as a side navigation bar, accepts an array of config objects.
 
 ## Prop Types
 
-<Props of={SideNav} />
+<Props of={Navtree} />

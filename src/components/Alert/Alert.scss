@@ -31,7 +31,6 @@ $close-size: 1.5rem !default;
   position: relative;
   box-sizing: border-box;
   max-width: 800px;
-  padding: spacing.$md;
   background-color: white;
   box-shadow: shadows.$one;
   border-radius: corners.$base;
@@ -96,9 +95,31 @@ $close-size: 1.5rem !default;
 }
 
 /// -------------------
+/// Alert header
+/// -------------------
+
+.alert__header.header {
+  padding: $padding-y $padding-x;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+/// -------------------
+/// Alert body
+/// -------------------
+
+.alert__body {
+  padding-left: $padding-x;
+  padding-right: $padding-x * 3;
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+}
+
+/// -------------------
 /// Alert footer
 /// -------------------
 
-.alert__footer {
+.alert__footer.footer {
+  border-top: 0;
   background-color: transparent;
 }

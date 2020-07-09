@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { Text } from '../Text'
 import { Footer } from '.'
 
-<Meta title="Components|Base/Footer" component={Footer} />
+<Meta title='Components|Base/Footer' component={Footer} />
 
 # Footer
 
@@ -16,14 +16,14 @@ This footer is a structural element used to identify the footer of a document, a
 This is the footer in its simplest form.
 
 <Preview>
-  <Story name="Base">
+  <Story name='Base'>
     <MemoryRouter>
       <Footer
         actions={[
           { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => alert('No') },
           { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => alert('Yes') }
         ]}
-        subInfo={<Text variant="Epsilon">Copyright | 2020 | 3414134234</Text>}
+        subInfo={<Text variant='Small'>Copyright | 2020 | 3414134234</Text>}
       />
     </MemoryRouter>
   </Story>
