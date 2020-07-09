@@ -6,8 +6,8 @@ import { IProgressBar } from './types'
 import './ProgressBar.scss'
 
 const ProgressBar: React.FC<IProgressBar.IProps> = (props) => (
-  <div className="progress-bar__container">
-    <div className="progress-bar" style={{ width: `${props.width}` }}></div>
+  <div className='progress-bar__container'>
+    <div className='progress-bar' style={{ width: `${props.width}` }}></div>
   </div>
 )
 

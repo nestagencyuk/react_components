@@ -10,8 +10,8 @@ import './Alert.scss'
 /**
  * Components
  */
-import { AlertClose, AlertBody, AlertFooter } from '.'
-import AlertHeader from './AlertHeader'
+import { AlertHeader, AlertClose, AlertBody, AlertFooter } from '.'
+
 
 /**
  * Variants

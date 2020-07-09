@@ -1,7 +1,9 @@
-declare namespace IToggleGroup {
+declare namespace IUseToggleGroup {
   interface IProps {
     multi?: boolean
   }
+
+  interface IState { [key: string]: boolean }
 }
 
-export { IToggleGroup }
+export { IUseToggleGroup }

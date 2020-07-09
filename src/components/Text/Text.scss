@@ -10,12 +10,6 @@
 @use 'spacing';
 
 /// -------------------
-/// Font imports
-/// -------------------
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-/// -------------------
 /// Text config
 /// -------------------
 
@@ -25,42 +19,24 @@ $margin-bottom: spacing.$sm !default;
 /// Text selectors
 /// -------------------
 
-html {
-  font-size: typography.$base-font-size * 0.65;
-
-  @include lib.breakpoint-up(breakpoints.$xxs) {
-    font-size: typography.$base-font-size * 0.85;
-  }
-
-  @include lib.breakpoint-up(breakpoints.$sm) {
-    font-size: typography.$base-font-size;
-  }
-}
-
-body {
-  font-family: typography.$font-family;
-  line-height: typography.$base-line-height;
-  font-display: swap;
-}
-
-/// -------------------
-/// Text selectors
-/// -------------------
-
 .text {
   margin-top: 0;
   margin-bottom: $margin-bottom;
 
-  @each $variant in typography.$all {
-    $variant-name: nth($variant, 1);
-
+  @each $variant-name, $variant-prop in typography.$all {
     &--#{$variant-name} {
-      @include lib.mixin-apply-props(map-get(typography.$all, $variant-name));
+      @include lib.mixin-apply-props(
+        map-get(typography.$all, $variant-name)
+      );
     }
   }
 
   &--inverse {
     color: white;
+  }
+
+  &--medium {
+    font-weight: typography.$font-medium;
   }
 
   &--bold {
@@ -77,6 +53,16 @@ body {
 
   &--right {
     text-align: right;
+  }
+
+  &--screen-reader {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
   }
 
   &:only-child,

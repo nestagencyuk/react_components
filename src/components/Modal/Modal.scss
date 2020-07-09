@@ -30,12 +30,11 @@ $close-size: 1.5rem !default;
   box-sizing: border-box;
   max-width: 800px;
   min-width: 250px;
-  padding: spacing.$md;
   background-color: white;
   box-shadow: shadows.$one;
   border-radius: corners.$base;
   z-index: z-index.$modal;
-
+  
   @include lib.breakpoint-up(breakpoints.$sm) {
     min-width: 500px;
   }
@@ -63,3 +62,23 @@ $close-size: 1.5rem !default;
     opacity: 1;
   }
 }
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__header {}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__body {
+  padding: $padding-y $padding-x;
+}
+
+/// -------------------
+/// Modal swatches
+/// -------------------
+
+.modal__footer {}

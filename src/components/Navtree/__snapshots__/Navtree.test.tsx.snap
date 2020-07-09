@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Navtree Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <nav
+    class="navtree"
+  >
+    <ul
+      class="navtree__list navtree__list--open"
+      data-depth="0"
+    >
+      <li
+        class="navtree__item"
+      >
+        <a
+          class="navtree__link"
+          href="/"
+        >
+          <span
+            class="m--r-lg icn icn--md icn--dark"
+          />
+          <span>
+            Home
+          </span>
+        </a>
+      </li>
+      <li
+        class="navtree__item"
+      >
+        <a
+          class="navtree__link"
+        >
+          <span
+            class="m--r-lg icn icn--md icn--dark"
+          />
+          <span>
+            About
+          </span>
+        </a>
+      </li>
+      <li
+        class="navtree__item"
+      >
+        <a
+          class="navtree__link"
+          href="/test"
+        >
+          <span
+            class="m--r-lg icn icn--md icn--dark"
+          />
+          <span>
+            Test
+          </span>
+        </a>
+        <ul
+          class="navtree__list"
+          data-depth="1"
+        >
+          <li
+            class="navtree__item"
+          >
+            <a
+              class="navtree__link"
+            >
+              <span
+                class="m--r-lg icn icn--md icn--dark"
+              />
+              <span>
+                A test child
+              </span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

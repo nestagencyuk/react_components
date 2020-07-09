@@ -18,14 +18,14 @@ import { Button } from '../Button'
 const Footer: React.FC<IFooter.IProps> = ({ className, actions, subInfo }) =>
   actions || subInfo ? (
     <footer className={cx(className, 'footer')}>
-      <div className="footer__actions">
+      <div className='footer__actions'>
         {actions.map((x, i) => (
           <Button key={`footer-btn-${i}`} {...x}>
             {x.text}
           </Button>
         ))}
       </div>
-      {subInfo && <div className="footer__sub">{subInfo}</div>}
+      {subInfo && <div className='footer__sub'>{subInfo}</div>}
     </footer>
   ) : null
 

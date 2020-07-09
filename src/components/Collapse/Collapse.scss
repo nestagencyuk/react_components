@@ -65,12 +65,15 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .collapse__body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height transitions.$ease, padding transitions.$ease;
-  padding: 0 $padding-x;
+  padding: $padding-y $padding-x;
+  animation: fadeInTop 0.3s forwards ease;
+  display: none;
   
-  &--active {
-    padding: $padding-y $padding-x;
+  &--open {
+    display: block;
+  }
+
+  & & {
+    padding-right: 0;
   }
 }

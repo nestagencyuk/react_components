@@ -8,17 +8,17 @@ describe('----- Select Component -----', () => {
   const baseProps = {
     id: 'Select',
     options: [
-      { label: 'Option One', value: "option-1" },
-      { label: 'Option Two', value: "option-2" },
-      { label: 'Option Three', value: "option-3" },
-      { label: 'Option Four', value: "option-4" },
-      { label: 'Option Five', value: "option-5" },
-      { label: 'Option Six', value: "option-6" },
-      { label: 'Option Seven', value: "option-7" },
-      { label: 'Option Eight', value: "option-8" },
-      { label: 'Option Nine', value: "option-9" },
-      { label: 'Option Ten', value: "option-10" },
-      { label: 'Option Eleven', value: "option-11" },
+      { label: 'Option One', value: 'option-1' },
+      { label: 'Option Two', value: 'option-2' },
+      { label: 'Option Three', value: 'option-3' },
+      { label: 'Option Four', value: 'option-4' },
+      { label: 'Option Five', value: 'option-5' },
+      { label: 'Option Six', value: 'option-6' },
+      { label: 'Option Seven', value: 'option-7' },
+      { label: 'Option Eight', value: 'option-8' },
+      { label: 'Option Nine', value: 'option-9' },
+      { label: 'Option Ten', value: 'option-10' },
+      { label: 'Option Eleven', value: 'option-11' },
     ]
   }
 
@@ -79,7 +79,7 @@ describe('----- Select Component -----', () => {
 
   describe('Initial value', () => {
     const mountComponentInContext = () => render(
-      <Select {...baseProps} value="option-1" onChange={mockFn} />
+      <Select {...baseProps} value='option-1' onChange={mockFn} />
     )
 
     it('Renders without crashing', () => {
@@ -97,7 +97,7 @@ describe('----- Select Component -----', () => {
 
   describe('Initial value Multi', () => {
     const mountComponentInContext = () => render(
-      <Select {...baseProps} value={["option-1", "option-2"]} multi onChange={mockFn} />
+      <Select {...baseProps} value={['option-1', 'option-2']} multi onChange={mockFn} />
     )
 
     it('Renders without crashing', () => {

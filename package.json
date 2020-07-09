@@ -26,13 +26,12 @@
     "react",
     "typescript"
   ],
-  "author": "Alex Basey-Fisher",
+  "author": "Nest Agency Ltd",
   "license": "ISC",
   "homepage": "https://github.com/nestagencyuk/react_century-logistics-components#readme",
   "dependencies": {
     "@nestagencyuk/scss_lib": "^1.1.2",
     "@nestagencyuk/typescript_lib-frontend": "^1.0.5",
-    "@storybook/addon-backgrounds": "^5.3.19",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -42,6 +41,8 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@nestagencyuk/typescript_lib-backend": "^1.0.5",
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",
     "@storybook/preset-typescript": "^3.0.0",

@@ -66,7 +66,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
 
   return (
     <input
-      className="select__input"
+      className='select__input'
       id={id}
       data-testid={`${id}-input`}
       name={id}
@@ -74,7 +74,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
       readOnly={!searchable}
       placeholder={placeholder}
       disabled={disabled}
-      autoComplete="off"
+      autoComplete='off'
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
     />
   )

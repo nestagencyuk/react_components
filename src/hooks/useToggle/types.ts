@@ -1,7 +1,9 @@
-declare namespace IToggle {
-  interface IArgs {
+declare namespace IUseToggle {
+  interface IProps {
     timeout?: number
   }
+
+  type IState = boolean
 }
 
-export { IToggle }
+export { IUseToggle }

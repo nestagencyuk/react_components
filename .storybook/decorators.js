@@ -30,7 +30,6 @@ const scrollDecorator = (story) => <div className="demo demo--scroll">{story()}<
  */
 const inverseDecorator = (story) => <div className="demo demo--inverse">{story()}</div>;
 
-
 /**
  * Adjust size to demo float
  */
