@@ -6,6 +6,7 @@
 
 @use 'spacing';
 @use 'borders';
+@use 'typography';
 
 /// -------------------
 /// Header selectors
@@ -15,4 +16,6 @@
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  border-bottom: borders.$ui-two;
+  padding: spacing.$lg;
 }

@@ -11,9 +11,9 @@ import { Icon } from '../Icon'
  */
 const AlertClose: React.FC<IAlert.ICloseProps> = ({ onClick }) =>
   onClick ? (
-    <button className="alert__close" onClick={() => onClick(false)}>
+    <button className='alert__close' onClick={() => onClick(false)}>
       Close
-      <Icon name="Cross" />
+      <Icon name='Cross' />
     </button>
   ) : null
 

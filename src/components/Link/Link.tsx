@@ -10,7 +10,7 @@ import './Link.scss'
 /**
  * Components
  */
-import { Icon } from '../Icon'
+import { LinkIcon } from '.'
 
 /**
  * Variants
@@ -52,9 +52,9 @@ const Link: React.FC<ILink.IProps> = ({
       target={target}
       rel={external ? 'noopener' : undefined}
     >
-      {iconStart && <Icon className="link__icn" name={icon.name} />}
+      {iconStart && <LinkIcon {...icon} />}
       <span>{children}</span>
-      {iconEnd && <Icon className="link__icn" name={icon.name} />}
+      {iconEnd && <LinkIcon {...icon} />}
     </Tag>
   ) : null
 }

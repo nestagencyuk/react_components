@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { MemoryRouter } from 'react-router-dom'
+import { Navbar } from '../components/Navbar'
+import { PageFooter } from '../components/PageFooter'
+import { Box } from '../components/Box'
+import { Text } from '../components/Text'
+import { Block } from '../components/Block'
+import { Button } from '../components/Button'
+import logo from '../assets/img/logo.png'
+
+<Meta title='Templates|Page Layout' component={null} />
+
+# Templates
+Some examples of building layouts using components.
+ 
+## Layout
+A full page layout example.
+
+<Preview>
+  <Story name='Base'>
+    <div>
+      <MemoryRouter>
+        <Navbar 
+          brand={{
+            align: 'Center',
+            image: { aspect: '1x1', src: logo, alt: 'My Company Logo' }
+          }} 
+          links={[
+            { text: 'Home', align: 'Start', href: '/'},
+            { text: 'About', align: 'Start', href: '/'},
+            { text: 'Blog', align: 'Start', href: '/'},
+            { text: 'FAQs', align: 'End', href: '/'},
+            { text: 'Careers', align: 'End', href: '/'},
+            { text: 'Contact', align: 'End', href: '/'
+            }
+          ]} 
+        />
+        <Box className='p--xxl bg--ui-one m--b-lg' align={{ x: 'Center', y: 'Center' }}>
+          <div className='text text--center'>
+            <Text variant='Alpha' tag='h1' align='Center'>Heading</Text>
+            <Text variant='Intro' align='Center'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio. 
+            </Text>
+            <Button>Call to Action</Button>
+          </div>
+        </Box>
+        <Block size='Large' image={{ aspect: '1x1', align: 'Start', src: 'https://source.unsplash.com/random/1000x1000', alt: 'Block Image'}} link={{ href: '/', text: 'Lorem Ipsum' }}>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Text>
+        </Block>
+        <Block size='Large' image={{ aspect: '1x1', align: 'End', src: 'https://source.unsplash.com/random/1001x1001', alt: 'Block Image'}} link={{ href: '/', text: 'Lorem Ipsum' }}>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Text>
+        </Block>
+        <PageFooter 
+          image={{
+            variant: 'Round',
+            aspect: '1x1',
+            src: logo,
+            alt: 'Logo'
+          }} 
+          links={[
+            { text: 'Home', variant: 'Inverse', align: 'Start', href: '/'},
+            { text: 'About', variant: 'Inverse', align: 'Start', href: '/'},
+            { text: 'Contact', variant: 'Inverse', align: 'Start', href: '/'},
+            { text: 'Twitter', variant: 'Inverse', align: 'End', href: '/', icon: { align: 'Start', name: 'Twitter' }}, 
+            { text: 'Instagram', variant: 'Inverse', align: 'End', href: '/', icon: { align: 'Start', name: 'Instagram' }
+          }
+          ]} 
+          subInfo={<Text inverse>Copyright | 2020 | 3414134234</Text>}
+        />
+      </MemoryRouter>
+    </div>
+  </Story>
+</Preview>

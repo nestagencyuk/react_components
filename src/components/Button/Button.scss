@@ -18,20 +18,21 @@
 /// -------------------
 
 $padding-x: spacing.$xl !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
-/// Button selectors
+/// Button selectors 
 /// -------------------
 
 .btn {
   @include lib.resets-style;
   @include lib.components-flow;
   position: relative;
-  border-radius: corners.$base;
+  border-radius: corners.$base; 
   font-family: typography.$font-family--alt;
   font-weight: typography.$font-bold;
-  transition: $transition;
+  transition: color transitions.$ease, 
+    background-color transitions.$ease,
+    border-color transitions.$ease;
   user-select: none;
   text-decoration: none;
   padding-left: $padding-x;
@@ -42,6 +43,7 @@ $transition: all transitions.$ease !default;
   &--primary {
     background-color: colours.$brand-one;
     color: white;
+    fill: white;
 
     &:hover {
       background-color: colours.$brand-two;
@@ -49,12 +51,35 @@ $transition: all transitions.$ease !default;
   }
 
   &--secondary {
-    border-color: colours.$ui-four;
-    color: colours.$ui-four;
+    border-color: colours.$brand-two;
+    color: colours.$brand-two;
+    fill: colours.$brand-two;
 
     &:hover {
-      color: #fff;
-      background-color: colours.$ui-four;
+      border-color: colours.$brand-one;
+      color: colours.$brand-one;
+      fill: colours.$brand-one;
+    }
+  }
+  
+  &--tertiary {
+    background-color: colours.$ui-one;
+
+    &:hover {
+      color: colours.$brand-one;
+      fill: colours.$brand-one;
+    }
+  }
+  
+  &--inverse {
+    border-color: white;
+    color: white;
+    fill: white;
+
+    &:hover {
+      border-color: colours.$brand-two;
+      color: colours.$brand-two;
+      fill: colours.$brand-two;
     }
   }
 
@@ -62,7 +87,7 @@ $transition: all transitions.$ease !default;
     padding-left: $padding-x * 0.5;
     padding-right: $padding-x * 0.5;
   }
-
+  
   &--lg {
     padding-left: $padding-x * 1.5;
     padding-right: $padding-x * 1.5;
@@ -71,7 +96,7 @@ $transition: all transitions.$ease !default;
   &:focus {
     @include states.focus;
   }
-
+  
   &--disabled,
   &:disabled {
     @include states.disabled;
@@ -93,51 +118,31 @@ $transition: all transitions.$ease !default;
 }
 
 /// -------------------
-/// Button icon
+/// Button icon 
 /// -------------------
 
-.btn__icn.icn {
-  &:first-child {
+.btn__icn {
+  &--start {
     transform: translateX(-$padding-x / 2);
 
     .btn--sm & {
-      transform: translateX(-$padding-x / 3.5);
+      transform: translateX(-$padding-x / 3.5); 
     }
 
     .btn--lg & {
-      transform: translateX(-$padding-x);
+      transform: translateX(-$padding-x); 
     }
   }
-
-  &:last-child {
+  
+  &--end {
     transform: translateX($padding-x / 2);
 
     .btn--sm & {
-      transform: translateX($padding-x / 3.5);
+      transform: translateX($padding-x / 3.5); 
     }
 
     .btn--lg & {
-      transform: translateX($padding-x);
+      transform: translateX($padding-x); 
     }
-  }
-}
-
-/// -------------------
-/// Button icon path
-/// -------------------
-
-.btn__icn-path.icn__path {
-  transition: $transition;
-
-  .btn--primary & {
-    fill: white;
-  }
-
-  .btn--secondary & {
-    fill: colours.$ui-four;
-  }
-
-  .btn--secondary:hover & {
-    fill: #fff;
   }
 }

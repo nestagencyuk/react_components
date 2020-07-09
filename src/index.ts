@@ -1,17 +1,11 @@
 export { Alert } from './components/Alert'
 export { IAlert } from './components/Alert/types'
 
-export { Block } from './components/Block'
-export { IBlock } from './components/Block/types'
-
 export { Box } from './components/Box'
 export { IBox } from './components/Box/types'
 
 export { Button } from './components/Button'
 export { IButton } from './components/Button/types'
-
-export { Card } from './components/Card'
-export { ICard } from './components/Card/types'
 
 export { Checkbox } from './components/Checkbox'
 export { ICheckbox } from './components/Checkbox/types'
@@ -30,9 +24,6 @@ export { IFloat } from './components/Float/types'
 
 export { Footer } from './components/Footer'
 export { IFooter } from './components/Footer/types'
-
-export { Gallery } from './components/Gallery'
-export { IGallery } from './components/Gallery/types'
 
 export { Grid } from './components/Grid'
 export { IGrid } from './components/Grid/types'
@@ -66,14 +57,11 @@ export { ILoader } from './components/Loader/types'
 export { Modal } from './components/Modal'
 export { IModal } from './components/Modal/types'
 
-export { Navigation } from './components/Navigation'
-export { INavigation } from './components/Navigation/types'
+export { Navbar } from './components/Navbar'
+export { INavbar } from './components/Navbar/types'
 
 export { Overlay } from './components/Overlay'
 export { IOverlay } from './components/Overlay/types'
-
-export { Page } from './components/Page'
-export { IPage } from './components/Page/types'
 
 export { PageFooter } from './components/PageFooter'
 export { IPageFooter } from './components/PageFooter/types'
@@ -92,11 +80,8 @@ export { IRadio } from './components/Radio/types'
 export { Select } from './components/Select'
 export { ISelect } from './components/Select/types'
 
-export { Slider } from './components/Slider'
-export { ISlider } from './components/Slider/types'
-
-export { SideNav } from './components/SideNav'
-export { ISideNav } from './components/SideNav/types'
+export { Navtree } from './components/Navtree'
+export { INavtree } from './components/Navtree/types'
 
 export { Text } from './components/Text'
 export { IText } from './components/Text/types'
@@ -110,13 +95,10 @@ export { ITooltip } from './components/Tooltip/types'
 export { ToggleGroup } from './context/ToggleGroup'
 
 export { useManageArray } from './hooks/useManageArray'
-export { useMousePos } from './hooks/useMousePos'
 export { useObserver } from './hooks/useObserver'
 export { usePagination } from './hooks/usePagination'
-export { useRaf } from './hooks/useRaf'
-export { useScroll } from './hooks/useScroll'
 export { useToggle } from './hooks/useToggle'
 export { useToggleGroup } from './hooks/useToggleGroup'
-export { useTypeEffect } from './hooks/useTypeEffect'
+export { useToggleTree } from './hooks/useToggleTree'
 
 require('./index.scss')

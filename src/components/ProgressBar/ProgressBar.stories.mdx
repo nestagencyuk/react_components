@@ -4,7 +4,7 @@ import { ProgressBar } from '.'
 import { Button } from '../Button'
 import { Fragment, useState, useEffect } from 'react'
 
-<Meta title="Components|Base/ProgressBar" component={ProgressBar} />
+<Meta title='Components|Base/ProgressBar' component={ProgressBar} />
 
 # Progress Bar
 
@@ -15,8 +15,8 @@ A simple progress bar for displaying progress to a user.
 The progress bar in its simplest form.
 
 <Preview>
-  <Story name="Base">
-    <ProgressBar width="65%" />
+  <Story name='Base'>
+    <ProgressBar width='65%' />
   </Story>
 </Preview>
 
@@ -25,7 +25,7 @@ The progress bar in its simplest form.
 Use state to animate the bar in or out.
 
 <Preview>
-  <Story name="Animate Up">
+  <Story name='Animate Up'>
     {() => {
       const startingValue = 0;
       const [value, setValue] = useState(startingValue)
@@ -35,7 +35,7 @@ Use state to animate the bar in or out.
       
       return (
         <Fragment>
-          <Button className="m--b-sm" onClick={() => animate()}>
+          <Button className='m--b-sm' onClick={() => animate()}>
             Animate in
           </Button>
           <ProgressBar width={`${value}%`} />

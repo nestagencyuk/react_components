@@ -1,0 +1,58 @@
+import { INavbar } from './types'
+import * as React from 'react'
+import { useState } from 'react'
+import cx from 'classnames'
+
+/**
+ * Styles
+ */
+import './Navbar.scss'
+
+/**
+ * Components
+ */
+import { NavbarToggle, NavbarBrand, NavbarList } from '.'
+
+/**
+ * Brand align styles
+ */
+const brandAlignment = {
+  Start: 'navbar--b-s',
+  Center: 'navbar--b-c',
+  End: 'navbar--b-e'
+}
+
+/**
+ * A simple, single level navbarigation component, allowing for lists to be positioned left,
+ * right, or centrally.
+ */
+const Navbar: React.FC<INavbar.IProps> = ({ className, brand, links = [] }) => {
+  const [toggled, setToggled] = useState(false)
+  const startLinks = links.filter((x) => x.align === 'Start')
+  const centerLinks = links.filter((x) => x.align === 'Center')
+  const endLinks = links.filter((x) => x.align === 'End')
+
+  /**
+   * Brand alignment
+   */
+  const brandStart = brand?.align === 'Start'
+  const brandCenter = brand?.align === 'Center'
+  const brandEnd = brand?.align === 'End'
+
+  return (
+    <nav className={cx(className, 'navbar', brandAlignment[brand?.align], { 'navbar--open': toggled })}>
+      <div className='navbar__bar'>
+        {brandStart && <NavbarBrand {...brand} />}
+        <NavbarToggle toggled={toggled} onClick={setToggled} />
+        {(brandCenter || brandEnd) && <NavbarBrand {...brand} />}
+      </div>
+      <div className='navbar__lists'>
+        <NavbarList align={'Start'} items={startLinks} />
+        <NavbarList align={'Center'} items={centerLinks} />
+        <NavbarList align={'End'} items={endLinks} />
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
