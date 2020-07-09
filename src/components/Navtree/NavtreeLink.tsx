@@ -1,11 +1,16 @@
-import { INavbar } from './types'
+import { INavtree } from './types'
 import * as React from 'react'
 import cx from 'classnames'
 
 /**
- * A Navbar link using React Router
+ * Components
  */
-const NavbarLink: React.FC<INavbar.ILinkProps> = ({
+import { Icon } from '../Icon'
+
+/**
+ * A Navtree link using React Router
+ */
+const NavtreeLink: React.FC<INavtree.ILinkProps> = ({
   className,
   component,
   href,
@@ -13,6 +18,7 @@ const NavbarLink: React.FC<INavbar.ILinkProps> = ({
   target,
   active,
   external,
+  icon,
   children,
   onClick
 }) => {
@@ -20,16 +26,17 @@ const NavbarLink: React.FC<INavbar.ILinkProps> = ({
 
   return (
     <Tag
-      className={cx(className, 'navbar__link', { 'navbar__link--active': active })}
+      className={cx(className, 'navtree__link', { 'navtree__link--active': active })}
       href={href}
       to={to}
       target={target}
       rel={external ? 'noopener' : undefined}
       onClick={onClick}
     >
+      <Icon className="m--r-lg" {...icon} />
       <span>{children}</span>
     </Tag>
   )
 }
 
-export default NavbarLink
+export default NavtreeLink

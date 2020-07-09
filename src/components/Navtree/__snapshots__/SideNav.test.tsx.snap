@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- SideNav Component ----- Renders without crashing 1`] = `
+exports[`----- Navtree Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <nav
-    class="side-nav side-nav--vertical"
+    class="navtree navtree--vertical"
   >
     <ul
-      class="side-nav__list side-nav__list--0"
+      class="navtree__list navtree__list--0"
     >
       <li
-        class="side-nav__item"
+        class="navtree__item"
       >
         <a
-          class="side-nav__link"
+          class="navtree__link"
           href="/"
         >
           <span
@@ -36,10 +36,10 @@ exports[`----- SideNav Component ----- Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        class="side-nav__item"
+        class="navtree__item"
       >
         <button
-          class="side-nav__link"
+          class="navtree__link"
         >
           <span
             class="m--r-xs icn icn--md icn--dark"
@@ -62,10 +62,10 @@ exports[`----- SideNav Component ----- Renders without crashing 1`] = `
         </button>
       </li>
       <li
-        class="side-nav__item"
+        class="navtree__item"
       >
         <a
-          class="side-nav__link"
+          class="navtree__link"
           href="/test"
         >
           <span

@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import { SideNav } from '.'
-import { ISideNav } from './types'
+import { Navtree } from '.'
+import { INavtree } from './types'
 import { MemoryRouter, Link } from 'react-router-dom'
 
-describe('----- SideNav Component -----', () => {
-  const baseProps: ISideNav.IProps = {
+describe('----- Navtree Component -----', () => {
+  const baseProps: INavtree.IProps = {
     links: [
       {
         href: '/',
@@ -40,13 +40,11 @@ describe('----- SideNav Component -----', () => {
   }
 
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => {
-      return render(
-        <MemoryRouter>
-          <SideNav {...baseProps} />
-        </MemoryRouter>
-      )
-    }
+    const mountComponentInContext = () => render(
+      <MemoryRouter>
+        <Navtree {...baseProps} />
+      </MemoryRouter>
+    )
     const { asFragment } = mountComponentInContext()
     expect(asFragment()).toMatchSnapshot()
   })

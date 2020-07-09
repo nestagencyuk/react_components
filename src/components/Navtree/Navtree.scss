@@ -1,6 +1,6 @@
 /// ----------------------------------------------------------------------
 
-/// side-nav
+/// Navtree
 
 /// ----------------------------------------------------------------------
 
@@ -14,28 +14,17 @@
 @use 'breakpoints';
 
 /// -------------------
-/// side-nav config
+/// Navtree config
 /// -------------------
 
 $nav-left: spacing.$md * 4;
 $nav-height: 70px;
 
-@keyframes navList {
-  0% {
-    opacity: 0;
-    transform: translateY(-1rem);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /// -------------------
-/// side-nav selectors
+/// Navtree selectors
 /// -------------------
 
-.side-nav {
+.navtree {
   position: relative;
   z-index: z-index.$top;
   padding: 0;
@@ -43,29 +32,36 @@ $nav-height: 70px;
 }
 
 /// -------------------
-/// side-nav selectors
+/// Navtree selectors
 /// -------------------
 
-.side-nav__list {
+.navtree__list {
   @include lib.resets-list;
-  margin-left: spacing.$md;
   transform-origin: top;
-  animation: navList 0.3s forwards ease;
-}
-/// -------------------
-/// side-nav item
-/// -------------------
+  animation: fadeInTop 0.3s forwards ease;
+  display: none;
+  
+  &:not([data-depth="0"]) {
+    margin-left: spacing.$xl;
+  }
 
-.side-nav__item {
-  .side-nav--horizontal & {
-    position: relative;
+  &--open {
+    display: block;
   }
 }
 /// -------------------
-/// side-nav link
+/// Navtree item
 /// -------------------
 
-.side-nav__link {
+.navtree__item {
+
+}
+
+/// -------------------
+/// Navtree link
+/// -------------------
+
+.navtree__link {
   @include lib.resets-style;
   display: inline-block;
   width: 100%;
@@ -77,6 +73,7 @@ $nav-height: 70px;
   text-decoration: none;
   white-space: nowrap;
   color: map-get(colours.$ui, 'five');
+  text-align: left;
   cursor: pointer;
   transition: background-color 0.3s ease;
   background-color: rgba(black, 0.025);
@@ -85,11 +82,7 @@ $nav-height: 70px;
     color: map-get(colours.$brand, 'two');
   }
 
-  .side-nav--vertical & {
-    text-align: left;
-  }
-
-  .side-nav__item:nth-child(2n) & {
+  .navtree__item:nth-child(2n) & {
     background-color: rgba(white, 0.025);
   }
 }

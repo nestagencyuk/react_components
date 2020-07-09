@@ -22,7 +22,9 @@ $navbar-margin-y: spacing.$md !default;
 /// Slider selectors
 /// -------------------
 
-.slider {}
+.slider {
+  position: relative;
+}
 
 /// -------------------
 /// Slider selectors

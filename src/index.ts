@@ -96,8 +96,8 @@ export { ISlider } from './components/Slider/types'
 export { SocialFeed } from './components/SocialFeed'
 export { ISocialFeed } from './components/SocialFeed/types'
 
-export { SideNav } from './components/SideNav'
-export { ISideNav } from './components/SideNav/types'
+export { Navtree } from './components/Navtree'
+export { INavtree } from './components/Navtree/types'
 
 export { Text } from './components/Text'
 export { IText } from './components/Text/types'
@@ -118,6 +118,7 @@ export { useRaf } from './hooks/useRaf'
 export { useScroll } from './hooks/useScroll'
 export { useToggle } from './hooks/useToggle'
 export { useToggleGroup } from './hooks/useToggleGroup'
+export { useToggleTree } from './hooks/useToggleTree'
 export { useTypeEffect } from './hooks/useTypeEffect'
 
 require('./index.scss')
