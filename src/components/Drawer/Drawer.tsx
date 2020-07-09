@@ -34,7 +34,7 @@ const Drawer: React.FC<IDrawer.IProps> = ({ children, onClick }) => {
 
   return (
     <Fragment>
-      <Overlay className='animate animate fade-in' portal fixed onClick={onClick} />
+      <Overlay className='animate animate animate--fade-in' portal fixed onClick={onClick} />
       <Float className='drawer animate animate--swipe-in-left' portal align={{ x: 'Start', y: 'Start' }}>
         <div>{children}</div>
       </Float>
