@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader Component Renders fixed variant without crashing 1`] = `
+<DocumentFragment>
+  <header
+    class="page-header page-header--fixed"
+  >
+    Test
+  </header>
+</DocumentFragment>
+`;
+
+exports[`PageHeader Component Renders without crashing 1`] = `
+<DocumentFragment>
+  <header
+    class="page-header"
+  >
+    Test
+  </header>
+</DocumentFragment>
+`;

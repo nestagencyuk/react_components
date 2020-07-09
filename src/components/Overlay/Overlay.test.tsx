@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Drawer } from '.';
-import { IDrawer } from './types'
+import { Overlay } from '.';
+import { IOverlay } from './types'
 
-describe('----- Drawer Component -----', () => {
+describe('----- Overlay Component -----', () => {
   const mockFn = jest.fn()
-  const baseProps: IDrawer.IProps = {
-    children: '',
+  const baseProps: IOverlay.IProps = {
     onClick: mockFn
   };
 
@@ -15,14 +14,14 @@ describe('----- Drawer Component -----', () => {
   })
 
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Drawer {...baseProps}>Lorem ipsum</Drawer>);
+    const mountComponentInContext = () => render(<Overlay {...baseProps}>Lorem ipsum</Overlay>);
     const { asFragment } = mountComponentInContext();
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('Closes the drawer', () => {
-    const {} = render(<Drawer {...baseProps}>Lorem ipsum</Drawer>);
-    const button = document.querySelector('.overlay')
+  it('Closes the overlay', () => {
+    const { getByText } = render(<Overlay {...baseProps}>Lorem ipsum</Overlay>);
+    const button = getByText('Lorem ipsum')
     fireEvent.click(button)
     expect(baseProps.onClick).toHaveBeenCalledTimes(1)
   });
