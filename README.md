@@ -9,7 +9,7 @@ Usage is outlined in our [Documentation](https://twigs.nestagency.io/).
 ## Contribution:
 
 ### Develop
-Bundles all components using Storybook, starts the dev server and watches for changes. 
+Bundles all components using Storybook, starts the dev server and watches for changes.
 ```sh
 $ npm run dev
 ```
