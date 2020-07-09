@@ -41,20 +41,21 @@ $ui: (
 /// -------------------
 
 $state-success: #47bb57 !default;
-$state-success-secondary: #e8fbf6 !default;
+$state-success--alt: #e8fbf6 !default;
 $state-warning: #ecc545 !default;
-$state-warning-secondary: #fdf6db !default;
+$state-warning--alt: #fdf6db !default;
 $state-error: #ec4a58 !default;
-$state-error-secondary: #f9e9e9 !default;
+$state-error--alt: #f9e9e9 !default;
 $state-info: #cd69e0 !default;
-$state-info-secondary: #f0e3f3 !default;
+$state-info--alt: #f0e3f3 !default;
 
 $state: (
   success: $state-success,
-  success-secondary: $state-success-secondary,
+  success--alt: $state-success--alt,
   warning: $state-warning,
-  warning-secondary: $state-warning-secondary,
+  warning--alt: $state-warning--alt,
   error: $state-error,
+  error--alt: $state-error--alt,
   info: $state-info,
-  info-secondary: $state-info-secondary
+  info--alt: $state-info--alt
 );

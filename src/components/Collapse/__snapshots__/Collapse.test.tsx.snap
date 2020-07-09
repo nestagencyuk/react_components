@@ -15,21 +15,7 @@ exports[`----- Collapse Component ----- Renders without crashing 1`] = `
       </span>
       <span
         class="icn icn--md icn--dark"
-      >
-        <svg
-          class="icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-up
-          </title>
-          <path
-            class="icn__path"
-            d="M1,8.47H3.69L6,6.17l2.31,2.3H11L6,3.53Z"
-          />
-        </svg>
-      </span>
+      />
     </button>
     <div
       class="collapse__body collapse__body--open"
