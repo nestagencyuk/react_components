@@ -54,19 +54,10 @@ export { ILoader } from './components/Loader/types'
 export { Modal } from './components/Modal'
 export { IModal } from './components/Modal/types'
 
-export { Navbar } from './components/Navbar'
-export { INavbar } from './components/Navbar/types'
-
 export { Overlay } from './components/Overlay'
 export { IOverlay } from './components/Overlay/types'
 
-export { PageFooter } from './components/PageFooter'
-export { IPageFooter } from './components/PageFooter/types'
-
 export { ProgressBar } from './components/ProgressBar'
-
-export { PageHeader } from './components/PageHeader'
-export { IPageHeader } from './components/PageHeader/types'
 
 export { Pagination } from './components/Pagination'
 export { IPagination } from './components/Pagination/types'
