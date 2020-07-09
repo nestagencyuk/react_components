@@ -5,6 +5,7 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
   },
   stories: [
+    '../src/docs/index.stories.mdx',
     '../src/docs/**/*.stories.@(ts|mdx)',
     '../src/**/*.stories.@(ts|mdx)',
   ],
