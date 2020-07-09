@@ -39,25 +39,25 @@ $close-size: 1.5rem !default;
 
   &--info {
     border-color: colours.$state-info;
-    background-color: colours.$state-info-secondary;
+    background-color: colours.$state-info--alt;
     color: colours.$state-info;
   }
 
   &--success {
     border-color: colours.$state-success;
-    background-color: colours.$state-success-secondary;
+    background-color: colours.$state-success--alt;
     color: colours.$state-success;
   }
 
   &--warning {
     border-color: colours.$state-warning;
-    background-color: colours.$state-warning-secondary;
+    background-color: colours.$state-warning--alt;
     color: colours.$state-warning;
   }
 
   &--error {
     border-color: colours.$state-error;
-    background-color: colours.$state-error-secondary;
+    background-color: colours.$state-error--alt;
     color: colours.$state-error;
   }
 }
