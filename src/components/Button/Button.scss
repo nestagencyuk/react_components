@@ -18,7 +18,6 @@
 /// -------------------
 
 $padding-x: spacing.$xl !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
 /// Button selectors 
@@ -31,7 +30,9 @@ $transition: all transitions.$ease !default;
   border-radius: corners.$base; 
   font-family: typography.$font-family--alt;
   font-weight: typography.$font-bold;
-  transition: $transition;
+  transition: color transitions.$ease, 
+    background-color transitions.$ease,
+    border-color transitions.$ease;
   user-select: none;
   text-decoration: none;
   padding-left: $padding-x;
@@ -42,6 +43,7 @@ $transition: all transitions.$ease !default;
   &--primary {
     background-color: colours.$brand-one;
     color: white;
+    fill: white;
 
     &:hover {
       background-color: colours.$brand-two;
@@ -51,10 +53,12 @@ $transition: all transitions.$ease !default;
   &--secondary {
     border-color: colours.$brand-two;
     color: colours.$brand-two;
+    fill: colours.$brand-two;
 
     &:hover {
       border-color: colours.$brand-one;
       color: colours.$brand-one;
+      fill: colours.$brand-one;
     }
   }
   
@@ -63,16 +67,19 @@ $transition: all transitions.$ease !default;
 
     &:hover {
       color: colours.$brand-one;
+      fill: colours.$brand-one;
     }
   }
   
   &--inverse {
     border-color: white;
     color: white;
+    fill: white;
 
     &:hover {
       border-color: colours.$brand-two;
       color: colours.$brand-two;
+      fill: colours.$brand-two;
     }
   }
 
@@ -100,8 +107,8 @@ $transition: all transitions.$ease !default;
 /// Button icon 
 /// -------------------
 
-.btn__icn.icn {
-  &:first-child {
+.btn__icn {
+  &--start {
     transform: translateX(-$padding-x / 2);
 
     .btn--sm & {
@@ -113,7 +120,7 @@ $transition: all transitions.$ease !default;
     }
   }
   
-  &:last-child {
+  &--end {
     transform: translateX($padding-x / 2);
 
     .btn--sm & {
@@ -123,37 +130,5 @@ $transition: all transitions.$ease !default;
     .btn--lg & {
       transform: translateX($padding-x); 
     }
-  }
-}
-
-/// -------------------
-/// Button icon path
-/// -------------------
-
-.btn__icn-path.icn__path {
-  transition: $transition;
-
-  .btn--primary & {
-    fill: white;
-  }
-
-  .btn--secondary & {
-    fill: colours.$brand-two;
-  }
-  
-  .btn--secondary:hover & {
-    fill: colours.$brand-one;
-  }
-  
-  .btn--tertiary:hover & {
-    fill: colours.$brand-one;
-  }
-  
-  .btn--inverse & {
-    fill: white;
-  }
-
-  .btn--inverse:hover  {
-    fill: colours.$brand-two;
   }
 }

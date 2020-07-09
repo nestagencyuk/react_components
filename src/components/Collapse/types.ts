@@ -1,7 +1,7 @@
 declare namespace ICollapse {
   interface IProps {
     className?: string
-    active: boolean
+    open: boolean
     header: IHeaderProps
     children: any
     onToggle?: () => void
@@ -9,13 +9,13 @@ declare namespace ICollapse {
 
   interface IHeaderProps {
     className?: string
-    active?: boolean
+    open?: boolean
     heading?: string
     onClick?: () => void
   }
 
   interface IBodyProps {
-    active?: boolean
+    open?: boolean
     children: React.ReactNode
   }
 }

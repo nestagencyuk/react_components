@@ -1,3 +1,4 @@
+import { IMousePos } from './types'
 import { useEffect } from 'react'
 import { useRaf } from '../useRaf'
 import { lerp } from '@nestagencyuk/typescript_lib-frontend'
@@ -5,10 +6,10 @@ import { lerp } from '@nestagencyuk/typescript_lib-frontend'
 /**
  * Get mouse position
  *
- * @param {String} acceleration
- * Add for a smooth effect
+ * @param {Object} options
+ * An options config
  */
-const useMousePos = ({ acceleration = 0 }: any = {}) => {
+const useMousePos = ({ acceleration = 0 }: IMousePos.IProps = {}): [IMousePos.IState] => {
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 

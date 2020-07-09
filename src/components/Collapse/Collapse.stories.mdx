@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { useToggle } from '../../hooks/useToggle'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
+import { useToggleTree } from '../../hooks/useToggleTree'
 import { Collapse, CollapseItem } from '.'
 
 <Meta title='Components|Base/Collapse' component={Collapse} />
@@ -17,7 +18,7 @@ A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
     {() => {
       const [toggled, setToggled] = useToggle()
       return (
-        <Collapse active={toggled} header={{ heading: 'A heading' }} onToggle={() => setToggled(!toggled)}>
+        <Collapse open={toggled} header={{ heading: 'A heading' }} onToggle={() => setToggled(!toggled)}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
         </Collapse>
       )
@@ -34,11 +35,87 @@ A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
       const [toggles, setToggled] = useToggleGroup()
       return (
         <Fragment>
-          <Collapse className='m--b-md' active={toggles['collapse-one']} header={{ heading: 'A heading' }} onToggle={() => setToggled('collapse-one')}>
+          <Collapse 
+            open={toggles['one']} 
+            header={{ heading: 'A heading' }} 
+            onToggle={() => setToggled('one')}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
           </Collapse>
-          <Collapse className='m--b-md' active={toggles['collapse-two']} header={{ heading: 'Another heading' }} onToggle={() => setToggled('collapse-two')}>
+          <Collapse 
+            open={toggles['two']} 
+            header={{ heading: 'Another heading' }} 
+            onToggle={() => setToggled('two')}
+          >
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Collapse>
+          <Collapse 
+            open={toggles['three']} 
+            header={{ heading: 'Another heading' }} 
+            onToggle={() => setToggled('three')}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Collapse>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Nested
+[ToggleTree](/?path=/docs/hooks-toggle-tree--base) can be used to create a nested accordion effect.
+
+<Preview>
+  <Story name='Nested'>
+    {() => {
+      const [toggles, setToggled] = useToggleTree()
+      return (
+        <Fragment>
+          <Collapse 
+            open={toggles['one']?.open} 
+            header={{ heading: 'A heading' }} 
+            onToggle={() => setToggled('one')}
+          >
+            <Collapse 
+              open={toggles['one-one']?.open} 
+              header={{ heading: 'Another heading' }} 
+              onToggle={() => setToggled('one-one', 1)}
+            >
+            <Collapse 
+              open={toggles['three-two-one']?.open} 
+              header={{ heading: 'Another heading' }} 
+              onToggle={() => setToggled('three-two-one', 2)}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Collapse>
+            </Collapse>
+          </Collapse>
+          <Collapse 
+            open={toggles['two']?.open} 
+            header={{ heading: 'Another heading' }} 
+            onToggle={() => setToggled('two')}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Collapse>
+          <Collapse 
+            open={toggles['three']?.open} 
+            header={{ heading: 'Another heading' }} 
+            onToggle={() => setToggled('three')}
+          >
+            <Collapse 
+              open={toggles['three-one']?.open} 
+              header={{ heading: 'Another heading' }} 
+              onToggle={() => setToggled('three-one', 1)}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Collapse>
+            <Collapse 
+              open={toggles['three-two']?.open} 
+              header={{ heading: 'Another heading' }} 
+              onToggle={() => setToggled('three-two', 1)}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Collapse>
           </Collapse>
         </Fragment>
       )
