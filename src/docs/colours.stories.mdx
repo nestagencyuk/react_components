@@ -4,25 +4,25 @@ import { Text } from '../components/Text'
 <Meta title='Identity|Colours' component={null} />
 
 # Colours
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
- 
+These colours are globally accessible via their respective variable names.
+
 ## Brand
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+The two main brand colours used.
 
 <Story name='Brand-One'>
-  <div className='bg--brand-one p--xl m--b-md'>
-    <Text inverse>#2d2e82</Text>
+  <div className="bg--brand-one p--xl m--b-md">
+    <Text inverse>#18769d</Text>
   </div>
 </Story>
 
 <Story name='Brand-Two'>
-  <div className='bg--brand-two p--xl m--b-md'>
-    <Text>#00ffd4</Text>
+  <div className="bg--brand-two p--xl m--b-md">
+    <Text>#4db0da</Text>
   </div>
 </Story>
 
 ## UI
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+A selection of generic UI colours, useful for things such as shadows, borders and backgrounds.
 
 <Story name='UI-One'>
   <div className='bg--ui-one p--xl m--b-md'>
@@ -61,28 +61,60 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Story>
 
 ## States
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+A selection of state colours, useful for things such as alerts, tooltips and inputs.
+
+### Success
+The two shades of successs.
 
 <Story name='State-Success'>
-  <div className='bg--state-success p--xl m--b-md'>
-    <Text inverse>#47bb57</Text>
+  <div>
+    <div className="bg--state-success p--xl m--b-md">
+      <Text inverse>#289978</Text>
+    </div>
+    <div className="bg--state-success--alt p--xl m--b-md">
+      <Text>#e8fbf6</Text>
+    </div>
   </div>
 </Story>
+
+### Warning
+The two shades of warning.
 
 <Story name='State-Warning'>
-  <div className='bg--state-warning p--xl m--b-md'>
-    <Text>#ecc545</Text>
+  <div>
+    <div className="bg--state-warning p--xl m--b-md">
+      <Text>#bf9d18</Text>
+    </div>
+    <div className="bg--state-warning--alt p--xl m--b-md">
+      <Text>#fdf6db</Text>
+    </div>
   </div>
 </Story>
+
+### Error
+The two shades of error.
 
 <Story name='State-Error'>
-  <div className='bg--state-error p--xl m--b-md'>
-    <Text inverse>#ec4a58</Text>
+  <div>
+    <div className="bg--state-error p--xl m--b-md">
+      <Text inverse>#aa1515</Text>
+    </div>
+    <div className="bg--state-error--alt p--xl m--b-md">
+      <Text>#f9e9e9</Text>
+    </div>
   </div>
 </Story>
 
+### Info
+The two shades of info.
+
 <Story name='State-Info'>
-  <div className='bg--state-info p--xl m--b-md'>
-    <Text inverse>#cd69e0</Text>
+  <div>
+    <div className="bg--state-info p--xl m--b-md">
+      <Text inverse>#3197c1</Text>
+    </div>
+    <div className="bg--state-info--alt p--xl m--b-md">
+      <Text>#e8f6fd</Text>
+    </div>
   </div>
 </Story>

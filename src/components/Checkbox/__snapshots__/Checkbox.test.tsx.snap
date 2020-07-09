@@ -15,21 +15,7 @@ exports[`----- Checkbox Component ----- Renders checked correctly without crashi
     />
     <span
       class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
-    >
-      <svg
-        class="checkbox__icn-svg icn__svg"
-        viewBox="0 0 12 12"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>
-          Tick
-        </title>
-        <path
-          class="checkbox__icn-path icn__path"
-          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-        />
-      </svg>
-    </span>
+    />
   </span>
 </DocumentFragment>
 `;
@@ -49,21 +35,7 @@ exports[`----- Checkbox Component ----- Renders disabled correctly without crash
     />
     <span
       class="checkbox__icn icn icn--md icn--inverse"
-    >
-      <svg
-        class="checkbox__icn-svg icn__svg"
-        viewBox="0 0 12 12"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>
-          Tick
-        </title>
-        <path
-          class="checkbox__icn-path icn__path"
-          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-        />
-      </svg>
-    </span>
+    />
   </span>
 </DocumentFragment>
 `;
@@ -82,21 +54,7 @@ exports[`----- Checkbox Component ----- Renders without crashing 1`] = `
     />
     <span
       class="checkbox__icn icn icn--md icn--inverse"
-    >
-      <svg
-        class="checkbox__icn-svg icn__svg"
-        viewBox="0 0 12 12"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>
-          Tick
-        </title>
-        <path
-          class="checkbox__icn-path icn__path"
-          d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-        />
-      </svg>
-    </span>
+    />
   </span>
 </DocumentFragment>
 `;
