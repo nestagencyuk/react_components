@@ -35,9 +35,6 @@ export { IHeader } from './components/Header/types'
 export { Icon } from './components/Icon'
 export { IIcon } from './components/Icon/types'
 
-export { Image } from './components/Image'
-export { IImage } from './components/Image/types'
-
 export { Input } from './components/Input'
 export { IInput } from './components/Input/types'
 
