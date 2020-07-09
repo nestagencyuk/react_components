@@ -20,21 +20,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -177,21 +163,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -337,39 +309,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
       >
         <span
           class="icn icn--xs icn--dark"
-        >
-          <svg
-            class="icn__svg"
-            viewBox="0 0 12 12"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>
-              Cross
-            </title>
-            <path
-              class="icn__path"
-              d="M11,9.41,7.54,6,11,2.54,9.41,1,6,4.47,2.53,1.05,1,2.58,4.47,6,1.05,9.47,2.58,11,6,7.53,9.46,11Z"
-            />
-          </svg>
-        </span>
+        />
       </button>
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -395,21 +339,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option One
         </button>
@@ -433,21 +363,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Two
         </button>
@@ -471,21 +387,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Three
         </button>
@@ -509,21 +411,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Four
         </button>
@@ -547,21 +435,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Five
         </button>
@@ -585,21 +459,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Six
         </button>
@@ -623,21 +483,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Seven
         </button>
@@ -661,21 +507,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eight
         </button>
@@ -699,21 +531,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Nine
         </button>
@@ -737,21 +555,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Ten
         </button>
@@ -775,21 +579,7 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eleven
         </button>
@@ -819,21 +609,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -975,21 +751,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -1015,21 +777,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option One
         </button>
@@ -1053,21 +801,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Two
         </button>
@@ -1091,21 +825,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Three
         </button>
@@ -1129,21 +849,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Four
         </button>
@@ -1167,21 +873,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Five
         </button>
@@ -1205,21 +897,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Six
         </button>
@@ -1243,21 +921,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Seven
         </button>
@@ -1281,21 +945,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eight
         </button>
@@ -1319,21 +969,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Nine
         </button>
@@ -1357,21 +993,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Ten
         </button>
@@ -1395,21 +1017,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eleven
         </button>
@@ -1438,21 +1046,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -1478,21 +1072,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option One
         </button>
@@ -1516,21 +1096,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Two
         </button>
@@ -1554,21 +1120,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Three
         </button>
@@ -1592,21 +1144,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Four
         </button>
@@ -1630,21 +1168,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Five
         </button>
@@ -1668,21 +1192,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Six
         </button>
@@ -1706,21 +1216,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Seven
         </button>
@@ -1744,21 +1240,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eight
         </button>
@@ -1782,21 +1264,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Nine
         </button>
@@ -1820,21 +1288,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Ten
         </button>
@@ -1858,21 +1312,7 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
             />
             <span
               class="checkbox__icn icn icn--md icn--inverse"
-            >
-              <svg
-                class="checkbox__icn-svg icn__svg"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Tick
-                </title>
-                <path
-                  class="checkbox__icn-path icn__path"
-                  d="M10,1.44,4.56,7,2,4.59.24,6.37l4.32,4.19,7.2-7.34Z"
-                />
-              </svg>
-            </span>
+            />
           </span>
           Option Eleven
         </button>
@@ -1902,21 +1342,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
@@ -2066,21 +1492,7 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
       />
       <span
         class="select__icn icn icn--sm icn--dark"
-      >
-        <svg
-          class="select__icn-svg icn__svg"
-          viewBox="0 0 12 12"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Chevron-down
-          </title>
-          <path
-            class="select__icn-path icn__path"
-            d="M11,3.53H8.31L6,5.83,3.69,3.53H1L6,8.47Z"
-          />
-        </svg>
-      </span>
+      />
     </div>
     <ul
       class="select__options"
