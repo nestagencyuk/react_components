@@ -23,7 +23,7 @@ describe('----- Navtree Component -----', () => {
       {
         text: 'Test',
         component: Link,
-        href: '/test',
+        to: '/test',
         icon: {
           name: 'Home'
         },
