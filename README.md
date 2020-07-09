@@ -1,5 +1,5 @@
 # React Components
-![Latest release](https://github.com/nestagencyuk/react_components/workflows/Latest%20release/badge.svg)
+![Release](https://github.com/nestagencyuk/react_components/workflows/Release/badge.svg?branch=master)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ad5d505b-eb09-4889-bc8c-d29cbb3f8b02/deploy-status)](https://app.netlify.com/sites/twigs-react-components/deploys)
 [![codecov](https://codecov.io/gh/nestagencyuk/react_components/branch/master/graph/badge.svg?token=JHZN4BD36F)](https://codecov.io/gh/nestagencyuk/react_components)
 
@@ -13,6 +13,17 @@ Bundles all components using Storybook, starts the dev server and watches for ch
 ```sh
 $ npm run dev
 ```
+
+**A NOTE ON ICONS**
+When adding new icons to this repo, they must fit the following spec:
+1. Icons should be SVGs.
+2. Icons should have lowercase, hyphenated names `your-icon.svg`, as spaces in filenames may cause issues across browsers or operating systems.
+3. Icons should not have an inline `fill` property, this can cause colours passed via CSS to appear incorrectly or not at all.
+
+Included in this repo is a handy CLI batch processing tool to help you with the above:
+1. First, ensure you have put all your svg files in `src/assets/icons/`.
+2. To process all icon files to adhere to the above spec, run `npm run icon:files`.
+3. To generate a temporary file that has icon stories (to paste here in the docs) and generate TypeScript types, run `npm run icon:stories`. Copy your types into `src/components/Icon/types` and your stories here in this .mdx file. Remember to delete the generated temp file too.
 
 ### Scaffold
 You can quickly scaffold a new component by running:

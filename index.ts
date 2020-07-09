@@ -1,5 +1,7 @@
+import * as fs from 'fs-extra'
 import * as path from 'path'
-import { buildScaffold } from '@nestagencyuk/typescript_lib-backend'
+import { buildScaffold, processSVGs } from '@nestagencyuk/typescript_lib-backend'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
  * Scaffold a new component
@@ -21,5 +23,51 @@ const scaffold = async ({ name, type = 'stateless' }: { name: string, type: 'sta
   return 'Done scaffolding 🎉'
 }
 
-export { scaffold }
+/**
+ * Process icons - lowercase & hyphenate
+ */
+const iconFiles = async () => {
+  const baseDir = path.resolve(__dirname, './src/assets/icons/')
+ 
+  try {
+    await processSVGs(baseDir)
+  } catch (err) {
+    console.error(err)
+  }
+
+  return 'Done processing icons 🎉'
+}
+
+/**
+ * Generate icon stories
+ */
+const iconStories = async () => {
+  const baseDir = path.resolve(__dirname, './src/assets/icons/')
+  const files = await fs.readdir(baseDir)
+  const fileToWrite = "__temp__.Icon.stories.mdx"
+  
+  console.log("Generating Icon stories & TypeScript types...")
+
+  let storiesString = ""
+  let iconCount = 0
+  let typesString = ""
+
+  for (const x of files) {
+    if (x.includes(".svg")) {
+      iconCount++
+      const iconName = capitalise(x.replace(".svg", ""))
+      typesString += `| "${iconName}" \n`
+      storiesString += `  <Story name="${iconName}" decorators={[iconDecorator]}>` + `<Icon name="${iconName}" />` + "</Story> \n"
+    }
+  }
+  
+  fs.appendFile(fileToWrite, 
+    "# YOUR STORYBOOK STORIES - " + "\n\n<Preview> \n" + storiesString + "</Preview>" + "\n\n# YOUR TYPESCRIPT TYPES - " + `\n\n${typesString}`, (err) => {
+    if (err) throw err
+  })
+
+  return `\x1b[32m ${iconCount} stories and relevant TypeScript types generated!`
+}
+
+export { scaffold, iconFiles, iconStories }
 require('make-runnable/custom')({ printOutputFrame: false })

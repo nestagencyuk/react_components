@@ -6,6 +6,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "start-storybook --port 3002 | webpack-dev-server",
+    "icon:files": "ts-node --files ./index.ts iconFiles",
+    "icon:stories": "ts-node --files ./index.ts iconStories",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
     "scaffold:stateful": "ts-node --files ./index.ts scaffold --name=$NAME --type=stateful",
     "test": "jest",
@@ -40,7 +42,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
-    "@nestagencyuk/typescript_lib-backend": "^1.0.5",
+    "@nestagencyuk/typescript_lib-backend": "^1.0.9",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
