@@ -22,6 +22,7 @@ $sizes: (
 $colours: (
   dark: colours.$ui-five,
   inverse: colours.$ui-one,
+  info: colours.$state-info,
   success: colours.$state-success,
   warning: colours.$state-warning,
   error: colours.$state-error,
@@ -46,22 +47,10 @@ $colours: (
       fill: $colour-prop;
     }
   }
-}
 
-
-/// -------------------
-/// Icon svg
-/// -------------------
-
-.icn__svg {
-  display: block;
-}
-
-/// -------------------
-/// Icon svg
-/// -------------------
-
-.icn__path {
-  transition: fill transitions.$ease;
-  fill: inherit;
+  & > svg {
+    display: block;
+    transition: fill transitions.$ease;
+    fill: inherit;
+  }
 }

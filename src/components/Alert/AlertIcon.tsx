@@ -21,7 +21,7 @@ const icons: IIcon.IIconTypes = {
  * Render alert actions
  */
 const AlertIcon: React.FC<IAlert.IIconProps> = ({ variant }) => (
-  <Icon className="alert__icn" name={icons[variant]} colour={variant === 'Info' ? 'Dark' : variant} />
+  <Icon className="alert__icn" name={icons[variant]} colour={variant} />
 )
 
 export default AlertIcon

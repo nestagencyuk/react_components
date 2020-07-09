@@ -19,7 +19,7 @@ const alignment = {
  * An icon specific to the button component
  */
 const ButtonIcon: React.FC<ILink.IIconProps> = (props) => (
-  <Icon className={cx('link__icn', alignment[props.align])} colour="Inherit" {...props} />
+  <Icon className={cx('link__icn', alignment[props.align])} colour='Inherit' {...props} />
 )
 
 export default ButtonIcon

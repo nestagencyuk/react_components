@@ -1,4 +1,4 @@
-declare namespace ITypeEffect {
+declare namespace IUseTypeEffect {
   interface IProps {
     wait?: boolean
     text?: string
@@ -8,4 +8,4 @@ declare namespace ITypeEffect {
   type IState = string
 }
 
-export { ITypeEffect }
+export { IUseTypeEffect }

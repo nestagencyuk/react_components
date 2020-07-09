@@ -1,5 +1,6 @@
 import { UIState } from '../../types'
 import { IFooter } from '../Footer/types'
+import { IHeader } from '../Header/types'
 
 declare namespace IAlert {
   interface IProps {
@@ -7,6 +8,7 @@ declare namespace IAlert {
     variant?: UIState
     footer?: IFooterProps
     children: string
+    header?: IHeaderProps
     onClose: () => void
   }
 
@@ -17,13 +19,16 @@ declare namespace IAlert {
   interface IIconProps {
     variant: UIState
   }
-
   interface IBodyProps {
     children: string
   }
 
   interface IFooterProps extends IFooter.IProps {
     variant?: UIState
+  }
+
+  interface IHeaderProps extends IHeader.IProps {
+    children?: React.ReactNode
   }
 }
 

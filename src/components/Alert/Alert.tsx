@@ -10,7 +10,7 @@ import './Alert.scss'
 /**
  * Components
  */
-import { AlertClose, AlertIcon, AlertBody, AlertFooter } from '.'
+import { AlertHeader, AlertClose, AlertIcon, AlertBody, AlertFooter } from '.'
 
 /**
  * Variants
@@ -25,8 +25,9 @@ const variants = {
 /**
  * An alert with states
  */
-const Alert: React.FC<IAlert.IProps> = ({ className, variant = 'Info', footer, children, onClose }) => (
+const Alert: React.FC<IAlert.IProps> = ({ className, header, variant = 'Info', footer, children, onClose }) => (
   <aside className={cx(className, 'alert', variants[variant])}>
+    <AlertHeader {...header} />
     <AlertClose onClick={onClose} />
     <AlertIcon variant={variant} />
     <AlertBody>{children}</AlertBody>

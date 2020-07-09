@@ -17,15 +17,15 @@ import { Text } from '../Text'
  */
 const sizes: IHeader.Sizes = {
   Small: {
-    heading: 'Intro',
+    heading: 'P',
     subheading: 'Small'
   },
   Medium: {
-    heading: 'Epsilon',
-    subheading: 'Intro'
+    heading: 'Intro',
+    subheading: 'P'
   },
   Large: {
-    heading: 'Gamma',
+    heading: 'Epsilon',
     subheading: 'Intro'
   }
 }
@@ -35,11 +35,11 @@ const sizes: IHeader.Sizes = {
  */
 const Header: React.FC<IHeader.IProps> = ({ className, size = 'Medium', heading, subheading }) => (
   <header className={cx(className, 'header')}>
-    <Text tag="h2" variant={sizes[size].heading}>
+    <Text className='text--medium' tag='h2' variant={sizes[size].heading}>
       {heading}
     </Text>
 
-    <Text tag="h3" variant={sizes[size].subheading}>
+    <Text tag='h3' variant={sizes[size].subheading}>
       {subheading}
     </Text>
   </header>

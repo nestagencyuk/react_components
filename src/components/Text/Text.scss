@@ -35,6 +35,10 @@ $margin-bottom: spacing.$sm !default;
     color: white;
   }
 
+  &--medium {
+    font-weight: typography.$font-medium;
+  }
+
   &--bold {
     font-weight: typography.$font-bold;
   }

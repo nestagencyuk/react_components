@@ -1,15 +1,16 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { inverseDecorator } from '../../../.storybook/decorators.js'
 import { MemoryRouter } from 'react-router-dom'
-import { Button } from '.'
+import { Button, ButtonGroup } from '.'
 
 <Meta title='Components|Base/Button' component={Button} />
 
 # Button
-A simple buttons to allow users to carry out an action.
+A simple button for allowing users to carry out any necessary action(s).
  
 ## Base
-For use as a main call to action.
+
+This is the button in its simplest form, using all default props.
 
 <Preview>
   <Story name='Base'>
@@ -18,7 +19,9 @@ For use as a main call to action.
 </Preview>
 
 ## Variants
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+Pass a value to the `variant` prop and you'll see the desired button rendered.
+
+`Primary` is the default value, so the prop can be omitted.
 
 ### Primary
 <Preview>
@@ -91,10 +94,30 @@ Icon button
     <div>
       <Button icon={{ name: 'Chevron-left', align: 'Start' }}>Icon Button</Button>
       <Button className='m m--l-md' variant='Secondary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
-      <Button className='m m--l-md' variant='Tertiary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
     </div>
   </Story>
 </Preview>
+
+## Button Group
+Wrap buttons inside the Button Group component to have the corners styled.
+
+<Preview>
+  <Story name='ButtonGroup'>
+    <div>
+      <ButtonGroup className='m--b-sm'>
+        <Button className='m m--l-md'>Button 1</Button>
+        <Button className='m m--l-md'>Button 2</Button>
+        <Button className='m m--l-md'>Button 3</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='Secondary' className='m m--l-md'>Button 1</Button>
+        <Button variant='Secondary' className='m m--l-md'>Button 2</Button>
+        <Button variant='Secondary' className='m m--l-md'>Button 3</Button>
+      </ButtonGroup>
+    </div>
+  </Story>
+</Preview>
+
 
 ## Prop Types
 

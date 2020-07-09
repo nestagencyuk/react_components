@@ -1,4 +1,4 @@
-declare namespace IToggle {
+declare namespace IUseToggle {
   interface IProps {
     timeout?: number
   }
@@ -6,4 +6,4 @@ declare namespace IToggle {
   type IState = boolean
 }
 
-export { IToggle }
+export { IUseToggle }

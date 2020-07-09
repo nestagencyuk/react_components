@@ -1,4 +1,4 @@
-import { ITypeEffect } from './types'
+import { IUseTypeEffect } from './types'
 import { useState, useEffect } from 'react'
 
 /**
@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
  * @param {String} text
  * The string to process
  */
-const useTypeEffect = ({ wait, text, speed = 100 }: ITypeEffect.IProps = {}): [ITypeEffect.IState] => {
+const useTypeEffect = ({ wait, text, speed = 100 }: IUseTypeEffect.IProps = {}): [IUseTypeEffect.IState] => {
   const [typed, setText] = useState('')
   let timer: ReturnType<typeof setTimeout> = null
 

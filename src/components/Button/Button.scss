@@ -101,6 +101,20 @@ $padding-x: spacing.$xl !default;
   &:disabled {
     @include states.disabled;
   }
+
+  .btn-group > & {
+    border-radius: 0;
+  }
+
+  .btn-group > &:first-child {
+    border-top-left-radius: corners.$base;
+    border-bottom-left-radius: corners.$base;
+  }
+
+  .btn-group > &:last-child {
+    border-top-right-radius: corners.$base;
+    border-bottom-right-radius: corners.$base;
+  }
 }
 
 /// -------------------

@@ -1,4 +1,4 @@
-import { IManageArray } from './types'
+import { IUseManageArray } from './types'
 import { useState } from 'react'
 
 /**
@@ -7,7 +7,7 @@ import { useState } from 'react'
  * @param {Object} options
  * An options config
  */
-const useManageArray = ({ key }: IManageArray.IProps = {}): {
+const useManageArray = ({ key }: IUseManageArray.IProps = {}): {
   array: string[]
   addItem: (value: string) => void
   deleteItem: (value: string) => void

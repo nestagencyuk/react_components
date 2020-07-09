@@ -72,9 +72,6 @@ export { INavbar } from './components/Navbar/types'
 export { Overlay } from './components/Overlay'
 export { IOverlay } from './components/Overlay/types'
 
-export { Page } from './components/Page'
-export { IPage } from './components/Page/types'
-
 export { PageFooter } from './components/PageFooter'
 export { IPageFooter } from './components/PageFooter/types'
 

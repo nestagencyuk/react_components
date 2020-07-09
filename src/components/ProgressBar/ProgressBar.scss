@@ -1,0 +1,48 @@
+/// ----------------------------------------------------------------------
+
+/// Progress Bar
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'corners';
+@use 'colours';
+@use 'animations';
+@use 'transitions';
+@use 'movement';
+@use 'shadows';
+@use 'spacing';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// Progress Bar config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+$close-size: 1.5rem !default;
+
+/// -------------------
+/// Progress Bar selectors
+/// -------------------
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  background-color: colours.$state-info;
+  transition: width 5s ease-in-out;
+}
+
+/// -------------------
+/// Progress Bar container
+/// -------------------
+
+.progress-bar__container {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #f2f2f2;
+}

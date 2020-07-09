@@ -9,36 +9,35 @@ import { Alert } from '.'
 <Meta title='Components|Base/Alert' component={Alert} />
 
 # Alert
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+A simple alert for presenting Info, Success, Warning and Error messages to your users.
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+This is the alert in its most basic form, using all default props.
 
 <Preview>
   <Story name='Base'>
-    <Alert>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <Alert header={{
+      heading: 'Alert heading',
+      size: 'Small'
+    }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit
     </Alert>
   </Story>
 </Preview>
 
 ## Variants
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+Pass a value to the `variant` prop to have your desired alert rendered.
 
-### Error
-<Preview>
-  <Story name='Alert-Error'>
-    <Alert variant='Error'>
-      There was an error!
-    </Alert>
-  </Story>
-</Preview>
+`Info` is the default value, so the prop can be omitted.
 
-### Warning
+### Info
 <Preview>
-  <Story name='Alert-Warning'>
-    <Alert variant='Warning'>
-      I'm warning you...
+  <Story name='Alert-Info'>
+    <Alert variant='Info' header={{
+      heading: 'Info',
+      size: 'Small',
+    }}>
+      Useful information.
     </Alert>
   </Story>
 </Preview>
@@ -46,14 +45,41 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 ### Success
 <Preview>
   <Story name='Alert-Success'>
-    <Alert variant='Success'>
-      Wow, it worked!
+    <Alert variant='Success' header={{
+      heading: 'Success',
+      size: 'Small',
+    }}>
+       Wow, it worked!
+    </Alert>
+  </Story>
+</Preview>
+
+### Warning
+<Preview>
+  <Story name='Alert-Warning'>
+    <Alert variant='Warning' header={{
+      heading: 'Warning',
+      size: 'Small'
+    }}>
+      I'm warning you...
+    </Alert>
+  </Story>
+</Preview>
+
+### Error
+<Preview>
+  <Story name='Alert-Error'>
+    <Alert variant='Error' header={{
+      heading: 'Error',
+      size: 'Small'
+    }}>
+      There was an error!
     </Alert>
   </Story>
 </Preview>
 
 ## Toggle
-To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/hooks-toggle--base) and [Float](/?path=/docs/components-layout-float--base).
+To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/hooks-toggle--base) and [Float](/?path=/docs/layout-float--base).
 
 <Preview>
   <Story name='Toggle'>
@@ -63,7 +89,7 @@ To create an alert popover, the base alert component can be combined with [Toggl
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
+            <Alert className='animate animate--fade-in-top'  onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -84,7 +110,7 @@ Set a timeout so that the alert disappears after some time.
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant='Success'>
+            <Alert className='animate animate--fade-in-top' variant='Success'>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -107,13 +133,13 @@ An alert can be used to determine an action.
           <Button onClick={() => setToggled(true)}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
           {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant='Warning' footer={{
+            <Alert className='animate animate--fade-in-top' variant='Warning' footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
               ]
             }}>
-              Are you sure you want to do this crazy thing?!
+              Are you sure you want to do this?!
             </Alert>
           </Float>}
         </Fragment>

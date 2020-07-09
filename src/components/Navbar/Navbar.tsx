@@ -41,12 +41,12 @@ const Navbar: React.FC<INavbar.IProps> = ({ className, brand, links = [] }) => {
 
   return (
     <nav className={cx(className, 'navbar', brandAlignment[brand?.align], { 'navbar--open': toggled })}>
-      <div className="navbar__bar">
+      <div className='navbar__bar'>
         {brandStart && <NavbarBrand {...brand} />}
         <NavbarToggle toggled={toggled} onClick={setToggled} />
         {(brandCenter || brandEnd) && <NavbarBrand {...brand} />}
       </div>
-      <div className="navbar__lists">
+      <div className='navbar__lists'>
         <NavbarList align={'Start'} items={startLinks} />
         <NavbarList align={'Center'} items={centerLinks} />
         <NavbarList align={'End'} items={endLinks} />

@@ -1,4 +1,4 @@
-declare namespace IMousePos {
+declare namespace IUseMousePos {
   interface IProps {
     acceleration?: number
   }
@@ -6,4 +6,4 @@ declare namespace IMousePos {
   interface IState { x: number, y: number }
 }
 
-export { IMousePos }
+export { IUseMousePos }

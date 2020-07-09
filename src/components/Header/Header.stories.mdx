@@ -3,13 +3,15 @@ import { Header } from '.'
 
 <Meta title='Components|Base/Header' component={Header} />
 
-# Header 
-A header.
+# Header
 
-> **NOTE:** For a top-level page header, see [Page Header](/?path=/docs/components-layout-page-header--base)
- 
+A simple header component, used in composition with other components e.g. [Modal](?path=/docs/components-base-modal--base).
+
+> **NOTE:** For a top-level page header, see [Page Header](/?path=/docs/layout-page-header--base)
+
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+This is the header in its simplest form.
 
 <Preview>
   <Story name='Base'>
@@ -18,9 +20,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ## Sizes
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+Pass a value to the `size` prop and you'll see the desired header rendered.
+
+`Medium` is the default value, so the prop can be omitted.
 
 ### Small
+
 <Preview>
   <Story name='Small'>
     <Header size='Small' heading='Heading' subheading='Sub Heading' />
@@ -28,6 +34,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ### Medium
+
 <Preview>
   <Story name='Medium'>
     <Header size='Medium' heading='Heading' subheading='Sub Heading' />
@@ -35,6 +42,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ### Large
+
 <Preview>
   <Story name='Large'>
     <Header size='Large' heading='Heading' subheading='Sub Heading' />

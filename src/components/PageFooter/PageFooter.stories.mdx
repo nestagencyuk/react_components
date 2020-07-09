@@ -7,12 +7,12 @@ import logo from '../../assets/img/logo.png'
 <Meta title='Components|Layout/Page Footer' component={PageFooter} />
 
 # Page Footer
-A footer is a structural element used to identify the footer of a page, document, article, or section. It typically contains copyright and navbarigational elements pertaining to the contents of the parent element.
+A footer is a structural element used to identify the footer of a page, document, article, or section. It typically contains copyright and navigational elements pertaining to the contents of the parent element.
 
 > **NOTE:** For a component level footer, see [Footer](/?path=/docs/components-base-footer--base)
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+This is the footer in its simplest form.
 
 <Preview>
   <Story name='Base'>
@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
           { component: Link, text: 'Twitter', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Twitter'} }, 
           { component: Link, text: 'Instagram', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Instagram'} }
         ]}
-        subInfo={<Text inverse>Copyright | 2020 | 3414134234</Text>}
+        subInfo={<Text variant='Small' inverse>Copyright | 2020 | 3414134234</Text>}
       />
     </MemoryRouter>
   </Story>

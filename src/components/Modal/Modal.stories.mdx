@@ -10,10 +10,11 @@ import { Modal } from '.'
 <Meta title='Components|Base/Modal' component={Modal} />
 
 # Modal
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
- 
+A modal component that is displayed over all other elements on the page and renders any optional combination of a heading, body text or footer.
+
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+This is the modal using all optional props.
 
 <Preview>
   <Story name='Base'>
@@ -33,7 +34,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ## Toggle
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+Use state to show/hide the modal as needed.
 
 <Preview>
   <Story name='Toggle'>
@@ -44,9 +46,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
           <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
             <Float portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay className="animate animate--fade-in" portal fixed onClick={() => setToggled(false)} /> 
+              <Overlay className='animate animate--fade-in' portal fixed onClick={() => setToggled(false)} /> 
               <Modal 
-                className="animate animate--fade-in-top"
+                className='animate animate--fade-in-top'
                 header={{ heading: 'Heading', subheading: 'Subheading'}} 
                 footer={{ 
                   actions: [

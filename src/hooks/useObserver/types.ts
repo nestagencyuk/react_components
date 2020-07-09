@@ -1,4 +1,4 @@
-declare namespace IObserver {
+declare namespace IUseObserver {
   interface IProps extends IntersectionObserverInit {
     unobserve?: boolean
   }
@@ -6,4 +6,4 @@ declare namespace IObserver {
   type IState = IntersectionObserverEntry
 }
 
-export { IObserver }
+export { IUseObserver }

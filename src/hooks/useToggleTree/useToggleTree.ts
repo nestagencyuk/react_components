@@ -1,11 +1,11 @@
-import { IToggleTree } from './types'
+import { IUseToggleTree } from './types'
 import { useState } from 'react'
 
 /**
  * Open and close many things
  */
-const useToggleTree = ({ multi }: IToggleTree.IProps = {}): [IToggleTree.IState, React.Dispatch<React.SetStateAction<string>>] => {
-  const [toggles, setToggles] = useState<IToggleTree.IState>({})
+const useToggleTree = ({ multi }: IUseToggleTree.IProps = {}): [IUseToggleTree.IState, React.Dispatch<React.SetStateAction<string>>] => {
+  const [toggles, setToggles] = useState<IUseToggleTree.IState>({})
 
   /**
    * Set the open state of the current toggle

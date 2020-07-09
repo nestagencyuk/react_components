@@ -4,19 +4,30 @@ import { Pagination } from '.'
 <Meta title='Components|Base/Pagination' component={Pagination} />
 
 # Pagination
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
- 
-## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-<Preview>
+A simple pagination component.
+
+## Base
+
+This is the pagination in its simplest form
+
+<Preview> 
   <Story name='Base'>
-    <Pagination current={2} items={[0, 1, 2, 3, 4]} onPrev={() => alert('Prev')} onCurrent={(i) => alert(`Current ${i}`)} onNext={() => alert('Next')} />
+    <Pagination
+      current={2}
+      items={[0, 1, 2, 3, 4]}
+      onPrev={() => alert('Prev')}
+      onCurrent={(i) => alert(`Current ${i}`)}
+      onNext={() => alert('Next')}
+    />
   </Story>
 </Preview>
 
-## Dots
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## Variants
+
+Pass a value to the `variant` prop and you'll see the desired pagination rendered.
+
+`Numbers` is the default value, so the prop can be omitted.
 
 <Preview>
   <Story name='Dots'>
