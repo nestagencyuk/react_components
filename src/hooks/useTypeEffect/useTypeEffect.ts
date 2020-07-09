@@ -1,3 +1,4 @@
+import { ITypeEffect } from './types'
 import { useState, useEffect } from 'react'
 
 /**
@@ -6,9 +7,9 @@ import { useState, useEffect } from 'react'
  * @param {String} text
  * The string to process
  */
-const useTypeEffect = ({ wait, text, speed = 100 }: any = {}) => {
+const useTypeEffect = ({ wait, text, speed = 100 }: ITypeEffect.IProps = {}): [ITypeEffect.IState] => {
   const [typed, setText] = useState('')
-  let timer: any = null
+  let timer: ReturnType<typeof setTimeout> = null
 
   /**
    * Type away
@@ -17,7 +18,7 @@ const useTypeEffect = ({ wait, text, speed = 100 }: any = {}) => {
     if (i < text.length) {
       timer = setTimeout(() => {
         i++
-        setText((prev: string) => prev + text.charAt(i - 1))
+        setText((prev) => prev + text.charAt(i - 1))
         type(i, text)
       }, speed)
     }

@@ -41,6 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@nestagencyuk/typescript_lib-backend": "^1.0.5",
+    "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",

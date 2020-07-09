@@ -1,3 +1,4 @@
+import { IObserver } from './types'
 import { useState, useCallback, useRef, useEffect } from 'react'
 
 /**
@@ -28,7 +29,7 @@ const useObserver = ({
   rootMargin = '0px',
   threshold = [0, 1],
   unobserve = false
-}: IntersectionObserverInit & { unobserve?: boolean } = {}) => {
+}: IObserver.IProps = {}): [IObserver.IState, React.RefCallback<HTMLElement>] => {
   const [entry, setEntry] = useState(null)
   const observer = useRef<IntersectionObserver>()
   const ref = useRef<HTMLElement>()

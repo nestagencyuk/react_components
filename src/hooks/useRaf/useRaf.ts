@@ -1,13 +1,13 @@
-import { useRef, useEffect, useCallback, useState, Dispatch, SetStateAction } from 'react'
+import { useRef, useEffect, useCallback, useState } from 'react'
 
 /**
  * Use request animation frame
  *
- * @param {Object} initialState
+ * @param {Object} init
  */
-const useRaf = <S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>] => {
+const useRaf = <S>(init: S | (() => S)): [S, React.Dispatch<React.SetStateAction<S>>] => {
   const frame = useRef(0)
-  const [state, setState] = useState(initialState)
+  const [state, setState] = useState(init)
 
   const setRafState = useCallback((value: S | ((prevState: S) => S)) => {
     cancelAnimationFrame(frame.current)

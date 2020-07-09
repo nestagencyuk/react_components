@@ -13,7 +13,6 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
     '@storybook/preset-typescript',
-    '@storybook/addon-backgrounds/register',
     {
       name: '@storybook/addon-docs',
       options: {
