@@ -3,7 +3,7 @@ declare namespace IObserver {
     unobserve?: boolean
   }
 
-  interface IState extends IntersectionObserverEntry
+  type IState = IntersectionObserverEntry
 }
 
 export { IObserver }
