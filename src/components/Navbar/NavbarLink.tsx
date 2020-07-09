@@ -3,7 +3,12 @@ import * as React from 'react'
 import cx from 'classnames'
 
 /**
- * A Navbar link using React Router
+ * Components
+ */
+import { Icon } from '../Icon'
+
+/**
+ * A Navbar link
  */
 const NavbarLink: React.FC<INavbar.ILinkProps> = ({
   className,
@@ -27,6 +32,7 @@ const NavbarLink: React.FC<INavbar.ILinkProps> = ({
       rel={external ? 'noopener' : undefined}
       onClick={onClick}
     >
+      <Icon className="m--r-lg" {...icon} />
       <span>{children}</span>
     </Tag>
   )

@@ -8,7 +8,7 @@ import cx from 'classnames'
 import { Icon } from '../Icon'
 
 /**
- * A Navtree link using React Router
+ * A Navtree link
  */
 const NavtreeLink: React.FC<INavtree.ILinkProps> = ({
   className,
