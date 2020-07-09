@@ -30,9 +30,11 @@ const scrollDecorator = (story) => <div className="demo demo--scroll">{story()}<
  */
 const inverseDecorator = (story) => <div className="demo demo--inverse">{story()}</div>;
 
-/**
- * Adjust size to demo drawer
- */
-const drawerDecorater = (story) => <div className="demo demo--drawer">{story()}</div>;
 
-export { demoDecorator, selectDecorator, iconDecorator, scrollDecorator, inverseDecorator, drawerDecorater };
+/**
+ * Adjust size to demo float
+ */
+const floatDecorator = (story) => <div className="demo demo--float">{story()}</div>;
+
+
+export { demoDecorator, selectDecorator, iconDecorator, scrollDecorator, inverseDecorator, floatDecorator };

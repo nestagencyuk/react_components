@@ -1,13 +1,10 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: 'react-docgen-typescript'
   },
-  stories: [
-    '../src/docs/**/*.stories.@(ts|mdx)',
-    '../src/**/*.stories.@(ts|mdx)',
-  ],
+  stories: ['../src/docs/index.stories.mdx', '../src/**/*.stories.@(ts|mdx)'],
   addons: [
     '@storybook/addon-viewport/register',
     '@storybook/addon-backgrounds/register',
@@ -21,21 +18,21 @@ module.exports = {
             [
               '@babel/preset-env',
               {
-                useBuiltIns: 'entry',
-              },
-            ],
-          ],
+                useBuiltIns: 'entry'
+              }
+            ]
+          ]
         },
-        sourceLoaderOptions: null,
-      },
-    },
+        sourceLoaderOptions: null
+      }
+    }
   ],
-  webpackFinal: async (config, { }) => {
+  webpackFinal: async (config, {}) => {
     config.module.rules = [
       ...(config.module.rules || []),
       {
         test: /\.(scss)$/,
-        use: ['ignore-loader'],
+        use: ['ignore-loader']
       },
       {
         test: /\.js$/,
@@ -44,15 +41,13 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                [require.resolve('@babel/preset-env'), { modules: 'commonjs' }],
-              ],
-            },
-          },
-        ],
-      },
-    ];
+              presets: [[require.resolve('@babel/preset-env'), { modules: 'commonjs' }]]
+            }
+          }
+        ]
+      }
+    ]
 
-    return config;
-  },
-};
+    return config
+  }
+}

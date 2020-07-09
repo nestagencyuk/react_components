@@ -24,10 +24,9 @@ $transition: all transitions.$ease !default;
   vertical-align: baseline;
   align-items: center;
   font-family: typography.$font-family;
-  font-weight: typography.$font-bold;
   text-decoration: none;
   transition: all transitions.$ease;
-  
+
   &--primary {
     color: colours.$brand-one;
     border-bottom: solid 2px colours.$brand-one;
