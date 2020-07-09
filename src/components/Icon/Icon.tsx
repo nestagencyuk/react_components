@@ -8,11 +8,6 @@ import cx from 'classnames'
 import './Icon.scss'
 
 /**
- * Components
- */
-import { IconPicker } from '.'
-
-/**
  * Sizes
  */
 const sizes = {
@@ -37,10 +32,14 @@ const colours = {
 /**
  * Icon
  */
-const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => (
-  <span className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour])}>
-    <IconPicker className={className} name={name} />
-  </span>
-)
+const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => {
+  const icon = require(`../../assets/icons/${name.toLowerCase()}.svg`)
+  return (
+    <span
+      className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour])}
+      dangerouslySetInnerHTML={{ __html: icon }}
+    />
+  )
+}
 
 export default Icon

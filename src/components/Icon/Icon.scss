@@ -46,21 +46,10 @@ $colours: (
       fill: $colour-prop;
     }
   }
-}
 
-/// -------------------
-/// Icon svg
-/// -------------------
-
-.icn__svg {
-  display: block;
-}
-
-/// -------------------
-/// Icon svg
-/// -------------------
-
-.icn__path {
-  transition: fill transitions.$ease;
-  fill: inherit;
+  & > svg {
+    display: block;
+    transition: fill transitions.$ease;
+    fill: inherit;
+  }
 }
