@@ -38,4 +38,8 @@
   &--swipe-in-left {
     animation: swipeInLeft movement.$base animations.$forwards-ease;
   }
+
+  &--swipe-in-right {
+    animation: swipeInRight movement.$base animations.$forwards-ease;
+  }
 }

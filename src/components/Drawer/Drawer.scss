@@ -4,22 +4,22 @@
 
 /// ----------------------------------------------------------------------
 
+@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
+@use 'breakpoints';
 @use 'spacing';
-
-/// -------------------
-/// Drawer swatches
-/// -------------------
-
-$bg-colour: colours.$ui-one !default;
 
 /// -------------------
 /// Drawer selectors
 /// -------------------
 
 .drawer {
-  min-width: 200px;
+  min-width: 80%;
   height: 100vh;
   padding: spacing.$md;
-  background-color: $bg-colour;
+  background-color: white;
+
+  @include lib.breakpoint-up(breakpoints.$sm) {
+    min-width: 350px;
+  }
 }

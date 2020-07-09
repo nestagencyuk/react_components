@@ -66,8 +66,8 @@ export { ILoader } from './components/Loader/types'
 export { Modal } from './components/Modal'
 export { IModal } from './components/Modal/types'
 
-export { Navigation } from './components/Navigation'
-export { INavigation } from './components/Navigation/types'
+export { Navbar } from './components/Navbar'
+export { INavbar } from './components/Navbar/types'
 
 export { Overlay } from './components/Overlay'
 export { IOverlay } from './components/Overlay/types'
@@ -95,8 +95,8 @@ export { ISelect } from './components/Select/types'
 export { Slider } from './components/Slider'
 export { ISlider } from './components/Slider/types'
 
-export { SideNav } from './components/SideNav'
-export { ISideNav } from './components/SideNav/types'
+export { Navtree } from './components/Navtree'
+export { INavtree } from './components/Navtree/types'
 
 export { Text } from './components/Text'
 export { IText } from './components/Text/types'
@@ -117,6 +117,7 @@ export { useRaf } from './hooks/useRaf'
 export { useScroll } from './hooks/useScroll'
 export { useToggle } from './hooks/useToggle'
 export { useToggleGroup } from './hooks/useToggleGroup'
+export { useToggleTree } from './hooks/useToggleTree'
 export { useTypeEffect } from './hooks/useTypeEffect'
 
 require('./index.scss')

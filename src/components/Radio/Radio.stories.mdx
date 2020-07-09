@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useState } from 'react'
+import { Text } from '../Text'
+import { Radio } from '.'
+
+<Meta title='Components|Forms/Radio' component={Radio} />
+
+# Radio
+A simple Radio to allow users to carry out an action. This is a controlled component so a `value` and an `onChange` prop must be passed.
+
+## Base
+For use to indicate a boolean value.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Radio id='radio' value={value} onChange={setValue} />
+        </div> 
+      )
+    }}
+  </Story>
+</Preview>
+
+## Group
+For use to indicate multiple boolean values.
+
+<Preview>
+  <Story name='Group'>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value selected: {JSON.stringify(value)}</Text>
+          <Radio id='radio' value={value === 'cat'} onChange={(value) => setValue('cat', value)} />
+          <Radio id='radio' value={value === 'dog'} onChange={(value) => setValue('dog', value)} />
+          <Radio id='radio' value={value === 'horse'} onChange={(value) => setValue('horse', value)} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Disabled
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Disabled'>
+    <Radio id='checkbox' disabled />
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Radio} />

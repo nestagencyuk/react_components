@@ -10,12 +10,6 @@
 @use 'typography';
 
 /// -------------------
-/// Link config
-/// -------------------
-
-$transition: all transitions.$ease !default;
-
-/// -------------------
 /// Link selectors
 /// -------------------
 
@@ -24,47 +18,57 @@ $transition: all transitions.$ease !default;
   vertical-align: baseline;
   align-items: center;
   font-family: typography.$font-family;
+  font-weight: typography.$font-bold;
   text-decoration: none;
-  transition: all transitions.$ease;
-
+  transition: color transitions.$ease,
+    border-color transitions.$ease;
+  
   &--primary {
     color: colours.$brand-one;
+    fill: colours.$brand-one;
     border-bottom: solid 2px colours.$brand-one;
 
     &:hover {
       color: colours.$brand-two;
+      fill: colours.$brand-two;
       border-color: colours.$brand-two;
     }
   }
 
   &--secondary {
     color: colours.$brand-two;
+    fill: colours.$brand-two;
     font-family: typography.$font-family--alt;
     border-bottom: solid 2px colours.$brand-two;
 
     &:hover {
       color: colours.$brand-one;
+      fill: colours.$brand-one;
       border-color: colours.$brand-one;
     }
   }
 
   &--tertiary {
     color: colours.$ui-five;
+    fill: colours.$ui-five;
     border-bottom: solid 2px colours.$ui-five;
 
     &:hover {
       color: colours.$brand-one;
+      fill: colours.$brand-one;
       border-color: colours.$brand-two;
     }
   }
 
   &--inverse {
     color: white;
+    fill: white;
     font-family: typography.$font-family--alt;
     border-bottom: solid 2px white;
 
     &:hover {
       color: colours.$brand-two;
+      fill: colours.$brand-two;
       border-color: colours.$brand-two;
     }
   }
@@ -75,47 +79,11 @@ $transition: all transitions.$ease !default;
 /// -------------------
 
 .link__icn {
-  &:first-child {
+  &--start {
     margin-right: spacing.$xxs;
   }
 
-  &:last-child {
+  &--end {
     margin-left: spacing.$xxs;
-  }
-}
-
-/// -------------------
-/// Link icon path
-/// -------------------
-
-.link__icn-path {
-  transition: $transition;
-
-  .link--primary & {
-    fill: colours.$brand-one;
-  }
-  .link--primary:hover & {
-    fill: colours.$brand-two;
-  }
-
-  .link--secondary & {
-    fill: colours.$brand-two;
-  }
-  .link--secondary:hover & {
-    fill: colours.$brand-one;
-  }
-
-  .link--secondary & {
-    fill: colours.$ui-five;
-  }
-  .link--secondary:hover & {
-    fill: colours.$brand-one;
-  }
-
-  .link--inverse & {
-    fill: white;
-  }
-  .link--inverse:hover & {
-    fill: colours.$brand-two;
   }
 }

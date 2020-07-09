@@ -1,0 +1,132 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Text } from '../../components/Text'
+import { Button } from '../../components/Button'
+import { useToggleTree } from '.'
+
+<Meta title='Hooks|Toggle Tree' component={null} />
+
+# Toggle Tree
+A toggle tree is similar to the [ToggleGroup](/?path=/docs/hooks-toggle-group--base) however it allows for only toggling elements that have the same depth in a tree. Useful for simulating a folder/directory structure or nested navigation.
+
+## Base
+The `useToggleTree` hook can be used to switch toggled state.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const [toggles, setToggled] = useToggleTree()
+      return (
+        <Fragment>
+          <ul>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('one')}>{toggles['one']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles['one']?.open && (
+                <Text>You found me!</Text>
+              )}
+            </li>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('two')}>{toggles['two']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles['two']?.open && (
+                <ul>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('three', 1)}>{toggles['three']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles['three']?.open && (
+                      <ul>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('four', 2)}>{toggles['four']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles['four']?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('five', 2)}>{toggles['five']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles['five']?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('six', 1)}>{toggles['six']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles['six']?.open && (
+                      <Text>You found me!</Text>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Multi
+Have multiple nodes open at once.
+
+<Preview>
+  <Story name='Multi'>
+    {() => {
+      const [toggles, setToggled] = useToggleTree({ multi: true })
+      return (
+        <Fragment>
+          <ul>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('one')}>{toggles['one']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles['one']?.open && (
+                <Text>You found me!</Text>
+              )}
+            </li>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('two')}>{toggles['two']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles['two']?.open && (
+                <ul>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('three', 1)}>{toggles['three']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles['three']?.open && (
+                      <ul>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('four', 2)}>{toggles['four']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles['four']?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('five', 2)}>{toggles['five']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles['five']?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('six', 1)}>{toggles['six']?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles['six']?.open && (
+                      <Text>You found me!</Text>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

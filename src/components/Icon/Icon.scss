@@ -4,8 +4,8 @@
 
 /// ----------------------------------------------------------------------
 
-@use '@nestagencyuk/scss_lib' as lib;
 @use 'colours';
+@use 'transitions';
 
 /// -------------------
 /// Icon config
@@ -21,7 +21,7 @@ $sizes: (
 
 $colours: (
   dark: colours.$ui-five,
-  light: colours.$ui-one,
+  inverse: colours.$ui-one,
   success: colours.$state-success,
   warning: colours.$state-warning,
   error: colours.$state-error,
@@ -34,10 +34,16 @@ $colours: (
 .icn {
   display: inline-block;
 
-  @each $name, $prop in $sizes {
-    &--#{$name} {
-      width: $prop;
-      height: $prop;
+  @each $size-name, $size-prop in $sizes {
+    &--#{$size-name} {
+      width: $size-prop;
+      height: $size-prop;
+    }
+  }
+
+  @each $colour-name, $colour-prop in $colours {
+    &--#{$colour-name} {
+      fill: $colour-prop;
     }
   }
 }
@@ -47,14 +53,14 @@ $colours: (
 /// -------------------
 
 .icn__svg {
-  display: flex;
-  fill: inherit;
+  display: block;
 }
 
+/// -------------------
+/// Icon svg
+/// -------------------
+
 .icn__path {
-  @each $name, $prop in $colours {
-    .icn--#{$name} & {
-      fill: $prop;
-    }
-  }
+  transition: fill transitions.$ease;
+  fill: inherit;
 }

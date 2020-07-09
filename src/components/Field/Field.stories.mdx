@@ -1,0 +1,201 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { selectDecorator } from '../../../.storybook/decorators.js'
+import { useState, Fragment } from 'react'
+import { Button } from '../Button'
+import { Text } from '../Text'
+import { Field } from '.'
+
+<Meta title='Components|Forms/Field' component={Field} />
+
+# Field
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Base'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Fragment>
+          <Field id='field-base' label='Name' value={value} onChange={setValue} />
+          <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Textarea'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Fragment>
+          <Field id='field-textarea' label='Message' type="Textarea" value={value} onChange={setValue} />
+          <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Custom Label
+You can pass a component to the label prop.
+
+<Preview>
+  <Story name='Label'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id='field-label' label={<div>Custom label!</div>} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Select
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Select' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id='field-select' label='Age' type='Select' value={value} options={[
+          { value: '1-9', label: '1 - 9' },
+          { value: '10-19', label: '10 - 19' },
+          { value: '20-29', label: '20 - 29' },
+          { value: '30-39', label: '30 - 39' },
+          { value: '40-49', label: '40 - 49' },
+        ]} searchable onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Checkbox
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Checkbox'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Field id='field-checkbox' label='Checkbox' type='Checkbox' value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+  <Story name='Checkbox-Group'>
+    {() => {
+      const [values, setValues] = useState([])
+      const handleChange = (name, value) => setValues((prev) => value 
+        ? [...prev.filter(x => x !== name), name] 
+        : prev.filter(x => x !== name))
+      return (
+        <Fragment>
+          <Field 
+            id='checkbox-cat' 
+            name='field-checkbox-group' 
+            label='Cat' 
+            type='Checkbox' 
+            value={values.includes('cat')} 
+            onChange={(value) => handleChange('cat', value)} 
+          />
+          <Field 
+            id='checkbox-dog' 
+            name='field-checkbox-group' 
+            label='Dog' 
+            type='Checkbox' 
+            value={values.includes('dog')} 
+            onChange={(value) => handleChange('dog', value)} 
+          />
+          <Field 
+            id='checkbox-horse' 
+            name='field-checkbox-group' 
+            label='Horse' 
+            type='Checkbox' 
+            value={values.includes('horse')} 
+            onChange={(value) => handleChange('horse', value)} 
+          />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Radio
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name='Radio'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Field id='field-radio' label='Radio' type='Radio' value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+  <Story name='Radio-Group'>
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Fragment>
+          <Field id='radio-cat' name='field-radio-group' label='Cat' type='Radio' value={value === 'cat'} onChange={() => setValue('cat')} />
+          <Field id='radio-dog' name='field-radio-group' label='Dog' type='Radio' value={value === 'dog'} onChange={() => setValue('dog')} />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Custom
+You can also pass a component to the `type` prop.
+
+<Preview>
+  <Story name='Custom'>
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id='field-custom' label='Custom' type={<p className='p'>I am a custom field!</p>} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## States
+Field states. Type to see the state change.
+
+<Preview>
+  <Story name='States'>
+    {() => {
+      const [value, setValue] = useState('')
+      const [state, setState] = useState(null)
+      const [msg, setMsg] = useState(null)
+      const handleChange = (value) => {
+        setValue(value)
+        if (value.length === 0) {
+          setState('Error')
+          setMsg('Please enter a value')
+        } else if (value.length > 0 && value.length < 3) {
+          setState('Warning')
+          setMsg('Please enter a longer value')
+        } else {
+          setState('Success')
+          setMsg('Hoorah!')
+        }
+      }
+      return (
+        <Field id='field-states' label='Name' type='text' value={value} state={state} msg={msg} onChange={handleChange} />
+      )
+    }}
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Field} />

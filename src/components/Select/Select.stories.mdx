@@ -1,0 +1,172 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { selectDecorator } from '../../../.storybook/decorators.js'
+import { useState } from 'react'
+import { Text } from '../Text'
+import { Select } from '.'
+
+<Meta title='Components|Forms/Select' component={Select} />
+
+# Select
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sead do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+<Preview>
+  <Story name='Base' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Initial value
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+<Preview>
+  <Story name='Initial-Value' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value || 'option-1'} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Optional
+Optional selects allow you to reselect `null`.
+
+<Preview>
+  <Story name='Optional' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Multi
+Searchable selects allow the user to search for an option.
+
+<Preview>
+  <Story name='Multi' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} multi onChange={setValue} />
+        </div>  
+      )
+    }}
+  </Story>
+  <Story name='Multi-Long' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[
+            { label: 'Option 1', value: 'option-1' },
+            { label: 'Option 2', value: 'option-2' },
+            { label: 'Option 3', value: 'option-3' },
+            { label: 'Option 4', value: 'option-4' },
+            { label: 'Option 5', value: 'option-5' },
+            { label: 'Option 6', value: 'option-6' },
+            { label: 'Option 7', value: 'option-7' },
+            { label: 'Option 8', value: 'option-8' },
+            { label: 'Option 9', value: 'option-9' },
+            { label: 'Option 10', value: 'option-10' },
+            { label: 'Option 11', value: 'option-11' },
+            { label: 'Option 12', value: 'option-12' },
+            { label: 'Option 13', value: 'option-13' },
+            { label: 'Option 14', value: 'option-14' },
+            { label: 'Option 15', value: 'option-15' },
+            { label: 'Option 16', value: 'option-16' },
+            { label: 'Option 17', value: 'option-17' },
+            { label: 'Option 18', value: 'option-18' },
+            { label: 'Option 19', value: 'option-19' },
+            { label: 'Option 20', value: 'option-20' }
+          ]} value={value} multi onChange={setValue} />
+        </div>  
+      )
+    }}
+  </Story>
+</Preview>
+
+## Searchable
+Searchable selects allow the user to search for an option.
+
+<Preview>
+  <Story name='Searchable' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
+        </div>  
+      )
+    }}
+  </Story>
+  <Story name='Multi-Searchable' decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id='select' options={[
+            { label: 'Option 1', value: 'option-1' },
+            { label: 'Option 2', value: 'option-2' },
+            { label: 'Option 3', value: 'option-3' },
+            { label: 'Option 4', value: 'option-4' },
+            { label: 'Option 5', value: 'option-5' },
+            { label: 'Option 6', value: 'option-6' },
+            { label: 'Option 7', value: 'option-7' },
+            { label: 'Option 8', value: 'option-8' },
+            { label: 'Option 9', value: 'option-9' },
+            { label: 'Option 10', value: 'option-10' },
+            { label: 'Option 11', value: 'option-11' },
+            { label: 'Option 12', value: 'option-12' },
+            { label: 'Option 13', value: 'option-13' },
+            { label: 'Option 14', value: 'option-14' },
+            { label: 'Option 15', value: 'option-15' },
+            { label: 'Option 16', value: 'option-16' },
+            { label: 'Option 17', value: 'option-17' },
+            { label: 'Option 18', value: 'option-18' },
+            { label: 'Option 19', value: 'option-19' },
+            { label: 'Option 20', value: 'option-20' }
+          ]} value={value} multi searchable onChange={setValue} />
+        </div>  
+      )
+    }}
+  </Story>
+</Preview>
+
+## Disabled
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+<Preview>
+  <Story name='Disabled' decorators={[selectDecorator]}>
+    <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={''} disabled onChange={() => {}} />
+  </Story>
+</Preview>
+
+## Prop Types
+
+<Props of={Select} />

@@ -15,7 +15,7 @@ import { Text } from '../Text'
 /**
  * Sizes
  */
-const sizes: any = {
+const sizes: IHeader.Sizes = {
   Small: {
     heading: 'Intro',
     subheading: 'Small'
@@ -35,7 +35,7 @@ const sizes: any = {
  */
 const Header: React.FC<IHeader.IProps> = ({ className, size = 'Medium', heading, subheading }) => (
   <header className={cx(className, 'header')}>
-    <Text tag="h2" variant={sizes[size].heading} className="text--bold">
+    <Text tag="h2" variant={sizes[size].heading}>
       {heading}
     </Text>
 

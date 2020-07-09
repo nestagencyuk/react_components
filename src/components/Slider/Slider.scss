@@ -22,7 +22,9 @@ $nav-margin-y: spacing.$md !default;
 /// Slider selectors
 /// -------------------
 
-.slider {}
+.slider {
+  position: relative;
+}
 
 /// -------------------
 /// Slider selectors
@@ -88,7 +90,7 @@ $nav-margin-y: spacing.$md !default;
 /// Slider selectors
 /// -------------------
 
-.slider__nav {
+.slider__navbar {
   display: flex;
   justify-content: center;
   margin: $nav-margin-y $nav-margin-x;

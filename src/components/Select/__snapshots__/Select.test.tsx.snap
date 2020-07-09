@@ -394,7 +394,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn checkbox__icn--checked icn icn--md icn--light"
+=======
+              class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -432,7 +436,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn checkbox__icn--checked icn icn--md icn--light"
+=======
+              class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -470,7 +478,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -508,7 +520,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -546,7 +562,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -584,7 +604,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -622,7 +646,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -660,7 +688,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -698,7 +730,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -736,7 +772,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -774,7 +814,11 @@ exports[`----- Select Component ----- Initial value Multi Renders without crashi
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1014,7 +1058,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1052,7 +1100,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1090,7 +1142,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1128,7 +1184,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1166,7 +1226,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1204,7 +1268,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1242,7 +1310,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1280,7 +1352,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1318,7 +1394,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1356,7 +1436,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1394,7 +1478,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1477,7 +1565,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1515,7 +1607,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1553,7 +1649,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1591,7 +1691,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1629,7 +1733,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1667,7 +1775,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1705,7 +1817,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1743,7 +1859,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1781,7 +1901,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1819,7 +1943,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"
@@ -1857,7 +1985,11 @@ exports[`----- Select Component ----- Multi Searchable Renders without crashing 
               type="checkbox"
             />
             <span
+<<<<<<< HEAD
               class="checkbox__icn icn icn--md icn--light"
+=======
+              class="checkbox__icn icn icn--md icn--inverse"
+>>>>>>> boilerplate/master
             >
               <svg
                 class="checkbox__icn-svg icn__svg"

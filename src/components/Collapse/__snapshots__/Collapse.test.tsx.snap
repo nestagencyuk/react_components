@@ -32,7 +32,11 @@ exports[`----- Collapse Component ----- Renders without crashing 1`] = `
       </span>
     </button>
     <div
+<<<<<<< HEAD
       class="collapse__body collapse__body--active"
+=======
+      class="collapse__body collapse__body--open"
+>>>>>>> boilerplate/master
     >
       test
     </div>
