@@ -1,3 +1,4 @@
+import { IScroll } from './types'
 import { useEffect } from 'react'
 import { useRaf } from '../useRaf'
 import { lerp } from '@nestagencyuk/typescript_lib-frontend'
@@ -8,7 +9,7 @@ import { lerp } from '@nestagencyuk/typescript_lib-frontend'
  * @param {String} acceleration
  * Add for a smooth effect
  */
-const useScroll = ({ acceleration = 0 }: any = {}) => {
+const useScroll = ({ acceleration = 0 }: IScroll.IProps = {}): [IScroll.IState] => {
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 

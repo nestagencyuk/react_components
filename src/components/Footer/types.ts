@@ -4,7 +4,7 @@ declare namespace IFooter {
   interface IProps {
     className?: string
     actions?: IButtonProps[]
-    subInfo?: string
+    subInfo?: React.ReactNode
   }
 
   interface IButtonProps extends IButton.IProps {
