@@ -6,10 +6,10 @@ import { Overlay } from '.'
 <Meta title='Components|Layout/Overlay' component={Overlay} />
 
 # Overlay
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+A simple overlay component that is rendered over the top of all of the other elements on the page.
  
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+This is the element used in its simplest form.
 
 <Preview>
   <Story name='Base'>
@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 </Preview>
 
 ## Variants
-Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+Pass a value to the `variant` prop to render the desired overlay.
 
 ### Inverse
 <Preview>
@@ -34,7 +34,9 @@ Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia tu
 </Preview>
 
 ## Fixed
-Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+Pass the `fixed` prop to render the desired overlay.
+
+`false` is the default value.
 
 <Preview>
   <Story name='Fixed'>
@@ -46,7 +48,8 @@ Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia tu
 </Preview>
 
 ## Content
-Lorem ipsum dolor sit amet, consectetur adiasdpiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+
+Wrap children in the overlay component to render them inside the overlay.
 
 <Preview>
   <Story name='Content'>

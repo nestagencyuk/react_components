@@ -3,6 +3,7 @@ import { Fragment, useContext, useState } from 'react'
 import { useToggle } from '../../hooks/useToggle'
 import { Button } from '../Button'
 import { Float } from '.'
+import { floatDecorator } from '../../../.storybook/decorators.js'
 
 <Meta title='Components|Layout/Float' component={Float} />
 
@@ -10,10 +11,10 @@ import { Float } from '.'
 Float content somewhere on the screen using `position: fixed`.
  
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+This is the float in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name='Base' decorators={[floatDecorator]}>
     <Float align={{ x: 'Center', y: 'Center' }}>Float</Float>
   </Story>
 </Preview>
@@ -42,7 +43,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Alignment along the X Axis
 <Preview>
-  <Story name='XAlignment-Start'>
+  <Story name='XAlignment-Start' decorators={[floatDecorator]}>
     <Float align={{ x: 'Start' }}>
       Align
     </Float>
@@ -50,7 +51,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-Center'>
+  <Story name='XAlignment-Center' decorators={[floatDecorator]}>
     <Float align={{ x: 'Center' }}>
       Align
     </Float>
@@ -58,7 +59,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-End'>
+  <Story name='XAlignment-End' decorators={[floatDecorator]}>
     <Float align={{ x: 'End' }}>
       Align
     </Float>
@@ -67,7 +68,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Alignment along the Y Axis
 <Preview>
-  <Story name='YAlignment-Start'>
+  <Story name='YAlignment-Start' decorators={[floatDecorator]}>
     <Float align={{ y: 'Start' }}>
       Align
     </Float>
@@ -75,7 +76,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-Center'>
+  <Story name='YAlignment-Center' decorators={[floatDecorator]}>
     <Float align={{ y: 'Center' }}>
       Align
     </Float>
@@ -83,7 +84,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-End'>
+  <Story name='YAlignment-End' decorators={[floatDecorator]}>
     <Float align={{ y: 'End' }}>
       Align
     </Float>
@@ -92,7 +93,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Combined alignment
 <Preview>
-  <Story name='CombinedAlignment-Center-Center'>
+  <Story name='CombinedAlignment-Center-Center' decorators={[floatDecorator]}>
     <Float align={{ x: 'Center', y: 'Center' }}>
       Align
     </Float>
@@ -100,7 +101,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-End-Start'>
+  <Story name='CombinedAlignment-End-Start' decorators={[floatDecorator]}>
     <Float align={{ x: 'End', y: 'Start' }}>
       Align
     </Float>
@@ -108,7 +109,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-Start-End'>
+  <Story name='CombinedAlignment-Start-End' decorators={[floatDecorator]}>
     <Float align={{ x: 'Start', y: 'End' }}>
       Align
     </Float>
