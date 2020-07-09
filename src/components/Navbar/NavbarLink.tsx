@@ -18,6 +18,7 @@ const NavbarLink: React.FC<INavbar.ILinkProps> = ({
   target,
   active,
   external,
+  icon,
   children,
   onClick
 }) => {
