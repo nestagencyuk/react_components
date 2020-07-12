@@ -21,31 +21,31 @@ The `useToggleTree` hook can be used to switch toggled state.
           <li>
             <Text>Depth: 0</Text>
             <Button size='Small' onClick={() => setToggled('one')}>{toggles.one?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-            {toggles['one']?.open && (
+            {toggles.one?.open && (
               <Text>You found me!</Text>
             )}
           </li>
           <li>
             <Text>Depth: 0</Text>
             <Button size='Small' onClick={() => setToggled('two')}>{toggles.two?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-            {toggles['two']?.open && (
+            {toggles.two?.open && (
               <ul>
                 <li>
                   <Text>Depth: 1</Text>
                   <Button size='Small' onClick={() => setToggled('three', 1)}>{toggles.three?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                  {toggles['three']?.open && (
+                  {toggles.three?.open && (
                     <ul>
                       <li>
                         <Text>Depth: 2</Text>
                         <Button size='Small' onClick={() => setToggled('four', 2)}>{toggles.four?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                        {toggles['four']?.open && (
+                        {toggles.four?.open && (
                           <Text>You found me!</Text>
                         )}
                       </li>
                       <li>
                         <Text>Depth: 2</Text>
                         <Button size='Small' onClick={() => setToggled('five', 2)}>{toggles.five?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                        {toggles['five']?.open && (
+                        {toggles.five?.open && (
                           <Text>You found me!</Text>
                         )}
                       </li>
@@ -55,7 +55,7 @@ The `useToggleTree` hook can be used to switch toggled state.
                 <li>
                   <Text>Depth: 1</Text>
                   <Button size='Small' onClick={() => setToggled('six', 1)}>{toggles.six?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                  {toggles['six']?.open && (
+                  {toggles.six?.open && (
                     <Text>You found me!</Text>
                   )}
                 </li>
@@ -81,31 +81,31 @@ Have multiple nodes open at once.
             <li>
               <Text>Depth: 0</Text>
               <Button size='Small' onClick={() => setToggled('one')}>{toggles.one?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-              {toggles['one']?.open && (
+              {toggles.one?.open && (
                 <Text>You found me!</Text>
               )}
             </li>
             <li>
               <Text>Depth: 0</Text>
               <Button size='Small' onClick={() => setToggled('two')}>{toggles.two?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-              {toggles['two']?.open && (
+              {toggles.two?.open && (
                 <ul>
                   <li>
                     <Text>Depth: 1</Text>
                     <Button size='Small' onClick={() => setToggled('three', 1)}>{toggles.three?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                    {toggles['three']?.open && (
+                    {toggles.three?.open && (
                       <ul>
                         <li>
                           <Text>Depth: 2</Text>
                           <Button size='Small' onClick={() => setToggled('four', 2)}>{toggles.four?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                          {toggles['four']?.open && (
+                          {toggles.four?.open && (
                             <Text>You found me!</Text>
                           )}
                         </li>
                         <li>
                           <Text>Depth: 2</Text>
                           <Button size='Small' onClick={() => setToggled('five', 2)}>{toggles.five?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                          {toggles['five']?.open && (
+                          {toggles.five?.open && (
                             <Text>You found me!</Text>
                           )}
                         </li>
@@ -115,7 +115,7 @@ Have multiple nodes open at once.
                   <li>
                     <Text>Depth: 1</Text>
                     <Button size='Small' onClick={() => setToggled('six', 1)}>{toggles.six?.open ? 'Untoggle' : 'Toggle me!'}</Button>
-                    {toggles['six']?.open && (
+                    {toggles.six?.open && (
                       <Text>You found me!</Text>
                     )}
                   </li>
