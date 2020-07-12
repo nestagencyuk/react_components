@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- useToggleTree hook ----- Base Renders without crashing 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle One
+      </button>
+    </li>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle Two
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`----- useToggleTree hook ----- Multi Renders without crashing 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle One
+      </button>
+    </li>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle Two
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`----- useToggleTree hook ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle One
+      </button>
+    </li>
+    <li>
+      <span>
+        Depth: 0
+      </span>
+      <button>
+        Toggle Two
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

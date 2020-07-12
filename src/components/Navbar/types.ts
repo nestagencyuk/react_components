@@ -24,7 +24,7 @@ declare namespace INavbar {
 
   interface IListProps {
     align?: Alignment
-    items: any[]
+    items: ILinkProps[]
   }
 
   interface IItemProps {

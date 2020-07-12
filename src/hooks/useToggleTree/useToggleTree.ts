@@ -4,7 +4,10 @@ import { useState } from 'react'
 /**
  * Open and close many things
  */
-const useToggleTree = ({ multi }: IUseToggleTree.IProps = {}): [IUseToggleTree.IState, React.Dispatch<React.SetStateAction<string>>] => {
+const useToggleTree = ({ multi }: IUseToggleTree.IProps = {}): [
+  IUseToggleTree.IState,
+  (id: string, depth?: number) => void
+] => {
   const [toggles, setToggles] = useState<IUseToggleTree.IState>({})
 
   /**
@@ -22,8 +25,8 @@ const useToggleTree = ({ multi }: IUseToggleTree.IProps = {}): [IUseToggleTree.I
       for (const x in obj) {
         if (x === id) continue
         const isLevel = obj[x]?.depth === obj[id]?.depth
-        const isChild = obj[x]?.depth > obj[id]?.depth;
-        (isLevel || isChild) && (obj[x] = { open: false, depth })
+        const isChild = obj[x]?.depth > obj[id]?.depth
+        ;(isLevel || isChild) && (obj[x] = { open: false, depth })
       }
 
       return obj
