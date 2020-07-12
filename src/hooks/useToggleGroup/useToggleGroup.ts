@@ -4,7 +4,10 @@ import { useState } from 'react'
 /**
  * Open and close many things
  */
-const useToggleGroup = ({ multi }: IUseToggleGroup.IProps = {}): [IUseToggleGroup.IState, React.Dispatch<React.SetStateAction<string>>] => {
+const useToggleGroup = ({ multi }: IUseToggleGroup.IProps = {}): [
+  IUseToggleGroup.IState,
+  React.Dispatch<React.SetStateAction<string>>
+] => {
   const [toggles, setToggles] = useState<IUseToggleGroup.IState>({})
 
   /**
