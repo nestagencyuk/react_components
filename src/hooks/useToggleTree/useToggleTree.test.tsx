@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Fragment } from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { useToggleTree } from '.'
 
@@ -11,27 +10,27 @@ describe('----- useToggleTree hook -----', () => {
         <li>
           <span>Depth: 0</span>
           <button onClick={() => setToggled('one')}>Toggle One</button>
-          {toggles['one']?.open && <span>One</span>}
+          {toggles.one?.open && <span>One</span>}
         </li>
         <li>
           <span>Depth: 0</span>
           <button onClick={() => setToggled('two')}>Toggle Two</button>
-          {toggles['two']?.open && (
+          {toggles.two?.open && (
             <ul>
               <li>
                 <span>Depth: 1</span>
                 <button onClick={() => setToggled('three', 1)}>Toggle Three</button>
-                {toggles['three']?.open && (
+                {toggles.three?.open && (
                   <ul>
                     <li>
                       <span>Depth: 2</span>
                       <button onClick={() => setToggled('four', 2)}>Toggle Four</button>
-                      {toggles['four']?.open && <span>Four</span>}
+                      {toggles.four?.open && <span>Four</span>}
                     </li>
                     <li>
                       <span>Depth: 2</span>
                       <button onClick={() => setToggled('five', 2)}>Toggle Five</button>
-                      {toggles['five']?.open && <span>Five</span>}
+                      {toggles.five?.open && <span>Five</span>}
                     </li>
                   </ul>
                 )}
@@ -39,7 +38,7 @@ describe('----- useToggleTree hook -----', () => {
               <li>
                 <span>Depth: 1</span>
                 <button onClick={() => setToggled('six', 1)}>Toggle Six</button>
-                {toggles['six']?.open && <span>Six</span>}
+                {toggles.six?.open && <span>Six</span>}
               </li>
             </ul>
           )}
