@@ -6,6 +6,11 @@ import React from 'react';
 const demoDecorator = (story) => <div className="demo">{story()}</div>;
 
 /**
+ * Set min height on demo
+ */
+const minHeightDecorator = (story) => <div className="demo demo--min-height">{story()}</div>;
+
+/**
  * Select decorator
  */
 const selectDecorator = (story) => <div className="demo demo--select">{story()}</div>;
@@ -36,4 +41,4 @@ const inverseDecorator = (story) => <div className="demo demo--inverse">{story()
 const floatDecorator = (story) => <div className="demo demo--float">{story()}</div>;
 
 
-export { demoDecorator, selectDecorator, iconDecorator, scrollDecorator, inverseDecorator, floatDecorator };
+export { demoDecorator, selectDecorator, iconDecorator, scrollDecorator, inverseDecorator, floatDecorator, minHeightDecorator };
