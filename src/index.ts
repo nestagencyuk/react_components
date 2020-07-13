@@ -1,10 +1,10 @@
 export { Alert } from './components/Alert'
 export { IAlert } from './components/Alert/types'
 
-export { Block } from './components/Block'
+export { Block, RefBlock } from './components/Block'
 export { IBlock } from './components/Block/types'
 
-export { Box } from './components/Box'
+export { Box, RefBox } from './components/Box'
 export { IBox } from './components/Box/types'
 
 export { Button } from './components/Button'
@@ -37,9 +37,8 @@ export { IFooter } from './components/Footer/types'
 export { Gallery } from './components/Gallery'
 export { IGallery } from './components/Gallery/types'
 
-export { Grid } from './components/Grid'
+export { Grid, GridItem, RefGrid, RefGridItem } from './components/Grid'
 export { IGrid } from './components/Grid/types'
-export { GridItem } from './components/Grid'
 
 export { Header } from './components/Header'
 export { IHeader } from './components/Header/types'
@@ -47,7 +46,7 @@ export { IHeader } from './components/Header/types'
 export { Icon } from './components/Icon'
 export { IIcon } from './components/Icon/types'
 
-export { Image } from './components/Image'
+export { Image, RefImage } from './components/Image'
 export { IImage } from './components/Image/types'
 
 export { Input } from './components/Input'
@@ -59,9 +58,8 @@ export { ILabel } from './components/Label/types'
 export { Link } from './components/Link'
 export { ILink } from './components/Link/types'
 
-export { List } from './components/List'
+export { List, ListItem } from './components/List'
 export { IList } from './components/List/types'
-export { ListItem } from './components/List'
 
 export { Loader } from './components/Loader'
 export { ILoader } from './components/Loader/types'
