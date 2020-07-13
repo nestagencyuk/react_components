@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Text } from '../Text'
 import { Select } from '.'
 
-<Meta title='Components|Forms/Select' component={Select} />
+<Meta title="Components|Forms/Select" component={Select} />
 
 # Select
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sead do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -13,13 +13,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sead do eiusmod tempor 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <Preview>
-  <Story name='Base' decorators={[selectDecorator]}>
+  <Story name="Base" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
+          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
         </div>
       )
     }}
@@ -30,13 +30,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <Preview>
-  <Story name='Initial-Value' decorators={[selectDecorator]}>
+  <Story name="Initial-Value" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value || 'option-1'} onChange={setValue} />
+          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value || 'option-1'} onChange={setValue} />
         </div>
       )
     }}
@@ -47,13 +47,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Optional selects allow you to reselect `null`.
 
 <Preview>
-  <Story name='Optional' decorators={[selectDecorator]}>
+  <Story name="Optional" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional onChange={setValue} />
+          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional onChange={setValue} />
         </div>
       )
     }}
@@ -64,24 +64,24 @@ Optional selects allow you to reselect `null`.
 Searchable selects allow the user to search for an option.
 
 <Preview>
-  <Story name='Multi' decorators={[selectDecorator]}>
+  <Story name="Multi" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} multi onChange={setValue} />
+          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} multi onChange={setValue} />
         </div>  
       )
     }}
   </Story>
-  <Story name='Multi-Long' decorators={[selectDecorator]}>
+  <Story name="Multi-Long" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[
+          <Select id="select" options={[
             { label: 'Option 1', value: 'option-1' },
             { label: 'Option 2', value: 'option-2' },
             { label: 'Option 3', value: 'option-3' },
@@ -113,24 +113,24 @@ Searchable selects allow the user to search for an option.
 Searchable selects allow the user to search for an option.
 
 <Preview>
-  <Story name='Searchable' decorators={[selectDecorator]}>
+  <Story name="Searchable" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
+          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
         </div>  
       )
     }}
   </Story>
-  <Story name='Multi-Searchable' decorators={[selectDecorator]}>
+  <Story name="Multi-Searchable" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id='select' options={[
+          <Select id="select" options={[
             { label: 'Option 1', value: 'option-1' },
             { label: 'Option 2', value: 'option-2' },
             { label: 'Option 3', value: 'option-3' },
@@ -162,11 +162,10 @@ Searchable selects allow the user to search for an option.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 <Preview>
-  <Story name='Disabled' decorators={[selectDecorator]}>
-    <Select id='select' options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={''} disabled onChange={() => {}} />
+  <Story name="Disabled" decorators={[selectDecorator]}>
+    <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={''} disabled onChange={() => {}} />
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Select} />

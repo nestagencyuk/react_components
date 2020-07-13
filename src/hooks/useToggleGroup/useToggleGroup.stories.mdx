@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from 'react'
 import { Button } from '../../components/Button'
 import { useToggleGroup } from '.'
 
-<Meta title='Hooks|Toggle Group' component={null} />
+<Meta title="Hooks|Toggle Group" component={null} />
 
 # Toggle Group
 A toggle group is similar to the singular [Toggle](/?path=/docs/hooks-toggle--base) however it allows for multiple toggleables in the same set. Useful for tabs, accordions and other similar hidden content.
@@ -12,13 +12,13 @@ A toggle group is similar to the singular [Toggle](/?path=/docs/hooks-toggle--ba
 The hook in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [toggles, setToggled] = useToggleGroup()
       return (
         <Fragment>
-          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className="m m--r-md" onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className="m m--r-md" onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
           <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
         </Fragment>
       )
@@ -30,13 +30,13 @@ The hook in its simplest form.
 Have multiple toggles at once.
 
 <Preview>
-  <Story name='Multi'>
+  <Story name="Multi">
     {() => {
       const [toggles, setToggled] = useToggleGroup({ multi: true })
       return (
         <Fragment>
-          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className="m m--r-md" onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className="m m--r-md" onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
           <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
         </Fragment>
       )

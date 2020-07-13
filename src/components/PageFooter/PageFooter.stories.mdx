@@ -4,7 +4,7 @@ import { Text } from '../Text'
 import { PageFooter } from '.'
 import logo from '../../assets/img/logo.png'
 
-<Meta title='Components|Layout/Page Footer' component={PageFooter} />
+<Meta title="Components|Layout/Page Footer" component={PageFooter} />
 
 # Page Footer
 A footer is a structural element used to identify the footer of a page, document, article, or section. It typically contains copyright and navigational elements pertaining to the contents of the parent element.
@@ -15,7 +15,7 @@ A footer is a structural element used to identify the footer of a page, document
 This is the footer in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <MemoryRouter>
       <PageFooter 
         image={{ type: 'Round', aspect: '1x1', src: logo, alt: 'Logo' }} 
@@ -26,12 +26,11 @@ This is the footer in its simplest form.
           { component: Link, text: 'Twitter', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Twitter'} }, 
           { component: Link, text: 'Instagram', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Instagram'} }
         ]}
-        subInfo={<Text variant='Small' inverse>Copyright | 2020 | 3414134234</Text>}
+        subInfo={<Text variant="Small" inverse>Copyright | 2020 | 3414134234</Text>}
       />
     </MemoryRouter>
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={PageFooter} />

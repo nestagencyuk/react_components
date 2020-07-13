@@ -4,7 +4,7 @@ import { Button } from '../../components/Button'
 import { Field } from '../../components/Field'
 import { useManageArray } from '.'
 
-<Meta title='Hooks|Manage Array' component={null} />
+<Meta title="Hooks|Manage Array" component={null} />
 
 # Manage Array
 A hook for adding and removing items from an array, e.g rows in a table.
@@ -13,7 +13,7 @@ A hook for adding and removing items from an array, e.g rows in a table.
 The hook in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const {array, addItem, deleteItem} = useManageArray()
       const [value, setValue] = useState('');
@@ -24,13 +24,13 @@ The hook in its simplest form.
       return (
         <Fragment>
           <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
-            <Field id='field' label='Name' value={value} onChange={setValue} />
+            <Field id="field" label="Name" value={value} onChange={setValue} />
             <Button type="submit">Add</Button>
           </form>
           {array && array.map((x, i) => (
-            <div className='m m--b-md'>
+            <div className="m m--b-md">
               {x}
-              <Button className='m m--l-md' variant='Tertiary' size='Small' onClick={() => deleteItem(x)}>Delete</Button>
+              <Button className="m m--l-md" variant="Tertiary" size="Small" onClick={() => deleteItem(x)}>Delete</Button>
             </div>
           ))}
         </Fragment>
@@ -43,7 +43,7 @@ The hook in its simplest form.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 
 <Preview>
-  <Story name='Object'>
+  <Story name="Object">
     {() => {
       const [array, addItem, deleteItem] = useManageArray({ key: 'id' })
       const handleSubmit = (e) => {
@@ -53,13 +53,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       return (
         <Fragment>
           <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
-            <Field id='field' label='Name' value={value} onChange={setValue} />
+            <Field id="field" label="Name" value={value} onChange={setValue} />
             <Button type="submit">Add</Button>
           </form>
           {array.map((x, i) => (
-            <div className='m m--b-md'>
+            <div className="m m--b-md">
               {x.value}
-              <Button className='m m--l-md' variant='Tertiary' size='Small' onClick={() => deleteItem(x.id)}>Delete</Button>
+              <Button className="m m--l-md" variant="Tertiary" size="Small" onClick={() => deleteItem(x.id)}>Delete</Button>
             </div>
           ))}
         </Fragment>

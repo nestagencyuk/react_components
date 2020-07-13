@@ -3,7 +3,7 @@ import { inverseDecorator } from '../../../.storybook/decorators.js'
 import { Text } from '../Text'
 import { Overlay } from '.'
 
-<Meta title='Components|Layout/Overlay' component={Overlay} />
+<Meta title="Components|Layout/Overlay" component={Overlay} />
 
 # Overlay
 A simple overlay component that is rendered over the top of all of the other elements on the page.
@@ -12,7 +12,7 @@ A simple overlay component that is rendered over the top of all of the other ele
 This is the element used in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <div>
       <Overlay />
       <Text>I'm underneath the overlay</Text>
@@ -25,9 +25,9 @@ Pass a value to the `variant` prop to render the desired overlay.
 
 ### Inverse
 <Preview>
-  <Story name='Inverse' decorators={[inverseDecorator]}>
+  <Story name="Inverse" decorators={[inverseDecorator]}>
     <div>
-      <Overlay variant='Inverse' />
+      <Overlay variant="Inverse" />
       <Text>I'm underneath the overlay</Text>
     </div>
   </Story>
@@ -39,7 +39,7 @@ Pass the `fixed` prop to render the desired overlay.
 `false` is the default value.
 
 <Preview>
-  <Story name='Fixed'>
+  <Story name="Fixed">
     <div>
       <Overlay fixed />
       <Text>I'm underneath the overlay</Text>
@@ -48,14 +48,13 @@ Pass the `fixed` prop to render the desired overlay.
 </Preview>
 
 ## Content
-
 Wrap children in the overlay component to render them inside the overlay.
 
 <Preview>
-  <Story name='Content'>
+  <Story name="Content">
     <div>
-      <Overlay variant='Inverse'>
-        <Text className='m--t-md'>I'm inside the overlay</Text>
+      <Overlay variant="Inverse">
+        <Text className="m--t-md">I'm inside the overlay</Text>
       </Overlay>
       <Text>I'm underneath the overlay</Text>
     </div>
@@ -63,5 +62,4 @@ Wrap children in the overlay component to render them inside the overlay.
 </Preview>
 
 ## Prop Types
-
 <Props of={Overlay} />

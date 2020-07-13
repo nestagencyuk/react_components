@@ -5,7 +5,7 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { Field } from '.'
 
-<Meta title='Components|Forms/Field' component={Field} />
+<Meta title="Components|Forms/Field" component={Field} />
 
 # Field
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -14,12 +14,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [value, setValue] = useState('')
       return (
         <Fragment>
-          <Field id='field-base' label='Name' value={value} onChange={setValue} />
+          <Field id="field-base" label="Name" value={value} onChange={setValue} />
           <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
         </Fragment>
       )
@@ -31,12 +31,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Textarea'>
+  <Story name="Textarea">
     {() => {
       const [value, setValue] = useState('')
       return (
         <Fragment>
-          <Field id='field-textarea' label='Message' type='Textarea' value={value} onChange={setValue} />
+          <Field id="field-textarea" label="Message" type="Textarea" value={value} onChange={setValue} />
           <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
         </Fragment>
       )
@@ -48,11 +48,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 You can pass a component to the label prop.
 
 <Preview>
-  <Story name='Label'>
+  <Story name="Label">
     {() => {
       const [value, setValue] = useState('')
       return (
-        <Field id='field-label' label={<div>Custom label!</div>} value={value} onChange={setValue} />
+        <Field id="field-label" label={<div>Custom label!</div>} value={value} onChange={setValue} />
       )
     }}
   </Story>
@@ -62,11 +62,11 @@ You can pass a component to the label prop.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Select' decorators={[selectDecorator]}>
+  <Story name="Select" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState('')
       return (
-        <Field id='field-select' label='Age' type='Select' value={value} options={[
+        <Field id="field-select" label="Age" type="Select" value={value} options={[
           { value: '1-9', label: '1 - 9' },
           { value: '10-19', label: '10 - 19' },
           { value: '20-29', label: '20 - 29' },
@@ -82,15 +82,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Checkbox'>
+  <Story name="Checkbox">
     {() => {
       const [value, setValue] = useState(false)
       return (
-        <Field id='field-checkbox' label='Checkbox' type='Checkbox' value={value} onChange={setValue} />
+        <Field id="field-checkbox" label="Checkbox" type="Checkbox" value={value} onChange={setValue} />
       )
     }}
   </Story>
-  <Story name='Checkbox-Group'>
+  <Story name="Checkbox-Group">
     {() => {
       const [values, setValues] = useState([])
       const handleChange = (name, value) => setValues((prev) => value 
@@ -99,26 +99,26 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       return (
         <Fragment>
           <Field 
-            id='checkbox-cat' 
-            name='field-checkbox-group' 
-            label='Cat' 
-            type='Checkbox' 
+            id="checkbox-cat" 
+            name="field-checkbox-group" 
+            label="Cat" 
+            type="Checkbox" 
             value={values.includes('cat')} 
             onChange={(value) => handleChange('cat', value)} 
           />
           <Field 
-            id='checkbox-dog' 
-            name='field-checkbox-group' 
-            label='Dog' 
-            type='Checkbox' 
+            id="checkbox-dog" 
+            name="field-checkbox-group" 
+            label="Dog" 
+            type="Checkbox" 
             value={values.includes('dog')} 
             onChange={(value) => handleChange('dog', value)} 
           />
           <Field 
-            id='checkbox-horse' 
-            name='field-checkbox-group' 
-            label='Horse' 
-            type='Checkbox' 
+            id="checkbox-horse" 
+            name="field-checkbox-group" 
+            label="Horse" 
+            type="Checkbox" 
             value={values.includes('horse')} 
             onChange={(value) => handleChange('horse', value)} 
           />
@@ -132,21 +132,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name='Radio'>
+  <Story name="Radio">
     {() => {
       const [value, setValue] = useState(false)
       return (
-        <Field id='field-radio' label='Radio' type='Radio' value={value} onChange={setValue} />
+        <Field id="field-radio" label="Radio" type="Radio" value={value} onChange={setValue} />
       )
     }}
   </Story>
-  <Story name='Radio-Group'>
+  <Story name="Radio-Group">
     {() => {
       const [value, setValue] = useState(false)
       return (
         <Fragment>
-          <Field id='radio-cat' name='field-radio-group' label='Cat' type='Radio' value={value === 'cat'} onChange={() => setValue('cat')} />
-          <Field id='radio-dog' name='field-radio-group' label='Dog' type='Radio' value={value === 'dog'} onChange={() => setValue('dog')} />
+          <Field id="radio-cat" name="field-radio-group" label="Cat" type="Radio" value={value === 'cat'} onChange={() => setValue('cat')} />
+          <Field id="radio-dog" name="field-radio-group" label="Dog" type="Radio" value={value === 'dog'} onChange={() => setValue('dog')} />
         </Fragment>
       )
     }}
@@ -157,11 +157,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 You can also pass a component to the `type` prop.
 
 <Preview>
-  <Story name='Custom'>
+  <Story name="Custom">
     {() => {
       const [value, setValue] = useState('')
       return (
-        <Field id='field-custom' label='Custom' type={<p className='p'>I am a custom field!</p>} value={value} onChange={setValue} />
+        <Field id="field-custom" label="Custom" type={<p className="p">I am a custom field!</p>} value={value} onChange={setValue} />
       )
     }}
   </Story>
@@ -171,7 +171,7 @@ You can also pass a component to the `type` prop.
 Field states. Type to see the state change.
 
 <Preview>
-  <Story name='States'>
+  <Story name="States">
     {() => {
       const [value, setValue] = useState('')
       const [state, setState] = useState(null)
@@ -190,12 +190,11 @@ Field states. Type to see the state change.
         }
       }
       return (
-        <Field id='field-states' label='Name' type='text' value={value} state={state} msg={msg} onChange={handleChange} />
+        <Field id="field-states" label="Name" type="text" value={value} state={state} msg={msg} onChange={handleChange} />
       )
     }}
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Field} />

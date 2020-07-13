@@ -3,7 +3,7 @@ import { inverseDecorator } from '../../../.storybook/decorators.js'
 import { MemoryRouter } from 'react-router-dom'
 import { Button, ButtonGroup } from '.'
 
-<Meta title='Components|Base/Button' component={Button} />
+<Meta title="Components|Base/Button" component={Button} />
 
 # Button
 A simple button for allowing users to carry out any necessary action(s).
@@ -12,7 +12,7 @@ A simple button for allowing users to carry out any necessary action(s).
 This is the button in its simplest form, using all default props.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <Button>Button</Button>
   </Story>
 </Preview>
@@ -24,29 +24,29 @@ Pass a value to the `variant` prop and you'll see the desired button rendered.
 
 ### Primary
 <Preview>
-  <Story name='Primary'>
-    <Button variant='Primary'>Primary Button</Button>
+  <Story name="Primary">
+    <Button variant="Primary">Primary Button</Button>
   </Story>
 </Preview>
 
 ### Secondary
 <Preview>
-  <Story name='Secondary'>
-    <Button variant='Secondary'>Secondary Button</Button>
+  <Story name="Secondary">
+    <Button variant="Secondary">Secondary Button</Button>
   </Story>
 </Preview>
 
 ### Tertiary
 <Preview>
-  <Story name='Tertiary'>
-    <Button variant='Tertiary'>Tertiary Button</Button>
+  <Story name="Tertiary">
+    <Button variant="Tertiary">Tertiary Button</Button>
   </Story>
 </Preview>
 
 ### Inverse
 <Preview>
-  <Story name='Inverse' decorators={[inverseDecorator]}>
-    <Button variant='Inverse'>Inverse Button</Button>
+  <Story name="Inverse" decorators={[inverseDecorator]}>
+    <Button variant="Inverse">Inverse Button</Button>
   </Story>
 </Preview>
 
@@ -55,22 +55,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 
 ### Small
 <Preview>
-  <Story name='Small'>
-    <Button size='Small' >Small Button</Button>
+  <Story name="Small">
+    <Button size="Small" >Small Button</Button>
   </Story>
 </Preview>
 
 ### Medium
 <Preview>
-  <Story name='Medium'>
-    <Button size='Medium'>Medium Button</Button>
+  <Story name="Medium">
+    <Button size="Medium">Medium Button</Button>
   </Story>
 </Preview>
 
 ### Large
 <Preview>
-  <Story name='Large'>
-    <Button size='Large'>Large Button</Button>
+  <Story name="Large">
+    <Button size="Large">Large Button</Button>
   </Story>
 </Preview>
 
@@ -78,9 +78,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpi
 If the `href` prop is supplied, the button will render correctly as an `<a>` tag.
 
 <Preview>
-  <Story name='Link'>
+  <Story name="Link">
     <MemoryRouter>
-      <Button href='/'>Link Button</Button>
+      <Button href="/">Link Button</Button>
     </MemoryRouter>
   </Story>
 </Preview>
@@ -89,10 +89,10 @@ If the `href` prop is supplied, the button will render correctly as an `<a>` tag
 Icon button
 
 <Preview>
-  <Story name='Icon'>
+  <Story name="Icon">
     <div>
       <Button icon={{ name: 'Chevron-left', align: 'Start' }}>Icon Button</Button>
-      <Button className='m m--l-md' variant='Secondary' icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
+      <Button className="m m--l-md" variant="Secondary" icon={{ name: 'Chevron-right', align: 'End' }}>Icon Button</Button>
     </div>
   </Story>
 </Preview>
@@ -101,17 +101,17 @@ Icon button
 Wrap buttons inside the Button Group component to have the corners styled.
 
 <Preview>
-  <Story name='ButtonGroup'>
+  <Story name="ButtonGroup">
     <div>
-      <ButtonGroup className='m--b-sm'>
-        <Button className='m m--l-md'>Button 1</Button>
-        <Button className='m m--l-md'>Button 2</Button>
-        <Button className='m m--l-md'>Button 3</Button>
+      <ButtonGroup className="m--b-sm">
+        <Button className="m m--l-md">Button 1</Button>
+        <Button className="m m--l-md">Button 2</Button>
+        <Button className="m m--l-md">Button 3</Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant='Secondary' className='m m--l-md'>Button 1</Button>
-        <Button variant='Secondary' className='m m--l-md'>Button 2</Button>
-        <Button variant='Secondary' className='m m--l-md'>Button 3</Button>
+        <Button variant="Secondary" className="m m--l-md">Button 1</Button>
+        <Button variant="Secondary" className="m m--l-md">Button 2</Button>
+        <Button variant="Secondary" className="m m--l-md">Button 3</Button>
       </ButtonGroup>
     </div>
   </Story>
@@ -119,5 +119,4 @@ Wrap buttons inside the Button Group component to have the corners styled.
 
 
 ## Prop Types
-
 <Props of={Button} />

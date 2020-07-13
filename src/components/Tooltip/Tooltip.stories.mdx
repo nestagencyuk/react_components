@@ -4,17 +4,16 @@ import { Text } from '../Text'
 import { Button } from '../Button'
 import { Tooltip } from '.'
 
-<Meta title='Components|Base/Tooltip' component={Tooltip} />
+<Meta title="Components|Base/Tooltip" component={Tooltip} />
 
 # Tooltip
 A simple tooltip for rendering information to your users.
 
 ## Base
-
 This is the tooltip in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [el, setEl] = useState()
       const ref = useRef()
@@ -24,7 +23,7 @@ This is the tooltip in its simplest form.
       return (
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, <strong ref={ref} style={{ display: 'inline-block'}}>toggle</strong> do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          <Tooltip attachTo={el} align='Top'>
+          <Tooltip attachTo={el} align="Top">
             I am a Tooltip!
           </Tooltip>
         </Text>
@@ -39,7 +38,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
 `Left` is the default value, so the prop can be omitted.
 
 <Preview>
-  <Story name='Align-Left'>
+  <Story name="Align-Left">
     {() => {
       const [el, setEl] = useState()
       const ref = useRef()
@@ -49,7 +48,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
       return (
         <Text>
           <strong ref={ref} style={{ display: 'inline-block'}}>Align left</strong>
-          <Tooltip attachTo={el} align='Left'>
+          <Tooltip attachTo={el} align="Left">
             I am a Tooltip!
           </Tooltip>
         </Text>
@@ -59,7 +58,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
 </Preview>
 
 <Preview>
-  <Story name='Align-Right'>
+  <Story name="Align-Right">
     {() => {
       const [el, setEl] = useState()
       const ref = useRef()
@@ -69,7 +68,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
       return (
         <Text>
           <strong ref={ref} style={{ display: 'inline-block'}}>Align right</strong>
-          <Tooltip attachTo={el} align='Right'>
+          <Tooltip attachTo={el} align="Right">
             I am a Tooltip!
           </Tooltip>
         </Text>
@@ -79,7 +78,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
 </Preview>
 
 <Preview>
-  <Story name='Align-Top'>
+  <Story name="Align-Top">
     {() => {
       const [el, setEl] = useState()
       const ref = useRef()
@@ -89,7 +88,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
       return (
         <Text>
           <strong ref={ref} style={{ display: 'inline-block'}}>Align top</strong>
-          <Tooltip attachTo={el} align='Top'>
+          <Tooltip attachTo={el} align="Top">
             I am a Tooltip!
           </Tooltip>
         </Text>
@@ -99,7 +98,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
 </Preview>
 
 <Preview>
-  <Story name='Align-Bottom'>
+  <Story name="Align-Bottom">
     {() => {
       const [el, setEl] = useState()
       const ref = useRef()
@@ -109,7 +108,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
       return (
         <Text>
           <strong ref={ref} style={{ display: 'inline-block'}}>Align bottom</strong>
-          <Tooltip attachTo={el} align='Bottom'>
+          <Tooltip attachTo={el} align="Bottom">
             I am a Tooltip!
           </Tooltip>
         </Text>
@@ -119,5 +118,4 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered.
 </Preview>
 
 ## Prop Types
-
 <Props of={Tooltip} />

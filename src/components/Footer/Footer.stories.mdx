@@ -3,32 +3,29 @@ import { MemoryRouter } from 'react-router-dom'
 import { Text } from '../Text'
 import { Footer } from '.'
 
-<Meta title='Components|Base/Footer' component={Footer} />
+<Meta title="Components|Base/Footer" component={Footer} />
 
 # Footer
-
 This footer is a structural element used to identify the footer of a document, article, or section. It typically contains authorship information or actionable elements such as pagination or confirmation of information.
 
 > For a top-level page footer, see [Page Footer](/?path=/docs/layout-page-footer--base)
 
 ## Base
-
 This is the footer in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <MemoryRouter>
       <Footer
         actions={[
           { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => alert('No') },
           { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => alert('Yes') }
         ]}
-        subInfo={<Text variant='Small'>Copyright | 2020 | 3414134234</Text>}
+        subInfo={<Text variant="Small">Copyright | 2020 | 3414134234</Text>}
       />
     </MemoryRouter>
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Footer} />

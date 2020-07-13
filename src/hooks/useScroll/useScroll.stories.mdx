@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from 'react'
 import { Button } from '../../components/Button'
 import { useScroll } from '.'
 
-<Meta title='Hooks|Scroll' component={null} />
+<Meta title="Hooks|Scroll" component={null} />
 
 # Scroll
 Listen to a scroll event but using requestAnimationFrame for best performance.
@@ -12,7 +12,7 @@ Listen to a scroll event but using requestAnimationFrame for best performance.
 Basic scroll x and y values.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [scroll] = useScroll()
       return (
@@ -31,7 +31,7 @@ Basic scroll x and y values.
 Pass a decimal to add an accelation/deceleration effect.
 
 <Preview>
-  <Story name='Acceleration'>
+  <Story name="Acceleration">
     {() => {
       const [scroll] = useScroll({ acceleration: 0.1 })
       return (
