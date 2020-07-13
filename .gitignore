@@ -6,3 +6,4 @@ dist
 docs
 !src/docs
 .DS_Store
+.temp

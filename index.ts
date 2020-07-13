@@ -9,7 +9,7 @@ import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
  * @param {Object} params
  * Component options
  */
-const scaffold = async ({ name, type = 'stateless' }: { name: string, type: 'stateful' | 'stateless'}) => {
+const scaffold = async ({ name, type = 'stateless' }: { name: string; type: 'stateful' | 'stateless' }) => {
   const baseDir = path.resolve(__dirname, './src/components/')
   const tmpDir = `${baseDir}/_Template`
   const newDir = `${baseDir}/${name}`
@@ -28,7 +28,7 @@ const scaffold = async ({ name, type = 'stateless' }: { name: string, type: 'sta
  */
 const iconFiles = async () => {
   const baseDir = path.resolve(__dirname, './src/assets/icons/')
- 
+
   try {
     await processSVGs(baseDir)
   } catch (err) {
@@ -44,27 +44,30 @@ const iconFiles = async () => {
 const iconStories = async () => {
   const baseDir = path.resolve(__dirname, './src/assets/icons/')
   const files = await fs.readdir(baseDir)
-  const fileToWrite = "__temp__.Icon.stories.mdx"
-  
-  console.log("Generating Icon stories & TypeScript types...")
+  const fileToWrite = '.temp.Icon.stories.mdx'
 
-  let storiesString = ""
+  console.log('Generating Icon stories & TypeScript types...')
+
+  let storiesString = ''
   let iconCount = 0
-  let typesString = ""
+  let typesString = ''
 
   for (const x of files) {
-    if (x.includes(".svg")) {
+    if (x.includes('.svg')) {
       iconCount++
-      const iconName = capitalise(x.replace(".svg", ""))
+      const iconName = capitalise(x.replace('.svg', ''))
       typesString += `| "${iconName}" \n`
-      storiesString += `  <Story name="${iconName}" decorators={[iconDecorator]}>` + `<Icon name="${iconName}" />` + "</Story> \n"
+      storiesString += `<Story name="${iconName}" decorators={[iconDecorator]}>\n <Icon name="${iconName}" /> \n</Story>`
     }
   }
-  
-  fs.appendFile(fileToWrite, 
-    "# YOUR STORYBOOK STORIES - " + "\n\n<Preview> \n" + storiesString + "</Preview>" + "\n\n# YOUR TYPESCRIPT TYPES - " + `\n\n${typesString}`, (err) => {
-    if (err) throw err
-  })
+
+  fs.appendFile(
+    fileToWrite,
+    `# YOUR STORYBOOK STORIES \n<Preview> \n ${storiesString} \n</Preview> \n # YOUR TYPESCRIPT TYPES \n ${typesString}`,
+    (err) => {
+      if (err) throw err
+    }
+  )
 
   return `\x1b[32m ${iconCount} stories and relevant TypeScript types generated!`
 }

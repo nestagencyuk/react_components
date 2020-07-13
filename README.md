@@ -30,7 +30,7 @@ Included in this repo is a handy CLI batch processing tool to help you with the 
 
 1. First, ensure you have put all your svg files in `src/assets/icons/`.
 2. To process all icon files to adhere to the above spec, run `npm run icon:files`.
-3. To generate a temporary file that has icon stories (to paste here in the docs) and generate TypeScript types, run `npm run icon:stories`. Copy your types into `src/components/Icon/types` and your stories here in this .mdx file. Remember to delete the generated temp file too.
+3. To generate a temporary file that has icon stories (to paste into Storybook) and generate TypeScript types, run `npm run icon:stories`. Copy your types into `src/components/Icon/types` and your stories in `src/components/Icon/Icon.stories.mdx`. Remember to delete the generated temp file too.
 
 ### Scaffold
 
