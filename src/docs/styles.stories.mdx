@@ -1,14 +1,17 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 
-<Meta title='Getting Started|Styles' component={null} />
+<Meta title="Getting Started|Styles" component={null} />
 
 # Styles
+
 All the styles you see within this library can be used unmodified, by simply importing the compiled `main.css` into your consumer project, as explained on our [intro page](/?path=/docs/getting-started-introduction--page). However some implementations will require some sort of theme modification, for example if we are fetching colours and fonts from an external source, such as a CMS. Instead of having to battle with overriding styles, you can instead opt to use the modular SCSS shipped with this library to create a **theme**.
 
 ## Requirements
-- [Dart Sass](https://www.npmjs.com/package/sass) v1.25+ 
+
+- [Dart Sass](https://www.npmjs.com/package/sass) v1.25+
 
 ## Usage
+
 To use the library to create a theme, first we assume you have a SCSS loader in your consumer project and that you've installed the package:
 
 ```zsh
@@ -18,6 +21,7 @@ $ npm i @nestagencyuk/react_components
 This library utilises SCSS "modules", meaning you can easily override certain theme variables. [Modules](https://sass-lang.com/documentation/at-rules/use#configuring-modules) are a relatively new (and awesome!) feature of Sass which solve a lot of config/library related issues.
 
 ### Setup
+
 Create a `theme.scss` file somewhere in your project and paste the code below. This will import all the component styles from the library, ready for theming.
 
 ```scss
@@ -29,7 +33,7 @@ Create a `theme.scss` file somewhere in your project and paste the code below. T
 
 /// -------------------
 /// Library variable overrides
-/// ------------------- 
+/// -------------------
 
 @use '@nestagencyuk/react_components/theme';
 ```
@@ -47,7 +51,7 @@ To make changes to certain variables, simply override them using the theme as a 
 
 /// -------------------
 /// Library variable overrides
-/// ------------------- 
+/// -------------------
 
 @use '@nestagencyuk/react_components/theme' with (
   $brand-one: green,
