@@ -3,7 +3,9 @@ declare namespace IUseToggleGroup {
     multi?: boolean
   }
 
-  interface IState { [key: string]: boolean }
+  interface IState {
+    [key: string]: boolean
+  }
 }
 
 export { IUseToggleGroup }

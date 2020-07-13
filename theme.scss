@@ -4,7 +4,7 @@
 
 /// ----------------------------------------------------------------------
 
-///	
+///
 /// This file is used to export everything when it gets copied
 /// to the distributable folder	so that library consumers can theme
 /// certain variables
@@ -43,12 +43,13 @@
 @use './dist/assets/List.scss';
 @use './dist/assets/Loader.scss';
 @use './dist/assets/Modal.scss';
-@use './dist/assets/Navigation.scss';
+@use './dist/assets/Navbar.scss';
+@use './dist/assets/Navtree.scss';
 @use './dist/assets/Overlay.scss';
-@use './dist/assets/Page.scss';
 @use './dist/assets/PageFooter.scss';
 @use './dist/assets/PageHeader.scss';
 @use './dist/assets/Pagination.scss';
+@use './dist/assets/ProgressBar.scss';
 @use './dist/assets/Radio.scss';
 @use './dist/assets/Select.scss';
 @use './dist/assets/Slider.scss';
@@ -56,12 +57,11 @@
 @use './dist/assets/Textarea.scss';
 @use './dist/assets/Tooltip.scss';
 
-
 /// -------------------
 /// Global
 /// -------------------
 
-@use './dist/assets/Animate.scss';
-@use './dist/assets/Body.scss';
-@use './dist/assets/Keyframes.scss';
-@use './dist/assets/Utility.scss';
+@use './dist/assets/animate.scss';
+@use './dist/assets/body.scss';
+@use './dist/assets/keyframes.scss';
+@use './dist/assets/utility.scss';

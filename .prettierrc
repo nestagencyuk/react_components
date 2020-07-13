@@ -4,6 +4,7 @@
   "useTabs": false,
   "semi": false,
   "singleQuote": true,
+  "trailingComma": "none",
   "arrowParens": "always",
   "encoding": "utf-8",
   "extensions": [".js", ".ts", ".tsx", ".jsx", ".json"]
