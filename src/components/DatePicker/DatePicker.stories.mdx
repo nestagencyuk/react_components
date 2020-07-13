@@ -42,7 +42,10 @@ Pass boolean `true` to the `showTimeSelect` and `showTimeSelectOnly` to display 
       () => {
         const [value, setValue] = useState(new Date());
         return (
-          <DatePicker dateFormat="hh:mm aa" showTimeSelect selected={value} timeIntervals={5} onChange={setValue} showTimeSelectOnly />
+          <Fragment>
+            <Text>Value: {`${value}`}</Text>
+            <DatePicker dateFormat="hh:mm aa" showTimeSelect selected={value} timeIntervals={5} onChange={setValue} showTimeSelectOnly />
+          </Fragment>
         )
       }
     }
@@ -63,7 +66,10 @@ Pass a `<CustomComponent />` to the `customInput` prop to render your own contro
           </Button>
         )
         return (
-          <DatePicker selected={value} onChange={setValue} customInput={<CustomInput />} />
+          <Fragment>
+            <Text>Value: {`${value}`}</Text>
+            <DatePicker selected={value} onChange={setValue} customInput={<CustomInput />} />
+          </Fragment>
         )
       }
     }
@@ -80,7 +86,10 @@ Pass a value to the `monthsShown` prop to render the datepicker with more than o
       () => {
         const [value, setValue] = useState(new Date());
         return (
-          <DatePicker selected={value} onChange={setValue} monthsShown={2} />
+          <Fragment>
+            <Text>Value: {`${value}`}</Text>
+            <DatePicker selected={value} onChange={setValue} monthsShown={2} />
+          </Fragment>
         )
       }
     }
@@ -96,7 +105,10 @@ Pass boolean `true` to the `showQuarterYearPicker` and a date format (`yyyy, QQQ
       () => {
         const [value, setValue] = useState(new Date());
         return (
-          <DatePicker selected={value} onChange={setValue} showQuarterYearPicker dateFormat="yyyy, QQQ" inline />
+          <Fragment>
+            <Text>Value: {`${value}`}</Text>
+            <DatePicker selected={value} onChange={setValue} showQuarterYearPicker dateFormat="yyyy, QQQ" inline />
+          </Fragment>
         )
       }
     }
