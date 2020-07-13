@@ -4,7 +4,7 @@
 
 /// ----------------------------------------------------------------------
 
-///	
+///
 /// This file is used to export everything when it gets copied
 /// to the distributable folder	so that library consumers can theme
 /// certain variables
@@ -43,7 +43,8 @@
 @use './dist/assets/List.scss';
 @use './dist/assets/Loader.scss';
 @use './dist/assets/Modal.scss';
-@use './dist/assets/Navigation.scss';
+@use './dist/assets/Navbar.scss';
+@use './dist/assets/Navtree.scss';
 @use './dist/assets/Overlay.scss';
 @use './dist/assets/Page.scss';
 @use './dist/assets/PageFooter.scss';
@@ -55,7 +56,6 @@
 @use './dist/assets/Text.scss';
 @use './dist/assets/Textarea.scss';
 @use './dist/assets/Tooltip.scss';
-
 
 /// -------------------
 /// Global
