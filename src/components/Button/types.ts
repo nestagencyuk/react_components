@@ -8,10 +8,10 @@ declare namespace IButton {
     href?: string
     to?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Inverse' | 'Action'
+    type?: 'button' | 'submit'
     size?: Size
     icon?: IIconProps
     disabled?: boolean
-    submit?: boolean
     children?: string
     onClick?: (e: React.SyntheticEvent) => void
   }

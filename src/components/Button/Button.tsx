@@ -43,7 +43,7 @@ const Button = ({
   variant = 'Primary',
   size = 'Medium',
   icon,
-  submit,
+  type = 'button',
   disabled,
   children,
   onClick
@@ -59,7 +59,7 @@ const Button = ({
   return children ? (
     <Tag
       className={cx(className, 'btn', variants[variant], sizes[size], { 'btn--disabled': disabled })}
-      type={submit ? 'submit' : !href ? 'button' : undefined}
+      type={type}
       href={href}
       to={to}
       disabled={disabled}

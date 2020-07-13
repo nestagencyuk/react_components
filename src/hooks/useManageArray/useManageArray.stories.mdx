@@ -7,7 +7,7 @@ import { useManageArray } from '.'
 <Meta title='Hooks|Manage Array' component={null} />
 
 # Manage Array
-A hook for adding and removing items from an array, E.G. rows in a table.
+A hook for adding and removing items from an array, e.g rows in a table.
 
 ## Base
 The hook in its simplest form.
@@ -25,7 +25,7 @@ The hook in its simplest form.
         <Fragment>
           <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
             <Field id='field' label='Name' value={value} onChange={setValue} />
-            <Button submit>Add</Button>
+            <Button type="submit">Add</Button>
           </form>
           {array && array.map((x, i) => (
             <div className='m m--b-md'>
@@ -54,7 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <Fragment>
           <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
             <Field id='field' label='Name' value={value} onChange={setValue} />
-            <Button submit>Add</Button>
+            <Button type="submit">Add</Button>
           </form>
           {array.map((x, i) => (
             <div className='m m--b-md'>
