@@ -16,17 +16,15 @@ This is the date picker in its simplest form, using all default props.
 
 <Preview> 
   <Story name='Base' decorators={[minHeightDecorator]}>
-    {
-      () => {
-        const [value, setValue] = useState(null);
-        return (
-          <Fragment>
-            <Text>Value: {`${value}`}</Text>
-            <DatePicker selected={value} placeholderText="Select a date or type" onChange={setValue} />
-          </Fragment>
-        )
-      }
-    }
+    {() => {
+      const [value, setValue] = useState(null);
+      return (
+        <Fragment>
+          <Text>Value: {`${value}`}</Text>
+          <DatePicker selected={value} placeholderText="Select a date or type" onChange={setValue} />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 
@@ -38,17 +36,15 @@ Pass boolean `true` to the `showTimeSelect` and `showTimeSelectOnly` to display 
 
 <Preview> 
   <Story name='TimeInput' decorators={[minHeightDecorator]}>
-    {
-      () => {
-        const [value, setValue] = useState(new Date());
-        return (
-          <Fragment>
-            <Text>Value: {`${value}`}</Text>
-            <DatePicker dateFormat="hh:mm aa" showTimeSelect selected={value} timeIntervals={5} onChange={setValue} showTimeSelectOnly />
-          </Fragment>
-        )
-      }
-    }
+    {() => {
+      const [value, setValue] = useState(new Date());
+      return (
+        <Fragment>
+          <Text>Value: {`${value}`}</Text>
+          <DatePicker dateFormat="hh:mm aa" showTimeSelect selected={value} timeIntervals={5} onChange={setValue} showTimeSelectOnly />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 
@@ -57,22 +53,20 @@ Pass a `<CustomComponent />` to the `customInput` prop to render your own contro
 
 <Preview> 
   <Story name='CustomInput' decorators={[minHeightDecorator]}>
-    {
-      () => {
-        const [value, setValue] = useState(new Date());
-        const CustomInput = ({ value, onClick }) => (
-          <Button onClick={onClick}>
-            {value}
-          </Button>
-        )
-        return (
-          <Fragment>
-            <Text>Value: {`${value}`}</Text>
-            <DatePicker selected={value} onChange={setValue} customInput={<CustomInput />} />
-          </Fragment>
-        )
-      }
-    }
+    {() => {
+      const [value, setValue] = useState(new Date());
+      const CustomInput = ({ value, onClick }) => (
+        <Button onClick={onClick}>
+          {value}
+        </Button>
+      )
+      return (
+        <Fragment>
+          <Text>Value: {`${value}`}</Text>
+          <DatePicker selected={value} onChange={setValue} customInput={<CustomInput />} />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 
@@ -82,17 +76,15 @@ Pass a value to the `monthsShown` prop to render the datepicker with more than o
 
 <Preview> 
   <Story name='MultiMonth' decorators={[minHeightDecorator]}>
-    {
-      () => {
-        const [value, setValue] = useState(new Date());
-        return (
-          <Fragment>
-            <Text>Value: {`${value}`}</Text>
-            <DatePicker selected={value} onChange={setValue} monthsShown={2} />
-          </Fragment>
-        )
-      }
-    }
+    {() => {
+      const [value, setValue] = useState(new Date());
+      return (
+        <Fragment>
+          <Text>Value: {`${value}`}</Text>
+          <DatePicker selected={value} onChange={setValue} monthsShown={2} />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 
@@ -101,16 +93,14 @@ Pass boolean `true` to the `showQuarterYearPicker` and a date format (`yyyy, QQQ
 
 <Preview> 
   <Story name='QuarterPicker' decorators={[minHeightDecorator]}>
-    {
-      () => {
-        const [value, setValue] = useState(new Date());
-        return (
-          <Fragment>
-            <Text>Value: {`${value}`}</Text>
-            <DatePicker selected={value} onChange={setValue} showQuarterYearPicker dateFormat="yyyy, QQQ" inline />
-          </Fragment>
-        )
-      }
-    }
+    {() => {
+      const [value, setValue] = useState(new Date());
+      return (
+        <Fragment>
+          <Text>Value: {`${value}`}</Text>
+          <DatePicker selected={value} onChange={setValue} showQuarterYearPicker dateFormat="yyyy, QQQ" inline />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
