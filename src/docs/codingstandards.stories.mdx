@@ -1,9 +1,11 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 
-<Meta title='Getting Started|Coding Standards' component={null} />
+<Meta title="Getting Started|Coding Standards" component={null} />
 
 # Coding Standards
+
 Writing quality code is a core principle at Nest, even if it takes a little longer. We expect contributors to adhere to our best practices, which are outlined below:
+
 - Consider the developer experience, write code that is readable and easy for future developers to understand.
 - Keep documentation and READMEs up to date - documentation lives in the .mdx file with the component for easier maintainability.
 - Write ALL the tests - we aim for maximum test coverage!
@@ -12,9 +14,11 @@ Writing quality code is a core principle at Nest, even if it takes a little long
 - Separate business logic and presentation - markup should not be tied to styling.
 
 ## Git branching
+
 We use the [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/) branching model. Branches should be named appropriately. Large change requirements should be broken into smaller feature branches for easier code reviews.
 
 ## Styles
+
 Presentation should be decoupled from logic. We should be able to remove all styles and everything should still function. Styles should also not be tied to markup structure, e.g you should be able to apply any class to any HTML tag and it will render correctly.
 
 When writing styles in general for Nest projects, all Sass should be [commented](http://sassdoc.com/) and follow the BEM naming convention. **Always** prefer classes, rather than tags or IDs to target elements. Chaining descendent selectors should be avoided due to poor performance and reliance on markup structure, i.e try to adhere to a flat dependency hierarchy:
