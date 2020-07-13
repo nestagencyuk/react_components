@@ -4,7 +4,9 @@ import { Select } from '.'
 
 describe('----- Select Component -----', () => {
   let value: string[] = null
-  const mockFn = jest.fn((val) => { value = val })
+  const mockFn = jest.fn((val) => {
+    value = val
+  })
   const baseProps = {
     id: 'Select',
     options: [
@@ -18,8 +20,9 @@ describe('----- Select Component -----', () => {
       { label: 'Option Eight', value: 'option-8' },
       { label: 'Option Nine', value: 'option-9' },
       { label: 'Option Ten', value: 'option-10' },
-      { label: 'Option Eleven', value: 'option-11' },
-    ]
+      { label: 'Option Eleven', value: 'option-11' }
+    ],
+    onChange: mockFn
   }
 
   beforeEach(() => {
@@ -28,20 +31,18 @@ describe('----- Select Component -----', () => {
   })
 
   describe('Base', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
-    
+
     it('Opens the options list', () => {
-      const { getByTestId, } = mountComponentInContext()
+      const { getByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
       const options = getByTestId(`${baseProps.id}-options`)
-      
+
       fireEvent.focus(select)
       expect(options.style.display).toEqual('block')
     })
@@ -78,9 +79,7 @@ describe('----- Select Component -----', () => {
   })
 
   describe('Initial value', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} value='option-1' onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} value="option-1" />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
@@ -93,12 +92,9 @@ describe('----- Select Component -----', () => {
       expect(mockFn).toHaveBeenCalledWith('option-1')
     })
   })
-  
 
   describe('Initial value Multi', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} value={['option-1', 'option-2']} multi onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} value={['option-1', 'option-2']} multi />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
@@ -111,11 +107,9 @@ describe('----- Select Component -----', () => {
       expect(mockFn).toHaveBeenCalledWith(['option-1', 'option-2'])
     })
   })
-  
+
   describe('Optional', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} optional onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} optional />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
@@ -133,17 +127,15 @@ describe('----- Select Component -----', () => {
       expect(mockFn).toHaveBeenCalledWith(null)
     })
   })
-  
+
   describe('Multi', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} multi onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} multi />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
-    
+
     it('Opens the options list', () => {
       const { getByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
@@ -161,8 +153,8 @@ describe('----- Select Component -----', () => {
 
       fireEvent.focus(select)
       fireEvent.click(optionOne)
-      rerender(<Select {...baseProps} value={value} multi onChange={mockFn} />)
-      
+      rerender(<Select {...baseProps} value={value} multi />)
+
       expect(value).toEqual(['option-1'])
       expect(input).toHaveProperty('value', '1 Selected')
     })
@@ -191,8 +183,8 @@ describe('----- Select Component -----', () => {
       fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
-      rerender(<Select {...baseProps} value={value} multi onChange={mockFn} />)
-      
+      rerender(<Select {...baseProps} value={value} multi />)
+
       expect(value).toEqual([baseProps.options[0].value, baseProps.options[1].value])
       expect(input).toHaveProperty('value', '2 Selected')
     })
@@ -206,8 +198,8 @@ describe('----- Select Component -----', () => {
         fireEvent.click(option)
       })
 
-      rerender(<Select {...baseProps} value={value} multi onChange={mockFn} />)
-      
+      rerender(<Select {...baseProps} value={value} multi />)
+
       expect(value).toEqual(baseProps.options.map((x) => x.value))
       expect(input).toHaveProperty('value', '10+ Selected')
     })
@@ -218,14 +210,14 @@ describe('----- Select Component -----', () => {
       const input = getByTestId(`${baseProps.id}-input`)
       const optionOne = getByText(baseProps.options[0].label)
       const optionTwo = getByText(baseProps.options[1].label)
-      
+
       fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
 
       const clearBtn = getByTitle('Clear')
       fireEvent.click(clearBtn)
-      
+
       expect(input).toHaveProperty('value', '0 Selected')
     })
 
@@ -240,39 +232,37 @@ describe('----- Select Component -----', () => {
   })
 
   describe('Searchable', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} optional searchable onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} optional searchable />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
-    
+
     it('Searches for a known option', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
       const options = getByTestId(`${baseProps.id}-options`)
-      
+
       fireEvent.change(input, { target: { value: 'one' } })
       expect(options.childElementCount).toEqual(2)
-      
+
       fireEvent.change(input, { target: { value: 'OPTION ONE' } })
       expect(options.childElementCount).toEqual(2)
-      
+
       fireEvent.change(input, { target: { value: 'option t' } })
       expect(options.childElementCount).toEqual(4)
-      
+
       fireEvent.change(input, { target: { value: 'option one' } })
       const optionOne = getByText(baseProps.options[0].label)
 
       fireEvent.click(optionOne)
-      rerender(<Select {...baseProps} value={value} optional searchable onChange={mockFn} />)
+      rerender(<Select {...baseProps} value={value} optional searchable />)
 
       expect(value).toEqual('option-1')
       expect(input).toHaveProperty('placeholder', 'Option One')
     })
-    
+
     it('Searches for an unknown option', () => {
       const { getByTestId } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
@@ -282,18 +272,18 @@ describe('----- Select Component -----', () => {
 
       expect(options.childElementCount).toBe(1)
     })
-    
+
     it('Removes a search', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
       const optionNull = getByText('-- Select --')
       const optionOne = getByText(baseProps.options[0].label)
-      
+
       fireEvent.change(input, { target: { value: 'option one' } })
       fireEvent.click(optionOne)
       fireEvent.change(input, { target: { value: 'option twenty' } })
       fireEvent.click(optionNull)
-      rerender(<Select {...baseProps} value={value} multi onChange={mockFn} />)
+      rerender(<Select {...baseProps} value={value} multi />)
 
       expect(value).toEqual(null)
       expect(input).toHaveProperty('placeholder', 'Type to search...')
@@ -301,15 +291,13 @@ describe('----- Select Component -----', () => {
   })
 
   describe('Multi Searchable', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} multi searchable onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} multi searchable />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
-    
+
     it('Searches for a known option', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
@@ -320,12 +308,12 @@ describe('----- Select Component -----', () => {
       const optionOne = getByText(baseProps.options[0].label)
 
       fireEvent.click(optionOne)
-      rerender(<Select {...baseProps} value={value} optional searchable onChange={mockFn} />)
+      rerender(<Select {...baseProps} value={value} optional searchable />)
 
       expect(value).toEqual(['option-1'])
       expect(input).toHaveProperty('placeholder', 'Type to search...')
     })
-    
+
     it('Searches for an unknown option', () => {
       const { getByTestId } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
@@ -337,19 +325,17 @@ describe('----- Select Component -----', () => {
   })
 
   describe('Disabled', () => {
-    const mountComponentInContext = () => render(
-      <Select {...baseProps} disabled onChange={mockFn} />
-    )
+    const mountComponentInContext = () => render(<Select {...baseProps} disabled />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
-    
+
     it('Checks input is disabled', () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const input = getByTestId(`${baseProps.id}-input`)
-      
+
       expect(input).toHaveProperty('disabled', true)
     })
   })

@@ -4,7 +4,6 @@
 
 /// ----------------------------------------------------------------------
 
-@use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
 @use 'colours';
 @use 'max-widths';
@@ -101,7 +100,7 @@ $directions: (
   margin-right: auto;
   width: 100%;
   box-sizing: border-box;
-  
+
   @each $width-name, $width-prop in max-widths.$all {
     &--#{$width-name} {
       max-width: $width-prop;
@@ -110,7 +109,7 @@ $directions: (
 }
 
 /// -------------------
-/// Max Widths
+/// Misc
 /// -------------------
 
 .interactive {

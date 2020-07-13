@@ -13,6 +13,9 @@ const useScroll = ({ acceleration = 0 }: IUseScroll.IProps = {}): [IUseScroll.IS
   const [state, setState] = useRaf({ x: 0, y: 0 })
   const [velocity, setVelocity] = useRaf({ x: 0, y: 0 })
 
+  /**
+   * Set the raf state
+   */
   const handler = () => {
     setState({
       x: window.pageXOffset,
@@ -20,6 +23,9 @@ const useScroll = ({ acceleration = 0 }: IUseScroll.IProps = {}): [IUseScroll.IS
     })
   }
 
+  /**
+   * Add scroll listener and remove on unmount
+   */
   useEffect(() => {
     window.addEventListener('scroll', handler, {
       capture: false,
@@ -31,6 +37,9 @@ const useScroll = ({ acceleration = 0 }: IUseScroll.IProps = {}): [IUseScroll.IS
     }
   }, [])
 
+  /**
+   * Add acceleration
+   */
   useEffect(() => {
     if (!acceleration) return
     const dx = Math.floor(lerp(velocity.x, state.x, acceleration) * 100) / 100
