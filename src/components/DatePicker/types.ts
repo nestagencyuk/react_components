@@ -1,4 +1,4 @@
-import { ReactDatePickerProps } from "react-datepicker";
+import { ReactDatePickerProps } from 'react-datepicker'
 
 declare namespace IDatePicker {
   interface IProps extends ReactDatePickerProps {
