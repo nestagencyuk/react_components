@@ -39,8 +39,8 @@ For use to indicate multiple boolean values.
         <div>
           <Text>Values selected: {JSON.stringify(values)}</Text>
           <Checkbox id="checkbox" value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
-          <Checkbox id="checkbox" value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
-          <Checkbox id="checkbox" value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
+          <Checkbox id="checkbox" className="m--l-md" value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
+          <Checkbox id="checkbox" className="m--l-md" value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
         </div>
       )
     }}

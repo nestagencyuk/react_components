@@ -81,6 +81,9 @@ export { IPageHeader } from './components/PageHeader/types'
 export { Pagination } from './components/Pagination'
 export { IPagination } from './components/Pagination/types'
 
+export { ProgressBar } from './components/ProgressBar'
+export { IProgressBar } from './components/ProgressBar/types'
+
 export { Radio } from './components/Radio'
 export { IRadio } from './components/Radio/types'
 

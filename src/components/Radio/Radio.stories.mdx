@@ -36,8 +36,8 @@ For use to indicate multiple boolean values.
         <div>
           <Text>Value selected: {JSON.stringify(value)}</Text>
           <Radio id="radio" value={value === 'cat'} onChange={(value) => setValue('cat', value)} />
-          <Radio id="radio" value={value === 'dog'} onChange={(value) => setValue('dog', value)} />
-          <Radio id="radio" value={value === 'horse'} onChange={(value) => setValue('horse', value)} />
+          <Radio id="radio" className="m--l-md" value={value === 'dog'} onChange={(value) => setValue('dog', value)} />
+          <Radio id="radio" className="m--l-md" value={value === 'horse'} onChange={(value) => setValue('horse', value)} />
         </div>
       )
     }}
