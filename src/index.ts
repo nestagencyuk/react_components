@@ -113,7 +113,7 @@ export { ITooltip } from './components/Tooltip/types'
 
 export { ToggleGroup } from './context/ToggleGroup'
 
-export { useImgColour } from './hooks/useImgColour'
+export { useImageColour } from './hooks/useImageColour'
 export { useManageArray } from './hooks/useManageArray'
 export { useMousePos } from './hooks/useMousePos'
 export { useObserver } from './hooks/useObserver'

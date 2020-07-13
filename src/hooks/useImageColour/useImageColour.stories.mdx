@@ -4,7 +4,7 @@ import { IImage } from '../../components/Image/types'
 import { Grid, GridItem } from '../../components/Grid'
 import { RefImage } from '../../components/Image'
 import { Text } from '../../components/Text'
-import { useImgColour } from '.'
+import { useImageColour } from '.'
 
 <Meta title="Hooks|Image Colour" />
 
@@ -17,7 +17,7 @@ The hook in its simplest form.
 <Preview>
   <Story name="Base">
     {() => {
-      const [colour, ref] = useImgColour()
+      const [colour, ref] = useImageColour()
       const renderColour = (values = []) => (
         <span
           className="m--r-md m--b-md"

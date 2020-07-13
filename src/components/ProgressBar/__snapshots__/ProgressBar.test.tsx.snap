@@ -7,7 +7,7 @@ exports[`----- ProgressBar Component ----- Renders without crashing 1`] = `
   >
     <div
       class="progress-bar"
-      style="width: 100px;"
+      style="width: 100%;"
     />
   </div>
 </DocumentFragment>

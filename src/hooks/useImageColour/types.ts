@@ -1,4 +1,4 @@
-declare namespace IUseImgColour {
+declare namespace IUseImageColour {
   interface IProps {
     sample?: number
   }
@@ -9,4 +9,4 @@ declare namespace IUseImgColour {
   }
 }
 
-export { IUseImgColour }
+export { IUseImageColour }

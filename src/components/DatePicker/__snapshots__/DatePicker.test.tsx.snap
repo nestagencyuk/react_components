@@ -3,13 +3,13 @@
 exports[`----- DatePicker Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    class="react-datepicker-wrapper"
+    class="react-datepicker-wrapper datepicker"
   >
     <div
       class="react-datepicker__input-container"
     >
       <input
-        class="datepicker__input"
+        class="input"
         type="text"
         value=""
       />

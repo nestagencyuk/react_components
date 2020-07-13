@@ -1,12 +1,12 @@
 import CT from 'colorthief/dist/color-thief.mjs'
-import { IUseImgColour } from './types'
+import { IUseImageColour } from './types'
 import { useRef, useCallback, useState } from 'react'
 
 /**
  * Get colours from an image
  */
-const useImgColour = ({ sample = 50 }: IUseImgColour.IProps = {}): [
-  IUseImgColour.IState,
+const useImageColour = ({ sample = 50 }: IUseImageColour.IProps = {}): [
+  IUseImageColour.IState,
   React.RefCallback<HTMLElement>
 ] => {
   const [colour, setColour] = useState(null)
@@ -35,4 +35,4 @@ const useImgColour = ({ sample = 50 }: IUseImgColour.IProps = {}): [
   return [colour, setRef]
 }
 
-export default useImgColour
+export default useImageColour
