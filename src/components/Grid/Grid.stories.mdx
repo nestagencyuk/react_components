@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/block
 import { Text } from '../Text'
 import { Grid, GridItem } from '.'
 
-<Meta title='Components|Layout/Grid' component={Grid} />
+<Meta title="Components|Layout/Grid" component={Grid} />
 
 # Grid
 A simple CSS grid system. The basic system comprises of a 12 column grid. The grid is however not reliant on multiple rows so is a little lighter when it comes to outputted markup.
@@ -11,7 +11,7 @@ A simple CSS grid system. The basic system comprises of a 12 column grid. The gr
 This is the grid in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <div>
       <Grid>
         <GridItem span={1}>
@@ -56,13 +56,12 @@ This is the grid in its simplest form.
 </Preview>
 
 ## Gutter
-
 Pass a value to the `gutter` prop to render the desired grid. 
 
 By default, the grid comes without any guttering.
 
 <Preview>
-  <Story name='Gutter'>
+  <Story name="Gutter">
     <div>
       <Grid gutter>
         <GridItem span={6}>
@@ -80,7 +79,7 @@ By default, the grid comes without any guttering.
 Grids can also be nested to create more complex layouts.
 
 <Preview>
-  <Story name='Nested'>
+  <Story name="Nested">
     <div>
       <Grid gutter>
         <GridItem span={5}>

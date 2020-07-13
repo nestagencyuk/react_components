@@ -1,18 +1,16 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Pagination } from '.'
 
-<Meta title='Components|Base/Pagination' component={Pagination} />
+<Meta title="Components|Base/Pagination" component={Pagination} />
 
 # Pagination
-
 A simple pagination component.
 
 ## Base
-
 This is the pagination in its simplest form
 
 <Preview> 
-  <Story name='Base'>
+  <Story name="Base">
     <Pagination
       current={2}
       items={[0, 1, 2, 3, 4]}
@@ -24,17 +22,13 @@ This is the pagination in its simplest form
 </Preview>
 
 ## Variants
-
-Pass a value to the `variant` prop and you'll see the desired pagination rendered.
-
-`Numbers` is the default value, so the prop can be omitted.
+Pass a value to the `variant` prop and you'll see the desired pagination rendered. `Numbers` is the default value, so the prop can be omitted.
 
 <Preview>
-  <Story name='Dots'>
-    <Pagination variant='Dots' current={2} items={[0, 1, 2, 3, 4]} onCurrent={(i) => alert(`Current ${i}`)} />
+  <Story name="Dots">
+    <Pagination variant="Dots" current={2} items={[0, 1, 2, 3, 4]} onCurrent={(i) => alert(`Current ${i}`)} />
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Pagination} />

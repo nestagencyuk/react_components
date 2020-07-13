@@ -1,53 +1,47 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Text } from '.'
 
-<Meta title='Components|Base/Text' component={Text} />
+<Meta title="Components|Base/Text" component={Text} />
 
 # Text
 A text component which renders a text tag. Styles are decoupled from markup so using a `h1` tag alongside `Intro` variant could be a valid use case.
  
 ## Variants
-Pass a value to the `tag` prop to alter the HTML Tag rendered.
-
-`p` is the default value, so the prop can be omitted.
-
-Pass a value to the `variant` prop to alter the CSS used to style the tag.
-
-`P` is the default value, so the prop can be omitted.
+Pass a value to the `tag` prop to alter the HTML Tag rendered. `p` is the default value, so the prop can be omitted. Pass a value to the `variant` prop to alter the CSS used to style the tag. `P` is the default value, so the prop can be omitted.
 
 <Preview>
-  <Story name='Alpha'>
-    <Text tag='h1' variant='Alpha'>Alpha</Text>
+  <Story name="Alpha">
+    <Text tag="h1" variant="Alpha">Alpha</Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Beta'>
-    <Text tag='h2' variant='Beta'>Beta</Text>
+  <Story name="Beta">
+    <Text tag="h2" variant="Beta">Beta</Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Gamma'>
-    <Text tag='h3' variant='Gamma'>Gamma</Text>
+  <Story name="Gamma">
+    <Text tag="h3" variant="Gamma">Gamma</Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Delta'>
-    <Text tag='h4' variant='Delta'>Delta</Text>
+  <Story name="Delta">
+    <Text tag="h4" variant="Delta">Delta</Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Epsilon'>
-    <Text tag='h5' variant='Epsilon'>Epsilon</Text>
+  <Story name="Epsilon">
+    <Text tag="h5" variant="Epsilon">Epsilon</Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Intro'>
-    <Text tag='p' variant='Intro'>
+  <Story name="Intro">
+    <Text tag="p" variant="Intro">
       Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
     </Text>
   </Story>
@@ -55,8 +49,8 @@ Pass a value to the `variant` prop to alter the CSS used to style the tag.
 
 ## Paragraph
 <Preview>
-  <Story name='Paragraph'>
-    <Text tag='p'>
+  <Story name="Paragraph">
+    <Text tag="p">
       Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
     </Text>
   </Story>
@@ -64,8 +58,8 @@ Pass a value to the `variant` prop to alter the CSS used to style the tag.
 
 ## Small
 <Preview>
-  <Story name='Small'>
-    <Text variant='Small'>
+  <Story name="Small">
+    <Text variant="Small">
       Meatball ham hock rump, hamburger turducken tri-tip meatloaf boudin salami chuck kielbasa short loin t-bone. Pork ribeye pig fatback ham shank shankle. Prosciutto doner porchetta ball tip, ground round bacon bresaola sirloin picanha shoulder. Cow pig bacon, sausage turkey biltong alcatra ham burgdoggen chicken picanha doner. Pork chop shank hamburger tongue pastrami meatloaf pork jerky capicola t-bone beef ribs. Cupim ham hock pork chop flank, buffalo tongue burgdoggen meatloaf tail jowl picanha tenderloin.
     </Text>
   </Story>
@@ -77,7 +71,7 @@ Pass a value to the `align` prop and you'll see the desired text rendered.
 `Left` is the default value, so the prop can be omitted.
 
 <Preview>
-  <Story name='Align-Left'>
+  <Story name="Align-Left">
     <Text>
       Meatball ham hock rump.
     </Text>
@@ -85,21 +79,20 @@ Pass a value to the `align` prop and you'll see the desired text rendered.
 </Preview>
 
 <Preview>
-  <Story name='Align-Center'>
-    <Text align='Center'>
+  <Story name="Align-Center">
+    <Text align="Center">
       Meatball ham hock rump.
     </Text>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='Align-Right'>
-    <Text align='Right'>
+  <Story name="Align-Right">
+    <Text align="Right">
       Meatball ham hock rump.
     </Text>
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Text} />

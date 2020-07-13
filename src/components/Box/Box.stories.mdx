@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Box } from '.'
 
-<Meta title='Components|Layout/Box' component={Box} />
+<Meta title="Components|Layout/Box" component={Box} />
 
 # Box
 A simple box for wrapping content. 
@@ -10,7 +10,7 @@ A simple box for wrapping content.
 This is the box in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <Box>I'm in a box</Box>
   </Story>
 </Preview>
@@ -20,7 +20,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 
 ### Alignment along the X Axis
 <Preview>
-  <Story name='XAlignment-Start'>
+  <Story name="XAlignment-Start">
     <Box align={{ x: 'Start' }}>
       Align
     </Box>
@@ -28,7 +28,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-Center'>
+  <Story name="XAlignment-Center">
     <Box align={{ x: 'Center' }}>
       Align
     </Box>
@@ -36,7 +36,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-End'>
+  <Story name="XAlignment-End">
     <Box align={{ x: 'End' }}>
       Align
     </Box>
@@ -45,7 +45,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 
 ### Alignment along the Y Axis
 <Preview>
-  <Story name='YAlignment-Start'>
+  <Story name="YAlignment-Start">
     <Box align={{ y: 'Start' }}>
       Align
     </Box>
@@ -53,7 +53,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-Center'>
+  <Story name="YAlignment-Center">
     <Box align={{ y: 'Center' }}>
       Align
     </Box>
@@ -61,7 +61,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-End'>
+  <Story name="YAlignment-End">
     <Box align={{ y: 'End' }}>
       Align
     </Box>
@@ -70,7 +70,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 
 ### Combined alignment
 <Preview>
-  <Story name='CombinedAlignment-Center-Center'>
+  <Story name="CombinedAlignment-Center-Center">
     <Box align={{ x: 'Center', y: 'Center' }}>
       Align
     </Box>
@@ -78,7 +78,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-End-Start'>
+  <Story name="CombinedAlignment-End-Start">
     <Box align={{ x: 'End', y: 'Start' }}>
       Align
     </Box>
@@ -86,7 +86,7 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-Start-End'>
+  <Story name="CombinedAlignment-Start-End">
     <Box align={{ x: 'Start', y: 'End' }}>
       Align
     </Box>
@@ -94,5 +94,4 @@ The align prop aligns content within a `Box`. Pass an object with an `x` or `y` 
 </Preview>
 
 ## Prop Types
-
 <Props of={Box} />

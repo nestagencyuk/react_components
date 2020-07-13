@@ -2,28 +2,25 @@ import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/block
 import { MemoryRouter, Link } from 'react-router-dom'
 import { List, ListItem } from '.'
 
-<Meta title='Components|Base/List' component={List} />
+<Meta title="Components|Base/List" component={List} />
 
 # List
-
 A simple list component.
 
 ## Base
-
 This is the list in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <List items={[{ text: 'Item 1' }, { text: 'Item 2' }, { text: 'Item 3' }]} />
   </Story>
 </Preview>
 
 ## Links
-
 Pass an array of objects to the `items` prop to render a list of links.
 
 <Preview>
-  <Story name='Links'>
+  <Story name="Links">
     <MemoryRouter>
       <List
         items={[
@@ -37,5 +34,4 @@ Pass an array of objects to the `items` prop to render a list of links.
 </Preview>
 
 ## Prop Types
-
 <Props of={List} />

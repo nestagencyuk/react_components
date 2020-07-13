@@ -24,12 +24,10 @@ const buildThresholdList = (steps: number | number[]) => {
  * @param {Object} options
  * Options object for the intersection API
  */
-const useObserver = ({
-  root = null,
-  rootMargin = '0px',
-  threshold = [0, 1],
-  unobserve = false
-}: IUseObserver.IProps = {}): [IUseObserver.IState, React.RefCallback<HTMLElement>] => {
+const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1], unobserve = false }: IUseObserver.IProps = {}): [
+  IUseObserver.IState,
+  React.RefCallback<HTMLElement>
+] => {
   const [entry, setEntry] = useState(null)
   const observer = useRef<IntersectionObserver>()
   const ref = useRef<HTMLElement>()
@@ -39,6 +37,9 @@ const useObserver = ({
     threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
   }
 
+  /**
+   * Set the ref node
+   */
   const setRef = useCallback((node) => {
     if (!node) return
 
@@ -55,6 +56,9 @@ const useObserver = ({
     ref.current = node
   }, [])
 
+  /**
+   * Unsubscribe to observer on unmount
+   */
   useEffect(() => {
     return () => observer?.current?.disconnect()
   }, [])

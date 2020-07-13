@@ -7,17 +7,16 @@ import { Overlay } from '../Overlay'
 import { Float } from '../Float'
 import { Modal } from '.'
 
-<Meta title='Components|Base/Modal' component={Modal} />
+<Meta title="Components|Base/Modal" component={Modal} />
 
 # Modal
 A modal component that is displayed over all other elements on the page and renders any optional combination of a heading, body text or footer.
 
 ## Base
-
 This is the modal using all optional props.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <Modal 
       header={{ heading: 'Heading', subheading: 'Subheading'}} 
       footer={{ 
@@ -34,11 +33,10 @@ This is the modal using all optional props.
 </Preview>
 
 ## Toggle
-
 Use state to show/hide the modal as needed.
 
 <Preview>
-  <Story name='Toggle'>
+  <Story name="Toggle">
     {() => {
       const [toggled, setToggled] = useToggle()
       return (
@@ -46,9 +44,9 @@ Use state to show/hide the modal as needed.
           <Button onClick={() => setToggled(true)}>Open Modal</Button>
           {toggled && (
             <Float portal align={{ x: 'Center', y: 'Center' }}>
-              <Overlay className='animate animate--fade-in' portal fixed onClick={() => setToggled(false)} /> 
+              <Overlay className="animate animate--fade-in" portal fixed onClick={() => setToggled(false)} /> 
               <Modal 
-                className='animate animate--fade-in-top'
+                className="animate animate--fade-in-top"
                 header={{ heading: 'Heading', subheading: 'Subheading'}} 
                 footer={{ 
                   actions: [
@@ -70,5 +68,4 @@ Use state to show/hide the modal as needed.
 </Preview>
 
 ## Prop Types
-
 <Props of={Modal} />

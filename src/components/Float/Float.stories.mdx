@@ -5,7 +5,7 @@ import { Button } from '../Button'
 import { Float } from '.'
 import { floatDecorator } from '../../../.storybook/decorators.js'
 
-<Meta title='Components|Layout/Float' component={Float} />
+<Meta title="Components|Layout/Float" component={Float} />
 
 # Float
 Float content somewhere on the screen using `position: fixed`.
@@ -14,7 +14,7 @@ Float content somewhere on the screen using `position: fixed`.
 This is the float in its simplest form.
 
 <Preview>
-  <Story name='Base' decorators={[floatDecorator]}>
+  <Story name="Base" decorators={[floatDecorator]}>
     <Float align={{ x: 'Center', y: 'Center' }}>Float</Float>
   </Story>
 </Preview>
@@ -23,7 +23,7 @@ This is the float in its simplest form.
 The `portal` prop is perfect for creating content that renders over the main page body - e.g Alerts, Modals.
 
 <Preview>
-  <Story name='Portal'>
+  <Story name="Portal">
     {() => {
       const [toggled, setToggled] = useToggle()
       return (
@@ -43,7 +43,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Alignment along the X Axis
 <Preview>
-  <Story name='XAlignment-Start' decorators={[floatDecorator]}>
+  <Story name="XAlignment-Start" decorators={[floatDecorator]}>
     <Float align={{ x: 'Start' }}>
       Align
     </Float>
@@ -51,7 +51,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-Center' decorators={[floatDecorator]}>
+  <Story name="XAlignment-Center" decorators={[floatDecorator]}>
     <Float align={{ x: 'Center' }}>
       Align
     </Float>
@@ -59,7 +59,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='XAlignment-End' decorators={[floatDecorator]}>
+  <Story name="XAlignment-End" decorators={[floatDecorator]}>
     <Float align={{ x: 'End' }}>
       Align
     </Float>
@@ -68,7 +68,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Alignment along the Y Axis
 <Preview>
-  <Story name='YAlignment-Start' decorators={[floatDecorator]}>
+  <Story name="YAlignment-Start" decorators={[floatDecorator]}>
     <Float align={{ y: 'Start' }}>
       Align
     </Float>
@@ -76,7 +76,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-Center' decorators={[floatDecorator]}>
+  <Story name="YAlignment-Center" decorators={[floatDecorator]}>
     <Float align={{ y: 'Center' }}>
       Align
     </Float>
@@ -84,7 +84,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='YAlignment-End' decorators={[floatDecorator]}>
+  <Story name="YAlignment-End" decorators={[floatDecorator]}>
     <Float align={{ y: 'End' }}>
       Align
     </Float>
@@ -93,7 +93,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 
 ### Combined alignment
 <Preview>
-  <Story name='CombinedAlignment-Center-Center' decorators={[floatDecorator]}>
+  <Story name="CombinedAlignment-Center-Center" decorators={[floatDecorator]}>
     <Float align={{ x: 'Center', y: 'Center' }}>
       Align
     </Float>
@@ -101,7 +101,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-End-Start' decorators={[floatDecorator]}>
+  <Story name="CombinedAlignment-End-Start" decorators={[floatDecorator]}>
     <Float align={{ x: 'End', y: 'Start' }}>
       Align
     </Float>
@@ -109,7 +109,7 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 <Preview>
-  <Story name='CombinedAlignment-Start-End' decorators={[floatDecorator]}>
+  <Story name="CombinedAlignment-Start-End" decorators={[floatDecorator]}>
     <Float align={{ x: 'Start', y: 'End' }}>
       Align
     </Float>
@@ -117,5 +117,4 @@ The align prop aligns content within a `Float`. Pass an object with an `x` or `y
 </Preview>
 
 ## Prop Types
-
 <Props of={Float} />
