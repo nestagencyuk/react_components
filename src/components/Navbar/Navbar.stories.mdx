@@ -3,7 +3,7 @@ import { MemoryRouter, Link } from 'react-router-dom'
 import { Navbar } from '.'
 import logo from  '../../assets/img/logo.png'
 
-<Meta title='Components|Navigation/Navbar' component={Navbar} />
+<Meta title="Components|Navigation/Navbar" component={Navbar} />
 
 # Navbar
 A simple inline hyperlink navigation with the option to pass in your own link component (e.g Gatsby link or React Router link).
@@ -12,7 +12,7 @@ A simple inline hyperlink navigation with the option to pass in your own link co
 A common navbarigation style.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <MemoryRouter>
       <Navbar 
         brand={{ align: 'Center', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
@@ -30,9 +30,8 @@ A common navbarigation style.
 </Preview>
 
 ### No Brand
-
 <Preview>
-  <Story name='No-Brand'>
+  <Story name="No-Brand">
     <MemoryRouter>
       <Navbar 
         links={[
@@ -52,9 +51,8 @@ A common navbarigation style.
 The navbarigation logo 
 
 ### Start aligned
-
 <Preview>
-  <Story name='Align-Start'>
+  <Story name="Align-Start">
     <MemoryRouter>
       <Navbar 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
@@ -72,9 +70,8 @@ The navbarigation logo
 </Preview>
 
 ### End aligned
-
 <Preview>
-  <Story name='Align-End'>
+  <Story name="Align-End">
     <MemoryRouter>
       <Navbar 
         brand={{ align: 'End', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
@@ -92,9 +89,8 @@ The navbarigation logo
 </Preview>
 
 ### Mixed alignment
-
 <Preview>
-  <Story name='Align-Mixed'>
+  <Story name="Align-Mixed">
     <MemoryRouter>
       <Navbar 
         brand={{ align: 'Start', image: { aspect: '1x1', src: logo, alt: 'My Company Logo'} }} 
@@ -112,5 +108,4 @@ The navbarigation logo
 </Preview>
 
 ## Prop Types
-
 <Props of={Navbar} />

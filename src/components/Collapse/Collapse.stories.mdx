@@ -5,7 +5,7 @@ import { useToggleGroup } from '../../hooks/useToggleGroup'
 import { useToggleTree } from '../../hooks/useToggleTree'
 import { Collapse, CollapseItem } from '.'
 
-<Meta title='Components|Base/Collapse' component={Collapse} />
+<Meta title="Components|Base/Collapse" component={Collapse} />
 
 # Collapse
 A simple collapsible panel can be built using the [Toggle](/?path=/docs/hooks-toggle--base) and [ToggleGroup](/?path=/docs/hooks-toggle-group--base) interaction helpers.
@@ -14,7 +14,7 @@ A simple collapsible panel can be built using the [Toggle](/?path=/docs/hooks-to
 A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [toggled, setToggled] = useToggle()
       return (
@@ -30,7 +30,7 @@ A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
 [ToggleGroup](/?path=/docs/hooks-toggle-group--base) can be used to create an accordion effect.
 
 <Preview>
-  <Story name='Multiple'>
+  <Story name="Multiple">
     {() => {
       const [toggles, setToggled] = useToggleGroup()
       return (
@@ -66,7 +66,7 @@ A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
 [ToggleTree](/?path=/docs/hooks-toggle-tree--base) can be used to create a nested accordion effect.
 
 <Preview>
-  <Story name='Nested'>
+  <Story name="Nested">
     {() => {
       const [toggles, setToggled] = useToggleTree()
       return (
@@ -124,5 +124,4 @@ A single toggleable panel using [Toggle](/?path=/docs/hooks-toggle--base).
 </Preview>
 
 ## Prop Types
-
 <Props of={Collapse} />

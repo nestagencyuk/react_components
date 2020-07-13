@@ -1,6 +1,6 @@
-import { IBox } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { IBox } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
 /**
  * Styles
@@ -15,13 +15,13 @@ const alignX = {
   Start: 'box--start-x',
   End: 'box--end-x',
   Center: 'box--center-x'
-};
+}
 
 const alignY = {
   Start: 'box--start-y',
   End: 'box--end-y',
   Center: 'box--center-y'
-};
+}
 
 /**
  * A simple box/container component
@@ -30,7 +30,7 @@ const Box: React.FC<IBox.IProps> = (
   { className, align, fill, children, testId = undefined },
   ref: React.Ref<HTMLDivElement>
 ) => {
-  const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {};
+  const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
 
   return (
     <div
@@ -40,7 +40,7 @@ const Box: React.FC<IBox.IProps> = (
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default Box;
+export default Box

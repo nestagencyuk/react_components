@@ -1,6 +1,7 @@
 declare namespace IProgressBar {
   interface IProps {
-    width: string
+    className?: string
+    value: number
   }
 }
 

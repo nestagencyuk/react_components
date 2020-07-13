@@ -1,7 +1,5 @@
 import { IBlock } from './types'
-import { IGrid } from '../Grid/types'
 import * as React from 'react'
-import { forwardRef } from 'react'
 import cx from 'classnames'
 
 /**
@@ -13,15 +11,10 @@ import './Block.scss'
  * Components
  */
 import { BlockHeader } from '.'
-import { Grid, GridItem } from '../Grid'
+import { RefGrid, Grid, GridItem } from '../Grid'
 import { Image } from '../Image'
 import { Box } from '../Box'
 import { Button } from '../Button'
-
-/**
- * Forward the ref
- */
-const RefGrid = forwardRef(Grid) as (props: IGrid.IProps & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement
 
 /**
  * Sizes
@@ -45,8 +38,8 @@ const Block: React.FC<IBlock.IProps> = (
   /**
    * Image alignment
    */
-  const imageStart = image.align === 'Start';
-  const imageEnd = image.align === 'End';
+  const imageStart = image.align === 'Start'
+  const imageEnd = image.align === 'End'
 
   return children ? (
     <Comp {...passRef} className={cx(className, 'block')}>

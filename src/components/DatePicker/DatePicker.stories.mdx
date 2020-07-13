@@ -1,0 +1,104 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { minHeightDecorator,  } from '../../../.storybook/decorators.js'
+import { Fragment, useState } from 'react'
+import { Text } from '../Text'
+import { Button } from '../Button'
+import { DatePicker } from '.'
+
+
+<Meta title='Components|Forms/DatePicker' component={DatePicker} />
+
+# Date Picker
+A versatile date picker that is built using [React Datepicker Library](https://reactdatepicker.com/). It accepts all of the props that React Datepicker uses.
+
+## Base
+This is the date picker in its simplest form, using all default props.
+
+<Preview> 
+  <Story name='Base' decorators={[minHeightDecorator]}>
+    {
+      () => {
+        const [value, setValue] = useState(null);
+        return (
+          <Fragment>
+            <Text>Value: {`${value}`}</Text>
+            <DatePicker selected={value} placeholderText="Select a date or type" onChange={setValue} />
+          </Fragment>
+        )
+      }
+    }
+  </Story>
+</Preview>
+
+## Variants
+> **NOTE:** not all possible variants are covered here, please consult the [documentation](https://reactdatepicker.com/) for a comprehensive list!
+
+### Time input
+Pass boolean `true` to the `showTimeSelect` and `showTimeSelectOnly` to display the time select. It's possible to set the minute intervals by passing a value to the `timeIntervals` prop.
+
+<Preview> 
+  <Story name='TimeInput' decorators={[minHeightDecorator]}>
+    {
+      () => {
+        const [value, setValue] = useState(new Date());
+        return (
+          <DatePicker dateFormat="hh:mm aa" showTimeSelect selected={value} timeIntervals={5} onChange={setValue} showTimeSelectOnly />
+        )
+      }
+    }
+  </Story>
+</Preview>
+
+### Custom input
+Pass a `<CustomComponent />` to the `customInput` prop to render your own control element.
+
+<Preview> 
+  <Story name='CustomInput' decorators={[minHeightDecorator]}>
+    {
+      () => {
+        const [value, setValue] = useState(new Date());
+        const CustomInput = ({ value, onClick }) => (
+          <Button onClick={onClick}>
+            {value}
+          </Button>
+        )
+        return (
+          <DatePicker selected={value} onChange={setValue} customInput={<CustomInput />} />
+        )
+      }
+    }
+  </Story>
+</Preview>
+
+
+### Multiple months
+Pass a value to the `monthsShown` prop to render the datepicker with more than one month. `1` is the default value, so the prop can be omitted.
+
+<Preview> 
+  <Story name='MultiMonth' decorators={[minHeightDecorator]}>
+    {
+      () => {
+        const [value, setValue] = useState(new Date());
+        return (
+          <DatePicker selected={value} onChange={setValue} monthsShown={2} />
+        )
+      }
+    }
+  </Story>
+</Preview>
+
+### Quarter picker
+Pass boolean `true` to the `showQuarterYearPicker` and a date format (`yyyy, QQQ` in this example) to the `dateFormat` props respectively to render the datepicker in quarters.
+
+<Preview> 
+  <Story name='QuarterPicker' decorators={[minHeightDecorator]}>
+    {
+      () => {
+        const [value, setValue] = useState(new Date());
+        return (
+          <DatePicker selected={value} onChange={setValue} showQuarterYearPicker dateFormat="yyyy, QQQ" inline />
+        )
+      }
+    }
+  </Story>
+</Preview>

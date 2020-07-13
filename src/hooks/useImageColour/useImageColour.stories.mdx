@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState, forwardRef } from 'react'
+import { IImage } from '../../components/Image/types'
+import { Grid, GridItem } from '../../components/Grid'
+import { RefImage } from '../../components/Image'
+import { Text } from '../../components/Text'
+import { useImageColour } from '.'
+
+<Meta title="Hooks|Image Colour" />
+
+# Image Colour
+A hook for fetching the colours used in an image.
+
+## Base
+The hook in its simplest form.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [colour, ref] = useImageColour()
+      const renderColour = (values = []) => (
+        <span
+          className="m--r-md m--b-md"
+          style={{
+            display: 'inline-block',
+            backgroundColor: `rgb(${values[0] || 200}, ${values[1] || 200}, ${values[2] || 200})`,
+            width: '80px',
+            height: '80px',
+            borderRadius: '999px'
+          }}
+        />
+      )
+      return (
+        <Fragment>
+          <Grid>
+            <GridItem span={2}>
+              <div>
+                <Text>Dominant colour:</Text>
+                {renderColour(colour?.dominant)}
+              </div>
+              <div>
+                <Text>Palette colours:</Text>
+                {colour?.palette.map((x, i) => renderColour(x))}
+              </div>
+            </GridItem>
+            <GridItem span={10}>
+              <RefImage ref={ref} aspect="1x1" src="https://source.unsplash.com/random/500x500" alt="My Image" />
+            </GridItem>
+          </Grid>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

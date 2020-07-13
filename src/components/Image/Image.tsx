@@ -1,6 +1,6 @@
 import { IImage } from './types'
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import cx from 'classnames'
 
 /**
@@ -38,16 +38,11 @@ const aspects = {
 /**
  * An image with source set
  */
-const Image: React.FC<IImage.IProps> = ({
-  className,
-  variant,
-  aspect,
-  src,
-  srcSet = [],
-  alt = 'Image',
-  caption,
-  onLoad
-}) => {
+const Image: React.FC<IImage.IProps> = (
+  { className, variant, aspect, src, srcSet = [], alt = 'Image', caption, onLoad },
+  ref: React.Ref<HTMLElement>
+) => {
+  const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
   const [loading, setLoading] = useState(true)
 
   /**
@@ -60,19 +55,19 @@ const Image: React.FC<IImage.IProps> = ({
   }
 
   return src ? (
-    <figure className={cx(className, 'img', variants[variant], aspects[aspect])}>
-      <picture className='img__picture'>
+    <figure {...passRef} className={cx(className, 'img', variants[variant], aspects[aspect])}>
+      <picture className="img__picture">
         {loading && (
-          <span className='img__loader'>
-            <Loader variant='Circle' />
+          <span className="img__loader">
+            <Loader variant="Circle" />
           </span>
         )}
         {srcSet.map((x, i) => (
-          <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} />
+          <source key={`src-${i}`} media={x.media} srcSet={x.srcSet} onLoad={handleLoad} />
         ))}
-        <img className='img__img' src={src} alt={alt} onLoad={handleLoad} />
+        <img className="img__img" src={src} alt={alt} onLoad={handleLoad} />
       </picture>
-      {caption && <figcaption className='img__caption'>{caption}</figcaption>}
+      {caption && <figcaption className="img__caption">{caption}</figcaption>}
     </figure>
   ) : null
 }

@@ -22,6 +22,9 @@ export { ICollapse } from './components/Collapse/types'
 export { Drawer } from './components/Drawer'
 export { IDrawer } from './components/Drawer/types'
 
+export { DatePicker } from './components/DatePicker'
+export { IDatePicker } from './components/DatePicker/types'
+
 export { Field } from './components/Field'
 export { IField } from './components/Field/types'
 
@@ -81,6 +84,9 @@ export { IPageHeader } from './components/PageHeader/types'
 export { Pagination } from './components/Pagination'
 export { IPagination } from './components/Pagination/types'
 
+export { ProgressBar } from './components/ProgressBar'
+export { IProgressBar } from './components/ProgressBar/types'
+
 export { Radio } from './components/Radio'
 export { IRadio } from './components/Radio/types'
 
@@ -107,6 +113,7 @@ export { ITooltip } from './components/Tooltip/types'
 
 export { ToggleGroup } from './context/ToggleGroup'
 
+export { useImageColour } from './hooks/useImageColour'
 export { useManageArray } from './hooks/useManageArray'
 export { useMousePos } from './hooks/useMousePos'
 export { useObserver } from './hooks/useObserver'

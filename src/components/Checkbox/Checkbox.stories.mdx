@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Text } from '../Text'
 import { Checkbox } from '.'
 
-<Meta title='Components|Forms/Checkbox' component={Checkbox} />
+<Meta title="Components|Forms/Checkbox" component={Checkbox} />
 
 # Checkbox
 A simple Checkbox to allow users to carry out an action. This is a controlled component so a `value` and an `onChange` prop must be passed.
@@ -12,13 +12,13 @@ A simple Checkbox to allow users to carry out an action. This is a controlled co
 For use to indicate a boolean value.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [value, setValue] = useState(false)
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Checkbox id='checkbox' value={value} onChange={setValue} />
+          <Checkbox id="checkbox" value={value} onChange={setValue} />
         </div>
       )
     }}
@@ -29,7 +29,7 @@ For use to indicate a boolean value.
 For use to indicate multiple boolean values.
 
 <Preview>
-  <Story name='Group'>
+  <Story name="Group">
     {() => {
       const [values, setValues] = useState([])
       const handleChange = (name, value) => setValues((prev) => value 
@@ -38,9 +38,9 @@ For use to indicate multiple boolean values.
       return (
         <div>
           <Text>Values selected: {JSON.stringify(values)}</Text>
-          <Checkbox id='checkbox' value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
-          <Checkbox id='checkbox' value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
-          <Checkbox id='checkbox' value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
+          <Checkbox id="checkbox" value={values.includes('cat')} onChange={(value) => handleChange('cat', value)} />
+          <Checkbox id="checkbox" className="m--l-md" value={values.includes('dog')} onChange={(value) => handleChange('dog', value)} />
+          <Checkbox id="checkbox" className="m--l-md" value={values.includes('horse')} onChange={(value) => handleChange('horse', value)} />
         </div>
       )
     }}
@@ -51,11 +51,10 @@ For use to indicate multiple boolean values.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
 
 <Preview>
-  <Story name='Disabled'>
-    <Checkbox id='checkbox' disabled />
+  <Story name="Disabled">
+    <Checkbox id="checkbox" disabled />
   </Story>
 </Preview>
 
 ## Prop Types
-
 <Props of={Checkbox} />

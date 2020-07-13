@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from 'react'
 import { Button } from '../../components/Button'
 import { useMousePos } from '.'
 
-<Meta title='Hooks|Mouse Pos' component={null} />
+<Meta title="Hooks|Mouse Pos" component={null} />
 
 # Mouse Position
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -12,7 +12,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const [position] = useMousePos()
       return (
@@ -31,7 +31,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Pass a decimal to add an accelation/deceleration effect.
 
 <Preview>
-  <Story name='Lerp'>
+  <Story name="Lerp">
     {() => {
       const [position] = useMousePos({ acceleration: 0.1})
       return (

@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from 'react'
 import { Button } from '../../components/Button'
 import { usePagination } from '.'
 
-<Meta title='Hooks|Pagination' component={null} />
+<Meta title="Hooks|Pagination" component={null} />
 
 # Pagination
 A hook for showing a section of an array, useful for creating components such as pagination or sliders.
@@ -12,7 +12,7 @@ A hook for showing a section of an array, useful for creating components such as
 The hook in its simplest form.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     {() => {
       const { items, current, setCurrent } = usePagination()
       return (
@@ -33,7 +33,7 @@ The hook in its simplest form.
 Set the `init` prop to initialise the pagination from a value other than 0.
 
 <Preview>
-  <Story name='Init'>
+  <Story name="Init">
     {() => {
       const { items, current, setCurrent } = usePagination({ init: 2 })
       return (
@@ -54,7 +54,7 @@ Set the `init` prop to initialise the pagination from a value other than 0.
 Set the `limit` prop and adjust the current index to show more items per page. This example has a limit of 3 per page.
 
 <Preview>
-  <Story name='Limit'>
+  <Story name="Limit">
     {() => {
       const { items, current, setCurrent } = usePagination({ limit: 3 })
       return (
@@ -75,7 +75,7 @@ Set the `limit` prop and adjust the current index to show more items per page. T
 Simply set the current page back to the start for an infinite loop.
 
 <Preview>
-  <Story name='Infinite'>
+  <Story name="Infinite">
     {() => {
       const { items, current, setCurrent } = usePagination({ limit: 1 })
       return (
@@ -96,7 +96,7 @@ Simply set the current page back to the start for an infinite loop.
 Infinite loop with multiple items per page.
 
 <Preview>
-  <Story name='Infinite-Limit'>
+  <Story name="Infinite-Limit">
     {() => {
       const { items, current, setCurrent } = usePagination({ limit: 3 })
       return (

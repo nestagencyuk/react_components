@@ -1,13 +1,18 @@
 import * as React from 'react'
 import { IProgressBar } from './types'
+import cx from 'classnames'
+
 /**
  * Styles
  */
 import './ProgressBar.scss'
 
-const ProgressBar: React.FC<IProgressBar.IProps> = (props) => (
-  <div className='progress-bar__container'>
-    <div className='progress-bar' style={{ width: `${props.width}` }}></div>
+/**
+ * A bar to indicate progress
+ */
+const ProgressBar: React.FC<IProgressBar.IProps> = ({ className, value }) => (
+  <div className={cx(className, 'progress-bar__container')}>
+    <div className="progress-bar" style={{ width: `${value}%` }}></div>
   </div>
 )
 

@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import { Float } from '../Float'
 import { Alert } from '.'
 
-<Meta title='Components|Base/Alert' component={Alert} />
+<Meta title="Components|Base/Alert" component={Alert} />
 
 # Alert
 A simple alert for presenting Info, Success, Warning and Error messages to your users.
@@ -15,7 +15,7 @@ A simple alert for presenting Info, Success, Warning and Error messages to your 
 This is the alert in its most basic form, using all default props.
 
 <Preview>
-  <Story name='Base'>
+  <Story name="Base">
     <Alert header={{
       heading: 'Alert heading',
       size: 'Small'
@@ -32,8 +32,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 
 ### Info
 <Preview>
-  <Story name='Alert-Info'>
-    <Alert variant='Info' header={{
+  <Story name="Alert-Info">
+    <Alert variant="Info" header={{
       heading: 'Info',
       size: 'Small',
     }}>
@@ -44,8 +44,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 
 ### Success
 <Preview>
-  <Story name='Alert-Success'>
-    <Alert variant='Success' header={{
+  <Story name="Alert-Success">
+    <Alert variant="Success" header={{
       heading: 'Success',
       size: 'Small',
     }}>
@@ -56,8 +56,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 
 ### Warning
 <Preview>
-  <Story name='Alert-Warning'>
-    <Alert variant='Warning' header={{
+  <Story name="Alert-Warning">
+    <Alert variant="Warning" header={{
       heading: 'Warning',
       size: 'Small'
     }}>
@@ -68,8 +68,8 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 
 ### Error
 <Preview>
-  <Story name='Alert-Error'>
-    <Alert variant='Error' header={{
+  <Story name="Alert-Error">
+    <Alert variant="Error" header={{
       heading: 'Error',
       size: 'Small'
     }}>
@@ -82,14 +82,14 @@ Pass a value to the `variant` prop to have your desired alert rendered.
 To create an alert popover, the base alert component can be combined with [Toggle](/?path=/docs/hooks-toggle--base) and [Float](/?path=/docs/layout-float--base).
 
 <Preview>
-  <Story name='Toggle'>
+  <Story name="Toggle">
     {() => {
       const [toggled, setToggled] = useToggle()
       return (
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Alert</Button>
           {toggled && <Float portal>
-            <Alert className='animate animate--fade-in-top'  onClose={setToggled}>
+            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -103,14 +103,14 @@ To create an alert popover, the base alert component can be combined with [Toggl
 Set a timeout so that the alert disappears after some time.
 
 <Preview>
-  <Story name='Alert-Timeout'>
+  <Story name="Alert-Timeout">
     {() => {
       const [toggled, setToggled] = useToggle({ timeout: 3000 })
       return (
         <Fragment>
           <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
           {toggled && <Float portal>
-            <Alert className='animate animate--fade-in-top' variant='Success'>
+            <Alert className="animate animate--fade-in-top" variant="Success">
               Wow, it worked!
             </Alert>
           </Float>}
@@ -124,7 +124,7 @@ Set a timeout so that the alert disappears after some time.
 An alert can be used to determine an action.
 
 <Preview>
-  <Story name='Confirm'>
+  <Story name="Confirm">
     {() => {
       const [decision, setDecision] = useState(null)
       const [toggled, setToggled] = useToggle()
@@ -133,7 +133,7 @@ An alert can be used to determine an action.
           <Button onClick={() => setToggled(true)}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
           {toggled && <Float portal>
-            <Alert className='animate animate--fade-in-top' variant='Warning' footer={{
+            <Alert className="animate animate--fade-in-top" variant="Warning" footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
@@ -149,5 +149,4 @@ An alert can be used to determine an action.
 </Preview>
 
 ## Prop Types
-
 <Props of={Alert} />

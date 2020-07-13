@@ -1,0 +1,87 @@
+/// ----------------------------------------------------------------------
+
+/// Datepicker
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+@use 'corners';
+@use 'spacing';
+@use 'shadows';
+@use 'typography';
+
+/// -------------------
+/// Third party library overrides
+/// -------------------
+
+$datepicker__background-color: colours.$ui-two;
+$datepicker__border-color: colours.$ui-two;
+$datepicker__highlighted-color: colours.$state-success;
+$datepicker__muted-color: colours.$ui-two;
+$datepicker__selected-color: colours.$brand-one;
+$datepicker__text-color: black;
+$datepicker__header-color: black;
+$datepicker__navigation-disabled-color: lighten(colours.$ui-two, 10%);
+$datepicker__border-radius: corners.$base;
+$datepicker__day-margin: spacing.$xxs;
+$datepicker__font-size: 0.75rem;
+$datepicker__font-family: typography.$font-family;
+$datepicker__item-size: 1.75rem;
+$datepicker__margin: spacing.$xxs;
+$datepicker__navigation-size: 0.5rem;
+$datepicker__triangle-size: 8px;
+
+@import 'react-datepicker/src/stylesheets/datepicker';
+
+/// -------------------
+/// Datepicker selectors
+/// -------------------
+
+.datepicker {
+  font-family: typography.$font-family;
+}
+
+/// -------------------
+/// Datepicker selectors
+/// -------------------
+
+.datepicker-calendar .react-datepicker__month-container {
+  box-shadow: shadows.$one;
+}
+
+/// -------------------
+/// Datepicker nav arrows
+/// -------------------
+
+.datepicker-calendar .react-datepicker__navigation {
+  &--previous {
+    border-right-color: colours.$ui-three;
+
+    &:focus {
+      outline: none;
+      border-right-color: colours.$ui-five;
+    }
+  }
+
+  &--next {
+    border-left-color: colours.$ui-three;
+
+    &:focus {
+      outline: none;
+      border-left-color: colours.$ui-five;
+    }
+  }
+}
+
+/// -------------------
+/// Datepicker time list
+/// -------------------
+
+.datepicker-calendar
+  .react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
+  line-height: 30px;
+}

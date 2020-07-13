@@ -4,7 +4,7 @@ import { ProgressBar } from '.'
 
 describe('----- ProgressBar Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<ProgressBar width='100px' />)
+    const mountComponentInContext = () => render(<ProgressBar value={100} />)
     const { asFragment } = mountComponentInContext()
     expect(asFragment()).toMatchSnapshot()
   })
