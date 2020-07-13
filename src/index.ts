@@ -22,6 +22,9 @@ export { ICollapse } from './components/Collapse/types'
 export { Drawer } from './components/Drawer'
 export { IDrawer } from './components/Drawer/types'
 
+export { DatePicker } from './components/DatePicker'
+export { IDatePicker } from './components/DatePicker/types'
+
 export { Field } from './components/Field'
 export { IField } from './components/Field/types'
 

@@ -1,0 +1,64 @@
+/// ----------------------------------------------------------------------
+
+/// DatePicker
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'breakpoints';
+@use 'colours';
+@use 'corners';
+@use 'spacing';
+@use 'typography';
+
+/// -------------------
+/// Datepicker selectors
+/// -------------------
+
+.datepicker {
+  font-family: typography.$font-family !important;
+
+  &__input {
+    border: 1px solid colours.$ui-three;
+    border-radius: corners.$base; 
+    padding: spacing.$xs;
+  }
+  
+  &__calendar {
+    .react-datepicker {
+      border-color: colours.$ui-three !important;
+
+      &__header {
+        background-color: transparent;
+        border-bottom: none;
+      }
+  
+      &__current-month {
+        margin-bottom: spacing.$sm;
+      }
+  
+      &__day--selected, &__day--keyboard-selected, &__quarter--selected {
+        border: 1px solid colours.$brand-one !important;
+        color: colours.$brand-one !important;
+        background-color: transparent !important;
+        transition: background-color .2s ease-in-out;
+  
+        &:hover {
+          background-color: colours.$brand-two !important;
+        }
+      }
+
+      &__time-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none !important;
+
+        &--selected {
+          color: colours.$brand-one !important;
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
