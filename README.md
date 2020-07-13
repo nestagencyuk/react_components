@@ -18,7 +18,7 @@ Bundles all components using Storybook, starts the dev server and watches for ch
 $ npm run dev
 ```
 
-**A NOTE ON ICONS**
+**A NOTE ON ICONS** 
 
 When adding new icons to this repo, they must fit the following spec:
 
