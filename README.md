@@ -10,6 +10,8 @@ Nest's internal React component library.
 ## Usage:
 If you wish to contribute to this repo **directly**, then continue reading the [contribution](#contribution) instructions below. If you want to create a new client specific repo, then skip to the [templating](#templating) instructions.
 
+-----
+
 ## Contribution
 ### Setup
 Install all dependencies.
@@ -85,19 +87,20 @@ To create a new release:
 - The release branch should now be merged into both `develop` and `master`. Now you just need to run `npm run deploy` and you're done! The CI pipeline will handle the rest.
 
 > **NOTE:** Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
+
 -----
 
 ## Templating
 This repository acts as a template for getting new client component libraries up and running quickly, although there are a few DevOps steps you will need to take first.
 
-### Github
+### Creating the new repo
 1. Go to our [organisation page](https://github.com/nestagencyuk) and choose **"New"** to create a repository under Nest Agency Ltd. 
 2. Under **"Repository template"**, choose `react_components` and ensure you check **"Include all branches"**: 
 3. When naming the repository, follow our naming convention which is `[technology]_[client-name]-[project-type]`. So for a new client called **"Demo Company"**, their new component library repo would be `react_demo-company-website`. Ensure the repo is set to **Private**.
-4. That's it! You should now clone the repo. Open in your fave IDE and just leave it open for now. Move on to setup...
+4. That's it! You should now clone the repo. Open in your fave IDE and just leave it open for now. Move on...
 
-### Final Steps
-To make sure the new client specific repo can pull in the latest changes from the master `react_components` repo without any conflicting Git histories or release tags and **before** you carry out any work, you **must** follow these steps to add the master repo as a remote.
+### Setting up git for future updates
+To make sure the new client specific repo can easily pull in the latest changes from the master `react_components` repo without any conflicting Git histories or release tags and **before** you carry out any work, you **must** follow these steps to add the master repo as a remote.
 
 > **NOTE:** DO NOT OPEN OR USE SOURCETREE - Sourcetree for some reason pulls and automatically adds all tags from other remotes which will cause the versioning system to not work properly.
 
