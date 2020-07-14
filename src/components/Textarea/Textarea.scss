@@ -18,26 +18,22 @@
 /// -------------------
 
 $padding-x: spacing.$sm !default;
-$bg-colour: colours.$ui-one !default;
-$border-radius: corners.$base !default;
-$font-family: typography.$font-family--alt !default;
-$font-weight: typography.$font-light !default;
-$transition: all transitions.$ease !default;
 
 /// -------------------
-/// Textarea selectors 
+/// Textarea selectors
 /// -------------------
 
 .textarea {
   @include lib.resets-style;
   @include lib.components-flow;
+  min-height: 80px;
   padding-left: $padding-x;
   padding-right: $padding-x;
-  border-radius: $border-radius; 
-  background-color: $bg-colour;
-  font-family: $font-family;
-  font-weight: $font-weight;
-  transition: $transition;
+  border-radius: corners.$base;
+  font-family: typography.$font-family--alt;
+  font-weight: typography.$font-light;
+  transition: border-color transitions.$ease;
+  resize: none;
 
   .field--error & {
     border-color: colours.$state-error;
@@ -54,7 +50,7 @@ $transition: all transitions.$ease !default;
   &:focus {
     @include states.focus;
   }
-  
+
   &--disabled,
   &:disabled {
     @include states.disabled;
