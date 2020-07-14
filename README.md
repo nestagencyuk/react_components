@@ -96,7 +96,7 @@ This repository acts as a template for getting new client component libraries up
 ### Creating the new repo
 1. Go to our [organisation page](https://github.com/nestagencyuk) and choose **"New"** to create a repository under Nest Agency Ltd. 
 2. Under **"Repository template"**, choose `react_components` and ensure you check **"Include all branches"**: 
-3. When naming the repository, follow our naming convention which is `[technology]_[client-name]-[project-type]`. So for a new client called **"Demo Company"**, their new component library repo would be `react_demo-company-website`. Ensure the repo is set to **Private**.
+3. When naming the repository, follow our naming convention which is `[technology]_[client-name]-[project-type]`. So for a new client called **"Demo Company"**, their new component library repo would be `react_demo-company-components`. Ensure the repo is set to **Private**.
 4. That's it! You should now clone the repo. Open in your fave IDE and just leave it open for now. Move on...
 
 ### Setting up git for future updates
