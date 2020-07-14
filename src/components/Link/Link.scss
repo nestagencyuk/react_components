@@ -20,9 +20,8 @@
   font-family: typography.$font-family;
   font-weight: typography.$font-bold;
   text-decoration: none;
-  transition: color transitions.$ease,
-    border-color transitions.$ease;
-  
+  transition: color transitions.$ease, border-color transitions.$ease;
+
   &--primary {
     color: colours.$brand-one;
     fill: colours.$brand-one;
@@ -38,7 +37,6 @@
   &--secondary {
     color: colours.$brand-two;
     fill: colours.$brand-two;
-    font-family: typography.$font-family--alt;
     border-bottom: solid 2px colours.$brand-two;
 
     &:hover {
@@ -63,7 +61,6 @@
   &--inverse {
     color: white;
     fill: white;
-    font-family: typography.$font-family--alt;
     border-bottom: solid 2px white;
 
     &:hover {
