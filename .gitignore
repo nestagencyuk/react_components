@@ -1,9 +1,8 @@
-# Package files
 .env
-coverage
+.DS_Store
+.temp
 node_modules
 dist
 docs
 !src/docs
-.DS_Store
-.temp
+coverage
