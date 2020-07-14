@@ -44,7 +44,7 @@ const iconFiles = async () => {
 const iconStories = async () => {
   const baseDir = path.resolve(__dirname, './src/assets/icons/')
   const files = await fs.readdir(baseDir)
-  const fileToWrite = '.temp.Icon.stories.mdx'
+  const fileToWrite = '.temp/Icon.stories.mdx'
 
   console.log('Generating Icon stories & TypeScript types...')
 
@@ -56,14 +56,14 @@ const iconStories = async () => {
     if (x.includes('.svg')) {
       iconCount++
       const iconName = capitalise(x.replace('.svg', ''))
-      typesString += `| "${iconName}" \n`
-      storiesString += `<Story name="${iconName}" decorators={[iconDecorator]}>\n <Icon name="${iconName}" /> \n</Story>`
+      typesString += `\n | "${iconName}"`
+      storiesString += ` <Story name="${iconName}" decorators={[iconDecorator]}><Icon name="${iconName}" /></Story>\n`
     }
   }
 
-  fs.appendFile(
+  fs.outputFile(
     fileToWrite,
-    `# YOUR STORYBOOK STORIES \n<Preview> \n ${storiesString} \n</Preview> \n # YOUR TYPESCRIPT TYPES \n ${typesString}`,
+    `\n# YOUR STORYBOOK STORIES \n<Preview>\n${storiesString}</Preview> \n# YOUR TYPESCRIPT TYPES \n ${typesString}`,
     (err) => {
       if (err) throw err
     }

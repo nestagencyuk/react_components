@@ -3,18 +3,27 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ad5d505b-eb09-4889-bc8c-d29cbb3f8b02/deploy-status)](https://app.netlify.com/sites/twigs-react-components/deploys)
 [![codecov](https://codecov.io/gh/nestagencyuk/react_components/branch/master/graph/badge.svg?token=JHZN4BD36F)](https://codecov.io/gh/nestagencyuk/react_components)
 
-## Usage:
-Usage is outlined in our [Documentation](https://twigs.nestagency.io/).
+Nest's internal React component library.
 
-## Contribution:
+[View Documentation](https://twigs.nestagency.io/).
+
+## Usage:
+If you wish to contribute to this repo **directly**, then continue reading the [contribution](#contribution) instructions below. If you want to create a new client specific repo, then skip to the [templating](#templating) instructions.
+
+## Contribution
+### Setup
+Install all dependencies.
+```sh
+$ npm install
+```
+
 ### Develop
 Bundles all components using Storybook, starts the dev server and watches for changes.
-
 ```sh
 $ npm run dev
 ```
 
-##### Adding Icons
+#### Adding Icons
 When adding new icons to this repo, they must fit the following spec:
 
 1. Icons should be SVGs.
@@ -29,13 +38,11 @@ Included in this repo is a handy CLI batch processing tool to help you with the 
 
 ### Scaffold
 You can quickly scaffold a new component by running:
-
 ```sh
 $ NAME=MyNewComponent npm run scaffold
 ```
 
 OR
-
 ```sh
 $ NAME=MyNewComponent npm run scaffold:stateful
 ```
@@ -44,13 +51,11 @@ This will create a new stateless (functional) or stateful (using hooks) componen
 
 ### Build
 Bundles everything using webpack and outputs to /dist/ ready to be republished to npm.
-
 ```sh
 $ npm run build
 ```
 
 Run individual tasks:
-
 | Command                      | Description                        |
 | :--------------------------- | :--------------------------------- |
 | `$ npm run build:components` | Build just the components          |
@@ -64,7 +69,6 @@ $ npm run test
 ```
 
 Run individual tests:
-
 | Command                   | Description                                 |
 | :------------------------ | :------------------------------------------ |
 | `$ npm run test:cypress`  | Run automated browser tests                 |
@@ -80,4 +84,34 @@ To create a new release:
 - When finished, run `git flow release finish vX.X.X` and add any relevant commit messages. You **must** add a tag message otherwise the release will fail.
 - The release branch should now be merged into both `develop` and `master`. Now you just need to run `npm run deploy` and you're done! The CI pipeline will handle the rest.
 
-> **NOTE:** \*Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
+> **NOTE:** Using Git Flow ensures the tagging is handled correctly. Creating a release branch manually won't work.
+-----
+
+## Templating
+This repository acts as a template for getting new client component libraries up and running quickly, although there are a few DevOps steps you will need to take first.
+
+### Github
+1. Go to our [organisation page](https://github.com/nestagencyuk) and choose **"New"** to create a repository under Nest Agency Ltd. 
+2. Under **"Repository template"**, choose `react_components` and ensure you check **"Include all branches"**: 
+3. When naming the repository, follow our naming convention which is `[technology]_[client-name]-[project-type]`. So for a new client called **"Demo Company"**, their new component library repo would be `react_demo-company-website`. Ensure the repo is set to **Private**.
+4. That's it! You should now clone the repo. Open in your fave IDE and just leave it open for now. Move on to setup...
+
+### Final Steps
+To make sure the new client specific repo can pull in the latest changes from the master `react_components` repo without any conflicting Git histories or release tags and **before** you carry out any work, you **must** follow these steps to add the master repo as a remote.
+
+> **NOTE:** DO NOT OPEN OR USE SOURCETREE - Sourcetree for some reason pulls and automatically adds all tags from other remotes which will cause the versioning system to not work properly.
+
+1. Add the react_components repo as a remote, run `git remote add boilerplate git@github.com:nestagencyuk/react_components.git`.
+2. Then run `git pull boilerplate master --allow-unrelated-histories --no-tags`.
+3. Resolve any conflicts (there shouldn't be any if it's a fresh repo).
+
+And you're done!! You now have a new component library set up with:
+
+- TypeScript
+- Webpack
+- Storybook
+- Styles
+- Performant code
+
+You can now follow the normal contribution instructions and code to your heart's content! 🎉
+

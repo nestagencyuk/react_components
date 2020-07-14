@@ -43,7 +43,7 @@ declare namespace IIcon {
       | 'Twitter'
       | 'Upload'
       | 'User'
-    size?: Size
+    size?: 'XSmall' | Size
     colour?: 'Inherit' | 'Dark' | 'Inverse' | UIState
   }
 
