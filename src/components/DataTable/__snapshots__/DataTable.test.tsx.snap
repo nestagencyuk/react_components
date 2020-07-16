@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- DataTable Component ----- DataTableHeader Correctly hides DataTableHeader buttons 1`] = `
+<DocumentFragment>
+  <div
+    class="datatable__header"
+  >
+    <div>
+      <input
+        class="input--sm input"
+        id="Search"
+        placeholder="Search Data"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`----- DataTable Component ----- base Correctly hides DataTableHeader 1`] = `
+<DocumentFragment>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Item one
+        </td>
+        <td>
+          Item two
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`----- DataTable Component ----- base Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="datatable__header"
+  >
+    <div>
+      <button
+        class="m--r-sm btn btn--tertiary btn--sm"
+        type="button"
+      >
+        <span>
+          Filter Data
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+        />
+      </button>
+      <button
+        class="m--r-sm btn btn--tertiary btn--sm"
+        type="button"
+      >
+        <span>
+          Customise Table
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+        />
+      </button>
+      <input
+        class="input--sm input"
+        id="Search"
+        placeholder="Search Data"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="btn btn--tertiary btn--sm"
+      type="button"
+    >
+      <span>
+        Add Line
+      </span>
+      <span
+        class="btn__icn btn__icn--end icn icn--sm"
+      />
+    </button>
+  </div>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Item one
+        </td>
+        <td>
+          Item two
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
