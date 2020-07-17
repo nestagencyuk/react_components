@@ -21,6 +21,10 @@ declare namespace IDataTable {
   interface IDataTableHeaderProps {
     config: IDataTableHeader
   }
+
+  interface IDataTableDropDownProps {
+    children: React.ReactNode
+  }
 }
 
 export { IDataTable }

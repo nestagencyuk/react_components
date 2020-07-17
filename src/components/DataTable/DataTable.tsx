@@ -14,14 +14,16 @@ import './DataTable.scss'
 import DataTableHeader from './DataTableHeader'
 
 const DataTable: React.FC = () => {
-  const { config } = useContext(DataTableContext)
-  const { table } = config
-  const { header, footer } = table
+  const { config, columnsState } = useContext(DataTableContext)
+  const { table, columns } = config
 
   return (
     <React.Fragment>
-      {header && !header.hidden && <DataTableHeader config={header} />}
+      {table.header && !table.header.hidden && <DataTableHeader config={table.header} />}
       <table>
+        <thead>
+          <tr>{columns.map((col) => columnsState[col.name] || (!col.hidden && <td key={col.name}>{col.name}</td>))}</tr>
+        </thead>
         <tbody>
           <tr>
             <td>Item one</td>

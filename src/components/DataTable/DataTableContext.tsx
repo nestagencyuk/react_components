@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { IDataTable } from './types'
+import { useToggleGroup } from '../../hooks/useToggleGroup'
 
 /**
  * Initialise context
@@ -9,8 +11,15 @@ export const DataTableContext = React.createContext<any>({
 })
 
 const DataTable: React.FC<IDataTable.IProps> = ({ children, config }) => {
+  const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
+
+  console.log(columnsState)
+  const toggleColumn = (id: string) => {
+    setToggledColumns(id)
+  }
+
   return (
-    <DataTableContext.Provider value={{ config }}>
+    <DataTableContext.Provider value={{ config, toggleColumn, columnsState }}>
       <DataTableContext.Consumer>{children}</DataTableContext.Consumer>
     </DataTableContext.Provider>
   )
