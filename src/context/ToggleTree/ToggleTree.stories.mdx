@@ -6,56 +6,63 @@ import { ToggleTreeContext, ToggleTree } from '.'
 <Meta title='Context|Toggle Tree' component={ToggleTree} />
 
 # Toggle Tree
-This is the Context implementation of the [Toggle Tree hook](/?path=/docs/hooks-toggle-group--base). Its recommended use is for controlling global state of multiple toggleable components such as alerts, modals, drawers etc. More localised usage should use the hook instead.
+This is the Context implementation of the [Toggle Tree hook](/?path=/docs/hooks-toggle-group--base).
 
 ## Base
-The most concise way of accessing the toggle state would be to use Render Props (i.e a function as a child).
+You can use `useContext` to access the toggle state.
 
 <Preview>
   <Story name='Base'>
-    <ToggleTree>
-      {({ toggles, setToggled }) => (
-        <Fragment>
-          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
-        </Fragment>
-      )}
-    </ToggleTree>
-  </Story>
-</Preview>
-
-## Multi
-Have multiple toggles at once.
-
-<Preview>
-  <Story name='Multi'>
-    <ToggleTree multi>
-      {({ toggles, setToggled }) => (
-        <Fragment>
-          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
-        </Fragment>
-      )}
-    </ToggleTree>
-  </Story>
-</Preview>
-
-## Context
-Alternatively, you can use `useContext` to access the toggle state.
-
-<Preview>
-  <Story name='Context'>
     {() => {
       const App = () => {
         const { toggles, setToggled } = useContext(ToggleTreeContext)
         return (
-          <Fragment>
-            <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
-            <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
-            <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
-          </Fragment>
+          <ul>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('one')}>{toggles.one?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles.one?.open && (
+                <Text>You found me!</Text>
+              )}
+            </li>
+            <li>
+              <Text>Depth: 0</Text>
+              <Button size='Small' onClick={() => setToggled('two')}>{toggles.two?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+              {toggles.two?.open && (
+                <ul>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('three', 1)}>{toggles.three?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles.three?.open && (
+                      <ul>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('four', 2)}>{toggles.four?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles.four?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                        <li>
+                          <Text>Depth: 2</Text>
+                          <Button size='Small' onClick={() => setToggled('five', 2)}>{toggles.five?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                          {toggles.five?.open && (
+                            <Text>You found me!</Text>
+                          )}
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                  <li>
+                    <Text>Depth: 1</Text>
+                    <Button size='Small' onClick={() => setToggled('six', 1)}>{toggles.six?.open ? 'Untoggle' : 'Toggle me!'}</Button>
+                    {toggles.six?.open && (
+                      <Text>You found me!</Text>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
         )
       }
       return (
