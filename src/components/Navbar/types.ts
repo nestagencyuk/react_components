@@ -5,16 +5,10 @@ import { IImage } from '../Image/types'
 declare namespace INavbar {
   interface IProps {
     className?: string
-    brand?: {
-      image?: IImage.IProps
+    brand?: IBrandProps & {
       align?: Alignment
     }
-    links: ILinkProps[]
-  }
-
-  interface IBrandProps {
-    image?: IImage.IProps
-    href?: string
+    items: IItemProps[]
   }
 
   interface IToggleProps {
@@ -22,20 +16,24 @@ declare namespace INavbar {
     onClick: (bool: boolean) => void
   }
 
-  interface IListProps {
-    align?: Alignment
-    items: ILinkProps[]
+  interface IBrandProps {
+    image?: IImage.IProps
+    href?: string
   }
 
-  interface IItemProps {
-    active?: boolean
-    children: React.ReactElement<ILinkProps>
+  interface IListProps {
+    align: Alignment
+    items: IItemProps[]
+  }
+
+  interface IItemProps extends ILinkProps {
+    className?: string
+    align: Alignment
+    text: string
   }
 
   interface ILinkProps extends ILink.IProps {
-    text: string
-    align: Alignment
-    active: boolean
+    active?: boolean
     onClick?: (e: React.SyntheticEvent) => void
   }
 }

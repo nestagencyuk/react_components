@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 const SelectInput: React.FC<ISelect.IInputProps> = ({
   id,
   value,
+  placeholder: initPlaceholder,
   searchValue,
   options,
   multi,
@@ -15,7 +16,6 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   disabled,
   onChange
 }) => {
-  const initPlaceholder = searchable ? 'Type to search...' : '-- Select --'
   const [shownValue, setShownValue] = useState('')
   const [placeholder, setPlaceholder] = useState(initPlaceholder)
 
@@ -66,7 +66,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
 
   return (
     <input
-      className='select__input'
+      className="select__input"
       id={id}
       data-testid={`${id}-input`}
       name={id}
@@ -74,7 +74,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
       readOnly={!searchable}
       placeholder={placeholder}
       disabled={disabled}
-      autoComplete='off'
+      autoComplete="off"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
     />
   )

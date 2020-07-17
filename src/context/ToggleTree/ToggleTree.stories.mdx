@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Button } from '../../components/Button'
+import { ToggleTreeContext, ToggleTree } from '.'
+
+<Meta title='Context|Toggle Tree' component={ToggleTree} />
+
+# Toggle Tree
+This is the Context implementation of the [Toggle Tree hook](/?path=/docs/hooks-toggle-group--base). Its recommended use is for controlling global state of multiple toggleable components such as alerts, modals, drawers etc. More localised usage should use the hook instead.
+
+## Base
+The most concise way of accessing the toggle state would be to use Render Props (i.e a function as a child).
+
+<Preview>
+  <Story name='Base'>
+    <ToggleTree>
+      {({ toggles, setToggled }) => (
+        <Fragment>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )}
+    </ToggleTree>
+  </Story>
+</Preview>
+
+## Multi
+Have multiple toggles at once.
+
+<Preview>
+  <Story name='Multi'>
+    <ToggleTree multi>
+      {({ toggles, setToggled }) => (
+        <Fragment>
+          <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+        </Fragment>
+      )}
+    </ToggleTree>
+  </Story>
+</Preview>
+
+## Context
+Alternatively, you can use `useContext` to access the toggle state.
+
+<Preview>
+  <Story name='Context'>
+    {() => {
+      const App = () => {
+        const { toggles, setToggled } = useContext(ToggleTreeContext)
+        return (
+          <Fragment>
+            <Button className='m m--r-md' onClick={() => setToggled('one')}>{toggles['one'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button className='m m--r-md' onClick={() => setToggled('two')}>{toggles['two'] ? 'Untoggle' : 'Toggle me!'}</Button>
+            <Button onClick={() => setToggled('three')}>{toggles['three'] ? 'Untoggle' : 'Toggle me!'}</Button>
+          </Fragment>
+        )
+      }
+      return (
+        <ToggleTree>
+          <App />
+        </ToggleTree>
+      )
+    }}
+  </Story>
+</Preview>

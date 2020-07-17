@@ -1473,6 +1473,148 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
+exports[`----- Select Component ----- Placeholder Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="select"
+    data-testid="Select"
+    tabindex="-1"
+  >
+    <div>
+      <input
+        autocomplete="off"
+        class="select__input"
+        data-testid="Select-input"
+        id="Select"
+        name="Select"
+        placeholder="Custom Placeholder"
+        readonly=""
+        value=""
+      />
+      <span
+        class="select__icn icn icn--sm icn--dark"
+      />
+    </div>
+    <ul
+      class="select__options"
+      data-testid="Select-options"
+      style="display: none;"
+    >
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option One"
+        >
+          Option One
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Two"
+        >
+          Option Two
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Three"
+        >
+          Option Three
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Four"
+        >
+          Option Four
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Five"
+        >
+          Option Five
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Six"
+        >
+          Option Six
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Seven"
+        >
+          Option Seven
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eight"
+        >
+          Option Eight
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Nine"
+        >
+          Option Nine
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Ten"
+        >
+          Option Ten
+        </button>
+      </li>
+      <li
+        class="select__option"
+      >
+        <button
+          class="select__btn"
+          title="Option Eleven"
+        >
+          Option Eleven
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`----- Select Component ----- Searchable Renders without crashing 1`] = `
 <DocumentFragment>
   <div

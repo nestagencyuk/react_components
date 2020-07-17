@@ -1,6 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { inverseDecorator } from '../../../.storybook/decorators.js'
-import { MemoryRouter } from 'react-router-dom'
 import { Text } from '../Text'
 import { Link } from '.'
 
@@ -13,12 +12,10 @@ A simple inline hyperlink using React Router.
 This is the link in its simplest form and can be rendered in paragraphs.
 
 <Preview>
-  <Story name="Base">
-    <MemoryRouter> 
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, <Link href="/">primary link</Link> posuere quis elementum non, commodo molestie odio.
-      </Text>
-    </MemoryRouter>
+  <Story name="Base"> 
+    <Text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, <Link href="/">primary link</Link> posuere quis elementum non, commodo molestie odio.
+    </Text>
   </Story>
 </Preview>
 
@@ -28,36 +25,28 @@ Pass a value to the `variant` prop to render the desired link. `Primary` is the 
 ### Primary
 <Preview>
   <Story name="Primary">
-    <MemoryRouter>
-      <Link variant="Primary" href="/">primary link</Link>
-    </MemoryRouter>
+    <Link variant="Primary" href="/">primary link</Link>
   </Story>
 </Preview>
 
 ### Secondary
 <Preview>
   <Story name="Secondary">
-    <MemoryRouter>
-      <Link variant="Secondary" href="/">Secondary link</Link>
-    </MemoryRouter>
+    <Link variant="Secondary" href="/">Secondary link</Link>
   </Story>
 </Preview>
 
 ### Tertiary
 <Preview>
   <Story name="Tertiary">
-    <MemoryRouter>
-      <Link variant="Tertiary" href="/">Tertiary link</Link>
-    </MemoryRouter>
+    <Link variant="Tertiary" href="/">Tertiary link</Link>
   </Story>
 </Preview>
 
 ### Inverse
 <Preview>
   <Story name="Inverse" decorators={[inverseDecorator]}>
-    <MemoryRouter>
-      <Link variant="Inverse" href="/">Inverse link</Link>
-    </MemoryRouter>
+    <Link variant="Inverse" href="/">Inverse link</Link>
   </Story>
 </Preview>
 
@@ -67,18 +56,14 @@ If the link isn't using React Router, flag it as `external` to render a normal `
 ### External
 <Preview>
   <Story name="External">
-    <MemoryRouter>
-      <Link href="/" external>external link</Link>
-    </MemoryRouter>
+    <Link href="/" external>external link</Link>
   </Story>
 </Preview>
 
 ### Custom
 <Preview>
   <Story name="Custom">
-    <MemoryRouter>
-      <Link component={() => <a>custom link</a>} href="/">custom link</Link>
-    </MemoryRouter>
+    <Link component={() => <a>custom link</a>} href="/">custom link</Link>
   </Story>
 </Preview>
 
@@ -87,17 +72,13 @@ Add an icon at the start or end of the link.
 
 <Preview>
   <Story name="Icon-Start">
-    <MemoryRouter>
-      <Link href="/" icon={{ align: 'Start', name: 'External'}} external>external link</Link>
-    </MemoryRouter>
+    <Link href="/" icon={{ align: 'Start', name: 'External'}} external>external link</Link>
   </Story>
 </Preview>
 
 <Preview>
   <Story name="Icon-End">
-    <MemoryRouter>
-      <Link href="/" icon={{ align: 'End', name: 'External'}} external>external link</Link>
-    </MemoryRouter>
+    <Link href="/" icon={{ align: 'End', name: 'External'}} external>external link</Link>
   </Story>
 </Preview>
 

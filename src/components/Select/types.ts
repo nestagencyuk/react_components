@@ -18,6 +18,7 @@ declare namespace ISelect {
   interface IInputProps {
     id: string
     value: string | string[]
+    placeholder: string
     searchValue: string
     options?: Array<{
       value: string

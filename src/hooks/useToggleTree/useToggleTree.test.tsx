@@ -49,8 +49,8 @@ describe('----- useToggleTree hook -----', () => {
 
   describe('Base', () => {
     it('Renders without crashing', () => {
-      const mountComponentInContext = () => render(<Example />)
-      const { asFragment } = mountComponentInContext()
+      const { asFragment } = render(<Example />)
+
       expect(asFragment()).toMatchSnapshot()
     })
 
@@ -148,8 +148,8 @@ describe('----- useToggleTree hook -----', () => {
 
   describe('Multi', () => {
     it('Renders without crashing', () => {
-      const mountComponentInContext = () => render(<Example multi />)
-      const { asFragment } = mountComponentInContext()
+      const { asFragment } = render(<Example multi />)
+
       expect(asFragment()).toMatchSnapshot()
     })
 

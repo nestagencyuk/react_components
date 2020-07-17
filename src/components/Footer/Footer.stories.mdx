@@ -1,5 +1,4 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { MemoryRouter } from 'react-router-dom'
 import { Text } from '../Text'
 import { Footer } from '.'
 
@@ -15,15 +14,13 @@ This is the footer in its simplest form.
 
 <Preview>
   <Story name="Base">
-    <MemoryRouter>
-      <Footer
-        actions={[
-          { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => alert('No') },
-          { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => alert('Yes') }
-        ]}
-        subInfo={<Text variant="Small">Copyright | 2020 | 3414134234</Text>}
-      />
-    </MemoryRouter>
+    <Footer
+      actions={[
+        { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => alert('No') },
+        { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => alert('Yes') }
+      ]}
+      subInfo={<Text variant="Small">Copyright | 2020 | 3414134234</Text>}
+    />
   </Story>
 </Preview>
 

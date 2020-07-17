@@ -32,11 +32,11 @@ const colours = {
 /**
  * Icon
  */
-const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => {
+const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark', active = false }) => {
   const icon = require(`../../assets/icons/${name.toLowerCase()}.svg`)
   return (
     <span
-      className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour])}
+      className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour], { 'icn--active': active })}
       dangerouslySetInnerHTML={{ __html: icon }}
     />
   )

@@ -4,8 +4,8 @@ import { Input } from '.'
 
 describe('----- Input Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Input id='input' type='Text' onChange={jest.fn} />)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Input id="input" type="Text" onChange={jest.fn} />)
+
     expect(asFragment()).toMatchSnapshot()
   })
 })

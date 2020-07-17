@@ -4,8 +4,12 @@ import { Collapse } from '.'
 
 describe('----- Collapse Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Collapse open={true} header={{ heading: 'Test'}}>test</Collapse>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(
+      <Collapse open={true} header={{ heading: 'Test' }}>
+        test
+      </Collapse>
+    )
+
     expect(asFragment()).toMatchSnapshot()
   })
 })

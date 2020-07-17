@@ -4,8 +4,7 @@ import { Link } from '.'
 
 describe('----- Link Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Link href='/'>Test</Link>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Link href="/">Test</Link>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

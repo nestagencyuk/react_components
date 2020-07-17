@@ -45,6 +45,7 @@ declare namespace IIcon {
       | 'User'
     size?: 'XSmall' | Size
     colour?: 'Inherit' | 'Dark' | 'Inverse' | UIState
+    active?: boolean
   }
 
   type IIconTypes = { [key in UIState]: IIcon.IProps['name'] }

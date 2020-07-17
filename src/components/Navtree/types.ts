@@ -1,19 +1,26 @@
+import { ILink } from '../Link/types'
+
 declare namespace INavtree {
   interface IProps {
-    [key: string]: any
+    className?: string
+    items: IItemProps[]
   }
 
   interface IListProps {
-    [key: string]: any
-    items: any[]
+    items: IItemProps[]
+    depth: number
+    open: boolean
   }
 
-  interface IItemProps {
-    [key: string]: any
+  interface IItemProps extends ILinkProps {
+    depth?: number
+    text: string
+    items?: IItemProps[]
   }
 
-  interface ILinkProps {
-    [key: string]: any
+  interface ILinkProps extends ILink.IProps {
+    active?: boolean
+    onClick?: (e: React.SyntheticEvent) => void
   }
 }
 

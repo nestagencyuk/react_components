@@ -1,6 +1,5 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { inverseDecorator } from '../../../.storybook/decorators.js'
-import { MemoryRouter } from 'react-router-dom'
 import { Button, ButtonGroup } from '.'
 
 <Meta title="Components|Base/Button" component={Button} />
@@ -77,9 +76,7 @@ If the `href` prop is supplied, the button will render correctly as an `<a>` tag
 
 <Preview>
   <Story name="Link">
-    <MemoryRouter>
-      <Button href="/">Link Button</Button>
-    </MemoryRouter>
+    <Button href="/">Link Button</Button>
   </Story>
 </Preview>
 

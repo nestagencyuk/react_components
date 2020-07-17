@@ -5,7 +5,7 @@ import cx from 'classnames'
 /**
  * Components
  */
-import { NavbarItem, NavbarLink } from '.'
+import { NavbarItem } from '.'
 
 /**
  * Navbar list classes
@@ -23,9 +23,7 @@ const NavbarList: React.FC<INavbar.IListProps> = ({ align, items = [] }) =>
   items.length > 0 ? (
     <ul className={cx('navbar__list', alignment[align])}>
       {items.map((x, i) => (
-        <NavbarItem key={`item-${i}`}>
-          <NavbarLink {...x}>{x.text}</NavbarLink>
-        </NavbarItem>
+        <NavbarItem key={`item-${i}`} align={align} {...x} />
       ))}
     </ul>
   ) : null

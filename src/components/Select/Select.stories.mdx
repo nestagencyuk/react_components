@@ -26,6 +26,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
+## Placeholder
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+<Preview>
+  <Story name="Placeholder" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select id="select" placeholder="Custom placeholder" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
 ## Initial value
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
@@ -119,7 +136,7 @@ Searchable selects allow the user to search for an option.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
+          <Select id="select" placeholder="Type to search..." options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
         </div>  
       )
     }}
@@ -130,7 +147,7 @@ Searchable selects allow the user to search for an option.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[
+          <Select id="select" placeholder="Type to search..." options={[
             { label: 'Option 1', value: 'option-1' },
             { label: 'Option 2', value: 'option-2' },
             { label: 'Option 3', value: 'option-3' },
