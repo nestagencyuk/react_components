@@ -1,0 +1,14 @@
+{
+  "table": {
+    "header": {
+      "hidden": false,
+      "buttonCustomiseTable": true,
+      "buttonFilterData": true,
+      "buttonAddLine": true,
+      "search": true
+    },
+    "footer": {
+      "hidden": false
+    }
+  }
+}

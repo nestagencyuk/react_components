@@ -1,0 +1,29 @@
+/// ----------------------------------------------------------------------
+
+/// DataTable
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'corners';
+@use 'spacing';
+@use 'transitions';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// DataTable selectors
+/// -------------------
+
+.datatable {
+}
+
+/// -------------------
+/// DataTable Header selectors
+/// -------------------
+
+.datatable__header {
+  display: flex;
+  justify-content: space-between;
+}

@@ -5,25 +5,12 @@
     "declaration": true,
     "noImplicitAny": true,
     "module": "commonjs",
+    "resolveJsonModule": true,
     "target": "es5",
-    "lib": [
-      "esnext.asynciterable",
-      "es5",
-      "es7",
-      "es2015",
-      "es2017",
-      "dom"
-    ], 
+    "lib": ["esnext.asynciterable", "es5", "es7", "es2015", "es2017", "dom"],
     "jsx": "react",
     "baseUrl": "./src/"
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./src/components/_Template/*",
-    "./src/**/*.test.tsx",
-    "./src/**/*.test.ts"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules", "./src/components/_Template/*", "./src/**/*.test.tsx", "./src/**/*.test.ts"]
 }

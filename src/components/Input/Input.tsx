@@ -8,16 +8,36 @@ import cx from 'classnames'
 import './Input.scss'
 
 /**
+ * Sizes
+ */
+const sizes = {
+  Small: 'input--sm',
+  Medium: 'input--md',
+  Large: 'input--lg'
+}
+
+/**
  * A user input
  */
-const Input: React.FC<IInput.IProps> = ({ className, id, name, type = 'Text', value, disabled, onChange }) => (
+const Input: React.FC<IInput.IProps> = ({
+  className,
+  placeholder,
+  id,
+  name,
+  type = 'Text',
+  value,
+  disabled,
+  onChange,
+  size = 'Medium'
+}) => (
   <input
-    className={cx(className, 'input', { 'input--disabled': disabled })}
+    className={cx(className, sizes[size], 'input', { 'input--disabled': disabled })}
     id={id}
     name={name}
     type={type.toLowerCase()}
     value={value || ''}
     disabled={disabled}
+    placeholder={placeholder}
     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
   />
 )
