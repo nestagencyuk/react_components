@@ -17,7 +17,6 @@ import { Input } from '../Input'
  */
 const DataTableHeader: React.FC<IDataTable.IDataTableHeaderProps> = ({ config }) => {
   const { buttonAddLine, buttonCustomiseTable, buttonFilterData, search } = config
-
   return (
     <div className="datatable__header">
       <div>

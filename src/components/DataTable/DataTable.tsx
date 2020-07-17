@@ -1,5 +1,5 @@
-import { IDataTable } from './types'
 import * as React from 'react'
+import { Fragment } from 'react'
 import { useContext } from 'react'
 import { DataTableContext } from './DataTableContext'
 
@@ -19,7 +19,7 @@ const DataTable: React.FC = () => {
   const { header, footer } = table
 
   return (
-    <React.Fragment>
+    <Fragment>
       {header && !header.hidden && <DataTableHeader config={header} />}
       <table>
         <tbody>
@@ -29,7 +29,7 @@ const DataTable: React.FC = () => {
           </tr>
         </tbody>
       </table>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

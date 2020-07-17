@@ -2,42 +2,48 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import { DataTableContext, DataTable, DataTableHeader } from '.'
 
-const config = require('./DataTableConfig.json')
-
 describe('----- DataTable Component -----', () => {
-  const dataTableHeaderTestConfig = {
-    buttonCustomiseTable: false,
-    buttonFilterData: false,
-    buttonAddLine: false,
-    hidden: false,
-    search: true
+  const config = {
+    table: {
+      header: {
+        hidden: false,
+        buttonCustomiseTable: false,
+        buttonFilterData: false,
+        buttonAddLine: false,
+        search: false
+      },
+      footer: {
+        hidden: false
+      }
+    }
   }
 
-  describe('base', () => {
+  describe('Base', () => {
     it('Renders without crashing', () => {
-      const mountComponentInContext = () =>
-        render(<DataTableContext config={config}>{() => <DataTable />}</DataTableContext>)
-      const { asFragment } = mountComponentInContext()
-      expect(asFragment()).toMatchSnapshot()
-    })
-
-    it('Correctly hides DataTableHeader', () => {
-      const mountComponentInContext = () =>
-        render(
-          <DataTableContext config={{ table: { header: { ...dataTableHeaderTestConfig, hidden: true } } }}>
-            {() => <DataTable />}
-          </DataTableContext>
-        )
-      const { asFragment } = mountComponentInContext()
+      const { asFragment } = render(<DataTableContext config={config}>{() => <DataTable />}</DataTableContext>)
       expect(asFragment()).toMatchSnapshot()
     })
   })
 
-  describe('DataTableHeader', () => {
-    it('Correctly hides DataTableHeader buttons', () => {
-      const mountComponentInContext = () => render(<DataTableHeader config={dataTableHeaderTestConfig} />)
-      const { asFragment } = mountComponentInContext()
-      expect(asFragment()).toMatchSnapshot()
+  describe('DataTable Header', () => {
+    it('Correctly shows filter button', () => {
+      const { queryByText } = render(<DataTableHeader config={{ ...config.table.header, buttonFilterData: true }} />)
+      expect(queryByText('Filter Data')).toBeTruthy()
+    })
+
+    it('Correctly shows customise button', () => {
+      const { queryByText } = render(<DataTableHeader config={{ ...config.table.header, buttonCustomiseTable: true }} />)
+      expect(queryByText('Customise Table')).toBeTruthy()
+    })
+
+    it('Correctly shows customise button', () => {
+      const { queryByPlaceholderText } = render(<DataTableHeader config={{ ...config.table.header, search: true }} />)
+      expect(queryByPlaceholderText('Search Data')).toBeTruthy()
+    })
+
+    it('Correctly shows add line button', () => {
+      const { queryByText } = render(<DataTableHeader config={{ ...config.table.header, buttonAddLine: true }} />)
+      expect(queryByText('Add Line')).toBeTruthy()
     })
   })
 })
