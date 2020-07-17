@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- DataTable Component ----- base Renders without crashing 1`] = `
+exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="datatable__header"
