@@ -19,7 +19,7 @@ const DataTable: React.FC = () => {
 
   return (
     <Fragment>
-      {table.header && !table.header.hidden && <DataTableHeader config={table.header} />}
+      {table.header && !table.header.hidden && <DataTableHeader />}
       <table>
         <thead>
           <tr>

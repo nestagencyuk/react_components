@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
-import { IDataTable } from './types'
+import { useEffect } from 'react'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
+import { IDataTable } from './types'
 
 /**
  * Initialise context
@@ -13,15 +13,24 @@ export const DataTableContext = React.createContext<any>({
 const DataTable: React.FC<IDataTable.IDataTableContextProps> = ({ children, config }) => {
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
 
+  /**
+   * Toggle individual column visibilty
+   */
   const toggleColumn = (id: string) => {
     setToggledColumns(id)
   }
 
-  useEffect(() => {
-    // Load columns into state
+  /**
+   * Sets any necessary initial state based on config passed in
+   */
+  const setInitialState = () => {
     config.columns.forEach((col: IDataTable.IDataTableColumn) => {
       col.hidden && toggleColumn(col.name)
     })
+  }
+
+  useEffect(() => {
+    setInitialState()
   }, [])
 
   return (
