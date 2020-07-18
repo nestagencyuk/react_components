@@ -23,7 +23,7 @@ describe('----- DataTable Component -----', () => {
 
   describe('Base', () => {
     it('Renders without crashing', () => {
-      const { asFragment } = render(<DataTableContext config={dataTableTestConfig}>{() => <DataTable />}</DataTableContext>)
+      const { asFragment } = render(<DataTable config={dataTableTestConfig} />)
       expect(asFragment()).toMatchSnapshot()
     })
   })
@@ -31,14 +31,12 @@ describe('----- DataTable Component -----', () => {
   it('Correctly hides DataTableHeader', () => {
     const mountComponentInContext = () =>
       render(
-        <DataTableContext
+        <DataTable
           config={{
             table: { header: { ...dataTableTestConfig.table.header, hidden: true } },
             columns: dataTableTestConfig.columns
           }}
-        >
-          {() => <DataTable />}
-        </DataTableContext>
+        />
       )
     const { asFragment } = mountComponentInContext()
     expect(asFragment()).toMatchSnapshot()
@@ -46,14 +44,12 @@ describe('----- DataTable Component -----', () => {
 
   describe('DataTable Header', () => {
     const baseDataTableHeader = (prop: string) => (
-      <DataTableContext
+      <DataTable
         config={{
           table: { header: { ...dataTableTestConfig.table.header, [prop]: true } },
           columns: dataTableTestConfig.columns
         }}
-      >
-        {() => <DataTableHeader />}
-      </DataTableContext>
+      />
     )
 
     it('Correctly renders customise button', () => {

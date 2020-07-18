@@ -2,7 +2,7 @@
 
 exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
-  <div
+  <header
     class="datatable__header"
   >
     <div>
@@ -14,7 +14,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
         value=""
       />
     </div>
-  </div>
+  </header>
   <table>
     <thead>
       <tr>

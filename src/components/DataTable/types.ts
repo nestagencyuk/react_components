@@ -1,6 +1,6 @@
 declare namespace IDataTable {
   // Base DataTable config
-  interface IDataTableConfig {
+  interface IConfig {
     table: {
       header: {
         buttonCustomiseTable: boolean
@@ -10,19 +10,23 @@ declare namespace IDataTable {
         hidden: boolean
       }
     }
-    columns: IDataTableColumn[]
+    columns: IColumn[]
+  }
+
+  // DataTable types
+  interface IProps {
+    config: IConfig
   }
 
   // DataTable Rows/Cols types
-  interface IDataTableColumn {
+  interface IColumn {
     name: string
     hidden: boolean
   }
 
   // DataTable Context
-  interface IDataTableContextProps {
-    children: () => React.ReactElement | React.ReactNode
-    config: IDataTableConfig
+  interface IContext {
+    config: IConfig
   }
 
   interface IDataTableDropDownProps {

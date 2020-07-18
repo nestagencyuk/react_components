@@ -1,7 +1,7 @@
 import { IDataTable } from './types'
 import * as React from 'react'
 import { useContext, useState } from 'react'
-import { DataTableContext } from './DataTableContext'
+import { DataTableContext } from '.'
 
 /**
  * Styles
@@ -26,7 +26,7 @@ const DataTableHeader: React.FC = () => {
   const [showCustomiseMenu, toggleCustomiseMenu] = useState(false)
 
   return (
-    <div className="datatable__header">
+    <header className="datatable__header">
       <div>
         {buttonFilterData && (
           <Button
@@ -59,7 +59,7 @@ const DataTableHeader: React.FC = () => {
             </Button>
             {showCustomiseMenu && (
               <DataTableDropDown>
-                {columns.map((col: IDataTable.IDataTableColumn) => (
+                {columns.map((col: IDataTable.IColumn) => (
                   <div key={col.name} className="datatable__drop-down-item">
                     <Checkbox
                       onChange={() => toggleColumn(col.name)}
@@ -91,7 +91,7 @@ const DataTableHeader: React.FC = () => {
           Add Line
         </Button>
       )}
-    </div>
+    </header>
   )
 }
 
