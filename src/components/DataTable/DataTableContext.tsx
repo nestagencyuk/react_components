@@ -10,13 +10,19 @@ export const DataTableContext = React.createContext<any>({
   config: {}
 })
 
-const DataTable: React.FC<IDataTable.IProps> = ({ children, config }) => {
+const DataTable: React.FC<IDataTable.IDataTableContextProps> = ({ children, config }) => {
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
 
-  console.log(columnsState)
   const toggleColumn = (id: string) => {
     setToggledColumns(id)
   }
+
+  useEffect(() => {
+    // Load columns into state
+    config.columns.forEach((col: IDataTable.IDataTableColumn) => {
+      col.hidden && toggleColumn(col.name)
+    })
+  }, [])
 
   return (
     <DataTableContext.Provider value={{ config, toggleColumn, columnsState }}>

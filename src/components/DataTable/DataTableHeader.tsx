@@ -59,11 +59,11 @@ const DataTableHeader: React.FC<IDataTable.IDataTableHeaderProps> = () => {
             </Button>
             {showCustomiseMenu && (
               <DataTableDropDown>
-                {columns.map((col) => (
-                  <div className="datatable__drop-down-item">
+                {columns.map((col: IDataTable.IDataTableColumn) => (
+                  <div key={col.name} className="datatable__drop-down-item">
                     <Checkbox
-                      value={columnsState[col.name] ? !columnsState[col.name] : !col.hidden}
                       onChange={() => toggleColumn(col.name)}
+                      value={!columnsState[col.name]}
                       className="m--r-xs"
                       id={col.name}
                     />

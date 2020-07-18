@@ -16,12 +16,26 @@
     {
       "name": "Stock Keeping Unit (SKU)",
       "sortable": true,
-      "hidden": false
+      "hidden": false,
+      "defaultWidth": 300
     },
     {
       "name": "Product Description",
       "sortable": true,
-      "hidden": false
+      "hidden": false,
+      "defaultWidth": 100
+    },
+    {
+      "name": "Unit of Measure",
+      "sortable": true,
+      "hidden": false,
+      "defaultWidth": 100
+    },
+    {
+      "name": "Quantity",
+      "sortable": true,
+      "hidden": true,
+      "defaultWidth": 100
     }
   ]
 }

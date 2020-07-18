@@ -1,4 +1,13 @@
 declare namespace IDataTable {
+  // Base DataTable config
+  interface IDataTableConfig {
+    table: {
+      header: IDataTableHeader
+    }
+    columns: [IDataTableColumn]
+  }
+
+  // DataTable Header types
   interface IDataTableHeader {
     buttonCustomiseTable: boolean
     buttonFilterData: boolean
@@ -7,19 +16,20 @@ declare namespace IDataTable {
     hidden: boolean
   }
 
-  interface IDataTableConfig {
-    table: {
-      header: IDataTableHeader
-    }
-  }
-
-  interface IProps {
-    children: () => React.ReactElement | React.ReactNode
-    config: IDataTableConfig
-  }
-
   interface IDataTableHeaderProps {
     config: IDataTableHeader
+  }
+
+  // DataTable Rows/Cols types
+  export interface IDataTableColumn {
+    name: string
+    hidden: boolean
+  }
+
+  // DataTable Context
+  interface IDataTableContextProps {
+    children: () => React.ReactElement | React.ReactNode
+    config: IDataTableConfig
   }
 
   interface IDataTableDropDownProps {

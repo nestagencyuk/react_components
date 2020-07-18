@@ -22,7 +22,11 @@ const DataTable: React.FC = () => {
       {table.header && !table.header.hidden && <DataTableHeader config={table.header} />}
       <table>
         <thead>
-          <tr>{columns.map((col) => columnsState[col.name] || (!col.hidden && <td key={col.name}>{col.name}</td>))}</tr>
+          <tr>
+            {columns.map((col: IDataTable.IDataTableColumn) =>
+              columnsState[col.name] ? null : <td key={col.name}>{col.name}</td>
+            )}
+          </tr>
         </thead>
         <tbody>
           <tr>
