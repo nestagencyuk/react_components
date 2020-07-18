@@ -5,12 +5,22 @@ import { DataTableContext, DataTable, DataTableHeader } from '.'
 const config = require('./DataTableConfig.json')
 
 describe('----- DataTable Component -----', () => {
-  const dataTableHeaderTestConfig = {
-    buttonCustomiseTable: false,
-    buttonFilterData: false,
-    buttonAddLine: false,
-    hidden: false,
-    search: true
+  const dataTableTestConfig = {
+    table: {
+      header: {
+        buttonCustomiseTable: false,
+        buttonFilterData: false,
+        buttonAddLine: false,
+        hidden: false,
+        search: true
+      }
+    },
+    columns: [
+      {
+        name: 'First Test Column',
+        hidden: false
+      }
+    ]
   }
 
   describe('base', () => {
@@ -24,18 +34,15 @@ describe('----- DataTable Component -----', () => {
     it('Correctly hides DataTableHeader', () => {
       const mountComponentInContext = () =>
         render(
-          <DataTableContext config={{ table: { header: { ...dataTableHeaderTestConfig, hidden: true } } }}>
+          <DataTableContext
+            config={{
+              columns: dataTableTestConfig.columns,
+              table: { header: { ...dataTableTestConfig.table.header, hidden: true } }
+            }}
+          >
             {() => <DataTable />}
           </DataTableContext>
         )
-      const { asFragment } = mountComponentInContext()
-      expect(asFragment()).toMatchSnapshot()
-    })
-  })
-
-  describe('DataTableHeader', () => {
-    it('Correctly hides DataTableHeader buttons', () => {
-      const mountComponentInContext = () => render(<DataTableHeader config={dataTableHeaderTestConfig} />)
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })

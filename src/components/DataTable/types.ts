@@ -4,7 +4,7 @@ declare namespace IDataTable {
     table: {
       header: IDataTableHeader
     }
-    columns: [IDataTableColumn]
+    columns: IDataTableColumn[]
   }
 
   // DataTable Header types
@@ -17,7 +17,7 @@ declare namespace IDataTable {
   }
 
   interface IDataTableHeaderProps {
-    config: IDataTableHeader
+    config: IDataTableConfig
   }
 
   // DataTable Rows/Cols types
