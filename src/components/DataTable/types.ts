@@ -2,26 +2,19 @@ declare namespace IDataTable {
   // Base DataTable config
   interface IDataTableConfig {
     table: {
-      header: IDataTableHeader
+      header: {
+        buttonCustomiseTable: boolean
+        buttonFilterData: boolean
+        buttonAddLine: boolean
+        search: boolean
+        hidden: boolean
+      }
     }
     columns: IDataTableColumn[]
   }
 
-  // DataTable Header types
-  interface IDataTableHeader {
-    buttonCustomiseTable: boolean
-    buttonFilterData: boolean
-    buttonAddLine: boolean
-    search: boolean
-    hidden: boolean
-  }
-
-  interface IDataTableHeaderProps {
-    config: IDataTableConfig
-  }
-
   // DataTable Rows/Cols types
-  export interface IDataTableColumn {
+  interface IDataTableColumn {
     name: string
     hidden: boolean
   }

@@ -19,7 +19,7 @@ import { Input } from '../Input'
 /**
  * A datatable that displays table controls
  */
-const DataTableHeader: React.FC<IDataTable.IDataTableHeaderProps> = () => {
+const DataTableHeader: React.FC = () => {
   const { config, toggleColumn, columnsState } = useContext(DataTableContext)
   const { table, columns } = config
   const { buttonAddLine, buttonCustomiseTable, buttonFilterData, search } = table.header

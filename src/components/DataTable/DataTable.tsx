@@ -1,7 +1,7 @@
-import { IDataTable } from './types'
 import * as React from 'react'
-import { useContext } from 'react'
+import { useContext, Fragment } from 'react'
 import { DataTableContext } from './DataTableContext'
+import { IDataTable } from './types'
 
 /**
  * Styles
@@ -18,7 +18,7 @@ const DataTable: React.FC = () => {
   const { table, columns } = config
 
   return (
-    <React.Fragment>
+    <Fragment>
       {table.header && !table.header.hidden && <DataTableHeader config={table.header} />}
       <table>
         <thead>
@@ -35,7 +35,7 @@ const DataTable: React.FC = () => {
           </tr>
         </tbody>
       </table>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
