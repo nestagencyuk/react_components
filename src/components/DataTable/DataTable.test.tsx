@@ -16,7 +16,8 @@ describe('----- DataTable Component -----', () => {
     columns: [
       {
         name: 'First Test Column',
-        hidden: false
+        hidden: false,
+        displayOrder: 1
       }
     ]
   }
@@ -83,7 +84,7 @@ describe('----- DataTable Component -----', () => {
       const allElements = queryAllByText('First Test Column')
       const [toggleColumnButton] = allElements
 
-      expect(allElements.length).toBe(2)
+      expect(allElements.length).toBe(3)
       expect(toggleColumnButton).toBeTruthy()
 
       fireEvent.click(toggleColumnButton)

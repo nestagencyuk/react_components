@@ -22,6 +22,7 @@ declare namespace IDataTable {
   interface IColumn {
     name: string
     hidden: boolean
+    displayOrder: number
   }
 
   // DataTable Context
