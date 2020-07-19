@@ -46,7 +46,8 @@ const Button = ({
   type = 'button',
   disabled,
   children,
-  onClick
+  onClick,
+  onBlur
 }: IButton.IProps) => {
   const Tag: React.FC<{ [key: string]: any }> | string = component || (href ? 'a' : 'button')
 
@@ -64,6 +65,7 @@ const Button = ({
       to={to}
       disabled={disabled}
       onClick={onClick}
+      onBlur={onBlur}
     >
       {iconStart && <ButtonIcon {...icon} />}
       <span>{children}</span>

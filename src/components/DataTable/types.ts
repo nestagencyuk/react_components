@@ -1,25 +1,36 @@
 declare namespace IDataTable {
-  interface IDataTableHeader {
-    buttonCustomiseTable: boolean
-    buttonFilterData: boolean
-    buttonAddLine: boolean
-    search: boolean
+  // Base DataTable config
+  interface IConfig {
+    table: {
+      header: {
+        buttonCustomiseTable: boolean
+        buttonFilterData: boolean
+        buttonAddLine: boolean
+        search: boolean
+        hidden: boolean
+      }
+    }
+    columns: IColumn[]
+  }
+
+  // DataTable types
+  interface IProps {
+    config: IConfig
+  }
+
+  // DataTable Rows/Cols types
+  interface IColumn {
+    name: string
     hidden: boolean
   }
 
-  interface IDataTableConfig {
-    table: {
-      header: IDataTableHeader
-    }
+  // DataTable Context
+  interface IContext {
+    config: IConfig
   }
 
-  interface IProps {
-    children: () => React.ReactElement | React.ReactNode
-    config: IDataTableConfig
-  }
-
-  interface IDataTableHeaderProps {
-    config: IDataTableHeader
+  interface IDataTableDropDownProps {
+    children: React.ReactNode
   }
 }
 
