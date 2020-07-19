@@ -3,17 +3,15 @@
 exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
   <header
-    class="datatable__header"
+    class="datatable-header"
   >
-    <div>
-      <input
-        class="input--sm input"
-        id="Search"
-        placeholder="Search Data"
-        type="text"
-        value=""
-      />
-    </div>
+    <input
+      class="input--sm input"
+      id="Search"
+      placeholder="Search Data"
+      type="text"
+      value=""
+    />
   </header>
   <table>
     <thead>
