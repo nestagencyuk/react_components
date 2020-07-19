@@ -25,11 +25,10 @@
 /// DataTable Header selectors
 /// -------------------
 
-.datatable__header {
+.datatable-header {
   display: flex;
-  justify-content: space-between;
 
-  &-item {
+  &__item {
     position: relative;
   }
 }

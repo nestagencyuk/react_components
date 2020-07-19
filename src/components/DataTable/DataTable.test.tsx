@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { DataTableContext, DataTable, DataTableHeader } from '.'
+import { render, fireEvent } from '@testing-library/react'
+import { DataTable } from '.'
 
 describe('----- DataTable Component -----', () => {
   const dataTableTestConfig = {
@@ -28,7 +28,7 @@ describe('----- DataTable Component -----', () => {
     })
   })
 
-  it('Correctly hides DataTableHeader', () => {
+  it('Hides DataTableHeader', () => {
     const mountComponentInContext = () =>
       render(
         <DataTable
@@ -52,24 +52,48 @@ describe('----- DataTable Component -----', () => {
       />
     )
 
-    it('Correctly renders customise button', () => {
+    it('Renders customise button', () => {
       const { queryByText } = render(baseDataTableHeader('buttonCustomiseTable'))
       expect(queryByText('Customise Table')).toBeTruthy()
     })
 
-    it('Correctly renders filter button', () => {
+    it('Renders filter button', () => {
       const { queryByText } = render(baseDataTableHeader('buttonFilterData'))
       expect(queryByText('Filter Data')).toBeTruthy()
     })
 
-    it('Correctly renders search field', () => {
+    it('Renders search field', () => {
       const { queryByPlaceholderText } = render(baseDataTableHeader('search'))
       expect(queryByPlaceholderText('Search Data')).toBeTruthy()
     })
 
-    it('Correctly renders add line button', () => {
+    it('Renders add line button', () => {
       const { queryByText } = render(baseDataTableHeader('buttonAddLine'))
       expect(queryByText('Add Line')).toBeTruthy()
+    })
+
+    it('Opens dropdown and hides column', () => {
+      const { queryByText, queryAllByText } = render(baseDataTableHeader('buttonCustomiseTable'))
+      const customiseTableButton = queryByText('Customise Table')
+
+      // Open dropdown
+      fireEvent.click(customiseTableButton)
+
+      // Get columns and checkboxes with related names
+      const allElements = queryAllByText('First Test Column')
+      const [toggleColumnButton] = allElements
+
+      expect(allElements.length).toBe(2)
+      expect(toggleColumnButton).toBeTruthy()
+
+      fireEvent.click(toggleColumnButton)
+
+      // Get updated state of columns and checkboxes
+      const allElementsUpdated = queryAllByText('First Test Column')
+      const [toggleColumnButtonUpdated, columnToToggleUpdated] = allElementsUpdated
+
+      expect(columnToToggleUpdated).toBeFalsy()
+      expect(allElementsUpdated.length).toBe(1)
     })
   })
 })

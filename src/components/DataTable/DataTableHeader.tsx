@@ -26,10 +26,25 @@ const DataTableHeader: React.FC = () => {
   const [showCustomiseMenu, toggleCustomiseMenu] = useState(false)
 
   return (
-    <header className="datatable__header">
-      <div>
-        {buttonFilterData && (
+    <header className="datatable-header">
+      {buttonFilterData && (
+        <Button
+          className="m--r-sm"
+          variant="Tertiary"
+          icon={{
+            name: 'Branch',
+            size: 'Small',
+            align: 'End'
+          }}
+          size="Small"
+        >
+          Filter Data
+        </Button>
+      )}
+      {buttonCustomiseTable && (
+        <span className="datatable-header__item">
           <Button
+            onClick={() => toggleCustomiseMenu(!showCustomiseMenu)}
             className="m--r-sm"
             variant="Tertiary"
             icon={{
@@ -39,48 +54,32 @@ const DataTableHeader: React.FC = () => {
             }}
             size="Small"
           >
-            Filter Data
+            Customise Table
           </Button>
-        )}
-        {buttonCustomiseTable && (
-          <span className="datatable__header-item">
-            <Button
-              onClick={() => toggleCustomiseMenu(!showCustomiseMenu)}
-              className="m--r-sm"
-              variant="Tertiary"
-              icon={{
-                name: 'Branch',
-                size: 'Small',
-                align: 'End'
-              }}
-              size="Small"
-            >
-              Customise Table
-            </Button>
-            {showCustomiseMenu && (
-              <DataTableDropDown>
-                {columns.map((col: IDataTable.IColumn) => (
-                  <div key={col.name} className="datatable__drop-down-item">
-                    <Checkbox
-                      onChange={() => toggleColumn(col.name)}
-                      value={!columnsState[col.name]}
-                      className="m--r-xs"
-                      id={col.name}
-                    />
-                    <label className="interactive" htmlFor={col.name}>
-                      {col.name}
-                    </label>
-                  </div>
-                ))}
-              </DataTableDropDown>
-            )}
-          </span>
-        )}
-        {search && <Input onChange={() => alert('search')} placeholder="Search Data" size="Small" type="Text" id="Search" />}
-      </div>
+          {showCustomiseMenu && (
+            <DataTableDropDown>
+              {columns.map((col: IDataTable.IColumn) => (
+                <div key={col.name} className="datatable__drop-down-item">
+                  <Checkbox
+                    onChange={() => toggleColumn(col.name)}
+                    value={!columnsState[col.name]}
+                    className="m--r-xs"
+                    id={col.name}
+                  />
+                  <label className="interactive" htmlFor={col.name}>
+                    {col.name}
+                  </label>
+                </div>
+              ))}
+            </DataTableDropDown>
+          )}
+        </span>
+      )}
+      {search && <Input onChange={() => alert('search')} placeholder="Search Data" size="Small" type="Text" id="Search" />}
       {buttonAddLine && (
         <Button
           variant="Tertiary"
+          className="m--l-auto"
           icon={{
             name: 'Branch',
             size: 'Small',

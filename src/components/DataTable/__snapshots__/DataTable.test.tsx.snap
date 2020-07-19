@@ -37,7 +37,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`----- DataTable Component ----- Correctly hides DataTableHeader 1`] = `
+exports[`----- DataTable Component ----- Hides DataTableHeader 1`] = `
 <DocumentFragment>
   <table>
     <thead>
