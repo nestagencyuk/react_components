@@ -1,6 +1,7 @@
 import { ISelect } from './types'
 import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
+import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
 import cx from 'classnames'
 
@@ -98,8 +99,8 @@ const Select: React.FC<ISelect.IProps> = ({
    * Handle the text input change
    */
   const handleChange = (val: string) => {
-    const same = options.find((y) => y.label === val)
     setSearchValue(val)
+    const same = options.find((y) => y.label === val)
     if (onSearch && !same) onSearch(val)
   }
 
@@ -180,4 +181,10 @@ const Select: React.FC<ISelect.IProps> = ({
   )
 }
 
-export default Select
+/**
+ * Export with the search fn debounced
+ */
+const DebouncedSelect = ({ onSearch, ...props }: ISelect.IProps) =>
+  onSearch ? <Select {...props} onSearch={debounce(onSearch, 500)} /> : <Select {...props} />
+
+export default DebouncedSelect
