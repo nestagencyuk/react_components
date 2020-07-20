@@ -1,0 +1,52 @@
+/// ----------------------------------------------------------------------
+
+/// DataTable
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'borders';
+@use 'corners';
+@use 'spacing';
+@use 'transitions';
+@use 'states';
+@use 'shadows';
+@use 'z-index';
+
+/// -------------------
+/// DataTable selectors
+/// -------------------
+
+.datatable {
+}
+
+/// -------------------
+/// DataTable Header selectors
+/// -------------------
+
+.datatable-header {
+  display: flex;
+}
+
+.datatable-header__item {
+  position: relative;
+}
+
+/// -------------------
+/// DataTable Drop Down selectors
+/// -------------------
+
+.datatable__drop-down {
+  position: absolute;
+  left: 0;
+  width: max-content;
+  border-radius: corners.$base;
+  background-color: #fff;
+  box-shadow: shadows.$one;
+
+  &-item {
+    border-bottom: borders.$ui-two;
+    padding: spacing.$xs;
+  }
+}

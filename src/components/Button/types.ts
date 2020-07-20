@@ -14,6 +14,7 @@ declare namespace IButton {
     disabled?: boolean
     children?: string
     onClick?: (e: React.SyntheticEvent) => void
+    onBlur?: (e: React.SyntheticEvent) => void
   }
 
   interface IIconProps extends IIcon.IProps {

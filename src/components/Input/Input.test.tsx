@@ -5,7 +5,6 @@ import { Input } from '.'
 describe('----- Input Component -----', () => {
   it('Renders without crashing', () => {
     const { asFragment } = render(<Input id="input" type="Text" onChange={jest.fn} />)
-
     expect(asFragment()).toMatchSnapshot()
   })
 })

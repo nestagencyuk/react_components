@@ -4,16 +4,18 @@
 
 /// ----------------------------------------------------------------------
 
-$xxs:     .25rem     !default;
-$xs:      .5rem      !default;
-$sm:      .75rem     !default;
-$md:      1rem       !default;
-$lg:      1.5rem     !default;
-$xl:      2rem       !default;
-$xxl:     3rem       !default;
-$xxxl:    6rem       !default;
+$auto: auto !default;
+$xxs: 0.25rem !default;
+$xs: 0.5rem !default;
+$sm: 0.75rem !default;
+$md: 1rem !default;
+$lg: 1.5rem !default;
+$xl: 2rem !default;
+$xxl: 3rem !default;
+$xxxl: 6rem !default;
 
 $all: (
+  auto: $auto,
   xxs: $xxs,
   xs: $xs,
   sm: $sm,
@@ -21,5 +23,5 @@ $all: (
   lg: $lg,
   xl: $xl,
   xxl: $xxl,
-  xxxl: $xxxl,
+  xxxl: $xxxl
 ) !default;

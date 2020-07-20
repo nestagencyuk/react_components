@@ -40,6 +40,11 @@ const inverseDecorator = (story) => <div className="demo demo--inverse">{story()
  */
 const floatDecorator = (story) => <div className="demo demo--float">{story()}</div>
 
+/**
+ * Adjust to demo datatable
+ */
+const dataTableDecorator = (story) => <div className="demo demo--datatable">{story()}</div>
+
 export {
   demoDecorator,
   selectDecorator,
@@ -47,5 +52,6 @@ export {
   scrollDecorator,
   inverseDecorator,
   floatDecorator,
-  minHeightDecorator
+  minHeightDecorator,
+  dataTableDecorator
 }

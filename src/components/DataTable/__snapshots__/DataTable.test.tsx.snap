@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
+<DocumentFragment>
+  <header
+    class="datatable-header"
+  >
+    <input
+      class="input--sm input"
+      id="Search"
+      placeholder="Search Data"
+      type="text"
+      value=""
+    />
+  </header>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          First Test Column
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Item one
+        </td>
+        <td>
+          Item two
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`----- DataTable Component ----- Hides DataTableHeader 1`] = `
+<DocumentFragment>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          First Test Column
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Item one
+        </td>
+        <td>
+          Item two
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
