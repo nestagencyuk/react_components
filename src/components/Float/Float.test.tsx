@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Float } from '.'
-import '@testing-library/jest-dom/extend-expect'
 
 describe('----- Float Component -----', () => {
   const mockFn = jest.fn()

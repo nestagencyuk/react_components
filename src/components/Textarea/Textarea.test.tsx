@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Textarea } from '.'
-import '@testing-library/jest-dom/extend-expect'
 
 describe('----- Textarea Component -----', () => {
   const mockFn = jest.fn()

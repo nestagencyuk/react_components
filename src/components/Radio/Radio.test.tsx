@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Radio } from '.'
-import '@testing-library/jest-dom/extend-expect'
 
 describe('----- Radio Component -----', () => {
   const mockFn = jest.fn()
