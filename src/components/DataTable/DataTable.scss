@@ -46,7 +46,7 @@
   display: flex;
   margin-bottom: spacing.$md;
 
-  &__item {
+  .datatable-header__item {
     position: relative;
   }
 }
@@ -54,17 +54,16 @@
 /// -------------------
 /// DataTable Body Header selectors
 /// -------------------
-.datatable-body-header {
-  &__item {
-    border-top: 1px solid colours.$ui-two;
-    border-right: 1px solid colours.$ui-two;
-    border-bottom: 1px solid colours.$ui-two;
-    padding: spacing.$xs;
-    text-align: left;
 
-    &:first-child {
-      border-left: 1px solid colours.$ui-two;
-    }
+.datatable-body-header__item {
+  border-top: 1px solid colours.$ui-two;
+  border-right: 1px solid colours.$ui-two;
+  border-bottom: 1px solid colours.$ui-two;
+  padding: spacing.$xs;
+  text-align: left;
+
+  &:first-child {
+    border-left: 1px solid colours.$ui-two;
   }
 }
 
