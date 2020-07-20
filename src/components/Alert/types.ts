@@ -17,7 +17,7 @@ declare namespace IAlert {
   }
 
   interface IIconProps {
-    variant: UIState
+    variant?: UIState
   }
   interface IBodyProps {
     children: string

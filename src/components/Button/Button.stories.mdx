@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { inverseDecorator } from '../../../.storybook/decorators.js'
+import { useState } from 'react'
 import { Button, ButtonGroup } from '.'
 
 <Meta title="Components|Base/Button" component={Button} />
@@ -47,8 +48,41 @@ Pass a value to the `variant` prop and you'll see the desired button rendered. `
   </Story>
 </Preview>
 
+## States
+Buttons can be used to indicate to the user that something is happening using state. Click the button to see a random state.
+
+<Preview>
+  <Story name='States'>
+    {() => {
+      const [state, setState] = useState('Default')
+      const states = {
+        Default: { text: 'Action' },
+        Active: { icon: { align: 'End', name: 'Loading', active: true }, text: 'Loading...' },
+        Success: { icon: { align: 'End', name: 'Success' }, text: 'Success' },
+        Warning: { icon: { align: 'End', name: 'Info' }, text: 'Warning' },
+        Error: { icon: { align: 'End', name: 'Error' }, text: 'Error' },
+      }
+      const handleClick = () => {
+        setState('Active')
+        const arr = ['Success', 'Warning', 'Error']
+        setTimeout(() => setState(arr[Math.floor(Math.random() * arr.length)]), 3000)
+      }
+      return (
+        <Button icon={states[state].icon} onClick={handleClick}>{states[state].text}</Button>
+      )
+    }}
+  </Story>
+</Preview>
+
 ## Sizes
 Pass a value to the `size` prop and you'll see the desired button rendered. `Medium` is the default value, so the prop can be omitted.
+
+### XSmall
+<Preview>
+  <Story name="XSmall">
+    <Button size="XSmall" >Small Button</Button>
+  </Story>
+</Preview>
 
 ### Small
 <Preview>

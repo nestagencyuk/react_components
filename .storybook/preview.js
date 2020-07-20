@@ -10,8 +10,8 @@ addParameters({
     name: 'Nest Component Library'
   },
   backgrounds: [
-    { name: 'base', value: '#f9f9f9', default: true },
-    { name: 'dark', value: '#333333' }
+    { name: 'Base', value: '#fff', default: true },
+    { name: 'Dark', value: '#333333' }
   ],
   viewport: {
     viewports: {

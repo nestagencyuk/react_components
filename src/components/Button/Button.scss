@@ -20,19 +20,17 @@
 $padding-x: spacing.$xl !default;
 
 /// -------------------
-/// Button selectors 
+/// Button selectors
 /// -------------------
 
 .btn {
   @include lib.resets-style;
   @include lib.components-flow;
   position: relative;
-  border-radius: corners.$base; 
+  border-radius: corners.$base;
   font-family: typography.$font-family--alt;
   font-weight: typography.$font-bold;
-  transition: color transitions.$ease, 
-    background-color transitions.$ease,
-    border-color transitions.$ease;
+  transition: color transitions.$ease, background-color transitions.$ease, border-color transitions.$ease;
   user-select: none;
   text-decoration: none;
   padding-left: $padding-x;
@@ -61,7 +59,7 @@ $padding-x: spacing.$xl !default;
       fill: colours.$brand-one;
     }
   }
-  
+
   &--tertiary {
     background-color: colours.$ui-one;
 
@@ -70,7 +68,7 @@ $padding-x: spacing.$xl !default;
       fill: colours.$brand-one;
     }
   }
-  
+
   &--inverse {
     border-color: white;
     color: white;
@@ -83,11 +81,16 @@ $padding-x: spacing.$xl !default;
     }
   }
 
+  &--xs {
+    padding: (spacing.$xxs * 0.5) ($padding-x * 0.25);
+    font-size: map-get(typography.$small, 'font-size');
+  }
+
   &--sm {
     padding-left: $padding-x * 0.5;
     padding-right: $padding-x * 0.5;
   }
-  
+
   &--lg {
     padding-left: $padding-x * 1.5;
     padding-right: $padding-x * 1.5;
@@ -96,7 +99,7 @@ $padding-x: spacing.$xl !default;
   &:focus {
     @include states.focus;
   }
-  
+
   &--disabled,
   &:disabled {
     @include states.disabled;
@@ -118,31 +121,39 @@ $padding-x: spacing.$xl !default;
 }
 
 /// -------------------
-/// Button icon 
+/// Button icon
 /// -------------------
 
 .btn__icn {
   &--start {
     transform: translateX(-$padding-x / 2);
 
+    .btn--xs & {
+      transform: translateX(-$padding-x / 5);
+    }
+
     .btn--sm & {
-      transform: translateX(-$padding-x / 3.5); 
+      transform: translateX(-$padding-x / 3.5);
     }
 
     .btn--lg & {
-      transform: translateX(-$padding-x); 
+      transform: translateX(-$padding-x);
     }
   }
-  
+
   &--end {
     transform: translateX($padding-x / 2);
 
+    .btn--xs & {
+      transform: translateX($padding-x / 5);
+    }
+
     .btn--sm & {
-      transform: translateX($padding-x / 3.5); 
+      transform: translateX($padding-x / 3.5);
     }
 
     .btn--lg & {
-      transform: translateX($padding-x); 
+      transform: translateX($padding-x);
     }
   }
 }

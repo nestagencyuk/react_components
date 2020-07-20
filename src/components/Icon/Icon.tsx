@@ -1,6 +1,7 @@
 import { IIcon } from './types'
 import * as React from 'react'
 import cx from 'classnames'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
  * Styles
@@ -37,6 +38,7 @@ const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour
   return (
     <span
       className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour], { 'icn--active': active })}
+      title={capitalise(name)}
       dangerouslySetInnerHTML={{ __html: icon }}
     />
   )

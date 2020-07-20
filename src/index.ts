@@ -1,3 +1,6 @@
+export { Action } from './components/Action'
+export { IAction } from './components/Action/types'
+
 export { Alert } from './components/Alert'
 export { IAlert } from './components/Alert/types'
 
@@ -99,6 +102,9 @@ export { ISocialFeed } from './components/SocialFeed/types'
 
 export { Navtree } from './components/Navtree'
 export { INavtree } from './components/Navtree/types'
+
+export { Tag } from './components/Tag'
+export { ITag } from './components/Tag/types'
 
 export { Text } from './components/Text'
 export { IText } from './components/Text/types'

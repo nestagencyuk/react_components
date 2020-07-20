@@ -18,6 +18,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             Home
@@ -32,6 +33,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             About
@@ -47,6 +49,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             Test
@@ -64,6 +67,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
             >
               <span
                 class="m--r-lg icn icn--md icn--dark"
+                title="Home"
               />
               <span>
                 A test child

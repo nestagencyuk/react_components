@@ -13,6 +13,7 @@ import './Select.scss'
  * Components
  */
 import { SelectInput, SelectOptions } from '.'
+import { Button } from '../Button'
 import { Icon } from '../Icon'
 
 /**
@@ -20,25 +21,28 @@ import { Icon } from '../Icon'
  */
 const Select: React.FC<ISelect.IProps> = ({
   id,
+  multi,
+  multiVariant = 'Checkbox',
+  filterable,
+  optional,
+  placeholder = '-- Select --',
   options,
   value = null,
-  placeholder = '-- Select --',
-  optional,
-  multi,
-  searchable,
+  icon,
   disabled,
-  onChange
+  onChange,
+  onSearch
 }) => {
   const ref = useRef<HTMLDivElement>()
   const [focused, setFocused] = useState<boolean>(false)
-  const [searchValue, setSearchValue] = useState<string>('')
+  const [filterValue, setSearchValue] = useState<string>('')
   const { array: values, addItem, deleteItem, resetItems } = useManageArray()
 
   /**
-   * Filter the options if a search value has been entered
+   * Filter the options if a filter value has been entered
    */
-  const filtered = searchable
-    ? options.filter((x) => x.label?.toLowerCase().includes(searchValue?.toLowerCase() || ''))
+  const filtered = filterable
+    ? options.filter((x) => x.label?.toLowerCase().includes(filterValue?.toLowerCase() || ''))
     : options
 
   /**
@@ -69,6 +73,7 @@ const Select: React.FC<ISelect.IProps> = ({
    */
   const handleClick = (value: string) => {
     if (multi) {
+      if (multiVariant === 'Tags') ref.current.focus()
       const index = values ? values.indexOf(value) : -1
       if (index === -1) {
         addItem(value)
@@ -87,6 +92,15 @@ const Select: React.FC<ISelect.IProps> = ({
   const handleReset = () => {
     resetItems([])
     setFocused(false)
+  }
+
+  /**
+   * Handle the text input change
+   */
+  const handleChange = (val: string) => {
+    const same = options.find((y) => y.label === val)
+    setSearchValue(val)
+    if (onSearch && !same) onSearch(val)
   }
 
   /**
@@ -126,30 +140,40 @@ const Select: React.FC<ISelect.IProps> = ({
           id={id}
           value={value}
           placeholder={placeholder}
-          searchValue={searchValue}
+          filterValue={filterValue}
           options={options}
           multi={multi}
-          searchable={searchable}
+          multiVariant={multiVariant}
+          filterable={filterable}
           disabled={disabled}
-          onChange={setSearchValue}
+          onChange={handleChange}
         />
 
         {multi && values?.length > 0 && (
-          <button className="select__clear" title="Clear" onClick={handleReset}>
-            <Icon name="Cross" size="XSmall" />
-          </button>
+          <Button className="select__clear" variant="Tertiary" size="XSmall" onClick={handleReset}>
+            Clear
+          </Button>
         )}
 
-        <Icon className="select__icn" name={focused ? 'Chevron-up' : 'Chevron-down'} colour="Dark" size="Small" />
+        <Icon
+          className="select__icn"
+          colour="Inherit"
+          {...(icon || {
+            name: focused ? 'Chevron-up' : 'Chevron-down',
+            size: 'Small'
+          })}
+        />
       </div>
 
       <SelectOptions
         id={id}
         open={focused}
         values={values}
-        options={filtered}
+        options={options}
+        filtered={filtered}
         optional={optional}
         multi={multi}
+        multiVariant={multiVariant}
         onClick={handleClick}
       />
     </div>

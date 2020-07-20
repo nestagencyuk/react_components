@@ -1,0 +1,23 @@
+/// ----------------------------------------------------------------------
+
+/// Template
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+
+/// -------------------
+/// Template config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Template selectors
+/// -------------------
+
+.template {
+  display: block;
+}

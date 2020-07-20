@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { render, getByTestId } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Block } from '.'
-import '@testing-library/jest-dom/extend-expect'
 import { IBlock } from './types'
 
 describe('----- Block Component -----', () => {

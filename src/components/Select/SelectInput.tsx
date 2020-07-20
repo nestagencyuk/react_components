@@ -9,10 +9,11 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   id,
   value,
   placeholder: initPlaceholder,
-  searchValue,
+  filterValue,
   options,
   multi,
-  searchable,
+  multiVariant,
+  filterable,
   disabled,
   onChange
 }) => {
@@ -25,7 +26,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   const handleMulti = () => {
     const num = value ? (value.length < 10 ? value.length : '10+') : 0
 
-    if (searchable) {
+    if (filterable) {
       setPlaceholder(`${num} Selected`)
     } else {
       setShownValue(`${num} Selected`)
@@ -33,10 +34,10 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   }
 
   /**
-   * Set value and placeholder if searchable
+   * Set value and placeholder if filterable
    */
-  const handleSearchable = () => {
-    setShownValue(searchValue || '')
+  const handleFilterable = () => {
+    setShownValue(filterValue || '')
     if (value === null) {
       setPlaceholder(initPlaceholder)
     }
@@ -56,13 +57,13 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   }, [value])
 
   /**
-   * Listen to the value and search value
+   * Listen to the value and filter value
    */
   useEffect(() => {
     if (multi) handleMulti()
-    if (searchable) handleSearchable()
-    if (!searchable && !multi) setShownValue(options.find((x) => x.value === value)?.label || '')
-  }, [value, searchValue])
+    if (filterable) handleFilterable()
+    if (!filterable && !multi) setShownValue(options.find((x) => x.value === value)?.label || '')
+  }, [value, filterValue])
 
   return (
     <input
@@ -71,7 +72,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
       data-testid={`${id}-input`}
       name={id}
       value={shownValue}
-      readOnly={!searchable}
+      readOnly={!filterable}
       placeholder={placeholder}
       disabled={disabled}
       autoComplete="off"

@@ -9,7 +9,7 @@ declare namespace IButton {
     to?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Inverse' | 'Action'
     type?: 'button' | 'submit'
-    size?: Size
+    size?: 'XSmall' | Size
     icon?: IIconProps
     disabled?: boolean
     children?: string

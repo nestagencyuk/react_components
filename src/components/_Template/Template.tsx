@@ -7,7 +7,7 @@ import cx from 'classnames'
 /**
  * Styles
  */
-// import './template.scss'
+// import './Template.scss'
 
 /**
  * Variants

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import { Select } from '.'
 import { ISelect } from './types'
 
@@ -89,38 +89,55 @@ describe('----- Select Component -----', () => {
 
     it('Shows custom placeholder', () => {
       const { queryByPlaceholderText } = mountComponentInContext()
-      const select = queryByPlaceholderText('Custom Placeholder')
-      expect(select).toBeTruthy()
+      const placeholder = queryByPlaceholderText('Custom Placeholder')
+      expect(placeholder).toBeTruthy()
+    })
+  })
+
+  describe('Icon', () => {
+    const mountComponentInContext = () => render(<Select {...baseProps} icon={{ name: 'Search' }} />)
+
+    it('Renders without crashing', () => {
+      const { asFragment } = mountComponentInContext()
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('Shows custom icon', () => {
+      const { queryByTitle } = mountComponentInContext()
+      const icon = queryByTitle('Search')
+      expect(icon).toBeTruthy()
     })
   })
 
   describe('Initial value', () => {
-    const mountComponentInContext = () => render(<Select {...baseProps} value="option-1" />)
+    const initialValue = 'option-1'
+    const mountComponentInContext = () => render(<Select {...baseProps} value={initialValue} />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Has initial value', () => {
+    it('Has initial string value', () => {
       mountComponentInContext()
       expect(mockFn).toHaveBeenCalledTimes(1)
-      expect(mockFn).toHaveBeenCalledWith('option-1')
+      expect(mockFn).toHaveBeenCalledWith(initialValue)
     })
   })
 
-  describe('Initial value Multi', () => {
-    const mountComponentInContext = () => render(<Select {...baseProps} value={['option-1', 'option-2']} multi />)
+  describe('Initial Value Multi', () => {
+    const initialValue = ['option-1', 'option-2']
+    const mountComponentInContext = () => render(<Select {...baseProps} value={initialValue} multi />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Has initial value', () => {
+    it('Has initial array value', () => {
       mountComponentInContext()
       expect(mockFn).toHaveBeenCalledTimes(1)
-      expect(mockFn).toHaveBeenCalledWith(['option-1', 'option-2'])
+      expect(mockFn).toHaveBeenCalledWith(initialValue)
     })
   })
 
@@ -176,7 +193,7 @@ describe('----- Select Component -----', () => {
       fireEvent.click(optionOne)
       rerender(<Select {...multiProps} value={value} />)
 
-      expect(value).toEqual(['option-1'])
+      expect(value).toEqual([multiProps.options[0].value])
       expect(input).toHaveProperty('value', '1 Selected')
     })
 
@@ -226,7 +243,7 @@ describe('----- Select Component -----', () => {
     })
 
     it('Clears all when button clicked', () => {
-      const { getByTestId, getByText, getByTitle } = mountComponentInContext()
+      const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
       const optionOne = getByText(multiProps.options[0].label)
@@ -236,7 +253,7 @@ describe('----- Select Component -----', () => {
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
 
-      const clearBtn = getByTitle('Clear')
+      const clearBtn = getByText('Clear')
       fireEvent.click(clearBtn)
 
       expect(input).toHaveProperty('value', '0 Selected')
@@ -252,25 +269,86 @@ describe('----- Select Component -----', () => {
     })
   })
 
-  describe('Searchable', () => {
-    const searchableProps: ISelect.IProps = {
+  describe('Multi Tags', () => {
+    const multiTagsProps: ISelect.IProps = {
       ...baseProps,
-      placeholder: 'Type to search...',
-      searchable: true,
-      optional: true
+      multi: true,
+      multiVariant: 'Tags'
     }
 
-    const mountComponentInContext = () => render(<Select {...searchableProps} />)
+    const mountComponentInContext = () => render(<Select {...multiTagsProps} />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Searches for a known option', () => {
+    it('Chooses an option, moves option from list to tag', () => {
+      const { getByTestId, queryByText, rerender } = mountComponentInContext()
+      const select = getByTestId(multiTagsProps.id)
+      const input = getByTestId(`${multiTagsProps.id}-input`)
+      const optionOne = queryByText(multiTagsProps.options[0].label)
+
+      expect(optionOne.classList.contains('select__option-btn')).toBeTruthy()
+
+      fireEvent.focus(select)
+      fireEvent.click(optionOne)
+      rerender(<Select {...multiTagsProps} value={value} />)
+
+      const tagOne = queryByText(multiTagsProps.options[0].label)
+      expect(tagOne.classList.contains('tag')).toBeTruthy()
+
+      expect(value).toEqual([multiTagsProps.options[0].value])
+      expect(input).toHaveProperty('value', '1 Selected')
+    })
+
+    it('Chooses an option, removes option using tag', () => {
+      const { getByTestId, queryByText, rerender } = mountComponentInContext()
+      const select = getByTestId(multiTagsProps.id)
+      const input = getByTestId(`${multiTagsProps.id}-input`)
+      const optionOne = queryByText(multiTagsProps.options[0].label)
+
+      expect(optionOne.classList.contains('select__option-btn')).toBeTruthy()
+
+      fireEvent.focus(select)
+      fireEvent.click(optionOne)
+      rerender(<Select {...multiTagsProps} value={value} />)
+
+      const tagOne = queryByText(multiTagsProps.options[0].label)
+      expect(tagOne.classList.contains('tag')).toBeTruthy()
+
+      expect(value).toEqual([multiTagsProps.options[0].value])
+      expect(input).toHaveProperty('value', '1 Selected')
+
+      fireEvent.focus(select)
+      fireEvent.click(tagOne)
+
+      rerender(<Select {...multiTagsProps} value={value} />)
+
+      expect(value).toEqual(null)
+      expect(input).toHaveProperty('value', '0 Selected')
+    })
+  })
+
+  describe('Filterable', () => {
+    const filterableProps: ISelect.IProps = {
+      ...baseProps,
+      placeholder: 'Type to filter...',
+      filterable: true,
+      optional: true
+    }
+
+    const mountComponentInContext = () => render(<Select {...filterableProps} />)
+
+    it('Renders without crashing', () => {
+      const { asFragment } = mountComponentInContext()
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('Filters for a known option', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
-      const input = getByTestId(`${searchableProps.id}-input`)
-      const options = getByTestId(`${searchableProps.id}-options`)
+      const input = getByTestId(`${filterableProps.id}-input`)
+      const options = getByTestId(`${filterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'one' } })
       expect(options.childElementCount).toEqual(2)
@@ -282,79 +360,157 @@ describe('----- Select Component -----', () => {
       expect(options.childElementCount).toEqual(4)
 
       fireEvent.change(input, { target: { value: 'option one' } })
-      const optionOne = getByText(searchableProps.options[0].label)
+      const optionOne = getByText(filterableProps.options[0].label)
 
       fireEvent.click(optionOne)
-      rerender(<Select {...searchableProps} value={value} />)
+      rerender(<Select {...filterableProps} value={value} />)
 
-      expect(value).toEqual('option-1')
-      expect(input).toHaveProperty('placeholder', 'Option One')
+      expect(value).toEqual(filterableProps.options[0].value)
+      expect(input).toHaveProperty('placeholder', filterableProps.options[0].label)
     })
 
-    it('Searches for an unknown option', () => {
+    it('Filters for an unknown option', () => {
       const { getByTestId } = mountComponentInContext()
-      const input = getByTestId(`${searchableProps.id}-input`)
-      const options = getByTestId(`${searchableProps.id}-options`)
+      const input = getByTestId(`${filterableProps.id}-input`)
+      const options = getByTestId(`${filterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'option twenty' } })
 
       expect(options.childElementCount).toBe(1)
     })
 
-    it('Removes a search', () => {
+    it('Removes a filter', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
-      const input = getByTestId(`${searchableProps.id}-input`)
+      const input = getByTestId(`${filterableProps.id}-input`)
       const optionNull = getByText('-- Select --')
-      const optionOne = getByText(searchableProps.options[0].label)
+      const optionOne = getByText(filterableProps.options[0].label)
 
       fireEvent.change(input, { target: { value: 'option one' } })
       fireEvent.click(optionOne)
       fireEvent.change(input, { target: { value: 'option twenty' } })
       fireEvent.click(optionNull)
-      rerender(<Select {...searchableProps} value={value} />)
+      rerender(<Select {...filterableProps} value={value} />)
 
       expect(value).toEqual(null)
-      expect(input).toHaveProperty('placeholder', searchableProps.placeholder)
+      expect(input).toHaveProperty('placeholder', filterableProps.placeholder)
     })
   })
 
-  describe('Multi Searchable', () => {
-    const multiSearchableProps: ISelect.IProps = {
+  describe('Multi Filterable', () => {
+    const multiFilterableProps: ISelect.IProps = {
       ...baseProps,
-      placeholder: 'Type to search...',
+      placeholder: 'Type to filter...',
       multi: true,
-      searchable: true
+      filterable: true
     }
 
-    const mountComponentInContext = () => render(<Select {...multiSearchableProps} />)
+    const mountComponentInContext = () => render(<Select {...multiFilterableProps} />)
 
     it('Renders without crashing', () => {
       const { asFragment } = mountComponentInContext()
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Searches for a known option', () => {
+    it('Filters for a known option', () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
-      const input = getByTestId(`${multiSearchableProps.id}-input`)
-      const options = getByTestId(`${multiSearchableProps.id}-options`)
+      const input = getByTestId(`${multiFilterableProps.id}-input`)
+      const options = getByTestId(`${multiFilterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'option one' } })
       expect(options.childElementCount).toEqual(1)
-      const optionOne = getByText(multiSearchableProps.options[0].label)
+      const optionOne = getByText(multiFilterableProps.options[0].label)
 
       fireEvent.click(optionOne)
-      rerender(<Select {...multiSearchableProps} value={value} />)
+      rerender(<Select {...multiFilterableProps} value={value} />)
 
-      expect(value).toEqual(['option-1'])
+      expect(value).toEqual([multiFilterableProps.options[0].value])
       expect(input).toHaveProperty('placeholder', '1 Selected')
     })
 
-    it('Searches for an unknown option', () => {
+    it('Filters for an unknown option', () => {
       const { getByTestId } = mountComponentInContext()
-      const input = getByTestId(`${multiSearchableProps.id}-input`)
-      const options = getByTestId(`${multiSearchableProps.id}-options`)
+      const input = getByTestId(`${multiFilterableProps.id}-input`)
+      const options = getByTestId(`${multiFilterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'option twenty' } })
+      expect(options.childElementCount).toEqual(0)
+    })
+  })
+
+  describe('Searchable', () => {
+    let lazyOptions: ISelect.IProps['options'] = []
+    let loading: boolean = false
+    const mockAsyncFn = jest.fn((val) => {
+      loading = true
+      setTimeout(() => {
+        lazyOptions = val ? baseProps.options.filter((x) => x.label.toLowerCase().includes(val.toLowerCase())) : []
+        loading = false
+      }, 2000)
+    })
+    const searchableProps: ISelect.IProps = {
+      ...baseProps,
+      options: [],
+      placeholder: 'Type to search...',
+      filterable: true,
+      icon: { name: loading ? 'Loading' : 'Search', active: loading },
+      onSearch: mockAsyncFn
+    }
+
+    const mountComponentInContext = () => render(<Select {...searchableProps} />)
+
+    beforeEach(() => {
+      lazyOptions = []
+    })
+
+    it('Renders without crashing', () => {
+      const { asFragment } = mountComponentInContext()
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('Searches for a known option', async () => {
+      const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const input = getByTestId(`${searchableProps.id}-input`)
+      const options = getByTestId(`${searchableProps.id}-options`)
+
+      expect(options.childElementCount).toEqual(0)
+      fireEvent.change(input, { target: { value: 'option one' } })
+
+      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2100 })
+      rerender(<Select {...searchableProps} options={lazyOptions} />)
+      expect(options.childElementCount).toEqual(1)
+      const optionOne = getByText(lazyOptions[0].label)
+
+      fireEvent.click(optionOne)
+      rerender(<Select {...searchableProps} options={lazyOptions} value={value} />)
+
+      expect(value).toEqual(lazyOptions[0].value)
+      expect(input).toHaveProperty('placeholder', lazyOptions[0].label)
+    })
+
+    it('Shows a different icon whilst searching', async () => {
+      const { getByTestId, queryByTitle, rerender } = mountComponentInContext()
+      const input = getByTestId(`${searchableProps.id}-input`)
+      expect(queryByTitle('Search')).toBeTruthy()
+
+      fireEvent.change(input, { target: { value: 'option one' } })
+      rerender(<Select {...searchableProps} icon={{ name: loading ? 'Loading' : 'Search', active: loading }} />)
+
+      expect(queryByTitle('Loading')).toBeTruthy()
+      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2100 })
+
+      rerender(<Select {...searchableProps} icon={{ name: loading ? 'Loading' : 'Search', active: loading }} />)
+      expect(queryByTitle('Search')).toBeTruthy()
+    })
+
+    it('Searches for an unknown option', async () => {
+      const { getByTestId, rerender } = mountComponentInContext()
+      const input = getByTestId(`${searchableProps.id}-input`)
+      const options = getByTestId(`${searchableProps.id}-options`)
+
+      expect(lazyOptions.length).toBe(0)
+      fireEvent.change(input, { target: { value: 'option twenty' } })
+      await waitFor(() => expect(lazyOptions.length).toBe(0), { timeout: 2100 })
+      rerender(<Select {...searchableProps} options={lazyOptions} />)
       expect(options.childElementCount).toEqual(0)
     })
   })
@@ -372,6 +528,14 @@ describe('----- Select Component -----', () => {
       const input = getByTestId(`${baseProps.id}-input`)
 
       expect(input).toHaveProperty('disabled', true)
+    })
+
+    it('Checks option is disabled', () => {
+      baseProps.options[0].disabled = true
+      const { getByText } = render(<Select {...baseProps} />)
+      const optionOne = getByText(baseProps.options[0].label)
+
+      expect(optionOne).toHaveProperty('disabled', true)
     })
   })
 })

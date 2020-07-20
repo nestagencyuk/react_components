@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Tag } from '.'
+
+<Meta title="Components|Base/Tag" component={Tag} />
+
+# Tag
+A tag component for rendering a toggleable value.
+
+## Base
+This is the tag in its simplest form, using all default props.
+
+<Preview>
+  <Story name="Base">
+    <Tag onClick={() => alert('Clicked')}>Tag</Tag>
+  </Story>
+</Preview>
+
+## Prop Types
+<Props of={Tag} />

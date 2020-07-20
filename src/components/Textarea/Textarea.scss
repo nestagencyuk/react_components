@@ -26,10 +26,12 @@ $padding-x: spacing.$sm !default;
 .textarea {
   @include lib.resets-style;
   @include lib.components-flow;
+  width: 100%;
   min-height: 80px;
   padding-left: $padding-x;
   padding-right: $padding-x;
   border-radius: corners.$base;
+  background-color: colours.$ui-one;
   font-family: typography.$font-family--alt;
   font-weight: typography.$font-light;
   transition: border-color transitions.$ease;

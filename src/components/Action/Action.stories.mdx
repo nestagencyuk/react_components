@@ -1,0 +1,119 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { inverseDecorator } from '../../../.storybook/decorators.js'
+import { useState } from 'react'
+import { Action } from '.'
+
+<Meta title='Components|Base/Action' component={Action} />
+
+# Action
+A simple button which serves a different purpose to a standard one. Action buttons should be used to indicate to the user that they can perform a data related action such as add, edit, delete etc.
+
+## Base
+This is the action button in its simplest form, using all default props.
+
+<Preview>
+  <Story name='Base'>
+    <Action icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+## Variants
+For using in different scenarios or on different backgrounds.
+
+### Primary
+<Preview>
+  <Story name='Primary'>
+    <Action icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Secondary
+<Preview>
+  <Story name='Secondary'>
+    <Action variant='Secondary' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Tertiary
+<Preview>
+  <Story name='Tertiary'>
+    <Action variant='Tertiary' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Inverse
+<Preview>
+  <Story name='Inverse' decorators={[inverseDecorator]}>
+    <Action variant='Inverse' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+## States
+Actions can be used to indicate to the user that something is happening using state. Click the button to see a random state.
+
+<Preview>
+  <Story name='States'>
+    {() => {
+      const [state, setState] = useState('Default')
+      const states = {
+        Default: { icon: { name: 'Edit' }, text: 'Action' },
+        Active: { icon: { name: 'Loading', active: true }, text: 'Loading...' },
+        Success: { icon: { name: 'Success' }, text: 'Success' },
+        Warning: { icon: { name: 'Info' }, text: 'Warning' },
+        Error: { icon: { name: 'Error' }, text: 'Error' },
+      }
+      const handleClick = () => {
+        setState('Active')
+        const arr = ['Success', 'Warning', 'Error']
+        setTimeout(() => setState(arr[Math.floor(Math.random() * arr.length)]), 3000)
+      }
+      return (
+        <Action icon={states[state].icon} onClick={handleClick}>{states[state].text}</Action>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Sizes
+Pass a value to the `size` prop and you'll see the desired action rendered. `Medium` is the default value, so the prop can be omitted.
+
+### XSmall
+<Preview>
+  <Story name='XSmall'>
+    <Action size='XSmall' icon={{ name: 'Cross', size: 'XSmall' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Small
+<Preview>
+  <Story name='Small'>
+    <Action size='Small' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Medium
+<Preview>
+  <Story name='Medium'>
+    <Action size='Medium' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+### Large
+<Preview>
+  <Story name='Large'>
+    <Action size='Large' icon={{ name: 'Edit' }}>Action</Action>
+  </Story>
+</Preview>
+
+## Disabled
+
+<Preview>
+  <Story name='Disabled'>
+    <Action type='Primary' icon={{ name: 'Edit' }} disabled>Disabled Action</Action>
+  </Story>
+</Preview>
+
+
+## Prop Types
+
+<Props of={Action} />
