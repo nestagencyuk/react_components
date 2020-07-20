@@ -1,0 +1,110 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useState} from "react";
+import { Popover } from '.'
+import { Button } from "../Button"
+import { Checkbox } from "../Checkbox"
+import { Grid, GridItem } from "../Grid"
+import { minHeightDecorator,  } from '../../../.storybook/decorators.js'
+
+<Meta title="Components/Base|Popover" component={Popover} />
+
+# Popover
+A simple Popover, built using the [react-tippy](https://tvkhoa.github.io/testlib/) library, which can be used for things such as tooltips, drop down menus and more! 
+
+## Base
+The Popover in its simplest form, with all default props.
+
+<Preview>
+  <Story name="Base">
+    <Popover title="I'm a popover!">
+        Hover here!
+    </Popover>
+  </Story>
+</Preview>
+
+## Variants
+> **NOTE:** not all possible variants are covered here, please consult the [documentation](https://tvkhoa.github.io/testlib/) for a comprehensive list!
+
+### Inverse
+Pass a value to the `theme` prop to render the desired colours.
+
+The default is `dark`, so the prop can be omitted.
+<Preview>
+  <Story name="Inverse">
+    <Popover theme="light" title="I'm a popover with inverted colours!" arrow>
+        Hover here!
+    </Popover>
+  </Story>
+</Preview>
+
+### Arrow
+Pass boolean `true` to the `arrow` prop, to render an arrow.
+
+The default is `false`, so the prop can be omitted.
+<Preview>
+  <Story name="Arrow">
+    <Popover title="I'm a popover with an arrow!">
+        Hover here!
+    </Popover>
+  </Story>
+</Preview>
+
+### Positioning
+Pass a value to the `position` prop to render the desired Popover. The suffixes `-start` & `-end` can also be used, for more control.
+
+The default is `bottom`, so the prop can be omitted.
+<Preview>
+  <Story name="Positioning" decorators={[minHeightDecorator]}>
+    <div className="p--t-md" style={{ width: "100%"}}>
+      <Grid gutter className="m--b-lg">
+        <GridItem span={1} span={3}>
+          <Popover position="top" title="On top!" arrow>
+            Top
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="right" title="To the right!" arrow>
+            Right
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="bottom" title="On the bottom!" arrow>
+            Bottom
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="left" title="To the left!" arrow>
+            Left
+          </Popover>
+        </GridItem>
+      </Grid>
+      <Grid gutter>
+        <GridItem span={1} span={3}>
+          <Popover position="top-start" title="On top!" arrow>
+            Top-start
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="top-end" title="On top!" arrow>
+            Top-end
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="bottom-start" title="On the bottom!" arrow>
+            Bottom-start
+          </Popover>
+        </GridItem>
+        <GridItem span={1} span={3}>
+          <Popover position="bottom-end" title="On the bottom!" arrow>
+            Bottom-end
+          </Popover>
+        </GridItem>
+      </Grid>
+    </div>
+  </Story>
+</Preview>
+
+
+
+## Prop Types
+<Props of={Popover} />
