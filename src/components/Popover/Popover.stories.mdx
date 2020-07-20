@@ -43,7 +43,7 @@ Pass boolean `true` to the `arrow` prop, to render an arrow.
 The default is `false`, so the prop can be omitted.
 <Preview>
   <Story name="Arrow">
-    <Popover title="I'm a popover with an arrow!">
+    <Popover arrow title="I'm a popover with an arrow!">
         Hover here!
     </Popover>
   </Story>
@@ -104,7 +104,38 @@ The default is `bottom`, so the prop can be omitted.
   </Story>
 </Preview>
 
+### Interactive & Custom Markup
+Pass boolean `true` to the `interactive` prop, to keep the popover open when any child elements are clicked.
 
+Pass custom markup to the `html` prop to render your desired tooltip.
+
+> **NOTE**: Using the `html` prop will overwrite the `title` prop, so only use one or the other.
+
+<Preview>
+  <Story name="Interactive" decorators={[minHeightDecorator]}>
+    {() => {
+        const [toggled, toggleValue] = useState(false)
+        return (
+          <Popover 
+            interactive
+            theme="light"
+            html={
+              <aside>
+                <Checkbox
+                  value={toggled}
+                  className="m--r-xs"
+                  onChange={() => toggleValue(!toggled)}
+                />
+                {toggled ? "On" : "Off"}
+              </aside>
+          }>
+            Hover here!
+          </Popover>
+        )
+      }
+    }
+  </Story>
+</Preview>
 
 ## Prop Types
 <Props of={Popover} />
