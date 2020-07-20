@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Label Component ----- renders without crashing 1`] = `
+<DocumentFragment>
+  <label
+    aria-label="A test field"
+    class="label"
+    for="A test field"
+  >
+    Test label text
+  </label>
+</DocumentFragment>
+`;

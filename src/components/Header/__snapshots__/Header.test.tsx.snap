@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Header Component ----- renders without crashing 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <h2
+      class="text--medium text text--intro text--left"
+    >
+      Test header
+    </h2>
+  </header>
+</DocumentFragment>
+`;
