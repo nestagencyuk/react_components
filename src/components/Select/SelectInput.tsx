@@ -8,17 +8,16 @@ import { useEffect, useState } from 'react'
 const SelectInput: React.FC<ISelect.IInputProps> = ({
   id,
   value,
-  placeholder: initPlaceholder,
+  placeholder: initialPlaceholder,
   filterValue,
   options,
   multi,
-  multiVariant,
   filterable,
   disabled,
   onChange
 }) => {
   const [shownValue, setShownValue] = useState('')
-  const [placeholder, setPlaceholder] = useState(initPlaceholder)
+  const [placeholder, setPlaceholder] = useState(initialPlaceholder)
 
   /**
    * Set value and placeholders if multi-select
@@ -39,11 +38,11 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   const handleFilterable = () => {
     setShownValue(filterValue || '')
     if (value === null) {
-      setPlaceholder(initPlaceholder)
+      setPlaceholder(initialPlaceholder)
     }
     if (!multi) {
       const label = options.find((x) => x.value === value)?.label
-      setPlaceholder(label || initPlaceholder)
+      setPlaceholder(label || initialPlaceholder)
     }
   }
 

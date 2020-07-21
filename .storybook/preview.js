@@ -40,7 +40,7 @@ addParameters({
         name: 'Desktop',
         styles: {
           width: '1360px',
-          height: '1024pxpx'
+          height: '1024px'
         }
       },
       iPhone5: {

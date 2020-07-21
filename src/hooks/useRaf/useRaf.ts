@@ -3,11 +3,11 @@ import { useRef, useEffect, useCallback, useState } from 'react'
 /**
  * Use request animation frame
  *
- * @param {Object} init
+ * @param {Object} initialState
  */
-const useRaf = <S>(init: S | (() => S)): [S, React.Dispatch<React.SetStateAction<S>>] => {
+const useRaf = <S>(initialState: S | (() => S)): [S, React.Dispatch<React.SetStateAction<S>>] => {
   const frame = useRef(0)
-  const [state, setState] = useState(init)
+  const [state, setState] = useState(initialState)
 
   /**
    * Set the current frame value

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Modal Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <aside
+    class="modal"
+  >
+    <button
+      class="modal__close action action--tertiary action--md"
+      title="Close"
+      type="button"
+    >
+      <span
+        class="action__icn icn icn--md"
+        title="Cross"
+      />
+      <span
+        class="text--screen-reader"
+      >
+        Close
+      </span>
+    </button>
+  </aside>
+</DocumentFragment>
+`;

@@ -126,18 +126,18 @@ $padding-x: spacing.$xl !default;
 
 .btn__icn {
   &--start {
-    transform: translateX(-$padding-x / 2);
+    transform: translateX(-($padding-x / 2));
 
     .btn--xs & {
-      transform: translateX(-$padding-x / 5);
+      transform: translateX(-($padding-x / 5));
     }
 
     .btn--sm & {
-      transform: translateX(-$padding-x / 3.5);
+      transform: translateX(-($padding-x / 3.5));
     }
 
     .btn--lg & {
-      transform: translateX(-$padding-x);
+      transform: translateX(-($padding-x));
     }
   }
 

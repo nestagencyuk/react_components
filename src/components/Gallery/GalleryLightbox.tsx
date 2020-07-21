@@ -19,14 +19,14 @@ import { Slider } from '../Slider'
  */
 const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => {
   const [toggled, setToggled] = useToggle()
-  const [init, setInit] = useState(0)
+  const [initialSlide, setInitialSlide] = useState(0)
 
   /**
    * Toggle the slider visibility
    */
   const handleClick = (i: number) => {
     setToggled(true)
-    setInit(i)
+    setInitialSlide(i)
   }
 
   const childItems = typeof items === 'function' && items({ toggled, handleClick })
@@ -36,7 +36,13 @@ const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<
       {toggled && (
         <Float className="gallery__float" portal align={{ x: 'Center', y: 'Center' }}>
           <Overlay portal fixed onClick={() => setToggled(false)} />
-          <Slider className="gallery__slider" variant="Fade" init={init} navbar="Buttons" items={childItems} />
+          <Slider
+            className="gallery__slider"
+            variant="Fade"
+            initialSlide={initialSlide}
+            navbar="Buttons"
+            items={childItems}
+          />
         </Float>
       )}
 

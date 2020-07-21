@@ -30,10 +30,17 @@ const variants = {
 /**
  * Slider
  */
-const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init = 0, tick, items: pItems, navbar }) => {
-  const { items, current, setCurrent } = usePagination({ init, limit: 1 })
+const Slider: React.FC<ISlider.IProps> = ({
+  className,
+  variant = 'Slide',
+  initialSlide = 0,
+  tick,
+  items: initialItems,
+  navbar
+}) => {
+  const { items, current, setCurrent } = usePagination({ initialPage: initialSlide, limit: 1 })
 
-  const total = pItems.length
+  const total = initialItems.length
   const max = total - 1
   const min = 0
   const prev = current - 1 < min ? max : current - 1
@@ -51,7 +58,7 @@ const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init =
    * Render slide items
    */
   const renderItems = () =>
-    pItems.map((x, i) => {
+    initialItems.map((x, i) => {
       const itemStyle = {
         transform: variant === 'Fade' ? `translateX(-${100 * i}%)` : null
       }
@@ -75,7 +82,7 @@ const Slider: React.FC<ISlider.IProps> = ({ className, variant = 'Slide', init =
     return () => clearTimeout(handleTick)
   }, [current])
 
-  return pItems ? (
+  return initialItems ? (
     <section className={cx(className, 'slider', variants[variant])}>
       <div className="slider__body">
         <div className="slider__items" style={bodyStyle}>

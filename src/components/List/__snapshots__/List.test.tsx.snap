@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- List Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <ul
+    class="list"
+  >
+    <li
+      class="list__item"
+    >
+      List item
+    </li>
+  </ul>
+</DocumentFragment>
+`;

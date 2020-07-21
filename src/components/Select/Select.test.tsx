@@ -445,7 +445,7 @@ describe('----- Select Component -----', () => {
       setTimeout(() => {
         lazyOptions = val ? baseProps.options.filter((x) => x.label.toLowerCase().includes(val.toLowerCase())) : []
         loading = false
-      }, 2000)
+      }, 1000)
     })
     const searchableProps: ISelect.IProps = {
       ...baseProps,
@@ -475,7 +475,7 @@ describe('----- Select Component -----', () => {
       expect(options.childElementCount).toEqual(0)
       fireEvent.change(input, { target: { value: 'option one' } })
 
-      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2100 })
+      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2000 })
       rerender(<Select {...searchableProps} options={lazyOptions} />)
       expect(options.childElementCount).toEqual(1)
       const optionOne = getByText(lazyOptions[0].label)
@@ -493,10 +493,12 @@ describe('----- Select Component -----', () => {
       expect(queryByTitle('Search')).toBeTruthy()
 
       fireEvent.change(input, { target: { value: 'option one' } })
-      rerender(<Select {...searchableProps} icon={{ name: loading ? 'Loading' : 'Search', active: loading }} />)
 
+      await waitFor(() => expect(loading).toBeTruthy())
+      rerender(<Select {...searchableProps} icon={{ name: loading ? 'Loading' : 'Search', active: loading }} />)
       expect(queryByTitle('Loading')).toBeTruthy()
-      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2100 })
+
+      await waitFor(() => expect(lazyOptions.length).toBe(1), { timeout: 2000 })
 
       rerender(<Select {...searchableProps} icon={{ name: loading ? 'Loading' : 'Search', active: loading }} />)
       expect(queryByTitle('Search')).toBeTruthy()

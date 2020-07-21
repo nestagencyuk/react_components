@@ -17,7 +17,7 @@ const alignment = {
 }
 
 /**
- * The list to hold the navbarigation links
+ * The list to hold the navigation links
  */
 const NavbarList: React.FC<INavbar.IListProps> = ({ align, items = [] }) =>
   items.length > 0 ? (

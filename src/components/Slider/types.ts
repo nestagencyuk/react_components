@@ -3,7 +3,7 @@ declare namespace ISlider {
     className?: string
     variant?: 'Fade' | 'Slide'
     navbar?: 'Buttons' | 'Dots'
-    init?: number
+    initialSlide?: number
     tick?: number
     items?: React.ReactNode[]
   }

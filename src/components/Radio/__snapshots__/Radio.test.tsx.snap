@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Radio Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <label
+    class="radio"
+  >
+    <input
+      class="radio__input"
+      id="Radio-test"
+      type="radio"
+    />
+    <span
+      class="radio__icn"
+    />
+  </label>
+</DocumentFragment>
+`;

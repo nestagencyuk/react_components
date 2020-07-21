@@ -23,7 +23,7 @@ const brandAlignment = {
 }
 
 /**
- * A simple, single level navbarigation component, allowing for lists to be positioned left,
+ * A simple, single level navigation component, allowing for lists to be positioned left,
  * right, or centrally.
  */
 const Navbar: React.FC<INavbar.IProps> = ({ className, brand, items = [] }) => {

@@ -8,7 +8,7 @@ import cx from 'classnames'
 import { NavbarLink } from '.'
 
 /**
- * A navbarigation list item, with an active state
+ * A navigation list item, with an active state
  */
 const NavbarItem: React.FC<INavbar.IItemProps> = (props) => (
   <li className={cx('navbar__item')}>

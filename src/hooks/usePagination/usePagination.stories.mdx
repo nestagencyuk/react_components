@@ -30,12 +30,12 @@ The hook in its simplest form.
 </Preview>
 
 ## Init
-Set the `init` prop to initialise the pagination from a value other than 0.
+Set the `initialPage` prop to initialise the pagination from a value other than 0.
 
 <Preview>
   <Story name="Init">
     {() => {
-      const { items, current, setCurrent } = usePagination({ init: 2 })
+      const { items, current, setCurrent } = usePagination({ initialPage: 2 })
       return (
         <Fragment>
           <div>Current: {current}</div>
