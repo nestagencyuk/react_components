@@ -58,7 +58,6 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
 
     rows.forEach((row, index) => {
       rowsFromConfig.push(row)
-      setRowCount(index + 1)
     })
 
     setRowsState(rowsFromConfig)
