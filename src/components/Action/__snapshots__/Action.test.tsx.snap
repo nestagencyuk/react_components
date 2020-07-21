@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Action Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <button
+    class="action action--primary action--md"
+    title="Lorem ipsum"
+    type="button"
+  >
+    <span
+      class="action__icn icn icn--md"
+      title="Code"
+    />
+    <span
+      class="text--screen-reader"
+    >
+      Lorem ipsum
+    </span>
+  </button>
+</DocumentFragment>
+`;

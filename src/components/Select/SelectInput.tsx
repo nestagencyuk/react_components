@@ -8,16 +8,16 @@ import { useEffect, useState } from 'react'
 const SelectInput: React.FC<ISelect.IInputProps> = ({
   id,
   value,
-  searchValue,
+  placeholder: initialPlaceholder,
+  filterValue,
   options,
   multi,
-  searchable,
+  filterable,
   disabled,
   onChange
 }) => {
-  const initPlaceholder = searchable ? 'Type to search...' : '-- Select --'
   const [shownValue, setShownValue] = useState('')
-  const [placeholder, setPlaceholder] = useState(initPlaceholder)
+  const [placeholder, setPlaceholder] = useState(initialPlaceholder)
 
   /**
    * Set value and placeholders if multi-select
@@ -25,7 +25,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   const handleMulti = () => {
     const num = value ? (value.length < 10 ? value.length : '10+') : 0
 
-    if (searchable) {
+    if (filterable) {
       setPlaceholder(`${num} Selected`)
     } else {
       setShownValue(`${num} Selected`)
@@ -33,16 +33,16 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   }
 
   /**
-   * Set value and placeholder if searchable
+   * Set value and placeholder if filterable
    */
-  const handleSearchable = () => {
-    setShownValue(searchValue || '')
+  const handleFilterable = () => {
+    setShownValue(filterValue || '')
     if (value === null) {
-      setPlaceholder(initPlaceholder)
+      setPlaceholder(initialPlaceholder)
     }
     if (!multi) {
       const label = options.find((x) => x.value === value)?.label
-      setPlaceholder(label || initPlaceholder)
+      setPlaceholder(label || initialPlaceholder)
     }
   }
 
@@ -56,25 +56,25 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   }, [value])
 
   /**
-   * Listen to the value and search value
+   * Listen to the value and filter value
    */
   useEffect(() => {
     if (multi) handleMulti()
-    if (searchable) handleSearchable()
-    if (!searchable && !multi) setShownValue(options.find((x) => x.value === value)?.label || '')
-  }, [value, searchValue])
+    if (filterable) handleFilterable()
+    if (!filterable && !multi) setShownValue(options.find((x) => x.value === value)?.label || '')
+  }, [value, filterValue])
 
   return (
     <input
-      className='select__input'
+      className="select__input"
       id={id}
       data-testid={`${id}-input`}
       name={id}
       value={shownValue}
-      readOnly={!searchable}
+      readOnly={!filterable}
       placeholder={placeholder}
       disabled={disabled}
-      autoComplete='off'
+      autoComplete="off"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
     />
   )

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { INavtree } from './types'
-import { useToggleTree } from '../../hooks/useToggleTree'
+import { ToggleTree } from '../../context/ToggleTree'
 import cx from 'classnames'
 
 /**
@@ -16,13 +16,13 @@ import { NavtreeList } from '.'
 /**
  * A navigation that supports nested levels
  */
-const Navtree: React.FC<INavtree.IProps> = ({ className, links }) => {
-  const [toggles, setToggled] = useToggleTree()
-
+const Navtree: React.FC<INavtree.IProps> = ({ className, items }) => {
   return (
-    <nav className={cx(className, 'navtree')}>
-      <NavtreeList items={links} nodes={toggles} open={true} onClick={setToggled} />
-    </nav>
+    <ToggleTree>
+      <nav className={cx(className, 'navtree')}>
+        <NavtreeList items={items} depth={0} open={true} />
+      </nav>
+    </ToggleTree>
   )
 }
 

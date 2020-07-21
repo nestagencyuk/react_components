@@ -1,15 +1,15 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { List } from '.'
+import { IList } from './types'
 
 describe('----- List Component -----', () => {
-  const baseProps = {
-    children: 'test'
+  const baseProps: IList.IProps = {
+    items: [{ text: 'List item' }]
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<List {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<List {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

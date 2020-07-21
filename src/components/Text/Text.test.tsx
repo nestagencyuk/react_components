@@ -4,8 +4,8 @@ import { Text } from '.'
 
 describe('----- Text Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Text variant='Alpha'>Test</Text>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Text variant="Alpha">Test</Text>)
+
     expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -4,8 +4,7 @@ import { Template } from '.'
 
 describe('----- Template Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Template>Test</Template>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Template>Test</Template>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

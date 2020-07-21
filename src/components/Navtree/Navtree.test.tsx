@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { Navtree } from '.'
 import { INavtree } from './types'
-import { MemoryRouter, Link } from 'react-router-dom'
 
 describe('----- Navtree Component -----', () => {
   const baseProps: INavtree.IProps = {
-    links: [
+    items: [
       {
         href: '/',
         text: 'Home',
@@ -22,12 +21,11 @@ describe('----- Navtree Component -----', () => {
       },
       {
         text: 'Test',
-        component: Link,
         to: '/test',
         icon: {
           name: 'Home'
         },
-        children: [
+        items: [
           {
             text: 'A test child',
             icon: {
@@ -40,12 +38,19 @@ describe('----- Navtree Component -----', () => {
   }
 
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(
-      <MemoryRouter>
-        <Navtree {...baseProps} />
-      </MemoryRouter>
-    )
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Navtree {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('Opens first level, closes again', () => {
+    const { getByText } = render(<Navtree {...baseProps} />)
+    const button = getByText('Test').parentElement
+    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeFalsy()
+
+    fireEvent.click(button)
+    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeTruthy()
+
+    fireEvent.click(button)
+    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeFalsy()
   })
 })

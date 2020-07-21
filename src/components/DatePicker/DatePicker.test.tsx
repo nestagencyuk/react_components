@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import { DatePicker } from '.';
+import * as React from 'react'
+import { render, fireEvent } from '@testing-library/react'
+import { DatePicker } from '.'
 import { IDatePicker } from './types'
 
 describe('----- DatePicker Component -----', () => {
@@ -10,15 +10,15 @@ describe('----- DatePicker Component -----', () => {
     props: {
       onChange: mockFn
     }
-  };
+  }
 
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<DatePicker {...baseProps} />);
-    const { asFragment } = mountComponentInContext();
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
+    const { asFragment } = render(<DatePicker {...baseProps} />)
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+})

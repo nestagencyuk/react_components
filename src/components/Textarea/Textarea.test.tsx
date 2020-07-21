@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Textarea } from '.'
+import { ITextarea } from './types'
 
 describe('----- Textarea Component -----', () => {
   const mockFn = jest.fn()
 
-  const baseProps = {
-    onChange: mockFn,
-    id: 'Test-textarea'
+  const baseProps: ITextarea.IProps = {
+    id: 'Test-textarea',
+    onChange: mockFn
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Textarea {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Textarea {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

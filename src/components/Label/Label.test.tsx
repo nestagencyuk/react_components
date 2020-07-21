@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Label } from '.'
+import { ILabel } from './types'
 
 describe('----- Label Component -----', () => {
-  const baseProps = {
-    children: 'Test label text',
-    for: 'A test field'
+  const baseProps: ILabel.IProps = {
+    for: 'A test field',
+    children: ''
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Label {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Label {...baseProps}>Test label text</Label>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

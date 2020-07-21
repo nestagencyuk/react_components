@@ -1,0 +1,47 @@
+/// ----------------------------------------------------------------------
+
+/// Tag
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'typography';
+@use 'colours';
+@use 'corners';
+
+/// -------------------
+/// Tag config
+/// -------------------
+
+$padding-y: spacing.$xxs !default;
+$padding-x: spacing.$xs !default;
+
+/// -------------------
+/// Tag selectors
+/// -------------------
+
+.tag {
+  @include lib.resets-style;
+  display: inline-flex;
+  box-sizing: border-box;
+  vertical-align: middle;
+  padding: $padding-y $padding-x;
+  align-items: center;
+  line-height: typography.$base-line-height;
+  font-family: typography.$font-family;
+  font-size: map-get(typography.$small, 'font-size');
+  border-radius: corners.$round;
+  background-color: colours.$ui-two;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/// -------------------
+/// Tag action
+/// -------------------
+
+.tag__action.btn {
+  // @include lib.utilities-center-y;
+  border-width: 1px;
+}

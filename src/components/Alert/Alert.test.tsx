@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Alert } from '.'
+import { IAlert } from './types'
 
 describe('----- Alert Component -----', () => {
   const mockFn = jest.fn()
 
-  const baseProps = {
-    children: 'test',
+  const baseProps: IAlert.IProps = {
+    children: '',
     onClose: mockFn
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Alert {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Alert {...baseProps}>Alert</Alert>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

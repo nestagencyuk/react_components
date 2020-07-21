@@ -18,6 +18,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             Home
@@ -32,6 +33,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             About
@@ -41,17 +43,18 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
       <li
         class="navtree__item"
       >
-        <a
+        <button
           class="navtree__link"
-          href="/test"
+          to="/test"
         >
           <span
             class="m--r-lg icn icn--md icn--dark"
+            title="Home"
           />
           <span>
             Test
           </span>
-        </a>
+        </button>
         <ul
           class="navtree__list"
           data-depth="1"
@@ -64,6 +67,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
             >
               <span
                 class="m--r-lg icn icn--md icn--dark"
+                title="Home"
               />
               <span>
                 A test child

@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Header } from '.'
+import { IHeader } from './types'
 
 describe('----- Header Component -----', () => {
-  const baseProps = {
-    heading: 'Test header'
+  const baseProps: IHeader.IProps = {
+    heading: 'Test header',
+    subheading: 'Test header'
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Header {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Header {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })
