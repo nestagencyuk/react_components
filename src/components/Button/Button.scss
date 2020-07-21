@@ -26,6 +26,7 @@ $padding-x: spacing.$xl !default;
 .btn {
   @include lib.resets-style;
   @include lib.components-flow;
+  justify-content: space-between;
   position: relative;
   border-radius: corners.$base;
   font-family: typography.$font-family--alt;

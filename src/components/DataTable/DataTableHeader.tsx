@@ -12,53 +12,47 @@ import './DataTable.scss'
  * Components
  */
 import { Checkbox } from '../Checkbox'
-import { DataTableDropDown } from '.'
 import { Button } from '../Button'
 import { Input } from '../Input'
+import { Grid, GridItem } from '../Grid'
+import { Popover } from '../Popover'
 
 /**
  * A datatable that displays table controls
  */
 const DataTableHeader: React.FC = () => {
-  const { config, toggleColumn, columnsState } = useContext(DataTableContext)
+  const { config, toggleColumn, columnsState, addNewRow } = useContext(DataTableContext)
   const { table, columns } = config
   const { buttonAddLine, buttonCustomiseTable, buttonFilterData, search } = table.header
-  const [showCustomiseMenu, toggleCustomiseMenu] = useState(false)
 
   return (
-    <header className="datatable-header" data-testid="datatable-header">
-      {buttonFilterData && (
-        <Button
-          className="m--r-sm"
-          variant="Tertiary"
-          icon={{
-            name: 'Branch',
-            size: 'Small',
-            align: 'End'
-          }}
-          size="Small"
-        >
-          Filter Data
-        </Button>
-      )}
-      {buttonCustomiseTable && (
-        <span className="datatable-header__item">
-          <Button
-            onClick={() => toggleCustomiseMenu(!showCustomiseMenu)}
-            className="m--r-sm"
-            variant="Tertiary"
-            icon={{
-              name: 'Branch',
-              size: 'Small',
-              align: 'End'
-            }}
-            size="Small"
-          >
-            Customise Table
-          </Button>
-          {showCustomiseMenu && (
-            <DataTableDropDown>
-              {columns.map((col: IDataTable.IColumn) => (
+    <header className="datatable-header m--b-md" data-testid="datatable-header">
+      <Grid gutter>
+        {buttonFilterData && (
+          <GridItem span={3}>
+            <Button
+              variant="Tertiary"
+              className="w--100"
+              icon={{
+                name: 'Branch',
+                size: 'Small',
+                align: 'End'
+              }}
+              size="Small"
+            >
+              Filter Data
+            </Button>
+          </GridItem>
+        )}
+        {buttonCustomiseTable && (
+          <GridItem span={3}>
+            <Popover
+              position="bottom-start"
+              interactive
+              trigger="click"
+              theme="light"
+              unmountHTMLWhenHide
+              html={columns.map((col: IDataTable.IColumn) => (
                 <div key={col.name} className="datatable__drop-down-item">
                   <Checkbox
                     onChange={() => toggleColumn(col.name)}
@@ -71,25 +65,47 @@ const DataTableHeader: React.FC = () => {
                   </label>
                 </div>
               ))}
-            </DataTableDropDown>
-          )}
-        </span>
-      )}
-      {search && <Input onChange={() => alert('search')} placeholder="Search Data" size="Small" type="Text" id="Search" />}
-      {buttonAddLine && (
-        <Button
-          variant="Tertiary"
-          className="m--l-auto"
-          icon={{
-            name: 'Branch',
-            size: 'Small',
-            align: 'End'
-          }}
-          size="Small"
-        >
-          Add Line
-        </Button>
-      )}
+            >
+              <Button
+                variant="Tertiary"
+                className="w--100"
+                icon={{
+                  name: 'Branch',
+                  size: 'Small',
+                  align: 'End'
+                }}
+                size="Small"
+              >
+                Customise Table
+              </Button>
+            </Popover>
+          </GridItem>
+        )}
+        {search && (
+          <GridItem span={3}>
+            <div>
+              <Input onChange={() => alert('search')} placeholder="Search Data" size="Small" type="Text" id="Search" />
+            </div>
+          </GridItem>
+        )}
+        {buttonAddLine && (
+          <GridItem span={3} className="m--l-auto">
+            <Button
+              variant="Tertiary"
+              className="w--100"
+              icon={{
+                name: 'Branch',
+                size: 'Small',
+                align: 'End'
+              }}
+              size="Small"
+              onClick={() => addNewRow()}
+            >
+              Add Line
+            </Button>
+          </GridItem>
+        )}
+      </Grid>
     </header>
   )
 }

@@ -9,19 +9,29 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
       class="datatable-container__inner"
     >
       <header
-        class="datatable-header"
+        class="datatable-header m--b-md"
         data-testid="datatable-header"
       >
-        <input
-          class="input--sm input"
-          id="Search"
-          placeholder="Search Data"
-          type="text"
-          value=""
-        />
+        <div
+          class="grid grid--gutter"
+        >
+          <div
+            class="grid__item grid__item--3"
+          >
+            <div>
+              <input
+                class="input--sm input"
+                id="Search"
+                placeholder="Search Data"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
       </header>
       <table
-        class="datatable"
+        class="datatable m--b-md"
       >
         <thead>
           <tr
@@ -41,23 +51,34 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
+        <tbody
+          class="datatable-body"
+        >
+          <tr
+            class="datatable-body__row"
+          >
             <td
-              class="datatable-body-header__item"
-              data-testid="datatable-column"
+              class="datatable-body__cell"
             >
-              First Test Column
-            </td>
-            <td
-              class="datatable-body-header__item"
-              data-testid="datatable-column"
-            >
-              Second Test Column
+              Test cell
             </td>
           </tr>
         </tbody>
       </table>
+      <footer
+        class="datatable-footer"
+        data-testid="datatable-footer"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="grid__item grid__item--3"
+          >
+            1 Lines
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </DocumentFragment>
