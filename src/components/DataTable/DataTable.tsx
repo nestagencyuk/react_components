@@ -31,7 +31,9 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   const searchRows = (query: string) => {
     setRowsState(
       rows.filter((row) =>
-        row.cells.some((cell: IDataTable.ICell) => cell.value.toLowerCase().includes(query.toLowerCase()))
+        row.cells.some((cell: IDataTable.ICell) =>
+          cell.searchable ? cell.value.toLowerCase().includes(query.toLowerCase()) : false
+        )
       )
     )
     setSearchQuery(query)

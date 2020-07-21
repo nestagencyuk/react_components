@@ -22,20 +22,17 @@ describe('----- DataTable Component -----', () => {
       {
         name: 'Second Test Column',
         hidden: false,
-        displayOrder: 2,
-        searchable: true
+        displayOrder: 2
       },
       {
         name: 'First Test Column',
         hidden: false,
-        displayOrder: 1,
-        searchable: true
+        displayOrder: 1
       },
       {
         name: 'Third Test Column',
         hidden: true,
-        displayOrder: 3,
-        searchable: true
+        displayOrder: 3
       }
     ],
     rows: [
@@ -46,7 +43,14 @@ describe('----- DataTable Component -----', () => {
           {
             name: 'Test cell',
             belongsTo: 'First Test Column',
-            value: 'Test Cell 1'
+            value: 'Test Cell 1',
+            searchable: true
+          },
+          {
+            name: 'Test cell 2',
+            belongsTo: 'Second Test Column',
+            value: 'Test Cell 2',
+            searchable: false
           }
         ]
       }

@@ -19,23 +19,20 @@
       "hidden": false,
       "displayOrder": 1,
       "sortable": true,
-      "searchable": true,
       "defaultWidth": 300
     },
     {
       "name": "Unit of Measure",
       "hidden": false,
-      "displayOrder": 3,
+      "displayOrder": 2,
       "sortable": true,
-      "searchable": true,
       "defaultWidth": 100
     },
     {
       "name": "Product Description",
       "hidden": false,
-      "displayOrder": 2,
+      "displayOrder": 3,
       "sortable": true,
-      "searchable": true,
       "defaultWidth": 100
     },
     {
@@ -43,7 +40,6 @@
       "hidden": true,
       "displayOrder": 4,
       "sortable": true,
-      "searchable": true,
       "defaultWidth": 100
     }
   ],
@@ -55,21 +51,25 @@
         {
           "name": "product_id",
           "belongsTo": "Stock Keeping Unit (SKU)",
+          "searchable": false,
           "value": "0001"
         },
         {
           "name": "uom",
           "belongsTo": "Unit of Measure",
+          "searchable": true,
           "value": "Measure some bits"
         },
         {
           "name": "description",
           "belongsTo": "Product Description",
+          "searchable": true,
           "value": "An amazing product in Deep Red"
         },
         {
           "name": "quantity",
           "belongsTo": "Quantity",
+          "searchable": true,
           "value": "How many of these things!"
         }
       ]
@@ -81,21 +81,25 @@
         {
           "name": "product_id",
           "belongsTo": "Stock Keeping Unit (SKU)",
+          "searchable": true,
           "value": "0002"
         },
         {
           "name": "uom",
           "belongsTo": "Unit of Measure",
+          "searchable": true,
           "value": "Measure some bits"
         },
         {
           "name": "description",
           "belongsTo": "Product Description",
+          "searchable": true,
           "value": "An amazing product in Deep Yellow"
         },
         {
           "name": "quantity",
           "belongsTo": "Quantity",
+          "searchable": true,
           "value": "How many of these things!"
         }
       ]
