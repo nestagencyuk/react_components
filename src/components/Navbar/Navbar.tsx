@@ -23,14 +23,14 @@ const brandAlignment = {
 }
 
 /**
- * A simple, single level navbarigation component, allowing for lists to be positioned left,
+ * A simple, single level navigation component, allowing for lists to be positioned left,
  * right, or centrally.
  */
-const Navbar: React.FC<INavbar.IProps> = ({ className, brand, links = [] }) => {
+const Navbar: React.FC<INavbar.IProps> = ({ className, brand, items = [] }) => {
   const [toggled, setToggled] = useState(false)
-  const startLinks = links.filter((x) => x.align === 'Start')
-  const centerLinks = links.filter((x) => x.align === 'Center')
-  const endLinks = links.filter((x) => x.align === 'End')
+  const startItems = items.filter((x) => x.align === 'Start')
+  const centerItems = items.filter((x) => x.align === 'Center')
+  const endItems = items.filter((x) => x.align === 'End')
 
   /**
    * Brand alignment
@@ -41,15 +41,15 @@ const Navbar: React.FC<INavbar.IProps> = ({ className, brand, links = [] }) => {
 
   return (
     <nav className={cx(className, 'navbar', brandAlignment[brand?.align], { 'navbar--open': toggled })}>
-      <div className='navbar__bar'>
+      <div className="navbar__bar">
         {brandStart && <NavbarBrand {...brand} />}
         <NavbarToggle toggled={toggled} onClick={setToggled} />
         {(brandCenter || brandEnd) && <NavbarBrand {...brand} />}
       </div>
-      <div className='navbar__lists'>
-        <NavbarList align={'Start'} items={startLinks} />
-        <NavbarList align={'Center'} items={centerLinks} />
-        <NavbarList align={'End'} items={endLinks} />
+      <div className="navbar__lists">
+        <NavbarList align="Start" items={startItems} />
+        <NavbarList align="Center" items={centerItems} />
+        <NavbarList align="End" items={endItems} />
       </div>
     </nav>
   )

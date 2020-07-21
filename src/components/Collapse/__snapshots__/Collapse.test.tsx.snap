@@ -15,6 +15,7 @@ exports[`----- Collapse Component ----- Renders without crashing 1`] = `
       </span>
       <span
         class="icn icn--md icn--dark"
+        title="Chevron-up"
       />
     </button>
     <div

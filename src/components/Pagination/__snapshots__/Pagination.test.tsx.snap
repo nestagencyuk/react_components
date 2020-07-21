@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- Pagination Component ----- renders without crashing 1`] = `
+exports[`----- Pagination Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <ul
     class="pagination pagination--numbers"

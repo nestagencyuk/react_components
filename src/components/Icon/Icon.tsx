@@ -1,6 +1,7 @@
 import { IIcon } from './types'
 import * as React from 'react'
 import cx from 'classnames'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
  * Styles
@@ -32,11 +33,12 @@ const colours = {
 /**
  * Icon
  */
-const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark' }) => {
+const Icon: React.FC<IIcon.IProps> = ({ className, name, size = 'Medium', colour = 'Dark', active = false }) => {
   const icon = require(`../../assets/icons/${name.toLowerCase()}.svg`)
   return (
     <span
-      className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour])}
+      className={cx(className, 'icn', sizes[size], colour !== 'Inherit' && colours[colour], { 'icn--active': active })}
+      title={capitalise(name)}
       dangerouslySetInnerHTML={{ __html: icon }}
     />
   )

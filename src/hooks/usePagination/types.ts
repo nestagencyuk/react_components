@@ -1,6 +1,6 @@
 declare namespace IUsePagination {
   interface IProps {
-    init?: number
+    initialPage?: number
     limit?: number
   }
 }

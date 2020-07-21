@@ -1,11 +1,14 @@
 import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { Checkbox } from '.'
+import { ICheckbox } from './types'
 
 describe('----- Checkbox Component -----', () => {
   let value: boolean = false
-  const mockFn = jest.fn((val) => { value = val })
-  const baseProps = {
+  const mockFn = jest.fn((val) => {
+    value = val
+  })
+  const baseProps: ICheckbox.IProps = {
     id: 'checkbox-test',
     onChange: mockFn
   }
@@ -14,22 +17,19 @@ describe('----- Checkbox Component -----', () => {
     jest.clearAllMocks()
     value = false
   })
-  
+
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Checkbox {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Checkbox {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('Renders disabled correctly without crashing', () => {
-    const mountComponentInContext = () => render(<Checkbox {...baseProps} disabled />)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Checkbox {...baseProps} disabled />)
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('Renders checked correctly without crashing', () => {
-    const mountComponentInContext = () => render(<Checkbox {...baseProps} value={true} />)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Checkbox {...baseProps} value={true} />)
     expect(asFragment()).toMatchSnapshot()
   })
 
@@ -38,6 +38,7 @@ describe('----- Checkbox Component -----', () => {
     const input = getByTestId(`${baseProps.id}-input`)
     expect(input).toHaveProperty('checked', false)
     fireEvent.click(input)
+
     rerender(<Checkbox {...baseProps} value={value} />)
     expect(value).toBe(true)
     expect(input).toHaveProperty('checked', true)
@@ -47,6 +48,7 @@ describe('----- Checkbox Component -----', () => {
     const { getByTestId } = render(<Checkbox {...baseProps} value={value} />)
     const label = getByTestId(baseProps.id).firstElementChild
     fireEvent.click(label)
+
     expect(value).toBe(true)
     expect(mockFn).toHaveBeenCalledTimes(1)
   })

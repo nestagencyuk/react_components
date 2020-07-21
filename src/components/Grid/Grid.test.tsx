@@ -1,15 +1,19 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Grid } from '.'
+import { IGrid } from './types'
 
 describe('----- Grid Component -----', () => {
   const baseProps = {
-    children: <div>test child</div>
+    children: ''
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Grid {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(
+      <Grid {...baseProps}>
+        <div>test child</div>
+      </Grid>
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

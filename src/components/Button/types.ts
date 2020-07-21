@@ -9,7 +9,7 @@ declare namespace IButton {
     to?: string
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Inverse' | 'Action'
     type?: 'button' | 'submit'
-    size?: Size
+    size?: 'XSmall' | Size
     icon?: IIconProps
     disabled?: boolean
     children?: string
@@ -18,12 +18,12 @@ declare namespace IButton {
   }
 
   interface IIconProps extends IIcon.IProps {
-    align: 'Start' | 'End'
+    align?: 'Start' | 'End'
   }
 
-  interface IBtnGroup {
-    children: React.ReactNode
+  interface IGroupProps {
     className?: string
+    children: Array<React.ReactElement<IProps>>
   }
 }
 

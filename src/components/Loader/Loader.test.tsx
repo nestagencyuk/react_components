@@ -3,9 +3,8 @@ import { render } from '@testing-library/react'
 import { Loader } from '.'
 
 describe('----- Loader Component -----', () => {
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Loader />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Loader />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,18 +1,17 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Float } from '.'
+import { IFloat } from './types'
 
 describe('----- Float Component -----', () => {
   const mockFn = jest.fn()
 
-  const baseProps = {
-    children: 'test',
-    onClose: mockFn
+  const baseProps: IFloat.IProps = {
+    children: ''
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Float {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Float {...baseProps}>Float</Float>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

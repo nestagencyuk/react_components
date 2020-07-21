@@ -4,8 +4,7 @@ import { Button } from '.'
 
 describe('----- Button Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Button>Test</Button>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Button>Test</Button>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

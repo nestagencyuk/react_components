@@ -16,7 +16,7 @@ $sizes: (
   sm: 0.75rem,
   md: 1rem,
   lg: 1.5rem,
-  xl: 2rem,
+  xl: 2rem
 ) !default;
 
 $colours: (
@@ -25,7 +25,7 @@ $colours: (
   info: colours.$state-info,
   success: colours.$state-success,
   warning: colours.$state-warning,
-  error: colours.$state-error,
+  error: colours.$state-error
 ) !default;
 
 /// -------------------

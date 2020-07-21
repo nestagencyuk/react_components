@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Modal } from '.'
+import { IModal } from './types'
 
 describe('----- Modal Component -----', () => {
   const mockFn = jest.fn()
 
-  const baseProps = {
-    children: 'test',
+  const baseProps: IModal.IProps = {
+    children: '',
     onClose: mockFn
   }
 
-  it('renders without crashing', () => {
-    const mountComponentInContext = () => render(<Modal {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+  it('Renders without crashing', () => {
+    const { asFragment } = render(<Modal {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

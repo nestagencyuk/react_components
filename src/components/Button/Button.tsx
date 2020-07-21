@@ -27,6 +27,7 @@ const variants = {
  * Sizes
  */
 const sizes = {
+  XSmall: 'btn--xs',
   Small: 'btn--sm',
   Medium: 'btn--md',
   Large: 'btn--lg'

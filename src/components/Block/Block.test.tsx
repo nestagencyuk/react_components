@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, getByTestId } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Block } from '.'
 import { IBlock } from './types'
 
@@ -12,8 +12,7 @@ describe('----- Block Component -----', () => {
   }
 
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Block {...baseProps} />)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Block {...baseProps} />)
     expect(asFragment()).toMatchSnapshot()
   })
 

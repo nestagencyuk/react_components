@@ -1,0 +1,114 @@
+/// ----------------------------------------------------------------------
+
+/// Actions
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'corners';
+@use 'colours';
+@use 'states';
+@use 'transitions';
+
+/// -------------------
+/// Action config
+/// -------------------
+
+$size: 3rem !default; // Should match default flow component height
+
+/// -------------------
+/// Action selectors
+/// -------------------
+
+.action {
+  @include lib.resets-style;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: corners.$base;
+  transition: color transitions.$ease, background-color transitions.$ease, border-color transitions.$ease;
+  user-select: none;
+  width: $size;
+  height: $size;
+  align-self: center;
+  border: solid 2px transparent;
+  padding: 0;
+  cursor: pointer;
+
+  &--primary {
+    background-color: colours.$brand-one;
+    color: white;
+    fill: white;
+
+    &:hover {
+      background-color: colours.$ui-two;
+      color: colours.$brand-one;
+      fill: colours.$brand-one;
+    }
+  }
+
+  &--secondary {
+    border-color: colours.$brand-one;
+    color: colours.$brand-one;
+    fill: colours.$brand-one;
+
+    &:hover {
+      border-color: colours.$brand-two;
+      color: colours.$brand-two;
+      fill: colours.$brand-two;
+    }
+  }
+
+  &--tertiary {
+    color: colours.$brand-one;
+    fill: colours.$brand-one;
+
+    &:hover {
+      color: colours.$brand-two;
+      fill: colours.$brand-two;
+    }
+  }
+
+  &--inverse {
+    color: white;
+    fill: white;
+
+    &:hover {
+      color: colours.$brand-two;
+      fill: colours.$brand-two;
+    }
+  }
+
+  &--xs {
+    width: $size * 0.25;
+    height: $size * 0.25;
+  }
+
+  &--sm {
+    width: $size * 0.5;
+    height: $size * 0.5;
+  }
+
+  &--lg {
+    width: $size * 1.25;
+    height: $size * 1.25;
+  }
+
+  &--active,
+  &:focus {
+    @include states.focus;
+  }
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+}
+
+/// -------------------
+/// Action icon
+/// -------------------
+
+.action__icn {
+  @include lib.utilities-center;
+}

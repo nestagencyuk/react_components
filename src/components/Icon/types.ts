@@ -32,11 +32,13 @@ declare namespace IIcon {
       | 'Line'
       | 'Link'
       | 'Linkedin'
+      | 'Loading'
       | 'Message'
       | 'Pie-quarter-alt'
       | 'Pie-quarter'
       | 'Pie'
       | 'Pinterest'
+      | 'Search'
       | 'Success'
       | 'Tick'
       | 'Tools'
@@ -45,6 +47,7 @@ declare namespace IIcon {
       | 'User'
     size?: 'XSmall' | Size
     colour?: 'Inherit' | 'Dark' | 'Inverse' | UIState
+    active?: boolean
   }
 
   type IIconTypes = { [key in UIState]: IIcon.IProps['name'] }

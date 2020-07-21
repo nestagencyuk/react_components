@@ -28,12 +28,12 @@ $toggle-size: spacing.$lg !default;
 /// -------------------
 
 .navbar {
-  position: relative; 
+  position: relative;
   max-width: max-widths.$xl;
   margin-left: auto;
   margin-right: auto;
   z-index: z-index.$top;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
     padding: $padding-y $padding-x;
   }
@@ -49,17 +49,17 @@ $toggle-size: spacing.$lg !default;
   justify-content: space-between;
   padding: $padding-y $padding-x;
   z-index: z-index.$top + 1;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
     position: absolute;
     padding: 0;
-    top: 0; 
+    top: 0;
     bottom: 0;
 
     .navbar--b-s > & {
       left: $padding-x;
     }
-    
+
     .navbar--b-c > & {
       @include lib.utilities-center-x;
       width: $brand-width;
@@ -95,7 +95,9 @@ $toggle-size: spacing.$lg !default;
     justify-self: end;
   }
 
+  &:focus,
   &:hover {
+    outline: none;
     opacity: 1;
   }
 }
@@ -107,20 +109,20 @@ $toggle-size: spacing.$lg !default;
 .navbar__brand {
   width: $brand-width;
   height: auto;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
     @include lib.utilities-center-y;
   }
-  
+
   .navbar--b-e & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       right: 0;
     }
   }
-  
+
   .navbar__lists & {
     display: none;
-    
+
     @include lib.breakpoint-up(breakpoints.$sm) {
       display: block;
     }
@@ -145,7 +147,7 @@ $toggle-size: spacing.$lg !default;
   padding-left: $padding-x;
   padding-right: $padding-x;
   background-color: white;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
     display: grid;
     position: relative;
@@ -154,27 +156,27 @@ $toggle-size: spacing.$lg !default;
     grid-template-columns: auto;
     grid-template-areas: 'links-start links-center links-end';
   }
-  
+
   .navbar--open & {
     display: block;
     animation: fadeInTop 0.3s animations.$forwards-ease;
     z-index: z-index.$top;
   }
-  
+
   .navbar--b-c & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto $brand-width auto;
       grid-template-areas: 'links-start brand links-end';
     }
   }
-  
+
   .navbar--b-s & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: $brand-width auto auto;
       grid-template-areas: 'brand links-start links-end';
     }
   }
-  
+
   .navbar--b-e & {
     @include lib.breakpoint-up(breakpoints.$sm) {
       grid-template-columns: auto auto $brand-width;
@@ -199,7 +201,7 @@ $toggle-size: spacing.$lg !default;
   &--start {
     grid-area: links-start;
   }
-  
+
   &--center {
     grid-area: links-center;
 
@@ -207,7 +209,7 @@ $toggle-size: spacing.$lg !default;
       justify-content: center;
     }
   }
-  
+
   &--end {
     grid-area: links-end;
 
@@ -242,13 +244,13 @@ $toggle-size: spacing.$lg !default;
   padding: spacing.$sm 0;
   font-family: typography.$font-family;
   color: colours.$ui-five;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
     width: auto;
     text-align: center;
   }
 
-  &--active, 
+  &--active,
   &:hover {
     color: colours.$brand-two;
   }
