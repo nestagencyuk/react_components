@@ -146,7 +146,7 @@ describe('----- DataTable Component -----', () => {
 
       fireEvent.change(searchField, { target: { value: 'Test Cell 1' } })
 
-      expect(queryAllByText.length).toEqual(1)
+      expect(queryAllByText('Test Cell 1').length).toEqual(1)
     })
   })
 
