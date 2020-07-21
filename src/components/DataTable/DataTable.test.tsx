@@ -22,17 +22,20 @@ describe('----- DataTable Component -----', () => {
       {
         name: 'Second Test Column',
         hidden: false,
-        displayOrder: 2
+        displayOrder: 2,
+        searchable: true
       },
       {
         name: 'First Test Column',
         hidden: false,
-        displayOrder: 1
+        displayOrder: 1,
+        searchable: true
       },
       {
         name: 'Third Test Column',
         hidden: true,
-        displayOrder: 3
+        displayOrder: 3,
+        searchable: true
       }
     ],
     rows: [
@@ -42,7 +45,8 @@ describe('----- DataTable Component -----', () => {
         cells: [
           {
             name: 'Test cell',
-            belongsTo: 'First Test Column'
+            belongsTo: 'First Test Column',
+            value: 'Test Cell 1'
           }
         ]
       }
@@ -134,6 +138,15 @@ describe('----- DataTable Component -----', () => {
       fireEvent.click(addNewRowButton)
 
       expect(queryByText('2 Lines')).toBeTruthy()
+    })
+
+    it('Searches the table', () => {
+      const { queryByPlaceholderText, queryAllByText } = render(baseDataTableHeader('search'))
+      const searchField = queryByPlaceholderText('Search Data')
+
+      fireEvent.change(searchField, { target: { value: 'Test Cell 1' } })
+
+      expect(queryAllByText.length).toEqual(1)
     })
   })
 

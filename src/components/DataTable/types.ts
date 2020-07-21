@@ -32,6 +32,7 @@ declare namespace IDataTable {
     name: string
     hidden: boolean
     displayOrder: number
+    searchable: boolean
   }
 
   interface IRow {
@@ -43,6 +44,7 @@ declare namespace IDataTable {
   interface ICell {
     name: string
     belongsTo: string
+    value: any
   }
 
   // DataTable Context

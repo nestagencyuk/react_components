@@ -21,8 +21,21 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   const [columnsByDisplayOrder, setColumnOrder] = useState([])
   const [rowsState, setRowsState] = useState([])
   const [rowCountState, setRowCount] = useState(0)
+  const [rowSearchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const { table, columns, rows } = config
+
+  /**
+   * Search through rows
+   */
+  const searchRows = (query: string) => {
+    setRowsState(
+      rows.filter((row) =>
+        row.cells.some((cell: IDataTable.ICell) => cell.value.toLowerCase().includes(query.toLowerCase()))
+      )
+    )
+    setSearchQuery(query)
+  }
 
   /**
    * Toggle individual column visibilty
@@ -81,7 +94,18 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   }, [])
 
   return (
-    <DataTableContext.Provider value={{ config, rowsState, rowCountState, columnsState, addNewRow, toggleColumn }}>
+    <DataTableContext.Provider
+      value={{
+        config,
+        rowsState,
+        rowCountState,
+        columnsState,
+        addNewRow,
+        toggleColumn,
+        searchRows,
+        rowSearchQuery
+      }}
+    >
       <DataTableContext.Consumer>
         {() =>
           loading ? (
@@ -108,7 +132,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
                         {row.cells.map((cell: IDataTable.ICell) =>
                           columnsState[cell.belongsTo] ? null : (
                             <td key={cell.name} className="datatable-body__cell">
-                              {cell.name}
+                              {cell.value}
                             </td>
                           )
                         )}

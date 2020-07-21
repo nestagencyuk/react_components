@@ -60,7 +60,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             <td
               class="datatable-body__cell"
             >
-              Test cell
+              Test Cell 1
             </td>
           </tr>
         </tbody>
