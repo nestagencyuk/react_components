@@ -18,7 +18,17 @@
 /// DataTable selectors
 /// -------------------
 
+/// -------------------
+/// DataTable selectors
+/// -------------------
+
+.datatable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .datatable-container {
+  position: relative;
   width: 100%;
   border: 1px solid colours.$ui-two;
   border-radius: corners.$base;
@@ -29,13 +39,10 @@
   }
 }
 
-/// -------------------
-/// DataTable selectors
-/// -------------------
-
-.datatable {
-  width: 100%;
-  border-collapse: collapse;
+.datatable-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 /// -------------------

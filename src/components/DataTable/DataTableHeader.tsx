@@ -26,7 +26,7 @@ const DataTableHeader: React.FC = () => {
   const [showCustomiseMenu, toggleCustomiseMenu] = useState(false)
 
   return (
-    <header className="datatable-header">
+    <header className="datatable-header" data-testid="datatable-header">
       {buttonFilterData && (
         <Button
           className="m--r-sm"

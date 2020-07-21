@@ -10,6 +10,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
     >
       <header
         class="datatable-header"
+        data-testid="datatable-header"
       >
         <input
           class="input--sm input"
@@ -28,8 +29,15 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           >
             <th
               class="datatable-body-header__item"
+              data-testid="datatable-column"
             >
               First Test Column
+            </th>
+            <th
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              Second Test Column
             </th>
           </tr>
         </thead>
@@ -37,45 +45,15 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           <tr>
             <td
               class="datatable-body-header__item"
+              data-testid="datatable-column"
             >
               First Test Column
             </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`----- DataTable Component ----- Hides DataTableHeader 1`] = `
-<DocumentFragment>
-  <div
-    class="datatable-container"
-  >
-    <div
-      class="datatable-container__inner"
-    >
-      <table
-        class="datatable"
-      >
-        <thead>
-          <tr
-            class="datatable-body-header"
-          >
-            <th
-              class="datatable-body-header__item"
-            >
-              First Test Column
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
             <td
               class="datatable-body-header__item"
+              data-testid="datatable-column"
             >
-              First Test Column
+              Second Test Column
             </td>
           </tr>
         </tbody>

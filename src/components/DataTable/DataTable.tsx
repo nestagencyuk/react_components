@@ -14,10 +14,12 @@ import './DataTable.scss'
  * Components
  */
 import DataTableHeader from './DataTableHeader'
+import { Loader } from '../Loader'
 
 const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
-  const [columnsByDisplayOrder, setColumnOrder] = useState(config.columns.sort(orderColumnsByDisplayOrder))
+  const [columnsByDisplayOrder, setColumnOrder] = useState([])
+  const [loading, setLoading] = useState(true)
   const { table, columns } = config
 
   /**
@@ -31,9 +33,18 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
    * Sets any necessary initial state based on config passed in
    */
   const setInitialState = () => {
+    // Load column config into state
+    const orderedColumns: any = []
+
     columns.forEach((col: IDataTable.IColumn) => {
       col.hidden && toggleColumn(col.name)
+      orderedColumns.push(col)
     })
+
+    setColumnOrder(orderedColumns.sort(orderColumnsByDisplayOrder))
+
+    // Allow table to render
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -43,37 +54,41 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   return (
     <DataTableContext.Provider value={{ config, toggleColumn, columnsState }}>
       <DataTableContext.Consumer>
-        {() => (
-          <div className="datatable-container">
-            <div className="datatable-container__inner">
-              {table.header && !table.header.hidden && <DataTableHeader />}
-              <table className="datatable">
-                <thead>
-                  <tr className="datatable-body-header">
-                    {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
-                      columnsState[col.name] ? null : (
-                        <th className="datatable-body-header__item" key={col.name}>
-                          {col.name}
-                        </th>
-                      )
-                    )}
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
-                      columnsState[col.name] ? null : (
-                        <td className="datatable-body-header__item" key={col.name}>
-                          {col.name}
-                        </td>
-                      )
-                    )}
-                  </tr>
-                </tbody>
-              </table>
+        {() =>
+          loading ? (
+            <Loader className="datatable-loader" />
+          ) : (
+            <div className="datatable-container">
+              <div className="datatable-container__inner">
+                {table.header && !table.header.hidden && <DataTableHeader />}
+                <table className="datatable">
+                  <thead>
+                    <tr className="datatable-body-header">
+                      {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
+                        columnsState[col.name] ? null : (
+                          <th data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
+                            {col.name}
+                          </th>
+                        )
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
+                        columnsState[col.name] ? null : (
+                          <td data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
+                            {col.name}
+                          </td>
+                        )
+                      )}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
       </DataTableContext.Consumer>
     </DataTableContext.Provider>
   )
