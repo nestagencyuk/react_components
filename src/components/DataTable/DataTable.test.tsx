@@ -15,8 +15,14 @@ describe('----- DataTable Component -----', () => {
     },
     columns: [
       {
+        name: 'Second Test Column',
+        hidden: false,
+        displayOrder: 2
+      },
+      {
         name: 'First Test Column',
-        hidden: false
+        hidden: false,
+        displayOrder: 1
       }
     ]
   }
@@ -29,17 +35,15 @@ describe('----- DataTable Component -----', () => {
   })
 
   it('Hides DataTableHeader', () => {
-    const mountComponentInContext = () =>
-      render(
-        <DataTable
-          config={{
-            table: { header: { ...dataTableTestConfig.table.header, hidden: true } },
-            columns: dataTableTestConfig.columns
-          }}
-        />
-      )
-    const { asFragment } = mountComponentInContext()
-    expect(asFragment()).toMatchSnapshot()
+    const { queryByTestId } = render(
+      <DataTable
+        config={{
+          table: { header: { ...dataTableTestConfig.table.header, hidden: true } },
+          columns: dataTableTestConfig.columns
+        }}
+      />
+    )
+    expect(queryByTestId('datatable-header')).toBeFalsy()
   })
 
   describe('DataTable Header', () => {
@@ -83,7 +87,7 @@ describe('----- DataTable Component -----', () => {
       const allElements = queryAllByText('First Test Column')
       const [toggleColumnButton] = allElements
 
-      expect(allElements.length).toBe(2)
+      expect(allElements.length).toBe(3)
       expect(toggleColumnButton).toBeTruthy()
 
       fireEvent.click(toggleColumnButton)
@@ -94,6 +98,16 @@ describe('----- DataTable Component -----', () => {
 
       expect(columnToToggleUpdated).toBeFalsy()
       expect(allElementsUpdated.length).toBe(1)
+    })
+  })
+
+  describe('Datatable Body', () => {
+    it('Renders columns by displayOrder', () => {
+      const { queryAllByTestId } = render(<DataTable config={dataTableTestConfig} />)
+      const firstColumnToRender = dataTableTestConfig.columns[1]
+      const firstColumnRendered = queryAllByTestId('datatable-column')[0]
+
+      expect(firstColumnRendered.innerHTML).toEqual(firstColumnToRender.name)
     })
   })
 })

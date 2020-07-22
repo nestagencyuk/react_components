@@ -2,59 +2,63 @@
 
 exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
-  <header
-    class="datatable-header"
+  <div
+    class="datatable-container"
   >
-    <input
-      class="input--sm input"
-      id="Search"
-      placeholder="Search Data"
-      type="text"
-      value=""
-    />
-  </header>
-  <table>
-    <thead>
-      <tr>
-        <td>
-          First Test Column
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          Item one
-        </td>
-        <td>
-          Item two
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</DocumentFragment>
-`;
-
-exports[`----- DataTable Component ----- Hides DataTableHeader 1`] = `
-<DocumentFragment>
-  <table>
-    <thead>
-      <tr>
-        <td>
-          First Test Column
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          Item one
-        </td>
-        <td>
-          Item two
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div
+      class="datatable-container__inner"
+    >
+      <header
+        class="datatable-header"
+        data-testid="datatable-header"
+      >
+        <input
+          class="input--sm input"
+          id="Search"
+          placeholder="Search Data"
+          type="text"
+          value=""
+        />
+      </header>
+      <table
+        class="datatable"
+      >
+        <thead>
+          <tr
+            class="datatable-body-header"
+          >
+            <th
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              First Test Column
+            </th>
+            <th
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              Second Test Column
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              First Test Column
+            </td>
+            <td
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              Second Test Column
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </DocumentFragment>
 `;

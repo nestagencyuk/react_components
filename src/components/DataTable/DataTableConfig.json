@@ -15,26 +15,30 @@
   "columns": [
     {
       "name": "Stock Keeping Unit (SKU)",
-      "sortable": true,
       "hidden": false,
+      "displayOrder": 2,
+      "sortable": true,
       "defaultWidth": 300
     },
     {
       "name": "Product Description",
-      "sortable": true,
       "hidden": false,
+      "displayOrder": 1,
+      "sortable": true,
       "defaultWidth": 100
     },
     {
       "name": "Unit of Measure",
-      "sortable": true,
       "hidden": false,
+      "displayOrder": 3,
+      "sortable": true,
       "defaultWidth": 100
     },
     {
       "name": "Quantity",
-      "sortable": true,
       "hidden": true,
+      "displayOrder": 4,
+      "sortable": true,
       "defaultWidth": 100
     }
   ]
