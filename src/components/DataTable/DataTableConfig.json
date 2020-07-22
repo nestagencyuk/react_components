@@ -9,26 +9,27 @@
       "search": true
     },
     "footer": {
-      "hidden": false
+      "hidden": false,
+      "rowCount": true
     }
   },
   "columns": [
     {
       "name": "Stock Keeping Unit (SKU)",
       "hidden": false,
-      "displayOrder": 2,
+      "displayOrder": 1,
       "sortable": true,
       "defaultWidth": 300
     },
     {
-      "name": "Product Description",
+      "name": "Unit of Measure",
       "hidden": false,
-      "displayOrder": 1,
+      "displayOrder": 2,
       "sortable": true,
       "defaultWidth": 100
     },
     {
-      "name": "Unit of Measure",
+      "name": "Product Description",
       "hidden": false,
       "displayOrder": 3,
       "sortable": true,
@@ -40,6 +41,30 @@
       "displayOrder": 4,
       "sortable": true,
       "defaultWidth": 100
+    }
+  ],
+  "rows": [
+    {
+      "sendOnBlur": true,
+      "sendToEndpoint": "/some/api",
+      "cells": [
+        {
+          "name": "product_id",
+          "belongsTo": "Stock Keeping Unit (SKU)"
+        },
+        {
+          "name": "uom",
+          "belongsTo": "Unit of Measure"
+        },
+        {
+          "name": "description",
+          "belongsTo": "Product Description"
+        },
+        {
+          "name": "quantity",
+          "belongsTo": "Quantity"
+        }
+      ]
     }
   ]
 }

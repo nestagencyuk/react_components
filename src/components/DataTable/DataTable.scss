@@ -11,12 +11,12 @@
 @use 'spacing';
 @use 'transitions';
 @use 'states';
-@use 'shadows';
 @use 'z-index';
 
 /// -------------------
-/// DataTable selectors
+/// DataTable swatches
 /// -------------------
+$borderPrimary: 1px solid colours.$ui-two;
 
 /// -------------------
 /// DataTable selectors
@@ -30,7 +30,7 @@
 .datatable-container {
   position: relative;
   width: 100%;
-  border: 1px solid colours.$ui-two;
+  border: $borderPrimary;
   border-radius: corners.$base;
   border-collapse: collapse;
 
@@ -48,14 +48,27 @@
 /// -------------------
 /// DataTable Header selectors
 /// -------------------
+.datatable-header__item {
+  position: relative;
+}
 
-.datatable-header {
-  display: flex;
-  margin-bottom: spacing.$md;
+/// -------------------
+/// DataTable Body selectors
+/// -------------------
 
-  .datatable-header__item {
-    position: relative;
+.datatable-body__row {
+  width: 100%;
+  border: $borderPrimary;
+  column-span: 2;
+
+  &:nth-of-type(odd) {
+    background-color: colours.$ui-one;
   }
+}
+
+.datatable-body__cell {
+  padding: spacing.$sm;
+  border-right: $borderPrimary;
 }
 
 /// -------------------
@@ -63,14 +76,14 @@
 /// -------------------
 
 .datatable-body-header__item {
-  border-top: 1px solid colours.$ui-two;
-  border-right: 1px solid colours.$ui-two;
-  border-bottom: 1px solid colours.$ui-two;
+  border-top: $borderPrimary;
+  border-right: $borderPrimary;
+  border-bottom: $borderPrimary;
   padding: spacing.$xs;
   text-align: left;
 
   &:first-child {
-    border-left: 1px solid colours.$ui-two;
+    border-left: $borderPrimary;
   }
 }
 
@@ -79,15 +92,20 @@
 /// -------------------
 
 .datatable__drop-down {
-  position: absolute;
-  left: 0;
-  width: max-content;
-  border-radius: corners.$base;
-  background-color: #fff;
-  box-shadow: shadows.$one;
-
   &-item {
-    border-bottom: borders.$ui-two;
     padding: spacing.$xs;
+
+    &:not(:last-child) {
+      border-bottom: borders.$ui-two;
+    }
   }
+}
+
+/// -------------------
+/// DataTable Footer selectors
+/// -------------------
+
+.datatable-footer {
+  padding: spacing.$md;
+  border: $borderPrimary;
 }

@@ -1,9 +1,9 @@
 import { TooltipProps } from 'react-tippy'
 
 declare namespace IPopover {
-  interface IProps {
+  interface IProps extends TooltipProps {
     children: React.ReactNode
-    props: TooltipProps
+    props?: TooltipProps
   }
 }
 
