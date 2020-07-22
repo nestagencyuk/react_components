@@ -60,7 +60,12 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             <td
               class="datatable-body__cell"
             >
-              Test cell
+              Test Cell 1
+            </td>
+            <td
+              class="datatable-body__cell"
+            >
+              Test Cell 2
             </td>
           </tr>
         </tbody>

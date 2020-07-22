@@ -1,6 +1,6 @@
 import { IDataTable } from './types'
 import * as React from 'react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { DataTableContext } from '.'
 
 /**
@@ -21,7 +21,7 @@ import { Popover } from '../Popover'
  * A datatable that displays table controls
  */
 const DataTableHeader: React.FC = () => {
-  const { config, toggleColumn, columnsState, addNewRow } = useContext(DataTableContext)
+  const { config, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery } = useContext(DataTableContext)
   const { table, columns } = config
   const { buttonAddLine, buttonCustomiseTable, buttonFilterData, search } = table.header
 
@@ -84,7 +84,14 @@ const DataTableHeader: React.FC = () => {
         {search && (
           <GridItem span={3}>
             <div>
-              <Input onChange={() => alert('search')} placeholder="Search Data" size="Small" type="Text" id="Search" />
+              <Input
+                onChange={searchRows}
+                value={rowSearchQuery}
+                placeholder="Search Data"
+                size="Small"
+                type="Text"
+                id="Search"
+              />
             </div>
           </GridItem>
         )}

@@ -43,6 +43,8 @@ declare namespace IDataTable {
   interface ICell {
     name: string
     belongsTo: string
+    value: any
+    searchable: boolean
   }
 
   // DataTable Context
