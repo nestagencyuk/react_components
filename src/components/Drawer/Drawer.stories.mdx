@@ -1,7 +1,8 @@
-import { Fragment, useContext, useState } from 'react'
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { drawerDecorater, demoDecorator } from '../../../.storybook/decorators.js'
+import { drawerDecorater, demoDecorator } from '../../../.storybook/decorators'
+import { Fragment, useContext, useState } from 'react'
 import { useToggle } from '../../hooks/useToggle'
+import { useStateMachine } from '../../hooks/useStateMachine'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Drawer } from '.'
@@ -9,7 +10,7 @@ import { Drawer } from '.'
 <Meta title="Components|Base/Drawer" component={Drawer} />
 
 # Drawer
-A simple drawer that can be used to show/hide content on a specified side of the browser.
+A simple drawer that can be used to show/hide content on a specified side of the browser. Compatible with the default state machine.
 
 ## Base
 This is the drawer in its simplest form.
@@ -17,20 +18,18 @@ This is the drawer in its simplest form.
 <Preview>
   <Story name="Toggle">
     {() => {
-      const [toggled, setToggled] = useToggle()
+      const [state, dispatchEvent] = useStateMachine()
       return (
         <Fragment>
-          <Button onClick={() => setToggled(!toggled)}>Open Drawer</Button>
-          {toggled && (
-            <Drawer onClick={() => setToggled(false)}>
+          <Button onClick={() => dispatchEvent('OPEN')}>Open Drawer</Button>
+          <Drawer state={state} onClick={() => dispatchEvent('CLOSE')}>
+            <Text>
+              Item 1
+            </Text>
               <Text>
-                Item 1
-              </Text>
-                <Text>
-                Item 2
-              </Text>
-            </Drawer>
-          )}
+              Item 2
+            </Text>
+          </Drawer>
         </Fragment>
       )
     }}

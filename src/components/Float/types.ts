@@ -1,4 +1,4 @@
-import { Alignment } from '../../types'
+import { Alignment, OpenState } from '../../types'
 
 declare namespace IFloat {
   interface IProps {
@@ -7,6 +7,7 @@ declare namespace IFloat {
       x?: Alignment
       y?: Alignment
     }
+    state?: OpenState
     portal?: boolean
     children: React.ReactNode
   }
