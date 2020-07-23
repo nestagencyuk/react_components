@@ -45,12 +45,12 @@ describe('----- Navtree Component -----', () => {
   it('Opens first level, closes again', () => {
     const { getByText } = render(<Navtree {...baseProps} />)
     const button = getByText('Test').parentElement
-    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeFalsy()
+    expect(button.nextElementSibling.classList.contains('navtree__list--active')).toBeFalsy()
 
     fireEvent.click(button)
-    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeTruthy()
+    expect(button.nextElementSibling.classList.contains('navtree__list--active')).toBeTruthy()
 
     fireEvent.click(button)
-    expect(button.nextElementSibling.classList.contains('navtree__list--open')).toBeFalsy()
+    expect(button.nextElementSibling.classList.contains('navtree__list--active')).toBeFalsy()
   })
 })

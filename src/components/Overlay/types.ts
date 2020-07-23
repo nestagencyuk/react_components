@@ -1,7 +1,10 @@
+import { OpenState } from '../../types'
+
 declare namespace IOverlay {
   interface IProps {
     className?: string
     variant?: 'Inverse'
+    state?: OpenState
     portal?: boolean
     fixed?: boolean
     children?: React.ReactNode

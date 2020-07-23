@@ -13,7 +13,7 @@ declare namespace IAlert {
   }
 
   interface ICloseProps {
-    onClick: (bool: boolean) => void
+    onClick: (e?: React.SyntheticEvent) => void
   }
 
   interface IIconProps {

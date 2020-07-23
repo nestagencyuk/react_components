@@ -11,7 +11,7 @@ declare namespace IModal {
   }
 
   interface ICloseProps {
-    onClick: (bool: boolean) => void
+    onClick: (e?: React.SyntheticEvent) => void
   }
 
   interface IHeaderProps extends IHeader.IProps {

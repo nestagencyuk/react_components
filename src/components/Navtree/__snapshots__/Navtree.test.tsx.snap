@@ -6,7 +6,7 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
     class="navtree"
   >
     <ul
-      class="navtree__list navtree__list--open"
+      class="navtree__list navtree__list--active"
       data-depth="0"
     >
       <li

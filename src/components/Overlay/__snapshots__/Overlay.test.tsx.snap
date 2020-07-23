@@ -3,7 +3,7 @@
 exports[`----- Overlay Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    class="overlay"
+    class="overlay animate"
   >
     Lorem ipsum
   </div>

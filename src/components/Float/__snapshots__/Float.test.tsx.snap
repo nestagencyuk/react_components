@@ -2,10 +2,14 @@
 
 exports[`----- Float Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
-  <div
+  <aside
     class="float float--center-x float--start-y"
   >
-    Float
-  </div>
+    <div
+      class="animate"
+    >
+      Float
+    </div>
+  </aside>
 </DocumentFragment>
 `;
