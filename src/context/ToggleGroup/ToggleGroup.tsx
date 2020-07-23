@@ -10,7 +10,7 @@ import { ToggleGroupContext } from '.'
 /**
  * Open and close many things
  */
-const ToggleGroup = ({ multi, children }: IToggleGroup.IProps) => {
+const ToggleGroup: React.FC<IToggleGroup.IProps | IToggleGroup.IRenderProps> = ({ multi, children }) => {
   const [toggles, setToggled] = useToggleGroup({ multi })
 
   return (

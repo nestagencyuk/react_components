@@ -1,8 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react'
-import { createPopper } from '@popperjs/core/lib/popper-lite'
-import flip from '@popperjs/core/lib/modifiers/flip'
-import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow'
-import arrow from '@popperjs/core/lib/modifiers/arrow'
+import { createPopper } from '@popperjs/core'
 
 /**
  * Alignments
@@ -35,7 +32,7 @@ const usePopper = ({ align = 'Auto', active = true }: any = {}): [
    */
   const options = {
     placement: alignments[align],
-    modifiers: [flip, preventOverflow, arrow, { name: 'arrow', options: { element: arrowRef.current } }]
+    modifiers: [{ name: 'arrow', options: { element: arrowRef.current } }]
   }
 
   /**

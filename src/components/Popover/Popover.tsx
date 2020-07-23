@@ -25,7 +25,7 @@ const alignments = {
 /**
  * A popover
  */
-const Popover: React.FC<IPopover.IProps> = ({ align = 'Bottom', render, children }) => {
+const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'Bottom', render, children }) => {
   const [focusTriggerRef, focusTargetRef, focused, onFocus, onBlur] = useFocus()
   const [triggerRef, popperRef, arrowRef] = usePopper({ active: focused, align })
 

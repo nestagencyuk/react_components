@@ -2,15 +2,11 @@ declare namespace IDataTable {
   // Base DataTable config
   interface IConfig {
     table: {
-      header: {
-        buttonCustomiseTable: boolean
-        buttonFilterData: boolean
-        buttonAddLine: boolean
-        search: boolean
-        hidden: boolean
-      }
+      header: IHeader
+      footer: IFooter
     }
     columns: IColumn[]
+    rows: IRow[]
   }
 
   // DataTable types
@@ -18,19 +14,42 @@ declare namespace IDataTable {
     config: IConfig
   }
 
-  // DataTable Rows/Cols types
+  interface IHeader {
+    buttonCustomiseTable: boolean
+    buttonFilterData: boolean
+    buttonAddLine: boolean
+    search: boolean
+    hidden: boolean
+  }
+
+  interface IFooter {
+    hidden: boolean
+    rowCount: true
+  }
+
+  // DataTable Rows, Cols & Cells types
   interface IColumn {
     name: string
     hidden: boolean
+    displayOrder: number
+  }
+
+  interface IRow {
+    sendToEndpoint: string
+    sendOnBlur: boolean
+    cells: ICell[]
+  }
+
+  interface ICell {
+    name: string
+    belongsTo: string
+    value: any
+    searchable: boolean
   }
 
   // DataTable Context
   interface IContext {
     config: IConfig
-  }
-
-  interface IDataTableDropDownProps {
-    children: React.ReactNode
   }
 }
 

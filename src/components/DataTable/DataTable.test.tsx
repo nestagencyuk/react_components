@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { DataTable } from '.'
+import { IDataTable } from './types'
 
 describe('----- DataTable Component -----', () => {
-  const dataTableTestConfig = {
+  const dataTableTestConfig: IDataTable.IConfig = {
     table: {
       header: {
         buttonCustomiseTable: false,
@@ -11,12 +12,47 @@ describe('----- DataTable Component -----', () => {
         buttonAddLine: false,
         hidden: false,
         search: true
+      },
+      footer: {
+        hidden: false,
+        rowCount: true
       }
     },
     columns: [
       {
+        name: 'Second Test Column',
+        hidden: false,
+        displayOrder: 2
+      },
+      {
         name: 'First Test Column',
-        hidden: false
+        hidden: false,
+        displayOrder: 1
+      },
+      {
+        name: 'Third Test Column',
+        hidden: true,
+        displayOrder: 3
+      }
+    ],
+    rows: [
+      {
+        sendToEndpoint: '/some/api',
+        sendOnBlur: false,
+        cells: [
+          {
+            name: 'Test cell',
+            belongsTo: 'First Test Column',
+            value: 'Test Cell 1',
+            searchable: true
+          },
+          {
+            name: 'Test cell 2',
+            belongsTo: 'Second Test Column',
+            value: 'Test Cell 2',
+            searchable: false
+          }
+        ]
       }
     ]
   }
@@ -28,26 +64,30 @@ describe('----- DataTable Component -----', () => {
     })
   })
 
-  it('Hides DataTableHeader', () => {
-    const mountComponentInContext = () =>
-      render(
-        <DataTable
-          config={{
-            table: { header: { ...dataTableTestConfig.table.header, hidden: true } },
-            columns: dataTableTestConfig.columns
-          }}
-        />
-      )
-    const { asFragment } = mountComponentInContext()
-    expect(asFragment()).toMatchSnapshot()
+  it('Hides DataTableHeader and DataTableFooter', () => {
+    const { queryByTestId } = render(
+      <DataTable
+        config={{
+          table: {
+            header: { ...dataTableTestConfig.table.header, hidden: true },
+            footer: { ...dataTableTestConfig.table.footer, hidden: true }
+          },
+          columns: dataTableTestConfig.columns,
+          rows: dataTableTestConfig.rows
+        }}
+      />
+    )
+    expect(queryByTestId('datatable-header')).toBeFalsy()
+    expect(queryByTestId('datatable-footer')).toBeFalsy()
   })
 
   describe('DataTable Header', () => {
     const baseDataTableHeader = (prop: string) => (
       <DataTable
         config={{
-          table: { header: { ...dataTableTestConfig.table.header, [prop]: true } },
-          columns: dataTableTestConfig.columns
+          table: { header: { ...dataTableTestConfig.table.header, [prop]: true }, footer: dataTableTestConfig.table.footer },
+          columns: dataTableTestConfig.columns,
+          rows: dataTableTestConfig.rows
         }}
       />
     )
@@ -81,19 +121,46 @@ describe('----- DataTable Component -----', () => {
 
       // Get columns and checkboxes with related names
       const allElements = queryAllByText('First Test Column')
-      const [toggleColumnButton] = allElements
+      const toggleColumnButton = allElements[1]
 
       expect(allElements.length).toBe(2)
       expect(toggleColumnButton).toBeTruthy()
 
+      // Toggle column
       fireEvent.click(toggleColumnButton)
 
       // Get updated state of columns and checkboxes
       const allElementsUpdated = queryAllByText('First Test Column')
-      const [toggleColumnButtonUpdated, columnToToggleUpdated] = allElementsUpdated
 
-      expect(columnToToggleUpdated).toBeFalsy()
-      expect(allElementsUpdated.length).toBe(1)
+      expect(allElementsUpdated.length).toEqual(1)
+    })
+
+    it('Adds new row', () => {
+      const { queryByText } = render(baseDataTableHeader('buttonAddLine'))
+      const addNewRowButton = queryByText('Add Line')
+
+      fireEvent.click(addNewRowButton)
+
+      expect(queryByText('2 Lines')).toBeTruthy()
+    })
+
+    it('Searches the table', () => {
+      const { queryByPlaceholderText, queryAllByText } = render(baseDataTableHeader('search'))
+      const searchField = queryByPlaceholderText('Search Data')
+
+      fireEvent.change(searchField, { target: { value: 'Test Cell 1' } })
+
+      expect(queryAllByText('Test Cell 1').length).toEqual(1)
+    })
+  })
+
+  describe('Datatable Body', () => {
+    it('Renders columns by displayOrder', () => {
+      const { queryAllByTestId } = render(<DataTable config={dataTableTestConfig} />)
+      const firstColumnToRender = dataTableTestConfig.columns[1]
+      const firstColumnRendered = queryAllByTestId('datatable-column')[0]
+
+      expect(firstColumnRendered.innerHTML).toEqual(firstColumnToRender.name)
     })
   })
 })

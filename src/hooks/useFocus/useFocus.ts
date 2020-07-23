@@ -21,10 +21,10 @@ const useFocus = ({ trigger = 'Click' } = {}): [
    */
   const setTriggerRef = useCallback((node) => {
     if (!node) return
-    // if (trigger === 'Hover') {
-    //   node.onmouseenter = onFocus
-    //   node.onmouseleave = onBlur
-    // }
+    if (trigger === 'Hover') {
+      node.addEventListener('mouseenter', onFocus)
+      node.addEventListener('mouseleave', onBlur)
+    }
     triggerRef.current = node
   }, [])
 
@@ -53,7 +53,7 @@ const useFocus = ({ trigger = 'Click' } = {}): [
   /**
    * Handle blurring away
    */
-  const onBlur = async (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => {
+  const onBlur = (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => {
     if (targetRef.current) {
       const isInside = (targetRef?.current || triggerRef?.current)?.contains(e?.relatedTarget)
       if (isInside) {
