@@ -1,16 +1,16 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { selectDecorator } from '../../../.storybook/decorators.js'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Text } from '../Text'
 import { Select } from '.'
 
 <Meta title="Components|Forms/Select" component={Select} />
 
 # Select
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sead do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+A select element for a user to choose option(s) from a list.
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+This is the select in its simplest form.
 
 <Preview>
   <Story name="Base" decorators={[selectDecorator]}>
@@ -19,7 +19,69 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} onChange={setValue} />
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Placeholder
+Pass a value to the `placeholder` prop to render a custom placeholder. Defaults to `-- Select --`.
+
+<Preview>
+  <Story name="Placeholder" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            placeholder="Custom placeholder"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Icon
+Pass a value to the `icon` prop to render a custom icon in place of the chevron.
+
+<Preview>
+  <Story name="Icon" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            icon={{
+              name: 'Search'
+            }}
+            onChange={setValue}
+          />
         </div>
       )
     }}
@@ -27,16 +89,44 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## Initial value
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Pass a value to the `value` prop to set the initial value. Works for both multi and single.
 
 <Preview>
   <Story name="Initial-Value" decorators={[selectDecorator]}>
     {() => {
-      const [value, setValue] = useState(null)
+      const [value, setValue] = useState('option-1')
+      return (
+        <div className="m--r-md">
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+  <Story name="Initial-Value-Multi" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(['option-1', 'option-2'])
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value || 'option-1'} onChange={setValue} />
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            multi
+            onChange={setValue}
+          />
         </div>
       )
     }}
@@ -44,7 +134,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## Optional
-Optional selects allow you to reselect `null`.
+Optional selects allow you to reselect `null` as a value.
 
 <Preview>
   <Story name="Optional" decorators={[selectDecorator]}>
@@ -53,7 +143,16 @@ Optional selects allow you to reselect `null`.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional onChange={setValue} />
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            optional
+            onChange={setValue}
+          />
         </div>
       )
     }}
@@ -61,17 +160,27 @@ Optional selects allow you to reselect `null`.
 </Preview>
 
 ## Multi
-Searchable selects allow the user to search for an option.
+Multi selects allow the user to choose multiple options. There are two views for this, checkboxes and tags, change the `multiVariant` prop to choose a view. The default is `Checkbox`.
 
+### Checkbox
 <Preview>
   <Story name="Multi" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
       return (
-        <div>
+        <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} multi onChange={setValue} />
-        </div>  
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            multi
+            onChange={setValue}
+          />
+        </div>
       )
     }}
   </Story>
@@ -81,89 +190,298 @@ Searchable selects allow the user to search for an option.
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[
-            { label: 'Option 1', value: 'option-1' },
-            { label: 'Option 2', value: 'option-2' },
-            { label: 'Option 3', value: 'option-3' },
-            { label: 'Option 4', value: 'option-4' },
-            { label: 'Option 5', value: 'option-5' },
-            { label: 'Option 6', value: 'option-6' },
-            { label: 'Option 7', value: 'option-7' },
-            { label: 'Option 8', value: 'option-8' },
-            { label: 'Option 9', value: 'option-9' },
-            { label: 'Option 10', value: 'option-10' },
-            { label: 'Option 11', value: 'option-11' },
-            { label: 'Option 12', value: 'option-12' },
-            { label: 'Option 13', value: 'option-13' },
-            { label: 'Option 14', value: 'option-14' },
-            { label: 'Option 15', value: 'option-15' },
-            { label: 'Option 16', value: 'option-16' },
-            { label: 'Option 17', value: 'option-17' },
-            { label: 'Option 18', value: 'option-18' },
-            { label: 'Option 19', value: 'option-19' },
-            { label: 'Option 20', value: 'option-20' }
-          ]} value={value} multi onChange={setValue} />
-        </div>  
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' },
+              { label: 'Option 3', value: 'option-3' },
+              { label: 'Option 4', value: 'option-4' },
+              { label: 'Option 5', value: 'option-5' },
+              { label: 'Option 6', value: 'option-6' },
+              { label: 'Option 7', value: 'option-7' },
+              { label: 'Option 8', value: 'option-8' },
+              { label: 'Option 9', value: 'option-9' },
+              { label: 'Option 10', value: 'option-10' },
+              { label: 'Option 11', value: 'option-11' },
+              { label: 'Option 12', value: 'option-12' },
+              { label: 'Option 13', value: 'option-13' },
+              { label: 'Option 14', value: 'option-14' },
+              { label: 'Option 15', value: 'option-15' },
+              { label: 'Option 16', value: 'option-16' },
+              { label: 'Option 17', value: 'option-17' },
+              { label: 'Option 18', value: 'option-18' },
+              { label: 'Option 19', value: 'option-19' },
+              { label: 'Option 20', value: 'option-20' }
+            ]}
+            value={value}
+            multi
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+### Tags
+<Preview>
+  <Story name="Multi-Tags" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div className="m--r-md">
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            multi
+            multiVariant="Tags"
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+  <Story name="Multi-Long-Tags" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' },
+              { label: 'Option 3', value: 'option-3' },
+              { label: 'Option 4', value: 'option-4' },
+              { label: 'Option 5', value: 'option-5' },
+              { label: 'Option 6', value: 'option-6' },
+              { label: 'Option 7', value: 'option-7' },
+              { label: 'Option 8', value: 'option-8' },
+              { label: 'Option 9', value: 'option-9' },
+              { label: 'Option 10', value: 'option-10' },
+              { label: 'Option 11', value: 'option-11' },
+              { label: 'Option 12', value: 'option-12' },
+              { label: 'Option 13', value: 'option-13' },
+              { label: 'Option 14', value: 'option-14' },
+              { label: 'Option 15', value: 'option-15' },
+              { label: 'Option 16', value: 'option-16' },
+              { label: 'Option 17', value: 'option-17' },
+              { label: 'Option 18', value: 'option-18' },
+              { label: 'Option 19', value: 'option-19' },
+              { label: 'Option 20', value: 'option-20' }
+            ]}
+            value={value}
+            multi
+            multiVariant="Tags"
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Filterable
+Filterable selects allow the user to filter prepopulated options.
+
+<Preview>
+  <Story name="Filterable" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div className="m--r-md">
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            placeholder="Type to filter..."
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            filterable
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+  <Story name="Multi-Filterable" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Select
+            id="select"
+            placeholder="Type to filter..."
+            options={[
+              { label: 'Option 1', value: 'option-1' },
+              { label: 'Option 2', value: 'option-2' },
+              { label: 'Option 3', value: 'option-3' },
+              { label: 'Option 4', value: 'option-4' },
+              { label: 'Option 5', value: 'option-5' },
+              { label: 'Option 6', value: 'option-6' },
+              { label: 'Option 7', value: 'option-7' },
+              { label: 'Option 8', value: 'option-8' },
+              { label: 'Option 9', value: 'option-9' },
+              { label: 'Option 10', value: 'option-10' },
+              { label: 'Option 11', value: 'option-11' },
+              { label: 'Option 12', value: 'option-12' },
+              { label: 'Option 13', value: 'option-13' },
+              { label: 'Option 14', value: 'option-14' },
+              { label: 'Option 15', value: 'option-15' },
+              { label: 'Option 16', value: 'option-16' },
+              { label: 'Option 17', value: 'option-17' },
+              { label: 'Option 18', value: 'option-18' },
+              { label: 'Option 19', value: 'option-19' },
+              { label: 'Option 20', value: 'option-20' }
+            ]}
+            value={value}
+            multi
+            multiVariant="Tags"
+            filterable
+            onChange={setValue}
+          />
+        </div>
       )
     }}
   </Story>
 </Preview>
 
 ## Searchable
-Searchable selects allow the user to search for an option.
+Searchable selects allow you to pass a search function so that your options can be fetched asyncronously based on a user search.
 
 <Preview>
   <Story name="Searchable" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
+      const [options, setOptions] = useState([])
+      const [loading, setLoading] = useState(false)
+      const mockData = [
+        { label: 'Option 1', value: 'option-1' },
+        { label: `Option 2`, value: 'option-2' }
+      ]
+      const handleSearch = (val) => {
+        setLoading(true)
+        setTimeout(() => {
+          setOptions(val ? mockData.filter((x) => x.label.toLowerCase().includes(val.toLowerCase())) : [])
+          setLoading(false)
+        }, 2000)
+      }
       return (
-        <div>
+        <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={value} optional searchable onChange={setValue} />
-        </div>  
+          <Select
+            id="select"
+            placeholder="Type to search..."
+            options={options}
+            value={value}
+            icon={{ name: loading ? 'Loading' : 'Search', active: loading }}
+            filterable
+            onChange={setValue}
+            onSearch={handleSearch}
+          />
+        </div>
       )
     }}
   </Story>
   <Story name="Multi-Searchable" decorators={[selectDecorator]}>
     {() => {
       const [value, setValue] = useState(null)
+      const [options, setOptions] = useState([])
+      const [loading, setLoading] = useState(false)
+      const mockData = [
+        { label: 'Option 1', value: 'option-1' },
+        { label: 'Option 2', value: 'option-2' },
+        { label: 'Option 3', value: 'option-3' },
+        { label: 'Option 4', value: 'option-4' },
+        { label: 'Option 5', value: 'option-5' },
+        { label: 'Option 6', value: 'option-6' },
+        { label: 'Option 7', value: 'option-7' },
+        { label: 'Option 8', value: 'option-8' },
+        { label: 'Option 9', value: 'option-9' },
+        { label: 'Option 10', value: 'option-10' },
+        { label: 'Option 11', value: 'option-11' },
+        { label: 'Option 12', value: 'option-12' },
+        { label: 'Option 13', value: 'option-13' },
+        { label: 'Option 14', value: 'option-14' },
+        { label: 'Option 15', value: 'option-15' },
+        { label: 'Option 16', value: 'option-16' },
+        { label: 'Option 17', value: 'option-17' },
+        { label: 'Option 18', value: 'option-18' },
+        { label: 'Option 19', value: 'option-19' },
+        { label: 'Option 20', value: 'option-20' }
+      ]
+      const handleSearch = (val) => {
+        setLoading(true)
+        setTimeout(() => {
+          setOptions(val ? mockData.filter((x) => x.label.toLowerCase().includes(val.toLowerCase())) : [])
+          setLoading(false)
+        }, 2000)
+      }
       return (
         <div>
           <Text>Value: {`${value}`}</Text>
-          <Select id="select" options={[
-            { label: 'Option 1', value: 'option-1' },
-            { label: 'Option 2', value: 'option-2' },
-            { label: 'Option 3', value: 'option-3' },
-            { label: 'Option 4', value: 'option-4' },
-            { label: 'Option 5', value: 'option-5' },
-            { label: 'Option 6', value: 'option-6' },
-            { label: 'Option 7', value: 'option-7' },
-            { label: 'Option 8', value: 'option-8' },
-            { label: 'Option 9', value: 'option-9' },
-            { label: 'Option 10', value: 'option-10' },
-            { label: 'Option 11', value: 'option-11' },
-            { label: 'Option 12', value: 'option-12' },
-            { label: 'Option 13', value: 'option-13' },
-            { label: 'Option 14', value: 'option-14' },
-            { label: 'Option 15', value: 'option-15' },
-            { label: 'Option 16', value: 'option-16' },
-            { label: 'Option 17', value: 'option-17' },
-            { label: 'Option 18', value: 'option-18' },
-            { label: 'Option 19', value: 'option-19' },
-            { label: 'Option 20', value: 'option-20' }
-          ]} value={value} multi searchable onChange={setValue} />
-        </div>  
+          <Select
+            id="select"
+            placeholder="Type to search..."
+            options={options}
+            value={value}
+            icon={{ name: loading ? 'Loading' : 'Search', active: loading }}
+            multi
+            filterable
+            onChange={setValue}
+            onSearch={handleSearch}
+          />
+        </div>
       )
     }}
   </Story>
 </Preview>
 
 ## Disabled
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
+The whole select can be disabled via the `disabled` prop, or you can set `disabled: true` on each option individually. 
 
 <Preview>
   <Story name="Disabled" decorators={[selectDecorator]}>
-    <Select id="select" options={[{ label: 'Option 1', value: 'option-1' },{ label: 'Option 2', value: 'option-2' }]} value={''} disabled onChange={() => {}} />
+    <div className="m--r-md">
+      <Select
+        id="select"
+        options={[
+          { label: 'Option 1', value: 'option-1' },
+          { label: 'Option 2', value: 'option-2' }
+        ]}
+        value={''}
+        disabled
+        onChange={() => {}}
+      />
+    </div>
+  </Story>
+  <Story name="Disabled-Option" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Select
+            id="select"
+            options={[
+              { label: 'Option 1', value: 'option-1', disabled: true },
+              { label: 'Option 2', value: 'option-2' }
+            ]}
+            value={value}
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
   </Story>
 </Preview>
 

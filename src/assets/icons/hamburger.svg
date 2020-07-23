@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><title>hamburger</title><path d="M10.9,3.55H1.1V1.92h9.8Zm0,1.63H1.1V6.82h9.8Zm0,3.27H1.1v1.63h9.8Z"/></svg>
+<svg class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+  <style>
+    .hamburger__top {
+      transition: transform 0.2s ease;
+      transform-origin: left top;
+    }
+    .icn--active .hamburger__top {
+      transform: translate(2px, 2px) rotate(45deg);
+    }
+
+    .hamburger__middle {
+      transition: opacity 0.2s ease;
+    }
+    .icn--active .hamburger__middle {
+      opacity: 0;
+    }
+
+    .hamburger__bottom {
+      transition: transform 0.2s ease;
+      transform-origin: left bottom;
+    }
+    .icn--active .hamburger__bottom {
+      transform: translate(2px, -1px) rotate(-45deg);
+    }
+  </style>
+
+  <rect class="hamburger__top" x="0" y="0" width="12" height="1" />
+  <rect class="hamburger__middle" x="0" y="5.5" width="12" height="1" />
+  <rect class="hamburger__bottom" x="0" y="11" width="12" height="1" />
+</svg>

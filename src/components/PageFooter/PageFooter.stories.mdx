@@ -1,5 +1,4 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { MemoryRouter, Link } from 'react-router-dom'
 import { Text } from '../Text'
 import { PageFooter } from '.'
 import logo from '../../assets/img/logo.png'
@@ -16,19 +15,17 @@ This is the footer in its simplest form.
 
 <Preview>
   <Story name="Base">
-    <MemoryRouter>
-      <PageFooter 
-        image={{ type: 'Round', aspect: '1x1', src: logo, alt: 'Logo' }} 
-        links={[
-          { component: Link, text: 'Home', variant: 'Inverse', align: 'Start', to: '/', }, 
-          { component: Link, text: 'About', variant: 'Inverse', align: 'Start', to: '/', }, 
-          { component: Link, text: 'Contact', variant: 'Inverse', align: 'Start', to: '/', },
-          { component: Link, text: 'Twitter', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Twitter'} }, 
-          { component: Link, text: 'Instagram', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Instagram'} }
-        ]}
-        subInfo={<Text variant="Small" inverse>Copyright | 2020 | 3414134234</Text>}
-      />
-    </MemoryRouter>
+    <PageFooter 
+      image={{ type: 'Round', aspect: '1x1', src: logo, alt: 'Logo' }} 
+      links={[
+        { component: Link, text: 'Home', variant: 'Inverse', align: 'Start', to: '/', }, 
+        { component: Link, text: 'About', variant: 'Inverse', align: 'Start', to: '/', }, 
+        { component: Link, text: 'Contact', variant: 'Inverse', align: 'Start', to: '/', },
+        { component: Link, text: 'Twitter', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Twitter'} }, 
+        { component: Link, text: 'Instagram', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Instagram'} }
+      ]}
+      subInfo={<Text variant="Small" inverse>Copyright | 2020 | 3414134234</Text>}
+    />
   </Story>
 </Preview>
 

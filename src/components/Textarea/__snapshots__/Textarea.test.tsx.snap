@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Textarea Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <textarea
+    class="textarea"
+    id="Test-textarea"
+    rows="6"
+  />
+</DocumentFragment>
+`;

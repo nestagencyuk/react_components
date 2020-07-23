@@ -4,8 +4,7 @@ import { Box } from '.'
 
 describe('----- Box Component -----', () => {
   it('Renders without crashing', () => {
-    const mountComponentInContext = () => render(<Box>Test</Box>)
-    const { asFragment } = mountComponentInContext()
+    const { asFragment } = render(<Box>Test</Box>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

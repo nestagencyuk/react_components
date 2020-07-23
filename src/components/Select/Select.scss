@@ -8,6 +8,8 @@
 @use 'spacing';
 @use 'corners';
 @use 'borders';
+@use 'shadows';
+@use 'gradients';
 @use 'colours';
 @use 'typography';
 @use 'transitions';
@@ -28,6 +30,7 @@ $bg-colour: colours.$ui-one !default;
 .select {
   display: inline-block;
   position: relative;
+  width: 100%;
 
   &--disabled,
   &:disabled {
@@ -48,7 +51,7 @@ $bg-colour: colours.$ui-one !default;
   @include lib.components-flow;
   width: 100%;
   padding-left: $padding-x;
-  padding-right: $padding-x * 2.5; 
+  padding-right: $padding-x * 2.5;
   font-family: typography.$font-family;
   font-weight: typography.$font-light;
   border-radius: corners.$base;
@@ -57,7 +60,7 @@ $bg-colour: colours.$ui-one !default;
   appearance: none;
 
   .field--error & {
-    border-color: colours.$state-error; 
+    border-color: colours.$state-error;
   }
 
   .field--warning & {
@@ -71,7 +74,7 @@ $bg-colour: colours.$ui-one !default;
   &:read-only {
     cursor: pointer;
   }
-  
+
   &:focus {
     @include states.focus;
   }
@@ -89,7 +92,7 @@ $bg-colour: colours.$ui-one !default;
   width: 100%;
   background-color: $bg-colour;
   border-radius: corners.$base;
-  max-height: 250px;
+  max-height: 350px;
   overflow-y: auto;
   z-index: z-index.$top - 1;
 }
@@ -101,13 +104,27 @@ $bg-colour: colours.$ui-one !default;
 .select__option {
   @include lib.resets-style;
   position: relative;
+
+  &--sticky {
+    position: sticky;
+    top: 0;
+    background-color: colours.$ui-one;
+    box-shadow: shadows.$one;
+    z-index: z-index.$default;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  &--hidden {
+    display: none;
+  }
 }
 
 /// -------------------
-/// Select button
+/// Select button (option)
 /// -------------------
 
-.select__btn {
+.select__option-btn {
   @include lib.resets-style;
   width: 100%;
   font-size: typography.$base-font-size;
@@ -121,13 +138,13 @@ $bg-colour: colours.$ui-one !default;
 
   &:hover,
   &:focus {
-    background-color: colours.$ui-two;
+    background-color: rgba(white, 0.5);
+    font-weight: typography.$font-medium;
     outline: none;
   }
 
-  &--sm {
-    @include lib.resets-style;
-    padding: $padding-x / 2;
+  &:disabled {
+    @include states.disabled;
   }
 }
 
@@ -136,12 +153,9 @@ $bg-colour: colours.$ui-one !default;
 /// -------------------
 
 .select__clear {
-  @include lib.resets-style;
   @include lib.utilities-center-y;
-  padding: $padding-x / 2; 
+  font-weight: typography.$font-regular;
   right: ($padding-x * 2) + spacing.$xs;
-  background-color: colours.$ui-two;
-  border-radius: corners.$base;
 }
 
 /// -------------------
@@ -155,12 +169,10 @@ $bg-colour: colours.$ui-one !default;
 }
 
 /// -------------------
-/// Select chevron icon 
+/// Select chevron icon
 /// -------------------
 
 .select__icn {
   @include lib.utilities-center-y;
   right: $padding-x;
-  width: $padding-x;
-  height: $padding-x;
 }

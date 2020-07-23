@@ -14,7 +14,7 @@ declare namespace ILink {
   }
 
   interface IIconProps extends IIcon.IProps {
-    align: 'Start' | 'End'
+    align?: 'Start' | 'End'
   }
 }
 

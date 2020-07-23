@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Alert Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <aside
+    class="alert alert--info"
+  >
+    <button
+      class="alert__close action action--tertiary action--md"
+      title="Close"
+      type="button"
+    >
+      <span
+        class="action__icn icn icn--md"
+        title="Cross"
+      />
+      <span
+        class="text--screen-reader"
+      >
+        Close
+      </span>
+    </button>
+    <span
+      class="alert__icn icn icn--md icn--info"
+      title="Info"
+    />
+    <div
+      class="alert__body"
+    >
+      <p
+        class="text text--p text--left"
+      >
+        Alert
+      </p>
+    </div>
+  </aside>
+</DocumentFragment>
+`;

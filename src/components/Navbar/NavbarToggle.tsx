@@ -12,7 +12,7 @@ import { Icon } from '../Icon'
 const NavbarToggle: React.FC<INavbar.IToggleProps> = ({ toggled, onClick }: INavbar.IToggleProps) => (
   <button className="navbar__toggle" onClick={() => onClick(!toggled)}>
     Toggle
-    <Icon name={toggled ? 'Cross' : 'Hamburger'} />
+    <Icon name="Hamburger" active={toggled} size="Large" />
   </button>
 )
 

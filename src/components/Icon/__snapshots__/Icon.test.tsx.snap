@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Icon Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="icn icn--md icn--dark"
+    title="User"
+  />
+</DocumentFragment>
+`;

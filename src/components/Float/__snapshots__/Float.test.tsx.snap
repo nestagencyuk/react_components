@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Float Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="float float--center-x float--start-y"
+  >
+    Float
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="datatable-container"
+  >
+    <div
+      class="datatable-container__inner"
+    >
+      <header
+        class="datatable-header m--b-md"
+        data-testid="datatable-header"
+      >
+        <div
+          class="grid grid--gutter"
+        >
+          <div
+            class="grid__item grid__item--3"
+          >
+            <div>
+              <input
+                class="input--sm input"
+                id="Search"
+                placeholder="Search Data"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <table
+        class="datatable m--b-md"
+      >
+        <thead>
+          <tr
+            class="datatable-body-header"
+          >
+            <th
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              First Test Column
+            </th>
+            <th
+              class="datatable-body-header__item"
+              data-testid="datatable-column"
+            >
+              Second Test Column
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="datatable-body"
+        >
+          <tr
+            class="datatable-body__row"
+          >
+            <td
+              class="datatable-body__cell"
+            >
+              Test Cell 1
+            </td>
+            <td
+              class="datatable-body__cell"
+            >
+              Test Cell 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <footer
+        class="datatable-footer"
+        data-testid="datatable-footer"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="grid__item grid__item--3"
+          >
+            1 Lines
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</DocumentFragment>
+`;

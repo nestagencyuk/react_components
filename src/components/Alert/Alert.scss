@@ -67,21 +67,10 @@ $close-size: 1.5rem !default;
 /// -------------------
 
 .alert__close {
-  @include lib.resets-style;
   position: absolute;
-  right: $padding-x;
-  top: $padding-x;
-  width: $close-size;
-  height: $close-size;
-  font-size: 0;
-  padding: 0;
-  opacity: 0.5;
-  transition: opacity transitions.$ease;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 1;
-  }
+  right: 0;
+  top: 0;
+  z-index: z-index.$alert;
 }
 
 /// -------------------

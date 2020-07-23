@@ -1,0 +1,30 @@
+/// ----------------------------------------------------------------------
+
+/// Popover
+
+/// ----------------------------------------------------------------------
+
+
+@use 'shadows';
+
+@import '~react-tippy/dist/tippy.css';
+
+/// -------------------
+/// Tippy selectors
+/// -------------------
+
+.tippy-tooltip {
+  padding: 0;
+}
+
+.tippy-tooltip-content {
+  text-align: left;
+}
+
+.tippy-popper .tippy-tooltip.light-theme {
+  box-shadow: shadows.$one;
+}
+
+.tippy-popper .tippy-tooltip.light-theme[data-animatefill] {
+  background-color: #fff;
+}

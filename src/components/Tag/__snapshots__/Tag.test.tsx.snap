@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Tag Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <button
+    class="tag"
+  >
+    Test
+    <span
+      class="tag__action m--l-xs icn icn--sm icn--dark"
+      title="Cross"
+    />
+  </button>
+</DocumentFragment>
+`;

@@ -1,6 +1,6 @@
-import { IList } from './types'
 import * as React from 'react'
 import cx from 'classnames'
+import { IList } from './types'
 
 /**
  * Styles
@@ -10,7 +10,7 @@ import './List.scss'
 /**
  * Components
  */
-import { ListItem, ListLink } from '.'
+import { ListItem } from '.'
 
 /**
  * List of items
@@ -18,17 +18,9 @@ import { ListItem, ListLink } from '.'
 const List: React.FC<IList.IProps> = ({ className, items }) =>
   items ? (
     <ul className={cx(className, 'list')}>
-      {items.map((x, i) =>
-        x.href || x.to ? (
-          <ListItem key={`item-${i}`}>
-            <ListLink {...x}>{x.text}</ListLink>
-          </ListItem>
-        ) : (
-          <ListItem key={`item-${i}`} {...x}>
-            {x.text}
-          </ListItem>
-        )
-      )}
+      {items.map((item, i) => (
+        <ListItem key={`item-${i}`} {...item} />
+      ))}
     </ul>
   ) : null
 

@@ -3,7 +3,7 @@
 exports[`----- Input Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <input
-    class="input"
+    class="input--md input"
     id="input"
     type="text"
     value=""

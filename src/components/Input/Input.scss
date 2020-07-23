@@ -19,22 +19,23 @@
 $padding-x: spacing.$sm !default;
 
 /// -------------------
-/// Input selectors 
+/// Input selectors
 /// -------------------
 
 .input {
   @include lib.resets-style;
   @include lib.components-flow;
+  width: 100%;
   padding-left: $padding-x;
   padding-right: $padding-x;
-  border-radius: corners.$base; 
+  border-radius: corners.$base;
   background-color: colours.$ui-one;
   font-family: typography.$font-family;
   font-weight: typography.$font-light;
   transition: all transitions.$ease;
 
   .field--error & {
-    border-color: colours.$state-error; 
+    border-color: colours.$state-error;
   }
 
   .field--warning & {
@@ -48,7 +49,7 @@ $padding-x: spacing.$sm !default;
   &:focus {
     @include states.focus;
   }
-  
+
   &--disabled,
   &:disabled {
     @include states.disabled;

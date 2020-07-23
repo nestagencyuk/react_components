@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Pagination Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <ul
+    class="pagination pagination--numbers"
+  >
+    <li
+      class="pagination__item"
+    >
+      <button
+        class="pagination__btn"
+      >
+        1
+      </button>
+    </li>
+    <li
+      class="pagination__item"
+    >
+      <button
+        class="pagination__btn"
+      >
+        2
+      </button>
+    </li>
+    <li
+      class="pagination__item"
+    >
+      <button
+        class="pagination__btn pagination__btn--active"
+      >
+        3
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

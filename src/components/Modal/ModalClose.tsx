@@ -1,21 +1,19 @@
-import { IModal } from './types';
-import * as React from 'react';
-import cx from 'classnames';
+import { IModal } from './types'
+import * as React from 'react'
 
 /**
  * Components
  */
-import { Icon } from '../Icon';
+import { Action } from '../Action'
 
 /**
  * Modal close button
  */
 const ModalClose: React.FC<IModal.ICloseProps> = ({ onClick }) =>
   onClick ? (
-    <button className={cx('modal__close')} onClick={() => onClick(false)}>
+    <Action className="modal__close" variant="Tertiary" icon={{ name: 'Cross' }} onClick={() => onClick(false)}>
       Close
-      <Icon name={'Cross'} />
-    </button>
-  ) : null;
+    </Action>
+  ) : null
 
-export default ModalClose;
+export default ModalClose

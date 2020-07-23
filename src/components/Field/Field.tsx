@@ -48,7 +48,6 @@ const Field: React.FC<IField.IProps> = ({ className, label, state, msg, ...props
         {label}
       </Label>
     )}
-
     <FieldPicker state={state} {...props} />
 
     {state && <Icon className={'field__icn'} name={icons[state]} colour={state} />}

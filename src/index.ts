@@ -1,3 +1,6 @@
+export { Action } from './components/Action'
+export { IAction } from './components/Action/types'
+
 export { Alert } from './components/Alert'
 export { IAlert } from './components/Alert/types'
 
@@ -85,6 +88,9 @@ export { IPagination } from './components/Pagination/types'
 export { ProgressBar } from './components/ProgressBar'
 export { IProgressBar } from './components/ProgressBar/types'
 
+export { Popover } from './components/Popover'
+export { IPopover } from './components/Popover/types'
+
 export { Radio } from './components/Radio'
 export { IRadio } from './components/Radio/types'
 
@@ -100,6 +106,9 @@ export { ISocialFeed } from './components/SocialFeed/types'
 export { Navtree } from './components/Navtree'
 export { INavtree } from './components/Navtree/types'
 
+export { Tag } from './components/Tag'
+export { ITag } from './components/Tag/types'
+
 export { Text } from './components/Text'
 export { IText } from './components/Text/types'
 
@@ -108,6 +117,8 @@ export { ITextarea } from './components/Textarea/types'
 
 export { Tooltip } from './components/Tooltip'
 export { ITooltip } from './components/Tooltip/types'
+
+export { DataTable } from './components/DataTable'
 
 export { ToggleGroup } from './context/ToggleGroup'
 
