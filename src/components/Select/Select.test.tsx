@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, fireEvent, waitFor, act } from '@testing-library/react'
 import { Select } from '.'
 import { ISelect } from './types'
 
 describe('----- Select Component -----', () => {
+  jest.useFakeTimers()
   let value: string[] = null
   const mockFn = jest.fn((val) => {
     value = val
@@ -45,16 +46,19 @@ describe('----- Select Component -----', () => {
       const options = getByTestId(`${baseProps.id}-options`)
 
       fireEvent.focus(select)
+
       expect(options.style.display).toEqual('block')
     })
 
-    it('Chooses an option and passes to onChange', () => {
+    it('Chooses an option and passes to onChange', async () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
       const optionOne = getByText(baseProps.options[0].label)
 
       fireEvent.focus(select)
       fireEvent.click(optionOne)
+
+      act(() => jest.runAllTimers())
       expect(mockFn).toHaveBeenCalledTimes(1)
       expect(mockFn).toHaveBeenCalledWith(baseProps.options[0].value)
     })
@@ -62,7 +66,9 @@ describe('----- Select Component -----', () => {
     it('Shows the option label, not value', () => {
       const { getByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
+
       fireEvent.focus(select)
+
       const options = getByTestId(`${baseProps.id}-options`)
       options.childNodes.forEach((x, i) => {
         expect(x.textContent).toEqual(baseProps.options[i].label)
@@ -74,7 +80,10 @@ describe('----- Select Component -----', () => {
       const select = getByTestId(baseProps.id)
       const options = getByTestId(`${baseProps.id}-options`)
 
+      fireEvent.focus(select)
       fireEvent.blur(select)
+
+      act(() => jest.runAllTimers())
       expect(options.style.display).toEqual('none')
     })
   })
@@ -156,6 +165,8 @@ describe('----- Select Component -----', () => {
 
       fireEvent.focus(select)
       fireEvent.click(optionNull)
+
+      act(() => jest.runAllTimers())
       expect(mockFn).toHaveBeenCalledTimes(1)
       expect(mockFn).toHaveBeenCalledWith(null)
     })
@@ -191,6 +202,7 @@ describe('----- Select Component -----', () => {
 
       fireEvent.focus(select)
       fireEvent.click(optionOne)
+
       rerender(<Select {...multiProps} value={value} />)
 
       expect(value).toEqual([multiProps.options[0].value])
@@ -207,6 +219,7 @@ describe('----- Select Component -----', () => {
       fireEvent.click(optionOne)
       fireEvent.click(optionOne)
 
+      act(() => jest.runAllTimers())
       expect(value).toEqual(null)
       expect(input).toHaveProperty('value', '0 Selected')
     })
@@ -221,6 +234,7 @@ describe('----- Select Component -----', () => {
       fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
+
       rerender(<Select {...multiProps} value={value} />)
 
       expect(value).toEqual([multiProps.options[0].value, multiProps.options[1].value])
@@ -256,6 +270,7 @@ describe('----- Select Component -----', () => {
       const clearBtn = getByText('Clear')
       fireEvent.click(clearBtn)
 
+      act(() => jest.runAllTimers())
       expect(input).toHaveProperty('value', '0 Selected')
     })
 
@@ -265,6 +280,8 @@ describe('----- Select Component -----', () => {
       const options = getByTestId(`${multiProps.id}-options`)
 
       fireEvent.blur(select)
+
+      act(() => jest.runAllTimers())
       expect(options.style.display).toEqual('none')
     })
   })
@@ -293,6 +310,7 @@ describe('----- Select Component -----', () => {
 
       fireEvent.focus(select)
       fireEvent.click(optionOne)
+
       rerender(<Select {...multiTagsProps} value={value} />)
 
       const tagOne = queryByText(multiTagsProps.options[0].label)
@@ -312,6 +330,7 @@ describe('----- Select Component -----', () => {
 
       fireEvent.focus(select)
       fireEvent.click(optionOne)
+
       rerender(<Select {...multiTagsProps} value={value} />)
 
       const tagOne = queryByText(multiTagsProps.options[0].label)
@@ -363,6 +382,7 @@ describe('----- Select Component -----', () => {
       const optionOne = getByText(filterableProps.options[0].label)
 
       fireEvent.click(optionOne)
+
       rerender(<Select {...filterableProps} value={value} />)
 
       expect(value).toEqual(filterableProps.options[0].value)
@@ -375,7 +395,6 @@ describe('----- Select Component -----', () => {
       const options = getByTestId(`${filterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'option twenty' } })
-
       expect(options.childElementCount).toBe(1)
     })
 
@@ -389,6 +408,7 @@ describe('----- Select Component -----', () => {
       fireEvent.click(optionOne)
       fireEvent.change(input, { target: { value: 'option twenty' } })
       fireEvent.click(optionNull)
+
       rerender(<Select {...filterableProps} value={value} />)
 
       expect(value).toEqual(null)
@@ -421,6 +441,7 @@ describe('----- Select Component -----', () => {
       const optionOne = getByText(multiFilterableProps.options[0].label)
 
       fireEvent.click(optionOne)
+
       rerender(<Select {...multiFilterableProps} value={value} />)
 
       expect(value).toEqual([multiFilterableProps.options[0].value])
