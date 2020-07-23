@@ -13,7 +13,7 @@ import './DataTable.scss'
 /**
  * Components
  */
-import { DataTableHeader, DataTableFooter } from '.'
+import { DataTableHeader, DataTableFooter, DataTableCell } from '.'
 import { Loader } from '../Loader'
 
 const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
@@ -51,7 +51,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
    */
   const addNewRow = () => {
     const newRow = rowsState[0]
-    setRowsState([...rowsState, newRow])
+    setRowsState((prev) => [...prev, newRow])
   }
 
   /**
@@ -59,23 +59,15 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
    */
   const setInitialState = () => {
     // Load column config into state
-    const columnsFromConfig: any = []
-
     columns.forEach((col: IDataTable.IColumn) => {
       col.hidden && toggleColumn(col.name)
-      columnsFromConfig.push(col)
+      setColumnOrder((prev) => [...prev, col].sort(orderColumnsByDisplayOrder))
     })
-
-    setColumnOrder(columnsFromConfig.sort(orderColumnsByDisplayOrder))
 
     // Load rows config into state
-    const rowsFromConfig: any = []
-
-    rows.forEach((row, index) => {
-      rowsFromConfig.push(row)
+    rows.forEach((row) => {
+      setRowsState((prev) => [...prev, row])
     })
-
-    setRowsState(rowsFromConfig)
 
     // Allow table to render
     setLoading(false)
@@ -131,13 +123,9 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
                   <tbody className="datatable-body">
                     {rowsState.map((row, index) => (
                       <tr className="datatable-body__row" key={`${row.sendToEndPoint}-${index}`}>
-                        {row.cells.map((cell: IDataTable.ICell) =>
-                          columnsState[cell.belongsTo] ? null : (
-                            <td key={cell.name} className="datatable-body__cell">
-                              {cell.value}
-                            </td>
-                          )
-                        )}
+                        {row.cells.map((cell: IDataTable.ICell) => {
+                          return columnsState[cell.belongsTo] ? null : <DataTableCell key={cell.name} {...cell} />
+                        })}
                       </tr>
                     ))}
                   </tbody>

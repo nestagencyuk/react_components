@@ -41,13 +41,13 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
               class="datatable-body-header__item"
               data-testid="datatable-column"
             >
-              First Test Column
+              Second Test Column
             </th>
             <th
               class="datatable-body-header__item"
               data-testid="datatable-column"
             >
-              Second Test Column
+              First Test Column
             </th>
           </tr>
         </thead>
@@ -60,12 +60,120 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             <td
               class="datatable-body__cell"
             >
-              Test Cell 1
+              <div
+                class="select"
+                tabindex="-1"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="null-input"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="null-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="100"
+                      title="100"
+                    >
+                      100
+                    </button>
+                  </li>
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="200"
+                      title="200"
+                    >
+                      200
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </td>
             <td
               class="datatable-body__cell"
             >
-              Test Cell 2
+              <p
+                class="text text--p text--left"
+              >
+                description
+              </p>
+            </td>
+            <td
+              class="datatable-body__cell"
+            >
+              <input
+                class="input--md input"
+                name="Test Cell 4"
+                type="number"
+                value=""
+              />
+            </td>
+            <td
+              class="datatable-body__cell"
+            >
+              <input
+                class="input--md input"
+                name="Test Cell 5"
+                type="text"
+                value=""
+              />
+            </td>
+            <td
+              class="datatable-body__cell"
+            >
+              <div
+                class="select"
+                tabindex="-1"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="undefined-input"
+                    placeholder="-- Select --"
+                    readonly=""
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="undefined-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="test"
+                      title="test"
+                    >
+                      test
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </td>
           </tr>
         </tbody>

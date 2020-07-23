@@ -19,28 +19,66 @@
       "hidden": false,
       "displayOrder": 1,
       "sortable": true,
-      "defaultWidth": 300
-    },
-    {
-      "name": "Unit of Measure",
-      "hidden": false,
-      "displayOrder": 2,
-      "sortable": true,
-      "defaultWidth": 100
+      "defaultSort": "desc",
+      "resizableWidth": true,
+      "defaultWidth": 100,
+      "minWidth": 100,
+      "maxWidth": 300
     },
     {
       "name": "Product Description",
       "hidden": false,
+      "displayOrder": 2,
+      "sortable": false,
+      "defaultSort": null,
+      "resizableWidth": true,
+      "defaultWidth": 100,
+      "minWidth": 100,
+      "maxWidth": 300
+    },
+    {
+      "name": "Unit of Measure",
+      "hidden": false,
       "displayOrder": 3,
-      "sortable": true,
-      "defaultWidth": 100
+      "sortable": false,
+      "defaultSort": null,
+      "resizableWidth": true,
+      "defaultWidth": 100,
+      "minWidth": 100,
+      "maxWidth": 300
     },
     {
       "name": "Quantity",
       "hidden": true,
       "displayOrder": 4,
       "sortable": true,
-      "defaultWidth": 100
+      "defaultSort": null,
+      "resizableWidth": true,
+      "defaultWidth": 100,
+      "minWidth": 100,
+      "maxWidth": 300
+    },
+    {
+      "name": "Batch",
+      "hidden": true,
+      "displayOrder": 5,
+      "sortable": true,
+      "defaultSort": null,
+      "resizableWidth": true,
+      "defaultWidth": 100,
+      "minWidth": 100,
+      "maxWidth": 300
+    },
+    {
+      "name": "Action",
+      "hidden": false,
+      "displayOrder": 6,
+      "sortable": false,
+      "defaultSort": null,
+      "resizableWidth": false,
+      "defaultWidth": 100,
+      "minWidth": null,
+      "maxWidth": null
     }
   ],
   "rows": [
@@ -49,58 +87,150 @@
       "sendToEndpoint": "/some/api",
       "cells": [
         {
+          "type": "search",
           "name": "product_id",
-          "belongsTo": "Stock Keeping Unit (SKU)",
-          "searchable": false,
-          "value": "0001"
-        },
-        {
-          "name": "uom",
-          "belongsTo": "Unit of Measure",
-          "searchable": true,
-          "value": "Measure some bits"
-        },
-        {
-          "name": "description",
-          "belongsTo": "Product Description",
-          "searchable": true,
-          "value": "An amazing product in Deep Red"
-        },
-        {
-          "name": "quantity",
-          "belongsTo": "Quantity",
-          "searchable": true,
-          "value": "How many of these things!"
-        }
-      ]
-    },
-    {
-      "sendOnBlur": false,
-      "sendToEndpoint": "/some/other/api",
-      "cells": [
-        {
-          "name": "product_id",
+          "id": null,
+          "value": null,
+          "placeholder": null,
+          "multiple": false,
+          "required": true,
+          "readOnly": false,
+          "ignoreTab": false,
+          "tabIndex": null,
+          "includeInObject": true,
+          "sendOnBlur": false,
+          "sendOnChange": false,
+          "sendOnWait": true,
+          "sendOnTrigger": true,
+          "sendMethod": "GET",
+          "sendToEndpoint": "/products?sku=",
+          "responseValue": "product_id",
+          "responseDisplay": "sku",
+          "triggerUpdate": ["description", "uom"],
           "belongsTo": "Stock Keeping Unit (SKU)",
           "searchable": true,
-          "value": "0002"
+          "options": [
+            {
+              "label": "100",
+              "value": "100"
+            },
+            {
+              "label": "200",
+              "value": "200"
+            }
+          ]
         },
         {
-          "name": "uom",
-          "belongsTo": "Unit of Measure",
-          "searchable": true,
-          "value": "Measure some bits"
-        },
-        {
+          "type": "string",
           "name": "description",
-          "belongsTo": "Product Description",
+          "includeInObject": false,
+          "sendOnTrigger": true,
+          "sendMethod": "GET",
+          "sendToEndpoint": "/products/",
+          "responseDisplay": "description",
           "searchable": true,
-          "value": "An amazing product in Deep Yellow"
+          "belongsTo": "Product Description"
         },
         {
-          "name": "quantity",
-          "belongsTo": "Quantity",
+          "type": "select",
+          "name": "uom",
+          "id": null,
+          "value": null,
+          "placeholder": null,
+          "multiple": false,
+          "required": true,
+          "readOnly": false,
+          "ignoreTab": false,
+          "tabIndex": null,
+          "includeInObject": true,
+          "sendOnBlur": false,
+          "sendOnChange": false,
+          "sendOnTrigger": true,
+          "sendMethod": "GET",
+          "sendToEndpoint": "/products/",
+          "responseDisplay": "uom",
+          "options": [
+            {
+              "label": "100",
+              "value": "100"
+            },
+            {
+              "label": "200",
+              "value": "200"
+            }
+          ],
           "searchable": true,
-          "value": "How many of these things!"
+          "belongsTo": "Unit of Measure"
+        },
+        {
+          "type": "number",
+          "name": "quantity",
+          "id": null,
+          "value": null,
+          "placeholder": null,
+          "required": true,
+          "minValue": null,
+          "maxValue": null,
+          "step": null,
+          "readOnly": false,
+          "ignoreTab": false,
+          "tabIndex": null,
+          "includeInObject": true,
+          "sendOnBlur": false,
+          "sendOnWait": false,
+          "sendOnTrigger": true,
+          "sendMethod": null,
+          "sendToEndpoint": null,
+          "responseValue": null,
+          "triggerInputs": null,
+          "belongsTo": "Quantity",
+          "searchable": true
+        },
+        {
+          "type": "text",
+          "name": "batch",
+          "id": null,
+          "value": null,
+          "placeholder": null,
+          "required": true,
+          "minLength": null,
+          "maxLength": null,
+          "pattern": null,
+          "readOnly": false,
+          "ignoreTab": false,
+          "tabIndex": null,
+          "includeInObject": true,
+          "sendOnBlur": false,
+          "sendOnWait": false,
+          "sendOnTrigger": true,
+          "sendMethod": null,
+          "sendToEndpoint": null,
+          "responseValue": null,
+          "triggerInputs": null,
+          "searchable": true,
+          "belongsTo": "Batch"
+        },
+        {
+          "type": "button-list",
+          "name": "action",
+          "items": [
+            {
+              "name": "Delete Row",
+              "rowAction": "remove-row",
+              "sendMethod": null,
+              "sendToEndpoint": null,
+              "responseDisplay": null
+            },
+            {
+              "name": "More Info",
+              "rowAction": "load-page",
+              "page": "/some/page",
+              "sendMethod": null,
+              "sendToEndpoint": null,
+              "responseDisplay": null
+            }
+          ],
+          "belongsTo": "Action"
         }
       ]
     }

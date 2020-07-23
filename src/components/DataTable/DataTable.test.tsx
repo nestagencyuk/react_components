@@ -20,19 +20,37 @@ describe('----- DataTable Component -----', () => {
     },
     columns: [
       {
-        name: 'Second Test Column',
-        hidden: false,
-        displayOrder: 2
-      },
-      {
         name: 'First Test Column',
         hidden: false,
-        displayOrder: 1
+        displayOrder: 2,
+        sortable: true,
+        defaultSort: 'desc',
+        resizableWidth: true,
+        defaultWidth: 100,
+        minWidth: 100,
+        maxWidth: 300
+      },
+      {
+        name: 'Second Test Column',
+        hidden: false,
+        displayOrder: 1,
+        sortable: true,
+        defaultSort: 'desc',
+        resizableWidth: true,
+        defaultWidth: 100,
+        minWidth: 100,
+        maxWidth: 300
       },
       {
         name: 'Third Test Column',
         hidden: true,
-        displayOrder: 3
+        displayOrder: 3,
+        sortable: true,
+        defaultSort: 'desc',
+        resizableWidth: true,
+        defaultWidth: 100,
+        minWidth: 100,
+        maxWidth: 300
       }
     ],
     rows: [
@@ -41,16 +59,133 @@ describe('----- DataTable Component -----', () => {
         sendOnBlur: false,
         cells: [
           {
-            name: 'Test cell',
+            type: 'search',
+            name: 'Test Cell 1',
+            id: null,
+            value: null,
+            placeholder: null,
+            multiple: false,
+            required: true,
+            readOnly: false,
+            ignoreTab: false,
+            tabIndex: null,
+            includeInObject: true,
+            sendOnBlur: false,
+            sendOnChange: false,
+            sendOnWait: true,
+            sendOnTrigger: true,
+            sendMethod: 'GET',
+            sendToEndpoint: '/products?sku=',
+            responseValue: 'product_id',
+            responseDisplay: 'sku',
+            triggerUpdate: ['description', 'uom'],
             belongsTo: 'First Test Column',
-            value: 'Test Cell 1',
+            searchable: true,
+            options: [
+              {
+                label: '100',
+                value: '100'
+              },
+              {
+                label: '200',
+                value: '200'
+              }
+            ]
+          },
+          {
+            type: 'string',
+            name: 'Test Cell 2',
+            includeInObject: false,
+            sendOnTrigger: true,
+            sendMethod: 'GET',
+            sendToEndpoint: '/products/',
+            responseDisplay: 'description',
+            searchable: true,
+            belongsTo: 'Second Test Column'
+          },
+          {
+            type: 'text',
+            name: 'Test Cell 3',
+            id: null,
+            value: null,
+            placeholder: null,
+            required: true,
+            minLength: null,
+            maxLength: null,
+            pattern: null,
+            readOnly: false,
+            ignoreTab: false,
+            tabIndex: null,
+            includeInObject: true,
+            sendOnBlur: false,
+            sendOnWait: false,
+            sendOnTrigger: true,
+            sendMethod: null,
+            sendToEndpoint: null,
+            responseValue: null,
+            triggerInputs: null,
+            searchable: true,
+            belongsTo: 'Third Test Column'
+          },
+          {
+            type: 'number',
+            name: 'Test Cell 4',
+            id: null,
+            value: null,
+            placeholder: null,
+            required: true,
+            minValue: null,
+            maxValue: null,
+            step: null,
+            readOnly: false,
+            ignoreTab: false,
+            tabIndex: null,
+            includeInObject: true,
+            sendOnBlur: false,
+            sendOnWait: false,
+            sendOnTrigger: true,
+            sendMethod: null,
+            sendToEndpoint: null,
+            responseValue: null,
+            triggerInputs: null,
+            belongsTo: 'Fourth Test Column',
             searchable: true
           },
           {
-            name: 'Test cell 2',
-            belongsTo: 'Second Test Column',
-            value: 'Test Cell 2',
-            searchable: false
+            type: 'text',
+            name: 'Test Cell 5',
+            id: null,
+            value: null,
+            placeholder: null,
+            required: true,
+            minLength: null,
+            maxLength: null,
+            pattern: null,
+            readOnly: false,
+            ignoreTab: false,
+            tabIndex: null,
+            includeInObject: true,
+            sendOnBlur: false,
+            sendOnWait: false,
+            sendOnTrigger: true,
+            sendMethod: null,
+            sendToEndpoint: null,
+            responseValue: null,
+            triggerInputs: null,
+            searchable: true,
+            belongsTo: 'Fifth Test Column'
+          },
+          {
+            type: 'select',
+            name: 'Test Cell 6',
+            includeInObject: true,
+            belongsTo: 'Sixth Test Column',
+            options: [
+              {
+                label: 'test',
+                value: 'test'
+              }
+            ]
           }
         ]
       }
@@ -142,15 +277,6 @@ describe('----- DataTable Component -----', () => {
       fireEvent.click(addNewRowButton)
 
       expect(queryByText('2 Lines')).toBeTruthy()
-    })
-
-    it('Searches the table', () => {
-      const { queryByPlaceholderText, queryAllByText } = render(baseDataTableHeader('search'))
-      const searchField = queryByPlaceholderText('Search Data')
-
-      fireEvent.change(searchField, { target: { value: 'Test Cell 1' } })
-
-      expect(queryAllByText('Test Cell 1').length).toEqual(1)
     })
   })
 
