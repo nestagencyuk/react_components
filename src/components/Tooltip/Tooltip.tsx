@@ -1,8 +1,11 @@
 import { ITooltip } from './types'
-import * as React from 'react'
-import { createPortal } from 'react-dom'
-import { useEffect, useState, useRef } from 'react'
 import cx from 'classnames'
+import * as React from 'react'
+import { Fragment, useMemo } from 'react'
+import { createPortal } from 'react-dom'
+import { useCombinedRefs } from '../../hooks/useCombinedRefs'
+import { useFocus } from '../../hooks/useFocus'
+import { usePopper } from '../../hooks/usePopper'
 
 /**
  * Styles
@@ -10,82 +13,66 @@ import cx from 'classnames'
 import './Tooltip.scss'
 
 /**
+ * Alignment
+ */
+const alignments = {
+  Left: 'animate--fade-in-right',
+  Right: 'animate--fade-in-left',
+  Top: 'animate--fade-in-bottom',
+  Bottom: 'animate--fade-in-top'
+}
+
+/**
  * A tooltip
  */
-const Tooltip: React.FC<ITooltip.IProps> = ({ attachTo, trigger = 'Hover', align = 'Left', children }) => {
-  const [toggled, setToggled] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const ref = useRef<HTMLElement>()
+const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', render, children }) => {
+  const [focusTriggerRef, focusTargetRef, focused, onFocus, onBlur] = useFocus({ trigger })
+  const [triggerRef, popperRef, arrowRef] = usePopper({ active: focused, align })
 
   /**
-   * Get the x & y positions
+   * Render the actual tooltip
    */
-  const getPosition = () => {
-    if (!attachTo) return
-    if (!ref.current) return
-
-    const tooltipRect = ref.current.getBoundingClientRect()
-    const attachRect = attachTo.getBoundingClientRect()
-
-    let x = 0
-    let y = 0
-
-    switch (align) {
-      case 'Left':
-        x = attachRect.left - tooltipRect.width
-        y = attachRect.top + attachTo.clientHeight / 2
-        break
-      case 'Right':
-        x = attachRect.right
-        y = attachRect.top + attachTo.clientHeight / 2
-        break
-      case 'Top':
-        x = attachRect.left + attachTo.clientWidth / 2
-        y = attachRect.top - tooltipRect.height
-        break
-      case 'Bottom':
-        x = attachRect.left + attachTo.clientWidth / 2
-        y = attachRect.bottom
-        break
-    }
-
-    setPosition({ x, y })
-  }
-
-  /**
-   * Attach trigger events
-   */
-  useEffect(() => {
-    if (!attachTo) return
-    const event = () => setToggled((prev: boolean) => !prev)
-
-    if (trigger === 'Hover') {
-      attachTo.addEventListener('mouseenter', event)
-      attachTo.addEventListener('mouseleave', event)
-    } else {
-      attachTo.addEventListener(trigger, event)
-    }
-  }, [attachTo])
-
-  /**
-   * Render tooltip
-   */
-  useEffect(() => {
-    getPosition()
-  }, [toggled])
-
-  return toggled
-    ? createPortal(
+  const renderTooltip = () =>
+    createPortal(
       <aside
-        ref={ref}
-        className={cx('tooltip', { [`tooltip--${align.toLowerCase()}`]: toggled })}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        className={cx('tooltip', { 'tooltip--active': focused })}
+        ref={useCombinedRefs(popperRef, focusTargetRef)}
+        tabIndex={-1}
       >
-        {children}
+        <div className={cx('animate', focused && alignments[align])}>
+          <div className={cx('tooltip__body')}>{render}</div>
+          <span ref={arrowRef} className={cx('tooltip__arrow')} />
+        </div>
       </aside>,
       document.body
     )
-    : null
+
+  /**
+   * Determine correct event
+   */
+  const events = useMemo(
+    () => ({
+      onFocus: onFocus,
+      onBlur: onBlur
+    }),
+    []
+  )
+
+  return (
+    <Fragment>
+      {typeof children === 'function' ? (
+        children({
+          ref: useCombinedRefs(triggerRef, focusTriggerRef),
+          ...events
+        })
+      ) : (
+        <span ref={useCombinedRefs(triggerRef, focusTriggerRef)} {...events} tabIndex={0}>
+          {children}
+        </span>
+      )}
+      {renderTooltip()}
+    </Fragment>
+  )
 }
 
 export default Tooltip
