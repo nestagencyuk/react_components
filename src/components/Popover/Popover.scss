@@ -4,4 +4,44 @@
 
 /// ----------------------------------------------------------------------
 
-@import '~react-tippy/dist/tippy.css';
+@use 'spacing';
+@use 'corners';
+@use 'animations';
+@use 'shadows';
+@use 'z-index';
+
+/// -------------------
+/// Popover config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$xs !default;
+
+/// -------------------
+/// Popover swatches
+/// -------------------
+
+.popover {
+  display: none;
+  padding: 1rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--active {
+    display: block;
+  }
+}
+
+/// -------------------
+/// Popover swatches
+/// -------------------
+
+.popover__body {
+  background-color: white;
+  border-radius: corners.$base;
+  padding: $padding-y $padding-x;
+  box-shadow: shadows.$one;
+  max-width: 350px;
+}
