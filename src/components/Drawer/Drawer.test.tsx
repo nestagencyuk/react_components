@@ -16,7 +16,6 @@ describe('----- Drawer Component -----', () => {
 
   it('Renders without crashing', () => {
     const { asFragment } = render(<Drawer {...baseProps}>Lorem ipsum</Drawer>)
-
     expect(asFragment()).toMatchSnapshot()
   })
 

@@ -12,7 +12,7 @@ import './DataTable.scss'
  * Components
  */
 import { Checkbox } from '../Checkbox'
-import { Button } from '../Button'
+import { RefButton, Button } from '../Button'
 import { Input } from '../Input'
 import { Grid, GridItem } from '../Grid'
 import { Popover } from '../Popover'
@@ -47,12 +47,7 @@ const DataTableHeader: React.FC = () => {
         {buttonCustomiseTable && (
           <GridItem span={3}>
             <Popover
-              position="bottom-start"
-              interactive
-              trigger="click"
-              theme="light"
-              unmountHTMLWhenHide
-              html={columns.map((col: IDataTable.IColumn) => (
+              render={columns.map((col: IDataTable.IColumn) => (
                 <div key={col.name} className="datatable__drop-down-item">
                   <Checkbox
                     onChange={() => toggleColumn(col.name)}
@@ -66,18 +61,21 @@ const DataTableHeader: React.FC = () => {
                 </div>
               ))}
             >
-              <Button
-                variant="Tertiary"
-                className="w--100"
-                icon={{
-                  name: 'Branch',
-                  size: 'Small',
-                  align: 'End'
-                }}
-                size="Small"
-              >
-                Customise Table
-              </Button>
+              {(value) => (
+                <RefButton
+                  variant="Tertiary"
+                  className="w--100"
+                  icon={{
+                    name: 'Branch',
+                    size: 'Small',
+                    align: 'End'
+                  }}
+                  size="Small"
+                  {...value}
+                >
+                  Customise Table
+                </RefButton>
+              )}
             </Popover>
           </GridItem>
         )}

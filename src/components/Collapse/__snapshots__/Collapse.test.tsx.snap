@@ -19,7 +19,7 @@ exports[`----- Collapse Component ----- Renders without crashing 1`] = `
       />
     </button>
     <div
-      class="collapse__body collapse__body--open"
+      class="collapse__body collapse__body--active"
     >
       test
     </div>

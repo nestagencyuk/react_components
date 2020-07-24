@@ -68,8 +68,8 @@ $padding-y: spacing.$md !default;
   padding: $padding-y $padding-x;
   animation: fadeInTop 0.3s forwards ease;
   display: none;
-  
-  &--open {
+
+  &--active {
     display: block;
   }
 

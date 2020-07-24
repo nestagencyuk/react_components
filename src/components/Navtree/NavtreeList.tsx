@@ -11,7 +11,7 @@ import { NavtreeItem } from '.'
  * The unordered list to render within the  navigation
  */
 const NavtreeList: React.FC<INavtree.IListProps> = ({ items, depth, open }) => (
-  <ul className={cx('navtree__list', { 'navtree__list--open': open })} data-depth={depth}>
+  <ul className={cx('navtree__list', { 'navtree__list--active': open })} data-depth={depth}>
     {items.map((x, i) => (
       <NavtreeItem key={`item-${i}`} depth={depth} {...x} />
     ))}

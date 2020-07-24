@@ -6,10 +6,10 @@ declare namespace IInput {
     id: string
     name?: string
     type?: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
+    placeholder?: string
     value?: string
     disabled?: boolean
     size?: Size
-    placeholder?: string
     onChange: (value: string) => void
   }
 }

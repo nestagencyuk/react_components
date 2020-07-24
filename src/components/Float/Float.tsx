@@ -30,7 +30,7 @@ const Float: React.FC<IFloat.IProps> = ({ className, align = { x: 'Center', y: '
   /**
    * Render the actual componetn
    */
-  const renderFloat = () => <div className={cx(className, 'float', alignX[align?.x], alignY[align?.y])}>{children}</div>
+  const renderFloat = () => <aside className={cx(className, 'float', alignX[align?.x], alignY[align?.y])}>{children}</aside>
 
   return portal ? createPortal(renderFloat(), document.body) : renderFloat()
 }

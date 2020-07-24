@@ -16,7 +16,7 @@ const SelectTags = ({ values, options, onClick }: any) =>
     <Tag
       key={`tag-${i}`}
       className="m--xs"
-      onClick={(e: React.SyntheticEvent) => {
+      onClick={(e) => {
         e.preventDefault()
         onClick(x)
       }}

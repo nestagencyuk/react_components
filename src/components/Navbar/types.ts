@@ -13,7 +13,7 @@ declare namespace INavbar {
 
   interface IToggleProps {
     toggled: boolean
-    onClick: (bool: boolean) => void
+    onClick: (e?: React.SyntheticEvent) => void
   }
 
   interface IBrandProps {

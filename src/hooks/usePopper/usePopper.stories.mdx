@@ -1,0 +1,113 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { RefDiv, RefSection } from '../../../.storybook/helpers'
+import { scrollDecorator } from '../../../.storybook/decorators'
+import { Fragment, useContext, useState } from 'react'
+import { RefButton } from '../../components/Button'
+import { Text } from '../../components/Text'
+import { Float } from '../../components/Float'
+import { usePopper } from '.'
+
+<Meta title="Hooks|Popper" />
+
+# Popper
+A hook for positioning an element in context with another element, uses [Popper.js](https://popper.js.org/) as the positioning engine.
+
+## Base
+The hook in its simplest form. Alignment is set to `Auto` by default.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [trigger, popper, arrow] = usePopper()
+      return (
+        <div className="p--xxl">
+          <RefButton ref={trigger} size="Small">
+            Reference element
+          </RefButton>
+          <RefDiv ref={popper} className="p--md bg--ui-one m--l-md">
+            Align auto
+          </RefDiv>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Alignment
+Pass a value to the `align` option and you'll see the desired alignment rendered.
+
+### Left
+<Preview>
+  <Story name="Align-Left">
+    {() => {
+      const [trigger, popper, arrow] = usePopper({ align: 'Left'})
+      return (
+        <div className="p--xxl" style={{marginLeft: '300px'}}>
+          <RefButton ref={trigger} size="Small">
+            Reference element
+          </RefButton>
+          <RefDiv ref={popper} className="p--md bg--ui-one m--l-md">
+            Align left
+          </RefDiv>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+### Right
+<Preview>
+  <Story name="Align-Right">
+    {() => {
+      const [trigger, popper, arrow] = usePopper({ align: 'Right'})
+      return (
+        <div className="p--xxl">
+          <RefButton ref={trigger} size="Small">
+            Reference element
+          </RefButton>
+          <RefDiv ref={popper} className="p--md bg--ui-one m--l-md">
+            Align right
+          </RefDiv>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+### Top
+<Preview>
+  <Story name="Align-Top">
+    {() => {
+      const [trigger, popper, arrow] = usePopper({ align: 'Top'})
+      return (
+        <div className="p--xxl">
+          <RefButton ref={trigger} size="Small">
+            Reference element
+          </RefButton>
+          <RefDiv ref={popper} className="p--md bg--ui-one m--l-md">
+            Align top
+          </RefDiv>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+### Bottom
+<Preview>
+  <Story name="Align-Bottom">
+    {() => {
+      const [trigger, popper, arrow] = usePopper({ align: 'Bottom'})
+      return (
+        <div className="p--xxl">
+          <RefButton ref={trigger} size="Small">
+            Reference element
+          </RefButton>
+          <RefDiv ref={popper} className="p--md bg--ui-one m--l-md">
+            Align bottom
+          </RefDiv>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>

@@ -157,7 +157,7 @@ $toggle-size: spacing.$lg !default;
     grid-template-areas: 'links-start links-center links-end';
   }
 
-  .navbar--open & {
+  .navbar--active & {
     display: block;
     animation: fadeInTop 0.3s animations.$forwards-ease;
     z-index: z-index.$top;

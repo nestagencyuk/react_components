@@ -11,7 +11,7 @@ import { Action } from '../Action'
  */
 const ModalClose: React.FC<IModal.ICloseProps> = ({ onClick }) =>
   onClick ? (
-    <Action className="modal__close" variant="Tertiary" icon={{ name: 'Cross' }} onClick={() => onClick(false)}>
+    <Action className="modal__close" variant="Tertiary" icon={{ name: 'Cross' }} onClick={onClick}>
       Close
     </Action>
   ) : null

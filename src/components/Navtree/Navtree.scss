@@ -40,12 +40,12 @@ $nav-height: 70px;
   transform-origin: top;
   animation: fadeInTop 0.3s forwards ease;
   display: none;
-  
-  &:not([data-depth="0"]) {
+
+  &:not([data-depth='0']) {
     margin-left: spacing.$xl;
   }
 
-  &--open {
+  &--active {
     display: block;
   }
 }
@@ -54,7 +54,6 @@ $nav-height: 70px;
 /// -------------------
 
 .navtree__item {
-
 }
 
 /// -------------------

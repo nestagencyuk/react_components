@@ -10,7 +10,7 @@ import { ToggleTreeContext } from '.'
 /**
  * Open and close many things
  */
-const ToggleTree = ({ multi, children }: IToggleTree.IProps) => {
+const ToggleTree: React.FC<IToggleTree.IProps | IToggleTree.IRenderProps> = ({ multi, children }) => {
   const [toggles, setToggled] = useToggleTree({ multi })
 
   return (
