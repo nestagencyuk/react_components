@@ -1,7 +1,9 @@
+import { AlignmentBox } from '../../types'
+
 declare namespace ITooltip {
   interface IProps {
     trigger?: 'Hover' | 'Click'
-    align?: 'Left' | 'Right' | 'Top' | 'Bottom'
+    align?: Exclude<AlignmentBox, 'Center'>
     render: React.ReactNode
     children: React.ReactNode
   }

@@ -1,9 +1,11 @@
+import { OpenState } from '../../types'
 import { IHeader } from '../Header/types'
 import { IFooter } from '../Footer/types'
 
 declare namespace IModal {
   interface IProps {
     className?: string
+    state?: OpenState
     header?: IHeaderProps
     footer?: IFooterProps
     children: React.ReactNode

@@ -24,44 +24,13 @@ const alignY = {
 }
 
 /**
- * States
- */
-const states: any = {
-  Closed: '',
-  Opening: {
-    Start: 'animate--fade-in-left',
-    End: 'animate--fade-in-right',
-    Center: 'animate--fade-in-top',
-    Bottom: 'animate--fade-in-bottom'
-  },
-  Open: '',
-  Closing: {
-    Start: 'animate--fade-in-left animate--reverse',
-    End: 'animate--fade-in-right animate--reverse',
-    Center: 'animate--fade-in-top animate--reverse',
-    Bottom: 'animate--fade-in-bottom animate-reverse'
-  }
-}
-
-/**
  * Float content somewhere on the screen
  */
-const Float: React.FC<IFloat.IProps> = ({
-  className,
-  align = { x: 'Center', y: 'Start' },
-  state = 'Open',
-  portal,
-  children
-}) => {
+const Float: React.FC<IFloat.IProps> = ({ className, align = { x: 'Center', y: 'Start' }, portal, children }) => {
   /**
    * Render the actual componetn
    */
-  const renderFloat = () =>
-    state !== 'Closed' ? (
-      <aside className={cx(className, 'float', alignX[align?.x], alignY[align?.y])}>
-        <div className={cx('animate', states[state][align?.y === 'End' ? 'Bottom' : align?.x])}>{children}</div>
-      </aside>
-    ) : null
+  const renderFloat = () => <aside className={cx(className, 'float', alignX[align?.x], alignY[align?.y])}>{children}</aside>
 
   return portal ? createPortal(renderFloat(), document.body) : renderFloat()
 }

@@ -23,10 +23,28 @@ const variants = {
 }
 
 /**
+ * States
+ */
+const states = {
+  Closed: '',
+  Opening: 'animate--fade-in-top',
+  Open: '',
+  Closing: 'animate--fade-in-top animate--reverse'
+}
+
+/**
  * An alert with states
  */
-const Alert: React.FC<IAlert.IProps> = ({ className, header, variant = 'Info', footer, children, onClose }) => (
-  <aside className={cx(className, 'alert', variants[variant])}>
+const Alert: React.FC<IAlert.IProps> = ({
+  className,
+  header,
+  variant = 'Info',
+  state = 'Open',
+  footer,
+  children,
+  onClose
+}) => (
+  <aside className={cx(className, 'alert', variants[variant], states[state])}>
     <AlertHeader {...header} />
     <AlertClose onClick={onClose} />
     <AlertIcon variant={variant} />

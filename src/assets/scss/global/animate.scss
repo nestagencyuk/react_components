@@ -60,6 +60,14 @@
     animation: swipeInRight movement.$base animations.$forwards-ease;
   }
 
+  &--swipe-in-top {
+    animation: swipeInTop movement.$base animations.$forwards-ease;
+  }
+
+  &--swipe-in-bottom {
+    animation: swipeInBottom movement.$base animations.$forwards-ease;
+  }
+
   &--reverse {
     animation-direction: reverse;
   }

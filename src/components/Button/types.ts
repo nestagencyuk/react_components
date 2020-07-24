@@ -1,4 +1,4 @@
-import { Size } from '../../types'
+import { Size, Alignment } from '../../types'
 import { IIcon } from '../Icon/types'
 
 declare namespace IButton {
@@ -19,7 +19,7 @@ declare namespace IButton {
   }
 
   interface IIconProps extends IIcon.IProps {
-    align?: 'Start' | 'End'
+    align?: Exclude<Alignment, 'Center'>
   }
 
   interface IGroupProps {

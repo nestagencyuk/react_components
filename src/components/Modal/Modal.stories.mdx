@@ -42,9 +42,10 @@ Use state to show/hide the modal as needed.
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Modal</Button>
-          <Float state={state} portal align={{ x: 'Center', y: 'Center' }}>
+          {state !== 'Closed' && <Float portal align={{ x: 'Center', y: 'Center' }}>
             <Overlay state={state} portal fixed onClick={() => dispatchEvent('CLOSE')} /> 
             <Modal 
+              state={state}
               header={{ heading: 'Heading', subheading: 'Subheading'}} 
               footer={{ 
                 actions: [
@@ -57,7 +58,7 @@ Use state to show/hide the modal as needed.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </Text>
             </Modal>
-          </Float>
+          </Float>}
         </Fragment>
       )
     }}

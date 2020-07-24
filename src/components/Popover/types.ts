@@ -1,6 +1,8 @@
+import { AlignmentBox } from '../../types'
+
 declare namespace IPopover {
   interface IProps {
-    align?: 'Left' | 'Right' | 'Top' | 'Bottom'
+    align?: Exclude<AlignmentBox, 'Center'>
     render: React.ReactNode
     children?: React.ReactNode
   }

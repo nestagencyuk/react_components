@@ -1,12 +1,9 @@
-import { Alignment } from '../../types'
+import { AlignmentXY } from '../../types'
 
 declare namespace IBox {
   interface IProps {
     className?: string
-    align?: {
-      x?: Alignment
-      y?: Alignment
-    }
+    align?: AlignmentXY
     fill?: boolean
     children: any
     testId?: string

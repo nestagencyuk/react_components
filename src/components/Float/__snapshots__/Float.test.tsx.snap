@@ -5,11 +5,7 @@ exports[`----- Float Component ----- Renders without crashing 1`] = `
   <aside
     class="float float--center-x float--start-y"
   >
-    <div
-      class="animate"
-    >
-      Float
-    </div>
+    Float
   </aside>
 </DocumentFragment>
 `;

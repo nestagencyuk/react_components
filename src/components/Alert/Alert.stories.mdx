@@ -88,11 +88,11 @@ To create an alert popover, the base alert component can be combined with [Toggl
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Alert</Button>
-          <Float state={state} portal>
-            <Alert onClose={() => dispatchEvent('CLOSE')}>
+          {state !== 'Closed' && <Float portal>
+            <Alert state={state} onClose={() => dispatchEvent('CLOSE')}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
-          </Float>
+          </Float>}
         </Fragment>
       )
     }}
@@ -109,11 +109,11 @@ Set a timeout so that the alert disappears after some time.
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Success Alert</Button>
-          <Float state={state} portal>
-            <Alert variant="Success">
+          {state !== 'Closed' && <Float portal>
+            <Alert variant="Success" state={state}>
               Wow, it worked!
             </Alert>
-          </Float>
+          </Float>}
         </Fragment>
       )
     }}
@@ -132,8 +132,8 @@ An alert can be used to determine an action.
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
-          <Float state={state} portal>
-            <Alert variant="Warning" footer={{
+          {state !== 'Closed' && <Float portal>
+            <Alert variant="Warning" state={state} footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); dispatchEvent('CLOSE') } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); dispatchEvent('CLOSE') } },
@@ -141,7 +141,7 @@ An alert can be used to determine an action.
             }}>
               Are you sure you want to do this?!
             </Alert>
-          </Float>
+          </Float>}
         </Fragment>
       )
     }}

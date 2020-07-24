@@ -46,7 +46,7 @@ const Drawer: React.FC<IDrawer.IProps> = ({ className, state = 'Open', children,
   return state !== 'Closed' ? (
     <Fragment>
       <Overlay state={state} portal fixed onClick={onClick} />
-      <Float className="p--0" state="Open" portal align={{ x: 'Start', y: 'Start' }}>
+      <Float className="p--0" portal align={{ x: 'Start', y: 'Start' }}>
         <div className={cx(className, 'drawer', states[state])}>{children}</div>
       </Float>
     </Fragment>
