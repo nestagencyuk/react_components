@@ -4,21 +4,18 @@ import * as React from 'react'
  * Components
  */
 import { Input } from '../Input'
-import { Checkbox } from '../Checkbox'
-import { Radio } from '../Radio'
 import { Select } from '../Select'
-import { Textarea } from '../Textarea'
 import { Text } from '../Text'
 
 /**
  * Field picker
  */
-const CellPicker: React.FC<any> = ({ readOnly, ...props }) => {
+const CellPicker: React.FC<any> = (props) => {
   switch (props.type) {
     case 'select':
-      return <Select {...props} disabled={readOnly} />
+      return <Select {...props} />
     case 'search':
-      return <Select {...props} filterable disabled={readOnly} />
+      return <Select {...props} filterable />
     case 'string':
       return <Text variant="P" children={props.value} />
     case 'text':

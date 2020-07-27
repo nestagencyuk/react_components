@@ -20,10 +20,9 @@ import { Popover } from '../Popover'
 /**
  * A datatable that displays table controls
  */
-const DataTableHeader: React.FC = () => {
+const DataTableHeader: React.FC = ({ buttonAddLine, buttonCustomiseTable, buttonFilterData, search }) => {
   const { config, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery } = useContext(DataTableContext)
-  const { table, columns } = config
-  const { buttonAddLine, buttonCustomiseTable, buttonFilterData, search } = table.header
+  const { header } = config
 
   return (
     <header className="datatable-header m--b-md" data-testid="datatable-header">
@@ -47,16 +46,16 @@ const DataTableHeader: React.FC = () => {
         {buttonCustomiseTable && (
           <GridItem span={3}>
             <Popover
-              render={columns.map((col: IDataTable.IColumn) => (
-                <div key={col.name} className="datatable__drop-down-item">
+              render={header.map((heading: any) => (
+                <div key={heading.id} className="datatable__drop-down-item">
                   <Checkbox
-                    onChange={() => toggleColumn(col.name)}
-                    value={!columnsState[col.name]}
+                    onChange={() => toggleColumn(heading.id)}
+                    value={!columnsState[heading.id]}
                     className="m--r-xs"
-                    id={col.name}
+                    id={heading.id}
                   />
-                  <label className="interactive" htmlFor={col.name}>
-                    {col.name}
+                  <label className="interactive" htmlFor={heading.id}>
+                    {heading.id}
                   </label>
                 </div>
               ))}

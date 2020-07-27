@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
 import { orderColumnsByDisplayOrder } from './utils'
 import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import { Form, Field } from '@nestagencyuk/react_form-factory'
 
 /**
  * Styles
@@ -24,6 +25,15 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   const [rowSearchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const { table, columns, rows } = config
+  const [tableState, setTableState] = useState({})
+
+  /**
+   * Add row to table state
+   */
+  const addRowToTableState = (rowData: any) => {
+    setTableState((prev) => ({ ...prev, ...rowData }))
+  }
+  console.log(tableState)
 
   /**
    * Search through rows
@@ -108,28 +118,55 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
             <div className="datatable-container">
               <div className="datatable-container__inner">
                 {table.header && !table.header.hidden && <DataTableHeader />}
-                <table className="datatable m--b-md">
-                  <thead>
-                    <tr className="datatable-body-header">
-                      {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
-                        columnsState[col.name] ? null : (
-                          <th data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
-                            {col.name}
-                          </th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody className="datatable-body">
-                    {rowsState.map((row, index) => (
-                      <tr className="datatable-body__row" key={`${row.sendToEndPoint}-${index}`}>
-                        {row.cells.map((cell: IDataTable.ICell) => {
-                          return columnsState[cell.belongsTo] ? null : <DataTableCell key={cell.name} {...cell} />
-                        })}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <Form onSubmit={(formData) => console.log(JSON.stringify(formData))}>
+                  {({ valid, handleSubmit }) => (
+                    <Fragment>
+                      <table className="datatable m--b-md">
+                        <thead>
+                          <tr className="datatable-body-header">
+                            {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
+                              columnsState[col.name] ? null : (
+                                <th data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
+                                  {col.name}
+                                </th>
+                              )
+                            )}
+                          </tr>
+                        </thead>
+                        <tbody className="datatable-body">
+                          {rowsState.map((row, index) => (
+                            <Field id={`Row: ${index + 1}`}>
+                              {({ value, onChange }) => (
+                                <Form onSubmit={(formData) => addRowToTableState({ [`${index + 1}`]: formData })}>
+                                  {({ valid, handleSubmit }) => (
+                                    <Fragment>
+                                      <tr
+                                        onBlur={handleSubmit}
+                                        className="datatable-body__row"
+                                        key={`${row.sendToEndPoint}-${index}`}
+                                      >
+                                        {row.cells.map((cell: IDataTable.ICell) => {
+                                          return columnsState[cell.belongsTo] ? null : (
+                                            <Field id={cell.name}>
+                                              {({ value, onChange }) => (
+                                                <DataTableCell key={cell.name} {...cell} value={value} onChange={onChange} />
+                                              )}
+                                            </Field>
+                                          )
+                                        })}
+                                      </tr>
+                                      <button onClick={handleSubmit}>test</button>
+                                    </Fragment>
+                                  )}
+                                </Form>
+                              )}
+                            </Field>
+                          ))}
+                        </tbody>
+                      </table>
+                    </Fragment>
+                  )}
+                </Form>
                 {table.footer && !table.footer.hidden && <DataTableFooter />}
               </div>
             </div>

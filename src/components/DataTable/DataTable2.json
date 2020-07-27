@@ -1,0 +1,48 @@
+{
+  "header": [
+    {
+      "id": "product_sku",
+      "name": "Stock Keeping Unit (SKU)",
+      "hidden": false
+    },
+    {
+      "id": "product_description",
+      "name": "Product Description",
+      "hidden": false
+    }
+  ],
+  "rowConfig": {
+    "sendOnBlur": true,
+    "sendToEndpoint": "/some/api"
+  },
+  "data": [
+    [
+      {
+        "id": "product_sku",
+        "name": "product_id",
+        "type": "search",
+        "value": ["500"]
+      },
+      {
+        "id": "product_description",
+        "name": "product_description",
+        "type": "string",
+        "value": "This is a product desc"
+      }
+    ],
+    [
+      {
+        "id": "product_sku",
+        "name": "product_id",
+        "type": "search",
+        "value": ["450"]
+      },
+      {
+        "id": "product_description",
+        "name": "product_description",
+        "type": "string",
+        "value": "Some more descriptive text"
+      }
+    ]
+  ]
+}

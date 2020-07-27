@@ -49,7 +49,7 @@
     },
     {
       "name": "Quantity",
-      "hidden": true,
+      "hidden": false,
       "displayOrder": 4,
       "sortable": true,
       "defaultSort": null,
@@ -60,7 +60,7 @@
     },
     {
       "name": "Batch",
-      "hidden": true,
+      "hidden": false,
       "displayOrder": 5,
       "sortable": true,
       "defaultSort": null,
@@ -90,7 +90,7 @@
           "type": "search",
           "name": "product_id",
           "id": null,
-          "value": null,
+          "value": ["500"],
           "placeholder": null,
           "multiple": false,
           "required": true,
@@ -98,36 +98,41 @@
           "ignoreTab": false,
           "tabIndex": null,
           "includeInObject": true,
-          "sendOnBlur": false,
+          "sendOnBlur": true,
           "sendOnChange": false,
           "sendOnWait": true,
           "sendOnTrigger": true,
           "sendMethod": "GET",
           "sendToEndpoint": "/products?sku=",
           "responseValue": "product_id",
-          "responseDisplay": "sku",
+          "responseLabel": "sku",
           "triggerUpdate": ["description", "uom"],
           "belongsTo": "Stock Keeping Unit (SKU)",
           "searchable": true,
           "options": [
             {
-              "label": "100",
-              "value": "100"
+              "label": "sku",
+              "value": "product_id"
             },
             {
               "label": "200",
               "value": "200"
+            },
+            {
+              "label": "400",
+              "value": "500"
             }
           ]
         },
         {
           "type": "string",
           "name": "description",
+          "value": "A product desc",
           "includeInObject": false,
           "sendOnTrigger": true,
           "sendMethod": "GET",
           "sendToEndpoint": "/products/",
-          "responseDisplay": "description",
+          "responseLabel": "description",
           "searchable": true,
           "belongsTo": "Product Description"
         },
@@ -135,9 +140,9 @@
           "type": "select",
           "name": "uom",
           "id": null,
-          "value": null,
+          "value": ["200"],
           "placeholder": null,
-          "multiple": false,
+          "multiple": true,
           "required": true,
           "readOnly": false,
           "ignoreTab": false,
@@ -145,10 +150,10 @@
           "includeInObject": true,
           "sendOnBlur": false,
           "sendOnChange": false,
-          "sendOnTrigger": true,
+          "sendOnTrigger": false,
           "sendMethod": "GET",
           "sendToEndpoint": "/products/",
-          "responseDisplay": "uom",
+          "responseLabel": "uom",
           "options": [
             {
               "label": "100",
@@ -166,7 +171,7 @@
           "type": "number",
           "name": "quantity",
           "id": null,
-          "value": null,
+          "value": 3,
           "placeholder": null,
           "required": true,
           "minValue": null,
@@ -178,7 +183,7 @@
           "includeInObject": true,
           "sendOnBlur": false,
           "sendOnWait": false,
-          "sendOnTrigger": true,
+          "sendOnTrigger": false,
           "sendMethod": null,
           "sendToEndpoint": null,
           "responseValue": null,
@@ -190,7 +195,7 @@
           "type": "text",
           "name": "batch",
           "id": null,
-          "value": null,
+          "value": "55",
           "placeholder": null,
           "required": true,
           "minLength": null,
@@ -202,7 +207,7 @@
           "includeInObject": true,
           "sendOnBlur": false,
           "sendOnWait": false,
-          "sendOnTrigger": true,
+          "sendOnTrigger": false,
           "sendMethod": null,
           "sendToEndpoint": null,
           "responseValue": null,
@@ -219,7 +224,7 @@
               "rowAction": "remove-row",
               "sendMethod": null,
               "sendToEndpoint": null,
-              "responseDisplay": null
+              "responseLabel": null
             },
             {
               "name": "More Info",
@@ -227,7 +232,7 @@
               "page": "/some/page",
               "sendMethod": null,
               "sendToEndpoint": null,
-              "responseDisplay": null
+              "responseLabel": null
             }
           ],
           "belongsTo": "Action"

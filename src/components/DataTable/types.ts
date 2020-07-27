@@ -72,7 +72,7 @@ declare namespace IDataTable {
     sendToEndpoint?: string
     responseValue?: any
     triggerInputs?: boolean
-    responseDisplay?: any
+    responseLabel?: any
     triggerUpdate?: string[]
     searchable?: boolean
     belongsTo: string

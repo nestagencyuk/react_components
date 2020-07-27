@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { useState } from 'react'
 import { IDataTable } from './types'
+
 /**
  * Styles
  */
@@ -14,12 +14,62 @@ import CellPicker from './CellPicker'
 /**
  * A datatable that displays table controls
  */
-const DataTableCell: React.FC<IDataTable.ICell> = ({ ...props }) => {
-  const [cellState, setCellState] = useState(props.value || props.responseDisplay || props.responseValue)
+const DataTableCell: React.FC<IDataTable.ICell> = ({
+  sendToEndpoint,
+  sendOnWait,
+  sendOnBlur,
+  sendOnChange,
+  sendOnTrigger,
+  sendMethod,
+  name,
+  onChange,
+  value,
+  ...props
+}) => {
+  // const [cellState, setCellState] = useState(props.value)
+
+  const handleBlur = () => {
+    if (sendOnBlur && sendToEndpoint) {
+      sendRequest()
+    }
+  }
+
+  const sendRequest = () => {
+    // console.log({
+    //   value: value,
+    //   method: sendMethod,
+    //   sendToEndpoint: `${sendToEndpoint}${value}`
+    // })
+  }
+
+  const handleRequest = () => {
+    if (sendOnChange) {
+      sendRequest()
+    }
+
+    if (sendOnWait) {
+      sendRequest()
+    }
+  }
+
+  const handleChange = (val: any) => {
+    onChange(val)
+
+    if (sendToEndpoint) {
+      handleRequest()
+    }
+  }
 
   return (
-    <td className="datatable-body__cell">
-      <CellPicker onChange={setCellState} value={cellState} {...props} />
+    <td className="datatable-body__cell" onBlur={handleBlur}>
+      <CellPicker
+        {...props}
+        value={value}
+        filterable={props.searchable}
+        disabled={props.readOnly}
+        onChange={handleChange}
+        multi={props.multiple}
+      />
     </td>
   )
 }
