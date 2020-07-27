@@ -40,10 +40,10 @@ const Navbar: React.FC<INavbar.IProps> = ({ className, brand, items = [] }) => {
   const brandEnd = brand?.align === 'End'
 
   return (
-    <nav className={cx(className, 'navbar', brandAlignment[brand?.align], { 'navbar--open': toggled })}>
+    <nav className={cx(className, 'navbar', brandAlignment[brand?.align], { 'navbar--active': toggled })}>
       <div className="navbar__bar">
         {brandStart && <NavbarBrand {...brand} />}
-        <NavbarToggle toggled={toggled} onClick={setToggled} />
+        <NavbarToggle toggled={toggled} onClick={() => setToggled(!toggled)} />
         {(brandCenter || brandEnd) && <NavbarBrand {...brand} />}
       </div>
       <div className="navbar__lists">

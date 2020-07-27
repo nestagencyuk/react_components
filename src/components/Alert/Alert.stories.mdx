@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
-import { useToggle } from '../../hooks/useToggle'
+import { useStateMachine } from '../../hooks/useStateMachine'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { Float } from '../Float'
@@ -84,12 +84,12 @@ To create an alert popover, the base alert component can be combined with [Toggl
 <Preview>
   <Story name="Toggle">
     {() => {
-      const [toggled, setToggled] = useToggle()
+      const [state, dispatchEvent] = useStateMachine()
       return (
         <Fragment>
-          <Button onClick={() => setToggled(true)}>Open Alert</Button>
-          {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top"  onClose={setToggled}>
+          <Button onClick={() => dispatchEvent('OPEN')}>Open Alert</Button>
+          {state !== 'Closed' && <Float portal>
+            <Alert state={state} onClose={() => dispatchEvent('CLOSE')}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -105,12 +105,12 @@ Set a timeout so that the alert disappears after some time.
 <Preview>
   <Story name="Alert-Timeout">
     {() => {
-      const [toggled, setToggled] = useToggle({ timeout: 3000 })
+      const [state, dispatchEvent] = useStateMachine({ timeout: 3000 })
       return (
         <Fragment>
-          <Button onClick={() => setToggled(true)}>Open Success Alert</Button>
-          {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant="Success">
+          <Button onClick={() => dispatchEvent('OPEN')}>Open Success Alert</Button>
+          {state !== 'Closed' && <Float portal>
+            <Alert variant="Success" state={state}>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -127,16 +127,16 @@ An alert can be used to determine an action.
   <Story name="Confirm">
     {() => {
       const [decision, setDecision] = useState(null)
-      const [toggled, setToggled] = useToggle()
+      const [state, dispatchEvent] = useStateMachine()
       return (
         <Fragment>
-          <Button onClick={() => setToggled(true)}>Do something mad!</Button>
+          <Button onClick={() => dispatchEvent('OPEN')}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
-          {toggled && <Float portal>
-            <Alert className="animate animate--fade-in-top" variant="Warning" footer={{
+          {state !== 'Closed' && <Float portal>
+            <Alert variant="Warning" state={state} footer={{
               actions: [
-                { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); setToggled(false) } },
-                { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); setToggled(false) } },
+                { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); dispatchEvent('CLOSE') } },
+                { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); dispatchEvent('CLOSE') } },
               ]
             }}>
               Are you sure you want to do this?!

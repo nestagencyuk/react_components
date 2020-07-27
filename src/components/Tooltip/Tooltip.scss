@@ -16,33 +16,71 @@
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$xs !default;
 $border-radius: corners.$base !default;
-$bg-colour: rgba(black, 0.85) !default;
+$bg-colour: rgba(black, 0.5) !default;
+$arrow-size: 0.5rem !default;
+
+/// -------------------
+/// Popover swatches
+/// -------------------
+
+.tooltip {
+  display: none;
+  padding: 1rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--active {
+    display: block;
+  }
+}
 
 /// -------------------
 /// Tooltip swatches
 /// -------------------
 
-.tooltip {
-  position: fixed;
+.tooltip__body {
   background-color: $bg-colour;
   border-radius: $border-radius;
   padding: $padding-y $padding-x;
   color: white;
-  z-index: z-index.$tooltip;
+}
 
-  &--left {
-    animation: centerFadeInLeft 0.3s forwards ease;
+/// -------------------
+/// Tooltip arrow
+/// -------------------
+
+.tooltip__arrow {
+  width: $arrow-size;
+  height: $arrow-size;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: $arrow-size;
+    height: $arrow-size;
+    background: $bg-colour;
+    z-index: -1;
   }
-  
-  &--right {
-    animation: centerFadeInRight 0.3s forwards ease;
+
+  .tooltip[data-popper-placement^='left'] & {
+    right: -($arrow-size);
+    clip-path: polygon(50% 50%, 0 100%, 0 0);
   }
-  
-  &--top {
-    animation: centerFadeInBottom 0.3s forwards ease;
+
+  .tooltip[data-popper-placement^='right'] & {
+    left: -($arrow-size);
+    clip-path: polygon(50% 50%, 100% 100%, 100% 0);
   }
-  
-  &--bottom {
-    animation: centerFadeInTop 0.3s forwards ease;
+
+  .tooltip[data-popper-placement^='top'] & {
+    bottom: -($arrow-size);
+    clip-path: polygon(50% 50%, 0 0, 100% 0);
+  }
+
+  .tooltip[data-popper-placement^='bottom'] & {
+    top: -($arrow-size);
+    clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
   }
 }

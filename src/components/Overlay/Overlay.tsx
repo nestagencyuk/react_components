@@ -16,17 +16,31 @@ const variants = {
 }
 
 /**
+ * States
+ */
+const states = {
+  Closed: '',
+  Opening: 'animate--fade-in',
+  Open: '',
+  Closing: 'animate--fade-in animate--reverse'
+}
+
+/**
  * An overlay
  */
-const Overlay: React.FC<IOverlay.IProps> = ({ className, variant, portal, fixed, children, onClick }) => {
+const Overlay: React.FC<IOverlay.IProps> = ({ className, variant, state, portal, fixed, children, onClick }) => {
   /**
    * Render the component
    */
-  const renderOverlay = () => (
-    <div className={cx(className, 'overlay', variants[variant], { 'overlay--fixed': fixed })} onClick={onClick}>
-      {children}
-    </div>
-  )
+  const renderOverlay = () =>
+    state !== 'Closed' ? (
+      <div
+        className={cx(className, 'overlay', variants[variant], 'animate', states[state], { 'overlay--fixed': fixed })}
+        onClick={onClick}
+      >
+        {children}
+      </div>
+    ) : null
 
   return portal ? createPortal(renderOverlay(), document.body) : renderOverlay()
 }
