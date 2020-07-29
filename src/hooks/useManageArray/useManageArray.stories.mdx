@@ -149,7 +149,6 @@ An example of a table with editable rows.
         initialArray: config.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
       })
       const blankRow = { name: null, age: null, gender: null }
-      console.log(array)
       return (
         <Fragment>
           <Text>Value:</Text>
