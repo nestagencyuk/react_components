@@ -122,9 +122,9 @@ const Select: React.FC<ISelect.IProps> = ({
   useEffect(() => {
     if (values === null) return
     if (multi) {
-      onChange(values.length === 0 ? null : values)
+      onChange(values.length === 0 ? null : (values as string[]))
     } else {
-      onChange(values[0])
+      onChange(values[0] as string)
     }
   }, [values])
 
@@ -170,7 +170,7 @@ const Select: React.FC<ISelect.IProps> = ({
       <SelectOptions
         id={id}
         open={focused}
-        values={values}
+        values={values as string[]}
         options={options}
         filtered={filtered}
         optional={optional}

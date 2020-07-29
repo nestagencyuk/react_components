@@ -16,7 +16,7 @@ import { Icon } from '../Icon'
  * A tag component
  */
 const Tag: React.FC<ITag.IProps> = ({ className, children, onClick }) => (
-  <button className={cx(className, 'tag')} onClick={onClick}>
+  <button className={cx(className, 'tag')} type="button" onClick={onClick}>
     {children}
     <Icon className="tag__action m--l-xs" name="Cross" size="Small" />
   </button>

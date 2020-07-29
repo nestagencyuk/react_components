@@ -59,6 +59,7 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
         <button
           className={cx('select__option-btn', { 'p--l-xxl': multi && multiVariant === 'Checkbox' })}
           title={x.label}
+          type="button"
           disabled={x.disabled}
           data-value={x.value}
           onClick={() => onClick(x.value)}

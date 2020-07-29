@@ -7,10 +7,10 @@ declare namespace IInput {
     name?: string
     type?: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
     placeholder?: string
-    value?: string
+    value?: string | number
     disabled?: boolean
     size?: Size
-    onChange: (value: string) => void
+    onChange: (value: string | number) => void
   }
 }
 
