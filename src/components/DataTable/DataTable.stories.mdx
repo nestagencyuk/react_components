@@ -1,10 +1,9 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { dataTableDecorator } from '../../../.storybook/decorators'
 import { DataTableContext, DataTable } from '.'
-import DataTableTest from "./DataTableTest"
-import config from "./DataTable2"
+import config from "./DataTableV2"
 
-<Meta title="Components|DataTable/DataTable" component={DataTableTest} />
+<Meta title="Components|DataTable/DataTable" component={DataTable} />
 
 # DataTable
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -14,7 +13,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <Preview>
   <Story name="Base" decorators={[dataTableDecorator]}>
-    <DataTableTest controls={{ search: true, buttonAddLine: true, buttonFilterData: true, buttonCustomiseTable: true}} config={config} />
+    <DataTable tableControls={config.config.tableControls} rowControls={config.config.rowControls} footerControls={config.config.footerControls} headings={config.headings} data={config.data}  />
   </Story>
 </Preview>
 

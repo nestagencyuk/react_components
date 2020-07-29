@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
  * Components
@@ -21,9 +22,9 @@ const CellPicker: React.FC<any> = (props) => {
     case 'text':
       return <Input type="Text" {...props} />
     case 'number':
-      return <Input type="Number" {...props} />
+      return <Input {...props} type={capitalise(props.type)} />
     default:
-      return <Text variant="P" children={props.value || props.displayValue || props.responseDisplay} />
+      return <Input {...props} />
   }
 }
 

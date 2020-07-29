@@ -1,57 +1,48 @@
 {
-  "table": {
+  "config": {
+    "type": "form",
+    "tableControls": {
+      "visible": true
+    },
     "rowControls": {
-      "sendOnBlur": true,
-      "sendToEndpoint": "/some/api",
       "visible": true,
-      "buttonCustomiseTable": true,
-      "buttonFilterData": true,
-      "buttonAddLine": false,
-      "search": false
+      "buttonDuplicateRow": true,
+      "buttonRemoveRow": true,
+      "buttonLoadPage": false,
+      "buttonLockRow": true
+    },
+    "footerControls": {
+      "visible": true,
+      "rowCount": true,
+      "pagination": false
     }
   },
-  "header": [
+  "headings": [
     {
       "id": "product_sku",
       "name": "Stock Keeping Unit (SKU)",
-      "hidden": false,
-      "resizable": true,
-      "defaultWidth": 200
+      "visible": true,
+      "resizable": true
     },
     {
       "id": "product_description",
       "name": "Product Description",
-      "hidden": false,
-      "resizable": true,
-      "defaultWidth": 200
+      "visible": true
     },
     {
       "id": "unit_of_measure",
       "name": "Unit of Measure",
-      "hidden": false,
-      "resizable": true,
-      "defaultWidth": 100
+      "visible": true,
+      "resizable": true
     },
     {
       "id": "quantity",
       "name": "Quantity",
-      "hidden": true,
-      "defaultWidth": 100,
-      "min": 1,
-      "max": 10
+      "visible": true
     },
     {
       "id": "batch",
-      "name": "Batch",
-      "hidden": true,
-      "defaultWidth": 100
-    },
-    {
-      "id": "action",
-      "name": "Action",
-      "hidden": false,
-      "resizable": false,
-      "defaultWidth": 100
+      "name": "Batch"
     }
   ],
   "data": [
@@ -59,7 +50,7 @@
       {
         "id": "product_sku",
         "name": "product_id",
-        "type": "select",
+        "type": "search",
         "value": "400",
         "options": [
           {
@@ -71,8 +62,16 @@
             "value": "200"
           },
           {
+            "label": "300",
+            "value": "300"
+          },
+          {
             "label": "400",
             "value": "400"
+          },
+          {
+            "label": "500",
+            "value": "500"
           }
         ]
       },
@@ -84,21 +83,34 @@
       },
       {
         "id": "unit_of_measure",
-        "name": "Unit of Measure",
-        "type": "number",
-        "value": 11
+        "name": "unit_of_measure",
+        "type": "select",
+        "multiple": true,
+        "value": ["200"],
+        "options": [
+          {
+            "label": "100",
+            "value": "100"
+          },
+          {
+            "label": "200",
+            "value": "200"
+          }
+        ]
       },
       {
         "id": "quantity",
         "name": "quantity",
         "type": "number",
-        "value": 3
+        "value": 5,
+        "minValue": 5,
+        "maxValue": 10
       },
       {
         "id": "batch",
         "name": "batch",
-        "type": "number",
-        "value": null
+        "type": "text",
+        "maxLength": 5
       }
     ]
   ]

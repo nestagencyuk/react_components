@@ -1,56 +1,60 @@
 declare namespace IDataTable {
-  // Base DataTable config
-  interface IConfig {
-    table: {
-      header: IHeader
-      footer: IFooter
-    }
-    columns: IColumn[]
-    rows: IRow[]
-  }
-
-  // DataTable types
   interface IProps {
-    config: IConfig
+    tableControls: ITableControls
+    rowControls: IRowControls
+    footerControls: IFooterControls
+    headings: IHeading[]
+    data: Array<Array<ICell>>
   }
 
-  interface IHeader {
-    buttonCustomiseTable: boolean
-    buttonFilterData: boolean
-    buttonAddLine: boolean
-    search: boolean
-    hidden: boolean
+  interface ITableControls {
+    visible: boolean
+    buttonCustomiseTable?: boolean
+    buttonFilterData?: boolean
+    buttonAddLine?: boolean
+    search?: boolean
   }
 
-  interface IFooter {
-    hidden: boolean
+  interface IRowControls {
+    visible: boolean
+    sendToEndPoint?: string
+    sendOnBlur?: boolean
+    buttonDuplicateRow?: boolean
+    buttonRemoveRow?: boolean
+    buttonLoadPage?: boolean
+    buttonLockRow?: boolean
+  }
+
+  interface IFooterControls {
+    visible: boolean
     rowCount: true
   }
 
-  // DataTable Rows, Cols & Cells types
-  interface IColumn {
-    name: string
-    hidden: boolean
-    displayOrder: number
-    sortable: boolean
-    defaultSort: null | 'asc' | 'desc'
-    resizableWidth: boolean
-    defaultWidth: number
-    minWidth: number
-    maxWidth: number
+  // DataTable components
+  interface IHeader {
+    headings: IHeading[]
   }
 
   interface IRow {
-    sendToEndpoint: string
-    sendOnBlur: boolean
     cells: ICell[]
   }
 
-  interface ICell {
-    type: 'text' | 'number' | 'search' | 'select' | 'string'
+  // DataTable Header, Rows & Cells types
+  interface IHeading {
+    id: string
     name: string
-    id?: string
-    value?: any
+    visible: boolean
+    sortable?: boolean
+    defaultSort?: null | 'asc' | 'desc'
+    resizable?: boolean
+    defaultWidth?: number
+  }
+
+  interface ICell {
+    id: string
+    name: string
+    value: any
+    type?: 'text' | 'number' | 'search' | 'select' | 'string'
     placeholder?: string
     multiple?: boolean
     required?: boolean

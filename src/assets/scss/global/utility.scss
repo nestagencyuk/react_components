@@ -135,3 +135,13 @@ $directions: (
 .interactive {
   cursor: pointer;
 }
+
+/// -------------------
+/// Display
+/// -------------------
+
+.d {
+  &--block {
+    display: block;
+  }
+}
