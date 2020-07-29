@@ -4,6 +4,7 @@ exports[`----- Tag Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <button
     class="tag"
+    type="button"
   >
     Test
     <span

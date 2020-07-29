@@ -6,7 +6,9 @@ exports[`----- Button Component ----- Renders without crashing 1`] = `
     class="btn btn--primary btn--md"
     type="button"
   >
-    <span>
+    <span
+      class="w--100"
+    >
       Test
     </span>
   </button>
