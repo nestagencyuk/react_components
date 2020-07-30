@@ -38,7 +38,9 @@ const Input: React.FC<IInput.IProps> = ({
     value={value || ''}
     disabled={disabled}
     placeholder={placeholder}
-    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+      onChange(type === 'Number' ? parseInt(e.target.value) : e.target.value)
+    }
   />
 )
 
