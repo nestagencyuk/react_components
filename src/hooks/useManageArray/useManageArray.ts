@@ -19,11 +19,25 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   const [array, setArray] = useState<IUseManageArray.IState>(initialArray)
 
   /**
+   *
+   * Generate UID
+   */
+  const generateUID = (length: number) => {
+    let result = ''
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const charactersLength = characters.length
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength))
+    }
+    return result
+  }
+
+  /**
    * Add an item
    */
   const addItem = (value: string | { [key: string]: any }) => {
     if (typeof value === 'object') {
-      value._uid = uid(8)
+      value._uid = generateUID(8)
     }
 
     setArray((prev) => [
@@ -70,7 +84,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
    */
   useEffect(() => {
     if (initialArray) {
-      setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid(8) })))
+      setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: generateUID(8) })))
     }
   }, [])
 
