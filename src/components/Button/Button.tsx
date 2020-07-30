@@ -76,7 +76,7 @@ const Button = (
       onBlur={onBlur}
     >
       {iconStart && <ButtonIcon {...icon} />}
-      <span>{children}</span>
+      <span className="w--100">{children}</span>
       {iconEnd && <ButtonIcon {...icon} />}
     </Tag>
   ) : null
