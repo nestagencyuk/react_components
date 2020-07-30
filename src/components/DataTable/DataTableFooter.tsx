@@ -20,7 +20,7 @@ const DataTableFooter: React.FC = () => {
 
   return (
     <footer className="datatable-footer" data-testid="datatable-footer">
-      <Grid>{rowCount && <GridItem span={3}>{`${rowCount} Lines`}</GridItem>}</Grid>
+      <Grid>{<GridItem span={3}>{`${rowCount} ${rowCount === 1 ? 'Line' : 'Lines'}`}</GridItem>}</Grid>
     </footer>
   )
 }

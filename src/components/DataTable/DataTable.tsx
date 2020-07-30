@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import { Form, Field } from '@nestagencyuk/react_form-factory'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
 import { IDataTable } from './types'
 import { DataTableContext } from '.'
+import { useManageArray } from '../../hooks/useManageArray'
+import uid from 'uid'
 
 /**
  * Styles
@@ -18,9 +19,10 @@ import { Loader } from '../Loader'
 
 const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
   const { tableControls, rowControls, footerControls } = config
+  const { array: managedArray, addItem, editItem, deleteItem } = useManageArray({
+    initialArray: data.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
+  })
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
-  const [rowsState, setRowsState] = useState([])
-  const [blankRowState, setBlankRow] = useState([])
   const [loading, setLoading] = useState(true)
   const [rowCount, setRowCount] = useState(0)
 
@@ -32,24 +34,29 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
   }
 
   /**
-   * Add new row
+   * Add new, blank row
    */
   const addNewRow = () => {
-    setRowsState((prev) => [...prev, blankRowState])
+    addItem(data[0].reduce((acc, cell) => ({ ...acc, [cell.id]: null }), {}))
+  }
+
+  /**
+   * Duplicate row
+   */
+  const duplicateRow = (row: IDataTable.IRowProps) => {
+    addItem({ ...row, _uid: uid(8) })
   }
 
   /**
    * Listen for params
    */
   useEffect(() => {
-    setRowCount(rowsState.length)
-  }, [rowsState])
+    setRowCount(managedArray.length)
+  }, [managedArray])
 
   /**
    * On Mount -
    * Load headings into state
-   * Load rows into state
-   * Load blank row into state
    * Finish table loading
    */
   useEffect(() => {
@@ -57,17 +64,24 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
       !heading.visible && toggleColumn(heading.id)
     })
 
-    data.forEach((row) => {
-      setRowsState((prev) => [...prev, row])
-    })
-
-    data[0].forEach((cell) => setBlankRow((prev) => [...prev, { ...cell, value: null }]))
-
     setLoading(false)
   }, [])
 
   return (
-    <DataTableContext.Provider value={{ headings, columnsState, rowControls, rowCount, toggleColumn, addNewRow }}>
+    <DataTableContext.Provider
+      value={{
+        headings,
+        data,
+        columnsState,
+        rowControls,
+        rowCount,
+        toggleColumn,
+        addNewRow,
+        duplicateRow,
+        editItem,
+        deleteItem
+      }}
+    >
       <DataTableContext.Consumer>
         {() =>
           loading ? (
@@ -76,20 +90,15 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
             <div className="datatable-container">
               <div className="datatable-container__inner">
                 {tableControls.visible && <DataTableControls {...tableControls} />}
-                <Form onSubmit={(FormData) => console.log(JSON.stringify(FormData))}>
-                  {() => (
-                    <table className="datatable m--b-md">
-                      <DataTableHeader headings={headings} />
-                      <tbody className="datatable-body">
-                        {rowsState.map((cells, rowIndex) => (
-                          <Field key={`Row: ${rowIndex + 1}`} id={`Row: ${rowIndex + 1}`}>
-                            {() => <DataTableRow cells={cells} />}
-                          </Field>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
-                </Form>
+                <table className="datatable m--b-md">
+                  <DataTableHeader headings={headings} />
+                  <tbody className="datatable-body">
+                    {managedArray &&
+                      managedArray.map((row, rowIndex) => (
+                        <DataTableRow key={rowIndex} row={row} cells={data[rowIndex] || data[0]} />
+                      ))}
+                  </tbody>
+                </table>
                 {footerControls.visible && <DataTableFooter />}
               </div>
             </div>

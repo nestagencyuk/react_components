@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Form, Field } from '@nestagencyuk/react_form-factory'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { DataTableContext } from '.'
 import { IDataTable } from './types'
 
@@ -12,9 +12,10 @@ import { Popover } from '../Popover'
 import { RefAction } from '../Action'
 import { Button } from '../Button'
 
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells }) => {
-  const { rowControls, columnsState } = useContext(DataTableContext)
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells, row }) => {
+  const { rowControls, columnsState, duplicateRow, editItem, deleteItem } = useContext(DataTableContext)
   const { sendOnBlur, sendToEndpoint, buttonDuplicateRow, buttonRemoveRow, buttonLoadPage, buttonLockRow } = rowControls
+  const [isLocked, setLocked] = useState(false)
 
   const handleOnBlur = () => {
     if (sendOnBlur && sendToEndpoint) {
@@ -23,23 +24,21 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells }) => {
   }
 
   return (
-    <Form
-      onSubmit={(formData) => console.log(formData)}
-      savedData={
-        cells.some((x: IDataTable.ICell) => x.value)
-          ? cells.reduce(
-              (acc: IDataTable.ICell, cell: IDataTable.ICell) => ({ ...acc, [cell.id]: cell.value }),
-              {} as IDataTable.ICell
-            )
-          : null
-      }
-    >
+    <Form onSubmit={(formData) => editItem(formData)} savedData={row}>
       {({ handleSubmit }) => (
         <tr className="datatable-body__row" onBlur={handleSubmit}>
           {cells.map((cell: IDataTable.ICell) => {
             return columnsState[cell.id] ? null : (
               <Field key={cell.id} id={cell.id}>
-                {({ value, onChange }) => <DataTableCell key={cell.id} {...cell} value={value} onChange={onChange} />}
+                {({ value, onChange }) => (
+                  <DataTableCell
+                    key={cell.id}
+                    {...cell}
+                    disabled={cell.disabled || isLocked}
+                    value={value}
+                    onChange={onChange}
+                  />
+                )}
               </Field>
             )
           })}
@@ -49,17 +48,17 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells }) => {
                 render={
                   <div>
                     {buttonDuplicateRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => alert('Duplicate row')}>
+                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => duplicateRow(row)}>
                         Duplicate row
                       </Button>
                     )}
                     {buttonRemoveRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => alert('Remove row')}>
+                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => deleteItem(row)}>
                         Remove row
                       </Button>
                     )}
                     {buttonLockRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => alert('Lock row')}>
+                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => setLocked(!isLocked)}>
                         Lock row
                       </Button>
                     )}

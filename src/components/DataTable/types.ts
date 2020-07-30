@@ -39,6 +39,7 @@ declare namespace IDataTable {
 
   interface IRowProps {
     cells: ICell[]
+    row: any
   }
 
   interface ICellProps extends ICell {
@@ -70,7 +71,7 @@ declare namespace IDataTable {
     maxValue?: number
     step?: number
     pattern?: string
-    readOnly?: boolean
+    disabled?: boolean
     ignoreTab?: boolean
     tabIndex?: number
     includeInObject?: boolean
