@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
-import { orderColumnsByDisplayOrder } from './utils'
-import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import { DataTableContext } from '.'
+import { useManageArray } from '../../hooks/useManageArray'
+import uid from 'uid'
 
 /**
  * Styles
@@ -13,31 +14,17 @@ import './DataTable.scss'
 /**
  * Components
  */
-import { DataTableHeader, DataTableFooter } from '.'
+import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
 import { Loader } from '../Loader'
 
-const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
+const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
+  const { tableControls, rowControls, footerControls } = config
+  const { array: managedArray, addItem, editItem, deleteItem } = useManageArray({
+    initialArray: data.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
+  })
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
-  const [columnsByDisplayOrder, setColumnOrder] = useState([])
-  const [rowsState, setRowsState] = useState([])
-  const [rowCountState, setRowCount] = useState(0)
-  const [rowSearchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
-  const { table, columns, rows } = config
-
-  /**
-   * Search through rows
-   */
-  const searchRows = (query: string) => {
-    setRowsState(
-      rows.filter((row) =>
-        row.cells.some((cell: IDataTable.ICell) =>
-          cell.searchable ? cell.value.toLowerCase().includes(query.toLowerCase()) : false
-        )
-      )
-    )
-    setSearchQuery(query)
-  }
+  const [rowCount, setRowCount] = useState(0)
 
   /**
    * Toggle individual column visibilty
@@ -47,65 +34,52 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   }
 
   /**
-   * Add new row
+   * Add new, blank row
    */
   const addNewRow = () => {
-    const newRow = rowsState[0]
-    setRowsState([...rowsState, newRow])
+    addItem(data[0].reduce((acc, cell) => ({ ...acc, [cell.id]: null }), {}))
   }
 
   /**
-   * Sets any necessary initial state based on config passed in
+   * Duplicate row
    */
-  const setInitialState = () => {
-    // Load column config into state
-    const columnsFromConfig: any = []
-
-    columns.forEach((col: IDataTable.IColumn) => {
-      col.hidden && toggleColumn(col.name)
-      columnsFromConfig.push(col)
-    })
-
-    setColumnOrder(columnsFromConfig.sort(orderColumnsByDisplayOrder))
-
-    // Load rows config into state
-    const rowsFromConfig: any = []
-
-    rows.forEach((row, index) => {
-      rowsFromConfig.push(row)
-    })
-
-    setRowsState(rowsFromConfig)
-
-    // Allow table to render
-    setLoading(false)
+  const duplicateRow = (row: IDataTable.IRowProps) => {
+    addItem({ ...row, _uid: uid(8) })
   }
 
   /**
    * Listen for params
    */
   useEffect(() => {
-    setRowCount(rowsState.length)
-  }, [rowsState])
+    setRowCount(managedArray.length)
+  }, [managedArray])
 
   /**
-   * On Mount
+   * On Mount -
+   * Load headings into state
+   * Finish table loading
    */
   useEffect(() => {
-    setInitialState()
+    headings.forEach((heading: IDataTable.IHeading) => {
+      !heading.visible && toggleColumn(heading.id)
+    })
+
+    setLoading(false)
   }, [])
 
   return (
     <DataTableContext.Provider
       value={{
-        config,
-        rowsState,
-        rowCountState,
+        headings,
+        data,
         columnsState,
-        addNewRow,
+        rowControls,
+        rowCount,
         toggleColumn,
-        searchRows,
-        rowSearchQuery
+        addNewRow,
+        duplicateRow,
+        editItem,
+        deleteItem
       }}
     >
       <DataTableContext.Consumer>
@@ -115,34 +89,17 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
           ) : (
             <div className="datatable-container">
               <div className="datatable-container__inner">
-                {table.header && !table.header.hidden && <DataTableHeader />}
+                {tableControls.visible && <DataTableControls {...tableControls} />}
                 <table className="datatable m--b-md">
-                  <thead>
-                    <tr className="datatable-body-header">
-                      {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
-                        columnsState[col.name] ? null : (
-                          <th data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
-                            {col.name}
-                          </th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
+                  <DataTableHeader headings={headings} />
                   <tbody className="datatable-body">
-                    {rowsState.map((row, index) => (
-                      <tr className="datatable-body__row" key={`${row.sendToEndPoint}-${index}`}>
-                        {row.cells.map((cell: IDataTable.ICell) =>
-                          columnsState[cell.belongsTo] ? null : (
-                            <td key={cell.name} className="datatable-body__cell">
-                              {cell.value}
-                            </td>
-                          )
-                        )}
-                      </tr>
-                    ))}
+                    {managedArray &&
+                      managedArray.map((row, rowIndex) => (
+                        <DataTableRow key={rowIndex} row={row} cells={data[rowIndex] || data[0]} />
+                      ))}
                   </tbody>
                 </table>
-                {table.footer && !table.footer.hidden && <DataTableFooter />}
+                {footerControls.visible && <DataTableFooter />}
               </div>
             </div>
           )

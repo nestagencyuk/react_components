@@ -1,9 +1,14 @@
-import { TooltipProps } from 'react-tippy'
+import { AlignmentBox } from '../../types'
 
 declare namespace IPopover {
-  interface IProps extends TooltipProps {
-    children: React.ReactNode
-    props?: TooltipProps
+  interface IProps {
+    align?: Exclude<AlignmentBox, 'Center'>
+    render: React.ReactNode
+    children?: React.ReactNode
+  }
+
+  interface IRenderProps extends Omit<IProps, 'children'> {
+    children(value: { [key: string]: any }): React.ReactNode
   }
 }
 

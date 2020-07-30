@@ -14,6 +14,8 @@ declare namespace IAction {
     icon: IIcon.IProps
     disabled?: boolean
     children: string
+    onFocus?: (e: React.SyntheticEvent) => void
+    onBlur?: (e: React.SyntheticEvent) => void
     onClick?: (e: React.SyntheticEvent) => void
   }
 }

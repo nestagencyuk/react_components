@@ -18,6 +18,42 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           <div
             class="grid__item grid__item--3"
           >
+            <button
+              class="w--100 btn btn--tertiary btn--sm"
+              type="button"
+            >
+              <span
+                class="w--100"
+              >
+                Filter Data
+              </span>
+              <span
+                class="btn__icn btn__icn--end icn icn--sm"
+                title="Branch"
+              />
+            </button>
+          </div>
+          <div
+            class="grid__item grid__item--3"
+          >
+            <button
+              class="w--100 btn btn--tertiary btn--sm"
+              type="button"
+            >
+              <span
+                class="w--100"
+              >
+                Customise Table
+              </span>
+              <span
+                class="btn__icn btn__icn--end icn icn--sm"
+                title="Branch"
+              />
+            </button>
+          </div>
+          <div
+            class="grid__item grid__item--3"
+          >
             <div>
               <input
                 class="input--sm input"
@@ -28,26 +64,44 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
               />
             </div>
           </div>
+          <div
+            class="m--l-auto grid__item grid__item--3"
+          >
+            <button
+              class="w--100 btn btn--tertiary btn--sm"
+              type="button"
+            >
+              <span
+                class="w--100"
+              >
+                Add Line
+              </span>
+              <span
+                class="btn__icn btn__icn--end icn icn--sm"
+                title="Branch"
+              />
+            </button>
+          </div>
         </div>
       </header>
       <table
         class="datatable m--b-md"
       >
-        <thead>
-          <tr
-            class="datatable-body-header"
-          >
+        <thead
+          class="datatable-body-header"
+        >
+          <tr>
             <th
               class="datatable-body-header__item"
-              data-testid="datatable-column"
+              style="width: 100px; resize: none;"
             >
-              First Test Column
+              Test Heading 1
             </th>
             <th
               class="datatable-body-header__item"
-              data-testid="datatable-column"
+              style="width: 50px;"
             >
-              Second Test Column
+              Action
             </th>
           </tr>
         </thead>
@@ -60,12 +114,64 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             <td
               class="datatable-body__cell"
             >
-              Test Cell 1
+              <div
+                class="select"
+                data-testid="test_cell_1"
+                tabindex="-1"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="test_cell_1-input"
+                    id="test_cell_1"
+                    name="test_cell_1"
+                    placeholder="-- Select --"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="test_cell_1-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="200"
+                      title="200"
+                      type="button"
+                    >
+                      200
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </td>
             <td
               class="datatable-body__cell"
             >
-              Test Cell 2
+              <button
+                class="action action--tertiary action--md"
+                title="Row actions"
+                type="button"
+              >
+                <span
+                  class="action__icn icn icn--md"
+                  title="Branch"
+                />
+                <span
+                  class="text--screen-reader"
+                >
+                  Row actions
+                </span>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -80,7 +186,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           <div
             class="grid__item grid__item--3"
           >
-            1 Lines
+            1 Line
           </div>
         </div>
       </footer>

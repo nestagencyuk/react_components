@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useEffect, Fragment } from 'react'
+import cx from 'classnames'
 import { IDrawer } from './types'
 
 /**
@@ -14,9 +15,19 @@ import { Float } from '../Float'
 import { Overlay } from '../Overlay'
 
 /**
+ * States
+ */
+const states = {
+  Closed: 'animate',
+  Opening: 'animate animate--swipe-in-left',
+  Open: 'animate',
+  Closing: 'animate animate--swipe-in-left animate--reverse'
+}
+
+/**
  * A drawer container that slides out and overlays the main body
  */
-const Drawer: React.FC<IDrawer.IProps> = ({ children, onClick }) => {
+const Drawer: React.FC<IDrawer.IProps> = ({ className, state = 'Open', children, onClick }) => {
   /**
    * Close drawer on esc key press
    */
@@ -32,14 +43,14 @@ const Drawer: React.FC<IDrawer.IProps> = ({ children, onClick }) => {
     return () => window.removeEventListener('keydown', handleKeydown)
   }, [])
 
-  return (
+  return state !== 'Closed' ? (
     <Fragment>
-      <Overlay className='animate animate animate--fade-in' portal fixed onClick={onClick} />
-      <Float className='drawer animate animate--swipe-in-left' portal align={{ x: 'Start', y: 'Start' }}>
-        <div>{children}</div>
+      <Overlay state={state} portal fixed onClick={onClick} />
+      <Float className="p--0" portal align={{ x: 'Start', y: 'Start' }}>
+        <div className={cx(className, 'drawer', states[state])}>{children}</div>
       </Float>
     </Fragment>
-  )
+  ) : null
 }
 
 export default Drawer

@@ -16,7 +16,7 @@ const SelectTags = ({ values, options, onClick }: any) =>
     <Tag
       key={`tag-${i}`}
       className="m--xs"
-      onClick={(e: React.SyntheticEvent) => {
+      onClick={(e) => {
         e.preventDefault()
         onClick(x)
       }}
@@ -59,6 +59,7 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
         <button
           className={cx('select__option-btn', { 'p--l-xxl': multi && multiVariant === 'Checkbox' })}
           title={x.label}
+          type="button"
           disabled={x.disabled}
           data-value={x.value}
           onClick={() => onClick(x.value)}

@@ -21,7 +21,7 @@ $padding-x: spacing.$xs !default;
 /// Tag selectors
 /// -------------------
 
-.tag {
+.tag:not(.token) {
   @include lib.resets-style;
   display: inline-flex;
   box-sizing: border-box;
@@ -42,6 +42,5 @@ $padding-x: spacing.$xs !default;
 /// -------------------
 
 .tag__action.btn {
-  // @include lib.utilities-center-y;
   border-width: 1px;
 }

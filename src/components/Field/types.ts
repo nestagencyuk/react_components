@@ -12,7 +12,7 @@ declare namespace IField {
     state?: UIState
     msg?: string
     options?: any[]
-    onChange: (e: any) => void
+    onChange: (value: any) => void
   }
 }
 

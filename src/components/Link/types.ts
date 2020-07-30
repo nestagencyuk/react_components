@@ -1,3 +1,4 @@
+import { Alignment } from '../../types'
 import { IIcon } from '../Icon/types'
 
 declare namespace ILink {
@@ -14,7 +15,7 @@ declare namespace ILink {
   }
 
   interface IIconProps extends IIcon.IProps {
-    align?: 'Start' | 'End'
+    align?: Exclude<Alignment, 'Center'>
   }
 }
 

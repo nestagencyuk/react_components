@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
+import { useFocus } from '../../hooks/useFocus'
 import cx from 'classnames'
 
 /**
@@ -34,10 +35,10 @@ const Select: React.FC<ISelect.IProps> = ({
   onChange,
   onSearch
 }) => {
-  const ref = useRef<HTMLDivElement>()
-  const [focused, setFocused] = useState<boolean>(false)
-  const [filterValue, setSearchValue] = useState<string>('')
   const { array: values, addItem, deleteItem, resetItems } = useManageArray()
+  const [filterValue, setSearchValue] = useState<string>('')
+  const [, , focused, onFocus, onBlur] = useFocus()
+  const ref = useRef<HTMLDivElement>()
 
   /**
    * Filter the options if a filter value has been entered
@@ -50,18 +51,18 @@ const Select: React.FC<ISelect.IProps> = ({
    * When we focus, open the options
    */
   const handleFocus = () => {
-    setFocused(true)
+    onFocus()
   }
 
   /**
    * On blur
    *
    * @param {Event} e
-   * The event
+   * The focus event
    */
   const handleBlur = (e: React.FocusEvent<HTMLDivElement> & { relatedTarget: HTMLElement }) => {
     if (!ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)) {
-      setFocused(false)
+      onBlur()
       setSearchValue(null)
     }
   }
@@ -83,7 +84,7 @@ const Select: React.FC<ISelect.IProps> = ({
       }
     } else {
       resetItems([value])
-      setFocused(false)
+      onBlur()
     }
   }
 
@@ -92,7 +93,7 @@ const Select: React.FC<ISelect.IProps> = ({
    */
   const handleReset = () => {
     resetItems([])
-    setFocused(false)
+    onBlur()
   }
 
   /**
@@ -121,9 +122,9 @@ const Select: React.FC<ISelect.IProps> = ({
   useEffect(() => {
     if (values === null) return
     if (multi) {
-      onChange(values.length === 0 ? null : values)
+      onChange(values.length === 0 ? null : (values as string[]))
     } else {
-      onChange(values[0])
+      onChange(values[0] as string)
     }
   }, [values])
 
@@ -169,7 +170,7 @@ const Select: React.FC<ISelect.IProps> = ({
       <SelectOptions
         id={id}
         open={focused}
-        values={values}
+        values={values as string[]}
         options={options}
         filtered={filtered}
         optional={optional}

@@ -26,6 +26,7 @@ $close-size: 1.5rem !default;
 /// -------------------
 
 .modal {
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   max-width: 800px;

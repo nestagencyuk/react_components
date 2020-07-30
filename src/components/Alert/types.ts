@@ -1,4 +1,4 @@
-import { UIState } from '../../types'
+import { UIState, OpenState } from '../../types'
 import { IFooter } from '../Footer/types'
 import { IHeader } from '../Header/types'
 
@@ -6,6 +6,7 @@ declare namespace IAlert {
   interface IProps {
     className?: string
     variant?: UIState
+    state?: OpenState
     footer?: IFooterProps
     children: string
     header?: IHeaderProps
@@ -13,7 +14,7 @@ declare namespace IAlert {
   }
 
   interface ICloseProps {
-    onClick: (bool: boolean) => void
+    onClick: (e?: React.SyntheticEvent) => void
   }
 
   interface IIconProps {

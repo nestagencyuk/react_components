@@ -1,55 +1,93 @@
 declare namespace IDataTable {
-  // Base DataTable config
-  interface IConfig {
-    table: {
-      header: IHeader
-      footer: IFooter
-    }
-    columns: IColumn[]
-    rows: IRow[]
-  }
-
-  // DataTable types
   interface IProps {
-    config: IConfig
+    config: {
+      tableControls: ITableControls
+      rowControls: IRowControls
+      footerControls: IFooterControls
+    }
+    headings: IHeading[]
+    data: Array<Array<ICell>>
   }
 
-  interface IHeader {
-    buttonCustomiseTable: boolean
-    buttonFilterData: boolean
-    buttonAddLine: boolean
-    search: boolean
-    hidden: boolean
+  interface ITableControls {
+    visible: boolean
+    buttonCustomiseTable?: boolean
+    buttonFilterData?: boolean
+    buttonAddLine?: boolean
+    search?: boolean
   }
 
-  interface IFooter {
-    hidden: boolean
-    rowCount: true
+  interface IRowControls {
+    visible: boolean
+    sendToEndPoint?: string
+    sendOnBlur?: boolean
+    buttonDuplicateRow?: boolean
+    buttonRemoveRow?: boolean
+    buttonLoadPage?: boolean
+    buttonLockRow?: boolean
   }
 
-  // DataTable Rows, Cols & Cells types
-  interface IColumn {
-    name: string
-    hidden: boolean
-    displayOrder: number
+  interface IFooterControls {
+    visible: boolean
+    rowCount?: boolean
   }
 
-  interface IRow {
-    sendToEndpoint: string
-    sendOnBlur: boolean
+  // DataTable components
+  interface IHeaderProps {
+    headings: IHeading[]
+  }
+
+  interface IRowProps {
     cells: ICell[]
+    row: any
+  }
+
+  interface ICellProps extends ICell {
+    onChange: (e: React.SyntheticEvent) => void
+  }
+
+  // DataTable Header, Rows & Cells types
+  interface IHeading {
+    id: string
+    name: string
+    visible: boolean
+    sortable?: boolean
+    defaultSort?: null | 'asc' | 'desc'
+    resizable?: boolean
+    defaultWidth?: number
   }
 
   interface ICell {
+    id: string
     name: string
-    belongsTo: string
     value: any
-    searchable: boolean
-  }
-
-  // DataTable Context
-  interface IContext {
-    config: IConfig
+    type?: 'text' | 'number' | 'search' | 'select' | 'string'
+    placeholder?: string
+    multiple?: boolean
+    required?: boolean
+    minLength?: number
+    maxLength?: number
+    minValue?: number
+    maxValue?: number
+    step?: number
+    pattern?: string
+    disabled?: boolean
+    ignoreTab?: boolean
+    tabIndex?: number
+    includeInObject?: boolean
+    sendOnBlur?: boolean
+    sendOnChange?: boolean
+    sendOnWait?: boolean
+    sendOnTrigger?: boolean
+    sendMethod?: 'GET' | 'POST' | 'PUT' | 'PATCH'
+    sendToEndpoint?: string
+    responseValue?: any
+    triggerInputs?: boolean
+    responseLabel?: any
+    triggerUpdate?: string[]
+    searchable?: boolean
+    options?: { [key: string]: any }[]
+    items?: { [key: string]: any }[]
   }
 }
 

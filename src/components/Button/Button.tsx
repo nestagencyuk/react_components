@@ -36,20 +36,25 @@ const sizes = {
 /**
  * A visual button that will also render as <a> if it has a href
  */
-const Button = ({
-  className,
-  component,
-  href,
-  to,
-  variant = 'Primary',
-  size = 'Medium',
-  icon,
-  type = 'button',
-  disabled,
-  children,
-  onClick,
-  onBlur
-}: IButton.IProps) => {
+const Button = (
+  {
+    className,
+    component,
+    href,
+    to,
+    variant = 'Primary',
+    size = 'Medium',
+    icon,
+    type = 'button',
+    disabled,
+    children,
+    onFocus,
+    onBlur,
+    onClick
+  }: IButton.IProps,
+  ref?: React.Ref<HTMLDivElement>
+) => {
+  const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
   const Tag: React.FC<{ [key: string]: any }> | string = component || (href ? 'a' : 'button')
 
   /**
@@ -60,16 +65,18 @@ const Button = ({
 
   return children ? (
     <Tag
+      {...passRef}
       className={cx(className, 'btn', variants[variant], sizes[size], { 'btn--disabled': disabled })}
       type={type}
       href={href}
       to={to}
       disabled={disabled}
+      onFocus={onFocus}
       onClick={onClick}
       onBlur={onBlur}
     >
       {iconStart && <ButtonIcon {...icon} />}
-      <span>{children}</span>
+      <span className="w--100">{children}</span>
       {iconEnd && <ButtonIcon {...icon} />}
     </Tag>
   ) : null

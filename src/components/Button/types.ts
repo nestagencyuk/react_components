@@ -1,4 +1,4 @@
-import { Size } from '../../types'
+import { Size, Alignment } from '../../types'
 import { IIcon } from '../Icon/types'
 
 declare namespace IButton {
@@ -13,12 +13,13 @@ declare namespace IButton {
     icon?: IIconProps
     disabled?: boolean
     children?: string
-    onClick?: (e: React.SyntheticEvent) => void
+    onFocus?: (e: React.SyntheticEvent) => void
     onBlur?: (e: React.SyntheticEvent) => void
+    onClick?: (e: React.SyntheticEvent) => void
   }
 
   interface IIconProps extends IIcon.IProps {
-    align?: 'Start' | 'End'
+    align?: Exclude<Alignment, 'Center'>
   }
 
   interface IGroupProps {

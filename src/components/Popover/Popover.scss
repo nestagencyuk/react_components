@@ -4,27 +4,44 @@
 
 /// ----------------------------------------------------------------------
 
-
+@use 'spacing';
+@use 'corners';
+@use 'animations';
 @use 'shadows';
-
-@import '~react-tippy/dist/tippy.css';
+@use 'z-index';
 
 /// -------------------
-/// Tippy selectors
+/// Popover config
 /// -------------------
 
-.tippy-tooltip {
-  padding: 0;
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$xs !default;
+
+/// -------------------
+/// Popover swatches
+/// -------------------
+
+.popover {
+  display: none;
+  padding: 1rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--active {
+    display: block;
+  }
 }
 
-.tippy-tooltip-content {
-  text-align: left;
-}
+/// -------------------
+/// Popover swatches
+/// -------------------
 
-.tippy-popper .tippy-tooltip.light-theme {
+.popover__body {
+  background-color: white;
+  border-radius: corners.$base;
+  padding: $padding-y $padding-x;
   box-shadow: shadows.$one;
-}
-
-.tippy-popper .tippy-tooltip.light-theme[data-animatefill] {
-  background-color: #fff;
+  max-width: 350px;
 }

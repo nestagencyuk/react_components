@@ -11,7 +11,7 @@ import { Action } from '../Action'
  */
 const AlertClose: React.FC<IAlert.ICloseProps> = ({ onClick }) =>
   onClick ? (
-    <Action className="alert__close" variant="Tertiary" icon={{ name: 'Cross' }} onClick={() => onClick(false)}>
+    <Action className="alert__close" variant="Tertiary" icon={{ name: 'Cross' }} onClick={onClick}>
       Close
     </Action>
   ) : null

@@ -3,12 +3,14 @@ import { IUseToggleTree } from '../../hooks/useToggleTree/types'
 declare namespace IToggleTree {
   interface IProps {
     multi?: boolean
-    children:
-      | React.ReactNode
-      | ((value: {
-          toggles: { [key: string]: { open: boolean; depth: number } }
-          setToggled: (id: string, depth?: number) => void
-        }) => React.ReactNode)
+    children: React.ReactNode
+  }
+
+  interface IRenderProps extends Omit<IProps, 'children'> {
+    children(value: {
+      toggles: { [key: string]: { open: boolean; depth: number } }
+      setToggled: (id: string, depth?: number) => void
+    }): React.ReactNode
   }
 
   interface IValue {

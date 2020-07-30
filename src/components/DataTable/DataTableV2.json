@@ -1,0 +1,180 @@
+{
+  "config": {
+    "type": "form",
+    "tableControls": {
+      "visible": true
+    },
+    "rowControls": {
+      "visible": true,
+      "buttonDuplicateRow": true,
+      "buttonRemoveRow": true,
+      "buttonLoadPage": false,
+      "buttonLockRow": true
+    },
+    "footerControls": {
+      "visible": true,
+      "rowCount": true,
+      "pagination": false
+    }
+  },
+  "headings": [
+    {
+      "id": "product_sku",
+      "name": "Stock Keeping Unit (SKU)",
+      "visible": true,
+      "resizable": true
+    },
+    {
+      "id": "product_description",
+      "name": "Product Description",
+      "visible": true
+    },
+    {
+      "id": "unit_of_measure",
+      "name": "Unit of Measure",
+      "visible": true,
+      "resizable": true
+    },
+    {
+      "id": "quantity",
+      "name": "Quantity",
+      "visible": true
+    },
+    {
+      "id": "batch",
+      "name": "Batch"
+    }
+  ],
+  "data": [
+    [
+      {
+        "id": "product_sku",
+        "name": "product_id",
+        "type": "search",
+        "value": "400",
+        "options": [
+          {
+            "label": "sku",
+            "value": "product_id"
+          },
+          {
+            "label": "200",
+            "value": "200"
+          },
+          {
+            "label": "300",
+            "value": "300"
+          },
+          {
+            "label": "400",
+            "value": "400"
+          },
+          {
+            "label": "500",
+            "value": "500"
+          }
+        ]
+      },
+      {
+        "id": "product_description",
+        "name": "product_description",
+        "type": "string",
+        "value": "This is a product desc"
+      },
+      {
+        "id": "unit_of_measure",
+        "name": "unit_of_measure",
+        "type": "select",
+        "multiple": true,
+        "value": ["200"],
+        "options": [
+          {
+            "label": "100",
+            "value": "100"
+          },
+          {
+            "label": "200",
+            "value": "200"
+          },
+          {
+            "label": "300",
+            "value": "300"
+          }
+        ]
+      },
+      {
+        "id": "quantity",
+        "name": "quantity",
+        "type": "number",
+        "value": 5,
+        "minValue": 5,
+        "maxValue": 10
+      },
+      {
+        "id": "batch",
+        "name": "batch",
+        "type": "text",
+        "maxLength": 5
+      }
+    ],
+    [
+      {
+        "id": "product_sku",
+        "name": "product_id",
+        "type": "search",
+        "value": "600",
+        "options": [
+          {
+            "label": "sku",
+            "value": "product_id"
+          },
+          {
+            "label": "600",
+            "value": "600"
+          }
+        ]
+      },
+      {
+        "id": "product_description",
+        "name": "product_description",
+        "type": "string",
+        "value": "Some more product descriptions"
+      },
+      {
+        "id": "unit_of_measure",
+        "name": "unit_of_measure",
+        "type": "select",
+        "multiple": true,
+        "value": ["100", "500"],
+        "options": [
+          {
+            "label": "100",
+            "value": "100"
+          },
+          {
+            "label": "500",
+            "value": "500"
+          },
+          {
+            "label": "300",
+            "value": "300"
+          }
+        ]
+      },
+      {
+        "id": "quantity",
+        "name": "quantity",
+        "type": "number",
+        "value": 7,
+        "minValue": 5,
+        "maxValue": 10
+      },
+      {
+        "id": "batch",
+        "name": "batch",
+        "type": "text",
+        "maxLength": 5
+      }
+    ]
+  ]
+}

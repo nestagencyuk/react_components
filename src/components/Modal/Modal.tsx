@@ -13,10 +13,20 @@ import './Modal.scss'
 import { ModalClose, ModalHeader, ModalBody, ModalFooter } from '.'
 
 /**
+ * States
+ */
+const states = {
+  Closed: '',
+  Opening: 'animate--fade-in-top',
+  Open: '',
+  Closing: 'animate--fade-in-top animate--reverse'
+}
+
+/**
  * A modal using React portal to render at the DOM body root
  */
-const Modal: React.FC<IModal.IProps> = ({ className, header, footer, children, onClose }) => (
-  <aside className={cx(className, 'modal')}>
+const Modal: React.FC<IModal.IProps> = ({ className, state = 'Open', header, footer, children, onClose }) => (
+  <aside className={cx(className, 'modal', states[state])}>
     <ModalClose onClick={onClose} />
     <ModalHeader {...header} />
     <ModalBody>{children}</ModalBody>

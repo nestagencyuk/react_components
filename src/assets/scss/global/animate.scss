@@ -14,6 +14,7 @@
 
 .animate {
   transition: transitions.$ease;
+  will-change: transform, opacity;
 
   &--fade-in {
     animation: fadeIn movement.$base animations.$forwards-ease;
@@ -35,11 +36,39 @@
     animation: fadeInRight movement.$base animations.$forwards-ease;
   }
 
+  &--fade-in-top-center {
+    animation: centerFadeInTop movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-bottom-center {
+    animation: centerFadeInBottom movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-left-center {
+    animation: centerFadeInLeft movement.$base animations.$forwards-ease;
+  }
+
+  &--fade-in-right-center {
+    animation: centerFadeInRight movement.$base animations.$forwards-ease;
+  }
+
   &--swipe-in-left {
     animation: swipeInLeft movement.$base animations.$forwards-ease;
   }
 
   &--swipe-in-right {
     animation: swipeInRight movement.$base animations.$forwards-ease;
+  }
+
+  &--swipe-in-top {
+    animation: swipeInTop movement.$base animations.$forwards-ease;
+  }
+
+  &--swipe-in-bottom {
+    animation: swipeInBottom movement.$base animations.$forwards-ease;
+  }
+
+  &--reverse {
+    animation-direction: reverse;
   }
 }

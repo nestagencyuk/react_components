@@ -27,19 +27,39 @@ const Input: React.FC<IInput.IProps> = ({
   type = 'Text',
   value,
   disabled,
+  maxLength,
+  minValue,
+  maxValue,
   onChange,
   size = 'Medium'
-}) => (
-  <input
-    className={cx(className, sizes[size], 'input', { 'input--disabled': disabled })}
-    id={id}
-    name={name}
-    type={type.toLowerCase()}
-    value={value || ''}
-    disabled={disabled}
-    placeholder={placeholder}
-    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
-  />
-)
+}) => {
+  const setValue = (val: number) => {
+    if (val >= maxValue) {
+      return maxValue
+    } else if (val <= minValue) {
+      return minValue
+    } else {
+      return val
+    }
+  }
+
+  return (
+    <input
+      className={cx(className, sizes[size], 'input', { 'input--disabled': disabled })}
+      id={id}
+      name={name}
+      type={type.toLowerCase()}
+      value={value || ''}
+      disabled={disabled}
+      placeholder={placeholder}
+      maxLength={maxLength}
+      min={minValue}
+      max={maxValue}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange(type === 'Number' ? setValue(parseInt(e.target.value)) : e.target.value)
+      }
+    />
+  )
+}
 
 export default Input
