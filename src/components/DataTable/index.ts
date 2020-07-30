@@ -1,4 +1,7 @@
 export { default as DataTableContext } from './DataTableContext'
+export { default as DataTableControls } from './DataTableControls'
 export { default as DataTableHeader } from './DataTableHeader'
 export { default as DataTableFooter } from './DataTableFooter'
+export { default as DataTableCell } from './DataTableCell'
+export { default as DataTableRow } from './DataTableRow'
 export { default as DataTable } from './DataTable'

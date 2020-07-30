@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { dataTableDecorator } from '../../../.storybook/decorators'
 import { DataTableContext, DataTable } from '.'
-import config from "./DataTableConfig"
+import config from "./DataTableV2"
 
 <Meta title="Components|DataTable/DataTable" component={DataTable} />
 
@@ -13,7 +13,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <Preview>
   <Story name="Base" decorators={[dataTableDecorator]}>
-     <DataTable config={config} />
+    <DataTable config={config.config} headings={config.headings} data={config.data}  />
   </Story>
 </Preview>
 

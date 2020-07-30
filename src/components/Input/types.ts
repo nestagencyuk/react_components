@@ -10,6 +10,9 @@ declare namespace IInput {
     value?: string | number
     disabled?: boolean
     size?: Size
+    minValue?: number
+    maxValue?: number
+    maxLength?: number
     onChange: (value: string | number) => void
   }
 }

@@ -46,13 +46,6 @@ $borderPrimary: 1px solid colours.$ui-two;
 }
 
 /// -------------------
-/// DataTable Header selectors
-/// -------------------
-.datatable-header__item {
-  position: relative;
-}
-
-/// -------------------
 /// DataTable Body selectors
 /// -------------------
 
@@ -81,6 +74,8 @@ $borderPrimary: 1px solid colours.$ui-two;
   border-bottom: $borderPrimary;
   padding: spacing.$xs;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
 
   &:first-child {
     border-left: $borderPrimary;

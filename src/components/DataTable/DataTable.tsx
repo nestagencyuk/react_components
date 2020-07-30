@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Form, Field } from '@nestagencyuk/react_form-factory'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
-import { orderColumnsByDisplayOrder } from './utils'
-import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import { DataTableContext } from '.'
 
 /**
  * Styles
@@ -13,31 +13,16 @@ import './DataTable.scss'
 /**
  * Components
  */
-import { DataTableHeader, DataTableFooter } from '.'
+import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
 import { Loader } from '../Loader'
 
-const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
+const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
+  const { tableControls, rowControls, footerControls } = config
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
-  const [columnsByDisplayOrder, setColumnOrder] = useState([])
   const [rowsState, setRowsState] = useState([])
-  const [rowCountState, setRowCount] = useState(0)
-  const [rowSearchQuery, setSearchQuery] = useState('')
+  const [blankRowState, setBlankRow] = useState([])
   const [loading, setLoading] = useState(true)
-  const { table, columns, rows } = config
-
-  /**
-   * Search through rows
-   */
-  const searchRows = (query: string) => {
-    setRowsState(
-      rows.filter((row) =>
-        row.cells.some((cell: IDataTable.ICell) =>
-          cell.searchable ? cell.value.toLowerCase().includes(query.toLowerCase()) : false
-        )
-      )
-    )
-    setSearchQuery(query)
-  }
+  const [rowCount, setRowCount] = useState(0)
 
   /**
    * Toggle individual column visibilty
@@ -50,35 +35,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
    * Add new row
    */
   const addNewRow = () => {
-    const newRow = rowsState[0]
-    setRowsState([...rowsState, newRow])
-  }
-
-  /**
-   * Sets any necessary initial state based on config passed in
-   */
-  const setInitialState = () => {
-    // Load column config into state
-    const columnsFromConfig: any = []
-
-    columns.forEach((col: IDataTable.IColumn) => {
-      col.hidden && toggleColumn(col.name)
-      columnsFromConfig.push(col)
-    })
-
-    setColumnOrder(columnsFromConfig.sort(orderColumnsByDisplayOrder))
-
-    // Load rows config into state
-    const rowsFromConfig: any = []
-
-    rows.forEach((row, index) => {
-      rowsFromConfig.push(row)
-    })
-
-    setRowsState(rowsFromConfig)
-
-    // Allow table to render
-    setLoading(false)
+    setRowsState((prev) => [...prev, blankRowState])
   }
 
   /**
@@ -89,25 +46,28 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
   }, [rowsState])
 
   /**
-   * On Mount
+   * On Mount -
+   * Load headings into state
+   * Load rows into state
+   * Load blank row into state
+   * Finish table loading
    */
   useEffect(() => {
-    setInitialState()
+    headings.forEach((heading: IDataTable.IHeading) => {
+      !heading.visible && toggleColumn(heading.id)
+    })
+
+    data.forEach((row) => {
+      setRowsState((prev) => [...prev, row])
+    })
+
+    data[0].forEach((cell) => setBlankRow((prev) => [...prev, { ...cell, value: null }]))
+
+    setLoading(false)
   }, [])
 
   return (
-    <DataTableContext.Provider
-      value={{
-        config,
-        rowsState,
-        rowCountState,
-        columnsState,
-        addNewRow,
-        toggleColumn,
-        searchRows,
-        rowSearchQuery
-      }}
-    >
+    <DataTableContext.Provider value={{ headings, columnsState, rowControls, rowCount, toggleColumn, addNewRow }}>
       <DataTableContext.Consumer>
         {() =>
           loading ? (
@@ -115,34 +75,22 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config }) => {
           ) : (
             <div className="datatable-container">
               <div className="datatable-container__inner">
-                {table.header && !table.header.hidden && <DataTableHeader />}
-                <table className="datatable m--b-md">
-                  <thead>
-                    <tr className="datatable-body-header">
-                      {columnsByDisplayOrder.map((col: IDataTable.IColumn) =>
-                        columnsState[col.name] ? null : (
-                          <th data-testid="datatable-column" className="datatable-body-header__item" key={col.name}>
-                            {col.name}
-                          </th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody className="datatable-body">
-                    {rowsState.map((row, index) => (
-                      <tr className="datatable-body__row" key={`${row.sendToEndPoint}-${index}`}>
-                        {row.cells.map((cell: IDataTable.ICell) =>
-                          columnsState[cell.belongsTo] ? null : (
-                            <td key={cell.name} className="datatable-body__cell">
-                              {cell.value}
-                            </td>
-                          )
-                        )}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                {table.footer && !table.footer.hidden && <DataTableFooter />}
+                {tableControls.visible && <DataTableControls {...tableControls} />}
+                <Form onSubmit={(FormData) => console.log(JSON.stringify(FormData))}>
+                  {() => (
+                    <table className="datatable m--b-md">
+                      <DataTableHeader headings={headings} />
+                      <tbody className="datatable-body">
+                        {rowsState.map((cells, rowIndex) => (
+                          <Field key={`Row: ${rowIndex + 1}`} id={`Row: ${rowIndex + 1}`}>
+                            {() => <DataTableRow cells={cells} />}
+                          </Field>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </Form>
+                {footerControls.visible && <DataTableFooter />}
               </div>
             </div>
           )
