@@ -7,6 +7,7 @@ import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { Input } from '../Input'
 import { Select } from '../Select'
 import { Text } from '../Text'
+import { IDataTable } from './types'
 
 /**
  * Field picker

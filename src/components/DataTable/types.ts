@@ -1,8 +1,10 @@
 declare namespace IDataTable {
   interface IProps {
-    tableControls: ITableControls
-    rowControls: IRowControls
-    footerControls: IFooterControls
+    config: {
+      tableControls: ITableControls
+      rowControls: IRowControls
+      footerControls: IFooterControls
+    }
     headings: IHeading[]
     data: Array<Array<ICell>>
   }
@@ -27,16 +29,20 @@ declare namespace IDataTable {
 
   interface IFooterControls {
     visible: boolean
-    rowCount: true
+    rowCount?: boolean
   }
 
   // DataTable components
-  interface IHeader {
+  interface IHeaderProps {
     headings: IHeading[]
   }
 
-  interface IRow {
+  interface IRowProps {
     cells: ICell[]
+  }
+
+  interface ICellProps extends ICell {
+    onChange: (e: React.SyntheticEvent) => void
   }
 
   // DataTable Header, Rows & Cells types
@@ -67,7 +73,7 @@ declare namespace IDataTable {
     readOnly?: boolean
     ignoreTab?: boolean
     tabIndex?: number
-    includeInObject: boolean
+    includeInObject?: boolean
     sendOnBlur?: boolean
     sendOnChange?: boolean
     sendOnWait?: boolean
@@ -79,14 +85,8 @@ declare namespace IDataTable {
     responseLabel?: any
     triggerUpdate?: string[]
     searchable?: boolean
-    belongsTo: string
     options?: { [key: string]: any }[]
     items?: { [key: string]: any }[]
-  }
-
-  // DataTable Context
-  interface IContext {
-    config: IConfig
   }
 }
 

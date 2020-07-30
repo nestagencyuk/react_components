@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { DataTableContext } from '.'
 
 /**
@@ -16,7 +16,7 @@ import { Grid, GridItem } from '../Grid'
  * A datatable that displays table controls
  */
 const DataTableFooter: React.FC = () => {
-  const { config, rowCount } = useContext(DataTableContext)
+  const { rowCount } = useContext(DataTableContext)
 
   return (
     <footer className="datatable-footer" data-testid="datatable-footer">

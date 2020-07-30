@@ -14,7 +14,7 @@ import CellPicker from './CellPicker'
 /**
  * A datatable that displays table controls
  */
-const DataTableCell: React.FC<IDataTable.ICell> = ({
+const DataTableCell: React.FC<IDataTable.ICellProps> = ({
   sendToEndpoint,
   sendOnWait,
   sendOnBlur,

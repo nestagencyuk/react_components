@@ -16,7 +16,8 @@ import './DataTable.scss'
 import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
 import { Loader } from '../Loader'
 
-const DataTable: React.FC<IDataTable.IProps> = ({ tableControls, rowControls, footerControls, headings, data }) => {
+const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
+  const { tableControls, rowControls, footerControls } = config
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
   const [rowsState, setRowsState] = useState([])
   const [blankRowState, setBlankRow] = useState([])

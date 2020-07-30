@@ -12,8 +12,8 @@ import { Popover } from '../Popover'
 import { RefAction } from '../Action'
 import { Button } from '../Button'
 
-const DataTableRow: React.FC<IDataTable.IRow> = ({ cells }) => {
-  const { rowControls, columnsState, duplicateRow, removeRow } = useContext(DataTableContext)
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells }) => {
+  const { rowControls, columnsState } = useContext(DataTableContext)
   const { sendOnBlur, sendToEndpoint, buttonDuplicateRow, buttonRemoveRow, buttonLoadPage, buttonLockRow } = rowControls
 
   const handleOnBlur = () => {

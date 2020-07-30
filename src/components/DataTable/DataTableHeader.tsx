@@ -3,7 +3,7 @@ import { useContext, Fragment } from 'react'
 import { DataTableContext } from '.'
 import { IDataTable } from './types'
 
-const DataTableHeader: React.FC<IDataTable.IHeader> = ({ headings }) => {
+const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ headings }) => {
   const { rowControls, columnsState } = useContext(DataTableContext)
 
   return (
