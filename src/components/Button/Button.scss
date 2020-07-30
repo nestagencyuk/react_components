@@ -38,6 +38,7 @@ $padding-x: spacing.$xl !default;
   padding-right: $padding-x;
   align-self: center;
   cursor: pointer;
+  text-align: center;
 
   &--primary {
     background-color: colours.$brand-one;

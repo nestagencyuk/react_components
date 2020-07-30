@@ -12,7 +12,7 @@ const useRaf = <S>(initialState: S | (() => S)): [S, React.Dispatch<React.SetSta
   /**
    * Set the current frame value
    */
-  const setRafState = useCallback((value: S | ((prevState: S) => S)) => {
+  const setRafState = useCallback((value: S | ((prev: S) => S)) => {
     cancelAnimationFrame(frame.current)
     frame.current = requestAnimationFrame(() => {
       setState(value)

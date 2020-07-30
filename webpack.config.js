@@ -75,38 +75,32 @@ const config = (env) => {
       new Copy([
         {
           context: src,
-          from: `${src}/assets/**/*`,
+          from: `${src}/assets/**/*.scss`,
           to: `${dist}/assets/`,
-          flatten: true,
-          globOptions: {
-            ignore: ['**/icons/**']
-          }
+          flatten: true
         },
         {
           context: src,
           from: `${src}/components/**/*.scss`,
           to: `${dist}/assets/`,
-          flatten: true,
-          globOptions: {
-            ignore: ['**/icons/**']
-          }
+          flatten: true
         }
       ]),
       !dev &&
-      new Gzip({
-        filename: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: /\.(js|css|html|svg)$/,
-        threshold: 10240,
-        minRatio: 0.8
-      }),
+        new Gzip({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8
+        }),
       !dev &&
-      new Brotli({
-        asset: '[path].br[query]',
-        test: /\.(js|css|html|svg)$/,
-        threshold: 10240,
-        minRatio: 0.8
-      }),
+        new Brotli({
+          asset: '[path].br[query]',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8
+        }),
       new ForkTs()
     ].filter((x) => !!x),
     module: {
