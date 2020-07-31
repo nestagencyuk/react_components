@@ -13,6 +13,7 @@ declare namespace IButton {
     icon?: IIconProps
     disabled?: boolean
     children?: string
+    tabIndex?: number
     onFocus?: (e: React.SyntheticEvent) => void
     onBlur?: (e: React.SyntheticEvent) => void
     onClick?: (e: React.SyntheticEvent) => void
