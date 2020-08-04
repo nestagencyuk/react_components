@@ -94,9 +94,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
                   <DataTableHeader headings={headings} />
                   <tbody className="datatable-body">
                     {managedArray &&
-                      managedArray.map((row, rowIndex) => (
-                        <DataTableRow key={rowIndex} row={row} cells={data[rowIndex] || data[0]} />
-                      ))}
+                      managedArray.map((row, rowIndex) => <DataTableRow key={rowIndex} row={row} cells={data[0]} />)}
                   </tbody>
                 </table>
                 {footerControls.visible && <DataTableFooter />}
