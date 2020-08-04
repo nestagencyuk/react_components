@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import { useToggleGroup } from '../../hooks/useToggleGroup'
+import { useToggleGroup, useManageArray, usePagination } from '../../hooks'
 import { IDataTable } from './types'
 import { DataTableContext } from '.'
-import { useManageArray } from '../../hooks/useManageArray'
 import uid from 'uid'
 
 /**
@@ -15,15 +14,42 @@ import './DataTable.scss'
  * Components
  */
 import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
-import { Loader } from '../Loader'
+import { Loader } from '../../components/Loader'
 
 const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
+  /**
+   * Gather specific config from global config
+   */
   const { tableControls, rowControls, footerControls } = config
-  const { array: managedArray, addItem, editItem, deleteItem } = useManageArray({
+
+  /**
+   * Load table data into
+   */
+  const { array: managedArray, addItem, editItem: editRow, deleteItem: deleteRow, resetItems } = useManageArray({
     initialArray: data.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
   })
+
+  /**
+   * Set pagination
+   */
+  const { currentData, currentPage, maxPage, nextPage, prevPage, jumpToPage } = usePagination({
+    dataToPaginate: managedArray,
+    itemsPerPage: footerControls.paginatedRowsPerPage
+  })
+
+  /**
+   * Toggle visible/hidden columns
+   */
   const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
+
+  /**
+   * Table loading state
+   */
   const [loading, setLoading] = useState(true)
+
+  /**
+   * Track row count
+   */
   const [rowCount, setRowCount] = useState(0)
 
   /**
@@ -70,16 +96,34 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
   return (
     <DataTableContext.Provider
       value={{
-        headings,
-        data,
-        columnsState,
-        rowControls,
-        rowCount,
-        toggleColumn,
+        // Table Control actions
         addNewRow,
+        toggleColumn,
+
+        // Row actions
         duplicateRow,
-        editItem,
-        deleteItem
+        deleteRow,
+        editRow,
+
+        // Footer actions
+        resetItems,
+        nextPage,
+        prevPage,
+        jumpToPage,
+
+        // Header Config
+        headings,
+
+        // Rows & Cells config
+        rowControls,
+        columnsState,
+        data,
+
+        // Footer config
+        footerControls,
+        rowCount,
+        currentPage,
+        maxPage
       }}
     >
       <DataTableContext.Consumer>
@@ -94,12 +138,12 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
                   <DataTableHeader headings={headings} />
                   <tbody className="datatable-body">
                     {managedArray &&
-                      managedArray.map((row, rowIndex) => (
+                      currentData.map((row, rowIndex) => (
                         <DataTableRow key={rowIndex} row={row} cells={data[rowIndex] || data[0]} />
                       ))}
                   </tbody>
                 </table>
-                {footerControls.visible && <DataTableFooter />}
+                {footerControls.visible && <DataTableFooter {...footerControls} />}
               </div>
             </div>
           )

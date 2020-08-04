@@ -4,6 +4,7 @@ declare namespace IGrid {
     style?: React.CSSProperties
     gutter?: boolean
     children: React.ReactElement<IItemProps> | Array<React.ReactElement<IItemProps>>
+    vCentred?: boolean
   }
 
   interface IItemProps {

@@ -1,3 +1,5 @@
+import { IFooter } from 'components/Footer/types'
+
 declare namespace IDataTable {
   interface IProps {
     config: {
@@ -29,7 +31,9 @@ declare namespace IDataTable {
 
   interface IFooterControls {
     visible: boolean
-    rowCount?: boolean
+    displayRowCount?: boolean
+    displayPagination?: boolean
+    paginatedRowsPerPage?: number
   }
 
   // DataTable components
@@ -45,6 +49,8 @@ declare namespace IDataTable {
   interface ICellProps extends ICell {
     onChange: (e: React.SyntheticEvent) => void
   }
+
+  interface IFooterProps extends IFooterControls {}
 
   // DataTable Header, Rows & Cells types
   interface IHeading {

@@ -76,7 +76,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
    * Reset all items
    */
   const resetItems = (value: string[] | Array<{ [key: string]: any }>) => {
-    setArray(value)
+    setArray([])
   }
 
   /**

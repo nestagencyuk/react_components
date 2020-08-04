@@ -13,8 +13,9 @@
     },
     "footerControls": {
       "visible": true,
-      "rowCount": true,
-      "pagination": false
+      "displayRowCount": true,
+      "displayPagination": true,
+      "paginatedRowsPerPage": 5
     }
   },
   "headings": [

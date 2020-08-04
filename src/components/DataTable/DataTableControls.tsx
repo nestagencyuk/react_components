@@ -26,7 +26,9 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
   buttonAddLine = true,
   search = true
 }) => {
-  const { headings, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery } = useContext(DataTableContext)
+  const { headings, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery, resetItems } = useContext(
+    DataTableContext
+  )
 
   return (
     <header className="datatable-header m--b-md" data-testid="datatable-header">

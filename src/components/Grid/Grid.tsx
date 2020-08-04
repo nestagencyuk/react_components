@@ -10,11 +10,15 @@ import './Grid.scss'
 /**
  * A grid system using CSS Grid
  */
-const Grid = ({ className, style, gutter, children }: IGrid.IProps, ref: React.Ref<HTMLDivElement>) => {
+const Grid = ({ className, style, gutter, vCentred, children }: IGrid.IProps, ref: React.Ref<HTMLDivElement>) => {
   const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
 
   return (
-    <div {...passRef} className={cx(className, 'grid', { 'grid--gutter': gutter })} style={style}>
+    <div
+      {...passRef}
+      className={cx(className, 'grid', { 'grid--gutter': gutter, 'grid--v-centre': vCentred })}
+      style={style}
+    >
       {children}
     </div>
   )

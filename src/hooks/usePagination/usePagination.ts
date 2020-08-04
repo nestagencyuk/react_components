@@ -1,26 +1,54 @@
-import { IUsePagination } from './types'
 import { useState, useEffect } from 'react'
 
-/**
- * Provide a pagination state
- */
-const usePagination = ({ initialPage = 0, limit = 1 }: IUsePagination.IProps = {}): {
-  items: number[]
-  current: number
-  setCurrent: React.Dispatch<React.SetStateAction<number>>
-} => {
-  const [items, setItems] = useState([])
-  const [current, setCurrent] = useState(initialPage)
+const usePagination = ({ dataToPaginate, itemsPerPage }: { dataToPaginate: any[]; itemsPerPage: number }) => {
+  const [currentPage, setCurrentPage] = useState(1)
+  const [currentData, setCurrentData] = useState([])
+  const [pagesBetween, setPagesBetween] = useState(0)
+  const maxPage = Math.ceil(dataToPaginate.length / itemsPerPage)
+
+  console.log(dataToPaginate)
 
   /**
-   * Listen to changes to the current page
+   * Return next page's data
+   */
+  const nextPage = () => {
+    setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage))
+  }
+
+  /**
+   * Return prev page's data
+   */
+  const prevPage = () => {
+    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1))
+  }
+
+  /**
+   * Return specific page's data
+   */
+  const jumpToPage = (page: number) => {
+    const pageNumber = Math.max(1, page)
+    setCurrentPage(() => Math.min(pageNumber, maxPage))
+  }
+
+  /**
+   * Dynamically adjust start/end of pagination
+   * Generate labels for pages between min/max
    */
   useEffect(() => {
-    const newItems = Array.from(Array(current + limit).keys()).slice(current, current + limit)
-    setItems(newItems)
-  }, [current])
+    const begin = (currentPage - 1) * itemsPerPage
+    const end = begin + itemsPerPage
 
-  return { items, current, setCurrent }
+    setCurrentData(dataToPaginate.slice(begin, end))
+    setPagesBetween(Math.abs(0 - maxPage))
+
+    if (currentPage > maxPage) {
+      jumpToPage(maxPage)
+    }
+  }, [dataToPaginate, currentPage, pagesBetween])
+
+  console.log(currentPage, pagesBetween)
+
+  return { nextPage, prevPage, jumpToPage, currentData, currentPage, maxPage }
 }
 
 export default usePagination
