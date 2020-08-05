@@ -13,6 +13,7 @@ declare namespace ISelect {
     value?: string | string[]
     icon?: IIcon.IProps
     disabled?: boolean
+    tabIndex?: number
     onChange: (value: string | string[]) => void
     onSearch?: (value: string | string[]) => void
   }
@@ -27,6 +28,7 @@ declare namespace ISelect {
     filterable: boolean
     filterValue: string
     disabled: boolean
+    tabIndex?: number
     onChange: (value: string) => void
   }
 

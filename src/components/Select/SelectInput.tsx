@@ -14,6 +14,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
   multi,
   filterable,
   disabled,
+  tabIndex,
   onChange
 }) => {
   const [shownValue, setShownValue] = useState('')
@@ -69,6 +70,7 @@ const SelectInput: React.FC<ISelect.IInputProps> = ({
       className="select__input"
       id={id}
       data-testid={`${id}-input`}
+      tabIndex={tabIndex}
       name={id}
       value={shownValue}
       readOnly={!filterable}
