@@ -29,7 +29,9 @@ declare namespace IDataTable {
 
   interface IFooterControls {
     visible: boolean
-    rowCount?: boolean
+    displayRowCount?: boolean
+    displayPagination?: boolean
+    paginatedRowsPerPage?: number
   }
 
   // DataTable components

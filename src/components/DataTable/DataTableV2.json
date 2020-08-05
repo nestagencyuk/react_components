@@ -14,7 +14,8 @@
     "footerControls": {
       "visible": true,
       "rowCount": true,
-      "pagination": false
+      "displayPagination": true,
+      "paginatedRowsPerPage": 5
     }
   },
   "headings": [
@@ -52,6 +53,7 @@
         "name": "product_id",
         "type": "search",
         "value": "400",
+        "ignoreTab": true,
         "options": [
           {
             "label": "sku",
@@ -122,15 +124,27 @@
         "id": "product_sku",
         "name": "product_id",
         "type": "search",
-        "value": "600",
+        "value": "500",
         "options": [
           {
             "label": "sku",
             "value": "product_id"
           },
           {
-            "label": "600",
-            "value": "600"
+            "label": "200",
+            "value": "200"
+          },
+          {
+            "label": "300",
+            "value": "300"
+          },
+          {
+            "label": "400",
+            "value": "400"
+          },
+          {
+            "label": "500",
+            "value": "500"
           }
         ]
       },
@@ -173,7 +187,8 @@
         "id": "batch",
         "name": "batch",
         "type": "text",
-        "maxLength": 5
+        "maxLength": 5,
+        "ignoreTab": true
       }
     ]
   ]
