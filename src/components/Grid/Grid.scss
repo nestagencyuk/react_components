@@ -18,7 +18,7 @@ $gutter: spacing.$xl !default;
 /// -------------------
 /// Grid selectors
 /// -------------------
- 
+
 .grid {
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
@@ -27,17 +27,21 @@ $gutter: spacing.$xl !default;
     grid-gap: $gutter;
     grid-row-gap: $gutter;
   }
+
+  &--v-centre {
+    align-items: center;
+  }
 }
 
 /// -------------------
 /// Grid item
 /// -------------------
- 
+
 .grid__item {
   grid-column: span $columns;
-  
+
   @include lib.breakpoint-up(breakpoints.$sm) {
-    @for $i from 0 through $columns {  
+    @for $i from 0 through $columns {
       &--#{$i} {
         grid-column: span $i;
       }

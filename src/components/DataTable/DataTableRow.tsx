@@ -13,7 +13,7 @@ import { RefAction } from '../Action'
 import { Button } from '../Button'
 
 const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells, row }) => {
-  const { rowControls, columnsState, duplicateRow, editItem, deleteItem } = useContext(DataTableContext)
+  const { rowControls, columnsState, duplicateRow, editRow, deleteRow } = useContext(DataTableContext)
   const { sendOnBlur, sendToEndpoint, buttonDuplicateRow, buttonRemoveRow, buttonLoadPage, buttonLockRow } = rowControls
   const [isLocked, setLocked] = useState(false)
 
@@ -24,7 +24,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells, row }) => {
   }
 
   return (
-    <Form onSubmit={(formData) => editItem(formData)} savedData={row}>
+    <Form onSubmit={(formData) => editRow(formData)} savedData={row}>
       {({ handleSubmit }) => (
         <tr className="datatable-body__row" onBlur={handleSubmit}>
           {cells.map((cell: IDataTable.ICell) => {
@@ -53,13 +53,13 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells, row }) => {
                       </Button>
                     )}
                     {buttonRemoveRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => deleteItem(row)}>
+                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => deleteRow(row)}>
                         Remove row
                       </Button>
                     )}
                     {buttonLockRow && (
                       <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => setLocked(!isLocked)}>
-                        Lock row
+                        {`${isLocked ? 'Unlock' : 'Lock'} row`}
                       </Button>
                     )}
                     {buttonLoadPage && (
