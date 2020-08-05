@@ -27,10 +27,6 @@ $gutter: spacing.$xl !default;
     grid-gap: $gutter;
     grid-row-gap: $gutter;
   }
-
-  &--v-centre {
-    align-items: center;
-  }
 }
 
 /// -------------------

@@ -14,11 +14,7 @@ const Grid = ({ className, style, gutter, vCentred, children }: IGrid.IProps, re
   const passRef = ref && (typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {})
 
   return (
-    <div
-      {...passRef}
-      className={cx(className, 'grid', { 'grid--gutter': gutter, 'grid--v-centre': vCentred })}
-      style={style}
-    >
+    <div {...passRef} className={cx(className, 'grid', { 'grid--gutter': gutter })} style={style}>
       {children}
     </div>
   )
