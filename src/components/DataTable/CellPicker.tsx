@@ -23,7 +23,7 @@ const CellPicker: React.FC<any> = (props) => {
     case 'text':
       return <Input type="Text" {...props} />
     case 'number':
-      return <Input {...props} type={capitalise(props.type)} />
+      return <Input {...props} className="w--100" type={capitalise(props.type)} />
     default:
       return <Input {...props} />
   }

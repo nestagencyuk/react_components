@@ -52,7 +52,7 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
             <Popover
               render={headings.map((heading: any) => (
                 <div key={heading.id} className="datatable__drop-down-item">
-                  <label className="interactive" htmlFor={heading.name}>
+                  <label className="interactive w--100 d--block" htmlFor={heading.name}>
                     <Checkbox
                       onChange={() => toggleColumn(heading.id)}
                       value={!columnsState[heading.id]}
