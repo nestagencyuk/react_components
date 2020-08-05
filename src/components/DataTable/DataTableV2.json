@@ -14,7 +14,8 @@
     "footerControls": {
       "visible": true,
       "rowCount": true,
-      "pagination": false
+      "displayPagination": true,
+      "paginatedRowsPerPage": 5
     }
   },
   "headings": [

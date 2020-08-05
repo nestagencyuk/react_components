@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState } from 'react'
+import { Grid, GridItem } from '../../components/Grid'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
+import { usePaginationV2 } from '.'
+
+<Meta title="Hooks|PaginationV2" component={null} />
+
+# Stateful Pagination
+A hook for paginating **data managed in state** - in other words, data that is likely to change on the fly, e.g. rows in a data table.
+
+> Passing data not managed in state will cause an infinite loop to occur.
+ 
+## Base
+The hook in its simplest form.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [data, setData] = useState([
+        "item 1",
+        'item 2',
+        "item 3",
+        "item 4",
+        "item 5"
+      ])
+      const itemsPerPage = 3
+      const { currentData, currentPage, lastPage, nextPage, prevPage, jumpToPage } = usePaginationV2({ dataToPaginate: data, itemsPerPage})
+      return (
+        <Fragment>
+          <div>Current Page: {currentPage}</div>
+          <div>Items per page: {itemsPerPage}</div>
+          <div>Last page index: {lastPage}</div>
+          {
+            currentData.map(i => <p key={i}>{i}</p>)
+          }
+          <Grid>
+            <GridItem className="m--r-sm" span={3}>
+              <Button variant="Tertiary" className="w--100" disabled={currentPage === 1}  onClick={() => prevPage()}>Prev</Button>
+            </GridItem>
+            <GridItem className="m--r-sm" span={3}>
+              <Input onChange={(val) => jumpToPage(val)} type="Number" min={1} max={lastPage} className="w--100" value={currentPage} />
+            </GridItem>
+            <GridItem className="m--r-sm"  span={3}>
+              <Button variant="Tertiary" className="w--100" disabled={currentPage === lastPage} onClick={() => nextPage()}>Next</Button>
+            </GridItem>
+            <GridItem span={3}>
+              <Button variant="Tertiary" onClick={() => setData((prev ) => [...prev, Math.floor(Math.random() * 100 )])}>Add Item</Button>
+            </GridItem>
+          </Grid>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
