@@ -29,7 +29,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterControls> = ({ displayRowCount
 
   return (
     <footer className="datatable-footer" data-testid="datatable-footer">
-      <Grid vCentred>
+      <Grid>
         {displayRowCount && (
           <GridItem span={4}>
             <Text className="text--bold">{`${rowCount} ${rowCount === 1 ? 'Line' : 'Lines'}`}</Text>
