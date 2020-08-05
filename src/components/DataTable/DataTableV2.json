@@ -13,7 +13,9 @@
     },
     "footerControls": {
       "visible": true,
-      "rowCount": true
+      "rowCount": true,
+      "displayPagination": true,
+      "paginatedRowsPerPage": 5
     }
   },
   "headings": [
@@ -51,6 +53,7 @@
         "name": "product_id",
         "type": "search",
         "value": "400",
+        "ignoreTab": true,
         "options": [
           {
             "label": "sku",
@@ -184,7 +187,8 @@
         "id": "batch",
         "name": "batch",
         "type": "text",
-        "maxLength": 5
+        "maxLength": 5,
+        "ignoreTab": true
       }
     ]
   ]

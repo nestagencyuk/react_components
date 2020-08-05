@@ -50,7 +50,8 @@ const Button = (
     children,
     onFocus,
     onBlur,
-    onClick
+    onClick,
+    tabIndex
   }: IButton.IProps,
   ref?: React.Ref<HTMLDivElement>
 ) => {
@@ -70,6 +71,7 @@ const Button = (
       type={type}
       href={href}
       to={to}
+      tabIndex={tabIndex}
       disabled={disabled}
       onFocus={onFocus}
       onClick={onClick}

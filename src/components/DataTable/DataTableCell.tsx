@@ -68,6 +68,7 @@ const DataTableCell: React.FC<IDataTable.ICellProps> = ({
         filterable={props.searchable}
         disabled={props.disabled}
         onChange={handleChange}
+        tabIndex={props.ignoreTab ? -1 : 0}
         multi={props.multiple}
       />
     </td>
