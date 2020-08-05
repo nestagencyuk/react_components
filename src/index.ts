@@ -37,8 +37,8 @@ export { IFloat } from './components/Float/types'
 export { Footer } from './components/Footer'
 export { IFooter } from './components/Footer/types'
 
-export { Gallery } from './components/Gallery'
-export { IGallery } from './components/Gallery/types'
+// export { Gallery } from './components/Gallery'
+// export { IGallery } from './components/Gallery/types'
 
 export { Grid, GridItem, RefGrid, RefGridItem } from './components/Grid'
 export { IGrid } from './components/Grid/types'
@@ -97,8 +97,8 @@ export { IRadio } from './components/Radio/types'
 export { Select } from './components/Select'
 export { ISelect } from './components/Select/types'
 
-export { Slider } from './components/Slider'
-export { ISlider } from './components/Slider/types'
+// export { Slider } from './components/Slider'
+// export { ISlider } from './components/Slider/types'
 
 export { SocialFeed } from './components/SocialFeed'
 export { ISocialFeed } from './components/SocialFeed/types'

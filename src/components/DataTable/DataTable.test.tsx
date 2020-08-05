@@ -2,7 +2,6 @@ import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { DataTable } from '.'
 import { IDataTable } from './types'
-import uid from 'uid'
 
 describe('----- DataTable Component -----', () => {
   const testConfig: IDataTable.IProps = {

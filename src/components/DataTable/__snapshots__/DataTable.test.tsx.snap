@@ -107,86 +107,89 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
         </thead>
         <tbody
           class="datatable-body"
-        >
-          <tr
-            class="datatable-body__row"
-          >
-            <td
-              class="datatable-body__cell"
-            >
-              <div
-                class="select"
-                data-testid="test_cell_1"
-                tabindex="-1"
-              >
-                <div>
-                  <input
-                    autocomplete="off"
-                    class="select__input"
-                    data-testid="test_cell_1-input"
-                    id="test_cell_1"
-                    name="test_cell_1"
-                    placeholder="-- Select --"
-                    value=""
-                  />
-                  <span
-                    class="select__icn icn icn--sm"
-                    title="Chevron-down"
-                  />
-                </div>
-                <ul
-                  class="select__options"
-                  data-testid="test_cell_1-options"
-                  style="display: none;"
-                >
-                  <li
-                    class="select__option"
-                  >
-                    <button
-                      class="select__option-btn"
-                      data-value="200"
-                      title="200"
-                      type="button"
-                    >
-                      200
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </td>
-            <td
-              class="datatable-body__cell"
-            >
-              <button
-                class="action action--tertiary action--md"
-                title="Row actions"
-                type="button"
-              >
-                <span
-                  class="action__icn icn icn--md"
-                  title="Branch"
-                />
-                <span
-                  class="text--screen-reader"
-                >
-                  Row actions
-                </span>
-              </button>
-            </td>
-          </tr>
-        </tbody>
+        />
       </table>
       <footer
         class="datatable-footer"
         data-testid="datatable-footer"
       >
         <div
-          class="grid"
+          class="grid grid--v-centre"
         >
           <div
-            class="grid__item grid__item--3"
+            class="grid__item grid__item--2"
           >
-            1 Line
+            <p
+              class="text--bold text text--p text--left"
+            >
+              1 Line
+            </p>
+          </div>
+          <div
+            class="m--l-auto grid__item grid__item--10"
+          >
+            <div
+              class="grid"
+            >
+              <div
+                class="m--r-xs grid__item grid__item--4"
+              >
+                <button
+                  class="w--100 btn btn--tertiary btn--md btn--disabled"
+                  disabled=""
+                  type="button"
+                >
+                  <span
+                    class="w--100"
+                  >
+                    Prev
+                  </span>
+                </button>
+              </div>
+              <div
+                class="grid__item grid__item--4"
+              >
+                <div
+                  class="grid grid--v-centre"
+                >
+                  <div
+                    class="m--r-xs grid__item grid__item--6"
+                  >
+                    <input
+                      class="text--bold w--100 input--md input"
+                      id="paginationJump"
+                      max="0"
+                      min="1"
+                      type="number"
+                      value="1"
+                    />
+                  </div>
+                  <div
+                    class="grid__item grid__item--6"
+                  >
+                    <p
+                      class="text--bold text text--p text--left"
+                    >
+                      of NaN
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="grid__item grid__item--4"
+              >
+                <button
+                  class="w--100 btn btn--tertiary btn--md"
+                  type="button"
+                >
+                  <span
+                    class="w--100"
+                  >
+                    Next
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

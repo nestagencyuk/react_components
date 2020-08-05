@@ -51,7 +51,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ displayRowCount = 
                       className="text--bold w--100"
                       value={currentPage}
                       minValue={1}
-                      maxValue={maxPage}
+                      maxValue={maxPage || 0}
                       onChange={handlePaginationJump}
                     />
                   </GridItem>

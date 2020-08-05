@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import { useToggleGroup, useManageArray, usePagination } from '../../hooks'
+import { useToggleGroup, useManageArray, usePaginationV2 } from '../../hooks'
 import { IDataTable } from './types'
 import { DataTableContext } from '.'
 import uid from 'uid'
@@ -32,7 +32,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
   /**
    * Set pagination
    */
-  const { currentData, currentPage, maxPage, nextPage, prevPage, jumpToPage } = usePagination({
+  const { currentData, currentPage, maxPage, nextPage, prevPage, jumpToPage } = usePaginationV2({
     dataToPaginate: managedArray,
     itemsPerPage: footerControls.paginatedRowsPerPage
   })
