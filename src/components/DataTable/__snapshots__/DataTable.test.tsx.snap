@@ -127,6 +127,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
                     id="test_cell_1"
                     name="test_cell_1"
                     placeholder="-- Select --"
+                    tabindex="0"
                     value=""
                   />
                   <span

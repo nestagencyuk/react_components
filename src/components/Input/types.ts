@@ -13,7 +13,7 @@ declare namespace IInput {
     minValue?: number
     maxValue?: number
     maxLength?: number
-    tabIndex: number
+    tabIndex?: number
     onChange: (value: string | number) => void
   }
 }
