@@ -23,6 +23,7 @@ import { Icon } from '../Icon'
  */
 const Select: React.FC<ISelect.IProps> = ({
   id,
+  tabIndex,
   multi,
   multiVariant = 'Checkbox',
   filterable,
@@ -149,10 +150,11 @@ const Select: React.FC<ISelect.IProps> = ({
           filterable={filterable}
           disabled={disabled}
           onChange={handleChange}
+          tabIndex={tabIndex}
         />
 
         {multi && values?.length > 0 && (
-          <Button className="select__clear" variant="Tertiary" size="XSmall" onClick={handleReset}>
+          <Button tabIndex={tabIndex} className="select__clear" variant="Tertiary" size="XSmall" onClick={handleReset}>
             Clear
           </Button>
         )}
