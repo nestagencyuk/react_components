@@ -47,6 +47,7 @@ const Button = (
     icon,
     type = 'button',
     disabled,
+    tabIndex,
     children,
     onFocus,
     onBlur,
@@ -70,6 +71,7 @@ const Button = (
       type={type}
       href={href}
       to={to}
+      tabIndex={tabIndex}
       disabled={disabled}
       onFocus={onFocus}
       onClick={onClick}

@@ -1,7 +1,9 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { useState, Fragment } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { Text } from '../Text'
+import { Loader } from '../Loader'
 import { DataTable } from '.'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig } from './DataTableConfig.ts'
 
 <Meta title="Components|Base/Data Table" component={DataTable} />
 
@@ -15,67 +17,60 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name="Base">
     {() => {
       const [value, setValue] = useState(null)
+      const [loading, setLoading] = useState(true)
+      useEffect(() => setLoading(false), [])
       return (
         <Fragment>
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
           <DataTable 
-            controls={{
-              global: {
-                visible: true,
-                search: true,
-                buttonFilterData: true,
-                buttonCustomiseTable: true,
-                buttonAddRow: true
-              },
-              row: {
-                visible: true,
-                buttonCopyRow: true,
-                buttonDeleteRow: true,
-                buttonLockRow: true,
-                buttonLoadPage: false,
-              },
-              footer: {
-                visible: true,
-                rowCount: true,
-                pagination: false
-              }
-            }}
-            header={[
-              { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, resizable: true },
-              { id: 'product_description', name: 'Product Description', visible: true },
-              { id: 'unit_of_measure', name: 'Unit of Measure', visible: false, resizable: true },
-              { id: 'quantity', name: 'Quantity', visible: true },
-              { id: 'batch', name: 'Batch', visible: true }
-            ]} 
-            rows={[
-              [
-                {
-                  id: 'product_sku',
-                  type: 'search',
-                  options: [
-                    { label: 'SKU123', value: 'sku123' },
-                    { label: 'SKU456', value: 'sku456' },
-                  ]
-                },
-                { id: 'product_description', type: 'string', value: 'This is a product desc' },
-                {
-                  id: 'unit_of_measure',
-                  type: 'select',
-                  multi: true,
-                  options: [
-                    { label: '100', value: '100' },
-                    { label: '200', value: '200' },
-                    { label: '300', value: '300' }
-                  ]
-                },
-                { id: 'quantity', type: 'number', minValue: 5, maxValue: 10 },
-                { id: 'batch', type: 'text', maxLength: 5 }
-              ]
-            ]}
-            data={[
-              { product_sku: 'sku123', product_description: null, unit_of_measure: null, quantity: null, batch: null }
-            ]}
+            loading={loading}
+            controls={testConfig.controls}
+            header={testConfig.header} 
+            rows={testConfig.rows}
+            data={testConfig.data}
+            onSubmit={setValue}
+          />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## With Data
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+<Preview>
+  <Story name="WithData">
+    {() => {
+      const [value, setValue] = useState(null)
+      const [loading, setLoading] = useState(true)
+      const [data, setData] = useState(testConfig.data)
+      const chance = new (require('chance'))()
+      useEffect(() => {
+        const fakeData = Array.from(Array(50).keys()).map(x => ({
+          product_sku: chance.pickone(testSKUS),
+          product_description: chance.pickone(testDescriptions),
+          unit_of_measure: chance.pickset(testUOMs, chance.integer({ min: 1, max: 5 })),
+          quantity: chance.pickone(testQuantities),
+          batch: chance.pickone(testBatch)
+        }))
+        setTimeout(() => {
+          setData(fakeData)
+          setLoading(false)
+        }, 3000)
+      }, [])
+      return (
+        <Fragment>
+          <Text>Value:</Text>
+          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <DataTable
+            loading={loading}
+            controls={testConfig.controls}
+            header={testConfig.header} 
+            rows={testConfig.rows}
+            data={data}
             onSubmit={setValue}
           />
         </Fragment>

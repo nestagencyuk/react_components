@@ -1,4 +1,5 @@
 import { IDataTable } from './types'
+import uid from 'uid'
 import * as React from 'react'
 import { useContext, useEffect } from 'react'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
@@ -28,24 +29,24 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
    * On toggle change, set the visibility of the header
    */
   useEffect(() => {
-    header.forEach((x: any) => !x.visible && setToggled(x.id))
+    header.forEach((x: any) => !x.visible && setToggled(`label-${x.id}`))
   }, [])
 
   /**
    * On toggle change, set the visibility of the header
    */
   useEffect(() => {
-    onChange(header.map((x: any) => ({ ...x, visible: !toggles[x.id] })))
+    onChange(header.map((x: any) => ({ ...x, visible: !toggles[`label-${x.id}`] })))
   }, [toggles])
 
-  return (
-    <header>
+  return controls.visible ? (
+    <header className="datatable__controls">
       <Grid gutter>
-        {controls.buttonFilterData && (
-          <GridItem span={3}>
+        <GridItem span={3}>
+          {controls.buttonFilterData && (
             <Button
-              variant="Tertiary"
               className="w--100"
+              variant="Secondary"
               icon={{
                 name: 'Branch',
                 size: 'Small',
@@ -55,24 +56,27 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
             >
               Filter Data
             </Button>
-          </GridItem>
-        )}
-        {controls.buttonCustomiseTable && (
-          <GridItem span={3}>
+          )}
+        </GridItem>
+        <GridItem span={3}>
+          {controls.buttonCustomiseTable && (
             <Popover
-              render={header.map((x: any) => (
-                <div key={x.id}>
-                  <label className="interactive" htmlFor={x.name}>
-                    <Checkbox id={x.name} value={x.visible} className="m--r-xs" onChange={() => setToggled(x.id)} />
-                    {x.name}
-                  </label>
-                </div>
+              render={header.map((x: any, i: number) => (
+                <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
+                  <Checkbox
+                    className="m--r-xs"
+                    id={`label-${x.id}-${i}`}
+                    value={x.visible}
+                    onChange={() => setToggled(`label-${x.id}`)}
+                  />
+                  {x.name}
+                </label>
               ))}
             >
               {(value) => (
                 <RefButton
-                  variant="Tertiary"
                   className="w--100"
+                  variant="Secondary"
                   icon={{
                     name: 'Branch',
                     size: 'Small',
@@ -85,20 +89,24 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
                 </RefButton>
               )}
             </Popover>
-          </GridItem>
-        )}
-        {controls.search && (
-          <GridItem span={3}>
-            <div>
-              <Input id="Search" type="Text" value={''} placeholder="Search Data" size="Small" onChange={() => {}} />
-            </div>
-          </GridItem>
-        )}
-        {controls.buttonAddRow && (
-          <GridItem span={3} className="m--l-auto">
-            <Button
-              variant="Tertiary"
+          )}
+        </GridItem>
+        <GridItem span={4}>
+          {controls.search && (
+            <Input
               className="w--100"
+              id={`search-${uid(8)}`}
+              type="Text"
+              value={''}
+              placeholder="Search Data"
+              size="Small"
+              onChange={() => {}}
+            />
+          )}
+        </GridItem>
+        <GridItem className="m--l-auto" span={2}>
+          {controls.buttonAddRow && (
+            <Button
               icon={{
                 name: 'Branch',
                 size: 'Small',
@@ -107,13 +115,13 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
               size="Small"
               onClick={() => addRow(null)}
             >
-              Add Line
+              Add Row
             </Button>
-          </GridItem>
-        )}
+          )}
+        </GridItem>
       </Grid>
     </header>
-  )
+  ) : null
 }
 
 export default DataTableControls

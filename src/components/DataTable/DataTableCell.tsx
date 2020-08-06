@@ -1,4 +1,5 @@
 import { IDataTable } from './types'
+import uid from 'uid'
 import * as React from 'react'
 import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { useField } from '@nestagencyuk/react_form-factory'
@@ -17,12 +18,16 @@ const DataTableCellPicker: React.FC<any> = (props) => {
   switch (props.type) {
     case 'Select':
     case 'Search':
-      return <Select {...props} />
+      return <Select multiVariant="Tags" {...props} />
     case 'Text':
     case 'Number':
       return <Input {...props} />
     default:
-      return <Text variant="P">{props.value}</Text>
+      return (
+        <Text className="p--sm" variant="P">
+          {props.value?.substring(0, 80)}...
+        </Text>
+      )
   }
 }
 
@@ -32,16 +37,22 @@ const DataTableCellPicker: React.FC<any> = (props) => {
 const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config }) => {
   const { value, handleChange } = useField({ id })
 
-  return (
-    <td className="datatable__cell">
-      <DataTableCellPicker
-        {...config}
-        value={value}
-        type={capitalise(config.type)}
-        disabled={config.locked}
-        onChange={handleChange}
-      />
-    </td>
+  return React.useMemo(
+    () => (
+      <td className="datatable__cell" tabIndex={-1}>
+        <DataTableCellPicker
+          className="w--100 datatable__input"
+          {...config}
+          id={`cell-${uid(6)}`}
+          value={value}
+          type={capitalise(config.type)}
+          disabled={config.locked}
+          tabIndex={config.ignoreTab ? -1 : 0}
+          onChange={handleChange}
+        />
+      </td>
+    ),
+    [value, config]
   )
 }
 

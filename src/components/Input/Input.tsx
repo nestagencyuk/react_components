@@ -31,8 +31,12 @@ const Input: React.FC<IInput.IProps> = ({
   minValue,
   maxValue,
   onChange,
-  size = 'Medium'
+  size = 'Medium',
+  tabIndex
 }) => {
+  /**
+   * Set a max/min value
+   */
   const setValue = (val: number) => {
     if (val >= maxValue) {
       return maxValue
@@ -55,6 +59,7 @@ const Input: React.FC<IInput.IProps> = ({
       maxLength={maxLength}
       min={minValue}
       max={maxValue}
+      tabIndex={tabIndex}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         onChange(type === 'Number' ? setValue(parseInt(e.target.value)) : e.target.value)
       }

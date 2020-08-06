@@ -30,6 +30,8 @@ $bg-colour: colours.$ui-one !default;
 .select {
   display: inline-block;
   position: relative;
+  background-color: $bg-colour;
+  border-radius: corners.$base;
 
   &--disabled,
   &:disabled {
@@ -53,8 +55,6 @@ $bg-colour: colours.$ui-one !default;
   padding-right: $padding-x * 2.5;
   font-family: typography.$font-family;
   font-weight: typography.$font-light;
-  border-radius: corners.$base;
-  background-color: $bg-colour;
   transition: all transitions.$ease;
   appearance: none;
 
@@ -93,7 +93,7 @@ $bg-colour: colours.$ui-one !default;
   border-radius: corners.$base;
   max-height: 350px;
   overflow-y: auto;
-  z-index: z-index.$top - 1;
+  z-index: z-index.$select;
 }
 
 /// -------------------

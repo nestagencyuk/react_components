@@ -2,6 +2,7 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import { DataTable } from '.'
 import { IDataTable } from './types'
+import uid from 'uid'
 
 describe('----- DataTable Component -----', () => {
   it('Renders without crashing', () => {

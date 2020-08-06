@@ -1,8 +1,8 @@
 import { IDataTable } from './types'
 import * as React from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import * as clone from 'rfdc'
 import uid from 'uid'
-import { useMemo } from 'react'
 import { useManageArray } from '../../hooks/useManageArray'
 
 /**

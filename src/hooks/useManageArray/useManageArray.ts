@@ -1,7 +1,20 @@
 import * as clone from 'rfdc'
 import uid from 'uid'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { IUseManageArray } from './types'
+
+/**
+ * Generate UID
+ */
+const generateUID = (length: number) => {
+  let result = ''
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  const charactersLength = characters.length
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}
 
 /**
  * Manage items in an array
@@ -25,7 +38,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
    */
   const addItem = (value: string | { [key: string]: any }) => {
     if (typeof value === 'object') {
-      value._uid = uid(8)
+      value._uid = generateUID(8)
     }
 
     setArray((prev) => [
@@ -64,6 +77,14 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   const resetItems = (value: string[] | Array<{ [key: string]: any }>) => {
     setArray(value)
   }
+
+  /**
+   * Update if necessary
+   */
+  useEffect(() => {
+    if (!initialArray || initialArray.length === array.length) return
+    setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid(8) })))
+  }, [initialArray])
 
   return { array, addItem, editItem, deleteItem, resetItems }
 }

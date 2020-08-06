@@ -47,13 +47,15 @@ $padding-x: spacing.$xl !default;
 
     &:hover {
       background-color: colours.$brand-two;
+      color: colours.$brand-one;
+      fill: colours.$brand-one;
     }
   }
 
   &--secondary {
     border-color: colours.$brand-two;
-    color: colours.$brand-two;
-    fill: colours.$brand-two;
+    color: colours.$ui-five;
+    fill: colours.$ui-five;
 
     &:hover {
       border-color: colours.$brand-one;

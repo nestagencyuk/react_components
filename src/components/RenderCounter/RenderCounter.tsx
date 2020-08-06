@@ -16,8 +16,7 @@ const RenderCounter: React.FC<{}> = () => {
    * On mount
    */
   useEffect(() => {
-    if (!ref.current) return
-    ref.current.textContent = ((parseInt(ref.current.textContent) || 0) + 1).toString()
+    ;(ref.current.textContent as unknown) = Number(ref.current.textContent || '0') + 1
   })
 
   return <span ref={ref} className="rendercounter" />

@@ -31,24 +31,28 @@ const useFocus = ({
    * Handle blurring away, either taking into account unrelated nodes, or
    * just normal child nodes
    */
-  const onBlur = (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => {
+  const onBlur = (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }, cb?: any) => {
     const isUnrelated = (initialTriggerRef && initialTargetRef) || (triggerRef.current && targetRef.current)
+    let newFocused = true
 
     if (isUnrelated) {
       const asyncTrigger = initialTriggerRef?.current || triggerRef.current
       const asyncTarget = initialTargetRef?.current || targetRef.current
-
       const isInside = ((asyncTarget || asyncTrigger) as HTMLElement)?.contains(e?.relatedTarget)
+
       if (isInside) {
         setNextEl(e.relatedTarget)
       } else {
-        setFocused(false)
+        newFocused = false
       }
     } else {
       if (focused && !e.currentTarget.contains(e.relatedTarget)) {
-        setFocused(false)
+        newFocused = false
       }
     }
+
+    setFocused(newFocused)
+    if (cb && !newFocused) cb(e)
   }
 
   /**
@@ -58,10 +62,8 @@ const useFocus = ({
     triggerRef.current = initialTriggerRef
     targetRef.current = initialTargetRef
     if (trigger === 'Hover') {
-      // @ts-ignore
-      initialTriggerRef?.addEventListener('mouseenter', onFocus)
-      // @ts-ignore
-      initialTriggerRef?.addEventListener('mouseleave', onBlur)
+      ;(initialTriggerRef as any)?.addEventListener('mouseenter', onFocus)
+      ;(initialTriggerRef as any)?.addEventListener('mouseleave', onBlur)
     }
   }, [initialTriggerRef, initialTargetRef])
 

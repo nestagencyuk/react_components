@@ -23,7 +23,8 @@ $padding-y: spacing.$xs !default;
 
 .popover {
   display: block;
-  padding: 1rem;
+  padding: spacing.$md;
+  z-index: z-index.$top;
 
   &:focus {
     outline: none;
@@ -37,7 +38,6 @@ $padding-y: spacing.$xs !default;
 .popover__body {
   background-color: white;
   border-radius: corners.$base;
-  padding: $padding-y $padding-x;
   box-shadow: shadows.$one;
   max-width: 350px;
 }

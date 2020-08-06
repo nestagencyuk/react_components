@@ -6,6 +6,10 @@
 
 @use '@nestagencyuk/scss_lib' as lib;
 @use 'spacing';
+@use 'borders';
+@use 'shadows';
+@use 'colours';
+@use 'z-index';
 
 /// -------------------
 /// Data Table config
@@ -19,7 +23,22 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable {
+  box-sizing: border-box;
+  position: relative;
   width: 100%;
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__main {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: colours.$ui-one;
+  overflow: scroll;
 }
 
 /// -------------------
@@ -27,6 +46,12 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__controls {
+  box-sizing: border-box;
+  background-color: white;
+  padding: spacing.$md 0;
+  border-bottom: borders.$ui-two;
+  margin-bottom: spacing.$lg;
+  z-index: z-index.$datatable;
 }
 
 /// -------------------
@@ -34,6 +59,7 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__header {
+  box-shadow: shadows.$two;
 }
 
 /// -------------------
@@ -41,8 +67,10 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__table {
+  position: relative;
+  min-width: 100%;
   table-layout: fixed;
-  width: 100%;
+  border-collapse: collapse;
 }
 
 /// -------------------
@@ -50,6 +78,12 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__row {
+  padding: 0;
+  background-color: white;
+
+  &:nth-of-type(odd) {
+    background-color: colours.$ui-one;
+  }
 }
 
 /// -------------------
@@ -57,7 +91,56 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__cell {
-  .datatable__header--resizeable & {
+  box-sizing: border-box;
+  border-left: borders.$ui-two;
+  border-right: borders.$ui-two;
+
+  &:first-of-type {
+    border-left: 0;
+  }
+
+  &:last-of-type {
+    border-right: 0;
+  }
+
+  .datatable__header & {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: spacing.$md spacing.$sm;
+    box-shadow: inset 0 -1px 0 colours.$ui-two;
+    text-overflow: ellipsis;
+    background-color: white;
+    z-index: z-index.$datatable;
+  }
+
+  &--resizable {
     resize: horizontal;
   }
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__input.input,
+.datatable__input.select {
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__footer {
+  box-sizing: border-box;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  padding: spacing.$lg spacing.$sm;
+  border-top: borders.$ui-one;
 }

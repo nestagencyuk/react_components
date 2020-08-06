@@ -62,10 +62,17 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
           type="button"
           disabled={x.disabled}
           data-value={x.value}
+          tabIndex={-1}
           onClick={() => onClick(x.value)}
         >
           {multi && multiVariant === 'Checkbox' && (
-            <Checkbox className="select__checkbox" id={x.label} value={values?.includes(x.value)} onChange={() => {}} />
+            <Checkbox
+              className="select__checkbox"
+              id={x.label}
+              value={values?.includes(x.value)}
+              tabIndex={-1}
+              onChange={() => {}}
+            />
           )}
 
           {options.find((y) => y.value === x.value)?.label}

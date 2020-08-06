@@ -3,7 +3,6 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
-import { useFocus } from '../../hooks/useFocus'
 import cx from 'classnames'
 
 /**
@@ -22,7 +21,9 @@ import { Icon } from '../Icon'
  * Determine which select type to render
  */
 const Select: React.FC<ISelect.IProps> = ({
+  className,
   id,
+  tabIndex,
   multi,
   multiVariant = 'Checkbox',
   filterable,
@@ -114,7 +115,7 @@ const Select: React.FC<ISelect.IProps> = ({
     if (typeof value === 'string') {
       onChange(value)
     } else if (multi && Array.isArray(value)) {
-      value.forEach((x) => handleClick(x))
+      value.forEach((x) => addItem(x))
     }
   }, [])
 
@@ -133,7 +134,7 @@ const Select: React.FC<ISelect.IProps> = ({
   return (
     <div
       ref={ref}
-      className={cx('select', { 'select--disabled': disabled })}
+      className={cx(className, 'select', { 'select--disabled': disabled })}
       tabIndex={-1}
       data-testid={id}
       onFocus={handleFocus}
@@ -151,10 +152,11 @@ const Select: React.FC<ISelect.IProps> = ({
           filterable={filterable}
           disabled={disabled}
           onChange={handleChange}
+          tabIndex={tabIndex}
         />
 
         {multi && values?.length > 0 && (
-          <Button className="select__clear" variant="Tertiary" size="XSmall" onClick={handleReset}>
+          <Button className="select__clear" variant="Tertiary" size="XSmall" tabIndex={tabIndex} onClick={handleReset}>
             Clear
           </Button>
         )}
