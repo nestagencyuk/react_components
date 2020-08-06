@@ -40,7 +40,7 @@
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-    
+
     @include lib.breakpoint-up(breakpoints.$sm) {
       width: auto;
     }
@@ -54,5 +54,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-filter: blur(0.000001px);
+    filter: blur(0.000001px);
   }
 }
