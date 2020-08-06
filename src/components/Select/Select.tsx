@@ -37,7 +37,7 @@ const Select: React.FC<ISelect.IProps> = ({
 }) => {
   const { array: values, addItem, deleteItem, resetItems } = useManageArray()
   const [filterValue, setSearchValue] = useState<string>('')
-  const [, , focused, onFocus, onBlur] = useFocus()
+  const [focused, setFocused] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>()
 
   /**
@@ -50,19 +50,20 @@ const Select: React.FC<ISelect.IProps> = ({
   /**
    * When we focus, open the options
    */
-  const handleFocus = () => {
-    onFocus()
+  const handleFocus = (): void => {
+    setFocused(true)
   }
 
   /**
    * On blur
    *
    * @param {Event} e
-   * The focus event
+   * The event
    */
   const handleBlur = (e: React.FocusEvent<HTMLDivElement> & { relatedTarget: HTMLElement }) => {
-    if (!ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)) {
-      onBlur()
+    const isOutside = !ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)
+    if (isOutside) {
+      setFocused(false)
       setSearchValue(null)
     }
   }
@@ -84,7 +85,8 @@ const Select: React.FC<ISelect.IProps> = ({
       }
     } else {
       resetItems([value])
-      onBlur()
+      setFocused(false)
+      ref.current.parentElement.focus()
     }
   }
 
@@ -93,7 +95,7 @@ const Select: React.FC<ISelect.IProps> = ({
    */
   const handleReset = () => {
     resetItems([])
-    onBlur()
+    setFocused(false)
   }
 
   /**

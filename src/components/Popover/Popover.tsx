@@ -1,9 +1,8 @@
 import { IPopover } from './types'
 import cx from 'classnames'
 import * as React from 'react'
-import { Fragment, useMemo } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useCombinedRefs } from '../../hooks/useCombinedRefs'
 import { useFocus } from '../../hooks/useFocus'
 import { usePopper } from '../../hooks/usePopper'
 
@@ -26,22 +25,20 @@ const alignments = {
  * A popover
  */
 const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'Bottom', render, children }) => {
-  const [focusTriggerRef, focusTargetRef, focused, onFocus, onBlur] = useFocus()
-  const [triggerRef, popperRef, arrowRef] = usePopper({ active: focused, align })
+  const [triggerRef, setTrigger] = useState(null)
+  const [targetRef, setTarget] = useState(null)
+  const [focused, onFocus, onBlur] = useFocus({ triggerRef, targetRef })
+  const [styles, attributes] = usePopper({ align, triggerRef, targetRef })
 
   /**
    * Render the actual popover
    */
   const renderPopover = () =>
+    focused &&
     createPortal(
-      <aside
-        className={cx('popover', { 'popover--active': focused })}
-        ref={useCombinedRefs(popperRef, focusTargetRef)}
-        tabIndex={-1}
-      >
-        <div className={cx('animate', focused && alignments[align])}>
+      <aside className={cx('popover')} ref={setTarget} style={styles.popper} {...attributes.popper} tabIndex={-1}>
+        <div className={cx('animate', alignments[align])}>
           <div className={cx('popover__body')}>{render}</div>
-          <span ref={arrowRef} className={cx('popover__arrow')} />
         </div>
       </aside>,
       document.body
@@ -52,8 +49,8 @@ const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'B
    */
   const events = useMemo(
     () => ({
-      onFocus: onFocus,
-      onBlur: onBlur
+      onFocus,
+      onBlur
     }),
     []
   )
@@ -62,11 +59,11 @@ const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'B
     <Fragment>
       {typeof children === 'function' ? (
         children({
-          ref: useCombinedRefs(triggerRef, focusTriggerRef),
+          ref: setTrigger,
           ...events
         })
       ) : (
-        <span ref={useCombinedRefs(triggerRef, focusTriggerRef)} {...events} tabIndex={0}>
+        <span ref={setTrigger} {...events} tabIndex={0}>
           {children}
         </span>
       )}

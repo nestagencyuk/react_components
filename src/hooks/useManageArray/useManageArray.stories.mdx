@@ -5,7 +5,7 @@ import { Button } from '../../components/Button'
 import { Field } from '../../components/Field'
 import { Input } from '../../components/Input'
 import { Select } from '../../components/Select'
-import { Form, Field as FieldState } from '@nestagencyuk/react_form-factory'
+import { FormV2, useField } from '@nestagencyuk/react_form-factory'
 import { useManageArray } from '.'
 
 <Meta title="Hooks|Manage Array" component={null} />
@@ -62,123 +62,48 @@ The hook also accepts an array of objects. It will add a `_uid` property to each
     {() => {
       const [editing, setEditing] = useState(false)
       const { array, addItem, editItem, deleteItem } = useManageArray()
+      const FormField = ({ id, label, type, required, options }) => {
+        const { value, handleChange } = useField({ id, required })
+        return (
+          <Field id={id} label={label} type={type} options={options} value={value} onChange={handleChange} />
+        )
+      }
       return (
         <Fragment>
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(array, null, 2)}</pre>
           {array && array.map((x, i) => (
-            <Form key={`form-${i}`} savedData={x} onSubmit={(formData) => { editItem(formData); setEditing(false) }}>
-              {({ valid, handleSubmit }) => (
-                <form style={{ display: 'flex' }}  onSubmit={(e) => e.preventDefault()}>
-                  <FieldState id="name">
-                    {(field) => <Field id={`name-${i}`} label="Name" {...field} />}
-                  </FieldState>
-                  <FieldState id="age">
-                    {(field) => <Field id={`age-${i}`} label="Age" type="Number" {...field} />}
-                  </FieldState>
-                  <FieldState id="gender">
-                    {(field) => (
-                      <Field 
-                        id={`gender-${i}`} 
-                        label="Gender"
-                        type="Select" 
-                        options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]} 
-                        {...field} 
-                      />
-                    )}
-                  </FieldState>
+            <FormV2 key={`form-${x._uid}`} data={x} onSubmit={(newData) => { editItem(newData); setEditing(false) }}>
+              {({ handleSubmit }) => (
+                <form style={{ display: 'flex' }} onSubmit={(e) => e.preventDefault()}>
+                  <FormField id="name" label="Name" />
+                  <FormField id="age" label="Age" type="Number" />
+                  <FormField id="gender" label="Gender"type="Select" options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]} />
                   {editing ? (
                     <Button variant="Tertiary" size="Small" type="submit" onClick={handleSubmit}>Save</Button>
                   ) : (
                     <Button variant="Tertiary" size="Small" onClick={() => setEditing(true)}>Edit</Button>
                   )}
-                  <Button className="m m--l-md" variant="Tertiary" size="Small" onClick={() => deleteItem(x)}>Delete</Button>
+                  <Button className="m m--l-md" variant="Tertiary" size="Small" onClick={() => deleteItem(x._uid)}>Delete</Button>
                 </form>
               )}
-            </Form>
+            </FormV2>
           ))}
-          <Form onSubmit={(formData) => addItem(formData)}>
-            {({ valid, handleSubmit }) => (
+          <FormV2 data={{ name: null, age: null, gender: null }} onSubmit={(data) => addItem(data)}>
+            {({ handleSubmit }) => (
               <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
-                <FieldState id="name" required>
-                  {(field) => <Field id="name" label="Name" {...field} />}
-                </FieldState>
-                <FieldState id="age" required>
-                  {(field) => <Field id="age" label="Age" type="Number" {...field} />}
-                </FieldState>
-                <FieldState id="gender" required>
-                  {(field) => (
-                    <Field 
-                      id="gender" 
-                      label="Gender" 
-                      type="Select" 
-                      options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]} 
-                      {...field} 
-                    />
-                  )}
-                </FieldState>
-                <Button type="submit" disabled={!valid}>Add</Button>
+                <FormField id="name" label="Name" />
+                <FormField id="age" label="Age" type="Number" />
+                <FormField 
+                  id="gender"
+                  label="Gender"
+                  type="Select" 
+                  options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]}
+                />
+                <Button type="submit">Add</Button>
               </form>
             )}
-          </Form>
-        </Fragment>
-      )
-    }}
-  </Story>
-</Preview>
-
-## Table
-An example of a table with editable rows.
-
-<Preview>
-  <Story name="Table">
-    {({ config = [
-        [
-          { id: 'name', type: 'Text', value: 'Jamie' }, 
-          { id: 'age', type: 'Number', value: 26 }, 
-          { id: 'gender', type: 'Select', value: 'male', options: [{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]}
-        ],
-        [
-          { id: 'name', type: 'Text', value: 'Milly' }, 
-          { id: 'age', type: 'Number', value: 27 }, 
-          { id: 'gender', type: 'Select', value: 'female', options: [{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]}
-        ],
-      ]}) => {
-      const [editing, setEditing] = useState(false)
-      const { array, addItem, editItem, deleteItem } = useManageArray({ 
-        initialArray: config.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
-      })
-      const blankRow = { name: null, age: null, gender: null }
-      return (
-        <Fragment>
-          <Text>Value:</Text>
-          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(array, null, 2)}</pre>
-          <table style={{ tableLayout: 'fixed', width: '100%' }}>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Gender</th>
-              <th style={{ width: '125px' }}><Button className="w--100" size="Small" onClick={() => addItem(blankRow)}>Add</Button></th>
-            </tr>
-            {array && array.map((x, i) => (
-              <Form key={`form-${i}`} savedData={x} onSubmit={(formData) => editItem(formData)}>
-                {({ valid, handleSubmit }) => (
-                  <tr>
-                    {(config[i] || config[0]).map((y) => (
-                      <td onBlur={handleSubmit}>
-                        <FieldState id={y.id}>
-                          {(field) => y.type === 'Select' ? <Select {...y} {...field} /> : <Input {...y} {...field} />}
-                        </FieldState>
-                      </td>
-                    ))}
-                    <td>
-                      <Button className="w--100" variant="Secondary" onClick={() => deleteItem(x)}>Delete</Button>
-                    </td>
-                  </tr>
-                )}
-              </Form>
-            ))}
-          </table>
+          </FormV2>
         </Fragment>
       )
     }}

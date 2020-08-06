@@ -5,7 +5,12 @@ declare namespace IToggleGroup {
   }
 
   interface IRenderProps extends Omit<IProps, 'children'> {
-    children(value: { toggles: { [key: string]: boolean }; setToggled: (id: string) => void }): React.ReactNode
+    children(value: IValue): React.ReactNode
+  }
+
+  interface IValue {
+    toggles: { [key: string]: boolean }
+    setToggled: (id: string) => void
   }
 }
 

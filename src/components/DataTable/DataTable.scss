@@ -1,106 +1,63 @@
 /// ----------------------------------------------------------------------
 
-/// DataTable
+/// Data Table
 
 /// ----------------------------------------------------------------------
 
 @use '@nestagencyuk/scss_lib' as lib;
-@use 'colours';
-@use 'borders';
-@use 'corners';
 @use 'spacing';
-@use 'transitions';
-@use 'states';
-@use 'z-index';
 
 /// -------------------
-/// DataTable swatches
+/// Data Table config
 /// -------------------
-$borderPrimary: 1px solid colours.$ui-two;
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
 
 /// -------------------
-/// DataTable selectors
+/// Data Table selectors
 /// -------------------
 
 .datatable {
   width: 100%;
-  border-collapse: collapse;
 }
 
-.datatable-container {
-  position: relative;
+/// -------------------
+/// Data Table controls
+/// -------------------
+
+.datatable__controls {
+}
+
+/// -------------------
+/// Data Table header
+/// -------------------
+
+.datatable__header {
+}
+
+/// -------------------
+/// Data Table header
+/// -------------------
+
+.datatable__table {
+  table-layout: fixed;
   width: 100%;
-  border: $borderPrimary;
-  border-radius: corners.$base;
-  border-collapse: collapse;
+}
 
-  &__inner {
-    padding: spacing.$md;
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__row {
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__cell {
+  .datatable__header--resizeable & {
+    resize: horizontal;
   }
-}
-
-.datatable-loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-/// -------------------
-/// DataTable Body selectors
-/// -------------------
-
-.datatable-body__row {
-  width: 100%;
-  border: $borderPrimary;
-  column-span: 2;
-
-  &:nth-of-type(odd) {
-    background-color: colours.$ui-one;
-  }
-}
-
-.datatable-body__cell {
-  padding: spacing.$sm;
-  border-right: $borderPrimary;
-}
-
-/// -------------------
-/// DataTable Body Header selectors
-/// -------------------
-
-.datatable-body-header__item {
-  border-top: $borderPrimary;
-  border-right: $borderPrimary;
-  border-bottom: $borderPrimary;
-  padding: spacing.$xs;
-  text-align: left;
-  overflow: hidden;
-  white-space: nowrap;
-
-  &:first-child {
-    border-left: $borderPrimary;
-  }
-}
-
-/// -------------------
-/// DataTable Drop Down selectors
-/// -------------------
-
-.datatable__drop-down {
-  &-item {
-    padding: spacing.$xs;
-
-    &:not(:last-child) {
-      border-bottom: borders.$ui-two;
-    }
-  }
-}
-
-/// -------------------
-/// DataTable Footer selectors
-/// -------------------
-
-.datatable-footer {
-  padding: spacing.$md;
-  border: $borderPrimary;
 }

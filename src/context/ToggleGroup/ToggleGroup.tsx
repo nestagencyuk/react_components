@@ -12,10 +12,11 @@ import { ToggleGroupContext } from '.'
  */
 const ToggleGroup: React.FC<IToggleGroup.IProps | IToggleGroup.IRenderProps> = ({ multi, children }) => {
   const [toggles, setToggled] = useToggleGroup({ multi })
+  const value = { toggles, setToggled }
 
   return (
-    <ToggleGroupContext.Provider value={{ toggles, setToggled }}>
-      {typeof children === 'function' ? children({ toggles, setToggled }) : children}
+    <ToggleGroupContext.Provider value={value}>
+      {typeof children === 'function' ? children(value) : children}
     </ToggleGroupContext.Provider>
   )
 }

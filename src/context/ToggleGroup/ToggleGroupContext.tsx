@@ -1,11 +1,12 @@
 import { createContext } from 'react'
+import { IToggleGroup } from './types'
 
 /**
  * Context for displaying something that opens
  */
-const ToggleGroupContext = createContext({
+const ToggleGroupContext = createContext<IToggleGroup.IValue>({
   toggles: {},
-  setToggled: (id: string) => {}
+  setToggled: () => {}
 })
 
 export default ToggleGroupContext

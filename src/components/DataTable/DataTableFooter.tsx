@@ -1,28 +1,24 @@
+import { IDataTable } from './types'
 import * as React from 'react'
-import { useContext } from 'react'
-import { DataTableContext } from '.'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 
 /**
- * Styles
+ * Context
  */
-import './DataTable.scss'
+import { DataTableCell as BaseDataTableCell } from '../../context/DataTable'
 
 /**
  * Components
  */
-import { Grid, GridItem } from '../Grid'
+import { Input } from '../Input'
+import { Select } from '../Select'
+import { Text } from '../Text'
 
 /**
- * A datatable that displays table controls
+ * Render a table cell
  */
-const DataTableFooter: React.FC = () => {
-  const { rowCount } = useContext(DataTableContext)
-
-  return (
-    <footer className="datatable-footer" data-testid="datatable-footer">
-      <Grid>{rowCount && <GridItem span={3}>{`${rowCount} Lines`}</GridItem>}</Grid>
-    </footer>
-  )
+const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ id, config, onChange }) => {
+  return <tbody>test</tbody>
 }
 
 export default DataTableFooter

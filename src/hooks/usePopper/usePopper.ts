@@ -1,5 +1,6 @@
-import { useRef, useCallback, useEffect } from 'react'
-import { createPopper } from '@popperjs/core'
+import { useEffect, useState } from 'react'
+import { usePopper as usePopperBase } from 'react-popper'
+import { IUsePopper } from './types'
 
 /**
  * Alignments
@@ -13,73 +14,47 @@ const alignments: { [key: string]: 'auto' | 'left' | 'top' | 'bottom' | 'right' 
 }
 
 /**
- * Use request animation frame
+ * Use Popper
  *
  * @param {Object} options
  */
-const usePopper = ({ align = 'Auto', active = true }: any = {}): [
-  React.RefCallback<HTMLElement>,
-  React.RefCallback<HTMLElement>,
-  React.RefCallback<HTMLElement>
+const usePopper = ({
+  align = 'Auto',
+  triggerRef: initialTriggerRef,
+  targetRef: initialTargetRef,
+  arrowRef: initialArrow
+}: IUsePopper.IProps = {}): [
+  { popper?: React.CSSProperties; arrow?: React.CSSProperties },
+  { popper?: React.HTMLAttributes<any> }
 ] => {
-  const triggerRef = useRef<HTMLElement>()
-  const popperRef = useRef<HTMLElement>()
-  const arrowRef = useRef<HTMLElement>()
-  const popperInstance = useRef<{ destroy: () => void }>()
+  const [triggerRef, setTrigger] = useState(null)
+  const [targetRef, setTarget] = useState(null)
+  const [arrowRef, setArrow] = useState(null)
 
   /**
    * Popper options
    */
   const options = {
     placement: alignments[align],
-    modifiers: [{ name: 'arrow', options: { element: arrowRef.current } }]
+    modifiers: [{ name: 'arrow', options: { element: initialArrow?.current || arrowRef } }]
   }
 
-  /**
-   * Set the ref node
-   */
-  const setTriggerRef = useCallback((node) => {
-    if (!node) return
-    triggerRef.current = node
-  }, [])
+  const { styles, attributes } = usePopperBase(
+    initialTriggerRef?.current || triggerRef,
+    initialTargetRef?.current || targetRef,
+    options
+  )
 
   /**
-   * Set the ref node
-   */
-  const setPopperRef = useCallback((node) => {
-    if (!node) return
-    popperRef.current = node
-  }, [])
-
-  /**
-   * Set the ref node
-   */
-  const setArrowRef = useCallback((node) => {
-    if (!node) return
-    arrowRef.current = node
-  }, [])
-
-  /**
-   * Cleanup on umnount
+   * Set the ref elements if coming from state updates
    */
   useEffect(() => {
-    return () => {
-      popperInstance.current?.destroy()
-    }
-  }, [])
+    setTrigger(initialTriggerRef)
+    setTarget(initialTargetRef)
+    setArrow(initialArrow)
+  }, [initialTriggerRef, initialTargetRef])
 
-  /**
-   * Create a popper instance
-   */
-  useEffect(() => {
-    if (active) {
-      popperInstance.current = createPopper(triggerRef.current, popperRef.current, options)
-    } else {
-      popperInstance.current?.destroy()
-    }
-  }, [active])
-
-  return [setTriggerRef, setPopperRef, setArrowRef]
+  return [styles, attributes]
 }
 
 export default usePopper

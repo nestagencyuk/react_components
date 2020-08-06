@@ -1,37 +1,47 @@
 import { IDataTable } from './types'
 import * as React from 'react'
-import { useContext } from 'react'
-import { DataTableContext } from '.'
+import { useContext, useEffect } from 'react'
+import { useToggleGroup } from '../../hooks/useToggleGroup'
 
 /**
- * Styles
+ * Context
  */
-import './DataTable.scss'
+import { DataTableContext } from '../../context/DataTable'
 
 /**
  * Components
  */
-import { RefButton, Button } from '../Button'
 import { Grid, GridItem } from '../Grid'
-import { Checkbox } from '../Checkbox'
 import { Popover } from '../Popover'
 import { Input } from '../Input'
+import { Checkbox } from '../Checkbox'
+import { Button, RefButton } from '../Button'
 
 /**
- * A datatable that displays table controls
+ * Data table row
  */
-const DataTableControls: React.FC<IDataTable.ITableControls> = ({
-  buttonCustomiseTable = true,
-  buttonFilterData = true,
-  buttonAddLine = true,
-  search = true
-}) => {
-  const { headings, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery } = useContext(DataTableContext)
+const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange }) => {
+  const [toggles, setToggled] = useToggleGroup({ multi: true })
+  const { addRow } = useContext(DataTableContext)
+
+  /**
+   * On toggle change, set the visibility of the header
+   */
+  useEffect(() => {
+    header.forEach((x: any) => !x.visible && setToggled(x.id))
+  }, [])
+
+  /**
+   * On toggle change, set the visibility of the header
+   */
+  useEffect(() => {
+    onChange(header.map((x: any) => ({ ...x, visible: !toggles[x.id] })))
+  }, [toggles])
 
   return (
-    <header className="datatable-header m--b-md" data-testid="datatable-header">
+    <header>
       <Grid gutter>
-        {buttonFilterData && (
+        {controls.buttonFilterData && (
           <GridItem span={3}>
             <Button
               variant="Tertiary"
@@ -47,19 +57,14 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
             </Button>
           </GridItem>
         )}
-        {buttonCustomiseTable && (
+        {controls.buttonCustomiseTable && (
           <GridItem span={3}>
             <Popover
-              render={headings.map((heading: any) => (
-                <div key={heading.id} className="datatable__drop-down-item">
-                  <label className="interactive" htmlFor={heading.name}>
-                    <Checkbox
-                      onChange={() => toggleColumn(heading.id)}
-                      value={!columnsState[heading.id]}
-                      className="m--r-xs"
-                      id={heading.name}
-                    />
-                    {heading.name}
+              render={header.map((x: any) => (
+                <div key={x.id}>
+                  <label className="interactive" htmlFor={x.name}>
+                    <Checkbox id={x.name} value={x.visible} className="m--r-xs" onChange={() => setToggled(x.id)} />
+                    {x.name}
                   </label>
                 </div>
               ))}
@@ -82,21 +87,14 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
             </Popover>
           </GridItem>
         )}
-        {search && (
+        {controls.search && (
           <GridItem span={3}>
             <div>
-              <Input
-                onChange={searchRows}
-                value={rowSearchQuery}
-                placeholder="Search Data"
-                size="Small"
-                type="Text"
-                id="Search"
-              />
+              <Input id="Search" type="Text" value={''} placeholder="Search Data" size="Small" onChange={() => {}} />
             </div>
           </GridItem>
         )}
-        {buttonAddLine && (
+        {controls.buttonAddRow && (
           <GridItem span={3} className="m--l-auto">
             <Button
               variant="Tertiary"
@@ -107,7 +105,7 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
                 align: 'End'
               }}
               size="Small"
-              onClick={() => addNewRow()}
+              onClick={() => addRow(null)}
             >
               Add Line
             </Button>

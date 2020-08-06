@@ -1,9 +1,8 @@
 import { ITooltip } from './types'
 import cx from 'classnames'
 import * as React from 'react'
-import { Fragment, useMemo } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useCombinedRefs } from '../../hooks/useCombinedRefs'
 import { useFocus } from '../../hooks/useFocus'
 import { usePopper } from '../../hooks/usePopper'
 
@@ -26,22 +25,22 @@ const alignments = {
  * A tooltip
  */
 const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', render, children }) => {
-  const [focusTriggerRef, focusTargetRef, focused, onFocus, onBlur] = useFocus({ trigger })
-  const [triggerRef, popperRef, arrowRef] = usePopper({ active: focused, align })
+  const [triggerRef, setTrigger] = useState(null)
+  const [targetRef, setTarget] = useState(null)
+  const [arrowRef, setArrow] = useState(null)
+  const [focused, onFocus, onBlur] = useFocus({ trigger, triggerRef, targetRef })
+  const [styles, attributes] = usePopper({ align, triggerRef, targetRef, arrowRef })
 
   /**
    * Render the actual tooltip
    */
   const renderTooltip = () =>
+    focused &&
     createPortal(
-      <aside
-        className={cx('tooltip', { 'tooltip--active': focused })}
-        ref={useCombinedRefs(popperRef, focusTargetRef)}
-        tabIndex={-1}
-      >
-        <div className={cx('animate', focused && alignments[align])}>
+      <aside className={cx('tooltip')} ref={setTarget} style={styles.popper} {...attributes.popper} tabIndex={-1}>
+        <div className={cx('animate', alignments[align])}>
           <div className={cx('tooltip__body')}>{render}</div>
-          <span ref={arrowRef} className={cx('tooltip__arrow')} />
+          <span ref={setArrow} className={cx('tooltip__arrow')} style={styles.arrow} />
         </div>
       </aside>,
       document.body
@@ -62,11 +61,11 @@ const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', 
     <Fragment>
       {typeof children === 'function' ? (
         children({
-          ref: useCombinedRefs(triggerRef, focusTriggerRef),
+          ref: setTrigger,
           ...events
         })
       ) : (
-        <span ref={useCombinedRefs(triggerRef, focusTriggerRef)} {...events} tabIndex={0}>
+        <span ref={setTrigger} {...events} tabIndex={0}>
           {children}
         </span>
       )}

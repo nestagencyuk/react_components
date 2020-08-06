@@ -1,6 +1,6 @@
 import * as clone from 'rfdc'
 import uid from 'uid'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { IUseManageArray } from './types'
 
 /**
@@ -16,7 +16,9 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   deleteItem: (value: string | { [key: string]: any }) => void
   resetItems: (value: string[] | Array<{ [key: string]: any }>) => void
 } => {
-  const [array, setArray] = useState<IUseManageArray.IState>(initialArray)
+  const [array, setArray] = useState<IUseManageArray.IState>(
+    initialArray ? initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid(8) })) : null
+  )
 
   /**
    * Add an item
@@ -52,10 +54,8 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   /**
    * Delete an item
    */
-  const deleteItem = (value: string | { [key: string]: any }) => {
-    setArray((prev) => [
-      ...prev.filter((x) => (typeof value === 'string' || typeof x === 'string' ? x !== value : x._uid !== value._uid))
-    ])
+  const deleteItem = (value: string) => {
+    setArray((prev) => [...prev.filter((x) => (typeof x === 'string' ? x !== value : x._uid !== value))])
   }
 
   /**
@@ -64,15 +64,6 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   const resetItems = (value: string[] | Array<{ [key: string]: any }>) => {
     setArray(value)
   }
-
-  /**
-   * On component mount, check if an initial array is passed, then assign each object a UID
-   */
-  useEffect(() => {
-    if (initialArray) {
-      setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid(8) })))
-    }
-  }, [])
 
   return { array, addItem, editItem, deleteItem, resetItems }
 }

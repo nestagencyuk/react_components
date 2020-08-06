@@ -1,35 +1,15 @@
-import * as React from 'react'
-import { useContext, Fragment } from 'react'
-import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import * as React from 'react'
 
-const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ headings }) => {
-  const { rowControls, columnsState } = useContext(DataTableContext)
-
+/**
+ * Render a table cell
+ */
+const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ columns }) => {
   return (
-    <thead className="datatable-body-header">
+    <thead>
       <tr>
-        <Fragment>
-          {headings.map((heading) => {
-            return columnsState[heading.id] ? null : (
-              <th
-                className="datatable-body-header__item"
-                key={heading.id}
-                style={{
-                  width: heading.defaultWidth ? heading.defaultWidth : '100px',
-                  resize: heading.resizable ? 'horizontal' : 'none'
-                }}
-              >
-                {heading.name}
-              </th>
-            )
-          })}
-          {rowControls.visible && (
-            <th className="datatable-body-header__item" style={{ width: '50px' }}>
-              Action
-            </th>
-          )}
-        </Fragment>
+        {columns.map((x, i: number) => x.visible && <th key={`heading-${i}`}>{x.name}</th>)}
+        <th>Action</th>
       </tr>
     </thead>
   )

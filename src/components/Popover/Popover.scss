@@ -22,15 +22,11 @@ $padding-y: spacing.$xs !default;
 /// -------------------
 
 .popover {
-  display: none;
+  display: block;
   padding: 1rem;
 
   &:focus {
     outline: none;
-  }
-
-  &--active {
-    display: block;
   }
 }
 

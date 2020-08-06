@@ -28,6 +28,9 @@ export { IDrawer } from './components/Drawer/types'
 export { DatePicker } from './components/DatePicker'
 export { IDatePicker } from './components/DatePicker/types'
 
+export { DataTable } from './components/DataTable'
+export { IDataTable } from './components/DataTable/types'
+
 export { Field } from './components/Field'
 export { IField } from './components/Field/types'
 
@@ -117,8 +120,6 @@ export { ITextarea } from './components/Textarea/types'
 
 export { Tooltip } from './components/Tooltip'
 export { ITooltip } from './components/Tooltip/types'
-
-export { DataTable } from './components/DataTable'
 
 export { ToggleGroup } from './context/ToggleGroup'
 

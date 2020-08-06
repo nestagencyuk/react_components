@@ -6,7 +6,7 @@ import { IToggleTree } from './types'
  */
 const ToggleTreeContext = createContext<IToggleTree.IValue>({
   toggles: {},
-  setToggled: (id: string, depth: number = 0) => {}
+  setToggled: () => {}
 })
 
 export default ToggleTreeContext

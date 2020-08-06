@@ -24,15 +24,11 @@ $arrow-size: 0.5rem !default;
 /// -------------------
 
 .tooltip {
-  display: none;
+  display: block;
   padding: 1rem;
 
   &:focus {
     outline: none;
-  }
-
-  &--active {
-    display: block;
   }
 }
 
