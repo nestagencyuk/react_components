@@ -95,6 +95,10 @@ $padding-y: spacing.$md !default;
   border-left: borders.$ui-two;
   border-right: borders.$ui-two;
 
+  &:focus {
+    outline: none;
+  }
+
   &:first-of-type {
     border-left: 0;
   }

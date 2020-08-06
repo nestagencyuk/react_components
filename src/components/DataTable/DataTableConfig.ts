@@ -19,7 +19,7 @@ const testConfig: any = {
       buttonAddRow: true
     },
     row: {
-      visible: false,
+      visible: true,
       buttonCopyRow: true,
       buttonDeleteRow: true,
       buttonLockRow: true,

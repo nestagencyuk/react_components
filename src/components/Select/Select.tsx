@@ -135,8 +135,8 @@ const Select: React.FC<ISelect.IProps> = ({
     <div
       ref={ref}
       className={cx(className, 'select', { 'select--disabled': disabled })}
-      tabIndex={-1}
       data-testid={id}
+      tabIndex={disabled ? -1 : 0}
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
@@ -151,12 +151,18 @@ const Select: React.FC<ISelect.IProps> = ({
           multiVariant={multiVariant}
           filterable={filterable}
           disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
           onChange={handleChange}
-          tabIndex={tabIndex}
         />
 
         {multi && values?.length > 0 && (
-          <Button className="select__clear" variant="Tertiary" size="XSmall" tabIndex={tabIndex} onClick={handleReset}>
+          <Button
+            className="select__clear"
+            variant="Tertiary"
+            size="XSmall"
+            tabIndex={disabled ? -1 : 0}
+            onClick={handleReset}
+          >
             Clear
           </Button>
         )}
