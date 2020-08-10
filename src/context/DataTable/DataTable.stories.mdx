@@ -1,0 +1,86 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment, useContext, useState, useMemo } from 'react'
+import { Text } from '../../components/Text'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
+import { DataTableContext, DataTable } from '.'
+import { FormV2, useField } from '@nestagencyuk/react_form-factory'
+
+<Meta title="Context|Data Table" component={DataTable} />
+
+# Data Table
+This is the Context implementation of the [Manage Array hook](/?path=/docs/hooks-toggle-group--base).
+
+## Base
+You can use `useContext` to access the toggle state. The table must be initiated with at least one blank row.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [value, setValue] = useState(null)
+      const header = [
+        { id: 'product_sku', name: 'Stock Keeping Unit (SKU)' },
+        { id: 'product_description', name: 'Product Description' },
+        { id: 'unit_of_measure', name: 'Unit of Measure' },
+        { id: 'quantity', name: 'Quantity' },
+        { id: 'batch', name: 'Batch'}
+      ]
+      const Cell = ({ id }) => {
+        const { value, valid, handleChange } = useField({ id })
+        return (
+          <td><Input id={id} value={value} onChange={handleChange} /></td>
+        )
+      }
+      const Row = ({ data }) => {
+        const { addRow, editRow, deleteRow } = useContext(DataTableContext)
+        return (
+          <FormV2 data={data} onSubmit={(data) => editRow(data)}>
+            {({ handleSubmit }) => (
+              <tr onBlur={handleSubmit}>
+                {Object.keys(data).filter(x => x !== '_uid').map((x, i) => <Cell key={`cell-${x}-${i}`} id={x} />)}
+                <td>
+                  <Button className="w--50" variant="Secondary" onClick={() => addRow(data)}>Copy</Button>
+                  <Button className="w--50" variant="Secondary" onClick={() => deleteRow(data._uid)}>Delete</Button>
+                </td>
+              </tr>
+            )}
+          </FormV2>
+        )
+      }
+      return (
+        <Fragment>
+          <Text>Value:</Text>
+          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <DataTable
+            data={[
+              { product_sku: null, product_description: null, unit_of_measure: null, quantity: null, batch: null },
+              { product_sku: null, product_description: null, unit_of_measure: 2, quantity: null, batch: null },
+            ]}
+            onSubmit={setValue}
+            >
+            {({ rows, addRow, handleSubmit }) => (
+              <Fragment>
+                <form onSubmit={handleSubmit}>
+                  <table>
+                    <thead>
+                      <tr>
+                        {header.map((x, i) => <th key={`header-${i}`}>{x.name}</th>)}
+                        <th><Button className="w--100" onClick={() => addRow(null)}>Add</Button></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rows.map((data, i) => (
+                        <Row key={`row-${data._uid}`} data={data} />
+                      ))}
+                    </tbody>
+                  </table>
+                  <Button type="submit">Submit</Button>
+                </form>
+              </Fragment>
+            )}
+          </DataTable>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

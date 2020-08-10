@@ -1,35 +1,31 @@
-import * as React from 'react'
-import { useContext, Fragment } from 'react'
-import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import * as React from 'react'
+import cx from 'classnames'
 
-const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ headings }) => {
-  const { rowControls, columnsState } = useContext(DataTableContext)
-
+/**
+ * Render a table cell
+ */
+const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ controls, columns }) => {
   return (
-    <thead className="datatable-body-header">
-      <tr>
-        <Fragment>
-          {headings.map((heading) => {
-            return columnsState[heading.id] ? null : (
+    <thead>
+      <tr className="datatable__header">
+        {columns.map(
+          (column: any, i: number) =>
+            column.visible && (
               <th
-                className="datatable-body-header__item"
-                key={heading.id}
-                style={{
-                  width: heading.defaultWidth ? heading.defaultWidth : '100px',
-                  resize: heading.resizable ? 'horizontal' : 'none'
-                }}
+                key={`heading-${i}`}
+                className={cx('datatable__cell', { 'datatable__cell--resizable': column.resizable })}
+                style={{ width: column.defaultWidth ? column.defaultWidth : 'auto' }}
               >
-                {heading.name}
+                {column.name}
               </th>
             )
-          })}
-          {rowControls.visible && (
-            <th className="datatable-body-header__item" style={{ width: '50px' }}>
-              Action
-            </th>
-          )}
-        </Fragment>
+        )}
+        {controls.visible && (
+          <th className="datatable__cell" style={{ width: '1rem', textAlign: 'center' }}>
+            Action
+          </th>
+        )}
       </tr>
     </thead>
   )

@@ -3,7 +3,6 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
-import { useFocus } from '../../hooks/useFocus'
 import cx from 'classnames'
 
 /**
@@ -22,6 +21,7 @@ import { Icon } from '../Icon'
  * Determine which select type to render
  */
 const Select: React.FC<ISelect.IProps> = ({
+  className,
   id,
   tabIndex,
   multi,
@@ -38,7 +38,7 @@ const Select: React.FC<ISelect.IProps> = ({
 }) => {
   const { array: values, addItem, deleteItem, resetItems } = useManageArray()
   const [filterValue, setSearchValue] = useState<string>('')
-  const [, , focused, onFocus, onBlur] = useFocus()
+  const [focused, setFocused] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>()
 
   /**
@@ -51,19 +51,20 @@ const Select: React.FC<ISelect.IProps> = ({
   /**
    * When we focus, open the options
    */
-  const handleFocus = () => {
-    onFocus()
+  const handleFocus = (): void => {
+    setFocused(true)
   }
 
   /**
    * On blur
    *
    * @param {Event} e
-   * The focus event
+   * The event
    */
   const handleBlur = (e: React.FocusEvent<HTMLDivElement> & { relatedTarget: HTMLElement }) => {
-    if (!ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)) {
-      onBlur()
+    const isOutside = !ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)
+    if (isOutside) {
+      setFocused(false)
       setSearchValue(null)
     }
   }
@@ -85,7 +86,8 @@ const Select: React.FC<ISelect.IProps> = ({
       }
     } else {
       resetItems([value])
-      onBlur()
+      setFocused(false)
+      ref.current.parentElement.focus()
     }
   }
 
@@ -94,7 +96,7 @@ const Select: React.FC<ISelect.IProps> = ({
    */
   const handleReset = () => {
     resetItems([])
-    onBlur()
+    setFocused(false)
   }
 
   /**
@@ -113,7 +115,7 @@ const Select: React.FC<ISelect.IProps> = ({
     if (typeof value === 'string') {
       onChange(value)
     } else if (multi && Array.isArray(value)) {
-      value.forEach((x) => handleClick(x))
+      value.forEach((x) => addItem(x))
     }
   }, [])
 
@@ -132,9 +134,9 @@ const Select: React.FC<ISelect.IProps> = ({
   return (
     <div
       ref={ref}
-      className={cx('select', { 'select--disabled': disabled })}
-      tabIndex={-1}
+      className={cx(className, 'select', { 'select--disabled': disabled })}
       data-testid={id}
+      tabIndex={disabled ? -1 : 0}
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
@@ -149,12 +151,18 @@ const Select: React.FC<ISelect.IProps> = ({
           multiVariant={multiVariant}
           filterable={filterable}
           disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
           onChange={handleChange}
-          tabIndex={tabIndex}
         />
 
         {multi && values?.length > 0 && (
-          <Button tabIndex={tabIndex} className="select__clear" variant="Tertiary" size="XSmall" onClick={handleReset}>
+          <Button
+            className="select__clear"
+            variant="Tertiary"
+            size="XSmall"
+            tabIndex={disabled ? -1 : 0}
+            onClick={handleReset}
+          >
             Clear
           </Button>
         )}

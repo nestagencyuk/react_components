@@ -1,11 +1,8 @@
-import * as React from 'react'
-import { useState, useEffect } from 'react'
-import { useToggleGroup } from '../../hooks/useToggleGroup'
 import { IDataTable } from './types'
-import { DataTableContext } from '.'
-import { useManageArray } from '../../hooks/useManageArray'
+import * as React from 'react'
+import { useState } from 'react'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
-import uid from 'uid'
+import cx from 'classnames'
 
 /**
  * Styles
@@ -13,127 +10,70 @@ import uid from 'uid'
 import './DataTable.scss'
 
 /**
+ * Context
+ */
+import { Box } from '../Box'
+import { Overlay } from '../Overlay'
+import { Loader } from '../Loader'
+import { Button } from '../Button'
+import { DataTable as BaseDataTable } from '../../context/DataTable'
+
+/**
  * Components
  */
-import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
-import { Loader } from '../Loader'
+import { DataTableControls, DataTableHeader, DataTableBody, DataTableFooter } from '.'
 
-const DataTable: React.FC<IDataTable.IProps> = ({ config, headings, data }) => {
-  const { tableControls, rowControls, footerControls } = config
-  /**
-   * Load table data into
-   */
-  const { array: managedArray, addItem, editItem: editRow, deleteItem: deleteRow, resetItems } = useManageArray({
-    initialArray: data.map((x) => x.reduce((acc, y) => ({ ...acc, [y.id]: y.value }), {}))
-  })
-  const [columnsState, setToggledColumns] = useToggleGroup({ multi: true })
-  const [loading, setLoading] = useState(true)
-  const [rowCount, setRowCount] = useState(0)
+/**
+ * A simple table component
+ */
+const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, header, rows, data, onSubmit }) => {
+  const [columns, setColumns] = useState(header)
 
   /**
    * Set pagination
    */
-  const { currentData, currentPage, lastPage, nextPage, prevPage, jumpToPage } = usePaginationV2({
-    dataToPaginate: managedArray,
-    itemsPerPage: footerControls.paginatedRowsPerPage
+  const pagination = usePaginationV2({
+    array: data,
+    pageLimit: controls.footer?.pagination?.pageLimit
   })
 
-  /**
-   * Toggle individual column visibilty
-   */
-  const toggleColumn = (id: string) => {
-    setToggledColumns(id)
-  }
-
-  /**
-   * Add new, blank row
-   */
-  const addNewRow = () => {
-    addItem(data[0].reduce((acc, cell) => ({ ...acc, [cell.id]: null }), {}))
-  }
-
-  /**
-   * Duplicate row
-   */
-  const duplicateRow = (row: IDataTable.IRowProps) => {
-    addItem({ ...row, _uid: uid(8) })
-  }
-
-  /**
-   * Listen for params
-   */
-  useEffect(() => {
-    setRowCount(managedArray.length)
-  }, [managedArray])
-
-  /**
-   * On Mount -
-   * Load headings into state
-   * Finish table loading
-   */
-  useEffect(() => {
-    headings.forEach((heading: IDataTable.IHeading) => {
-      !heading.visible && toggleColumn(heading.id)
-    })
-
-    setLoading(false)
-  }, [])
-
   return (
-    <DataTableContext.Provider
-      value={{
-        // Table Control actions
-        addNewRow,
-        toggleColumn,
+    <form className={cx(className, 'datatable')} onSubmit={onSubmit}>
+      <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />
 
-        // Row actions
-        duplicateRow,
-        deleteRow,
-        editRow,
+      <div
+        className="datatable__main"
+        style={{ minHeight: controls.global.minHeight || 800, maxHeight: controls.global.maxHeight || 1000 }}
+      >
+        {loading && (
+          <Overlay variant="Inverse">
+            <Box align={{ x: 'Center', y: 'Center' }} fill>
+              <Loader variant="Bounce" />
+            </Box>
+          </Overlay>
+        )}
 
-        // Footer actions
-        nextPage,
-        prevPage,
-        jumpToPage,
+        <table className={cx(className, 'datatable__table')}>
+          <DataTableHeader controls={controls.row} columns={columns} />
+          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
+        </table>
+      </div>
 
-        // Header Config
-        headings,
-
-        // Rows & Cells config
-        rowControls,
-        columnsState,
-        data,
-
-        // Footer config
-        footerControls,
-        rowCount,
-        currentPage,
-        lastPage
-      }}
-    >
-      <DataTableContext.Consumer>
-        {() =>
-          loading ? (
-            <Loader className="datatable-loader" />
-          ) : (
-            <div className="datatable-container">
-              <div className="datatable-container__inner">
-                {tableControls.visible && <DataTableControls {...tableControls} />}
-                <table className="datatable m--b-md">
-                  <DataTableHeader headings={headings} />
-                  <tbody className="datatable-body">
-                    {currentData &&
-                      currentData.map((row, rowIndex) => <DataTableRow key={rowIndex} row={row} cells={data[0]} />)}
-                  </tbody>
-                </table>
-                {footerControls.visible && <DataTableFooter {...footerControls} />}
-              </div>
-            </div>
-          )
-        }
-      </DataTableContext.Consumer>
-    </DataTableContext.Provider>
+      <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
+      <Button type="submit">Submit</Button>
+    </form>
   )
 }
 
-export default DataTable
+/**
+ * Wrap the table with the DT context
+ */
+const ContextWrapper: React.FC<IDataTable.IProps> = ({ data, onSubmit, ...props }) => {
+  return (
+    <BaseDataTable data={data} onSubmit={onSubmit}>
+      {({ rows, handleSubmit }) => <DataTable {...props} data={rows} onSubmit={handleSubmit} />}
+    </BaseDataTable>
+  )
+}
+
+export default ContextWrapper

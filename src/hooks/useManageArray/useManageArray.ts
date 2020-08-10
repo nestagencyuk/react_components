@@ -1,5 +1,5 @@
 import * as clone from 'rfdc'
-import uid from 'uid'
+import { v4 as uid } from 'uuid'
 import { useState, useEffect } from 'react'
 import { IUseManageArray } from './types'
 
@@ -11,47 +11,37 @@ import { IUseManageArray } from './types'
  */
 const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   array: IUseManageArray.IState
-  addItem: (value: string | { [key: string]: any }) => void
-  editItem: (value: string | { [key: string]: any }) => void
-  deleteItem: (value: string | { [key: string]: any }) => void
-  resetItems: (value: string[] | Array<{ [key: string]: any }>) => void
+  addItem: (value: string | FormData) => void
+  editItem: (value: string | (FormData & { _uid: string })) => void
+  deleteItem: (uid: string) => void
+  resetItems: (value: Array<string | FormData>) => void
 } => {
-  const [array, setArray] = useState<IUseManageArray.IState>(initialArray)
-
-  /**
-   *
-   * Generate UID
-   */
-  const generateUID = (length: number) => {
-    let result = ''
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    const charactersLength = characters.length
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength))
-    }
-    return result
-  }
+  const [array, setArray] = useState<IUseManageArray.IState>(
+    initialArray ? initialArray.map((item) => (typeof item === 'string' ? item : { ...item, _uid: uid() })) : null
+  )
 
   /**
    * Add an item
    */
-  const addItem = (value: string | { [key: string]: any }) => {
+  const addItem = (value: string | FormData) => {
+    let newValue: FormData & { _uid: string } = null
+
     if (typeof value === 'object') {
-      value._uid = generateUID(8)
+      newValue = { ...value, _uid: uid() }
     }
 
     setArray((prev) => [
-      ...(prev || []).filter((x) =>
-        typeof value === 'string' || typeof x === 'string' ? x !== value : x._uid !== value._uid
+      ...(prev || []).filter((item) =>
+        typeof value === 'string' || typeof item === 'string' ? item !== value : item._uid !== newValue._uid
       ),
-      value
+      newValue || value
     ])
   }
 
   /**
    * Edit an item
    */
-  const editItem = (value: string | { [key: string]: any }, i: number = null) => {
+  const editItem = (value: string | (FormData & { _uid: string }), i: number = null) => {
     setArray((prev) => {
       const item = prev.find((x) =>
         typeof value === 'string' || typeof x === 'string' ? x === value : x._uid === value._uid
@@ -66,27 +56,24 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   /**
    * Delete an item
    */
-  const deleteItem = (value: string | { [key: string]: any }) => {
-    setArray((prev) => [
-      ...prev.filter((x) => (typeof value === 'string' || typeof x === 'string' ? x !== value : x._uid !== value._uid))
-    ])
+  const deleteItem = (value: string) => {
+    setArray((prev) => [...prev.filter((x) => (typeof x === 'string' ? x !== value : x._uid !== value))])
   }
 
   /**
    * Reset all items
    */
-  const resetItems = (value: string[] | Array<{ [key: string]: any }>) => {
+  const resetItems = (value: Array<string | FormData>) => {
     setArray(value)
   }
 
   /**
-   * On component mount, check if an initial array is passed, then assign each object a UID
+   * Update if necessary
    */
   useEffect(() => {
-    if (initialArray) {
-      setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: generateUID(8) })))
-    }
-  }, [])
+    if (!initialArray || initialArray.length === array.length) return
+    setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid() })))
+  }, [initialArray])
 
   return { array, addItem, editItem, deleteItem, resetItems }
 }

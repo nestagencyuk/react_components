@@ -22,15 +22,12 @@ $padding-y: spacing.$xs !default;
 /// -------------------
 
 .popover {
-  display: none;
-  padding: 1rem;
+  display: block;
+  padding: spacing.$md;
+  z-index: z-index.$top;
 
   &:focus {
     outline: none;
-  }
-
-  &--active {
-    display: block;
   }
 }
 
@@ -41,7 +38,6 @@ $padding-y: spacing.$xs !default;
 .popover__body {
   background-color: white;
   border-radius: corners.$base;
-  padding: $padding-y $padding-x;
   box-shadow: shadows.$one;
   max-width: 350px;
 }

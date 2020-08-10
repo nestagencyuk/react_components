@@ -5,7 +5,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -16,6 +16,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value=""
       />
       <span
@@ -34,6 +35,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -46,6 +48,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -58,6 +61,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -70,6 +74,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -82,6 +87,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -94,6 +100,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -106,6 +113,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -118,6 +126,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -130,6 +139,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -142,6 +152,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -154,6 +165,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -182,6 +194,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -200,6 +213,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -212,6 +226,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -224,6 +239,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -236,6 +252,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -248,6 +265,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -260,6 +278,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -272,6 +291,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -284,6 +304,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -296,6 +317,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -308,6 +330,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -320,6 +343,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -336,7 +360,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -346,6 +370,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to filter..."
+        tabindex="0"
         value=""
       />
       <span
@@ -373,6 +398,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -385,6 +411,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -397,6 +424,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -409,6 +437,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -421,6 +450,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -433,6 +463,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -445,6 +476,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -457,6 +489,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -469,6 +502,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -481,6 +515,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -493,6 +528,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -509,7 +545,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -520,6 +556,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value=""
       />
       <span
@@ -538,6 +575,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -550,6 +588,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -562,6 +601,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -574,6 +614,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -586,6 +627,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -598,6 +640,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -610,6 +653,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -622,6 +666,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -634,6 +679,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -646,6 +692,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -658,6 +705,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -674,7 +722,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -685,10 +733,12 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value="2 Selected"
       />
       <button
         class="select__clear btn btn--tertiary btn--xs"
+        tabindex="0"
         type="button"
       >
         <span
@@ -713,6 +763,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -724,6 +775,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option One-input"
               id="Option One"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -740,6 +792,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -751,6 +804,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Two-input"
               id="Option Two"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -767,6 +821,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -778,6 +833,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Three-input"
               id="Option Three"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -794,6 +850,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -805,6 +862,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Four-input"
               id="Option Four"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -821,6 +879,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -832,6 +891,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Five-input"
               id="Option Five"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -848,6 +908,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -859,6 +920,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Six-input"
               id="Option Six"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -875,6 +937,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -886,6 +949,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Seven-input"
               id="Option Seven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -902,6 +966,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -913,6 +978,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Eight-input"
               id="Option Eight"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -929,6 +995,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -940,6 +1007,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Nine-input"
               id="Option Nine"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -956,6 +1024,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -967,6 +1036,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Ten-input"
               id="Option Ten"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -983,6 +1053,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -994,6 +1065,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
               class="checkbox__input"
               data-testid="Option Eleven-input"
               id="Option Eleven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1014,7 +1086,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -1025,6 +1097,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value="Option One"
       />
       <span
@@ -1043,6 +1116,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -1055,6 +1129,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -1067,6 +1142,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -1079,6 +1155,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -1091,6 +1168,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -1103,6 +1181,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -1115,6 +1194,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -1127,6 +1207,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -1139,6 +1220,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -1151,6 +1233,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -1163,6 +1246,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -1179,7 +1263,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -1189,6 +1273,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         id="Select"
         name="Select"
         placeholder="Type to filter..."
+        tabindex="0"
         value=""
       />
       <span
@@ -1207,6 +1292,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -1218,6 +1304,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option One-input"
               id="Option One"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1234,6 +1321,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -1245,6 +1333,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Two-input"
               id="Option Two"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1261,6 +1350,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -1272,6 +1362,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Three-input"
               id="Option Three"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1288,6 +1379,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -1299,6 +1391,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Four-input"
               id="Option Four"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1315,6 +1408,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -1326,6 +1420,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Five-input"
               id="Option Five"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1342,6 +1437,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -1353,6 +1449,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Six-input"
               id="Option Six"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1369,6 +1466,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -1380,6 +1478,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Seven-input"
               id="Option Seven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1396,6 +1495,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -1407,6 +1507,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Eight-input"
               id="Option Eight"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1423,6 +1524,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -1434,6 +1536,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Nine-input"
               id="Option Nine"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1450,6 +1553,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -1461,6 +1565,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Ten-input"
               id="Option Ten"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1477,6 +1582,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -1488,6 +1594,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
               class="checkbox__input"
               data-testid="Option Eleven-input"
               id="Option Eleven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1508,7 +1615,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -1519,6 +1626,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -1537,6 +1645,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -1548,6 +1657,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option One-input"
               id="Option One"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1564,6 +1674,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -1575,6 +1686,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Two-input"
               id="Option Two"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1591,6 +1703,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -1602,6 +1715,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Three-input"
               id="Option Three"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1618,6 +1732,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -1629,6 +1744,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Four-input"
               id="Option Four"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1645,6 +1761,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -1656,6 +1773,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Five-input"
               id="Option Five"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1672,6 +1790,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -1683,6 +1802,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Six-input"
               id="Option Six"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1699,6 +1819,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -1710,6 +1831,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Seven-input"
               id="Option Seven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1726,6 +1848,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -1737,6 +1860,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Eight-input"
               id="Option Eight"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1753,6 +1877,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -1764,6 +1889,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Nine-input"
               id="Option Nine"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1780,6 +1906,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -1791,6 +1918,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Ten-input"
               id="Option Ten"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1807,6 +1935,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         <button
           class="select__option-btn p--l-xxl"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -1818,6 +1947,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
               class="checkbox__input"
               data-testid="Option Eleven-input"
               id="Option Eleven"
+              tabindex="-1"
               type="checkbox"
             />
             <span
@@ -1838,7 +1968,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -1849,6 +1979,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -1867,6 +1998,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -1879,6 +2011,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -1891,6 +2024,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -1903,6 +2037,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -1915,6 +2050,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -1927,6 +2063,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -1939,6 +2076,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -1951,6 +2089,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -1963,6 +2102,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -1975,6 +2115,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -1987,6 +2128,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -2003,7 +2145,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -2014,6 +2156,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
+        tabindex="0"
         value=""
       />
       <span
@@ -2041,6 +2184,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -2053,6 +2197,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -2065,6 +2210,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -2077,6 +2223,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -2089,6 +2236,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -2101,6 +2249,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -2113,6 +2262,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -2125,6 +2275,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -2137,6 +2288,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -2149,6 +2301,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -2161,6 +2314,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -2177,7 +2331,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -2188,6 +2342,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         name="Select"
         placeholder="Custom Placeholder"
         readonly=""
+        tabindex="0"
         value=""
       />
       <span
@@ -2206,6 +2361,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-1"
+          tabindex="-1"
           title="Option One"
           type="button"
         >
@@ -2218,6 +2374,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-2"
+          tabindex="-1"
           title="Option Two"
           type="button"
         >
@@ -2230,6 +2387,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-3"
+          tabindex="-1"
           title="Option Three"
           type="button"
         >
@@ -2242,6 +2400,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-4"
+          tabindex="-1"
           title="Option Four"
           type="button"
         >
@@ -2254,6 +2413,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-5"
+          tabindex="-1"
           title="Option Five"
           type="button"
         >
@@ -2266,6 +2426,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-6"
+          tabindex="-1"
           title="Option Six"
           type="button"
         >
@@ -2278,6 +2439,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-7"
+          tabindex="-1"
           title="Option Seven"
           type="button"
         >
@@ -2290,6 +2452,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-8"
+          tabindex="-1"
           title="Option Eight"
           type="button"
         >
@@ -2302,6 +2465,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-9"
+          tabindex="-1"
           title="Option Nine"
           type="button"
         >
@@ -2314,6 +2478,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-10"
+          tabindex="-1"
           title="Option Ten"
           type="button"
         >
@@ -2326,6 +2491,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         <button
           class="select__option-btn"
           data-value="option-11"
+          tabindex="-1"
           title="Option Eleven"
           type="button"
         >
@@ -2342,7 +2508,7 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="-1"
+    tabindex="0"
   >
     <div>
       <input
@@ -2352,6 +2518,7 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to search..."
+        tabindex="0"
         value=""
       />
       <span

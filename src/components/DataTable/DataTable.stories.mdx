@@ -1,19 +1,81 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
-import { dataTableDecorator } from '../../../.storybook/decorators'
-import { DataTableContext, DataTable } from '.'
-import config from "./DataTableV2"
+import { useState, useEffect, Fragment } from 'react'
+import { Text } from '../Text'
+import { Loader } from '../Loader'
+import { DataTable } from '.'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig } from './DataTableConfig.ts'
 
-<Meta title="Components|DataTable/DataTable" component={DataTable} />
+<Meta title="Components|Base/Data Table" component={DataTable} />
 
-# DataTable
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# Data Table
+Like a normal table except it builds an editable table for user input.
 
 ## Base
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 <Preview>
-  <Story name="Base" decorators={[dataTableDecorator]}>
-    <DataTable config={config.config} headings={config.headings} data={config.data}  />
+  <Story name="Base">
+    {() => {
+      const [value, setValue] = useState(null)
+      const [loading, setLoading] = useState(true)
+      useEffect(() => setLoading(false), [])
+      return (
+        <Fragment>
+          <Text>Value:</Text>
+          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <DataTable 
+            loading={loading}
+            controls={testConfig.controls}
+            header={testConfig.header} 
+            rows={testConfig.rows}
+            data={testConfig.data}
+            onSubmit={setValue}
+          />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## With Data
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+<Preview>
+  <Story name="WithData">
+    {() => {
+      const [value, setValue] = useState(null)
+      const [loading, setLoading] = useState(true)
+      const [data, setData] = useState(testConfig.data)
+      const chance = new (require('chance'))()
+      useEffect(() => {
+        const fakeData = Array.from(Array(50).keys()).map(x => ({
+          product_sku: chance.pickone(testSKUS),
+          product_description: chance.pickone(testDescriptions),
+          unit_of_measure: chance.pickset(testUOMs, chance.integer({ min: 1, max: 5 })),
+          quantity: chance.pickone(testQuantities),
+          batch: chance.pickone(testBatch)
+        }))
+        setTimeout(() => {
+          setData(fakeData)
+          setLoading(false)
+        }, 3000)
+      }, [])
+      return (
+        <Fragment>
+          <Text>Value:</Text>
+          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <DataTable
+            loading={loading}
+            controls={testConfig.controls}
+            header={testConfig.header} 
+            rows={testConfig.rows}
+            data={data}
+            onSubmit={setValue}
+          />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>
 

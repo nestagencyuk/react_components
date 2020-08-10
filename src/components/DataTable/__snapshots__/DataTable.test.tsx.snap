@@ -2,170 +2,82 @@
 
 exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
 <DocumentFragment>
-  <div
-    class="datatable-container"
+  <form
+    class="datatable"
   >
-    <div
-      class="datatable-container__inner"
+    <header
+      class="datatable__controls"
     >
-      <header
-        class="datatable-header m--b-md"
-        data-testid="datatable-header"
+      <div
+        class="grid grid--gutter"
       >
         <div
-          class="grid grid--gutter"
-        >
-          <div
-            class="grid__item grid__item--3"
-          >
-            <button
-              class="w--100 btn btn--tertiary btn--sm"
-              type="button"
-            >
-              <span
-                class="w--100"
-              >
-                Filter Data
-              </span>
-              <span
-                class="btn__icn btn__icn--end icn icn--sm"
-                title="Branch"
-              />
-            </button>
-          </div>
-          <div
-            class="grid__item grid__item--3"
-          >
-            <button
-              class="w--100 btn btn--tertiary btn--sm"
-              type="button"
-            >
-              <span
-                class="w--100"
-              >
-                Customise Table
-              </span>
-              <span
-                class="btn__icn btn__icn--end icn icn--sm"
-                title="Branch"
-              />
-            </button>
-          </div>
-          <div
-            class="grid__item grid__item--3"
-          >
-            <div>
-              <input
-                class="input--sm input"
-                id="Search"
-                placeholder="Search Data"
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="m--l-auto grid__item grid__item--3"
-          >
-            <button
-              class="w--100 btn btn--tertiary btn--sm"
-              type="button"
-            >
-              <span
-                class="w--100"
-              >
-                Add Line
-              </span>
-              <span
-                class="btn__icn btn__icn--end icn icn--sm"
-                title="Branch"
-              />
-            </button>
-          </div>
-        </div>
-      </header>
+          class="grid__item grid__item--3"
+        />
+        <div
+          class="grid__item grid__item--3"
+        />
+        <div
+          class="grid__item grid__item--4"
+        />
+        <div
+          class="m--l-auto grid__item grid__item--2"
+        />
+      </div>
+    </header>
+    <div
+      class="datatable__main"
+      style="min-height: 800px; max-height: 1000px;"
+    >
       <table
-        class="datatable m--b-md"
+        class="datatable__table"
       >
-        <thead
-          class="datatable-body-header"
-        >
-          <tr>
+        <thead>
+          <tr
+            class="datatable__header"
+          >
             <th
-              class="datatable-body-header__item"
-              style="width: 100px; resize: none;"
+              class="datatable__cell"
+              style="width: auto;"
             >
               Test Heading 1
             </th>
             <th
-              class="datatable-body-header__item"
-              style="width: 50px;"
+              class="datatable__cell"
+              style="width: 1rem; text-align: center;"
             >
               Action
             </th>
           </tr>
         </thead>
-        <tbody
-          class="datatable-body"
-        />
+        <tbody />
       </table>
-      <footer
-        class="datatable-footer"
-        data-testid="datatable-footer"
+    </div>
+    <footer
+      class="datatable__footer"
+      data-testid="datatable-footer"
+    >
+      <div
+        class="grid"
       >
         <div
-          class="grid"
-        >
-          <div
-            class="grid__item grid__item--4"
-          >
-            <p
-              class="text--bold text text--p text--left"
-            >
-              1 Line
-            </p>
-          </div>
-          <div
-            class="m--l-auto grid__item grid__item--8"
-          >
-            <button
-              class="m--r-xs btn btn--tertiary btn--md btn--disabled"
-              disabled=""
-              type="button"
-            >
-              <span
-                class="w--100"
-              >
-                Prev
-              </span>
-            </button>
-            <input
-              class="m--r-xs input--md input"
-              id="paginationJump"
-              max="1"
-              min="1"
-              type="number"
-              value="1"
-            />
-            <span
-              class="text--bold m--r-xs text text--p text--left"
-            >
-              of NaN
-            </span>
-            <button
-              class="btn btn--tertiary btn--md"
-              type="button"
-            >
-              <span
-                class="w--100"
-              >
-                Next
-              </span>
-            </button>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+          class="grid__item grid__item--4"
+        />
+        <div
+          class="m--l-auto grid__item grid__item--8"
+        />
+      </div>
+    </footer>
+    <button
+      class="btn btn--primary btn--md"
+      type="submit"
+    >
+      <span
+        class="w--100"
+      >
+        Submit
+      </span>
+    </button>
+  </form>
 </DocumentFragment>
 `;

@@ -1,74 +1,60 @@
+import { IDataTable } from './types'
 import * as React from 'react'
-import { useContext } from 'react'
-import { DataTableContext } from '.'
-
-/**
- * Styles
- */
-import './DataTable.scss'
+import { v4 as uid } from 'uuid'
+import { Fragment } from 'react'
 
 /**
  * Components
  */
 import { Grid, GridItem } from '../Grid'
 import { Button } from '../Button'
-import { Box } from '../Box'
 import { Text } from '../Text'
 import { Input } from '../Input'
-import { IDataTable } from './types'
 
 /**
- * A datatable that displays table controls
+ * Render a table cell
  */
-const DataTableFooter: React.FC<IDataTable.IFooterControls> = ({ displayRowCount = true, displayPagination = true }) => {
-  const { rowCount, lastPage, currentPage, nextPage, prevPage, jumpToPage } = useContext(DataTableContext)
+const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
+  const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
 
-  const handlePaginationJump = (val: number) => {
-    jumpToPage(val)
-  }
-
-  return (
-    <footer className="datatable-footer" data-testid="datatable-footer">
+  return controls.visible ? (
+    <footer className="datatable__footer" data-testid="datatable-footer">
       <Grid>
-        {displayRowCount && (
-          <GridItem span={4}>
-            <Text className="text--bold">{`${rowCount} ${rowCount === 1 ? 'Line' : 'Lines'}`}</Text>
-          </GridItem>
-        )}
-        {displayPagination && (
-          <GridItem span={8} className="m--l-auto">
-            <Button
-              className="m--r-xs"
-              disabled={currentPage === 1 || currentPage === 0}
-              onClick={() => prevPage()}
-              variant="Tertiary"
-            >
-              Prev
-            </Button>
-            <Input
-              id="paginationJump"
-              type="Number"
-              className="m--r-xs"
-              value={currentPage || 1}
-              minValue={1}
-              maxValue={lastPage || 1}
-              onChange={handlePaginationJump}
-            />
-            <Text tag="span" className="text--bold m--r-xs">
-              of {lastPage}
-            </Text>
-            <Button
-              disabled={rowCount === 0 ? true : currentPage === lastPage}
-              onClick={() => nextPage()}
-              variant="Tertiary"
-            >
-              Next
-            </Button>
-          </GridItem>
-        )}
+        <GridItem span={4}>
+          {controls.rowCount && <Text className="text--bold">{`${rowCount} ${rowCount === 1 ? 'Row' : 'Rows'}`}</Text>}
+        </GridItem>
+        <GridItem span={8} className="m--l-auto">
+          {controls.pagination && (
+            <Fragment>
+              <Button
+                className="m--r-xs"
+                variant="Tertiary"
+                disabled={currentIndex === 1 || currentIndex === 0}
+                onClick={handlePrev}
+              >
+                Prev
+              </Button>
+              <Input
+                className="m--r-xs"
+                id={`jump-to-page-${uid()}`}
+                type="Number"
+                value={currentIndex || 1}
+                minValue={1}
+                maxValue={lastIndex || 1}
+                onChange={(val) => handleSkip(val)}
+              />
+              <Text tag="span" className="text--bold m--r-xs">
+                of {lastIndex}
+              </Text>
+              <Button variant="Tertiary" disabled={rowCount === 0 ? true : currentIndex === lastIndex} onClick={handleNext}>
+                Next
+              </Button>
+            </Fragment>
+          )}
+        </GridItem>
       </Grid>
     </footer>
-  )
+  ) : null
 }
 
 export default DataTableFooter

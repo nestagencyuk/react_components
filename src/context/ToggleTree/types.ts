@@ -7,10 +7,7 @@ declare namespace IToggleTree {
   }
 
   interface IRenderProps extends Omit<IProps, 'children'> {
-    children(value: {
-      toggles: { [key: string]: { open: boolean; depth: number } }
-      setToggled: (id: string, depth?: number) => void
-    }): React.ReactNode
+    children(value: IValue): React.ReactNode
   }
 
   interface IValue {

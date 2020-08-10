@@ -1,36 +1,33 @@
 import * as React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { DataTable } from '.'
 import { IDataTable } from './types'
-import uid from 'uid'
 
 describe('----- DataTable Component -----', () => {
   const testConfig: IDataTable.IProps = {
-    config: {
-      tableControls: {
+    controls: {
+      global: {
         visible: true
       },
-      rowControls: {
+      row: {
         visible: true
       },
-      footerControls: {
+      footer: {
         visible: true
       }
     },
-    headings: [
+    header: [
       {
         id: 'test_heading_1',
         name: 'Test Heading 1',
         visible: true
       }
     ],
-    data: [
+    rows: [
       [
         {
           id: 'test_cell_1',
-          name: 'test_cell_1',
           type: 'search',
-          value: '400',
           options: [
             {
               label: '200',
@@ -39,13 +36,20 @@ describe('----- DataTable Component -----', () => {
           ]
         }
       ]
-    ]
+    ],
+    data: [{ test_cell_1: null }]
   }
 
   describe('Base', () => {
     it('Renders without crashing', () => {
       const { asFragment } = render(
-        <DataTable config={testConfig.config} headings={testConfig.headings} data={testConfig.data} />
+        <DataTable
+          controls={testConfig.controls}
+          header={testConfig.header}
+          rows={testConfig.rows}
+          data={testConfig.data}
+          onSubmit={jest.fn}
+        />
       )
 
       expect(asFragment()).toMatchSnapshot()

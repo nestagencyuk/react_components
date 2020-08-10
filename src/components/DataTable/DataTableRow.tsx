@@ -1,86 +1,89 @@
-import * as React from 'react'
-import { Form, Field } from '@nestagencyuk/react_form-factory'
-import { useContext, useState } from 'react'
-import { DataTableContext } from '.'
 import { IDataTable } from './types'
+import * as React from 'react'
+import { useContext, useState } from 'react'
+import { useFocus } from '../../hooks/useFocus'
+import { FormV2 } from '@nestagencyuk/react_form-factory'
+
+/**
+ * Context
+ */
+import { DataTableContext } from '../../context/DataTable'
 
 /**
  * Components
  */
-import { DataTableCell } from '.'
 import { Popover } from '../Popover'
 import { RefAction } from '../Action'
 import { Button } from '../Button'
+import { DataTableCell } from '.'
 
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ cells, row }) => {
-  const { rowControls, columnsState, duplicateRow, editRow, deleteRow } = useContext(DataTableContext)
-  const { sendOnBlur, sendToEndpoint, buttonDuplicateRow, buttonRemoveRow, buttonLoadPage, buttonLockRow } = rowControls
-  const [isLocked, setLocked] = useState(false)
+/**
+ * Table row
+ */
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data }) => {
+  const { addRow, editRow, deleteRow } = useContext(DataTableContext)
+  const [, onFocus, onBlur] = useFocus()
+  const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
 
-  const handleOnBlur = () => {
-    if (sendOnBlur && sendToEndpoint) {
-      console.log(`Sent to ${sendToEndpoint}`)
-    }
+  /**
+   * Lock a row
+   */
+  const lockRow = () => {
+    setRow((prev) => prev.map((obj) => ({ ...obj, locked: !obj.locked })))
+  }
+
+  /**
+   * Render the popover with the row controls
+   */
+  const renderControls = () => {
+    return (
+      <Popover
+        align="Right"
+        render={
+          <div style={{ width: '100px' }}>
+            {controls.buttonCopyRow && (
+              <Button className="w--100 m--b-sm" variant="Secondary" size="Small" onClick={() => addRow(data)}>
+                Copy
+              </Button>
+            )}
+            {controls.buttonLockRow && (
+              <Button className="w--100 m--b-sm" variant="Secondary" size="Small" onClick={lockRow}>
+                Lock
+              </Button>
+            )}
+            {controls.buttonDeleteRow && (
+              <Button className="w--100" variant="Secondary" size="Small" onClick={() => deleteRow(data._uid)}>
+                Delete
+              </Button>
+            )}
+          </div>
+        }
+      >
+        {(value) => (
+          <RefAction variant="Secondary" icon={{ name: 'Caret' }} {...value}>
+            ...
+          </RefAction>
+        )}
+      </Popover>
+    )
   }
 
   return (
-    <Form onSubmit={(formData) => editRow(formData)} savedData={row}>
+    <FormV2 data={data} onSubmit={(data: FormData & { _uid: string }) => editRow(data)}>
       {({ handleSubmit }) => (
-        <tr className="datatable-body__row" onBlur={handleSubmit}>
-          {cells.map((cell: IDataTable.ICell) => {
-            return columnsState[cell.id] ? null : (
-              <Field key={cell.id} id={cell.id}>
-                {({ value, onChange }) => (
-                  <DataTableCell
-                    key={cell.id}
-                    {...cell}
-                    disabled={cell.disabled || isLocked}
-                    value={value}
-                    onChange={onChange}
-                  />
-                )}
-              </Field>
-            )
-          })}
-          {rowControls.visible && (
-            <td className="datatable-body__cell">
-              <Popover
-                render={
-                  <div>
-                    {buttonDuplicateRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => duplicateRow(row)}>
-                        Duplicate row
-                      </Button>
-                    )}
-                    {buttonRemoveRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => deleteRow(row)}>
-                        Remove row
-                      </Button>
-                    )}
-                    {buttonLockRow && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => setLocked(!isLocked)}>
-                        {`${isLocked ? 'Unlock' : 'Lock'} row`}
-                      </Button>
-                    )}
-                    {buttonLoadPage && (
-                      <Button className="d--block w--100 m--b-xs" variant="Tertiary" onClick={() => alert('Load page')}>
-                        Load page
-                      </Button>
-                    )}
-                  </div>
-                }
-              >
-                {(value) => (
-                  <RefAction icon={{ name: 'Branch' }} variant="Tertiary" {...value}>
-                    Row actions
-                  </RefAction>
-                )}
-              </Popover>
-            </td>
-          )}
+        <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)}>
+          {Object.keys(data)
+            .filter((key) => key !== '_uid')
+            .map(
+              (key, i) =>
+                columns.find((x: any) => x.id === key)?.visible && (
+                  <DataTableCell key={`cell-${key}-${i}`} id={key} config={row[i]} />
+                )
+            )}
+          {controls.visible && <td className="datatable__cell text--center">{renderControls()}</td>}
         </tr>
       )}
-    </Form>
+    </FormV2>
   )
 }
 

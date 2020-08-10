@@ -1,77 +1,60 @@
-import * as React from 'react'
+import { IField } from '../Field/types'
 import { IDataTable } from './types'
-
-/**
- * Styles
- */
-import './DataTable.scss'
+import { v4 as uid } from 'uuid'
+import * as React from 'react'
+import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
+import { useField } from '@nestagencyuk/react_form-factory'
 
 /**
  * Components
  */
-import CellPicker from './CellPicker'
+import { Input } from '../Input'
+import { Select } from '../Select'
+import { Text } from '../Text'
 
 /**
- * A datatable that displays table controls
+ * Pick an input to render
  */
-const DataTableCell: React.FC<IDataTable.ICellProps> = ({
-  sendToEndpoint,
-  sendOnWait,
-  sendOnBlur,
-  sendOnChange,
-  sendOnTrigger,
-  sendMethod,
-  name,
-  onChange,
-  value,
-  ...props
-}) => {
-  // const [cellState, setCellState] = useState(props.value)
-
-  const handleBlur = () => {
-    if (sendOnBlur && sendToEndpoint) {
-      sendRequest()
-    }
+const DataTableCellPicker: React.FC<any> = (props) => {
+  switch (props.type) {
+    case 'Select':
+    case 'Search':
+      return <Select multiVariant="Tags" {...props} />
+    case 'Text':
+    case 'Number':
+      return <Input {...props} />
+    default:
+      return (
+        <Text className="p--sm" variant="P">
+          {props.value?.substring(0, 80)}...
+        </Text>
+      )
   }
+}
 
-  const sendRequest = () => {
-    // console.log({
-    //   value: value,
-    //   method: sendMethod,
-    //   sendToEndpoint: `${sendToEndpoint}${value}`
-    // })
-  }
+/**
+ * Render a table cell
+ */
+const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config }) => {
+  const { value, handleChange } = useField({ id })
+  const castType = capitalise(config.type) as IField.IProps['type']
 
-  const handleRequest = () => {
-    if (sendOnChange) {
-      sendRequest()
-    }
-
-    if (sendOnWait) {
-      sendRequest()
-    }
-  }
-
-  const handleChange = (val: any) => {
-    onChange(val)
-
-    if (sendToEndpoint) {
-      handleRequest()
-    }
-  }
-
-  return (
-    <td className="datatable-body__cell" onBlur={handleBlur}>
-      <CellPicker
-        {...props}
-        value={value}
-        filterable={props.searchable}
-        disabled={props.disabled}
-        onChange={handleChange}
-        tabIndex={props.ignoreTab ? -1 : 0}
-        multi={props.multiple}
-      />
-    </td>
+  return React.useMemo(
+    () => (
+      <td className="datatable__cell" tabIndex={-1}>
+        <DataTableCellPicker
+          className="w--100 datatable__input"
+          {...config}
+          id={`cell-${uid()}`}
+          value={value}
+          type={castType}
+          disabled={config.locked}
+          tabIndex={config.ignoreTab ? -1 : 0}
+          onChange={handleChange}
+        />
+      </td>
+    ),
+    [value, config]
   )
 }
 

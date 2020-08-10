@@ -34,6 +34,9 @@ const Input: React.FC<IInput.IProps> = ({
   size = 'Medium',
   tabIndex
 }) => {
+  /**
+   * Set a max/min value
+   */
   const setValue = (val: number) => {
     if (val >= maxValue) {
       return maxValue

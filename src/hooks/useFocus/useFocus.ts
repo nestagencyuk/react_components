@@ -1,79 +1,71 @@
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { IUseFocus } from './types'
 
 /**
- * Use Focus
+ * Handles focus events for the target and its descendants.
  */
-const useFocus = ({ trigger = 'Click' } = {}): [
-  React.RefCallback<HTMLElement>,
-  React.RefCallback<HTMLElement>,
+const useFocus = ({
+  trigger = 'Click',
+  triggerRef: initialTriggerRef = null,
+  targetRef: initialTargetRef = null
+}: IUseFocus.IProps = {}): [
   boolean,
-  (e?: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => void,
-  (e?: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => void
+  (e?: React.FocusEvent<any>) => void,
+  (e?: React.FocusEvent<any>, cb?: () => void) => void
 ] => {
+  const triggerRef = useRef<React.RefObject<any> | any>()
+  const targetRef = useRef<React.RefObject<any> | any>()
   const [focused, setFocused] = useState(false)
   const [nextEl, setNextEl] = useState(null)
-  const triggerRef = useRef<HTMLElement>()
-  const targetRef = useRef<HTMLElement>()
-  let timer: ReturnType<typeof setTimeout> = null
-
-  /**
-   * Set the trigger ref node
-   */
-  const setTriggerRef = useCallback((node) => {
-    if (!node) return
-    if (trigger === 'Hover') {
-      node.addEventListener('mouseenter', onFocus)
-      node.addEventListener('mouseleave', onBlur)
-    }
-    triggerRef.current = node
-  }, [])
-
-  /**
-   * Set the target ref node
-   */
-  const setTargetRef = useCallback((node) => {
-    if (!node) return
-    targetRef.current = node
-  }, [])
 
   /**
    * Handle focusing
    */
-  const onFocus = (e?: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => {
-    if (targetRef.current) {
+  const onFocus = () => {
+    if (!focused) {
       setFocused(true)
-    } else {
-      clearTimeout(timer)
-      if (!focused) {
-        setFocused(true)
-      }
     }
   }
 
   /**
-   * Handle blurring away
+   * Handle blurring away, either taking into account unrelated nodes, or
+   * just normal child nodes
    */
-  const onBlur = (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => {
-    if (targetRef.current) {
-      const isInside = (targetRef?.current || triggerRef?.current)?.contains(e?.relatedTarget)
+  const onBlur = (e: React.FocusEvent<any>, cb?: any) => {
+    const isUnrelated = (initialTriggerRef && initialTargetRef) || (triggerRef.current && targetRef.current)
+    let newFocused = true
+
+    if (isUnrelated) {
+      const asyncTrigger = initialTriggerRef?.current || triggerRef.current
+      const asyncTarget = initialTargetRef?.current || targetRef.current
+      const isInside = (asyncTarget || asyncTrigger)?.contains(e?.relatedTarget)
+
       if (isInside) {
         setNextEl(e.relatedTarget)
       } else {
-        setFocused(false)
+        newFocused = false
       }
     } else {
-      timer = setTimeout(() => focused && setFocused(false), 0)
+      if (focused && !e.currentTarget.contains(e.relatedTarget)) {
+        newFocused = false
+      }
     }
+
+    setFocused(newFocused)
+    if (cb && !newFocused) cb(e)
   }
 
   /**
-   * Cleanup to prevent memory leaks
+   * Set the ref elements if coming from state update
    */
   useEffect(() => {
-    return () => {
-      timer && clearTimeout(timer)
+    triggerRef.current = initialTriggerRef
+    targetRef.current = initialTargetRef
+    if (trigger === 'Hover') {
+      ;(initialTriggerRef as any)?.addEventListener('mouseenter', onFocus)
+      ;(initialTriggerRef as any)?.addEventListener('mouseleave', onBlur)
     }
-  }, [])
+  }, [initialTriggerRef, initialTargetRef])
 
   /**
    * Pass the onBlur to the next component
@@ -86,7 +78,7 @@ const useFocus = ({ trigger = 'Click' } = {}): [
     }
   }, [nextEl])
 
-  return [setTriggerRef, setTargetRef, focused, onFocus, onBlur]
+  return [focused, onFocus, onBlur]
 }
 
 export default useFocus

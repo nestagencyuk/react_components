@@ -1,41 +1,52 @@
 import { IDataTable } from './types'
+import { v4 as uid } from 'uuid'
 import * as React from 'react'
-import { useContext } from 'react'
-import { DataTableContext } from '.'
+import { useContext, useEffect } from 'react'
+import { useToggleGroup } from '../../hooks/useToggleGroup'
 
 /**
- * Styles
+ * Context
  */
-import './DataTable.scss'
+import { DataTableContext } from '../../context/DataTable'
 
 /**
  * Components
  */
-import { RefButton, Button } from '../Button'
 import { Grid, GridItem } from '../Grid'
-import { Checkbox } from '../Checkbox'
 import { Popover } from '../Popover'
 import { Input } from '../Input'
+import { Checkbox } from '../Checkbox'
+import { Button, RefButton } from '../Button'
 
 /**
- * A datatable that displays table controls
+ * Data table row
  */
-const DataTableControls: React.FC<IDataTable.ITableControls> = ({
-  buttonCustomiseTable = true,
-  buttonFilterData = true,
-  buttonAddLine = true,
-  search = true
-}) => {
-  const { headings, toggleColumn, columnsState, addNewRow, searchRows, rowSearchQuery } = useContext(DataTableContext)
+const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange }) => {
+  const [toggles, setToggled] = useToggleGroup({ multi: true })
+  const { addRow } = useContext(DataTableContext)
 
-  return (
-    <header className="datatable-header m--b-md" data-testid="datatable-header">
+  /**
+   * On toggle change, set the visibility of the header
+   */
+  useEffect(() => {
+    header.forEach((x: any) => !x.visible && setToggled(`label-${x.id}`))
+  }, [])
+
+  /**
+   * On toggle change, set the visibility of the header
+   */
+  useEffect(() => {
+    onChange(header.map((x: any) => ({ ...x, visible: !toggles[`label-${x.id}`] })))
+  }, [toggles])
+
+  return controls.visible ? (
+    <header className="datatable__controls">
       <Grid gutter>
-        {buttonFilterData && (
-          <GridItem span={3}>
+        <GridItem span={3}>
+          {controls.buttonFilterData && (
             <Button
-              variant="Tertiary"
               className="w--100"
+              variant="Secondary"
               icon={{
                 name: 'Branch',
                 size: 'Small',
@@ -45,29 +56,27 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
             >
               Filter Data
             </Button>
-          </GridItem>
-        )}
-        {buttonCustomiseTable && (
-          <GridItem span={3}>
+          )}
+        </GridItem>
+        <GridItem span={3}>
+          {controls.buttonCustomiseTable && (
             <Popover
-              render={headings.map((heading: any) => (
-                <div key={heading.id} className="datatable__drop-down-item">
-                  <label className="interactive w--100 d--block" htmlFor={heading.name}>
-                    <Checkbox
-                      onChange={() => toggleColumn(heading.id)}
-                      value={!columnsState[heading.id]}
-                      className="m--r-xs"
-                      id={heading.name}
-                    />
-                    {heading.name}
-                  </label>
-                </div>
+              render={header.map((x: any, i: number) => (
+                <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
+                  <Checkbox
+                    className="m--r-xs"
+                    id={`label-${x.id}-${i}`}
+                    value={x.visible}
+                    onChange={() => setToggled(`label-${x.id}`)}
+                  />
+                  {x.name}
+                </label>
               ))}
             >
               {(value) => (
                 <RefButton
-                  variant="Tertiary"
                   className="w--100"
+                  variant="Secondary"
                   icon={{
                     name: 'Branch',
                     size: 'Small',
@@ -80,42 +89,39 @@ const DataTableControls: React.FC<IDataTable.ITableControls> = ({
                 </RefButton>
               )}
             </Popover>
-          </GridItem>
-        )}
-        {search && (
-          <GridItem span={3}>
-            <div>
-              <Input
-                onChange={searchRows}
-                value={rowSearchQuery}
-                placeholder="Search Data"
-                size="Small"
-                type="Text"
-                id="Search"
-              />
-            </div>
-          </GridItem>
-        )}
-        {buttonAddLine && (
-          <GridItem span={3} className="m--l-auto">
-            <Button
-              variant="Tertiary"
+          )}
+        </GridItem>
+        <GridItem span={4}>
+          {controls.search && (
+            <Input
               className="w--100"
+              id={`search-${uid()}`}
+              type="Text"
+              value={''}
+              placeholder="Search Data"
+              size="Small"
+              onChange={() => {}}
+            />
+          )}
+        </GridItem>
+        <GridItem className="m--l-auto" span={2}>
+          {controls.buttonAddRow && (
+            <Button
               icon={{
                 name: 'Branch',
                 size: 'Small',
                 align: 'End'
               }}
               size="Small"
-              onClick={() => addNewRow()}
+              onClick={() => addRow(null)}
             >
-              Add Line
+              Add Row
             </Button>
-          </GridItem>
-        )}
+          )}
+        </GridItem>
       </Grid>
     </header>
-  )
+  ) : null
 }
 
 export default DataTableControls

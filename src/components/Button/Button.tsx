@@ -47,11 +47,11 @@ const Button = (
     icon,
     type = 'button',
     disabled,
+    tabIndex,
     children,
     onFocus,
     onBlur,
-    onClick,
-    tabIndex
+    onClick
   }: IButton.IProps,
   ref?: React.Ref<HTMLDivElement>
 ) => {

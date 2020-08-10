@@ -12,10 +12,11 @@ import { ToggleTreeContext } from '.'
  */
 const ToggleTree: React.FC<IToggleTree.IProps | IToggleTree.IRenderProps> = ({ multi, children }) => {
   const [toggles, setToggled] = useToggleTree({ multi })
+  const value = { toggles, setToggled }
 
   return (
-    <ToggleTreeContext.Provider value={{ toggles, setToggled }}>
-      {typeof children === 'function' ? children({ toggles, setToggled }) : children}
+    <ToggleTreeContext.Provider value={value}>
+      {typeof children === 'function' ? children(value) : children}
     </ToggleTreeContext.Provider>
   )
 }

@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { RefDiv, RefSection } from '../../../.storybook/helpers'
-import { Fragment, useContext, useState, forwardRef } from 'react'
+import { Fragment, useContext, useState, useRef, forwardRef } from 'react'
 import { RefBox } from '../../components/Box'
+import { Select } from '../../components/Select'
 import { Button } from '../../components/Button'
 import { Field } from '../../components/Field'
 import { Text } from '../../components/Text'
@@ -19,14 +20,15 @@ The hook in its simplest form. Behaviour is similar to CSS `:focus-within`.
   <Story name="Base">
     {() => {
       const [value, setValue] = useState(false)
-      const [, , focused, onFocus, onBlur] = useFocus()
+      const [focused, onFocus, onBlur] = useFocus()
       return (
         <Fragment>
           <RefSection onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
             {focused && (
-              <div className="p--md bg--ui-one">
+              <div className="p--md bg--ui-one" tabIndex={-1}>
                 Some text
+                <Select options={[{ value: 'test', label: 'Test' }]} value={value} onChange={setValue} />
                 <Field id="checkbox" label="Test" type="Checkbox" value={value} onChange={setValue} />
                 <Button onClick={() => console.log('Click!')}>Button</Button>
               </div>
@@ -44,16 +46,45 @@ Connect a `trigger` and a `target` to toggle elements that aren't related in the
 <Preview>
   <Story name="Outside">
     {() => {
+      const triggerRef = useRef()
+      const targetRef = useRef()
       const [value, setValue] = useState(false)
-      const [trigger, target, focused, onFocus, onBlur] = useFocus()
+      const [focused, onFocus, onBlur] = useFocus({ triggerRef, targetRef })
       return (
         <Fragment>
-          <RefSection ref={trigger} onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
+          <RefSection ref={triggerRef} onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
           </RefSection>
           {focused && (
-            <RefDiv ref={target} className="p--md bg--ui-one" tabIndex={-1}>
+            <RefDiv ref={targetRef} className="p--md bg--ui-one" tabIndex={-1}>
               Some text
+              <Select options={[{ value: 'test', label: 'Test' }]} value={value} onChange={setValue} />
+              <Field id="checkbox" label="Test" type="Checkbox" value={value} onChange={setValue} />
+              <Button onClick={() => console.log('Click!')}>Button</Button>
+            </RefDiv>
+          )}
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="OutsideState">
+    {() => {
+      const [triggerRef, setTrigger] = useState(null)
+      const [targetRef, setTarget] = useState(null)
+      const [value, setValue] = useState(false)
+      const [focused, onFocus, onBlur] = useFocus({ triggerRef, targetRef })
+      return (
+        <Fragment>
+          <RefSection ref={setTrigger} onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
+            <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
+          </RefSection>
+          {focused && (
+            <RefDiv ref={setTarget} className="p--md bg--ui-one" tabIndex={-1}>
+              Some text
+              <Select options={[{ value: 'test', label: 'Test' }]} value={value} onChange={setValue} />
               <Field id="checkbox" label="Test" type="Checkbox" value={value} onChange={setValue} />
               <Button onClick={() => console.log('Click!')}>Button</Button>
             </RefDiv>

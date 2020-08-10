@@ -1,105 +1,150 @@
 /// ----------------------------------------------------------------------
 
-/// DataTable
+/// Data Table
 
 /// ----------------------------------------------------------------------
 
 @use '@nestagencyuk/scss_lib' as lib;
-@use 'colours';
-@use 'borders';
-@use 'corners';
 @use 'spacing';
-@use 'transitions';
-@use 'states';
+@use 'borders';
+@use 'shadows';
+@use 'colours';
 @use 'z-index';
 
 /// -------------------
-/// DataTable swatches
+/// Data Table config
 /// -------------------
-$borderPrimary: 1px solid colours.$ui-two;
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
 
 /// -------------------
-/// DataTable selectors
+/// Data Table selectors
 /// -------------------
 
 .datatable {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.datatable-container {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
-  border: $borderPrimary;
-  border-radius: corners.$base;
-  border-collapse: collapse;
-
-  &__inner {
-    padding: spacing.$md;
-  }
-}
-
-.datatable-loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
 }
 
 /// -------------------
-/// DataTable Body selectors
+/// Data Table selectors
 /// -------------------
 
-.datatable-body__row {
+.datatable__main {
+  position: relative;
+  box-sizing: border-box;
   width: 100%;
-  border: $borderPrimary;
-  column-span: 2;
+  height: 100%;
+  background-color: colours.$ui-one;
+  overflow: scroll;
+}
+
+/// -------------------
+/// Data Table controls
+/// -------------------
+
+.datatable__controls {
+  box-sizing: border-box;
+  background-color: white;
+  padding: spacing.$md 0;
+  border-bottom: borders.$ui-two;
+  margin-bottom: spacing.$lg;
+  z-index: z-index.$datatable;
+}
+
+/// -------------------
+/// Data Table header
+/// -------------------
+
+.datatable__header {
+  box-shadow: shadows.$two;
+}
+
+/// -------------------
+/// Data Table header
+/// -------------------
+
+.datatable__table {
+  position: relative;
+  min-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__row {
+  padding: 0;
+  background-color: white;
 
   &:nth-of-type(odd) {
     background-color: colours.$ui-one;
   }
 }
 
-.datatable-body__cell {
-  border-right: $borderPrimary;
-}
-
 /// -------------------
-/// DataTable Body Header selectors
+/// Data Table selectors
 /// -------------------
 
-.datatable-body-header__item {
-  border-top: $borderPrimary;
-  border-right: $borderPrimary;
-  border-bottom: $borderPrimary;
-  padding: spacing.$xs;
-  text-align: left;
-  overflow: hidden;
-  white-space: nowrap;
+.datatable__cell {
+  box-sizing: border-box;
+  border-left: borders.$ui-two;
+  border-right: borders.$ui-two;
 
-  &:first-child {
-    border-left: $borderPrimary;
+  &:focus {
+    outline: none;
+  }
+
+  &:first-of-type {
+    border-left: 0;
+  }
+
+  &:last-of-type {
+    border-right: 0;
+  }
+
+  .datatable__header & {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: spacing.$md spacing.$sm;
+    box-shadow: inset 0 -1px 0 colours.$ui-two;
+    text-overflow: ellipsis;
+    background-color: white;
+    z-index: z-index.$datatable;
+  }
+
+  &--resizable {
+    resize: horizontal;
   }
 }
 
 /// -------------------
-/// DataTable Drop Down selectors
+/// Data Table selectors
 /// -------------------
 
-.datatable__drop-down {
-  &-item {
-    padding: spacing.$xs;
-
-    &:not(:last-child) {
-      border-bottom: borders.$ui-two;
-    }
-  }
+.datatable__input.input,
+.datatable__input.select {
+  background-color: transparent;
+  border-radius: 0;
 }
 
 /// -------------------
-/// DataTable Footer selectors
+/// Data Table selectors
 /// -------------------
 
-.datatable-footer {
-  padding: spacing.$md;
-  border: $borderPrimary;
+.datatable__footer {
+  box-sizing: border-box;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  padding: spacing.$lg spacing.$sm;
+  border-top: borders.$ui-one;
 }
