@@ -1,5 +1,6 @@
+import { IField } from '../Field/types'
 import { IDataTable } from './types'
-import uid from 'uid'
+import { v4 as uid } from 'uuid'
 import * as React from 'react'
 import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { useField } from '@nestagencyuk/react_form-factory'
@@ -36,6 +37,7 @@ const DataTableCellPicker: React.FC<any> = (props) => {
  */
 const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config }) => {
   const { value, handleChange } = useField({ id })
+  const castType = capitalise(config.type) as IField.IProps['type']
 
   return React.useMemo(
     () => (
@@ -43,9 +45,9 @@ const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config }) => {
         <DataTableCellPicker
           className="w--100 datatable__input"
           {...config}
-          id={`cell-${uid(6)}`}
+          id={`cell-${uid()}`}
           value={value}
-          type={capitalise(config.type)}
+          type={castType}
           disabled={config.locked}
           tabIndex={config.ignoreTab ? -1 : 0}
           onChange={handleChange}

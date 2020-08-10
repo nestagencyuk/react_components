@@ -2,7 +2,7 @@ import { IUseManageArray } from '../../hooks/useManageArray/types'
 
 declare namespace IDataTable {
   interface IProps {
-    data: Array<{ [key: string]: any }>
+    data: FormData[]
     children: React.ReactNode
     onSubmit: (data: any[]) => void
   }
@@ -13,18 +13,10 @@ declare namespace IDataTable {
 
   interface IValue {
     rows: IUseManageArray.IState
-    addRow: (value: string | { [key: string]: any }) => void
-    editRow: (value: string | { [key: string]: any }) => void
-    deleteRow: (value: string | { [key: string]: any }) => void
+    addRow: (value: FormData) => void
+    editRow: (value: FormData & { _uid: string }) => void
+    deleteRow: (uid: string) => void
     handleSubmit: (e: React.FormEvent) => void
-  }
-
-  interface IRowProps {
-    [key: string]: any
-  }
-
-  interface ICellProps {
-    [key: string]: any
   }
 }
 

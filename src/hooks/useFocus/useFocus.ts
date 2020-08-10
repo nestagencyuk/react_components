@@ -10,11 +10,11 @@ const useFocus = ({
   targetRef: initialTargetRef = null
 }: IUseFocus.IProps = {}): [
   boolean,
-  (e?: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => void,
-  (e?: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }) => void
+  (e?: React.FocusEvent<any>) => void,
+  (e?: React.FocusEvent<any>, cb?: () => void) => void
 ] => {
-  const triggerRef = useRef<React.RefObject<HTMLElement> | HTMLElement>()
-  const targetRef = useRef<React.RefObject<HTMLElement> | HTMLElement>()
+  const triggerRef = useRef<React.RefObject<any> | any>()
+  const targetRef = useRef<React.RefObject<any> | any>()
   const [focused, setFocused] = useState(false)
   const [nextEl, setNextEl] = useState(null)
 
@@ -31,14 +31,14 @@ const useFocus = ({
    * Handle blurring away, either taking into account unrelated nodes, or
    * just normal child nodes
    */
-  const onBlur = (e: React.FocusEvent<HTMLElement> & { relatedTarget: HTMLElement }, cb?: any) => {
+  const onBlur = (e: React.FocusEvent<any>, cb?: any) => {
     const isUnrelated = (initialTriggerRef && initialTargetRef) || (triggerRef.current && targetRef.current)
     let newFocused = true
 
     if (isUnrelated) {
       const asyncTrigger = initialTriggerRef?.current || triggerRef.current
       const asyncTarget = initialTargetRef?.current || targetRef.current
-      const isInside = ((asyncTarget || asyncTrigger) as HTMLElement)?.contains(e?.relatedTarget)
+      const isInside = (asyncTarget || asyncTrigger)?.contains(e?.relatedTarget)
 
       if (isInside) {
         setNextEl(e.relatedTarget)

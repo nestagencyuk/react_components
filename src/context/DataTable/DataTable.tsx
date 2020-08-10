@@ -1,8 +1,8 @@
 import { IDataTable } from './types'
 import * as React from 'react'
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import * as clone from 'rfdc'
-import uid from 'uid'
+import { v4 as uid } from 'uuid'
 import { useManageArray } from '../../hooks/useManageArray'
 
 /**
@@ -31,7 +31,7 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    * The row to add, for a blank row, pass null
    */
   const addRow = (row: any) => {
-    const _uid = uid(8)
+    const _uid = uid()
     addItem(row ? { ...row, _uid } : blankRow)
   }
 

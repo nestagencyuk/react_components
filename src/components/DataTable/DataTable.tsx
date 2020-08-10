@@ -33,8 +33,8 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
    * Set pagination
    */
   const pagination = usePaginationV2({
-    dataToPaginate: data,
-    itemsPerPage: controls.footer.paginatedRowsPerPage
+    array: data,
+    pageLimit: controls.footer?.pagination?.pageLimit
   })
 
   return (
@@ -55,7 +55,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
 
         <table className={cx(className, 'datatable__table')}>
           <DataTableHeader controls={controls.row} columns={columns} />
-          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentData} />
+          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
         </table>
       </div>
 

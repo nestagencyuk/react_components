@@ -28,8 +28,10 @@ const testConfig: any = {
     footer: {
       visible: true,
       rowCount: true,
-      pagination: true,
-      paginatedRowsPerPage: 20
+      pagination: {
+        visible: true,
+        pageLimit: 20
+      }
     }
   },
   header: [

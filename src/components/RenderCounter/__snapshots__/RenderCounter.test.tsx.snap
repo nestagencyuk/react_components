@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- RenderCounter Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="rendercounter"
+  >
+    1
+  </span>
+</DocumentFragment>
+`;

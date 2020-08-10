@@ -1,46 +1,49 @@
 import { useState, useEffect } from 'react'
 
-const usePaginationV2 = ({ dataToPaginate, itemsPerPage }: { dataToPaginate: any[]; itemsPerPage: number }) => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [currentData, setCurrentData] = useState([])
-  const lastPage = Math.ceil(dataToPaginate.length / itemsPerPage)
+/**
+ * A hook for return a slice of an array, and paginating between slices
+ */
+const usePaginationV2 = ({ array, pageLimit }: { array: any[]; pageLimit: number }) => {
+  const [currentIndex, setCurrentPage] = useState(1)
+  const [currentSlice, setCurrentData] = useState([])
+  const lastIndex = Math.ceil(array.length / pageLimit)
 
   /**
-   * Return next page's data
+   * Return next page's slice
    */
-  const nextPage = () => {
-    setCurrentPage(() => Math.min(currentPage + 1, lastPage))
+  const handleNext = () => {
+    setCurrentPage(() => Math.min(currentIndex + 1, lastIndex))
   }
 
   /**
-   * Return prev page's data
+   * Return prev page's slice
    */
-  const prevPage = () => {
-    setCurrentPage(() => Math.max(currentPage - 1, 1))
+  const handlePrev = () => {
+    setCurrentPage(() => Math.max(currentIndex - 1, 1))
   }
 
   /**
-   * Return specific page's data
+   * Return specific page's slice
    */
-  const jumpToPage = (page: number) => {
+  const handleSkip = (page: number) => {
     const pageNumber = Math.max(1, page)
-    setCurrentPage(() => Math.min(pageNumber, lastPage))
+    setCurrentPage(() => Math.min(pageNumber, lastIndex))
   }
 
   /**
    * Dynamically adjust start/end of pagination
    */
   useEffect(() => {
-    const begin = (currentPage - 1) * itemsPerPage
-    const end = begin + itemsPerPage
-    setCurrentData(dataToPaginate.slice(begin, end))
+    const begin = (currentIndex - 1) * pageLimit
+    const end = begin + pageLimit
+    setCurrentData(array.slice(begin, end))
 
-    if (currentPage > lastPage) {
-      jumpToPage(lastPage)
+    if (currentIndex > lastIndex) {
+      handleSkip(lastIndex)
     }
-  }, [currentPage, dataToPaginate])
+  }, [currentIndex, array])
 
-  return { nextPage, prevPage, jumpToPage, currentData, currentPage, lastPage }
+  return { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip }
 }
 
 export default usePaginationV2

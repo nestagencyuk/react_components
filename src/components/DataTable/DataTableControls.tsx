@@ -1,5 +1,5 @@
 import { IDataTable } from './types'
-import uid from 'uid'
+import { v4 as uid } from 'uuid'
 import * as React from 'react'
 import { useContext, useEffect } from 'react'
 import { useToggleGroup } from '../../hooks/useToggleGroup'
@@ -95,7 +95,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           {controls.search && (
             <Input
               className="w--100"
-              id={`search-${uid(8)}`}
+              id={`search-${uid()}`}
               type="Text"
               value={''}
               placeholder="Search Data"

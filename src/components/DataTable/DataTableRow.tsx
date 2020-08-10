@@ -23,13 +23,13 @@ import { DataTableCell } from '.'
 const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data }) => {
   const { addRow, editRow, deleteRow } = useContext(DataTableContext)
   const [, onFocus, onBlur] = useFocus()
-  const [row, setRow] = useState(cells)
+  const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
 
   /**
    * Lock a row
    */
   const lockRow = () => {
-    setRow((prev: any) => prev.map((x: any) => ({ ...x, locked: !x.locked })))
+    setRow((prev) => prev.map((obj) => ({ ...obj, locked: !obj.locked })))
   }
 
   /**
@@ -69,11 +69,11 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
   }
 
   return (
-    <FormV2 data={data} onSubmit={(data: any) => editRow(data)}>
+    <FormV2 data={data} onSubmit={(data: FormData & { _uid: string }) => editRow(data)}>
       {({ handleSubmit }) => (
         <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)}>
           {Object.keys(data)
-            .filter((x) => x !== '_uid')
+            .filter((key) => key !== '_uid')
             .map(
               (key, i) =>
                 columns.find((x: any) => x.id === key)?.visible && (

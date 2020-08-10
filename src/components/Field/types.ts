@@ -9,6 +9,7 @@ declare namespace IField {
     label?: string
     value?: any
     type?: 'Select' | 'Checkbox' | 'Radio' | 'Textarea' | IInput.IProps['type']
+    disabled?: boolean
     state?: UIState
     msg?: string
     options?: any[]

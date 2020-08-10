@@ -25,26 +25,26 @@ The hook in its simplest form.
         "item 4",
         "item 5"
       ])
-      const itemsPerPage = 3
-      const { currentData, currentPage, lastPage, nextPage, prevPage, jumpToPage } = usePaginationV2({ dataToPaginate: data, itemsPerPage})
+      const pageLimit = 3
+      const { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = usePaginationV2({ array: data, pageLimit })
       return (
         <Fragment>
-          <div>Current Page: {currentPage}</div>
-          <div>Items per page: {itemsPerPage}</div>
-          <div>Last page index: {lastPage}</div>
-          {currentData.map(i => <p key={i}>{i}</p>)}
+          <div>Current Page: {currentIndex}</div>
+          <div>Items per page: {pageLimit}</div>
+          <div>Last page index: {lastIndex}</div>
+          {currentSlice.map(i => <p key={i}>{i}</p>)}
           <Grid>
             <GridItem className="m--r-sm" span={3}>
-              <Button variant="Tertiary" className="w--100" disabled={currentPage === 1}  onClick={() => prevPage()}>Prev</Button>
+              <Button className="w--100" variant="Tertiary" disabled={currentIndex === 1} onClick={handlePrev}>Prev</Button>
             </GridItem>
             <GridItem className="m--r-sm" span={3}>
-              <Input onChange={(val) => jumpToPage(val)} type="Number" min={1} max={lastPage} className="w--100" value={currentPage} />
+              <Input className="w--100"  type="Number" min={1} max={lastIndex} value={currentIndex} onChange={(val) => handleSkip(val)} />
             </GridItem>
             <GridItem className="m--r-sm"  span={3}>
-              <Button variant="Tertiary" className="w--100" disabled={currentPage === lastPage} onClick={() => nextPage()}>Next</Button>
+              <Button className="w--100" variant="Tertiary" disabled={currentIndex === lastIndex} onClick={handleNext}>Next</Button>
             </GridItem>
             <GridItem span={3}>
-              <Button variant="Tertiary" onClick={() => setData((prev ) => [...prev, Math.floor(Math.random() * 100 )])}>Add Item</Button>
+              <Button variant="Tertiary" onClick={() => setData((prev) => [...prev, `item ${prev.length + 1}`])}>Add Item</Button>
             </GridItem>
           </Grid>
         </Fragment>

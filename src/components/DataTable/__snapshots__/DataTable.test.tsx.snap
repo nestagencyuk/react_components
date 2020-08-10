@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
+<DocumentFragment>
+  <form
+    class="datatable"
+  >
+    <header
+      class="datatable__controls"
+    >
+      <div
+        class="grid grid--gutter"
+      >
+        <div
+          class="grid__item grid__item--3"
+        />
+        <div
+          class="grid__item grid__item--3"
+        />
+        <div
+          class="grid__item grid__item--4"
+        />
+        <div
+          class="m--l-auto grid__item grid__item--2"
+        />
+      </div>
+    </header>
+    <div
+      class="datatable__main"
+      style="min-height: 800px; max-height: 1000px;"
+    >
+      <table
+        class="datatable__table"
+      >
+        <thead>
+          <tr
+            class="datatable__header"
+          >
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 1
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: 1rem; text-align: center;"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+    <footer
+      class="datatable__footer"
+      data-testid="datatable-footer"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="grid__item grid__item--4"
+        />
+        <div
+          class="m--l-auto grid__item grid__item--8"
+        />
+      </div>
+    </footer>
+    <button
+      class="btn btn--primary btn--md"
+      type="submit"
+    >
+      <span
+        class="w--100"
+      >
+        Submit
+      </span>
+    </button>
+  </form>
+</DocumentFragment>
+`;

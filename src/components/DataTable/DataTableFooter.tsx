@@ -1,6 +1,6 @@
 import { IDataTable } from './types'
 import * as React from 'react'
-import uid from 'uid'
+import { v4 as uid } from 'uuid'
 import { Fragment } from 'react'
 
 /**
@@ -15,7 +15,7 @@ import { Input } from '../Input'
  * Render a table cell
  */
 const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
-  const { lastPage, currentPage, nextPage, prevPage, jumpToPage } = pagination
+  const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
 
   return controls.visible ? (
     <footer className="datatable__footer" data-testid="datatable-footer">
@@ -29,28 +29,24 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               <Button
                 className="m--r-xs"
                 variant="Tertiary"
-                disabled={currentPage === 1 || currentPage === 0}
-                onClick={() => prevPage()}
+                disabled={currentIndex === 1 || currentIndex === 0}
+                onClick={handlePrev}
               >
                 Prev
               </Button>
               <Input
                 className="m--r-xs"
-                id={`jump-to-page-${uid(8)}`}
+                id={`jump-to-page-${uid()}`}
                 type="Number"
-                value={currentPage || 1}
+                value={currentIndex || 1}
                 minValue={1}
-                maxValue={lastPage || 1}
-                onChange={(val) => jumpToPage(val)}
+                maxValue={lastIndex || 1}
+                onChange={(val) => handleSkip(val)}
               />
               <Text tag="span" className="text--bold m--r-xs">
-                of {lastPage}
+                of {lastIndex}
               </Text>
-              <Button
-                variant="Tertiary"
-                disabled={rowCount === 0 ? true : currentPage === lastPage}
-                onClick={() => nextPage()}
-              >
+              <Button variant="Tertiary" disabled={rowCount === 0 ? true : currentIndex === lastIndex} onClick={handleNext}>
                 Next
               </Button>
             </Fragment>
