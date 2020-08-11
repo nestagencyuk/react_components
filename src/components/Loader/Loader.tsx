@@ -20,7 +20,7 @@ const variants = {
  * Loader
  */
 const Loader: React.FC<ILoader.IProps> = ({ className, variant = 'Circle' }) => {
-  return <div className={cx(className, 'loader', variants[variant])} />
+  return <div className={cx(className, 'loader', variants[variant])} data-testid="loader" />
 }
 
 export default Loader

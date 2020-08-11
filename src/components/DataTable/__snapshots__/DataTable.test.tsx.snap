@@ -1,28 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
+exports[`----- DataTable Component ----- DataTable Base Renders without crashing 1`] = `
 <DocumentFragment>
   <form
     class="datatable"
   >
     <header
       class="datatable__controls"
+      data-testid="dataTableGlobalControls"
     >
       <div
         class="grid grid--gutter"
       >
         <div
           class="grid__item grid__item--3"
-        />
+        >
+          <button
+            class="w--100 btn btn--secondary btn--sm"
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Filter Data
+            </span>
+            <span
+              class="btn__icn btn__icn--end icn icn--sm"
+              title="Branch"
+            />
+          </button>
+        </div>
         <div
           class="grid__item grid__item--3"
-        />
+        >
+          <button
+            class="w--100 btn btn--secondary btn--sm"
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Customise Table
+            </span>
+            <span
+              class="btn__icn btn__icn--end icn icn--sm"
+              title="Branch"
+            />
+          </button>
+        </div>
         <div
           class="grid__item grid__item--4"
-        />
+        >
+          <input
+            class="w--100 input--sm input"
+            placeholder="Search Data"
+            type="text"
+            value=""
+          />
+        </div>
         <div
           class="m--l-auto grid__item grid__item--2"
-        />
+        >
+          <button
+            class="btn btn--primary btn--sm"
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Add Row
+            </span>
+            <span
+              class="btn__icn btn__icn--end icn icn--sm"
+              title="Branch"
+            />
+          </button>
+        </div>
       </div>
     </header>
     <div
@@ -38,7 +91,7 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           >
             <th
               class="datatable__cell"
-              style="width: auto;"
+              style="width: 500px;"
             >
               Test Heading 1
             </th>
@@ -50,7 +103,31 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             </th>
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+          <tr
+            class="datatable__row"
+          >
+            <td
+              class="datatable__cell text--center"
+            >
+              <button
+                class="action action--secondary action--md"
+                title="..."
+                type="button"
+              >
+                <span
+                  class="action__icn icn icn--md"
+                  title="Caret"
+                />
+                <span
+                  class="text--screen-reader"
+                >
+                  ...
+                </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <footer
@@ -62,10 +139,51 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
       >
         <div
           class="grid__item grid__item--4"
-        />
+        >
+          <p
+            class="text--bold text text--p text--left"
+          >
+            1 Row
+          </p>
+        </div>
         <div
           class="m--l-auto grid__item grid__item--8"
-        />
+        >
+          <button
+            class="m--r-xs btn btn--tertiary btn--md btn--disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Prev
+            </span>
+          </button>
+          <input
+            class="m--r-xs input--md input"
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+          <span
+            class="text--bold m--r-xs text text--p text--left"
+          >
+            of 1
+          </span>
+          <button
+            class="btn btn--tertiary btn--md btn--disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Next
+            </span>
+          </button>
+        </div>
       </div>
     </footer>
     <button

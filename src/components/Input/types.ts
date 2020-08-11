@@ -3,7 +3,7 @@ import { Size } from '../../types'
 declare namespace IInput {
   interface IProps {
     className?: string
-    id: string
+    id: string | null
     name?: string
     type?: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
     placeholder?: string

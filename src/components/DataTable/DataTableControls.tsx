@@ -39,8 +39,8 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
     onChange(header.map((x: any) => ({ ...x, visible: !toggles[`label-${x.id}`] })))
   }, [toggles])
 
-  return controls.visible ? (
-    <header className="datatable__controls">
+  return (
+    <header className="datatable__controls" data-testid="dataTableGlobalControls">
       <Grid gutter>
         <GridItem span={3}>
           {controls.buttonFilterData && (
@@ -95,7 +95,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           {controls.search && (
             <Input
               className="w--100"
-              id={`search-${uid()}`}
+              id={null}
               type="Text"
               value={''}
               placeholder="Search Data"
@@ -121,7 +121,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
         </GridItem>
       </Grid>
     </header>
-  ) : null
+  )
 }
 
 export default DataTableControls

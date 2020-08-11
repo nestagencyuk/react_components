@@ -16,7 +16,7 @@ declare namespace IDataTable {
     addRow: (value: FormData) => void
     editRow: (value: FormData & { _uid: string }) => void
     deleteRow: (uid: string) => void
-    handleSubmit: (e: React.FormEvent) => void
+    handleSubmit: (e: FormData[]) => void
   }
 }
 

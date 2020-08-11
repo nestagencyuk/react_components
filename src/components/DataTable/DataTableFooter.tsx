@@ -1,6 +1,5 @@
 import { IDataTable } from './types'
 import * as React from 'react'
-import { v4 as uid } from 'uuid'
 import { Fragment } from 'react'
 
 /**
@@ -17,11 +16,15 @@ import { Input } from '../Input'
 const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
   const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
 
-  return controls.visible ? (
+  return (
     <footer className="datatable__footer" data-testid="datatable-footer">
       <Grid>
         <GridItem span={4}>
-          {controls.rowCount && <Text className="text--bold">{`${rowCount} ${rowCount === 1 ? 'Row' : 'Rows'}`}</Text>}
+          {controls.rowCount && (
+            <Text className="text--bold" data-testid="dataTableRowCount">{`${rowCount} ${
+              rowCount === 1 ? 'Row' : 'Rows'
+            }`}</Text>
+          )}
         </GridItem>
         <GridItem span={8} className="m--l-auto">
           {controls.pagination && (
@@ -36,7 +39,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               </Button>
               <Input
                 className="m--r-xs"
-                id={`jump-to-page-${uid()}`}
+                id={null}
                 type="Number"
                 value={currentIndex || 1}
                 minValue={1}
@@ -54,7 +57,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
         </GridItem>
       </Grid>
     </footer>
-  ) : null
+  )
 }
 
 export default DataTableFooter
