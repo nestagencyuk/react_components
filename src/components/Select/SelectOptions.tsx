@@ -1,5 +1,6 @@
 import { ISelect } from './types'
 import * as React from 'react'
+import { useRef, createRef, useEffect, useState } from 'react'
 import cx from 'classnames'
 
 /**
@@ -32,54 +33,77 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
   id,
   open,
   values,
+  cursor,
   options,
   filtered,
   multi,
   multiVariant,
   optional,
   onClick
-}) => (
-  <ul className="select__options" data-testid={`${id}-options`} style={{ display: open ? 'block' : 'none' }}>
-    {multiVariant === 'Tags' && values && (
-      <li className="select__option select__option--sticky">
-        <SelectTags values={values} options={options} onClick={onClick} />
-      </li>
-    )}
+}) => {
+  const [, setLength] = useState(filtered.length)
+  const refs = useRef<Array<React.RefObject<HTMLButtonElement>>>(
+    Array.from(Array(filtered?.length).keys()).map(() => createRef())
+  )
 
-    {optional && (
-      <li className="select__option">
-        <button className="select__option-btn" onClick={() => onClick(null)}>
-          -- Select --
-        </button>
-      </li>
-    )}
+  // useEffect(() => {
+  //   if (!refs.current[cursor]) return
+  //   refs.current[cursor].current.focus()
+  // }, [cursor])
 
-    {(multiVariant === 'Tags' ? filtered.filter((x) => !values?.includes(x.value)) : filtered).map((x) => (
-      <li key={x.value} className="select__option">
-        <button
-          className={cx('select__option-btn', { 'p--l-xxl': multi && multiVariant === 'Checkbox' })}
-          title={x.label}
-          type="button"
-          disabled={x.disabled}
-          data-value={x.value}
-          tabIndex={-1}
-          onClick={() => onClick(x.value)}
-        >
-          {multi && multiVariant === 'Checkbox' && (
-            <Checkbox
-              className="select__checkbox"
-              id={x.label}
-              value={values?.includes(x.value)}
-              tabIndex={-1}
-              onChange={() => {}}
-            />
-          )}
+  // useEffect(() => {
+  //   setLength(filtered.length)
+  //   refs.current = refs.current.splice(0, filtered.length)
+  //   for (let i = 0; i < filtered.length; i++) {
+  //     refs.current[i] = refs.current[i] || React.createRef()
+  //   }
+  //   refs.current = refs.current.map((item) => item || React.createRef())
+  // }, [filtered])
 
-          {options.find((y) => y.value === x.value)?.label}
-        </button>
-      </li>
-    ))}
-  </ul>
-)
+  return (
+    <ul className="select__options" data-testid={`${id}-options`} style={{ display: open ? 'block' : 'none' }}>
+      {multi && multiVariant === 'Tags' && values && (
+        <li className="select__option select__option--sticky">
+          <SelectTags values={values} options={options} onClick={onClick} />
+        </li>
+      )}
+
+      {optional && (
+        <li className="select__option">
+          <button className="select__option-btn" onClick={() => onClick(null)}>
+            -- Select --
+          </button>
+        </li>
+      )}
+
+      {filtered.map((x, i) => (
+        <li key={x.value} className="select__option">
+          <button
+            ref={refs.current[i]}
+            className={cx('select__option-btn', { 'p--l-xxl': multi && multiVariant === 'Checkbox' })}
+            title={x.label}
+            type="button"
+            disabled={x.disabled}
+            data-value={x.value}
+            tabIndex={-1}
+            onClick={() => onClick(x.value)}
+          >
+            {multi && multiVariant === 'Checkbox' && (
+              <Checkbox
+                className="select__checkbox"
+                id={x.label}
+                value={values?.includes(x.value)}
+                tabIndex={-1}
+                onChange={() => {}}
+              />
+            )}
+
+            {options.find((y) => y.value === x.value)?.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export default SelectOptions

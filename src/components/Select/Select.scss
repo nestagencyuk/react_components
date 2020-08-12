@@ -88,7 +88,7 @@ $bg-colour: colours.$ui-one !default;
   display: block;
   position: absolute;
   top: 100%;
-  width: 100%;
+  min-width: 350px;
   background-color: $bg-colour;
   border-radius: corners.$base;
   max-height: 350px;

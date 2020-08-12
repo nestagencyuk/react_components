@@ -18,24 +18,12 @@ declare namespace ISelect {
     onSearch?: (value: string | string[]) => void
   }
 
-  interface IInputProps {
-    id: string
-    value: string | string[]
-    placeholder: string
-    options: IOption[]
-    multi: boolean
-    multiVariant?: 'Checkbox' | 'Tags'
-    filterable: boolean
-    filterValue: string
-    disabled: boolean
-    tabIndex?: number
-    onChange: (value: string) => void
-  }
-
   interface IOptionsProps {
     id: string
+    triggerRef: any
     open: boolean
     values: string[]
+    cursor: number
     options: IOption[]
     filtered: IOption[]
     multi: boolean

@@ -13,7 +13,7 @@ import './Select.scss'
 /**
  * Components
  */
-import { SelectInput, SelectOptions } from '.'
+import { SelectOptions } from '.'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
 
@@ -28,7 +28,7 @@ const Select: React.FC<ISelect.IProps> = ({
   multiVariant = 'Checkbox',
   filterable,
   optional,
-  placeholder = '-- Select --',
+  placeholder: initialPlaceholder = '-- Select --',
   options,
   value = null,
   icon,
@@ -36,22 +36,30 @@ const Select: React.FC<ISelect.IProps> = ({
   onChange,
   onSearch
 }) => {
-  const { array: values, addItem, deleteItem, resetItems } = useManageArray()
-  const [filterValue, setSearchValue] = useState<string>('')
+  const { array: values, addItem, deleteItem, resetItems } = useManageArray({
+    initialArray: Array.isArray(value) ? value : null
+  })
+  const [placeholder, setPlaceholder] = useState(initialPlaceholder)
+  const [filterValue, setFilterValue] = useState<string>('')
+  const [shownValue, setShownValue] = useState('')
+
+  const [cursor, setCursor] = useState<number>(-1)
   const [focused, setFocused] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>()
 
   /**
    * Filter the options if a filter value has been entered
    */
-  const filtered = filterable
+  const prefiltered = filterable
     ? options.filter((x) => x.label?.toLowerCase().includes(filterValue?.toLowerCase() || ''))
     : options
+
+  const filtered = multiVariant === 'Tags' ? prefiltered.filter((x) => !values?.includes(x.value)) : prefiltered
 
   /**
    * When we focus, open the options
    */
-  const handleFocus = (): void => {
+  const handleFocus = () => {
     setFocused(true)
   }
 
@@ -65,7 +73,7 @@ const Select: React.FC<ISelect.IProps> = ({
     const isOutside = !ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)
     if (isOutside) {
       setFocused(false)
-      setSearchValue(null)
+      setFilterValue(null)
     }
   }
 
@@ -100,34 +108,84 @@ const Select: React.FC<ISelect.IProps> = ({
   }
 
   /**
+   * Set value and placeholders if multi-select
+   */
+  const handleMulti = () => {
+    const num = value ? (value.length < 10 ? value.length : '10+') : 0
+
+    if (filterable) {
+      setPlaceholder(`${num} Selected`)
+    } else {
+      setShownValue(`${num} Selected`)
+    }
+  }
+
+  /**
+   * Set value and placeholder if filterable
+   */
+  const handleFilterable = () => {
+    setShownValue(filterValue)
+    if (value === null) {
+      setPlaceholder(initialPlaceholder)
+    }
+    if (!multi) {
+      const foundValue = options.find((x) => x.value === filterValue)
+      if (foundValue) {
+        setPlaceholder(foundValue.label || initialPlaceholder)
+        setFilterValue('')
+        setShownValue('')
+      }
+    }
+  }
+
+  /**
    * Handle the text input change
    */
   const handleChange = (val: string) => {
-    setSearchValue(val)
     const same = options.find((y) => y.label === val)
+    setFilterValue(val)
     if (onSearch && !same) onSearch(val)
   }
 
   /**
-   * Component mount
+   * Handle keyboard navigation
+   */
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case 'ArrowUp':
+        cursor > 0 ? setCursor((prev) => prev - 1) : setCursor(filtered.length - 1)
+        break
+      case 'ArrowDown':
+        cursor < filtered.length - 1 ? setCursor((prev) => prev + 1) : setCursor(0)
+        break
+      default:
+        break
+    }
+  }
+
+  /**
+   * Listen to change to filter value
    */
   useEffect(() => {
-    if (typeof value === 'string') {
-      onChange(value)
-    } else if (multi && Array.isArray(value)) {
-      value.forEach((x) => addItem(x))
+    if (filterable) handleFilterable()
+  }, [filterValue])
+
+  useEffect(() => {
+    if (multi) {
+      handleMulti()
+    } else {
+      const foundValue = options.find((x) => x.value === value)
+      setPlaceholder(foundValue?.label || initialPlaceholder)
+      setCursor(-1)
     }
-  }, [])
+  }, [value])
 
   /**
    * Send the value to the parent onChange fn
    */
   useEffect(() => {
-    if (values === null) return
-    if (multi) {
-      onChange(values.length === 0 ? null : (values as string[]))
-    } else {
-      onChange(values[0] as string)
+    if (values !== null) {
+      onChange(multi ? (values.length === 0 ? null : (values as string[])) : (values[0] as string))
     }
   }, [values])
 
@@ -136,23 +194,24 @@ const Select: React.FC<ISelect.IProps> = ({
       ref={ref}
       className={cx(className, 'select', { 'select--disabled': disabled })}
       data-testid={id}
-      tabIndex={disabled ? -1 : 0}
+      tabIndex={-1}
       onFocus={handleFocus}
       onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
     >
       <div>
-        <SelectInput
+        <input
+          className="select__input"
           id={id}
-          value={value}
+          data-testid={`${id}-input`}
+          tabIndex={tabIndex}
+          name={id}
+          value={shownValue || ''}
+          readOnly={!filterable}
           placeholder={placeholder}
-          filterValue={filterValue}
-          options={options}
-          multi={multi}
-          multiVariant={multiVariant}
-          filterable={filterable}
           disabled={disabled}
-          tabIndex={disabled ? -1 : 0}
-          onChange={handleChange}
+          autoComplete="off"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e.target.value)}
         />
 
         {multi && values?.length > 0 && (
@@ -181,6 +240,7 @@ const Select: React.FC<ISelect.IProps> = ({
         id={id}
         open={focused}
         values={values as string[]}
+        cursor={cursor}
         options={options}
         filtered={filtered}
         optional={optional}

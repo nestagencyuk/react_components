@@ -5,7 +5,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -16,7 +16,6 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -194,7 +193,6 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="-1"
         value=""
       />
       <span
@@ -360,7 +358,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -370,7 +368,6 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to filter..."
-        tabindex="0"
         value=""
       />
       <span
@@ -545,7 +542,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -556,7 +553,6 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -722,7 +718,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -733,7 +729,6 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="2 Selected"
       />
       <button
@@ -772,6 +767,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
             data-testid="Option One"
           >
             <input
+              checked=""
               class="checkbox__input"
               data-testid="Option One-input"
               id="Option One"
@@ -801,6 +797,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
             data-testid="Option Two"
           >
             <input
+              checked=""
               class="checkbox__input"
               data-testid="Option Two-input"
               id="Option Two"
@@ -1086,7 +1083,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -1095,10 +1092,9 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
         data-testid="Select-input"
         id="Select"
         name="Select"
-        placeholder="-- Select --"
+        placeholder="Option One"
         readonly=""
-        tabindex="0"
-        value="Option One"
+        value=""
       />
       <span
         class="select__icn icn icn--sm"
@@ -1263,7 +1259,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -1272,8 +1268,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         data-testid="Select-input"
         id="Select"
         name="Select"
-        placeholder="Type to filter..."
-        tabindex="0"
+        placeholder="0 Selected"
         value=""
       />
       <span
@@ -1615,7 +1610,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -1626,7 +1621,6 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -1968,7 +1962,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -1979,7 +1973,6 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -2145,7 +2138,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -2156,7 +2149,6 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -2331,7 +2323,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -2342,7 +2334,6 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         name="Select"
         placeholder="Custom Placeholder"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -2508,7 +2499,7 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
     <div>
       <input
@@ -2518,7 +2509,6 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to search..."
-        tabindex="0"
         value=""
       />
       <span

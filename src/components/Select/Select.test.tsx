@@ -128,9 +128,8 @@ describe('----- Select Component -----', () => {
     })
 
     it('Has initial string value', () => {
-      mountComponentInContext()
-      expect(mockFn).toHaveBeenCalledTimes(1)
-      expect(mockFn).toHaveBeenCalledWith(initialValue)
+      const { queryAllByPlaceholderText } = mountComponentInContext()
+      expect(queryAllByPlaceholderText('Option One')).toBeTruthy()
     })
   })
 
@@ -144,9 +143,8 @@ describe('----- Select Component -----', () => {
     })
 
     it('Has initial array value', () => {
-      mountComponentInContext()
-      expect(mockFn).toHaveBeenCalledTimes(1)
-      expect(mockFn).toHaveBeenCalledWith(initialValue)
+      const { queryAllByPlaceholderText } = mountComponentInContext()
+      expect(queryAllByPlaceholderText('2 Selected')).toBeTruthy()
     })
   })
 
