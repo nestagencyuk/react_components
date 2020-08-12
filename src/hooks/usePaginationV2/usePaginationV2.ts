@@ -27,7 +27,10 @@ const usePaginationV2 = ({ array, pageLimit }: { array: any[]; pageLimit: number
    */
   const handleSkip = (page: number) => {
     const pageNumber = Math.max(1, page)
-    setCurrentPage(() => Math.min(pageNumber, lastIndex))
+
+    if (!isNaN(page)) {
+      setCurrentPage(() => Math.min(pageNumber, lastIndex))
+    }
   }
 
   /**

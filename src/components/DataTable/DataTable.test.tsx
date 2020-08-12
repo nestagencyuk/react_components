@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { render, fireEvent, getByText } from '@testing-library/react'
+import { render, fireEvent, getByText, queryAllByTestId, act } from '@testing-library/react'
 import { DataTable } from '.'
 import { IDataTable } from './types'
+import { copy } from 'fs-extra'
 
 const chance = new (require('chance'))()
 
@@ -13,6 +14,7 @@ const testQuantities = Array.from(Array(testLimit).keys()).map((x) => chance.int
 const testBatch = Array.from(Array(testLimit).keys()).map((x) => chance.word())
 
 describe('----- DataTable Component -----', () => {
+  jest.useFakeTimers()
   const testConfig: IDataTable.IProps = {
     onSubmit: () => null,
     controls: {
@@ -24,7 +26,10 @@ describe('----- DataTable Component -----', () => {
         buttonAddRow: true
       },
       row: {
-        visible: true
+        visible: true,
+        buttonCopyRow: true,
+        buttonLockRow: true,
+        buttonDeleteRow: true
       },
       footer: {
         visible: true,
@@ -96,53 +101,115 @@ describe('----- DataTable Component -----', () => {
   })
 
   describe('DataTable Controls', () => {
-    it('Hides global controls', () => {
-      const { queryByTestId } = render(
-        <DataTable
-          {...testConfig}
-          controls={{ ...testConfig.controls, global: { ...testConfig.controls.global, visible: false } }}
-        />
-      )
+    it('Toggles column', async () => {
+      const { queryByText, queryAllByText } = render(<DataTable {...testConfig} />)
+      const customiseTableBtn = queryByText('Customise Table')
+      const columnToToggle = testConfig.header[0].name
 
-      expect(queryByTestId('dataTableGlobalControls')).toBeFalsy()
+      await act(async () => {
+        fireEvent.focus(customiseTableBtn)
+      })
+
+      const allElements = queryAllByText(columnToToggle)
+      const toggleColumnBtn = allElements[1]
+      expect(allElements.length).toBe(2)
+      expect(toggleColumnBtn).toBeTruthy()
+
+      fireEvent.click(toggleColumnBtn)
+
+      const allElementsUpdated = queryAllByText(columnToToggle)
+      expect(allElementsUpdated.length).toBe(1)
     })
 
-    it('Hides filter table button', () => {
-      const { queryByText } = render(
-        <DataTable
-          {...testConfig}
-          controls={{ ...testConfig.controls, global: { ...testConfig.controls.global, buttonFilterData: false } }}
-        />
-      )
+    it('Search input fires onChange event', async () => {
+      const { queryByPlaceholderText } = render(<DataTable {...testConfig} />)
+      const searchInput = queryByPlaceholderText('Search Data')
 
-      expect(queryByText('Filter Data')).toBeFalsy()
+      fireEvent.change(searchInput, {
+        target: {
+          value: 'a'
+        }
+      })
     })
 
-    it('Hides customise table button', () => {
-      const { queryByText } = render(
-        <DataTable
-          {...testConfig}
-          controls={{ ...testConfig.controls, global: { ...testConfig.controls.global, buttonCustomiseTable: false } }}
-        />
-      )
+    it('Adds row to table', async () => {
+      const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const addRowBtn = queryByText('Add Row')
+      const allRows = queryAllByTestId('dataTableRow')
 
-      expect(queryByText('Customise Table')).toBeFalsy()
-    })
+      fireEvent.click(addRowBtn)
 
-    it('Hides search input', () => {
-      const { queryByPlaceholderText } = render(
-        <DataTable
-          {...testConfig}
-          controls={{ ...testConfig.controls, global: { ...testConfig.controls.global, search: false } }}
-        />
-      )
-
-      expect(queryByPlaceholderText('Search Data')).toBeFalsy()
+      const updatedRows = queryAllByTestId('dataTableRow')
+      expect(updatedRows.length).toBe(allRows.length + 1)
     })
   })
 
   describe('DataTable Body', () => {})
-  describe('DataTable Rows', () => {})
+
+  describe('DataTable Rows', () => {
+    it('Copies row', async () => {
+      const { queryAllByTestId, queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+      const allRows = queryAllByTestId('dataTableRow')
+
+      await act(async () => {
+        fireEvent.focus(rowPopoverBtn)
+      })
+
+      const copyRowBtn = queryByText('Copy')
+      expect(copyRowBtn).toBeTruthy()
+
+      fireEvent.click(copyRowBtn)
+
+      const updatedRows = queryAllByTestId('dataTableRow')
+      expect(updatedRows.length).toBe(allRows.length + 1)
+    })
+
+    it('Locks & unlocks row', async () => {
+      const { queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+
+      await act(async () => {
+        fireEvent.focus(rowPopoverBtn)
+      })
+
+      const lockRowBtn = queryByText('Lock')
+      expect(lockRowBtn).toBeTruthy()
+
+      fireEvent.click(lockRowBtn)
+
+      expect(lockRowBtn.innerHTML).toEqual('Unlock')
+
+      fireEvent.click(lockRowBtn)
+
+      expect(lockRowBtn.innerHTML).toEqual('Lock')
+    })
+
+    it('Deletes row', async () => {
+      const { queryAllByTestId, queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+
+      await act(async () => {
+        fireEvent.focus(rowPopoverBtn)
+      })
+
+      const deleteRowBtn = queryByText('Delete')
+      expect(deleteRowBtn).toBeTruthy()
+
+      fireEvent.click(deleteRowBtn)
+
+      const updatedRows = queryAllByTestId('dataTableRow')
+      expect(updatedRows.length).toBe(1)
+    })
+
+    it('Submits row', () => {
+      const { queryAllByTestId } = render(<DataTable {...testConfig} />)
+      const singleRow = queryAllByTestId('dataTableRow')[0]
+
+      fireEvent.blur(singleRow)
+    })
+  })
+
   describe('DataTable Cells', () => {})
 
   describe('DataTable Footer', () => {
@@ -203,6 +270,29 @@ describe('----- DataTable Component -----', () => {
       )
 
       expect(getByText('2 Rows')).toBeTruthy()
+    })
+
+    it('Paginates on input', () => {
+      const { queryByTestId } = render(<DataTable {...testConfig} />)
+      const paginationInput = queryByTestId('dataTablePagination')
+
+      fireEvent.change(paginationInput, { target: { value: 2 } })
+      fireEvent.change(paginationInput, { target: { value: NaN } })
+    })
+
+    it('Disables pagination controls correctly', () => {
+      const { queryByText } = render(
+        <DataTable
+          {...testConfig}
+          controls={{ ...testConfig.controls, footer: { ...testConfig.controls.footer, rowCount: 1 } }}
+        />
+      )
+
+      const paginationPrevBtn = queryByText('Prev')
+      expect(paginationPrevBtn.closest('button').disabled).toBeTruthy()
+
+      const paginationNextBtn = queryByText('Next')
+      expect(paginationNextBtn.closest('button').disabled).toBeTruthy()
     })
   })
 })

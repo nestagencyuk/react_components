@@ -14,6 +14,7 @@ declare namespace IInput {
     maxValue?: number
     maxLength?: number
     tabIndex?: number
+    testId?: string
     onChange: (value: string | number) => void
   }
 }

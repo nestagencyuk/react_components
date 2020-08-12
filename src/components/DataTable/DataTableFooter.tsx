@@ -1,5 +1,6 @@
-import { IDataTable } from './types'
 import * as React from 'react'
+import { useState, useEffect } from 'react'
+import { IDataTable } from './types'
 import { Fragment } from 'react'
 
 /**
@@ -15,6 +16,19 @@ import { Input } from '../Input'
  */
 const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
   const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
+  const [paginationIndex, setPaginationIndex] = useState(currentIndex)
+
+  const updatePaginationIndex = (val: number) => {
+    setPaginationIndex(val)
+
+    if (!isNaN(val)) {
+      handleSkip(val)
+    }
+  }
+
+  useEffect(() => {
+    setPaginationIndex(currentIndex)
+  }, [currentIndex])
 
   return (
     <footer className="datatable__footer" data-testid="datatable-footer">
@@ -29,27 +43,23 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
         <GridItem span={8} className="m--l-auto">
           {controls.pagination && (
             <Fragment>
-              <Button
-                className="m--r-xs"
-                variant="Tertiary"
-                disabled={currentIndex === 1 || currentIndex === 0}
-                onClick={handlePrev}
-              >
+              <Button className="m--r-xs" variant="Tertiary" disabled={currentIndex === 1} onClick={handlePrev}>
                 Prev
               </Button>
               <Input
                 className="m--r-xs"
                 id={null}
                 type="Number"
-                value={currentIndex || 1}
+                value={paginationIndex}
+                testId="dataTablePagination"
                 minValue={1}
-                maxValue={lastIndex || 1}
-                onChange={(val) => handleSkip(val)}
+                maxValue={lastIndex}
+                onChange={(val: number) => updatePaginationIndex(val)}
               />
               <Text tag="span" className="text--bold m--r-xs">
                 of {lastIndex}
               </Text>
-              <Button variant="Tertiary" disabled={rowCount === 0 ? true : currentIndex === lastIndex} onClick={handleNext}>
+              <Button variant="Tertiary" disabled={rowCount === 1 ? true : currentIndex === lastIndex} onClick={handleNext}>
                 Next
               </Button>
             </Fragment>

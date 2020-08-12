@@ -46,6 +46,7 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__controls {
+  display: flex;
   box-sizing: border-box;
   background-color: white;
   padding: spacing.$md 0;

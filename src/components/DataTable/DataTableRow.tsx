@@ -48,7 +48,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
             )}
             {controls.buttonLockRow && (
               <Button className="w--100 m--b-sm" variant="Secondary" size="Small" onClick={lockRow}>
-                Lock
+                {row[0]?.locked ? 'Unlock' : 'Lock'}
               </Button>
             )}
             {controls.buttonDeleteRow && (
@@ -60,7 +60,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
         }
       >
         {(value) => (
-          <RefAction variant="Secondary" icon={{ name: 'Caret' }} {...value}>
+          <RefAction variant="Secondary" icon={{ name: 'Caret' }} {...value} testId="dataTableRowPopover">
             ...
           </RefAction>
         )}
@@ -71,7 +71,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
   return (
     <FormV2 data={data} onSubmit={(data: FormData & { _uid: string }) => editRow(data)}>
       {({ handleSubmit }) => (
-        <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)}>
+        <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)} data-testid="dataTableRow">
           {Object.keys(data)
             .filter((key) => key !== '_uid')
             .map(

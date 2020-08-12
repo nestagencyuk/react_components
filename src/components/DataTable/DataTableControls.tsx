@@ -41,85 +41,68 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
 
   return (
     <header className="datatable__controls" data-testid="dataTableGlobalControls">
-      <Grid gutter>
-        <GridItem span={3}>
-          {controls.buttonFilterData && (
-            <Button
-              className="w--100"
+      {controls.buttonFilterData && (
+        <Button
+          variant="Secondary"
+          className="m--r-md"
+          icon={{
+            name: 'Branch',
+            size: 'Small',
+            align: 'End'
+          }}
+          size="Small"
+        >
+          Filter Data
+        </Button>
+      )}
+      {controls.buttonCustomiseTable && (
+        <Popover
+          render={header.map((x: any, i: number) => (
+            <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
+              <Checkbox
+                className="m--r-xs"
+                id={`label-${x.id}-${i}`}
+                value={x.visible}
+                onChange={() => setToggled(`label-${x.id}`)}
+              />
+              {x.name}
+            </label>
+          ))}
+        >
+          {(value) => (
+            <RefButton
               variant="Secondary"
+              className="m--r-md"
               icon={{
                 name: 'Branch',
                 size: 'Small',
                 align: 'End'
               }}
               size="Small"
+              {...value}
             >
-              Filter Data
-            </Button>
+              Customise Table
+            </RefButton>
           )}
-        </GridItem>
-        <GridItem span={3}>
-          {controls.buttonCustomiseTable && (
-            <Popover
-              render={header.map((x: any, i: number) => (
-                <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
-                  <Checkbox
-                    className="m--r-xs"
-                    id={`label-${x.id}-${i}`}
-                    value={x.visible}
-                    onChange={() => setToggled(`label-${x.id}`)}
-                  />
-                  {x.name}
-                </label>
-              ))}
-            >
-              {(value) => (
-                <RefButton
-                  className="w--100"
-                  variant="Secondary"
-                  icon={{
-                    name: 'Branch',
-                    size: 'Small',
-                    align: 'End'
-                  }}
-                  size="Small"
-                  {...value}
-                >
-                  Customise Table
-                </RefButton>
-              )}
-            </Popover>
-          )}
-        </GridItem>
-        <GridItem span={4}>
-          {controls.search && (
-            <Input
-              className="w--100"
-              id={null}
-              type="Text"
-              value={''}
-              placeholder="Search Data"
-              size="Small"
-              onChange={() => {}}
-            />
-          )}
-        </GridItem>
-        <GridItem className="m--l-auto" span={2}>
-          {controls.buttonAddRow && (
-            <Button
-              icon={{
-                name: 'Branch',
-                size: 'Small',
-                align: 'End'
-              }}
-              size="Small"
-              onClick={() => addRow(null)}
-            >
-              Add Row
-            </Button>
-          )}
-        </GridItem>
-      </Grid>
+        </Popover>
+      )}
+      {controls.search && (
+        <Input id={null} type="Text" value={''} placeholder="Search Data" size="Small" onChange={() => {}} />
+      )}
+      {controls.buttonAddRow && (
+        <Button
+          className="m--l-auto"
+          icon={{
+            name: 'Branch',
+            size: 'Small',
+            align: 'End'
+          }}
+          size="Small"
+          onClick={() => addRow(null)}
+        >
+          Add Row
+        </Button>
+      )}
     </header>
   )
 }

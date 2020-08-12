@@ -28,6 +28,7 @@ const Input: React.FC<IInput.IProps> = ({
   value,
   disabled,
   maxLength,
+  testId,
   minValue,
   maxValue,
   onChange,
@@ -58,6 +59,7 @@ const Input: React.FC<IInput.IProps> = ({
       placeholder={placeholder}
       maxLength={maxLength}
       min={minValue}
+      data-testid={testId}
       max={maxValue}
       tabIndex={tabIndex}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

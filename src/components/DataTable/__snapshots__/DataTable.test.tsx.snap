@@ -9,74 +9,54 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
       class="datatable__controls"
       data-testid="dataTableGlobalControls"
     >
-      <div
-        class="grid grid--gutter"
+      <button
+        class="m--r-md btn btn--secondary btn--sm"
+        type="button"
       >
-        <div
-          class="grid__item grid__item--3"
+        <span
+          class="w--100"
         >
-          <button
-            class="w--100 btn btn--secondary btn--sm"
-            type="button"
-          >
-            <span
-              class="w--100"
-            >
-              Filter Data
-            </span>
-            <span
-              class="btn__icn btn__icn--end icn icn--sm"
-              title="Branch"
-            />
-          </button>
-        </div>
-        <div
-          class="grid__item grid__item--3"
+          Filter Data
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
+        />
+      </button>
+      <button
+        class="m--r-md btn btn--secondary btn--sm"
+        type="button"
+      >
+        <span
+          class="w--100"
         >
-          <button
-            class="w--100 btn btn--secondary btn--sm"
-            type="button"
-          >
-            <span
-              class="w--100"
-            >
-              Customise Table
-            </span>
-            <span
-              class="btn__icn btn__icn--end icn icn--sm"
-              title="Branch"
-            />
-          </button>
-        </div>
-        <div
-          class="grid__item grid__item--4"
+          Customise Table
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
+        />
+      </button>
+      <input
+        class="input--sm input"
+        placeholder="Search Data"
+        type="text"
+        value=""
+      />
+      <button
+        class="m--l-auto btn btn--primary btn--sm"
+        type="button"
+      >
+        <span
+          class="w--100"
         >
-          <input
-            class="w--100 input--sm input"
-            placeholder="Search Data"
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="m--l-auto grid__item grid__item--2"
-        >
-          <button
-            class="btn btn--primary btn--sm"
-            type="button"
-          >
-            <span
-              class="w--100"
-            >
-              Add Row
-            </span>
-            <span
-              class="btn__icn btn__icn--end icn icn--sm"
-              title="Branch"
-            />
-          </button>
-        </div>
-      </div>
+          Add Row
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
+        />
+      </button>
     </header>
     <div
       class="datatable__main"
@@ -106,12 +86,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         <tbody>
           <tr
             class="datatable__row"
+            data-testid="dataTableRow"
           >
             <td
               class="datatable__cell text--center"
             >
               <button
                 class="action action--secondary action--md"
+                data-testid="dataTableRowPopover"
                 title="..."
                 type="button"
               >
@@ -162,6 +144,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           </button>
           <input
             class="m--r-xs input--md input"
+            data-testid="dataTablePagination"
             max="1"
             min="1"
             type="number"

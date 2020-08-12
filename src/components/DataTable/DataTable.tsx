@@ -1,6 +1,6 @@
-import { IDataTable } from './types'
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { IDataTable } from './types'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import cx from 'classnames'
 
@@ -29,7 +29,6 @@ import { DataTableControls, DataTableHeader, DataTableBody, DataTableFooter } fr
 const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, header, rows, data, onSubmit }) => {
   const [columns, setColumns] = useState(header)
 
-  console.log(controls)
   /**
    * Set pagination
    */
