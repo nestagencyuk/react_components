@@ -41,42 +41,68 @@ describe('----- DataTable Component -----', () => {
     },
     header: [
       {
-        id: 'test_heading_1',
+        id: 'product_sku',
         name: 'Test Heading 1',
         visible: true,
         defaultWidth: 500
       },
       {
-        id: 'test_heading_2',
+        id: 'product_description',
         name: 'Test Heading 2',
         visible: false
+      },
+      {
+        id: 'unit_of_measure',
+        name: 'Test Heading 3',
+        visible: true
+      },
+      {
+        id: 'quantity',
+        name: 'Test Heading 4',
+        visible: true
+      },
+      {
+        id: 'batch',
+        name: 'Test Heading 5',
+        visible: true
       }
     ],
     rows: [
       [
         {
-          id: 'test_cell_1',
-          name: 'test_cell_1',
-          value: null,
+          id: 'product_sku',
+          name: 'product_sku',
           type: 'search',
-          options: [
-            {
-              label: '200',
-              value: '200'
-            }
-          ]
-        }
+          value: null,
+          filterable: true,
+          ignoreTab: true,
+          options: [{ label: 'option1', value: 'value1' }]
+        },
+        {
+          id: 'product_description',
+          name: 'test_cell_2',
+          value: null,
+          type: 'string'
+        },
+        {
+          id: 'unit_of_measure',
+          name: 'uom',
+          type: 'select',
+          value: null,
+          multi: true,
+          options: [{ label: 'option1', value: 'value1' }]
+        },
+        { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
+        { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
       ]
     ],
-    data: [
-      Array.from(Array(50).keys()).map((x) => ({
-        product_sku: chance.pickone(testSKUS),
-        product_description: chance.pickone(testDescriptions),
-        unit_of_measure: chance.pickset(testUOMs, chance.integer({ min: 1, max: 5 })),
-        quantity: chance.pickone(testQuantities),
-        batch: chance.pickone(testBatch)
-      }))
-    ]
+    data: Array.from(Array(2).keys()).map((x) => ({
+      product_sku: 'sku sku',
+      product_description: 'description description',
+      unit_of_measure: 3,
+      quantity: 11,
+      batch: '123'
+    }))
   }
 
   describe('DataTable Base', () => {
@@ -148,8 +174,8 @@ describe('----- DataTable Component -----', () => {
 
   describe('DataTable Rows', () => {
     it('Copies row', async () => {
-      const { queryAllByTestId, queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+      const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
       const allRows = queryAllByTestId('dataTableRow')
 
       await act(async () => {
@@ -166,8 +192,8 @@ describe('----- DataTable Component -----', () => {
     })
 
     it('Locks & unlocks row', async () => {
-      const { queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+      const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
 
       await act(async () => {
         fireEvent.focus(rowPopoverBtn)
@@ -186,8 +212,8 @@ describe('----- DataTable Component -----', () => {
     })
 
     it('Deletes row', async () => {
-      const { queryAllByTestId, queryByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryByTestId('dataTableRowPopover')
+      const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
+      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
 
       await act(async () => {
         fireEvent.focus(rowPopoverBtn)

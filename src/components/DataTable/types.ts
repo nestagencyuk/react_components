@@ -71,7 +71,7 @@ declare namespace IDataTable {
     value: any
     type?: 'text' | 'number' | 'search' | 'select' | 'string'
     placeholder?: string
-    multiple?: boolean
+    multi?: boolean
     required?: boolean
     minLength?: number
     maxLength?: number
@@ -96,6 +96,7 @@ declare namespace IDataTable {
     searchable?: boolean
     options?: { [key: string]: any }[]
     items?: { [key: string]: any }[]
+    filterable?: boolean
   }
 
   // Datatable components

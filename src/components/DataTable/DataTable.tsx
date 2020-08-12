@@ -38,7 +38,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
   })
 
   return (
-    <form className={cx(className, 'datatable')} onSubmit={() => onSubmit(data)}>
+    <form className={cx(className, 'datatable')} onSubmit={onSubmit as any}>
       {controls.global.visible && <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />}
 
       <div

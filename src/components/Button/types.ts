@@ -1,5 +1,6 @@
 import { Size, Alignment } from '../../types'
 import { IIcon } from '../Icon/types'
+import { ReactNode } from 'react'
 
 declare namespace IButton {
   interface IProps {
@@ -25,7 +26,7 @@ declare namespace IButton {
 
   interface IGroupProps {
     className?: string
-    children: Array<React.ReactElement<IProps>>
+    children: ReactNode
   }
 }
 

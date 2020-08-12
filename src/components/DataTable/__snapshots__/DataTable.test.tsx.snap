@@ -77,6 +77,24 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             </th>
             <th
               class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 3
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 4
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 5
+            </th>
+            <th
+              class="datatable__cell"
               style="width: 1rem; text-align: center;"
             >
               Action
@@ -88,6 +106,275 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             class="datatable__row"
             data-testid="dataTableRow"
           >
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="product_sku"
+                tabindex="0"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="product_sku-input"
+                    id="product_sku"
+                    name="product_sku"
+                    placeholder="-- Select --"
+                    tabindex="0"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="product_sku-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="value1"
+                      tabindex="-1"
+                      title="option1"
+                      type="button"
+                    >
+                      option1
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="unit_of_measure"
+                tabindex="0"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="unit_of_measure-input"
+                    id="unit_of_measure"
+                    name="unit_of_measure"
+                    placeholder="-- Select --"
+                    readonly=""
+                    tabindex="0"
+                    value="10+ Selected"
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="unit_of_measure-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="value1"
+                      tabindex="-1"
+                      title="option1"
+                      type="button"
+                    >
+                      option1
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="quantity"
+                max="10"
+                min="5"
+                name="quantity"
+                tabindex="0"
+                type="number"
+                value="11"
+              />
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="batch"
+                maxlength="5"
+                name="batch"
+                tabindex="0"
+                type="text"
+                value="123"
+              />
+            </td>
+            <td
+              class="datatable__cell text--center"
+            >
+              <button
+                class="action action--secondary action--md"
+                data-testid="dataTableRowPopover"
+                title="..."
+                type="button"
+              >
+                <span
+                  class="action__icn icn icn--md"
+                  title="Caret"
+                />
+                <span
+                  class="text--screen-reader"
+                >
+                  ...
+                </span>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="datatable__row"
+            data-testid="dataTableRow"
+          >
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="product_sku"
+                tabindex="0"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="product_sku-input"
+                    id="product_sku"
+                    name="product_sku"
+                    placeholder="-- Select --"
+                    tabindex="0"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="product_sku-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="value1"
+                      tabindex="-1"
+                      title="option1"
+                      type="button"
+                    >
+                      option1
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="unit_of_measure"
+                tabindex="0"
+              >
+                <div>
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="unit_of_measure-input"
+                    id="unit_of_measure"
+                    name="unit_of_measure"
+                    placeholder="-- Select --"
+                    readonly=""
+                    tabindex="0"
+                    value="10+ Selected"
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+                <ul
+                  class="select__options"
+                  data-testid="unit_of_measure-options"
+                  style="display: none;"
+                >
+                  <li
+                    class="select__option"
+                  >
+                    <button
+                      class="select__option-btn"
+                      data-value="value1"
+                      tabindex="-1"
+                      title="option1"
+                      type="button"
+                    >
+                      option1
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="quantity"
+                max="10"
+                min="5"
+                name="quantity"
+                tabindex="0"
+                type="number"
+                value="11"
+              />
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="batch"
+                maxlength="5"
+                name="batch"
+                tabindex="0"
+                type="text"
+                value="123"
+              />
+            </td>
             <td
               class="datatable__cell text--center"
             >
@@ -125,7 +412,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           <p
             class="text--bold text text--p text--left"
           >
-            1 Row
+            2 Rows
           </p>
         </div>
         <div
