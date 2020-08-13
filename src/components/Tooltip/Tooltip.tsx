@@ -37,7 +37,14 @@ const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', 
   const renderTooltip = () =>
     focused &&
     createPortal(
-      <aside className={cx('tooltip')} ref={setTarget} style={styles.popper} {...attributes.popper} tabIndex={-1}>
+      <aside
+        className={cx('tooltip')}
+        ref={setTarget}
+        style={styles.popper}
+        {...attributes.popper}
+        tabIndex={-1}
+        data-testid="toolTipContainer"
+      >
         <div className={cx('animate', alignments[align])}>
           <div className={cx('tooltip__body')}>{render}</div>
           <span ref={setArrow} className={cx('tooltip__arrow')} style={styles.arrow} />

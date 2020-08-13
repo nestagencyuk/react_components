@@ -3,7 +3,7 @@ import { Size } from '../../types'
 declare namespace IInput {
   interface IProps {
     className?: string
-    id: string
+    id: string | null
     name?: string
     type?: 'Text' | 'Date' | 'Number' | 'Email' | 'Url' | 'Tel'
     placeholder?: string
@@ -14,6 +14,7 @@ declare namespace IInput {
     maxValue?: number
     maxLength?: number
     tabIndex?: number
+    testId?: string
     onChange: (value: string | number) => void
   }
 }

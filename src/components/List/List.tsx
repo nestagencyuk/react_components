@@ -15,13 +15,12 @@ import { ListItem } from '.'
 /**
  * List of items
  */
-const List: React.FC<IList.IProps> = ({ className, items }) =>
-  items ? (
-    <ul className={cx(className, 'list')}>
-      {items.map((item, i) => (
-        <ListItem key={`item-${i}`} {...item} />
-      ))}
-    </ul>
-  ) : null
+const List: React.FC<IList.IProps> = ({ className, items }) => (
+  <ul className={cx(className, 'list')}>
+    {items.map((item, i) => (
+      <ListItem key={`item-${i}`} {...item} />
+    ))}
+  </ul>
+)
 
 export default List

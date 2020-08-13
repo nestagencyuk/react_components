@@ -10,6 +10,9 @@ exports[`----- List Component ----- Renders without crashing 1`] = `
     >
       List item
     </li>
+    <li
+      class="list__item"
+    />
   </ul>
 </DocumentFragment>
 `;

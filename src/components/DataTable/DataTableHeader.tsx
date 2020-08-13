@@ -3,14 +3,15 @@ import * as React from 'react'
 import cx from 'classnames'
 
 /**
- * Render a table cell
+ * Render the table header
  */
-const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ controls, columns }) => {
+
+const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ showRowControls, columns }) => {
   return (
     <thead>
       <tr className="datatable__header">
         {columns.map(
-          (column: any, i: number) =>
+          (column: IDataTable.IColumnConfig, i: number) =>
             column.visible && (
               <th
                 key={`heading-${i}`}
@@ -21,7 +22,7 @@ const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ controls, columns 
               </th>
             )
         )}
-        {controls.visible && (
+        {showRowControls && (
           <th className="datatable__cell" style={{ width: '1rem', textAlign: 'center' }}>
             Action
           </th>

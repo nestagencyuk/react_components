@@ -1,6 +1,6 @@
-import { IDataTable } from './types'
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { IDataTable } from './types'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import cx from 'classnames'
 
@@ -34,12 +34,12 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
    */
   const pagination = usePaginationV2({
     array: data,
-    pageLimit: controls.footer?.pagination?.pageLimit
+    pageLimit: controls.footer.pagination.pageLimit || 20
   })
 
   return (
-    <form className={cx(className, 'datatable')} onSubmit={onSubmit}>
-      <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />
+    <form className={cx(className, 'datatable')} onSubmit={onSubmit as any}>
+      {controls.global.visible && <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />}
 
       <div
         className="datatable__main"
@@ -54,12 +54,15 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
         )}
 
         <table className={cx(className, 'datatable__table')}>
-          <DataTableHeader controls={controls.row} columns={columns} />
+          <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
           <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
         </table>
       </div>
 
-      <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
+      {controls.footer.visible && (
+        <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
+      )}
+
       <Button type="submit">Submit</Button>
     </form>
   )

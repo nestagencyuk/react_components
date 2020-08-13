@@ -5,7 +5,7 @@ import { IList } from './types'
 
 describe('----- List Component -----', () => {
   const baseProps: IList.IProps = {
-    items: [{ text: 'List item' }]
+    items: [{ text: 'List item' }, { to: 'https://some-url-somewhere-on-the-internet-websites-internetnets' }]
   }
 
   it('Renders without crashing', () => {

@@ -37,6 +37,7 @@ const Overlay: React.FC<IOverlay.IProps> = ({ className, variant, state, portal,
       <div
         className={cx(className, 'overlay', variants[variant], 'animate', states[state], { 'overlay--fixed': fixed })}
         onClick={onClick}
+        data-testid="overlay"
       >
         {children}
       </div>

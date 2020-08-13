@@ -1,29 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
+exports[`----- DataTable Component ----- DataTable Base Renders without crashing 1`] = `
 <DocumentFragment>
   <form
     class="datatable"
   >
     <header
       class="datatable__controls"
+      data-testid="dataTableGlobalControls"
     >
-      <div
-        class="grid grid--gutter"
+      <button
+        class="m--r-md btn btn--secondary btn--sm"
+        type="button"
       >
-        <div
-          class="grid__item grid__item--3"
+        <span
+          class="w--100"
+        >
+          Filter Data
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
         />
-        <div
-          class="grid__item grid__item--3"
+      </button>
+      <button
+        class="m--r-md btn btn--secondary btn--sm"
+        type="button"
+      >
+        <span
+          class="w--100"
+        >
+          Customise Table
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
         />
-        <div
-          class="grid__item grid__item--4"
+      </button>
+      <input
+        class="input--sm input"
+        placeholder="Search Data"
+        type="text"
+        value=""
+      />
+      <button
+        class="m--l-auto btn btn--primary btn--sm"
+        type="button"
+      >
+        <span
+          class="w--100"
+        >
+          Add Row
+        </span>
+        <span
+          class="btn__icn btn__icn--end icn icn--sm"
+          title="Branch"
         />
-        <div
-          class="m--l-auto grid__item grid__item--2"
-        />
-      </div>
+      </button>
     </header>
     <div
       class="datatable__main"
@@ -38,9 +71,27 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
           >
             <th
               class="datatable__cell"
-              style="width: auto;"
+              style="width: 500px;"
             >
               Test Heading 1
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 3
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 4
+            </th>
+            <th
+              class="datatable__cell"
+              style="width: auto;"
+            >
+              Test Heading 5
             </th>
             <th
               class="datatable__cell"
@@ -50,7 +101,234 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
             </th>
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+          <tr
+            class="datatable__row"
+            data-testid="dataTableRow"
+          >
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="product_sku"
+                tabindex="-1"
+              >
+                <div
+                  style="position: relative; height: 3rem;"
+                >
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="product_sku-input"
+                    id="product_sku"
+                    name="product_sku"
+                    placeholder="-- Select --"
+                    tabindex="-1"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="unit_of_measure"
+                tabindex="-1"
+              >
+                <div
+                  style="position: relative; height: 3rem;"
+                >
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="unit_of_measure-input"
+                    id="unit_of_measure"
+                    name="unit_of_measure"
+                    placeholder="-- Select --"
+                    readonly=""
+                    tabindex="0"
+                    value="10+ Selected"
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="quantity"
+                max="10"
+                min="5"
+                name="quantity"
+                tabindex="0"
+                type="number"
+                value="11"
+              />
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="batch"
+                maxlength="5"
+                name="batch"
+                tabindex="0"
+                type="text"
+                value="123"
+              />
+            </td>
+            <td
+              class="datatable__cell text--center"
+            >
+              <button
+                class="action action--tertiary action--md"
+                data-testid="dataTableRowPopover"
+                title="..."
+                type="button"
+              >
+                <span
+                  class="action__icn icn icn--lg"
+                  title="Branch"
+                />
+                <span
+                  class="text--screen-reader"
+                >
+                  ...
+                </span>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="datatable__row"
+            data-testid="dataTableRow"
+          >
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="product_sku"
+                tabindex="-1"
+              >
+                <div
+                  style="position: relative; height: 3rem;"
+                >
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="product_sku-input"
+                    id="product_sku"
+                    name="product_sku"
+                    placeholder="-- Select --"
+                    tabindex="-1"
+                    value=""
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <div
+                class="w--100 datatable__input select"
+                data-testid="unit_of_measure"
+                tabindex="-1"
+              >
+                <div
+                  style="position: relative; height: 3rem;"
+                >
+                  <input
+                    autocomplete="off"
+                    class="select__input"
+                    data-testid="unit_of_measure-input"
+                    id="unit_of_measure"
+                    name="unit_of_measure"
+                    placeholder="-- Select --"
+                    readonly=""
+                    tabindex="0"
+                    value="10+ Selected"
+                  />
+                  <span
+                    class="select__icn icn icn--sm"
+                    title="Chevron-down"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="quantity"
+                max="10"
+                min="5"
+                name="quantity"
+                tabindex="0"
+                type="number"
+                value="11"
+              />
+            </td>
+            <td
+              class="datatable__cell"
+              tabindex="-1"
+            >
+              <input
+                class="w--100 datatable__input input--md input"
+                id="batch"
+                maxlength="5"
+                name="batch"
+                tabindex="0"
+                type="text"
+                value="123"
+              />
+            </td>
+            <td
+              class="datatable__cell text--center"
+            >
+              <button
+                class="action action--tertiary action--md"
+                data-testid="dataTableRowPopover"
+                title="..."
+                type="button"
+              >
+                <span
+                  class="action__icn icn icn--lg"
+                  title="Branch"
+                />
+                <span
+                  class="text--screen-reader"
+                >
+                  ...
+                </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <footer
@@ -62,10 +340,52 @@ exports[`----- DataTable Component ----- Base Renders without crashing 1`] = `
       >
         <div
           class="grid__item grid__item--4"
-        />
+        >
+          <p
+            class="text--bold text text--p text--left"
+          >
+            2 Rows
+          </p>
+        </div>
         <div
           class="m--l-auto grid__item grid__item--8"
-        />
+        >
+          <button
+            class="m--r-xs btn btn--tertiary btn--sm btn--disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Prev
+            </span>
+          </button>
+          <input
+            class="m--r-xs input--sm input"
+            data-testid="dataTablePagination"
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+          <span
+            class="text--bold m--r-xs text text--p text--left"
+          >
+            of 1
+          </span>
+          <button
+            class="btn btn--tertiary btn--sm btn--disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="w--100"
+            >
+              Next
+            </span>
+          </button>
+        </div>
       </div>
     </footer>
     <button
