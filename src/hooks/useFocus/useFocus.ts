@@ -6,6 +6,7 @@ import { IUseFocus } from './types'
  */
 const useFocus = ({
   trigger = 'Click',
+  toggleable = false,
   triggerRef: initialTriggerRef = null,
   targetRef: initialTargetRef = null
 }: IUseFocus.IProps = {}): [
@@ -21,8 +22,15 @@ const useFocus = ({
   /**
    * Handle focusing
    */
-  const onFocus = () => {
-    setFocused((prev) => !prev)
+  const onFocus = (e: any) => {
+    if (!triggerRef.current) {
+      triggerRef.current = e.currentTarget
+    }
+    if (toggleable) {
+      setFocused((prev) => !prev)
+    } else {
+      !focused && setFocused(true)
+    }
   }
 
   /**
@@ -44,7 +52,8 @@ const useFocus = ({
         newFocused = false
       }
     } else {
-      if (!e.currentTarget.contains(e.relatedTarget)) {
+      const isInside = e.currentTarget.contains(e.relatedTarget) || triggerRef?.current.contains(e.relatedTarget)
+      if (!isInside) {
         newFocused = false
       }
     }

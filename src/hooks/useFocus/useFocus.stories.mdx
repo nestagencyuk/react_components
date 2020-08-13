@@ -23,15 +23,16 @@ The hook in its simplest form. Behaviour is similar to CSS `:focus-within`.
       const [focused, onFocus, onBlur] = useFocus()
       return (
         <Fragment>
-          <RefSection onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
-            <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
+          <RefSection className="p--md bg--ui-one" style={{ border: 'solid 1px #f3f3f3'}} tabIndex={-1} onFocus={onFocus} onBlur={onBlur}>
+            <Text variant="Intro">{focused ? 'Focused' : 'Unfocused'}</Text>
+            
             {focused && (
-              <div className="p--md bg--ui-one" tabIndex={-1}>
-                Some text
+              <Fragment>
+                <Text>Some text</Text>
                 <Select options={[{ value: 'test', label: 'Test' }]} value={value} onChange={setValue} />
                 <Field id="checkbox" label="Test" type="Checkbox" value={value} onChange={setValue} />
                 <Button onClick={() => console.log('Click!')}>Button</Button>
-              </div>
+              </Fragment>
             )}
           </RefSection>
         </Fragment>
@@ -55,6 +56,7 @@ Connect a `trigger` and a `target` to toggle elements that aren't related in the
           <RefSection ref={triggerRef} onFocus={onFocus} onBlur={onBlur}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
           </RefSection>
+          <br />
           {focused && (
             <RefDiv ref={targetRef} className="p--md bg--ui-one" tabIndex={-1}>
               Some text
@@ -81,6 +83,7 @@ Connect a `trigger` and a `target` to toggle elements that aren't related in the
           <RefSection ref={setTrigger} onFocus={onFocus} onBlur={onBlur}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
           </RefSection>
+          <br />
           {focused && (
             <RefDiv ref={setTarget} className="p--md bg--ui-one" tabIndex={-1}>
               Some text
