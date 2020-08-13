@@ -19,6 +19,15 @@ describe('----- Overlay Component -----', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
+  it('Handles closed state', () => {
+    const { queryByText } = render(
+      <Overlay {...baseProps} state="Closed">
+        Lorem ipsum
+      </Overlay>
+    )
+    expect(queryByText('Lorem ipsum')).toBeFalsy()
+  })
+
   it('Closes the overlay', () => {
     const { getByText } = render(<Overlay {...baseProps}>Lorem ipsum</Overlay>)
     const button = getByText('Lorem ipsum')

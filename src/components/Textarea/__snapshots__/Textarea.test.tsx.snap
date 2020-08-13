@@ -4,6 +4,7 @@ exports[`----- Textarea Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <textarea
     class="textarea"
+    data-testid="textarea"
     id="Test-textarea"
     rows="6"
   />

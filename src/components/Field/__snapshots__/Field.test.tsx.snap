@@ -3,14 +3,30 @@
 exports[`----- Field Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    class="field"
+    class="field field--info"
   >
+    <label
+      aria-label="field"
+      class="field__label label"
+      for="field"
+    >
+      This is a test label
+    </label>
     <input
       class="input--md input"
       id="field"
       type="text"
       value=""
     />
+    <span
+      class="field__icn icn icn--md icn--info"
+      title="Info"
+    />
+    <p
+      class="field__msg"
+    >
+      This is my message
+    </p>
   </div>
 </DocumentFragment>
 `;

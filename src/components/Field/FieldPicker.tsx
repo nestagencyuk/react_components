@@ -14,10 +14,6 @@ import { Textarea } from '../Textarea'
  * Field picker
  */
 const FieldPicker: React.FC<IField.IProps> = ({ type = 'Text', ...props }) => {
-  if (typeof type === 'object') {
-    return type
-  }
-
   switch (type) {
     case 'Select':
       return <Select {...props} />

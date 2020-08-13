@@ -18,6 +18,7 @@ const Radio: React.FC<IRadio.IProps> = ({ className, id, name, value, disabled, 
       name={name}
       type="radio"
       checked={value || false}
+      data-testid="radio"
       disabled={disabled}
       tabIndex={tabIndex}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}

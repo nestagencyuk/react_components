@@ -3,7 +3,7 @@
 exports[`----- Text Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <p
-    class="text text--alpha text--left"
+    class="text text--alpha text--right"
   >
     Test
   </p>

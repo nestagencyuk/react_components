@@ -17,6 +17,7 @@ const Textarea: React.FC<ITextarea.IProps> = ({ className, id, name, value, disa
     name={name}
     rows={6}
     value={value || ''}
+    data-testid="textarea"
     disabled={disabled}
     onChange={(e: any) => onChange(e.target.value)}
   />

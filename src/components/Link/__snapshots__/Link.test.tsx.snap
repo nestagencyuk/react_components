@@ -1,11 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`----- Link Component ----- Renders with optional props 1`] = `
+<DocumentFragment>
+  <a
+    class="link link--primary"
+    href="/"
+    rel="noopener"
+  >
+    <span>
+      Test
+    </span>
+    <span
+      class="link__icn link__icn--end icn icn--md"
+      title="Branch"
+    />
+  </a>
+</DocumentFragment>
+`;
+
 exports[`----- Link Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <a
     class="link link--primary"
     href="/"
   >
+    <span
+      class="link__icn link__icn--start icn icn--md"
+      title="Branch"
+    />
     <span>
       Test
     </span>
