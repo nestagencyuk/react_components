@@ -49,7 +49,8 @@ const Action: React.FC<IAction.IProps> = (
     children,
     onFocus,
     onBlur,
-    onClick
+    onClick,
+    testId
   },
   ref?: React.Ref<HTMLDivElement>
 ) => {
@@ -70,6 +71,7 @@ const Action: React.FC<IAction.IProps> = (
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
+      data-testid={testId}
     >
       <Icon className="action__icn" colour="Inherit" {...icon} />
       <span className="text--screen-reader">{children}</span>

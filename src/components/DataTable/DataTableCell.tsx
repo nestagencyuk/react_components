@@ -45,7 +45,6 @@ const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config }) => {
         <DataTableCellPicker
           className="w--100 datatable__input"
           {...config}
-          id={`cell-${uid()}`}
           value={value}
           type={castType}
           disabled={config.locked}

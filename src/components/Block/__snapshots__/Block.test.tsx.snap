@@ -19,6 +19,7 @@ exports[`----- Block Component ----- Renders without crashing 1`] = `
           >
             <div
               class="loader loader--circle"
+              data-testid="loader"
             />
           </span>
           <img

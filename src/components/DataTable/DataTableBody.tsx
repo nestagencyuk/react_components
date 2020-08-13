@@ -12,11 +12,17 @@ import { DataTableRow } from '.'
 const DataTableBody: React.FC<IDataTable.IBodyProps> = ({ controls, columns, rows, managedRows }) => {
   return (
     <tbody>
-      {managedRows.map((x: any, i: number) => (
-        <DataTableRow key={`row-${x._uid}`} controls={controls} columns={columns} cells={rows[i] || rows[0]} data={x} />
+      {managedRows.map((x: IDataTable.IManagedRowConfig, i: number) => (
+        <DataTableRow
+          key={`row-${x._uid}`}
+          controls={controls}
+          columns={columns}
+          // @ts-ignore
+          cells={rows[i] || rows[0]}
+          data={x}
+        />
       ))}
     </tbody>
   )
 }
-
 export default DataTableBody

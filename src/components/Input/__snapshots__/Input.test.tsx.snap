@@ -4,6 +4,7 @@ exports[`----- Input Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <input
     class="input--md input"
+    data-testid="input"
     id="input"
     type="text"
     value=""

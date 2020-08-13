@@ -45,7 +45,9 @@ const testConfig: any = {
     [
       {
         id: 'product_sku',
+        name: 'product_sku',
         type: 'search',
+        value: null,
         filterable: true,
         options: [
           { label: testSKUS[0], value: testSKUS[0] },
@@ -60,10 +62,12 @@ const testConfig: any = {
           { label: testSKUS[9], value: testSKUS[9] }
         ]
       },
-      { id: 'product_description', type: 'string' },
+      { id: 'product_description', type: 'string', name: 'product_description' },
       {
         id: 'unit_of_measure',
+        name: 'uom',
         type: 'select',
+        value: null,
         multi: true,
         options: [
           { label: testUOMs[0], value: testUOMs[0] },
@@ -76,8 +80,8 @@ const testConfig: any = {
           { label: testUOMs[7], value: testUOMs[7] }
         ]
       },
-      { id: 'quantity', type: 'number', minValue: 5, maxValue: 10 },
-      { id: 'batch', type: 'text', maxLength: 5 }
+      { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
+      { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
     ]
   ],
   data: [

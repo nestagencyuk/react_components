@@ -4,7 +4,11 @@ import { Text } from '.'
 
 describe('----- Text Component -----', () => {
   it('Renders without crashing', () => {
-    const { asFragment } = render(<Text variant="Alpha">Test</Text>)
+    const { asFragment } = render(
+      <Text variant="Alpha" align="Right">
+        Test
+      </Text>
+    )
 
     expect(asFragment()).toMatchSnapshot()
   })

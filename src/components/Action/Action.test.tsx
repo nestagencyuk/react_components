@@ -7,6 +7,8 @@ describe('----- Action Component -----', () => {
   const mockFn = jest.fn()
   const baseProps: IAction.IProps = {
     icon: { name: 'Code' },
+    size: 'Large',
+    type: 'button',
     children: '',
     onClick: mockFn
   }
@@ -25,5 +27,18 @@ describe('----- Action Component -----', () => {
     const button = getByText('Lorem ipsum')
     fireEvent.click(button)
     expect(baseProps.onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('Renders null', () => {
+    render(<Action {...baseProps} />)
+  })
+
+  it('Renders href', () => {
+    render(
+      <Action
+        {...baseProps}
+        href="https://some-url-that-goes-somewhere-on-the-internet-because-thats-how-the-internet-works"
+      />
+    )
   })
 })

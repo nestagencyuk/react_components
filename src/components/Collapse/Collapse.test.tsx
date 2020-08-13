@@ -12,4 +12,12 @@ describe('----- Collapse Component -----', () => {
 
     expect(asFragment()).toMatchSnapshot()
   })
+
+  it('Renders icon for closed state', () => {
+    render(
+      <Collapse open={false} header={{ heading: 'Test' }}>
+        test
+      </Collapse>
+    )
+  })
 })

@@ -1,6 +1,6 @@
-import { IDataTable } from './types'
 import * as React from 'react'
-import { v4 as uid } from 'uuid'
+import { useState, useEffect } from 'react'
+import { IDataTable } from './types'
 import { Fragment } from 'react'
 
 /**
@@ -16,12 +16,29 @@ import { Input } from '../Input'
  */
 const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
   const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
+  const [paginationIndex, setPaginationIndex] = useState(currentIndex)
 
-  return controls.visible ? (
+  const updatePaginationIndex = (val: number) => {
+    setPaginationIndex(val)
+
+    if (!isNaN(val)) {
+      handleSkip(val)
+    }
+  }
+
+  useEffect(() => {
+    setPaginationIndex(currentIndex)
+  }, [currentIndex])
+
+  return (
     <footer className="datatable__footer" data-testid="datatable-footer">
       <Grid>
         <GridItem span={4}>
-          {controls.rowCount && <Text className="text--bold">{`${rowCount} ${rowCount === 1 ? 'Row' : 'Rows'}`}</Text>}
+          {controls.rowCount && (
+            <Text className="text--bold" data-testid="dataTableRowCount">{`${rowCount} ${
+              rowCount === 1 ? 'Row' : 'Rows'
+            }`}</Text>
+          )}
         </GridItem>
         <GridItem span={8} className="m--l-auto">
           {controls.pagination && (
@@ -37,13 +54,14 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               </Button>
               <Input
                 className="m--r-xs"
-                id={`jump-to-page-${uid()}`}
+                id={null}
                 type="Number"
+                value={paginationIndex}
+                testId="dataTablePagination"
                 size="Small"
-                value={currentIndex || 1}
                 minValue={1}
-                maxValue={lastIndex || 1}
-                onChange={(val) => handleSkip(val)}
+                maxValue={lastIndex}
+                onChange={(val: number) => updatePaginationIndex(val)}
               />
               <Text tag="span" className="text--bold m--r-xs">
                 of {lastIndex}
@@ -61,7 +79,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
         </GridItem>
       </Grid>
     </footer>
-  ) : null
+  )
 }
 
 export default DataTableFooter

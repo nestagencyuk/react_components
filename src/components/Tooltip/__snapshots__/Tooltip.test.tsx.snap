@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- ToolTip Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <span
+    tabindex="0"
+  >
+    Here be tips
+  </span>
+</DocumentFragment>
+`;
