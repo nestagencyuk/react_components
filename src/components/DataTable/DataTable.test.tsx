@@ -179,7 +179,7 @@ describe('----- DataTable Component -----', () => {
       const allRows = queryAllByTestId('dataTableRow')
 
       await act(async () => {
-        fireEvent.focus(rowPopoverBtn)
+        fireEvent.click(rowPopoverBtn)
       })
 
       const copyRowBtn = queryByText('Copy')
@@ -196,7 +196,7 @@ describe('----- DataTable Component -----', () => {
       const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
 
       await act(async () => {
-        fireEvent.focus(rowPopoverBtn)
+        fireEvent.click(rowPopoverBtn)
       })
 
       const lockRowBtn = queryByText('Lock')
@@ -216,7 +216,7 @@ describe('----- DataTable Component -----', () => {
       const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
 
       await act(async () => {
-        fireEvent.focus(rowPopoverBtn)
+        fireEvent.click(rowPopoverBtn)
       })
 
       const deleteRowBtn = queryByText('Delete')

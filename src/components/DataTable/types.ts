@@ -1,5 +1,3 @@
-import { FormEvent } from 'react'
-
 declare namespace IDataTable {
   interface IProps {
     controls: {

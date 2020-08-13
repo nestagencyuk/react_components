@@ -113,9 +113,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               <div
                 class="w--100 datatable__input select"
                 data-testid="product_sku"
-                tabindex="0"
+                tabindex="-1"
               >
-                <div>
+                <div
+                  style="position: relative; height: 3rem;"
+                >
                   <input
                     autocomplete="off"
                     class="select__input"
@@ -123,7 +125,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     id="product_sku"
                     name="product_sku"
                     placeholder="-- Select --"
-                    tabindex="0"
+                    tabindex="-1"
                     value=""
                   />
                   <span
@@ -131,25 +133,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     title="Chevron-down"
                   />
                 </div>
-                <ul
-                  class="select__options"
-                  data-testid="product_sku-options"
-                  style="display: none;"
-                >
-                  <li
-                    class="select__option"
-                  >
-                    <button
-                      class="select__option-btn"
-                      data-value="value1"
-                      tabindex="-1"
-                      title="option1"
-                      type="button"
-                    >
-                      option1
-                    </button>
-                  </li>
-                </ul>
               </div>
             </td>
             <td
@@ -159,9 +142,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               <div
                 class="w--100 datatable__input select"
                 data-testid="unit_of_measure"
-                tabindex="0"
+                tabindex="-1"
               >
-                <div>
+                <div
+                  style="position: relative; height: 3rem;"
+                >
                   <input
                     autocomplete="off"
                     class="select__input"
@@ -178,25 +163,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     title="Chevron-down"
                   />
                 </div>
-                <ul
-                  class="select__options"
-                  data-testid="unit_of_measure-options"
-                  style="display: none;"
-                >
-                  <li
-                    class="select__option"
-                  >
-                    <button
-                      class="select__option-btn"
-                      data-value="value1"
-                      tabindex="-1"
-                      title="option1"
-                      type="button"
-                    >
-                      option1
-                    </button>
-                  </li>
-                </ul>
               </div>
             </td>
             <td
@@ -232,14 +198,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               class="datatable__cell text--center"
             >
               <button
-                class="action action--secondary action--md"
+                class="action action--tertiary action--md"
                 data-testid="dataTableRowPopover"
                 title="..."
                 type="button"
               >
                 <span
-                  class="action__icn icn icn--md"
-                  title="Caret"
+                  class="action__icn icn icn--lg"
+                  title="Branch"
                 />
                 <span
                   class="text--screen-reader"
@@ -260,9 +226,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               <div
                 class="w--100 datatable__input select"
                 data-testid="product_sku"
-                tabindex="0"
+                tabindex="-1"
               >
-                <div>
+                <div
+                  style="position: relative; height: 3rem;"
+                >
                   <input
                     autocomplete="off"
                     class="select__input"
@@ -270,7 +238,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     id="product_sku"
                     name="product_sku"
                     placeholder="-- Select --"
-                    tabindex="0"
+                    tabindex="-1"
                     value=""
                   />
                   <span
@@ -278,25 +246,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     title="Chevron-down"
                   />
                 </div>
-                <ul
-                  class="select__options"
-                  data-testid="product_sku-options"
-                  style="display: none;"
-                >
-                  <li
-                    class="select__option"
-                  >
-                    <button
-                      class="select__option-btn"
-                      data-value="value1"
-                      tabindex="-1"
-                      title="option1"
-                      type="button"
-                    >
-                      option1
-                    </button>
-                  </li>
-                </ul>
               </div>
             </td>
             <td
@@ -306,9 +255,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               <div
                 class="w--100 datatable__input select"
                 data-testid="unit_of_measure"
-                tabindex="0"
+                tabindex="-1"
               >
-                <div>
+                <div
+                  style="position: relative; height: 3rem;"
+                >
                   <input
                     autocomplete="off"
                     class="select__input"
@@ -325,25 +276,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                     title="Chevron-down"
                   />
                 </div>
-                <ul
-                  class="select__options"
-                  data-testid="unit_of_measure-options"
-                  style="display: none;"
-                >
-                  <li
-                    class="select__option"
-                  >
-                    <button
-                      class="select__option-btn"
-                      data-value="value1"
-                      tabindex="-1"
-                      title="option1"
-                      type="button"
-                    >
-                      option1
-                    </button>
-                  </li>
-                </ul>
               </div>
             </td>
             <td
@@ -379,14 +311,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               class="datatable__cell text--center"
             >
               <button
-                class="action action--secondary action--md"
+                class="action action--tertiary action--md"
                 data-testid="dataTableRowPopover"
                 title="..."
                 type="button"
               >
                 <span
-                  class="action__icn icn icn--md"
-                  title="Caret"
+                  class="action__icn icn icn--lg"
+                  title="Branch"
                 />
                 <span
                   class="text--screen-reader"
@@ -419,7 +351,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           class="m--l-auto grid__item grid__item--8"
         >
           <button
-            class="m--r-xs btn btn--tertiary btn--md btn--disabled"
+            class="m--r-xs btn btn--tertiary btn--sm btn--disabled"
             disabled=""
             type="button"
           >
@@ -430,7 +362,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             </span>
           </button>
           <input
-            class="m--r-xs input--md input"
+            class="m--r-xs input--sm input"
             data-testid="dataTablePagination"
             max="1"
             min="1"
@@ -443,7 +375,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             of 1
           </span>
           <button
-            class="btn btn--tertiary btn--md btn--disabled"
+            class="btn btn--tertiary btn--sm btn--disabled"
             disabled=""
             type="button"
           >

@@ -60,7 +60,7 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    * @param {Event} e
    * The default form submission event
    */
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: GenericObject) => {
     e.preventDefault()
     onSubmit(shapeData(rows))
   }
