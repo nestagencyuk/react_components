@@ -18,11 +18,11 @@ This is the footer in its simplest form.
     <PageFooter 
       image={{ type: 'Round', aspect: '1x1', src: logo, alt: 'Logo' }} 
       links={[
-        { component: Link, text: 'Home', variant: 'Inverse', align: 'Start', to: '/', }, 
-        { component: Link, text: 'About', variant: 'Inverse', align: 'Start', to: '/', }, 
-        { component: Link, text: 'Contact', variant: 'Inverse', align: 'Start', to: '/', },
-        { component: Link, text: 'Twitter', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Twitter'} }, 
-        { component: Link, text: 'Instagram', variant: 'Inverse', align: 'End', to: '/', icon: { align: 'Start', name: 'Instagram'} }
+        { text: 'Home', variant: 'Inverse', align: 'Start', href: '/', }, 
+        { text: 'About', variant: 'Inverse', align: 'Start', href: '/', }, 
+        { text: 'Contact', variant: 'Inverse', align: 'Start', href: '/', },
+        { text: 'Twitter', variant: 'Inverse', align: 'End', href: '/', icon: { align: 'Start', name: 'Twitter'} }, 
+        { text: 'Instagram', variant: 'Inverse', align: 'End', href: '/', icon: { align: 'Start', name: 'Instagram'} }
       ]}
       subInfo={<Text variant="Small" inverse>Copyright | 2020 | 3414134234</Text>}
     />

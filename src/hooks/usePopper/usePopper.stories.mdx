@@ -19,15 +19,15 @@ The hook in its simplest form. Alignment is set to `Auto` by default.
 <Preview>
   <Story name="Base">
     {() => {
-      const trigger = useRef()
-      const target = useRef()
-      const [styles, attributes] = usePopper({ trigger, target })
+      const triggerRef = useRef()
+      const targetRef = useRef()
+      const [styles, attributes] = usePopper({ triggerRef, targetRef })
       return (
         <div className="p--xxl">
-          <RefButton ref={trigger} size="Small">
+          <RefButton ref={triggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={target} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={targetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align auto
           </RefDiv>
         </div>
@@ -39,15 +39,15 @@ The hook in its simplest form. Alignment is set to `Auto` by default.
 <Preview>
   <Story name="BaseState">
     {() => {
-      const [trigger, setTrigger] = useState(null)
-      const [target, setTarget] = useState(null)
-      const [styles, attributes] = usePopper({ trigger, target })
+      const [triggerRef, setTriggerRef] = useState(null)
+      const [targetRef, setTargetRef] = useState(null)
+      const [styles, attributes] = usePopper({ triggerRef, targetRef })
       return (
         <div className="p--xxl">
-          <RefButton ref={setTrigger} size="Small">
+          <RefButton ref={setTriggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={setTarget} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={setTargetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align auto
           </RefDiv>
         </div>
@@ -64,15 +64,15 @@ Pass a value to the `align` option and you'll see the desired alignment rendered
 <Preview>
   <Story name="Align-Left">
     {() => {
-      const trigger = useRef()
-      const target = useRef()
-      const [styles, attributes] = usePopper({ align: 'Left', trigger, target })
+      const triggerRef = useRef()
+      const targetRef = useRef()
+      const [styles, attributes] = usePopper({ align: 'Left', triggerRef, targetRef })
       return (
-        <div className="p--xxl" style={{marginLeft: '300px'}}>
-          <RefButton ref={trigger} size="Small">
+        <div className="p--xxl" style={{ marginLeft: '300px' }}>
+          <RefButton ref={triggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={target} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={targetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align left
           </RefDiv>
         </div>
@@ -85,15 +85,15 @@ Pass a value to the `align` option and you'll see the desired alignment rendered
 <Preview>
   <Story name="Align-Right">
     {() => {
-      const trigger = useRef()
-      const target = useRef()
-      const [styles, attributes] = usePopper({ align: 'Right', trigger, target })
+      const triggerRef = useRef()
+      const targetRef = useRef()
+      const [styles, attributes] = usePopper({ align: 'Right', triggerRef, targetRef })
       return (
         <div className="p--xxl">
-          <RefButton ref={trigger} size="Small">
+          <RefButton ref={triggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={target} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={targetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align right
           </RefDiv>
         </div>
@@ -106,15 +106,15 @@ Pass a value to the `align` option and you'll see the desired alignment rendered
 <Preview>
   <Story name="Align-Top">
     {() => {
-      const trigger = useRef()
-      const target = useRef()
-      const [styles, attributes] = usePopper({ align: 'Top', trigger, target})
+      const triggerRef = useRef()
+      const targetRef = useRef()
+      const [styles, attributes] = usePopper({ align: 'Top', triggerRef, targetRef})
       return (
         <div className="p--xxl">
-          <RefButton ref={trigger} size="Small">
+          <RefButton ref={triggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={target} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={targetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align top
           </RefDiv>
         </div>
@@ -127,15 +127,15 @@ Pass a value to the `align` option and you'll see the desired alignment rendered
 <Preview>
   <Story name="Align-Bottom">
     {() => {
-      const trigger = useRef()
-      const target = useRef()
-      const [styles, attributes] = usePopper({ align: 'Bottom', trigger, target})
+      const triggerRef = useRef()
+      const targetRef = useRef()
+      const [styles, attributes] = usePopper({ align: 'Bottom', triggerRef, targetRef})
       return (
         <div className="p--xxl">
-          <RefButton ref={trigger} size="Small">
+          <RefButton ref={triggerRef} size="Small">
             Reference element
           </RefButton>
-          <RefDiv ref={target} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
+          <RefDiv ref={targetRef} className="p--md bg--ui-one" style={styles.popper} {...attributes.popper}>
             Align bottom
           </RefDiv>
         </div>

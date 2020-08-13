@@ -12,12 +12,23 @@ import { Popover } from '.'
 A simple Popover. Similar to tooltip but fires `onClick` instead and persists with focus. It's more appropriate for displaying interactive content, like context menus.
 
 ## Base
-This is the popover in its simplest form.
+This is the popover in its simplest form. If the passed children is not a function, it will be wrapped with a span with the appropriate events.
 
 <Preview>
   <Story name="Base">
-    <Popover render={<div>I am a Popover!</div>}>
+    <Popover render={<div className="p--sm">I am a Popover!</div>}>
       Click me!
+    </Popover>
+  </Story>
+</Preview>
+
+## Render Props
+This is the function child implementation if you want more control over what triggers the popover. The function returns a `value` that has a `ref` and methods `onFocus` and `onBlur` that will need to be attached to your desired element. This is also useful if you wish to trigger the focus using a different event, such as `onClick` instead of `onFocus` (useful for toggling on/off).
+
+<Preview>
+  <Story name="Render Props">
+    <Popover render={<div className="p--sm">I am a Popover!</div>}>
+      {({ ref, onFocus, onBlur }) => (<RefButton ref={ref} onClick={onFocus} onBlur={onBlur}>Custom trigger</RefButton>)}
     </Popover>
   </Story>
 </Preview>
@@ -28,7 +39,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `B
 ### Left
 <Preview>
   <Story name="Align-Left">
-    <Popover align="Left" render={<div>I am a Popover!</div>}>
+    <Popover align="Left" render={<div className="p--sm">I am a Popover!</div>}>
       {(value) => (<RefButton {...value} >Align left</RefButton>)}
     </Popover>
   </Story>
@@ -37,7 +48,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `B
 ### Right
 <Preview>
   <Story name="Align-Right">
-    <Popover align="Right" render={<div>I am a Popover!</div>}>
+    <Popover align="Right" render={<div className="p--sm">I am a Popover!</div>}>
       {(value) => (<RefButton {...value}>Align right</RefButton>)}
     </Popover>
   </Story>
@@ -46,7 +57,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `B
 ### Top
 <Preview>
   <Story name="Align-Top">
-    <Popover align="Top" render={<div>I am a Popover!</div>}>
+    <Popover align="Top" render={<div className="p--sm">I am a Popover!</div>}>
       {(value) => (<RefButton {...value}>Align top</RefButton>)}
     </Popover>
   </Story>
@@ -55,7 +66,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `B
 ### Bottom
 <Preview>
   <Story name="Align-Bottom">
-    <Popover align="Bottom" render={<div>I am a Popover!</div>}>
+    <Popover align="Bottom" render={<div className="p--sm">I am a Popover!</div>}>
       {(value) => (<RefButton {...value}>Align bottom</RefButton>)}
     </Popover>
   </Story>

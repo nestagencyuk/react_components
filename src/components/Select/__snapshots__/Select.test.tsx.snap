@@ -5,9 +5,11 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -16,7 +18,6 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -24,155 +25,6 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -184,7 +36,9 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
     data-testid="Select"
     tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -194,7 +48,6 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="-1"
         value=""
       />
       <span
@@ -202,155 +55,6 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -360,9 +64,11 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -370,7 +76,6 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to filter..."
-        tabindex="0"
         value=""
       />
       <span
@@ -378,164 +83,6 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-        >
-          -- Select --
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -545,9 +92,11 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -556,7 +105,6 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -564,155 +112,6 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
         title="Search"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -722,9 +121,11 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -733,7 +134,6 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="2 Selected"
       />
       <button
@@ -752,331 +152,6 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox checkbox--checked"
-            data-testid="Option One"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option One-input"
-              id="Option One"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox checkbox--checked"
-            data-testid="Option Two"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Two-input"
-              id="Option Two"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn checkbox__icn--checked icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Three"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Three-input"
-              id="Option Three"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Four"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Four-input"
-              id="Option Four"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Five"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Five-input"
-              id="Option Five"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Six"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Six-input"
-              id="Option Six"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Seven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Seven-input"
-              id="Option Seven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eight"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eight-input"
-              id="Option Eight"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Nine"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Nine-input"
-              id="Option Nine"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Ten"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Ten-input"
-              id="Option Ten"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eleven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eleven-input"
-              id="Option Eleven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -1086,174 +161,26 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
         data-testid="Select-input"
         id="Select"
         name="Select"
-        placeholder="-- Select --"
+        placeholder="Option One"
         readonly=""
-        tabindex="0"
-        value="Option One"
+        value=""
       />
       <span
         class="select__icn icn icn--sm"
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -1263,17 +190,18 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
         data-testid="Select-input"
         id="Select"
         name="Select"
-        placeholder="Type to filter..."
-        tabindex="0"
+        placeholder="0 Selected"
         value=""
       />
       <span
@@ -1281,331 +209,6 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option One"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option One-input"
-              id="Option One"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Two"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Two-input"
-              id="Option Two"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Three"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Three-input"
-              id="Option Three"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Four"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Four-input"
-              id="Option Four"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Five"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Five-input"
-              id="Option Five"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Six"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Six-input"
-              id="Option Six"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Seven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Seven-input"
-              id="Option Seven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eight"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eight-input"
-              id="Option Eight"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Nine"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Nine-input"
-              id="Option Nine"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Ten"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Ten-input"
-              id="Option Ten"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eleven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eleven-input"
-              id="Option Eleven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -1615,9 +218,11 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -1626,7 +231,6 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -1634,331 +238,6 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option One"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option One-input"
-              id="Option One"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Two"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Two-input"
-              id="Option Two"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Three"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Three-input"
-              id="Option Three"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Four"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Four-input"
-              id="Option Four"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Five"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Five-input"
-              id="Option Five"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Six"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Six-input"
-              id="Option Six"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Seven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Seven-input"
-              id="Option Seven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eight"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eight-input"
-              id="Option Eight"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Nine"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Nine-input"
-              id="Option Nine"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Ten"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Ten-input"
-              id="Option Ten"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn p--l-xxl"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          <span
-            class="select__checkbox checkbox"
-            data-testid="Option Eleven"
-          >
-            <input
-              class="checkbox__input"
-              data-testid="Option Eleven-input"
-              id="Option Eleven"
-              tabindex="-1"
-              type="checkbox"
-            />
-            <span
-              class="checkbox__icn icn icn--md icn--inverse"
-              title="Tick"
-            />
-          </span>
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -1968,9 +247,11 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -1979,7 +260,6 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value="0 Selected"
       />
       <span
@@ -1987,155 +267,6 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -2145,9 +276,11 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -2156,7 +289,6 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         name="Select"
         placeholder="-- Select --"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -2164,164 +296,6 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-        >
-          -- Select --
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -2331,9 +305,11 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -2342,7 +318,6 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         name="Select"
         placeholder="Custom Placeholder"
         readonly=""
-        tabindex="0"
         value=""
       />
       <span
@@ -2350,155 +325,6 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
         title="Chevron-down"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    >
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-1"
-          tabindex="-1"
-          title="Option One"
-          type="button"
-        >
-          Option One
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-2"
-          tabindex="-1"
-          title="Option Two"
-          type="button"
-        >
-          Option Two
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-3"
-          tabindex="-1"
-          title="Option Three"
-          type="button"
-        >
-          Option Three
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-4"
-          tabindex="-1"
-          title="Option Four"
-          type="button"
-        >
-          Option Four
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-5"
-          tabindex="-1"
-          title="Option Five"
-          type="button"
-        >
-          Option Five
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-6"
-          tabindex="-1"
-          title="Option Six"
-          type="button"
-        >
-          Option Six
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-7"
-          tabindex="-1"
-          title="Option Seven"
-          type="button"
-        >
-          Option Seven
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-8"
-          tabindex="-1"
-          title="Option Eight"
-          type="button"
-        >
-          Option Eight
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-9"
-          tabindex="-1"
-          title="Option Nine"
-          type="button"
-        >
-          Option Nine
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-10"
-          tabindex="-1"
-          title="Option Ten"
-          type="button"
-        >
-          Option Ten
-        </button>
-      </li>
-      <li
-        class="select__option"
-      >
-        <button
-          class="select__option-btn"
-          data-value="option-11"
-          tabindex="-1"
-          title="Option Eleven"
-          type="button"
-        >
-          Option Eleven
-        </button>
-      </li>
-    </ul>
   </div>
 </DocumentFragment>
 `;
@@ -2508,9 +334,11 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
   <div
     class="select"
     data-testid="Select"
-    tabindex="0"
+    tabindex="-1"
   >
-    <div>
+    <div
+      style="position: relative; height: 3rem;"
+    >
       <input
         autocomplete="off"
         class="select__input"
@@ -2518,7 +346,6 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
         id="Select"
         name="Select"
         placeholder="Type to search..."
-        tabindex="0"
         value=""
       />
       <span
@@ -2526,11 +353,6 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
         title="Search"
       />
     </div>
-    <ul
-      class="select__options"
-      data-testid="Select-options"
-      style="display: none;"
-    />
   </div>
 </DocumentFragment>
 `;

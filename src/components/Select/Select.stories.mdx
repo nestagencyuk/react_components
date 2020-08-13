@@ -20,7 +20,7 @@ This is the select in its simplest form.
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-base"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -45,7 +45,7 @@ Pass a value to the `placeholder` prop to render a custom placeholder. Defaults 
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-placeholder"
             placeholder="Custom placeholder"
             options={[
               { label: 'Option 1', value: 'option-1' },
@@ -71,7 +71,7 @@ Pass a value to the `icon` prop to render a custom icon in place of the chevron.
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-icon"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -99,11 +99,12 @@ Pass a value to the `value` prop to set the initial value. Works for both multi 
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-value"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
             ]}
+            filterable
             value={value}
             onChange={setValue}
           />
@@ -118,7 +119,7 @@ Pass a value to the `value` prop to set the initial value. Works for both multi 
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-value-multi"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -144,7 +145,7 @@ Optional selects allow you to reselect `null` as a value.
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-optional"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -171,7 +172,7 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-multi"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -191,7 +192,7 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-multi-long"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' },
@@ -233,7 +234,8 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            className="w--50"
+            id="select-tags"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' }
@@ -254,7 +256,8 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            className="w--50"
+            id="select-long-tags"
             options={[
               { label: 'Option 1', value: 'option-1' },
               { label: 'Option 2', value: 'option-2' },
@@ -299,7 +302,7 @@ Filterable selects allow the user to filter prepopulated options.
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-filterable"
             placeholder="Type to filter..."
             options={[
               { label: 'Option 1', value: 'option-1' },
@@ -307,6 +310,7 @@ Filterable selects allow the user to filter prepopulated options.
             ]}
             value={value}
             filterable
+            optional
             onChange={setValue}
           />
         </div>
@@ -320,7 +324,7 @@ Filterable selects allow the user to filter prepopulated options.
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-multi-filterable"
             placeholder="Type to filter..."
             options={[
               { label: 'Option 1', value: 'option-1' },
@@ -380,7 +384,7 @@ Searchable selects allow you to pass a search function so that your options can 
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-searchable"
             placeholder="Type to search..."
             options={options}
             value={value}
@@ -431,7 +435,7 @@ Searchable selects allow you to pass a search function so that your options can 
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
-            id="select"
+            id="select-multi-searchable"
             placeholder="Type to search..."
             options={options}
             value={value}
@@ -454,7 +458,7 @@ The whole select can be disabled via the `disabled` prop, or you can set `disabl
   <Story name="Disabled" decorators={[selectDecorator]}>
     <div className="m--r-md">
       <Select
-        id="select"
+        id="select-disabled"
         options={[
           { label: 'Option 1', value: 'option-1' },
           { label: 'Option 2', value: 'option-2' }
@@ -471,7 +475,7 @@ The whole select can be disabled via the `disabled` prop, or you can set `disabl
       return (
         <div>
           <Select
-            id="select"
+            id="select-disabled-option"
             options={[
               { label: 'Option 1', value: 'option-1', disabled: true },
               { label: 'Option 2', value: 'option-2' }

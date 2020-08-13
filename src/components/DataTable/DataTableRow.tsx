@@ -21,9 +21,9 @@ import { DataTableCell } from '.'
  * Table row
  */
 const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data }) => {
+  const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const { addRow, editRow, deleteRow } = useContext(DataTableContext)
   const [, onFocus, onBlur] = useFocus()
-  const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
 
   /**
    * Lock a row
@@ -40,7 +40,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
       <Popover
         align="Right"
         render={
-          <div style={{ width: '100px' }}>
+          <div className="p--sm" style={{ width: '100px' }}>
             {controls.buttonCopyRow && (
               <Button className="w--100 m--b-sm" variant="Secondary" size="Small" onClick={() => addRow(data)}>
                 Copy
@@ -59,8 +59,14 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
           </div>
         }
       >
-        {(value) => (
-          <RefAction variant="Secondary" icon={{ name: 'Caret' }} {...value}>
+        {({ ref, onFocus, onBlur }) => (
+          <RefAction
+            ref={ref}
+            variant="Tertiary"
+            icon={{ name: 'Ellipsis', size: 'Large' }}
+            onClick={onFocus}
+            onBlur={onBlur}
+          >
             ...
           </RefAction>
         )}

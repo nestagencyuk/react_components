@@ -2,8 +2,8 @@ import { IDataTable } from './types'
 import * as React from 'react'
 import { useMemo } from 'react'
 import * as clone from 'rfdc'
-import { v4 as uid } from 'uuid'
 import { useManageArray } from '../../hooks/useManageArray'
+import { GenericObject } from '../../types'
 
 /**
  * Context
@@ -30,9 +30,8 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    * @param {Object} row
    * The row to add, for a blank row, pass null
    */
-  const addRow = (row: any) => {
-    const _uid = uid()
-    addItem(row ? { ...row, _uid } : blankRow)
+  const addRow = (row: GenericObject | null) => {
+    addItem(row !== null ? { ...row } : blankRow)
   }
 
   /**
@@ -49,8 +48,8 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
   /**
    * Shape the final row data
    */
-  const shapeData = (array: any) => {
-    const newArray = clone()(array)
+  const shapeData = (array: GenericObject & { _uid?: string }): GenericObject[] => {
+    const newArray = clone()(array) as GenericObject[]
     newArray.map((x: any) => delete x._uid)
     return newArray
   }
