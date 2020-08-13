@@ -73,8 +73,9 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
                 </label>
               ))}
             >
-              {(value) => (
+              {({ ref, onFocus, onBlur }) => (
                 <RefButton
+                  ref={ref}
                   className="w--100"
                   variant="Secondary"
                   icon={{
@@ -83,7 +84,8 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
                     align: 'End'
                   }}
                   size="Small"
-                  {...value}
+                  onClick={onFocus}
+                  onBlur={onBlur}
                 >
                   Customise Table
                 </RefButton>

@@ -36,25 +36,26 @@ const Select: React.FC<ISelect.IProps> = ({
   onChange,
   onSearch
 }) => {
-  const { array: values, addItem, deleteItem, resetItems } = useManageArray({
-    initialArray: Array.isArray(value) ? value : null
-  })
+  const ref = useRef<HTMLDivElement>()
+
   const [placeholder, setPlaceholder] = useState(initialPlaceholder)
   const [filterValue, setFilterValue] = useState<string>('')
   const [shownValue, setShownValue] = useState('')
-
   const [cursor, setCursor] = useState<number>(-1)
   const [focused, setFocused] = useState<boolean>(false)
-  const ref = useRef<HTMLDivElement>()
+
+  const { array: values, addItem, deleteItem, resetItems } = useManageArray({
+    initialArray: Array.isArray(value) ? value : null
+  })
 
   /**
    * Filter the options if a filter value has been entered
    */
-  const prefiltered = filterable
+  const filtered = filterable
     ? options.filter((x) => x.label?.toLowerCase().includes(filterValue?.toLowerCase() || ''))
     : options
 
-  const filtered = multiVariant === 'Tags' ? prefiltered.filter((x) => !values?.includes(x.value)) : prefiltered
+  // const filtered = multiVariant === 'Tags' ? prefiltered.filter((x) => !values?.includes(x.value)) : prefiltered
 
   /**
    * When we focus, open the options
@@ -170,6 +171,9 @@ const Select: React.FC<ISelect.IProps> = ({
     if (filterable) handleFilterable()
   }, [filterValue])
 
+  /**
+   * Listen to changes to actual value
+   */
   useEffect(() => {
     if (multi) {
       handleMulti()
@@ -199,7 +203,7 @@ const Select: React.FC<ISelect.IProps> = ({
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
     >
-      <div>
+      <div style={{ position: 'relative', height: '3rem' }}>
         <input
           className="select__input"
           id={id}
@@ -236,18 +240,21 @@ const Select: React.FC<ISelect.IProps> = ({
         />
       </div>
 
-      <SelectOptions
-        id={id}
-        open={focused}
-        values={values as string[]}
-        cursor={cursor}
-        options={options}
-        filtered={filtered}
-        optional={optional}
-        multi={multi}
-        multiVariant={multiVariant}
-        onClick={handleClick}
-      />
+      {focused && (
+        <SelectOptions
+          id={id}
+          triggerRef={ref}
+          open={focused}
+          values={values as string[]}
+          cursor={cursor}
+          options={options}
+          filtered={filtered}
+          optional={optional}
+          multi={multi}
+          multiVariant={multiVariant}
+          onClick={handleClick}
+        />
+      )}
     </div>
   )
 }

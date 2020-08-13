@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, fireEvent, waitFor, act } from '@testing-library/react'
+import { render, fireEvent, waitFor, act, queryByTestId } from '@testing-library/react'
 import { Select } from '.'
 import { ISelect } from './types'
 
@@ -40,34 +40,39 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Opens the options list', () => {
-      const { getByTestId } = mountComponentInContext()
+    it('Opens the options list', async () => {
+      const { getByTestId, queryByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
-      const options = getByTestId(`${baseProps.id}-options`)
 
-      fireEvent.focus(select)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
-      expect(options.style.display).toEqual('block')
+      const options = queryByTestId(`${baseProps.id}-options`)
+      expect(options).toBeTruthy()
     })
 
     it('Chooses an option and passes to onChange', async () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
-      const optionOne = getByText(baseProps.options[0].label)
 
-      fireEvent.focus(select)
-      fireEvent.click(optionOne)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
-      act(() => jest.runAllTimers())
+      fireEvent.click(getByText(baseProps.options[0].label))
+      // act(() => jest.runAllTimers())
       expect(mockFn).toHaveBeenCalledTimes(1)
       expect(mockFn).toHaveBeenCalledWith(baseProps.options[0].value)
     })
 
-    it('Shows the option label, not value', () => {
+    it('Shows the option label, not value', async () => {
       const { getByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
 
-      fireEvent.focus(select)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
       const options = getByTestId(`${baseProps.id}-options`)
       options.childNodes.forEach((x, i) => {
@@ -75,16 +80,21 @@ describe('----- Select Component -----', () => {
       })
     })
 
-    it('Closes when clicked away', () => {
-      const { getByTestId } = mountComponentInContext()
+    it('Closes when clicked away', async () => {
+      const { getByTestId, queryByTestId } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
-      const options = getByTestId(`${baseProps.id}-options`)
 
-      fireEvent.focus(select)
-      fireEvent.blur(select)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
-      act(() => jest.runAllTimers())
-      expect(options.style.display).toEqual('none')
+      expect(queryByTestId(`${baseProps.id}-options`)).toBeTruthy()
+
+      await act(async () => {
+        fireEvent.blur(select)
+      })
+
+      expect(queryByTestId(`${baseProps.id}-options`)).toBeFalsy()
     })
   })
 
@@ -156,15 +166,16 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Chooses null', () => {
+    it('Chooses null', async () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(baseProps.id)
-      const optionNull = getByText('-- Select --')
 
-      fireEvent.focus(select)
-      fireEvent.click(optionNull)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
-      act(() => jest.runAllTimers())
+      fireEvent.click(getByText('-- Select --'))
+
       expect(mockFn).toHaveBeenCalledTimes(1)
       expect(mockFn).toHaveBeenCalledWith(null)
     })
@@ -183,22 +194,27 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Opens the options list', () => {
-      const { getByTestId } = mountComponentInContext()
+    it('Opens the options list', async () => {
+      const { getByTestId, queryByTestId } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
-      const options = getByTestId(`${multiProps.id}-options`)
 
-      fireEvent.focus(select)
-      expect(options.style.display).toEqual('block')
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      expect(getByTestId(`${multiProps.id}-options`)).toBeTruthy()
     })
 
-    it('Checks an option and passes to onChange', () => {
+    it('Checks an option and passes to onChange', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
-      const optionOne = getByText(multiProps.options[0].label)
 
-      fireEvent.focus(select)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      const optionOne = getByText(multiProps.options[0].label)
       fireEvent.click(optionOne)
 
       rerender(<Select {...multiProps} value={value} />)
@@ -207,29 +223,34 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('value', '1 Selected')
     })
 
-    it('Unchecks the same option', () => {
+    it('Unchecks the same option', async () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const optionOne = getByText(multiProps.options[0].label)
-
-      fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionOne)
 
-      act(() => jest.runAllTimers())
       expect(value).toEqual(null)
       expect(input).toHaveProperty('value', '0 Selected')
     })
 
-    it('Chooses multiple options', () => {
+    it('Chooses multiple options', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const optionOne = getByText(multiProps.options[0].label)
       const optionTwo = getByText(multiProps.options[1].label)
-
-      fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
 
@@ -239,9 +260,14 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('value', '2 Selected')
     })
 
-    it('Chooses more than 10 options', () => {
+    it('Chooses more than 10 options', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
       multiProps.options.forEach((x) => {
         const option = getByText(x.label)
@@ -254,33 +280,41 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('value', '10+ Selected')
     })
 
-    it('Clears all when button clicked', () => {
+    it('Clears all when button clicked', async () => {
       const { getByTestId, getByText } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
       const input = getByTestId(`${multiProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const optionOne = getByText(multiProps.options[0].label)
       const optionTwo = getByText(multiProps.options[1].label)
-
-      fireEvent.focus(select)
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
 
       const clearBtn = getByText('Clear')
       fireEvent.click(clearBtn)
 
-      act(() => jest.runAllTimers())
       expect(input).toHaveProperty('value', '0 Selected')
     })
 
-    it('Closes when clicked away', () => {
-      const { getByTestId } = mountComponentInContext()
+    it('Closes when clicked away', async () => {
+      const { getByTestId, queryByTestId } = mountComponentInContext()
       const select = getByTestId(multiProps.id)
-      const options = getByTestId(`${multiProps.id}-options`)
 
-      fireEvent.blur(select)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
-      act(() => jest.runAllTimers())
-      expect(options.style.display).toEqual('none')
+      expect(queryByTestId(`${multiProps.id}-options`)).toBeTruthy()
+
+      await act(async () => {
+        fireEvent.blur(select)
+      })
+
+      expect(queryByTestId(`${multiProps.id}-options`)).toBeFalsy()
     })
   })
 
@@ -298,15 +332,18 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Chooses an option, moves option from list to tag', () => {
+    it('Chooses an option, moves option from list to tag', async () => {
       const { getByTestId, queryByText, rerender } = mountComponentInContext()
       const select = getByTestId(multiTagsProps.id)
       const input = getByTestId(`${multiTagsProps.id}-input`)
-      const optionOne = queryByText(multiTagsProps.options[0].label)
 
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      const optionOne = queryByText(multiTagsProps.options[0].label)
       expect(optionOne.classList.contains('select__option-btn')).toBeTruthy()
 
-      fireEvent.focus(select)
       fireEvent.click(optionOne)
 
       rerender(<Select {...multiTagsProps} value={value} />)
@@ -318,15 +355,17 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('value', '1 Selected')
     })
 
-    it('Chooses an option, removes option using tag', () => {
+    it('Chooses an option, removes option using tag', async () => {
       const { getByTestId, queryByText, rerender } = mountComponentInContext()
       const select = getByTestId(multiTagsProps.id)
       const input = getByTestId(`${multiTagsProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const optionOne = queryByText(multiTagsProps.options[0].label)
-
       expect(optionOne.classList.contains('select__option-btn')).toBeTruthy()
-
-      fireEvent.focus(select)
       fireEvent.click(optionOne)
 
       rerender(<Select {...multiTagsProps} value={value} />)
@@ -362,9 +401,15 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Filters for a known option', () => {
+    it('Filters for a known option', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const select = getByTestId(filterableProps.id)
       const input = getByTestId(`${filterableProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const options = getByTestId(`${filterableProps.id}-options`)
 
       fireEvent.change(input, { target: { value: 'one' } })
@@ -387,24 +432,39 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('placeholder', filterableProps.options[0].label)
     })
 
-    it('Filters for an unknown option', () => {
+    it('Filters for an unknown option', async () => {
       const { getByTestId } = mountComponentInContext()
+      const select = getByTestId(filterableProps.id)
       const input = getByTestId(`${filterableProps.id}-input`)
-      const options = getByTestId(`${filterableProps.id}-options`)
 
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      const options = getByTestId(`${filterableProps.id}-options`)
       fireEvent.change(input, { target: { value: 'option twenty' } })
       expect(options.childElementCount).toBe(1)
     })
 
-    it('Removes a filter', () => {
+    it('Removes a filter', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const select = getByTestId(filterableProps.id)
       const input = getByTestId(`${filterableProps.id}-input`)
-      const optionNull = getByText('-- Select --')
-      const optionOne = getByText(filterableProps.options[0].label)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
 
       fireEvent.change(input, { target: { value: 'option one' } })
+      const optionOne = getByText(filterableProps.options[0].label)
       fireEvent.click(optionOne)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       fireEvent.change(input, { target: { value: 'option twenty' } })
+      const optionNull = getByText('-- Select --')
       fireEvent.click(optionNull)
 
       rerender(<Select {...filterableProps} value={value} />)
@@ -429,11 +489,16 @@ describe('----- Select Component -----', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('Filters for a known option', () => {
+    it('Filters for a known option', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const select = getByTestId(multiFilterableProps.id)
       const input = getByTestId(`${multiFilterableProps.id}-input`)
-      const options = getByTestId(`${multiFilterableProps.id}-options`)
 
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      const options = getByTestId(`${multiFilterableProps.id}-options`)
       fireEvent.change(input, { target: { value: 'option one' } })
       expect(options.childElementCount).toEqual(1)
       const optionOne = getByText(multiFilterableProps.options[0].label)
@@ -446,11 +511,16 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('placeholder', '1 Selected')
     })
 
-    it('Filters for an unknown option', () => {
+    it('Filters for an unknown option', async () => {
       const { getByTestId } = mountComponentInContext()
+      const select = getByTestId(multiFilterableProps.id)
       const input = getByTestId(`${multiFilterableProps.id}-input`)
-      const options = getByTestId(`${multiFilterableProps.id}-options`)
 
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
+      const options = getByTestId(`${multiFilterableProps.id}-options`)
       fireEvent.change(input, { target: { value: 'option twenty' } })
       expect(options.childElementCount).toEqual(0)
     })
@@ -488,7 +558,13 @@ describe('----- Select Component -----', () => {
 
     it('Searches for a known option', async () => {
       const { getByTestId, getByText, rerender } = mountComponentInContext()
+      const select = getByTestId(searchableProps.id)
       const input = getByTestId(`${searchableProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const options = getByTestId(`${searchableProps.id}-options`)
 
       expect(options.childElementCount).toEqual(0)
@@ -508,9 +584,13 @@ describe('----- Select Component -----', () => {
 
     it('Shows a different icon whilst searching', async () => {
       const { getByTestId, queryByTitle, rerender } = mountComponentInContext()
+      const select = getByTestId(searchableProps.id)
       const input = getByTestId(`${searchableProps.id}-input`)
       expect(queryByTitle('Search')).toBeTruthy()
 
+      await act(async () => {
+        fireEvent.focus(select)
+      })
       fireEvent.change(input, { target: { value: 'option one' } })
 
       await waitFor(() => expect(loading).toBeTruthy())
@@ -525,7 +605,13 @@ describe('----- Select Component -----', () => {
 
     it('Searches for an unknown option', async () => {
       const { getByTestId, rerender } = mountComponentInContext()
+      const select = getByTestId(searchableProps.id)
       const input = getByTestId(`${searchableProps.id}-input`)
+
+      await act(async () => {
+        fireEvent.focus(select)
+      })
+
       const options = getByTestId(`${searchableProps.id}-options`)
 
       expect(lazyOptions.length).toBe(0)
@@ -551,9 +637,13 @@ describe('----- Select Component -----', () => {
       expect(input).toHaveProperty('disabled', true)
     })
 
-    it('Checks option is disabled', () => {
+    it('Checks option is disabled', async () => {
       baseProps.options[0].disabled = true
-      const { getByText } = render(<Select {...baseProps} />)
+      const { getByText, getByTestId } = render(<Select {...baseProps} />)
+      const select = getByTestId(baseProps.id)
+      await act(async () => {
+        fireEvent.focus(select)
+      })
       const optionOne = getByText(baseProps.options[0].label)
 
       expect(optionOne).toHaveProperty('disabled', true)

@@ -234,6 +234,7 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div className="m--r-md">
           <Text>Value: {`${value}`}</Text>
           <Select
+            className="w--50"
             id="select-tags"
             options={[
               { label: 'Option 1', value: 'option-1' },
@@ -255,6 +256,7 @@ Multi selects allow the user to choose multiple options. There are two views for
         <div>
           <Text>Value: {`${value}`}</Text>
           <Select
+            className="w--50"
             id="select-long-tags"
             options={[
               { label: 'Option 1', value: 'option-1' },
@@ -308,6 +310,7 @@ Filterable selects allow the user to filter prepopulated options.
             ]}
             value={value}
             filterable
+            optional
             onChange={setValue}
           />
         </div>

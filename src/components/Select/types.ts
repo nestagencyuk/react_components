@@ -1,4 +1,5 @@
 import { IIcon } from '../Icon/types'
+import { RefObject } from 'react'
 
 declare namespace ISelect {
   interface IProps {
@@ -20,7 +21,7 @@ declare namespace ISelect {
 
   interface IOptionsProps {
     id: string
-    triggerRef: any
+    triggerRef: RefObject<HTMLDivElement>
     open: boolean
     values: string[]
     cursor: number

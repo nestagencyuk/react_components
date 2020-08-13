@@ -18,8 +18,8 @@ import { Slider } from '../Slider'
  * Lightbox style
  */
 const GalleryLightbox = ({ items }: IGallery.IProps, ref: React.RefObject<Array<React.RefObject<HTMLDivElement>>>) => {
-  const [toggled, setToggled] = useToggle()
   const [initialSlide, setInitialSlide] = useState(0)
+  const [toggled, setToggled] = useToggle()
 
   /**
    * Toggle the slider visibility

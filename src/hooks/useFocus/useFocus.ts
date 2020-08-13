@@ -22,9 +22,7 @@ const useFocus = ({
    * Handle focusing
    */
   const onFocus = () => {
-    if (!focused) {
-      setFocused(true)
-    }
+    setFocused((prev) => !prev)
   }
 
   /**
@@ -46,7 +44,7 @@ const useFocus = ({
         newFocused = false
       }
     } else {
-      if (focused && !e.currentTarget.contains(e.relatedTarget)) {
+      if (!e.currentTarget.contains(e.relatedTarget)) {
         newFocused = false
       }
     }
@@ -56,15 +54,25 @@ const useFocus = ({
   }
 
   /**
+   * Attach extra event handlers
+   */
+  const attachEvents = () => {
+    if (trigger === 'Hover') {
+      ;(initialTriggerRef as any)?.addEventListener('mouseenter', onFocus)
+      ;(initialTriggerRef as any)?.addEventListener('mouseleave', onBlur)
+    }
+  }
+
+  /**
    * Set the ref elements if coming from state update
    */
   useEffect(() => {
     triggerRef.current = initialTriggerRef
     targetRef.current = initialTargetRef
-    if (trigger === 'Hover') {
-      ;(initialTriggerRef as any)?.addEventListener('mouseenter', onFocus)
-      ;(initialTriggerRef as any)?.addEventListener('mouseleave', onBlur)
-    }
+
+    const sameEls = initialTriggerRef === triggerRef.current || initialTargetRef === targetRef.current
+    if (sameEls) return
+    attachEvents()
   }, [initialTriggerRef, initialTargetRef])
 
   /**

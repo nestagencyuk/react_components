@@ -29,6 +29,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               <Button
                 className="m--r-xs"
                 variant="Tertiary"
+                size="Small"
                 disabled={currentIndex === 1 || currentIndex === 0}
                 onClick={handlePrev}
               >
@@ -38,6 +39,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 className="m--r-xs"
                 id={`jump-to-page-${uid()}`}
                 type="Number"
+                size="Small"
                 value={currentIndex || 1}
                 minValue={1}
                 maxValue={lastIndex || 1}
@@ -46,7 +48,12 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               <Text tag="span" className="text--bold m--r-xs">
                 of {lastIndex}
               </Text>
-              <Button variant="Tertiary" disabled={rowCount === 0 ? true : currentIndex === lastIndex} onClick={handleNext}>
+              <Button
+                variant="Tertiary"
+                size="Small"
+                disabled={rowCount === 0 ? true : currentIndex === lastIndex}
+                onClick={handleNext}
+              >
                 Next
               </Button>
             </Fragment>

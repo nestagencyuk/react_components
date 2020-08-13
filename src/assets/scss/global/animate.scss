@@ -13,7 +13,6 @@
 /// -------------------
 
 .animate {
-  transition: transitions.$ease;
   will-change: transform, opacity;
 
   &--fade-in {

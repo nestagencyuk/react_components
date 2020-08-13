@@ -2,6 +2,7 @@ import { ISelect } from './types'
 import * as React from 'react'
 import { useRef, createRef, useEffect, useState } from 'react'
 import cx from 'classnames'
+import { usePopper } from '../../hooks/usePopper'
 
 /**
  * Components
@@ -16,7 +17,7 @@ const SelectTags = ({ values, options, onClick }: any) =>
   values.map((x: any, i: any) => (
     <Tag
       key={`tag-${i}`}
-      className="m--xs"
+      className="select__tag"
       onClick={(e) => {
         e.preventDefault()
         onClick(x)
@@ -31,6 +32,7 @@ const SelectTags = ({ values, options, onClick }: any) =>
  */
 const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
   id,
+  triggerRef,
   open,
   values,
   cursor,
@@ -41,27 +43,43 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
   optional,
   onClick
 }) => {
-  const [, setLength] = useState(filtered.length)
   const refs = useRef<Array<React.RefObject<HTMLButtonElement>>>(
     Array.from(Array(filtered?.length).keys()).map(() => createRef())
   )
 
-  // useEffect(() => {
-  //   if (!refs.current[cursor]) return
-  //   refs.current[cursor].current.focus()
-  // }, [cursor])
+  const [targetRef, setTarget] = useState<any>()
+  const [length, setLength] = useState(filtered.length)
+  const [styles, attributes] = usePopper({ align: 'Bottom', triggerRef, targetRef })
 
-  // useEffect(() => {
-  //   setLength(filtered.length)
-  //   refs.current = refs.current.splice(0, filtered.length)
-  //   for (let i = 0; i < filtered.length; i++) {
-  //     refs.current[i] = refs.current[i] || React.createRef()
-  //   }
-  //   refs.current = refs.current.map((item) => item || React.createRef())
-  // }, [filtered])
+  /**
+   * Listen to the cursor index
+   */
+  useEffect(() => {
+    if (!refs.current[cursor]) return
+    refs.current[cursor].current.focus()
+  }, [cursor])
+
+  /**
+   * Add new items to refs
+   */
+  useEffect(() => {
+    if (length === filtered.length) return
+    setLength(filtered.length)
+    refs.current = refs.current.splice(0, filtered.length)
+    for (let i = 0; i < filtered.length; i++) {
+      refs.current[i] = refs.current[i] || createRef()
+    }
+    refs.current = refs.current.map((item) => item || createRef())
+  }, [filtered])
 
   return (
-    <ul className="select__options" data-testid={`${id}-options`} style={{ display: open ? 'block' : 'none' }}>
+    <ul
+      ref={setTarget}
+      className="select__options animate animate--fade-in"
+      data-testid={`${id}-options`}
+      style={{ ...styles.popper, width: triggerRef?.current?.clientWidth }}
+      {...attributes.popper}
+    >
       {multi && multiVariant === 'Tags' && values && (
         <li className="select__option select__option--sticky">
           <SelectTags values={values} options={options} onClick={onClick} />
@@ -76,7 +94,7 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
         </li>
       )}
 
-      {filtered.map((x, i) => (
+      {(multi && multiVariant === 'Tags' ? filtered.filter((x) => !values?.includes(x.value)) : filtered).map((x, i) => (
         <li key={x.value} className="select__option">
           <button
             ref={refs.current[i]}
