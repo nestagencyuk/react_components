@@ -9,8 +9,8 @@ const useImageColour = ({ sample = 50 }: IUseImageColour.IProps = {}): [
   IUseImageColour.IState,
   React.RefCallback<HTMLElement>
 ] => {
-  const [colour, setColour] = useState(null)
   const ref = useRef<HTMLElement>()
+  const [colour, setColour] = useState(null)
 
   /**
    * Set the ref node

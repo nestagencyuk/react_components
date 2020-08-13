@@ -1,9 +1,11 @@
+import { GenericObject } from '../../types'
+
 declare namespace IUseManageArray {
   interface IProps {
-    initialArray?: Array<string | (FormData & { _uid?: string })>
+    initialArray?: Array<string | (GenericObject & { _uid?: string })>
   }
 
-  type IState = Array<string | (FormData & { _uid?: string })>
+  type IState = Array<string | (GenericObject & { _uid?: string })>
 }
 
 export { IUseManageArray }

@@ -12,6 +12,7 @@
 @use 'gradients';
 @use 'colours';
 @use 'typography';
+@use 'animations';
 @use 'transitions';
 @use 'states';
 @use 'z-index';
@@ -29,7 +30,6 @@ $bg-colour: colours.$ui-one !default;
 
 .select {
   display: inline-block;
-  position: relative;
   background-color: $bg-colour;
   border-radius: corners.$base;
 
@@ -87,8 +87,7 @@ $bg-colour: colours.$ui-one !default;
   @include lib.resets-list;
   display: block;
   position: absolute;
-  top: 100%;
-  width: 100%;
+  margin-top: 1px; // Must be same as input border
   background-color: $bg-colour;
   border-radius: corners.$base;
   max-height: 350px;
@@ -108,14 +107,9 @@ $bg-colour: colours.$ui-one !default;
     position: sticky;
     top: 0;
     background-color: colours.$ui-one;
+    padding-bottom: spacing.$xs;
     box-shadow: shadows.$one;
     z-index: z-index.$default;
-    white-space: nowrap;
-    overflow-x: auto;
-  }
-
-  &--hidden {
-    display: none;
   }
 }
 
@@ -155,6 +149,15 @@ $bg-colour: colours.$ui-one !default;
   @include lib.utilities-center-y;
   font-weight: typography.$font-regular;
   right: ($padding-x * 2) + spacing.$xs;
+}
+
+/// -------------------
+/// Select button
+/// -------------------
+
+.select__tag.tag {
+  margin-top: spacing.$xs;
+  margin-left: spacing.$xs;
 }
 
 /// -------------------

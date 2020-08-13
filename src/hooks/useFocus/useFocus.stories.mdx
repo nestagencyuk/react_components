@@ -52,7 +52,7 @@ Connect a `trigger` and a `target` to toggle elements that aren't related in the
       const [focused, onFocus, onBlur] = useFocus({ triggerRef, targetRef })
       return (
         <Fragment>
-          <RefSection ref={triggerRef} onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
+          <RefSection ref={triggerRef} onFocus={onFocus} onBlur={onBlur}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
           </RefSection>
           {focused && (
@@ -78,7 +78,7 @@ Connect a `trigger` and a `target` to toggle elements that aren't related in the
       const [focused, onFocus, onBlur] = useFocus({ triggerRef, targetRef })
       return (
         <Fragment>
-          <RefSection ref={setTrigger} onFocus={onFocus} onBlur={onBlur} tabIndex={-1}>
+          <RefSection ref={setTrigger} onFocus={onFocus} onBlur={onBlur}>
             <Button onClick={() => console.log('Click!')}>{focused ? 'Focused' : 'Unfocused'}</Button>
           </RefSection>
           {focused && (

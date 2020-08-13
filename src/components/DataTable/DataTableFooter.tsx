@@ -43,7 +43,13 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
         <GridItem span={8} className="m--l-auto">
           {controls.pagination && (
             <Fragment>
-              <Button className="m--r-xs" variant="Tertiary" disabled={currentIndex === 1} onClick={handlePrev}>
+              <Button
+                className="m--r-xs"
+                variant="Tertiary"
+                size="Small"
+                disabled={currentIndex === 1 || currentIndex === 0}
+                onClick={handlePrev}
+              >
                 Prev
               </Button>
               <Input
@@ -52,6 +58,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 type="Number"
                 value={paginationIndex}
                 testId="dataTablePagination"
+                size="Small"
                 minValue={1}
                 maxValue={lastIndex}
                 onChange={(val: number) => updatePaginationIndex(val)}
@@ -59,7 +66,12 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               <Text tag="span" className="text--bold m--r-xs">
                 of {lastIndex}
               </Text>
-              <Button variant="Tertiary" disabled={rowCount === 1 ? true : currentIndex === lastIndex} onClick={handleNext}>
+              <Button
+                variant="Tertiary"
+                size="Small"
+                disabled={rowCount === 0 ? true : currentIndex === lastIndex}
+                onClick={handleNext}
+              >
                 Next
               </Button>
             </Fragment>

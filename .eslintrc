@@ -1,11 +1,5 @@
 {
-  "ignorePatterns": [
-    "index.ts",
-    "dist",
-    "*.test.tsx",
-    "*.spec.js", 
-    "_Template"
-  ],
+  "ignorePatterns": ["index.ts", "dist", "*.test.tsx", "*.spec.js", "_Template"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaFeatures": {
@@ -13,10 +7,7 @@
       "modules": true
     }
   },
-  "extends": [
-    "plugin:react/recommended",
-    "standard-with-typescript"
-  ],
+  "extends": ["plugin:react/recommended", "standard-with-typescript"],
   "settings": {
     "react": {
       "version": "detect"

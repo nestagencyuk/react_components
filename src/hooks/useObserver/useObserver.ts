@@ -28,9 +28,10 @@ const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1], unob
   IUseObserver.IState,
   React.RefCallback<HTMLElement>
 ] => {
-  const [entry, setEntry] = useState(null)
-  const observer = useRef<IntersectionObserver>()
   const ref = useRef<HTMLElement>()
+  const observer = useRef<IntersectionObserver>()
+
+  const [entry, setEntry] = useState(null)
   const options = {
     root,
     rootMargin,

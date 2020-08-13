@@ -28,7 +28,7 @@ You can use `useContext` to access the toggle state. The table must be initiated
       const Cell = ({ id }) => {
         const { value, valid, handleChange } = useField({ id })
         return (
-          <td><Input id={id} value={value} onChange={handleChange} /></td>
+          <td><Input className="w--100" id={id} value={value} onChange={handleChange} /></td>
         )
       }
       const Row = ({ data }) => {
@@ -61,11 +61,11 @@ You can use `useContext` to access the toggle state. The table must be initiated
             {({ rows, addRow, handleSubmit }) => (
               <Fragment>
                 <form onSubmit={handleSubmit}>
-                  <table>
+                  <table style={{ tableLayout: 'fixed', width: '100%' }}>
                     <thead>
                       <tr>
                         {header.map((x, i) => <th key={`header-${i}`}>{x.name}</th>)}
-                        <th><Button className="w--100" onClick={() => addRow(null)}>Add</Button></th>
+                        <th style={{ width: '200px' }}><Button className="w--100" onClick={() => addRow(null)}>Add</Button></th>
                       </tr>
                     </thead>
                     <tbody>

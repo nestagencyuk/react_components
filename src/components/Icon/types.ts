@@ -22,6 +22,7 @@ declare namespace IIcon {
       | 'Dashboard'
       | 'Download'
       | 'Edit'
+      | 'Ellipsis'
       | 'Error'
       | 'External'
       | 'Hamburger'
