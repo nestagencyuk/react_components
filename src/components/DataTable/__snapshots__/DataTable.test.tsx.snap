@@ -40,7 +40,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
       <input
         class="input--sm input"
         placeholder="Search Data"
-        type="text"
+        type="Text"
         value=""
       />
       <button
@@ -176,7 +176,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 min="5"
                 name="quantity"
                 tabindex="0"
-                type="number"
+                type="Number"
                 value="11"
               />
             </td>
@@ -190,7 +190,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 maxlength="5"
                 name="batch"
                 tabindex="0"
-                type="text"
+                type="Text"
                 value="123"
               />
             </td>
@@ -289,7 +289,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 min="5"
                 name="quantity"
                 tabindex="0"
-                type="number"
+                type="Number"
                 value="11"
               />
             </td>
@@ -303,7 +303,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 maxlength="5"
                 name="batch"
                 tabindex="0"
-                type="text"
+                type="Text"
                 value="123"
               />
             </td>
@@ -366,7 +366,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             data-testid="dataTablePagination"
             max="1"
             min="1"
-            type="number"
+            type="Number"
             value="1"
           />
           <span

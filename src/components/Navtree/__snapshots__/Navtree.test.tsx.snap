@@ -11,68 +11,80 @@ exports[`----- Navtree Component ----- Renders without crashing 1`] = `
     >
       <li
         class="navtree__item"
+        data-testid="navTreeItem"
       >
-        <a
-          class="navtree__link"
-          href="/"
+        <span
+          tabindex="0"
         >
-          <span
-            class="m--r-lg icn icn--md icn--dark"
-            title="Home"
-          />
-          <span>
-            Home
-          </span>
-        </a>
+          <a
+            class="navtree__link"
+            href="/"
+          >
+            <span
+              class="icn icn--lg icn--dark"
+              title="Home"
+            />
+            <span />
+          </a>
+        </span>
       </li>
       <li
         class="navtree__item"
+        data-testid="navTreeItem"
       >
-        <a
-          class="navtree__link"
+        <span
+          tabindex="0"
         >
-          <span
-            class="m--r-lg icn icn--md icn--dark"
-            title="Home"
-          />
-          <span>
-            About
-          </span>
-        </a>
+          <a
+            class="navtree__link"
+          >
+            <span
+              class="icn icn--lg icn--dark"
+              title="Home"
+            />
+            <span />
+          </a>
+        </span>
       </li>
       <li
         class="navtree__item"
+        data-testid="navTreeItem"
       >
-        <button
-          class="navtree__link"
-          to="/test"
+        <span
+          tabindex="0"
         >
-          <span
-            class="m--r-lg icn icn--md icn--dark"
-            title="Home"
-          />
-          <span>
-            Test
-          </span>
-        </button>
+          <button
+            class="navtree__link"
+            to="/test"
+          >
+            <span
+              class="icn icn--lg icn--dark"
+              title="Home"
+            />
+            <span />
+          </button>
+        </span>
         <ul
           class="navtree__list"
           data-depth="1"
         >
           <li
             class="navtree__item"
+            data-testid="navTreeItem"
           >
-            <a
-              class="navtree__link"
+            <span
+              tabindex="0"
             >
-              <span
-                class="m--r-lg icn icn--md icn--dark"
-                title="Home"
-              />
-              <span>
-                A test child
-              </span>
-            </a>
+              <a
+                class="navtree__link"
+              >
+                <span
+                  class="icn icn--lg icn--dark"
+                  title="Home"
+                />
+                <span />
+              </a>
+            </span>
           </li>
         </ul>
       </li>

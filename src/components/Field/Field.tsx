@@ -38,8 +38,6 @@ const icons: IIcon.IIconTypes = {
  * Field wrapper component
  */
 const Field: React.FC<IField.IProps> = ({ className, label, state, msg, type, ...props }) => {
-  console.log(type)
-
   return (
     <div className={cx(className, 'field', states[state])}>
       {label && (

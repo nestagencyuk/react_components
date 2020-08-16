@@ -17,7 +17,7 @@ const NavtreeItem: React.FC<INavtree.IItemProps> = (props) => {
   const { toggles, setToggled } = useContext(ToggleTreeContext)
 
   return (
-    <li className={cx(props.className, 'navtree__item')}>
+    <li className={cx(props.className, 'navtree__item')} data-testid="navTreeItem">
       {props.items ? (
         <Fragment>
           <Tooltip render={props.text} align="Right">

@@ -1,15 +1,12 @@
 import * as React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { DatePicker } from '.'
-import { IDatePicker } from './types'
+import { ReactDatePickerProps } from 'react-datepicker'
 
 describe('----- DatePicker Component -----', () => {
   const mockFn = jest.fn()
-  const baseProps: IDatePicker.IProps = {
-    onChange: mockFn,
-    props: {
-      onChange: mockFn
-    }
+  const baseProps: ReactDatePickerProps = {
+    onChange: mockFn
   }
 
   beforeEach(() => {
