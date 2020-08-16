@@ -28,7 +28,8 @@ $nav-height: 70px;
   position: relative;
   z-index: z-index.$top;
   padding: 0;
-  background-color: map-get(colours.$ui, 'one');
+  max-width: max-content;
+  background-color: colours.$ui-two;
 }
 
 /// -------------------
@@ -42,7 +43,7 @@ $nav-height: 70px;
   display: none;
 
   &:not([data-depth='0']) {
-    margin-left: spacing.$xl;
+    background-color: rgba(colours.$ui-three, 0.25);
   }
 
   &--active {
@@ -68,14 +69,13 @@ $nav-height: 70px;
   line-height: 1;
   font-size: typography.$base-font-size;
   font-family: typography.$font-family--alt;
-  padding: spacing.$lg spacing.$md;
+  padding: spacing.$md;
   text-decoration: none;
   white-space: nowrap;
   color: map-get(colours.$ui, 'five');
   text-align: left;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: rgba(black, 0.025);
 
   &:hover {
     color: map-get(colours.$brand, 'two');
