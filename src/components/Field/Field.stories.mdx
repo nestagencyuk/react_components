@@ -8,10 +8,10 @@ import { Field } from '.'
 <Meta title="Components|Forms/Field" component={Field} />
 
 # Field
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+A Field component for rendering various types of elements that accept user input. 
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+The base Field compoonent with all default props.
 
 <Preview>
   <Story name="Base">
@@ -27,8 +27,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
-## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## Textarea
+Pass `Textarea` to the `type` prop to render a Text area.
 
 <Preview>
   <Story name="Textarea">
@@ -44,22 +44,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
-## Custom Label
-You can pass a component to the label prop.
-
-<Preview>
-  <Story name="Label">
-    {() => {
-      const [value, setValue] = useState('')
-      return (
-        <Field id="field-label" label={<div>Custom label!</div>} value={value} onChange={setValue} />
-      )
-    }}
-  </Story>
-</Preview>
-
 ## Select
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pass `Select` to the `type` prop and an array of items to the `options` prop to render a Select component.
 
 <Preview>
   <Story name="Select" decorators={[selectDecorator]}>
@@ -78,8 +64,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
+## Custom Label
+You can pass a component to the `label` prop.
+
+<Preview>
+  <Story name="Label">
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Field id="field-label"  label={<div>Custom label!</div>} value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
 ## Checkbox
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pass `Checkbox` to the `type` prop to render a Checkbox component.
 
 <Preview>
   <Story name="Checkbox">
@@ -129,7 +129,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## Radio
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pass `Radio` to the `type` prop to render a Radio component
 
 <Preview>
   <Story name="Radio">
@@ -153,6 +153,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </Story>
 </Preview>
 
+## DatePicker
+Pass `datePicker` to the `type` prop to render a Date Picker.
+
+<Preview>
+  <Story name="DatePicker">
+    {() => {
+      const [value, setValue] = useState(new Date());
+      return (
+        <Fragment>
+          <Field type="DatePicker" label={`${value}`} selected={value} placeholderText="Select a date or type" onChange={setValue} />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
 ## Custom
 You can also pass a component to the `type` prop.
 
@@ -168,7 +184,7 @@ You can also pass a component to the `type` prop.
 </Preview>
 
 ## States
-Field states. Type to see the state change.
+To set the state of a field, pass either `Error`, `Warning` or `Success` to the `state` prop to render the desired state.
 
 <Preview>
   <Story name="States">
