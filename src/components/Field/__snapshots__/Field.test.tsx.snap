@@ -6,8 +6,7 @@ exports[`----- Field Component ----- Renders without crashing 1`] = `
     class="field field--info"
   >
     <label
-      aria-label="field"
-      class="field__label label"
+      class="field__label m--b-md text--bold"
       for="field"
     >
       This is a test label

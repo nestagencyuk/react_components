@@ -10,7 +10,7 @@ export { IBlock } from './components/Block/types'
 export { Box, RefBox } from './components/Box'
 export { IBox } from './components/Box/types'
 
-export { Button } from './components/Button'
+export { Button, ButtonGroup } from './components/Button'
 export { IButton } from './components/Button/types'
 
 export { Card } from './components/Card'
@@ -26,7 +26,6 @@ export { Drawer } from './components/Drawer'
 export { IDrawer } from './components/Drawer/types'
 
 export { DatePicker } from './components/DatePicker'
-export { IDatePicker } from './components/DatePicker/types'
 
 export { DataTable } from './components/DataTable'
 export { IDataTable } from './components/DataTable/types'
