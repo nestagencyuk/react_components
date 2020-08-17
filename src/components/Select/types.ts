@@ -21,10 +21,9 @@ declare namespace ISelect {
 
   interface IOptionsProps {
     id: string
-    triggerRef: RefObject<HTMLDivElement>
+    trigger: HTMLDivElement
     open: boolean
     values: string[]
-    cursor: number
     options: IOption[]
     filtered: IOption[]
     multi: boolean

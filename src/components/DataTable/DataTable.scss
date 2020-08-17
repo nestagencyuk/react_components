@@ -36,7 +36,7 @@ $padding-y: spacing.$md !default;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: colours.$ui-one;
+  background-color: colours.$ui-two;
   overflow: auto;
 }
 
@@ -45,12 +45,12 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__controls {
+  position: relative;
   display: flex;
   box-sizing: border-box;
   background-color: white;
   padding: spacing.$md 0;
   border-bottom: borders.$ui-two;
-  margin-bottom: spacing.$lg;
   z-index: z-index.$datatable;
 }
 

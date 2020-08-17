@@ -110,7 +110,7 @@ Set a timeout so that the alert disappears after some time.
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Success Alert</Button>
           {state !== 'Closed' && <Float portal>
-            <Alert variant="Success" state={state}>
+            <Alert variant="Success" state={state} onClose={() => dispatchEvent('CLOSE')}>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -138,7 +138,7 @@ An alert can be used to determine an action.
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); dispatchEvent('CLOSE') } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); dispatchEvent('CLOSE') } },
               ]
-            }}>
+            }} onClose={() => dispatchEvent('CLOSE')}>
               Are you sure you want to do this?!
             </Alert>
           </Float>}

@@ -6,7 +6,6 @@ declare namespace IBox {
     align?: AlignmentXY
     fill?: boolean
     children: any
-    testId?: string
   }
 }
 
