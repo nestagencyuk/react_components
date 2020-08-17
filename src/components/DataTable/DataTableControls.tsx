@@ -40,7 +40,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
   }, [toggles])
 
   return (
-    <header className="datatable__controls" data-testid="dataTableGlobalControls">
+    <header className="datatable__controls" data-testid="datatable-global-controls">
       {controls.buttonFilterData && (
         <Button
           variant="Secondary"
@@ -57,20 +57,26 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
       )}
       {controls.buttonCustomiseTable && (
         <Popover
-          render={header.map((x: any, i: number) => (
-            <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
-              <Checkbox
-                className="m--r-xs"
-                id={`label-${x.id}-${i}`}
-                value={x.visible}
-                onChange={() => setToggled(`label-${x.id}`)}
-              />
-              {x.name}
-            </label>
-          ))}
+          align="Bottom"
+          render={
+            <div style={{ width: '250px' }}>
+              {header.map((x: any, i: number) => (
+                <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
+                  <Checkbox
+                    className="m--r-xs"
+                    id={`label-${x.id}-${i}`}
+                    value={x.visible}
+                    onChange={() => setToggled(`label-${x.id}`)}
+                  />
+                  {x.name}
+                </label>
+              ))}
+            </div>
+          }
         >
-          {(value) => (
+          {({ ref, onFocus, onBlur }) => (
             <RefButton
+              ref={ref}
               variant="Secondary"
               className="m--r-md"
               icon={{
@@ -79,7 +85,8 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
                 align: 'End'
               }}
               size="Small"
-              {...value}
+              onClick={onFocus}
+              onBlur={onBlur}
             >
               Customise Table
             </RefButton>

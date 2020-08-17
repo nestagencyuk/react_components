@@ -1,10 +1,12 @@
 import { IPopover } from './types'
 import cx from 'classnames'
 import * as React from 'react'
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useMemo, useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useFocus } from '../../hooks/useFocus'
 import { usePopper } from '../../hooks/usePopper'
+import { useKeyboardNav } from '../../hooks/useKeyboardNav'
+import * as tabbable from 'tabbable'
 
 /**
  * Styles
@@ -25,10 +27,12 @@ const alignments = {
  * A popover
  */
 const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'Top', render, children }) => {
-  const [triggerRef, setTrigger] = useState(null)
-  const [targetRef, setTarget] = useState(null)
-  const [focused, onFocus, onBlur] = useFocus({ toggleable: true, triggerRef, targetRef })
-  const [styles, attributes] = usePopper({ align, triggerRef, targetRef })
+  const [trigger, setTrigger] = useState(null)
+  const [target, setTarget] = useState(null)
+
+  const [focused, onFocus, onBlur] = useFocus({ toggleable: true, trigger, target })
+  const [styles, attributes] = usePopper({ align, trigger, target })
+  const [, , onKeyDown] = useKeyboardNav({ root: target })
 
   /**
    * Render the actual popover
@@ -36,7 +40,25 @@ const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'T
   const renderPopover = () =>
     focused &&
     createPortal(
-      <aside className={cx('popover')} ref={setTarget} style={styles.popper} {...attributes.popper} tabIndex={-1}>
+      <aside
+        className={cx('popover')}
+        ref={setTarget}
+        style={styles.popper}
+        {...attributes.popper}
+        tabIndex={-1}
+        onBlur={onBlur}
+        onKeyDown={(e) =>
+          onKeyDown(e, () => {
+            const els = tabbable(document.body)
+            if (e.shiftKey) {
+              els[els.indexOf(trigger) - 1].focus()
+            }
+            if (!e.shiftKey) {
+              els[els.indexOf(trigger)].focus()
+            }
+          })
+        }
+      >
         <div className={cx('animate', alignments[align])}>
           <div className={cx('popover__body')}>{render}</div>
         </div>
@@ -52,8 +74,21 @@ const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'T
       onFocus,
       onBlur
     }),
-    []
+    [target]
   )
+
+  /**
+   * Add key down event to the trigger element
+   */
+  useEffect(() => {
+    if (!trigger) return
+    if (!trigger.dataset.active) {
+      trigger.dataset.active = true
+    }
+    if (trigger.dataset.active) {
+      trigger?.addEventListener('keydown', onKeyDown)
+    }
+  }, [focused, target])
 
   return (
     <Fragment>

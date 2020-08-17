@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { IDataTable } from './types'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import cx from 'classnames'
@@ -22,11 +22,20 @@ import { DataTable as BaseDataTable } from '../../context/DataTable'
  * Components
  */
 import { DataTableControls, DataTableHeader, DataTableBody, DataTableFooter } from '.'
+import { GenericObject } from 'types'
 
 /**
  * A simple table component
  */
-const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, header, rows, data, onSubmit }) => {
+const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: React.FormEvent) => void }> = ({
+  className,
+  loading,
+  controls,
+  header,
+  rows,
+  data,
+  onSubmit
+}) => {
   const [columns, setColumns] = useState(header)
 
   /**
@@ -38,7 +47,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
   })
 
   return (
-    <form className={cx(className, 'datatable')} onSubmit={onSubmit as any}>
+    <form className={cx(className, 'datatable')} onSubmit={onSubmit}>
       {controls.global.visible && <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />}
 
       <div
@@ -74,7 +83,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
 const ContextWrapper: React.FC<IDataTable.IProps> = ({ data, onSubmit, ...props }) => {
   return (
     <BaseDataTable data={data} onSubmit={onSubmit}>
-      {({ rows, handleSubmit }) => <DataTable {...props} data={rows} onSubmit={handleSubmit} />}
+      {({ rows, handleSubmit }) => <DataTable {...props} data={rows as GenericObject[]} onSubmit={handleSubmit} />}
     </BaseDataTable>
   )
 }

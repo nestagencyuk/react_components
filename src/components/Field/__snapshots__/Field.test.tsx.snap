@@ -14,8 +14,9 @@ exports[`----- Field Component ----- Renders without crashing 1`] = `
     </label>
     <input
       class="input--md input"
+      data-testid="field"
       id="field"
-      type="text"
+      type="Text"
       value=""
     />
     <span
