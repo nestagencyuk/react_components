@@ -339,16 +339,47 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         class="grid"
       >
         <div
-          class="grid__item grid__item--4"
+          class="grid__item grid__item--6"
         >
-          <p
-            class="text--bold text text--p text--left"
+          <span
+            class="text--bold m--r-sm text text--p text--left"
           >
             2 Rows
-          </p>
+          </span>
+          <label
+            aria-label="pagination-page-limit"
+            class="m--r-sm label"
+            for="pagination-page-limit"
+          >
+            Show
+          </label>
+          <div
+            class="select"
+            data-testid="pagination-page-limit"
+            tabindex="-1"
+          >
+            <div
+              style="position: relative; height: 3rem;"
+            >
+              <input
+                autocomplete="off"
+                class="select__input"
+                data-testid="pagination-page-limit-input"
+                id="pagination-page-limit"
+                name="pagination-page-limit"
+                placeholder="100"
+                readonly=""
+                value=""
+              />
+              <span
+                class="select__icn icn icn--sm"
+                title="Chevron-down"
+              />
+            </div>
+          </div>
         </div>
         <div
-          class="m--l-auto grid__item grid__item--8"
+          class="m--l-auto grid__item grid__item--6"
         >
           <button
             class="m--r-xs btn btn--tertiary btn--sm btn--disabled"

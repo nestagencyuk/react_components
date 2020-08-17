@@ -11,7 +11,7 @@ const useFocus = ({
 }: IUseFocus.IProps = {}): [
   boolean,
   (e?: React.FocusEvent<any>) => void,
-  (e?: React.FocusEvent<any>, cb?: () => void) => void
+  (e?: React.FocusEvent<any>, cb?: (e: any) => void) => void
 ] => {
   const triggerRef = useRef<React.RefObject<any> | any>()
   const targetRef = useRef<React.RefObject<any> | any>()

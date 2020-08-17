@@ -10,12 +10,14 @@ import { Grid, GridItem } from '../Grid'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Input } from '../Input'
+import { Select } from '../Select'
+import { Label } from '../Label'
 
 /**
  * Render a table cell
  */
-const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount }) => {
-  const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = pagination
+const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount, setPaginationPageLimit }) => {
+  const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip, pageLimit } = pagination
   const [paginationIndex, setPaginationIndex] = useState(currentIndex)
 
   const updatePaginationIndex = (val: number) => {
@@ -33,14 +35,52 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
   return (
     <footer className="datatable__footer" data-testid="datatable-footer">
       <Grid>
-        <GridItem span={4}>
+        <GridItem span={6}>
           {controls.rowCount && (
-            <Text className="text--bold" data-testid="dataTableRowCount">{`${rowCount} ${
+            <Text className="text--bold m--r-sm" data-testid="dataTableRowCount" tag="span">{`${rowCount} ${
               rowCount === 1 ? 'Row' : 'Rows'
             }`}</Text>
           )}
+          {controls.pagination && (
+            <Fragment>
+              <Label className="m--r-sm" for="pagination-page-limit">
+                Show
+              </Label>
+              <Select
+                id="pagination-page-limit"
+                options={[
+                  {
+                    label: '5',
+                    value: '5'
+                  },
+                  {
+                    label: '10',
+                    value: '10'
+                  },
+                  {
+                    label: '15',
+                    value: '15'
+                  },
+                  {
+                    label: '20',
+                    value: '20'
+                  },
+                  {
+                    label: '50',
+                    value: '50'
+                  },
+                  {
+                    label: '100',
+                    value: '100'
+                  }
+                ]}
+                value={pageLimit.toString()}
+                onChange={(e: string) => setPaginationPageLimit(parseInt(e))}
+              />
+            </Fragment>
+          )}
         </GridItem>
-        <GridItem span={8} className="m--l-auto">
+        <GridItem span={6} className="m--l-auto">
           {controls.pagination && (
             <Fragment>
               <Button

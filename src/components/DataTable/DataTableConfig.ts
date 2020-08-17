@@ -29,8 +29,7 @@ const testConfig: any = {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
-        pageLimit: 20
+        visible: true
       }
     }
   },

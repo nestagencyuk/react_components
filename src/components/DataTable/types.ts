@@ -38,7 +38,7 @@ declare namespace IDataTable {
     visible: boolean
     rowCount?: boolean | number
     pagination: {
-      pageLimit: number
+      pageLimit?: 5 | 10 | 15 | 20 | 50 | 100
     }
   }
 
@@ -97,7 +97,7 @@ declare namespace IDataTable {
     filterable?: boolean
   }
 
-  // Datatable components
+  // Component types
   interface IControlsProps {
     header: IColumnConfig[]
     controls: {

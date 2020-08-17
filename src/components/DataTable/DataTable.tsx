@@ -28,13 +28,14 @@ import { DataTableControls, DataTableHeader, DataTableBody, DataTableFooter } fr
  */
 const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, header, rows, data, onSubmit }) => {
   const [columns, setColumns] = useState(header)
+  const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination.pageLimit || 100)
 
   /**
    * Set pagination
    */
   const pagination = usePaginationV2({
     array: data,
-    pageLimit: controls.footer.pagination.pageLimit || 20
+    pageLimit: paginationPageLimit
   })
 
   return (
@@ -60,7 +61,12 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
       </div>
 
       {controls.footer.visible && (
-        <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
+        <DataTableFooter
+          controls={controls.footer}
+          pagination={pagination}
+          rowCount={data.length}
+          setPaginationPageLimit={setPaginationPageLimit}
+        />
       )}
 
       <Button type="submit">Submit</Button>
