@@ -17,6 +17,7 @@ declare namespace IDataTable {
 
   // Config types
   interface IGlobalConfig {
+    type: 'standard' | 'form'
     visible: boolean
     minHeight?: number
     maxHeight?: number
@@ -127,6 +128,7 @@ declare namespace IDataTable {
     columns: IColumnConfig[]
     rows: ICellConfig[][]
     managedRows: IRowConfig[]
+    tableType: 'standard' | 'form'
   }
 
   interface IRowProps {
@@ -134,11 +136,13 @@ declare namespace IDataTable {
     columns: IColumnConfig[]
     cells: ICellConfig[]
     data: any
+    tableType: 'standard' | 'form'
   }
 
   interface ICellProps {
     id: string
     config: any
+    tableType: 'standard' | 'form'
   }
 
   interface IFooterProps {

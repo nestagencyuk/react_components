@@ -64,7 +64,13 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
 
         <table className={cx(className, 'datatable__table')}>
           <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
-          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
+          <DataTableBody
+            controls={controls.row}
+            columns={columns}
+            rows={rows}
+            managedRows={pagination.currentSlice}
+            tableType={controls.global.type || 'standard'}
+          />
         </table>
       </div>
 

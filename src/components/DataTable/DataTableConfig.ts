@@ -10,6 +10,7 @@ const testBatch = Array.from(Array(testLimit).keys()).map((x) => chance.word())
 const testConfig: any = {
   controls: {
     global: {
+      type: 'standard',
       visible: true,
       search: true,
       minHeight: 500,
