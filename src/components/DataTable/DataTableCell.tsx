@@ -11,25 +11,29 @@ import { useField } from '@nestagencyuk/react_form-factory'
 import { Input } from '../Input'
 import { Select } from '../Select'
 import { Text } from '../Text'
+import { type } from 'os'
 
 /**
  * Pick an input to render
  */
 const DataTableCellPicker: React.FC<any> = (props) => {
-  switch (props.type) {
-    case 'Select':
-    case 'Search':
-      return <Select multiVariant="Tags" {...props} />
-    case 'Text':
-    case 'Number':
-      return <Input {...props} />
-    default:
-      return (
-        <Text className="p--sm" variant="P">
-          {props.value?.substring(0, 80)}...
-        </Text>
-      )
-  }
+  // switch (props.type) {
+  //   case 'Select':
+  //   case 'Search':
+  //     return <Select multiVariant="Tags" {...props} />
+  //   case 'Text':
+  //   case 'Number':
+  //     return <Input {...props} />
+  // default:
+  return (
+    <Text className="p--sm datatable__cell--static" variant="P">
+      {JSON.stringify(props.value)
+        .replace(/['"]+/g, '')
+        .replace(/\W+/g, ' ')
+        .replace('null', '')}
+    </Text>
+  )
+  // }
 }
 
 /**
