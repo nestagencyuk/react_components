@@ -20,7 +20,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Filter"
         />
       </button>
       <button
@@ -34,7 +34,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Table-columns"
         />
       </button>
       <input
@@ -54,7 +54,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Plus"
         />
       </button>
     </header>
