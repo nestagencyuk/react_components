@@ -19,6 +19,7 @@ describe('----- DataTable Component -----', () => {
     onSubmit: () => null,
     controls: {
       global: {
+        type: 'form',
         visible: true,
         search: true,
         buttonFilterData: true,

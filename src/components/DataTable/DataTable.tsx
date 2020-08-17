@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { IDataTable } from './types'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import cx from 'classnames'
@@ -55,7 +55,13 @@ const DataTable: React.FC<IDataTable.IProps> = ({ className, loading, controls, 
 
         <table className={cx(className, 'datatable__table')}>
           <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
-          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
+          <DataTableBody
+            controls={controls.row}
+            columns={columns}
+            rows={rows}
+            managedRows={pagination.currentSlice}
+            tableType={controls.global.type || 'standard'}
+          />
         </table>
       </div>
 

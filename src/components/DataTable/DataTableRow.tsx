@@ -20,7 +20,7 @@ import { DataTableCell } from '.'
 /**
  * Table row
  */
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data }) => {
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType }) => {
   const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const { addRow, editRow, deleteRow } = useContext(DataTableContext)
   const [, onFocus, onBlur] = useFocus()
@@ -84,7 +84,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
             .map(
               (key, i) =>
                 columns.find((x: any) => x.id === key)?.visible && (
-                  <DataTableCell key={`cell-${key}-${i}`} id={key} config={row[i]} />
+                  <DataTableCell tableType={tableType} key={`cell-${key}-${i}`} id={key} config={row[i]} />
                 )
             )}
           {controls.visible && <td className="datatable__cell text--center">{renderControls()}</td>}
