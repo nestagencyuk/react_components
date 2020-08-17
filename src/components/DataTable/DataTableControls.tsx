@@ -46,7 +46,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           variant="Secondary"
           className="m--r-md"
           icon={{
-            name: 'Branch',
+            name: 'Filter',
             size: 'Small',
             align: 'End'
           }}
@@ -80,7 +80,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
               variant="Secondary"
               className="m--r-md"
               icon={{
-                name: 'Branch',
+                name: 'Table-columns',
                 size: 'Small',
                 align: 'End'
               }}
@@ -100,7 +100,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
         <Button
           className="m--l-auto"
           icon={{
-            name: 'Branch',
+            name: 'Plus',
             size: 'Small',
             align: 'End'
           }}
