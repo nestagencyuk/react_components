@@ -136,17 +136,6 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
         readonly=""
         value="2 Selected"
       />
-      <button
-        class="select__clear btn btn--tertiary btn--xs"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="w--100"
-        >
-          Clear
-        </span>
-      </button>
       <span
         class="select__icn icn icn--sm"
         title="Chevron-down"

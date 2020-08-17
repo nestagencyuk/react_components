@@ -8,7 +8,6 @@ describe('----- Alert Component -----', () => {
 
   const baseProps: IAlert.IProps = {
     children: '',
-
     onClose: mockFn
   }
 

@@ -1,16 +1,18 @@
+import { GenericObject } from '../../types'
+
 declare namespace IDataTable {
   interface IProps {
+    className?: string
+    loading?: boolean
     controls: {
       global: IGlobalConfig
       row: IRowControls
       footer: IFooterControls
     }
     header: IColumnConfig[]
-    rows: Array<Array<ICellConfig>>
-    data: any
-    onSubmit: (data: any[]) => void
-    className?: string
-    loading?: boolean
+    rows: ICellConfig[][]
+    data: GenericObject[]
+    onSubmit: (data: GenericObject[]) => void
   }
 
   // Config types
@@ -93,8 +95,8 @@ declare namespace IDataTable {
     responseLabel?: any
     triggerUpdate?: string[]
     searchable?: boolean
-    options?: { [key: string]: any }[]
-    items?: { [key: string]: any }[]
+    options?: Array<{ [key: string]: any }>
+    items?: Array<{ [key: string]: any }>
     filterable?: boolean
   }
 
@@ -124,7 +126,7 @@ declare namespace IDataTable {
       buttonLoadPage?: boolean
     }
     columns: IColumnConfig[]
-    rows: Array<Array<ICellConfig>>
+    rows: ICellConfig[][]
     managedRows: IRowConfig[]
     tableType: 'standard' | 'form'
   }

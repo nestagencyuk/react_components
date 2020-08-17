@@ -294,7 +294,7 @@ describe('----- Select Component -----', () => {
       fireEvent.click(optionOne)
       fireEvent.click(optionTwo)
 
-      const clearBtn = getByText('Clear')
+      const clearBtn = getByText('Clear selection')
       fireEvent.click(clearBtn)
 
       expect(input).toHaveProperty('value', '0 Selected')

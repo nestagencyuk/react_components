@@ -70,13 +70,12 @@ const Gallery: React.FC<IGallery.IProps> = ({ className, variant = 'Tiles', size
       {lightbox ? (
         <GalleryLightbox ref={refs} items={items} />
       ) : (
-        Array.isArray(items) && (
-          items.map((x, i) => (
-            <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
-              {x}
-            </div>
-          ))
-        )
+        Array.isArray(items) &&
+        items.map((x, i) => (
+          <div ref={refs.current[i]} key={`gallery-item-${i}`} className="gallery__item">
+            {x}
+          </div>
+        ))
       )}
     </section>
   ) : null

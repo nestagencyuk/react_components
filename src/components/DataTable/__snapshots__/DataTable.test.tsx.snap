@@ -7,7 +7,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
   >
     <header
       class="datatable__controls"
-      data-testid="dataTableGlobalControls"
+      data-testid="datatable-global-controls"
     >
       <button
         class="m--r-md btn btn--secondary btn--sm"
@@ -20,7 +20,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Filter"
         />
       </button>
       <button
@@ -34,7 +34,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Table-columns"
         />
       </button>
       <input
@@ -54,7 +54,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </span>
         <span
           class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          title="Plus"
         />
       </button>
     </header>
@@ -104,7 +104,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         <tbody>
           <tr
             class="datatable__row"
-            data-testid="dataTableRow"
+            data-testid="datatable-row"
           >
             <td
               class="datatable__cell"
@@ -171,6 +171,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="quantity"
                 id="quantity"
                 max="10"
                 min="5"
@@ -186,6 +187,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="batch"
                 id="batch"
                 maxlength="5"
                 name="batch"
@@ -199,13 +201,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <button
                 class="action action--tertiary action--md"
-                data-testid="dataTableRowPopover"
+                data-testid="datatable-row-popover-btn"
+                id="datatable-row-popover-btn"
                 title="..."
                 type="button"
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Branch"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
@@ -217,7 +220,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           </tr>
           <tr
             class="datatable__row"
-            data-testid="dataTableRow"
+            data-testid="datatable-row"
           >
             <td
               class="datatable__cell"
@@ -284,6 +287,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="quantity"
                 id="quantity"
                 max="10"
                 min="5"
@@ -299,6 +303,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="batch"
                 id="batch"
                 maxlength="5"
                 name="batch"
@@ -312,13 +317,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <button
                 class="action action--tertiary action--md"
-                data-testid="dataTableRowPopover"
+                data-testid="datatable-row-popover-btn"
+                id="datatable-row-popover-btn"
                 title="..."
                 type="button"
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Branch"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
@@ -363,7 +369,8 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           </button>
           <input
             class="m--r-xs input--sm input"
-            data-testid="dataTablePagination"
+            data-testid="page-number"
+            id="page-number"
             max="1"
             min="1"
             type="Number"

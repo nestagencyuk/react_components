@@ -4,6 +4,7 @@ exports[`----- Box Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="box"
+    data-testid="box"
   >
     Test
   </div>

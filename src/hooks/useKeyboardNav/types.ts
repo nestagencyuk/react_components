@@ -1,8 +1,8 @@
 declare namespace IUseFocus {
   interface IProps {
-    toggleable?: boolean
-    trigger?: HTMLElement
-    target?: HTMLElement
+    trap?: boolean
+    root?: HTMLElement
+    skip?: number
   }
 }
 
