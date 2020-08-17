@@ -19,7 +19,6 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .field {
-  display: grid;
   width: 100%;
   grid-template-columns: 1fr 2fr 2rem;
   grid-template-rows: auto;
@@ -32,6 +31,8 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .field__label {
+  display: block;
+
   &--interactive {
     cursor: pointer;
   }

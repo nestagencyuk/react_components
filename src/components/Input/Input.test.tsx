@@ -8,7 +8,6 @@ describe('----- Input Component -----', () => {
 
   const baseProps: IInput.IProps = {
     id: 'input',
-    testId: 'input',
     onChange: mockFn
   }
   it('Renders without crashing', () => {

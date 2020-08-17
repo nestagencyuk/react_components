@@ -33,7 +33,7 @@ const NavtreeLink: React.FC<INavtree.ILinkProps> = ({
       rel={external ? 'noopener' : undefined}
       onClick={onClick}
     >
-      {icon && <Icon className="m--r-lg" {...icon} />}
+      {icon && <Icon className={cx({ 'm--r-lg': children })} {...icon} size={icon.size || 'Large'} />}
       <span>{children}</span>
     </Tag>
   )

@@ -1,12 +1,14 @@
 import { ISelect } from './types'
 import * as React from 'react'
-import { useRef, createRef, useEffect, useState } from 'react'
+import { useState } from 'react'
 import cx from 'classnames'
 import { usePopper } from '../../hooks/usePopper'
 
 /**
  * Components
  */
+import { Button } from '../Button'
+import { Icon } from '../Icon'
 import { Checkbox } from '../Checkbox'
 import { Tag } from '../Tag'
 
@@ -32,10 +34,9 @@ const SelectTags = ({ values, options, onClick }: any) =>
  */
 const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
   id,
-  triggerRef,
+  trigger,
   open,
   values,
-  cursor,
   options,
   filtered,
   multi,
@@ -43,46 +44,24 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
   optional,
   onClick
 }) => {
-  const refs = useRef<Array<React.RefObject<HTMLButtonElement>>>(
-    Array.from(Array(filtered?.length).keys()).map(() => createRef())
-  )
-
-  const [targetRef, setTarget] = useState<any>()
-  const [length, setLength] = useState(filtered.length)
-  const [styles, attributes] = usePopper({ align: 'Bottom', triggerRef, targetRef })
-
-  /**
-   * Listen to the cursor index
-   */
-  useEffect(() => {
-    if (!refs.current[cursor]) return
-    refs.current[cursor].current.focus()
-  }, [cursor])
-
-  /**
-   * Add new items to refs
-   */
-  useEffect(() => {
-    if (length === filtered.length) return
-    setLength(filtered.length)
-    refs.current = refs.current.splice(0, filtered.length)
-    for (let i = 0; i < filtered.length; i++) {
-      refs.current[i] = refs.current[i] || createRef()
-    }
-    refs.current = refs.current.map((item) => item || createRef())
-  }, [filtered])
+  const [target, setTarget] = useState<any>()
+  const [styles, attributes] = usePopper({ align: 'Bottom', trigger, target })
 
   return (
     <ul
       ref={setTarget}
       className="select__options animate animate--fade-in"
       data-testid={`${id}-options`}
-      style={{ ...styles.popper, width: triggerRef?.current?.clientWidth }}
+      style={{ ...styles.popper, width: trigger?.clientWidth }}
       {...attributes.popper}
     >
-      {multi && multiVariant === 'Tags' && values && (
+      {multi && values?.length > 0 && (
         <li className="select__option select__option--sticky">
-          <SelectTags values={values} options={options} onClick={onClick} />
+          <button className="select__option-btn select__option-btn--clear" onClick={() => onClick(null)}>
+            Clear selection <Icon name="Cross" size="Small" />
+          </button>
+
+          {multiVariant === 'Tags' && <SelectTags values={values} options={options} onClick={onClick} />}
         </li>
       )}
 
@@ -97,13 +76,11 @@ const SelectOptions: React.FC<ISelect.IOptionsProps> = ({
       {(multi && multiVariant === 'Tags' ? filtered.filter((x) => !values?.includes(x.value)) : filtered).map((x, i) => (
         <li key={x.value} className="select__option">
           <button
-            ref={refs.current[i]}
             className={cx('select__option-btn', { 'p--l-xxl': multi && multiVariant === 'Checkbox' })}
             title={x.label}
             type="button"
             disabled={x.disabled}
             data-value={x.value}
-            tabIndex={-1}
             onClick={() => onClick(x.value)}
           >
             {multi && multiVariant === 'Checkbox' && (

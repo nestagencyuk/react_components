@@ -133,11 +133,12 @@ describe('----- DataTable Component -----', () => {
       const columnToToggle = testConfig.header[0].name
 
       await act(async () => {
-        fireEvent.focus(customiseTableBtn)
+        fireEvent.click(customiseTableBtn)
       })
 
       const allElements = queryAllByText(columnToToggle)
       const toggleColumnBtn = allElements[1]
+
       expect(allElements.length).toBe(2)
       expect(toggleColumnBtn).toBeTruthy()
 
@@ -161,11 +162,11 @@ describe('----- DataTable Component -----', () => {
     it('Adds row to table', async () => {
       const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
       const addRowBtn = queryByText('Add Row')
-      const allRows = queryAllByTestId('dataTableRow')
+      const allRows = queryAllByTestId('datatable-row')
 
       fireEvent.click(addRowBtn)
 
-      const updatedRows = queryAllByTestId('dataTableRow')
+      const updatedRows = queryAllByTestId('datatable-row')
       expect(updatedRows.length).toBe(allRows.length + 1)
     })
   })
@@ -175,8 +176,8 @@ describe('----- DataTable Component -----', () => {
   describe('DataTable Rows', () => {
     it('Copies row', async () => {
       const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
-      const allRows = queryAllByTestId('dataTableRow')
+      const rowPopoverBtn = queryAllByTestId('datatable-row-popover-btn')[0]
+      const allRows = queryAllByTestId('datatable-row')
 
       await act(async () => {
         fireEvent.click(rowPopoverBtn)
@@ -187,13 +188,13 @@ describe('----- DataTable Component -----', () => {
 
       fireEvent.click(copyRowBtn)
 
-      const updatedRows = queryAllByTestId('dataTableRow')
+      const updatedRows = queryAllByTestId('datatable-row')
       expect(updatedRows.length).toBe(allRows.length + 1)
     })
 
     it('Locks & unlocks row', async () => {
       const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
+      const rowPopoverBtn = queryAllByTestId('datatable-row-popover-btn')[0]
 
       await act(async () => {
         fireEvent.click(rowPopoverBtn)
@@ -213,7 +214,7 @@ describe('----- DataTable Component -----', () => {
 
     it('Deletes row', async () => {
       const { queryAllByTestId, queryByText } = render(<DataTable {...testConfig} />)
-      const rowPopoverBtn = queryAllByTestId('dataTableRowPopover')[0]
+      const rowPopoverBtn = queryAllByTestId('datatable-row-popover-btn')[0]
 
       await act(async () => {
         fireEvent.click(rowPopoverBtn)
@@ -224,13 +225,13 @@ describe('----- DataTable Component -----', () => {
 
       fireEvent.click(deleteRowBtn)
 
-      const updatedRows = queryAllByTestId('dataTableRow')
+      const updatedRows = queryAllByTestId('datatable-row')
       expect(updatedRows.length).toBe(1)
     })
 
     it('Submits row', () => {
       const { queryAllByTestId } = render(<DataTable {...testConfig} />)
-      const singleRow = queryAllByTestId('dataTableRow')[0]
+      const singleRow = queryAllByTestId('datatable-row')[0]
 
       fireEvent.blur(singleRow)
     })
@@ -247,7 +248,7 @@ describe('----- DataTable Component -----', () => {
         />
       )
 
-      expect(queryByTestId('dataTableRowCount')).toBeFalsy()
+      expect(queryByTestId('datatable-rowcount')).toBeFalsy()
     })
 
     it('Renders plural rows', () => {
@@ -300,7 +301,7 @@ describe('----- DataTable Component -----', () => {
 
     it('Paginates on input', () => {
       const { queryByTestId } = render(<DataTable {...testConfig} />)
-      const paginationInput = queryByTestId('dataTablePagination')
+      const paginationInput = queryByTestId('page-number')
 
       fireEvent.change(paginationInput, { target: { value: 2 } })
       fireEvent.change(paginationInput, { target: { value: NaN } })

@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/block
 import { minHeightDecorator } from '../../../.storybook/decorators'
 import { RefDiv } from '../../../.storybook/helpers'
 import { useState, useRef, useEffect, Fragment } from 'react'
-import { RefButton } from '../Button'
+import { RefButton, Button } from '../Button'
 import { Text } from '../Text'
 import { Popover } from '.'
 
@@ -29,6 +29,28 @@ This is the function child implementation if you want more control over what tri
   <Story name="Render Props">
     <Popover render={<div className="p--sm">I am a Popover!</div>}>
       {({ ref, onFocus, onBlur }) => (<RefButton ref={ref} onClick={onFocus} onBlur={onBlur}>Custom trigger</RefButton>)}
+    </Popover>
+  </Story>
+</Preview>
+
+## With Tabbable Content
+This is the function child implementation if you want more control over what triggers the popover. The function returns a `value` that has a `ref` and methods `onFocus` and `onBlur` that will need to be attached to your desired element. This is also useful if you wish to trigger the focus using a different event, such as `onClick` instead of `onFocus` (useful for toggling on/off).
+
+<Preview>
+  <Story name="TabbableContent">
+    <Popover render={
+      <div className="p--sm">
+        <Button>Test</Button>
+        <Button>Test</Button>
+        <Button>Test</Button>
+        <Button>Test</Button>
+      </div>
+      }>
+      {({ ref, onFocus, onBlur }) => (
+        <RefButton ref={ref} onClick={onFocus} onBlur={onBlur}>
+          Click me
+        </RefButton>
+      )}
     </Popover>
   </Story>
 </Preview>
@@ -71,6 +93,3 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `B
     </Popover>
   </Story>
 </Preview>
-
-## Prop Types
-<Props of={Popover} />
