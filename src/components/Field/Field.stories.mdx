@@ -27,6 +27,26 @@ The base Field compoonent with all default props.
   </Story>
 </Preview>
 
+
+## Number
+Pass `Number` to the `type` prop to render a Number input. 
+
+It also accepts numbers passed to the optional `minValue` and `maxValue` props.
+
+<Preview>
+  <Story name="Number">
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Fragment>
+          <Field id="field-number" label="Message" type="Number" value={value} onChange={setValue} minValue={5} maxValue={10} />
+          <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
 ## Textarea
 Pass `Textarea` to the `type` prop to render a Text area.
 

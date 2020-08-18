@@ -13,6 +13,8 @@ declare namespace IField {
     disabled?: boolean
     state?: UIState
     msg?: string
+    minValue?: number
+    maxValue?: number
     options?: any[]
     onChange: (value: any) => void
   }
