@@ -38,7 +38,7 @@ const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}
           newFocused = false
         }
       } else {
-        const isInside = e.currentTarget.contains(e.relatedTarget)
+        const isInside = (e.currentTarget || e.target)?.contains(e.relatedTarget)
         if (!isInside) {
           newFocused = false
         }

@@ -20,6 +20,17 @@ This is the tooltip in its simplest form.
   </Story>
 </Preview>
 
+## Trigger
+Pass a value to the `trigger` prop and the desired trigger will be applied, this example is set to `Click`.
+
+<Preview>
+  <Story name="Trigger">
+    <Text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, <Tooltip trigger="Click" render={<div>I am a Tooltip!</div>}><strong>toggle</strong></Tooltip> do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </Text>
+  </Story>
+</Preview>
+
 ## Alignment
 Pass a value to the `align` prop and you'll see the desired tooltip rendered. `Top` is the default value, so the prop can be omitted.
 
@@ -27,7 +38,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `T
 <Preview>
   <Story name="Align-Left">
     <Tooltip align="Left" render={<div>I am a Tooltip!</div>}>
-      {(value) => (<RefButton {...value} >Align left</RefButton>)}
+      <strong>toggle</strong>
     </Tooltip>
   </Story>
 </Preview>
@@ -36,7 +47,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `T
 <Preview>
   <Story name="Align-Right">
     <Tooltip align="Right" render={<div>I am a Tooltip!</div>}>
-      {(value) => (<RefButton {...value}>Align right</RefButton>)}
+      <strong>toggle</strong>
     </Tooltip>
   </Story>
 </Preview>
@@ -45,7 +56,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `T
 <Preview>
   <Story name="Align-Top">
     <Tooltip align="Top" render={<div>I am a Tooltip!</div>}>
-      {(value) => (<RefButton {...value}>Align top</RefButton>)}
+      <strong>toggle</strong>
     </Tooltip>
   </Story>
 </Preview>
@@ -54,7 +65,7 @@ Pass a value to the `align` prop and you'll see the desired tooltip rendered. `T
 <Preview>
   <Story name="Align-Bottom">
     <Tooltip align="Bottom" render={<div>I am a Tooltip!</div>}>
-      {(value) => (<RefButton {...value}>Align bottom</RefButton>)}
+      <strong>toggle</strong>
     </Tooltip>
   </Story>
 </Preview>
