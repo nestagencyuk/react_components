@@ -77,8 +77,6 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
       {controls.footer.visible && (
         <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
       )}
-
-      <Button type="submit">Submit</Button>
     </form>
   )
 }

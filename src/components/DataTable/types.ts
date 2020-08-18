@@ -42,6 +42,7 @@ declare namespace IDataTable {
     rowCount?: boolean | number
     pagination: {
       pageLimit: number
+      visible: boolean
     }
   }
 
@@ -69,7 +70,7 @@ declare namespace IDataTable {
   interface ICellConfig {
     id: string
     name: string
-    value: any
+    value?: any
     type?: 'text' | 'number' | 'search' | 'select' | 'string'
     placeholder?: string
     multi?: boolean
