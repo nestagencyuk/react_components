@@ -17,7 +17,7 @@ declare namespace IDataTable {
     addRow: (value: GenericObject) => void
     editRow: (value: GenericObject & { _uid: string }) => void
     deleteRow: (uid: string) => void
-    handleSubmit: (e: FormData[]) => void
+    handleSubmit: (e: React.FormEvent) => void
   }
 }
 

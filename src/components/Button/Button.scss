@@ -40,6 +40,15 @@ $padding-x: spacing.$lg !default;
   cursor: pointer;
   text-align: center;
 
+  &:focus {
+    @include states.focus;
+  }
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
   &--primary {
     background-color: colours.$brand-one;
     color: white;
@@ -61,6 +70,10 @@ $padding-x: spacing.$lg !default;
       border-color: colours.$brand-one;
       color: colours.$brand-one;
       fill: colours.$brand-one;
+    }
+
+    &:focus {
+      border-color: colours.$brand-one;
     }
   }
 
@@ -98,15 +111,6 @@ $padding-x: spacing.$lg !default;
   &--lg {
     padding-left: $padding-x * 1.5;
     padding-right: $padding-x * 1.5;
-  }
-
-  &:focus {
-    @include states.focus;
-  }
-
-  &--disabled,
-  &:disabled {
-    @include states.disabled;
   }
 
   .btn-group > & {

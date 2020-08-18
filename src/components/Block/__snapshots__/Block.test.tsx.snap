@@ -35,7 +35,7 @@ exports[`----- Block Component ----- Renders without crashing 1`] = `
     >
       <div
         class="p--xxl box box--center-x box--center-y box--fill"
-        data-testid="grid-item-inner"
+        data-testid="box"
       >
         <div>
           <header

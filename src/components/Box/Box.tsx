@@ -26,17 +26,14 @@ const alignY = {
 /**
  * A simple box/container component
  */
-const Box: React.FC<IBox.IProps> = (
-  { className, align, fill, children, testId = undefined },
-  ref: React.Ref<HTMLDivElement>
-) => {
+const Box: React.FC<IBox.IProps> = ({ className, align, fill, children }, ref?: React.Ref<HTMLDivElement>) => {
   const passRef = typeof ref === 'function' || Object.keys(ref).length > 0 ? { ref } : {}
 
   return (
     <div
       {...passRef}
       className={cx(className, 'box', alignX[align?.x], alignY[align?.y], { 'box--fill': fill })}
-      data-testid={testId}
+      data-testid="box"
     >
       {children}
     </div>

@@ -48,10 +48,6 @@ $directions: (
 /// -------------------
 
 .p {
-  &--0 {
-    padding: 0;
-  }
-
   @each $size-name, $size-prop in spacing.$all {
     &--#{$size-name} {
       padding: $size-prop;
@@ -64,6 +60,10 @@ $directions: (
         padding-#{$direction-name}: $size-prop;
       }
     }
+  }
+
+  &--0 {
+    padding: 0;
   }
 }
 

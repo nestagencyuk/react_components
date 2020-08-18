@@ -9,7 +9,7 @@ import { DataTableRow } from '.'
 /**
  * Render a table cell
  */
-const DataTableBody: React.FC<IDataTable.IBodyProps> = ({ controls, columns, rows, managedRows }) => {
+const DataTableBody: React.FC<IDataTable.IBodyProps> = ({ controls, columns, rows, managedRows, tableType }) => {
   return (
     <tbody>
       {managedRows.map((x: IDataTable.IManagedRowConfig, i: number) => (
@@ -19,6 +19,7 @@ const DataTableBody: React.FC<IDataTable.IBodyProps> = ({ controls, columns, row
           columns={columns}
           // @ts-ignore
           cells={rows[i] || rows[0]}
+          tableType={tableType}
           data={x}
         />
       ))}

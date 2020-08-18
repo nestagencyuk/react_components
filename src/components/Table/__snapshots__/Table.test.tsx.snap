@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`----- Box Component ----- Renders without crashing 1`] = `
+exports[`----- Table Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    class="box"
-    data-testid="box"
+    class="table table--primary"
   >
     Test
   </div>
