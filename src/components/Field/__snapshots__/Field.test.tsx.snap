@@ -6,13 +6,14 @@ exports[`----- Field Component ----- Renders without crashing 1`] = `
     class="field field--info"
   >
     <label
-      class="field__label m--b-md text--bold"
+      aria-label="field"
+      class="m--b-md label label--stacked"
       for="field"
     >
       This is a test label
     </label>
     <input
-      class="input--md input"
+      class="field__input input--md input"
       data-testid="field"
       id="field"
       type="Text"

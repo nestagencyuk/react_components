@@ -16,7 +16,7 @@
 $padding-x: spacing.$md !default;
 $padding-y: spacing.$xs !default;
 $border-radius: corners.$base !default;
-$bg-colour: rgba(black, 0.5) !default;
+$bg-colour: rgba(black, 0.75) !default;
 $arrow-size: 0.5rem !default;
 
 /// -------------------
@@ -26,6 +26,7 @@ $arrow-size: 0.5rem !default;
 .tooltip {
   display: block;
   padding: 1rem;
+  z-index: z-index.$tooltip;
 
   &:focus {
     outline: none;

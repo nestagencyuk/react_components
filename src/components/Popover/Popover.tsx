@@ -78,6 +78,15 @@ const Popover: React.FC<IPopover.IProps | IPopover.IRenderProps> = ({ align = 'T
   )
 
   /**
+   * Prevent scroll
+   */
+  useEffect(() => {
+    if (!focused) {
+      document.body.style.overflow = null
+    }
+  }, [focused])
+
+  /**
    * Add key down event to the trigger element
    */
   useEffect(() => {

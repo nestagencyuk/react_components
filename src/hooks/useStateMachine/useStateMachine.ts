@@ -2,39 +2,13 @@ import { IUseStateMachine } from './types'
 import { useState, useEffect } from 'react'
 
 /**
- * Default machine
- */
-const defaultMachine: IUseStateMachine.IProps['machine'] = {
-  initial: 'Closed',
-  states: {
-    Closed: {
-      on: {
-        OPEN: 'Opening'
-      }
-    },
-    Opening: {
-      next: 'Open'
-    },
-    Open: {
-      on: {
-        CLOSE: 'Closing'
-      }
-    },
-    Closing: {
-      next: 'Closed'
-    }
-  }
-}
-
-/**
  * Provide a boolean state
  */
-const useStateMachine = ({ delay = 500, machine = defaultMachine, timeout }: IUseStateMachine.IProps = {}): [
+const useStateMachine = ({ delay = 500, machine }: IUseStateMachine.IProps = {}): [
   IUseStateMachine.IState,
   React.Dispatch<React.SetStateAction<IUseStateMachine.Event>>
 ] => {
   const [state, setState] = useState<IUseStateMachine.IState>(machine.initial)
-  const timer = () => setTimeout(() => dispatchEvent('CLOSE'), timeout)
 
   /**
    * Set the next in the state machine
@@ -44,15 +18,6 @@ const useStateMachine = ({ delay = 500, machine = defaultMachine, timeout }: IUs
       const next = machine.states[state].next
       if (next) setState(next)
     }, delay)
-  }
-
-  /**
-   * Handle closing if timeout is set
-   */
-  const handleTimeout = () => {
-    if (state === 'Open' && timeout) {
-      timer()
-    }
   }
 
   /**
@@ -68,9 +33,7 @@ const useStateMachine = ({ delay = 500, machine = defaultMachine, timeout }: IUs
    */
   useEffect(() => {
     if (!state) return
-    handleTimeout()
     setNext()
-    return () => clearTimeout(timer())
   }, [state])
 
   return [state, dispatchEvent]

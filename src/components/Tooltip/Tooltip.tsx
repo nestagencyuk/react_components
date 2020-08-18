@@ -58,10 +58,10 @@ const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', 
    */
   const events = useMemo(
     () => ({
-      onFocus: onFocus,
-      onBlur: onBlur
+      [trigger === 'Hover' ? 'onMouseEnter' : 'onFocus']: onFocus,
+      [trigger === 'Hover' ? 'onMouseLeave' : 'onBlur']: onBlur
     }),
-    []
+    [trigger]
   )
 
   return (

@@ -6,7 +6,7 @@ declare namespace IAlert {
   interface IProps {
     className?: string
     variant?: UIState
-    state?: OpenState
+    openState?: OpenState
     footer?: IFooterProps
     children: string
     header?: IHeaderProps

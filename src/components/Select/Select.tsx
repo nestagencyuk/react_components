@@ -15,7 +15,6 @@ import './Select.scss'
  * Components
  */
 import { SelectOptions } from '.'
-import { Button } from '../Button'
 import { Icon } from '../Icon'
 
 /**

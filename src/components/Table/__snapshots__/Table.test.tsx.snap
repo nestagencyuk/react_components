@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Table Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="table table--primary"
+  >
+    Test
+  </div>
+</DocumentFragment>
+`;

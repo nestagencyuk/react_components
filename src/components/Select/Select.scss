@@ -58,18 +58,6 @@ $bg-colour: colours.$ui-one !default;
   transition: all transitions.$ease;
   appearance: none;
 
-  .field--error & {
-    border-color: colours.$state-error;
-  }
-
-  .field--warning & {
-    border-color: colours.$state-warning;
-  }
-
-  .field--success & {
-    border-color: colours.$state-success;
-  }
-
   &:read-only {
     cursor: pointer;
   }

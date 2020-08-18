@@ -15,7 +15,6 @@ import './DataTable.scss'
 import { Box } from '../Box'
 import { Overlay } from '../Overlay'
 import { Loader } from '../Loader'
-import { Button } from '../Button'
 import { DataTable as BaseDataTable } from '../../context/DataTable'
 
 /**
@@ -29,7 +28,7 @@ import { GenericObject } from 'types'
  */
 const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: React.FormEvent) => void }> = ({
   className,
-  loading,
+  loadingState = 'Idle',
   controls,
   header,
   rows,
@@ -37,13 +36,14 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
   onSubmit
 }) => {
   const [columns, setColumns] = useState(header)
+  const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination.pageLimit || 100)
 
   /**
    * Set pagination
    */
   const pagination = usePaginationV2({
     array: data,
-    pageLimit: controls.footer.pagination.pageLimit || 20
+    pageLimit: paginationPageLimit
   })
 
   return (
@@ -54,7 +54,7 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
         className="datatable__main"
         style={{ minHeight: controls.global.minHeight || 800, maxHeight: controls.global.maxHeight || 1000 }}
       >
-        {loading && (
+        {loadingState === 'Loading' && (
           <Overlay variant="Inverse">
             <Box align={{ x: 'Center', y: 'Center' }} fill>
               <Loader variant="Bounce" />
@@ -64,15 +64,24 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
 
         <table className={cx(className, 'datatable__table')}>
           <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
-          <DataTableBody controls={controls.row} columns={columns} rows={rows} managedRows={pagination.currentSlice} />
+          <DataTableBody
+            controls={controls.row}
+            columns={columns}
+            rows={rows}
+            managedRows={pagination.currentSlice}
+            tableType={controls.global.type || 'standard'}
+          />
         </table>
       </div>
 
       {controls.footer.visible && (
-        <DataTableFooter controls={controls.footer} pagination={pagination} rowCount={data.length} />
+        <DataTableFooter
+          controls={controls.footer}
+          pagination={pagination}
+          rowCount={data.length}
+          setPaginationPageLimit={setPaginationPageLimit}
+        />
       )}
-
-      <Button type="submit">Submit</Button>
     </form>
   )
 }
