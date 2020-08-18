@@ -1,9 +1,9 @@
-import { GenericObject } from '../../types'
+import { GenericObject, LoadingState } from '../../types'
 
 declare namespace IDataTable {
   interface IProps {
     className?: string
-    loading?: boolean
+    loadingState?: LoadingState
     controls: {
       global: IGlobalConfig
       row: IRowControls
@@ -12,7 +12,7 @@ declare namespace IDataTable {
     header: IColumnConfig[]
     rows: ICellConfig[][]
     data: GenericObject[]
-    onSubmit: (data: GenericObject[]) => void
+    onSubmit?: (data: GenericObject[]) => void
   }
 
   // Config types
@@ -70,8 +70,6 @@ declare namespace IDataTable {
 
   interface ICellConfig {
     id: string
-    name: string
-    value?: any
     type?: 'text' | 'number' | 'search' | 'select' | 'string'
     placeholder?: string
     multi?: boolean

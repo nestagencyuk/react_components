@@ -175,7 +175,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 id="quantity"
                 max="10"
                 min="5"
-                name="quantity"
                 tabindex="0"
                 type="Number"
                 value="11"
@@ -190,7 +189,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 data-testid="batch"
                 id="batch"
                 maxlength="5"
-                name="batch"
                 tabindex="0"
                 type="Text"
                 value="123"
@@ -291,7 +289,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 id="quantity"
                 max="10"
                 min="5"
-                name="quantity"
                 tabindex="0"
                 type="Number"
                 value="11"
@@ -306,7 +303,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 data-testid="batch"
                 id="batch"
                 maxlength="5"
-                name="batch"
                 tabindex="0"
                 type="Text"
                 value="123"
@@ -347,14 +343,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         <div
           class="grid__item grid__item--6"
         >
-          <p
-            class="text--bold text text--p text--left"
+          <span
+            class="text--bold m--r-md text text--p text--left"
           >
             2 Rows
-          </p>
+          </span>
           <label
             aria-label="pagination-page-limit"
-            class="m--r-sm label"
+            class="m--r-sm label label--inline"
             for="pagination-page-limit"
           >
             Show

@@ -209,22 +209,8 @@ Pass `Upload` to the `type` prop to render a Date Picker.
       }
       return (
         <Fragment>
-          <Field type="Upload" label="Upload" loadingState={loadingState} onChange={mockUpload} />
+          <Field id="file-upload" type="Upload" label="Upload" loadingState={loadingState} onChange={mockUpload} />
         </Fragment>
-      )
-    }}
-  </Story>
-</Preview>
-
-## Custom
-You can also pass a component to the `type` prop.
-
-<Preview>
-  <Story name="Custom">
-    {() => {
-      const [value, setValue] = useState('')
-      return (
-        <Field id="field-custom" label="Custom" type={<p className="p">I am a custom field!</p>} value={value} onChange={setValue} />
       )
     }}
   </Story>
@@ -253,7 +239,7 @@ To set the state of a field, pass either `Error`, `Warning` or `Success` to the 
         }
       }
       return (
-        <Field id="field-states" label="Name" type="text" value={value} uiState={uiState} msg={msg} onChange={handleChange} />
+        <Field id="field-states" label="Name" type="Text" value={value} uiState={uiState} msg={msg} onChange={handleChange} />
       )
     }}
   </Story>

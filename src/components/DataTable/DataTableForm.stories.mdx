@@ -3,7 +3,9 @@ import { useState, useEffect, Fragment } from 'react'
 import { Text } from '../Text'
 import { Loader } from '../Loader'
 import { DataTable } from '.'
-import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig } from './DataTableConfig.ts'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard } from './DataTableConfig.ts'
 
 <Meta title="Components|Data Table/Form" component={DataTable} />
 
@@ -17,14 +19,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name="Base">
     {() => {
       const [value, setValue] = useState(null)
-      const [loading, setLoading] = useState(true)
-      useEffect(() => setLoading(false), [])
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
+      useEffect(() => {
+        dispatchEvent('SUCCESS')
+      }, [])
       return (
         <Fragment>
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
           <DataTable 
-            loading={loading}
+            loadingState={loadingState}
             controls={testConfig.controls}
             header={testConfig.header} 
             rows={testConfig.rows}
@@ -46,7 +50,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <Story name="WithData">
     {() => {
       const [value, setValue] = useState(null)
-      const [loading, setLoading] = useState(true)
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
       const [data, setData] = useState(testConfig.data)
       const chance = new (require('chance'))()
       useEffect(() => {
@@ -59,7 +63,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }))
         setTimeout(() => {
           setData(fakeData)
-          setLoading(false)
+          dispatchEvent('SUCCESS')
         }, 3000)
       }, [])
       return (
@@ -67,7 +71,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
           <DataTable
-            loading={loading}
+            loadingState={loadingState}
             controls={testConfig.controls}
             header={testConfig.header} 
             rows={testConfig.rows}
