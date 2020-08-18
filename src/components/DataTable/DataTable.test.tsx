@@ -36,7 +36,6 @@ describe('----- DataTable Component -----', () => {
         visible: true,
         rowCount: true,
         pagination: {
-          visible: true,
           pageLimit: 10
         }
       }
@@ -73,7 +72,6 @@ describe('----- DataTable Component -----', () => {
       [
         {
           id: 'product_sku',
-          name: 'product_sku',
           type: 'search',
           value: null,
           filterable: true,
@@ -82,20 +80,18 @@ describe('----- DataTable Component -----', () => {
         },
         {
           id: 'product_description',
-          name: 'test_cell_2',
           value: null,
           type: 'string'
         },
         {
           id: 'unit_of_measure',
-          name: 'uom',
           type: 'select',
           value: null,
           multi: true,
           options: [{ label: 'option1', value: 'value1' }]
         },
-        { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
-        { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
+        { id: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
+        { id: 'batch', type: 'text', value: null, maxLength: 5 }
       ]
     ],
     data: Array.from(Array(2).keys()).map((x) => ({
@@ -124,7 +120,7 @@ describe('----- DataTable Component -----', () => {
           {...testConfig}
           controls={{
             ...testConfig.controls,
-            footer: { ...testConfig.controls.footer, pagination: { visible: true, pageLimit: 5 } }
+            footer: { ...testConfig.controls.footer, pagination: { pageLimit: 5 } }
           }}
         />
       )

@@ -23,14 +23,12 @@ const testConfig: any = {
       visible: true,
       buttonCopyRow: true,
       buttonDeleteRow: true,
-      buttonLockRow: true,
-      buttonLoadPage: true
+      buttonLockRow: true
     },
     footer: {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
         pagLimit: 5
       }
     }
@@ -46,7 +44,6 @@ const testConfig: any = {
     [
       {
         id: 'product_sku',
-        name: 'product_sku',
         type: 'search',
         value: null,
         filterable: true,
@@ -66,7 +63,6 @@ const testConfig: any = {
       { id: 'product_description', type: 'string', name: 'product_description' },
       {
         id: 'unit_of_measure',
-        name: 'uom',
         type: 'select',
         value: null,
         multi: true,
@@ -81,8 +77,8 @@ const testConfig: any = {
           { label: testUOMs[7], value: testUOMs[7] }
         ]
       },
-      { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
-      { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
+      { id: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
+      { id: 'batch', type: 'text', value: null, maxLength: 5 }
     ]
   ],
   data: [
