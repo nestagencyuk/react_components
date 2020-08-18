@@ -83,8 +83,6 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
           setPaginationPageLimit={setPaginationPageLimit}
         />
       )}
-
-      <Button type="submit">Submit</Button>
     </form>
   )
 }

@@ -373,7 +373,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 data-testid="pagination-page-limit-input"
                 id="pagination-page-limit"
                 name="pagination-page-limit"
-                placeholder="100"
+                placeholder="10"
                 readonly=""
                 value=""
               />
@@ -426,16 +426,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </div>
       </div>
     </footer>
-    <button
-      class="btn btn--primary btn--md"
-      type="submit"
-    >
-      <span
-        class="w--100"
-      >
-        Submit
-      </span>
-    </button>
   </form>
 </DocumentFragment>
 `;
