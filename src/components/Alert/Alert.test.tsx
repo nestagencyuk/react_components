@@ -18,7 +18,7 @@ describe('----- Alert Component -----', () => {
 
   it('Renders optional props', () => {
     render(
-      <Alert {...baseProps} variant="Info" state="Closed">
+      <Alert {...baseProps} variant="Info" openState="Closed">
         Alert
       </Alert>
     )

@@ -45,11 +45,12 @@ declare namespace IDataTable {
   }
 
   interface IColumnConfig {
-    defaultWidth?: number
+    id: string
+    name: string
     resizable?: boolean
     visible: boolean
-    name: string
-    id: string
+    sortable?: boolean
+    defaultWidth?: number
   }
 
   interface IRowConfig {

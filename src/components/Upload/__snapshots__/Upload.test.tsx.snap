@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Upload Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="upload"
+  >
+    <div
+      class="upload__drop"
+    >
+      <label
+        class="upload__label"
+        for="upload"
+      >
+        Choose file(s) or drag 'n' drop here
+      </label>
+      <button
+        class="upload__action action action--primary action--sm action--disabled"
+        disabled=""
+        title="Upload"
+        type="button"
+      >
+        <span
+          class="action__icn icn icn--md icn--active"
+          title="Upload"
+        />
+        <span
+          class="text--screen-reader"
+        >
+          Upload
+        </span>
+      </button>
+      <input
+        class="upload__input"
+        id="upload"
+        multiple=""
+        name="upload"
+        type="file"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

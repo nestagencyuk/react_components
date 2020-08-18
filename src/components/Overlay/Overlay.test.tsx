@@ -21,7 +21,7 @@ describe('----- Overlay Component -----', () => {
 
   it('Handles closed state', () => {
     const { queryByText } = render(
-      <Overlay {...baseProps} state="Closed">
+      <Overlay {...baseProps} openState="Closed">
         Lorem ipsum
       </Overlay>
     )

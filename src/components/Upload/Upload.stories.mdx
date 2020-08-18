@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useState } from 'react'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
+import { Text } from '../Text'
+import { Upload } from '.'
+
+<Meta title="Components|Forms/Upload" component={Upload} />
+
+# Upload
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [value, setValue] = useState('')
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: loading })
+      const mockUpload = (value) => {
+        dispatchEvent('LOAD')
+        setTimeout(() => {
+          dispatchEvent('SUCCESS')
+          setValue(value)
+          dispatchEvent('RESET')
+        }, 2000)
+      }
+      return (
+        <div>
+          <Text>Value: {value && value.map((x) => x && `${x.name}, `)}</Text>
+          <Upload id="file" loadingState={loadingState} value={value} onChange={mockUpload} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>

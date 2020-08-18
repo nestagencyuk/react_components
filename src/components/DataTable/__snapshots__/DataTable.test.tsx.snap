@@ -19,7 +19,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Filter Data
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
+          class="btn__icn btn__icn--end icn icn--md"
           title="Filter"
         />
       </button>
@@ -33,7 +33,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Customise Table
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
+          class="btn__icn btn__icn--end icn icn--md"
           title="Table-columns"
         />
       </button>
@@ -53,7 +53,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Add Row
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
+          class="btn__icn btn__icn--end icn icn--md"
           title="Plus"
         />
       </button>

@@ -27,7 +27,7 @@ describe('----- Drawer Component -----', () => {
   })
 
   it('Handles initial closed state', () => {
-    render(<Drawer {...baseProps} state="Closed" />)
+    render(<Drawer {...baseProps} openState="Closed" />)
   })
 
   it('Fires keydown event', () => {

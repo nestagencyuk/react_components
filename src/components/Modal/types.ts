@@ -5,7 +5,7 @@ import { IFooter } from '../Footer/types'
 declare namespace IModal {
   interface IProps {
     className?: string
-    state?: OpenState
+    openState?: OpenState
     header?: IHeaderProps
     footer?: IFooterProps
     children: React.ReactNode

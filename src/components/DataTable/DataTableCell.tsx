@@ -1,6 +1,5 @@
 import { IField } from '../Field/types'
 import { IDataTable } from './types'
-import { v4 as uid } from 'uuid'
 import * as React from 'react'
 import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { useField } from '@nestagencyuk/react_form-factory'
@@ -26,7 +25,7 @@ const DataTableCellPicker: React.FC<any> = (props) => {
     default:
       return (
         <Text className="p--sm" variant="P">
-          {props.value?.substring(0, 80)}...
+          {props.value?.length > 80 ? `${props.value.substring(0, 80)}...` : props.value}
         </Text>
       )
   }

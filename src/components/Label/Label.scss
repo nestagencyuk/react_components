@@ -14,9 +14,15 @@
 /// -------------------
 
 .label {
-  @include lib.components-flow;
-  vertical-align: top;
-  align-self: start;
+  display: block;
   font-weight: typography.$font-family--alt;
   font-family: typography.$font-regular;
+
+  &--interactive {
+    cursor: pointer;
+  }
+
+  &--inline {
+    display: inline-block;
+  }
 }

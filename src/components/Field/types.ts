@@ -1,4 +1,4 @@
-import { UIState } from '../../types'
+import { UIState, LoadingState } from '../../types'
 import { IInput } from '../Input/types'
 import { ReactDatePickerProps } from 'react-datepicker'
 
@@ -9,9 +9,10 @@ declare namespace IField {
     name?: string
     label?: string
     value?: any
-    type?: 'Select' | 'Checkbox' | 'Radio' | 'Textarea' | 'DatePicker' | IInput.IProps['type']
+    type?: 'Select' | 'Checkbox' | 'Radio' | 'Textarea' | 'DatePicker' | 'Upload' | IInput.IProps['type']
     disabled?: boolean
-    state?: UIState
+    uiState?: UIState
+    loadingState?: LoadingState
     msg?: string
     options?: any[]
     onChange: (value: any) => void
