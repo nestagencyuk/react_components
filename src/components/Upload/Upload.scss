@@ -1,0 +1,117 @@
+/// ----------------------------------------------------------------------
+
+/// Upload
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'colours';
+@use 'corners';
+@use 'transitions';
+@use 'typography';
+
+/// -------------------
+/// Upload config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// Upload selectors
+/// -------------------
+
+.upload {
+  display: block;
+  border-radius: corners.$base;
+}
+
+/// -------------------
+/// Upload drag/drop area
+/// -------------------
+
+.upload__drop {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: colours.$ui-one;
+  border-radius: corners.$base;
+}
+
+/// -------------------
+/// Upload drag/drop area
+/// -------------------
+
+.upload__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: dashed 2px colours.$ui-three;
+  border-radius: corners.$base;
+  color: colours.$ui-three;
+}
+
+/// -------------------
+/// Upload drag/drop area
+/// -------------------
+
+.upload__label {
+  @include lib.components-flow;
+  width: 100%;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  cursor: pointer;
+}
+
+/// -------------------
+/// Upload drag/drop area
+/// -------------------
+
+.upload__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/// -------------------
+/// Upload drag/drop area
+/// -------------------
+
+.upload__action {
+  margin-right: $padding-x;
+}
+
+/// -------------------
+/// Upload file list
+/// -------------------
+
+.upload__list {
+  @include lib.resets-list;
+  border: dashed 1px colours.$ui-two;
+  border-bottom-right-radius: corners.$base;
+  border-bottom-left-radius: corners.$base;
+}
+
+/// -------------------
+/// Upload file item
+/// -------------------
+
+.upload__item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: corners.$base;
+  font-size: map-get(typography.$small, 'font-size');
+  border-bottom: dashed 1px colours.$ui-two;
+  padding: spacing.$xs $padding-x;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

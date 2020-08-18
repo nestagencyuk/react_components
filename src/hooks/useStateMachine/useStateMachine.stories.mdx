@@ -13,7 +13,7 @@ A hook that provides a finite state machine to have more control over a componen
 The hook in its simplest form. The default state machine is optimised for an opening & closing effect:
 
 ```js
-const defaultMachine = {
+const opening = {
   initial: 'Closed',
   states: {
     Closed: {
@@ -39,7 +39,7 @@ const defaultMachine = {
 <Preview>
   <Story name="Base">
     {() => {
-      const [state, sendEvent] = useStateMachine()
+      const [state, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Text>{state}</Text>

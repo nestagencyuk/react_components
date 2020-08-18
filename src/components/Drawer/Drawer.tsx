@@ -17,7 +17,7 @@ import { Overlay } from '../Overlay'
 /**
  * States
  */
-const states = {
+const openStates = {
   Closed: 'animate',
   Opening: 'animate animate--swipe-in-left',
   Open: 'animate',
@@ -27,7 +27,7 @@ const states = {
 /**
  * A drawer container that slides out and overlays the main body
  */
-const Drawer: React.FC<IDrawer.IProps> = ({ className, state = 'Open', children, onClick }) => {
+const Drawer: React.FC<IDrawer.IProps> = ({ className, openState = 'Open', children, onClick }) => {
   /**
    * Close drawer on esc key press
    */
@@ -43,11 +43,11 @@ const Drawer: React.FC<IDrawer.IProps> = ({ className, state = 'Open', children,
     return () => window.removeEventListener('keydown', handleKeydown)
   }, [])
 
-  return state !== 'Closed' ? (
+  return openState !== 'Closed' ? (
     <Fragment>
-      <Overlay state={state} portal fixed onClick={onClick} />
+      <Overlay openState={openState} portal fixed onClick={onClick} />
       <Float className="p--0" portal align={{ x: 'Start', y: 'Start' }}>
-        <div className={cx(className, 'drawer', states[state])}>{children}</div>
+        <div className={cx(className, 'drawer', openStates[openState])}>{children}</div>
       </Float>
     </Fragment>
   ) : null

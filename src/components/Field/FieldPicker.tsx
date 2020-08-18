@@ -10,6 +10,7 @@ import { Radio } from '../Radio'
 import { Select } from '../Select'
 import { Textarea } from '../Textarea'
 import { DatePicker } from '../DatePicker'
+import { Upload } from '../Upload'
 
 /**
  * Field picker
@@ -26,6 +27,8 @@ const FieldPicker: React.FC<IField.IProps> = ({ type = 'Text', ...props }) => {
       return <Textarea {...props} />
     case 'DatePicker':
       return <DatePicker {...props} />
+    case 'Upload':
+      return <Upload {...props} />
     default:
       return <Input type={type} {...props} />
   }

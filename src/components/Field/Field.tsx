@@ -12,12 +12,13 @@ import './Field.scss'
  * Components
  */
 import { Icon } from '../Icon'
+import { Label } from '../Label'
 import { FieldPicker } from '.'
 
 /**
  * Validation message
  */
-const states = {
+const uiStates = {
   Success: 'field--success',
   Warning: 'field--warning',
   Error: 'field--error',
@@ -37,22 +38,32 @@ const icons: IIcon.IIconTypes = {
 /**
  * Field wrapper component
  */
-const Field: React.FC<IField.IProps> = ({ className, label, state, msg, type, ...props }) => {
-  return (
-    <div className={cx(className, 'field', states[state])}>
-      {label && (
-        <label
-          className={cx('field__label m--b-md text--bold', {
-            'field__label--interactive': type === 'Checkbox' || type === 'Radio'
-          })}
-          htmlFor={props.id}
-        >
-          {label}
-        </label>
-      )}
-      <FieldPicker state={state} type={type} {...props} />
+const Field: React.FC<IField.IProps> = ({ className, label, uiState, msg, type, ...props }) => {
+  const isBoolean = type === 'Checkbox' || type === 'Radio'
 
-      {state && <Icon className={'field__icn'} name={icons[state]} colour={state} />}
+  /**
+   * Render label
+   */
+  const renderLabel = (align: 'Start' | 'End') => (
+    <Label
+      className={cx(align === 'End' ? 'm--l-md' : 'm--b-md')}
+      variant={align === 'End' ? 'Inline' : 'Stacked'}
+      for={props.id}
+      interactive={isBoolean}
+    >
+      {label}
+    </Label>
+  )
+
+  return (
+    <div className={cx(className, 'field', uiStates[uiState])}>
+      {label && !isBoolean && renderLabel('Start')}
+
+      <FieldPicker className={!isBoolean && 'field__input'} type={type} {...props} />
+
+      {label && isBoolean && renderLabel('End')}
+
+      {uiState && <Icon className={'field__icn'} name={icons[uiState]} colour={uiState} />}
       {msg && <p className={'field__msg'}>{msg}</p>}
     </div>
   )

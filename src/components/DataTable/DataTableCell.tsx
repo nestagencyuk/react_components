@@ -35,7 +35,7 @@ const DataTableCellPicker: React.FC<any> = (props) => {
       default:
         return (
           <Text className="p--sm" variant="P">
-            {props.value?.substring(0, 80)}...
+            {props.value?.length > 80 ? `${props.value.substring(0, 80)}...` : props.value}
           </Text>
         )
     }

@@ -4,7 +4,7 @@ declare namespace IOverlay {
   interface IProps {
     className?: string
     variant?: 'Inverse'
-    state?: OpenState
+    openState?: OpenState
     portal?: boolean
     fixed?: boolean
     children?: React.ReactNode

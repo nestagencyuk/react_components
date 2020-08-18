@@ -8,10 +8,22 @@ import cx from 'classnames'
 import './Label.scss'
 
 /**
+ * Variants
+ */
+const variants = {
+  Inline: 'label--inline',
+  Stacked: 'label--stacked'
+}
+
+/**
  * A label
  */
-const Label: React.FC<ILabel.IProps> = ({ className, for: htmlFor, children }) => (
-  <label className={cx(className, 'label')} htmlFor={htmlFor} aria-label={htmlFor}>
+const Label: React.FC<ILabel.IProps> = ({ className, variant = 'Stacked', for: htmlFor, interactive, children }) => (
+  <label
+    className={cx(className, 'label', variants[variant], { 'label--interactive': interactive })}
+    htmlFor={htmlFor}
+    aria-label={htmlFor}
+  >
     {children}
   </label>
 )
