@@ -12,7 +12,7 @@ import { DataTableContext } from '../../context/DataTable'
 /**
  * Components
  */
-import { Grid, GridItem } from '../Grid'
+import { Label } from '../Label'
 import { Popover } from '../Popover'
 import { Input } from '../Input'
 import { Checkbox } from '../Checkbox'
@@ -47,7 +47,6 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           className="m--r-md"
           icon={{
             name: 'Filter',
-            size: 'Small',
             align: 'End'
           }}
           size="Small"
@@ -61,7 +60,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           render={
             <div style={{ width: '250px' }}>
               {header.map((x: any, i: number) => (
-                <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
+                <Label key={`label-${x.id}`} className="p--sm w--100" for={`label-${x.id}-${i}`} interactive>
                   <Checkbox
                     className="m--r-xs"
                     id={`label-${x.id}-${i}`}
@@ -69,7 +68,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
                     onChange={() => setToggled(`label-${x.id}`)}
                   />
                   {x.name}
-                </label>
+                </Label>
               ))}
             </div>
           }
@@ -81,7 +80,6 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
               className="m--r-md"
               icon={{
                 name: 'Table-columns',
-                size: 'Small',
                 align: 'End'
               }}
               size="Small"
@@ -101,7 +99,6 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
           className="m--l-auto"
           icon={{
             name: 'Plus',
-            size: 'Small',
             align: 'End'
           }}
           size="Small"

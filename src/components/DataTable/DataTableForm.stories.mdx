@@ -3,7 +3,9 @@ import { useState, useEffect, Fragment } from 'react'
 import { Text } from '../Text'
 import { Loader } from '../Loader'
 import { DataTable } from '.'
-import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig } from './DataTableConfig.ts'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard } from './DataTableConfig.ts'
 
 <Meta title="Components|Data Table/Form" component={DataTable} />
 
@@ -114,14 +116,16 @@ A table with all default options and no initial data.
   <Story name="Base">
     {() => {
       const [value, setValue] = useState(null)
-      const [loading, setLoading] = useState(true)
-      useEffect(() => setLoading(false), [])
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
+      useEffect(() => {
+        dispatchEvent('SUCCESS')
+      }, [])
       return (
         <Fragment>
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
           <DataTable 
-            loading={loading}
+            loadingState={loadingState}
             controls={testConfig.controls}
             header={testConfig.header} 
             rows={testConfig.rows}
@@ -142,7 +146,7 @@ A table with default options and test data.
   <Story name="WithData">
     {() => {
       const [value, setValue] = useState(null)
-      const [loading, setLoading] = useState(true)
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
       const [data, setData] = useState(testConfig.data)
       const chance = new (require('chance'))()
       useEffect(() => {
@@ -155,7 +159,7 @@ A table with default options and test data.
         }))
         setTimeout(() => {
           setData(fakeData)
-          setLoading(false)
+          dispatchEvent('SUCCESS')
         }, 3000)
       }, [])
       return (
@@ -163,7 +167,7 @@ A table with default options and test data.
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
           <DataTable
-            loading={loading}
+            loadingState={loadingState}
             controls={testConfig.controls}
             header={testConfig.header} 
             rows={testConfig.rows}

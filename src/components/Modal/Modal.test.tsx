@@ -17,7 +17,7 @@ describe('----- Modal Component -----', () => {
   })
 
   it('Renders with optional props', () => {
-    render(<Modal {...baseProps} state="Closed" />)
+    render(<Modal {...baseProps} openState="Closed" />)
   })
 
   it('Renders with children', () => {

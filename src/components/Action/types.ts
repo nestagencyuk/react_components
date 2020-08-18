@@ -1,4 +1,4 @@
-import { Size, UIState } from '../../types'
+import { Size } from '../../types'
 import { IIcon } from '../Icon/types'
 
 declare namespace IAction {
@@ -11,7 +11,6 @@ declare namespace IAction {
     variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Inverse'
     size?: 'XSmall' | Size
     type?: 'button' | 'submit'
-    state?: UIState
     icon: IIcon.IProps
     disabled?: boolean
     children: string

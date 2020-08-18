@@ -1,6 +1,8 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { inverseDecorator } from '../../../.storybook/decorators'
 import { useState } from 'react'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
 import { Action } from '.'
 
 <Meta title='Components|Base/Action' component={Action} />
@@ -54,21 +56,22 @@ Actions can be used to indicate to the user that something is happening using st
 <Preview>
   <Story name='States'>
     {() => {
-      const [state, setState] = useState('Default')
-      const states = {
-        Default: { icon: { name: 'Edit' }, text: 'Action' },
-        Active: { icon: { name: 'Loading', active: true }, text: 'Loading...' },
-        Success: { icon: { name: 'Success' }, text: 'Success' },
-        Warning: { icon: { name: 'Info' }, text: 'Warning' },
-        Error: { icon: { name: 'Error' }, text: 'Error' },
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: loading })
+      const loadingStates = {
+        Idle: { icon: 'Plus', text: 'Do something' },
+        Loading: { icon: 'Loading', text: 'Loading...' },
+        Done: { icon: 'Tick', text: 'Done' },
+        Retry: { icon: 'Cross', text: 'Retry' },
       }
       const handleClick = () => {
-        setState('Active')
-        const arr = ['Success', 'Warning', 'Error']
-        setTimeout(() => setState(arr[Math.floor(Math.random() * arr.length)]), 3000)
+        dispatchEvent('LOAD')
+        setTimeout(() => {
+          dispatchEvent('SUCCESS')
+          dispatchEvent('RESET')
+        }, 2000)
       }
       return (
-        <Action icon={states[state].icon} onClick={handleClick}>{states[state].text}</Action>
+        <Action icon={{ name: loadingStates[loadingState].icon, active: true }} onClick={handleClick}>{loadingStates[loadingState].text}</Action>
       )
     }}
   </Story>

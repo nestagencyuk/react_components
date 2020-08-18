@@ -9,7 +9,7 @@ exports[`----- DatePicker Component ----- Renders without crashing 1`] = `
       class="react-datepicker__input-container"
     >
       <input
-        class="input"
+        class="input w--100"
         type="text"
         value=""
       />

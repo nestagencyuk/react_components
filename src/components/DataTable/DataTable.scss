@@ -112,15 +112,28 @@ $padding-y: spacing.$md !default;
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
-    padding: spacing.$md spacing.$sm;
+    padding: spacing.$md spacing.$lg spacing.$md spacing.$sm;
     box-shadow: inset 0 -1px 0 colours.$ui-two;
     text-overflow: ellipsis;
     background-color: white;
     z-index: z-index.$datatable;
+    vertical-align: middle;
   }
 
   &--resizable {
     resize: horizontal;
+  }
+}
+
+/// -------------------
+/// Data Table selectors
+/// -------------------
+
+.datatable__cell-btn {
+  .datatable__header & {
+    @include lib.utilities-center-y;
+    right: 0;
+    vertical-align: middle;
   }
 }
 
@@ -140,7 +153,6 @@ $padding-y: spacing.$md !default;
 
 .datatable__footer {
   box-sizing: border-box;
-  position: sticky;
   width: 100%;
   bottom: 0;
   background-color: white;

@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect, useCallback, KeyboardEvent } from 'react'
 import { IUseFocus } from './types'
-import * as tabbable from 'tabbable'
 
 /**
  * Handles focus events for the target and its descendants.
@@ -37,6 +36,7 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
   const exit = () => {
     document.body.style.overflow = null
     tabbableRefs.current.forEach((el) => (el.current.tabIndex = -1))
+    setCursor(-1)
   }
 
   /**
@@ -46,10 +46,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
     (e: React.KeyboardEvent, cb?: any) => {
       if (!root) return
 
-      console.log('KEydown')
-
-      tabbableRefs.current = tabbable(root)
-        .map((el, i) => skip !== i && { current: el })
+      tabbableRefs.current = Array.from(root.querySelectorAll('a, button, input, select'))
+        .map((el, i) => skip !== i && { current: el as HTMLElement })
         .filter((x) => !!x)
 
       switch (e.key) {

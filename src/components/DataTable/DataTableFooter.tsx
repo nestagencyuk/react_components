@@ -37,13 +37,13 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
       <Grid>
         <GridItem span={6}>
           {controls.rowCount && (
-            <Text className="text--bold" data-testid="datatable-rowcount">{`${rowCount} ${
+            <Text className="text--bold m--r-md" tag="span" data-testid="datatable-rowcount">{`${rowCount} ${
               rowCount === 1 ? 'Row' : 'Rows'
             }`}</Text>
           )}
           {controls.pagination && (
             <Fragment>
-              <Label className="m--r-sm" for="pagination-page-limit">
+              <Label className="m--r-sm" variant="Inline" for="pagination-page-limit">
                 Show
               </Label>
               <Select

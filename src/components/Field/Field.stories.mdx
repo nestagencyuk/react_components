@@ -1,6 +1,8 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { selectDecorator } from '../../../.storybook/decorators'
 import { useState, Fragment } from 'react'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Field } from '.'
@@ -174,7 +176,7 @@ Pass `Radio` to the `type` prop to render a Radio component
 </Preview>
 
 ## DatePicker
-Pass `datePicker` to the `type` prop to render a Date Picker.
+Pass `Date` to the `type` prop to render a Date Picker.
 
 <Preview>
   <Story name="DatePicker">
@@ -182,22 +184,33 @@ Pass `datePicker` to the `type` prop to render a Date Picker.
       const [value, setValue] = useState(new Date());
       return (
         <Fragment>
-          <Field type="DatePicker" label={`${value}`} selected={value} placeholderText="Select a date or type" onChange={setValue} />
+          <Field type="DatePicker" label="Date" selected={value} placeholderText="Select a date or type" onChange={setValue} />
         </Fragment>
       )
     }}
   </Story>
 </Preview>
 
-## Custom
-You can also pass a component to the `type` prop.
+## Upload
+Pass `Upload` to the `type` prop to render a Date Picker.
 
 <Preview>
-  <Story name="Custom">
+  <Story name="Upload">
     {() => {
       const [value, setValue] = useState('')
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: loading })
+      const mockUpload = (value) => {
+        dispatchEvent('LOAD')
+        setTimeout(() => {
+          dispatchEvent('SUCCESS')
+          setValue(value)
+          dispatchEvent('RESET')
+        }, 2000)
+      }
       return (
-        <Field id="field-custom" label="Custom" type={<p className="p">I am a custom field!</p>} value={value} onChange={setValue} />
+        <Fragment>
+          <Field id="file-upload" type="Upload" label="Upload" loadingState={loadingState} onChange={mockUpload} />
+        </Fragment>
       )
     }}
   </Story>
@@ -210,23 +223,23 @@ To set the state of a field, pass either `Error`, `Warning` or `Success` to the 
   <Story name="States">
     {() => {
       const [value, setValue] = useState('')
-      const [state, setState] = useState(null)
+      const [uiState, setUIState] = useState(null)
       const [msg, setMsg] = useState(null)
       const handleChange = (value) => {
         setValue(value)
         if (value.length === 0) {
-          setState('Error')
+          setUIState('Error')
           setMsg('Please enter a value')
         } else if (value.length > 0 && value.length < 3) {
-          setState('Warning')
+          setUIState('Warning')
           setMsg('Please enter a longer value')
         } else {
-          setState('Success')
+          setUIState('Success')
           setMsg('Hoorah!')
         }
       }
       return (
-        <Field id="field-states" label="Name" type="text" value={value} state={state} msg={msg} onChange={handleChange} />
+        <Field id="field-states" label="Name" type="Text" value={value} uiState={uiState} msg={msg} onChange={handleChange} />
       )
     }}
   </Story>

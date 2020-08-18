@@ -15,7 +15,6 @@ import './DataTable.scss'
 import { Box } from '../Box'
 import { Overlay } from '../Overlay'
 import { Loader } from '../Loader'
-import { Button } from '../Button'
 import { DataTable as BaseDataTable } from '../../context/DataTable'
 
 /**
@@ -29,7 +28,7 @@ import { GenericObject } from 'types'
  */
 const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: React.FormEvent) => void }> = ({
   className,
-  loading,
+  loadingState = 'Idle',
   controls,
   header,
   rows,
@@ -55,7 +54,7 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
         className="datatable__main"
         style={{ minHeight: controls.global.minHeight || 800, maxHeight: controls.global.maxHeight || 1000 }}
       >
-        {loading && (
+        {loadingState === 'Loading' && (
           <Overlay variant="Inverse">
             <Box align={{ x: 'Center', y: 'Center' }} fill>
               <Loader variant="Bounce" />
