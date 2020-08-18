@@ -21,7 +21,8 @@ const DataTableCellPicker: React.FC<any> = (props) => {
         {JSON.stringify(props.value || '')
           .replace(/['"]+/g, '')
           .replace(/\W+/g, ' ')
-          .replace('null', '')}
+          .replace('null', '')
+          .substring(0, 80)}
       </Text>
     )
   } else {
@@ -47,7 +48,7 @@ const DataTableCellPicker: React.FC<any> = (props) => {
  */
 const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType }) => {
   const { value, handleChange } = useField({ id })
-  const castType = capitalise(config.type) as IField.IProps['type']
+  const castType = config.type && (capitalise(config.type) as IField.IProps['type'])
 
   return React.useMemo(
     () => (

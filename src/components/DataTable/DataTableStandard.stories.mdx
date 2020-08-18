@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useState, useEffect, Fragment } from 'react'
+import { Text } from '../Text'
+import { Loader } from '../Loader'
+import { DataTable } from '.'
+import { useStateMachine } from '../../hooks/useStateMachine'
+import { loading } from '../../states'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfigStandard } from './DataTableConfig.ts'
+
+<Meta title="Components|Data Table/Standard" component={DataTable} />
+
+# Data Table
+Like a normal table except it builds an editable table for user input.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [data, setData] = useState(testConfigStandard.data)
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
+      const chance = new (require('chance'))()
+      useEffect(() => {
+        const fakeData = Array.from(Array(1000).keys()).map(x => ({
+          product_sku: chance.pickone(testSKUS),
+          product_description: chance.pickone(testDescriptions),
+          unit_of_measure: chance.pickset(testUOMs, chance.integer({ min: 1, max: 5 })),
+          quantity: chance.pickone(testQuantities),
+          batch: chance.pickone(testBatch)
+        }))
+        setTimeout(() => {
+          setData(fakeData)
+          dispatchEvent('SUCCESS')
+        }, 3000)
+      }, [])
+      return (
+        <Fragment>
+          <DataTable
+            loadingState={loadingState}
+            controls={testConfigStandard.controls}
+            header={testConfigStandard.header} 
+            rows={testConfigStandard.rows}
+            data={data}
+          />
+          <div style={{ marginBottom: '50px' }} />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>

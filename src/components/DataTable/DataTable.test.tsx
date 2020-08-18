@@ -73,29 +73,23 @@ describe('----- DataTable Component -----', () => {
       [
         {
           id: 'product_sku',
-          name: 'product_sku',
           type: 'search',
-          value: null,
           filterable: true,
           ignoreTab: true,
           options: [{ label: 'option1', value: 'value1' }]
         },
         {
           id: 'product_description',
-          name: 'test_cell_2',
-          value: null,
           type: 'string'
         },
         {
           id: 'unit_of_measure',
-          name: 'uom',
           type: 'select',
-          value: null,
           multi: true,
           options: [{ label: 'option1', value: 'value1' }]
         },
-        { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
-        { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
+        { id: 'quantity', type: 'number', minValue: 5, maxValue: 10 },
+        { id: 'batch', type: 'text', maxLength: 5 }
       ]
     ],
     data: Array.from(Array(2).keys()).map((x) => ({
@@ -114,7 +108,7 @@ describe('----- DataTable Component -----', () => {
     })
 
     it('Renders loader', () => {
-      const { getByTestId } = render(<DataTable {...testConfig} loading />)
+      const { getByTestId } = render(<DataTable {...testConfig} loadingState="Loading" />)
       expect(getByTestId('loader')).toBeTruthy()
     })
 
@@ -264,8 +258,6 @@ describe('----- DataTable Component -----', () => {
             [
               {
                 id: 'test_cell_1',
-                name: 'test_cell_1',
-                value: null,
                 type: 'search',
                 options: [
                   {
@@ -276,8 +268,6 @@ describe('----- DataTable Component -----', () => {
               },
               {
                 id: 'test_cell_2',
-                name: 'test_cell_2',
-                value: null,
                 type: 'search',
                 options: [
                   {

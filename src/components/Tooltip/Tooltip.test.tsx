@@ -41,7 +41,7 @@ describe('----- ToolTip Component -----', () => {
     expect(toolTipText).toBeTruthy()
 
     await act(async () => {
-      fireEvent.focus(toolTipText)
+      fireEvent.mouseEnter(toolTipText)
     })
 
     const toolTipContainer = queryByTestId('toolTipContainer')

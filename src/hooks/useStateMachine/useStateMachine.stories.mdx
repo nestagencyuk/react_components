@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
+import { opening } from '../../states'
 import { Text } from '../../components/Text'
 import { Button } from '../../components/Button'
 import { useStateMachine } from '.'
@@ -43,7 +44,7 @@ const opening = {
       return (
         <Fragment>
           <Text>{state}</Text>
-          <Button onClick={() => sendEvent(state === 'Open' ? 'CLOSE' : 'OPEN')}>{state === 'Open' ? 'Untoggle' : 'Toggle me!'}</Button>
+          <Button onClick={() => dispatchEvent(state === 'Open' ? 'CLOSE' : 'OPEN')}>{state === 'Open' ? 'Untoggle' : 'Toggle me!'}</Button>
         </Fragment>
       )
     }}
