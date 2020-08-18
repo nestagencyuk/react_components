@@ -4,6 +4,7 @@ import { IIcon } from '../Icon/types'
 declare namespace IAction {
   interface IProps {
     className?: string
+    id?: string
     component?: React.FC
     href?: string
     to?: string
@@ -14,7 +15,6 @@ declare namespace IAction {
     icon: IIcon.IProps
     disabled?: boolean
     children: string
-    testId?: string
     onFocus?: (e: React.SyntheticEvent) => void
     onBlur?: (e: React.SyntheticEvent) => void
     onClick?: (e: React.SyntheticEvent) => void

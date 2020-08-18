@@ -25,15 +25,14 @@ const Input: React.FC<IInput.IProps> = ({
   id,
   name,
   type = 'Text',
+  size = 'Medium',
   value,
   disabled,
   maxLength,
-  testId,
   minValue,
   maxValue,
-  onChange,
-  size = 'Medium',
-  tabIndex
+  tabIndex,
+  onChange
 }) => {
   /**
    * Set a max/min value
@@ -52,14 +51,14 @@ const Input: React.FC<IInput.IProps> = ({
     <input
       className={cx(className, sizes[size], 'input', { 'input--disabled': disabled })}
       id={id}
+      data-testid={id}
       name={name}
-      type={type || type.toLowerCase()}
+      type={type}
       value={value || ''}
       disabled={disabled}
       placeholder={placeholder}
       maxLength={maxLength}
       min={minValue}
-      data-testid={testId}
       max={maxValue}
       tabIndex={tabIndex}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

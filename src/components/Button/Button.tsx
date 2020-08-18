@@ -74,8 +74,8 @@ const Button = (
       tabIndex={tabIndex}
       disabled={disabled}
       onFocus={onFocus}
-      onClick={onClick}
       onBlur={onBlur}
+      onClick={onClick}
     >
       {iconStart && <ButtonIcon {...icon} />}
       <span className="w--100">{children}</span>

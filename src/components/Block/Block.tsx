@@ -50,12 +50,7 @@ const Block: React.FC<IBlock.IProps> = (
       )}
 
       <GridItem span={12 - sizes[size]}>
-        <Box
-          testId="grid-item-inner"
-          className={cx(size === 'Small' ? 'p--l-xl p--r-xl' : 'p--xxl')}
-          align={{ x: 'Center', y: 'Center' }}
-          fill
-        >
+        <Box className={cx(size === 'Small' ? 'p--l-xl p--r-xl' : 'p--xxl')} align={{ x: 'Center', y: 'Center' }} fill>
           <div>
             <BlockHeader size={size} {...header} />
             {children}

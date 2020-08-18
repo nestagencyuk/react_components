@@ -33,7 +33,7 @@ describe('----- Block Component -----', () => {
 
   it('Renders correct classnames when size prop is passed', () => {
     const { queryByTestId } = render(<Block {...baseProps} size="Small" />)
-    const container = queryByTestId('grid-item-inner')
+    const container = queryByTestId('box')
     expect(container.className).toContain('p--l-xl p--r-xl')
   })
 

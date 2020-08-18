@@ -16,11 +16,12 @@ import { Popover } from '../Popover'
 import { RefAction } from '../Action'
 import { Button } from '../Button'
 import { DataTableCell } from '.'
+import { GenericObject } from 'types'
 
 /**
  * Table row
  */
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data }) => {
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType }) => {
   const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const { addRow, editRow, deleteRow } = useContext(DataTableContext)
   const [, onFocus, onBlur] = useFocus()
@@ -40,7 +41,7 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
       <Popover
         align="Right"
         render={
-          <div className="p--sm" style={{ width: '100px' }}>
+          <div className="p--sm" style={{ width: '100px' }} tabIndex={-1}>
             {controls.buttonCopyRow && (
               <Button className="w--100 m--b-sm" variant="Secondary" size="Small" onClick={() => addRow(data)}>
                 Copy
@@ -61,12 +62,12 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
       >
         {({ ref, onFocus, onBlur }) => (
           <RefAction
+            id="datatable-row-popover-btn"
             ref={ref}
             variant="Tertiary"
-            icon={{ name: 'Branch', size: 'Large' }}
+            icon={{ name: 'Ellipsis', size: 'Large' }}
             onClick={onFocus}
             onBlur={onBlur}
-            testId="dataTableRowPopover"
           >
             ...
           </RefAction>
@@ -76,15 +77,15 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
   }
 
   return (
-    <FormV2 data={data} onSubmit={(data: FormData & { _uid: string }) => editRow(data)}>
+    <FormV2 data={data} onSubmit={(data: GenericObject & { _uid: string }) => editRow(data)}>
       {({ handleSubmit }) => (
-        <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)} data-testid="dataTableRow">
+        <tr className="datatable__row" onFocus={onFocus} onBlur={(e) => onBlur(e, handleSubmit)} data-testid="datatable-row">
           {Object.keys(data)
             .filter((key) => key !== '_uid')
             .map(
               (key, i) =>
                 columns.find((x: any) => x.id === key)?.visible && (
-                  <DataTableCell key={`cell-${key}-${i}`} id={key} config={row[i]} />
+                  <DataTableCell tableType={tableType} key={`cell-${key}-${i}`} id={key} config={row[i]} />
                 )
             )}
           {controls.visible && <td className="datatable__cell text--center">{renderControls()}</td>}
