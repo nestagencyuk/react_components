@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { useState } from 'react'
+import { Text } from '../Text'
+import { Switch } from '.'
+
+<Meta title="Components|Forms/Switch" component={Switch} />
+
+# Switch
+A simple Switch which allows users to carry out an action. This is a controlled component so a `value` and an `onChange` prop must be passed.
+
+## Base
+The switch in its simplest form.
+
+<Preview>
+  <Story name="Base">
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <Switch id="switch" value={value} onChange={setValue} />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Disabled
+Pass boolean `true` to the `disabled` prop to render the desired switch. `false` is the default value, so the prop can be omitted.
+
+<Preview>
+  <Story name="Disabled">
+    <Switch id="switch" disabled />
+  </Story>
+</Preview>
+
+## Prop Types
+<Props of={Switch} />

@@ -47,7 +47,7 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
   })
 
   return (
-    <form className={cx(className, 'datatable')} onSubmit={onSubmit}>
+    <form className={cx(className, 'datatable')} onBlur={onSubmit}>
       {controls.global.visible && <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />}
 
       <div

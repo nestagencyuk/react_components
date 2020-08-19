@@ -1,5 +1,5 @@
 import { IIcon } from '../Icon/types'
-import { RefObject } from 'react'
+import { Size } from '../../types'
 
 declare namespace ISelect {
   interface IProps {
@@ -7,6 +7,7 @@ declare namespace ISelect {
     id: string
     multi?: boolean
     multiVariant?: 'Checkbox' | 'Tags'
+    size?: Size
     filterable?: boolean
     optional?: boolean
     placeholder?: string

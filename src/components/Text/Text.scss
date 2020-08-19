@@ -25,14 +25,16 @@ $margin-bottom: spacing.$sm !default;
 
   @each $variant-name, $variant-prop in typography.$all {
     &--#{$variant-name} {
-      @include lib.mixin-apply-props(
-        map-get(typography.$all, $variant-name)
-      );
+      @include lib.mixin-apply-props(map-get(typography.$all, $variant-name));
     }
   }
 
   &--inverse {
     color: white;
+  }
+
+  &--muted {
+    opacity: 0.5;
   }
 
   &--medium {
@@ -57,7 +59,7 @@ $margin-bottom: spacing.$sm !default;
 
   &--screen-reader {
     position: absolute !important;
-    height: 1px; 
+    height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px 1px 1px 1px);

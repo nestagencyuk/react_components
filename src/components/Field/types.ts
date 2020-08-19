@@ -10,6 +10,7 @@ declare namespace IField {
     label?: string
     value?: any
     type?: 'Select' | 'Checkbox' | 'Radio' | 'Textarea' | 'DatePicker' | 'Upload' | IInput.IProps['type']
+    required?: boolean
     disabled?: boolean
     uiState?: UIState
     loadingState?: LoadingState

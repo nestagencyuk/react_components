@@ -18,6 +18,15 @@ import { SelectOptions } from '.'
 import { Icon } from '../Icon'
 
 /**
+ * Sizes
+ */
+const sizes = {
+  Small: 'select__input--sm',
+  Medium: 'select__input--md',
+  Large: 'select__input--lg'
+}
+
+/**
  * Determine which select type to render
  */
 const Select: React.FC<ISelect.IProps> = ({
@@ -26,6 +35,7 @@ const Select: React.FC<ISelect.IProps> = ({
   tabIndex,
   multi,
   multiVariant = 'Checkbox',
+  size,
   filterable,
   optional,
   placeholder: initialPlaceholder = '-- Select --',
@@ -40,7 +50,7 @@ const Select: React.FC<ISelect.IProps> = ({
 
   const [placeholder, setPlaceholder] = useState(initialPlaceholder)
   const [filterValue, setFilterValue] = useState<string>('')
-  const [shownValue, setShownValue] = useState('')
+  const [shownValue, setShownValue] = useState<string>('')
   const [focused, setFocused] = useState<boolean>(false)
 
   const [, , onKeyDown] = useKeyboardNav({ root: ref.current, skip: 0 })
@@ -144,9 +154,17 @@ const Select: React.FC<ISelect.IProps> = ({
     } else {
       resetItems([value])
       setFocused(false)
+      setShownValue('')
       ref.current.parentElement.focus()
     }
   }
+
+  /**
+   * Listen to change in focused
+   */
+  useEffect(() => {
+    if (!focused) document.body.style.overflow = null
+  }, [focused])
 
   /**
    * Listen to change to filter value
@@ -186,9 +204,9 @@ const Select: React.FC<ISelect.IProps> = ({
       onBlur={handleBlur}
       onKeyDown={onKeyDown}
     >
-      <div style={{ position: 'relative', height: '3rem' }}>
+      <div style={{ position: 'relative' }}>
         <input
-          className="select__input"
+          className={cx('select__input', sizes[size])}
           id={id}
           data-testid={`${id}-input`}
           name={id}

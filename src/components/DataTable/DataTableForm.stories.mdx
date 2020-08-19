@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       return (
         <Fragment>
           <Text>Value:</Text>
-          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <pre className="p--md bg--ui-one text--sm" style={{ maxHeight: '450px', overflowY: 'scroll' }}>{JSON.stringify(value, null, 2)}</pre>
           <DataTable 
             loadingState={loadingState}
             controls={testConfig.controls}
@@ -69,7 +69,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       return (
         <Fragment>
           <Text>Value:</Text>
-          <pre className="p--md bg--ui-one text--sm">{JSON.stringify(value, null, 2)}</pre>
+          <pre className="p--md bg--ui-one text--sm" style={{ maxHeight: '450px', overflowY: 'scroll' }}>{JSON.stringify(value, null, 2)}</pre>
           <DataTable
             loadingState={loadingState}
             controls={testConfig.controls}

@@ -38,7 +38,7 @@ const icons: IIcon.IIconTypes = {
 /**
  * Field wrapper component
  */
-const Field: React.FC<IField.IProps> = ({ className, label, uiState, msg, type, ...props }) => {
+const Field: React.FC<IField.IProps> = ({ className, label, required, uiState, msg, type, ...props }) => {
   const isBoolean = type === 'Checkbox' || type === 'Radio'
 
   /**
@@ -52,6 +52,7 @@ const Field: React.FC<IField.IProps> = ({ className, label, uiState, msg, type, 
       interactive={isBoolean}
     >
       {label}
+      {required && <sup className="field__required">*</sup>}
     </Label>
   )
 

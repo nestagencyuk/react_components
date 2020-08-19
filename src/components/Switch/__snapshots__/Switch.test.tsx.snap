@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Switch Component ----- Renders disabled correctly without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="switch switch--disabled"
+    data-testid="switch-test"
+  >
+    <input
+      class="switch__input"
+      data-testid="switch-test-input"
+      disabled=""
+      id="switch-test"
+      type="checkbox"
+    />
+    <span
+      class="switch__icn"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`----- Switch Component ----- Renders without crashing 1`] = `
+<DocumentFragment>
+  <span
+    class="switch"
+    data-testid="switch-test"
+  >
+    <input
+      class="switch__input"
+      data-testid="switch-test-input"
+      id="switch-test"
+      type="checkbox"
+    />
+    <span
+      class="switch__icn"
+    />
+  </span>
+</DocumentFragment>
+`;

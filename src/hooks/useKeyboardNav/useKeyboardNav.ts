@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback, KeyboardEvent } from 'react'
 import { IUseFocus } from './types'
+import * as tabbable from 'tabbable'
 
 /**
  * Handles focus events for the target and its descendants.
@@ -46,8 +47,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
     (e: React.KeyboardEvent, cb?: any) => {
       if (!root) return
 
-      tabbableRefs.current = Array.from(root.querySelectorAll('a, button, input, select'))
-        .map((el, i) => skip !== i && { current: el as HTMLElement })
+      tabbableRefs.current = tabbable(root)
+        .map((el, i) => skip !== i && { current: el })
         .filter((x) => !!x)
 
       switch (e.key) {
