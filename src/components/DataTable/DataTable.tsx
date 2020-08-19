@@ -36,7 +36,7 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
   onSubmit
 }) => {
   const [columns, setColumns] = useState(header)
-  const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination.pageLimit || 100)
+  const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination?.pageLimit || 100)
 
   /**
    * Set pagination

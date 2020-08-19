@@ -24,14 +24,12 @@ const testConfig: IDataTable.IProps = {
       visible: true,
       buttonCopyRow: true,
       buttonDeleteRow: true,
-      buttonLockRow: true,
-      buttonLoadPage: true
+      buttonLockRow: true
     },
     footer: {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
         pageLimit: 5
       }
     }
@@ -116,7 +114,6 @@ const testConfigStandard: IDataTable.IProps = {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
         pageLimit: 5
       }
     }

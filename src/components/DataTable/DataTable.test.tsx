@@ -36,7 +36,6 @@ describe('----- DataTable Component -----', () => {
         visible: true,
         rowCount: true,
         pagination: {
-          visible: true,
           pageLimit: 10
         }
       }
@@ -118,7 +117,7 @@ describe('----- DataTable Component -----', () => {
           {...testConfig}
           controls={{
             ...testConfig.controls,
-            footer: { ...testConfig.controls.footer, pagination: { visible: true, pageLimit: 5 } }
+            footer: { ...testConfig.controls.footer, pagination: { pageLimit: 5 } }
           }}
         />
       )

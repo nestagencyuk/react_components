@@ -9,11 +9,108 @@ import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testCo
 
 <Meta title="Components|Data Table/Form" component={DataTable} />
 
-# Data Table
-Like a normal table except it builds an editable table for user input.
+# Data Table 🧙
+** Where we're going we don't need roads... **
+
+The Data Table component accepts JSON configuration to change the way various pieces of the table are rendered, how they behave and how the user can interact with them.
+
+The configuration is broken down into the following categories.
+
+## Controls 
+Configuration that is used to determine which controls or behaviours are available for a given area of the table.
+
+### Global
+| Property | Description | Value |
+|-|-|-|
+| type | Makes the table editable/static | `'form'` or `'standard'`|
+| visible | Show/hide all of the global controls | `boolean`|
+| buttonFilterData - *optional* | Show/hide the Filter Data button | `boolean`|
+| buttonCustomiseTable - *optional* | Show/hide the Customise Table button | `boolean`|
+| search - *optional* | Show/hide the Search Data field | `boolean`|
+| buttonAddRow - *optional* | Show/hide the Add Row button | `boolean`|
+| minHeight - *optional* | Set the minimum height | `number` |
+| maxHeight - *optional* | Set the maximum height | `number` |
+
+### Row 
+| Property | Description | Value |
+|-|-|-|
+| visible | Show/hide all of the row controls | `boolean`|
+| sendOnBlur - *optional* | Post row's data on blur | `boolean`|
+| sendToEndpoint - *optional* | API endpoint url | `string`|
+| buttonCopyRow - *optional* | Show/hide the copy button | `boolean`|
+| buttonDeleteRow - *optional* | Show/hide the delte button | `boolean`|
+| buttonLockRow - *optional* | Show/hide the lock/unlock button| `boolean`|
+
+### Footer 
+| Property | Description | Value |
+|-|-|-|
+| visible | Show/hide all of the footer controls | `boolean`|
+| rowCount - *optional* | Show/hide the row count | `boolean`|
+| pagination - *optional* | Pagination controls | ```{ pageLimit: one of: 5, 10, 15, 20, 50 or 100 } ```|
+
+## Header
+Configuration that accepts an array of headings, each heading is an object that can use the following properties:
+
+| Property | Description | Value |
+|-|-|-|
+| id | Used for matching headings to their respective columns when showing, hiding and ordering | `string` |
+| name | The friendly name for the heading, rendered for the user to see | `string` |
+| defaultWidth | The starting width of the column | `number` |
+| visible | Sets column's visibility on initial load - hidden by default, so `visible: true` must be passed if the column is to be immediately visible  | `boolean` |
+| resizable | Sets resize handle and resizing for the given column  | `boolean` |
+
+## Rows
+Configuration that accepts an array of arrays (rows) of objects (cells) ... confusing we know. 
+
+Each cell has the following shape:
+
+| Property | Description | Value |
+|-|-|-|
+| id | The id of the cell, used for coupling with parent heading - the cell's ID **must** match the parent heading's ID | `string` |
+| value - *optional* | The initial value of the cell | `any` | 
+| type - *optional* | The type of the cell | `'text'`, `'number'`, `'search'`, `'select'`, `'string'` | 
+| placeholder - *optional* | Placeholder used by a `text` cell | `string` |
+| multi - *optional* | Rendering multiselect for `select` cell | `boolean` |
+| filterable - *optional* | Allows searching of a `select` cell | `boolean` |
+| required - *optional* | Make cell required | `boolean` |
+| minLength - *optional* | Minimum length of value accepted by a `text` cell | `boolean` |
+| maxValue - *optional* | Maximum length of value accepted by a `text` cell | `boolean` |
+| disabled - *optional* | Disable the cell | `boolean` |
+| ignoreTab - *optional* | Take the cell out of the browser's tab flow | `boolean` |
+| includeInObject - *optional* | Include the cell in the final payload | `boolean` |
+| sendOnBlur - *optional* | Trigger cell action when blurred | `boolean` |
+| sendOnChange - *optional* | Trigger cell action on change | `boolean` |
+| sendOnWait - *optional* | Trigger cell action on timeout | `boolean` |
+| sendOnTrigger - *optional* | Trigger cell action on cell trigger | `boolean` |
+| sendMethod - *optional* | Method for making API calls | `'GET'`, `'POST'`, `'PUT'`, `'PATCH'` |
+| sendToEndpoint - *optional* | API endpoint url | `string` |
+| searchable - *optional* | Cell is included in server side search | `boolean` |
+| options - *optional* | Array of options to render when `select` is used | `[{ label: string, value: string }]` |
+
+## Data
+To make the data table as flexible as possible, and for seperation of concern, the data is passed in and stored separately to the configuration of the table.
+
+The data prop accepts an array of objects, where each object is a row and each property in the object is a cell's ID. 
+
+The cell ID is used as a key to ensure that the correct piece of data is matched with the correct cell.
+
+| Cell ID | Value |
+|-|-|
+| product_sku | `'12345'` |
+| product_description | `'A nice tshirt'` |
+| unit_of_measure | `'cm, mm'` |
+| quantity | `'123'` |
+| batch | `'ABC123'` |
+
+The above data example would render this row in the data table:
+
+| Product SKU | Product Description | Unit of Measure | Quantity | Batch | 
+|-|-|-|-|-|
+| 12345 | A nice tshirt | cm, mm | 123 | ABC123 |
+
 
 ## Base
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+A table with all default options and no initial data.
 
 <Preview>
   <Story name="Base">
@@ -43,8 +140,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </Preview>
 
 ## With Data
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+A table with default options and test data. 
 
 <Preview>
   <Story name="WithData">
