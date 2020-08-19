@@ -32,6 +32,7 @@ const Input: React.FC<IInput.IProps> = ({
   minValue,
   maxValue,
   tabIndex,
+  onKeyDown,
   onChange
 }) => {
   /**
@@ -64,6 +65,7 @@ const Input: React.FC<IInput.IProps> = ({
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         onChange(type === 'Number' ? setValue(parseInt(e.target.value)) : e.target.value)
       }
+      onKeyDown={onKeyDown}
     />
   )
 }

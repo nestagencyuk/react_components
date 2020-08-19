@@ -1,6 +1,7 @@
 import { IField } from '../Field/types'
 import { IDataTable } from './types'
 import * as React from 'react'
+import { useContext } from 'react'
 import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { useField } from '@nestagencyuk/react_form-factory'
 
@@ -10,6 +11,11 @@ import { useField } from '@nestagencyuk/react_form-factory'
 import { Input } from '../Input'
 import { Select } from '../Select'
 import { Text } from '../Text'
+
+/**
+ * Context
+ */
+import { DataTableContext } from '../../context/DataTable'
 
 /**
  * Pick an input to render
@@ -46,13 +52,29 @@ const DataTableCellPicker: React.FC<any> = (props) => {
 /**
  * Render a table cell
  */
-const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType }) => {
+const DataTableCell: React.FC<IDataTable.ICellProps> = ({
+  id,
+  config,
+  tableType,
+  lastRow,
+  lastTabbableCell,
+  pagination
+}) => {
+  const { handleNext } = pagination
   const { value, handleChange } = useField({ id })
   const castType = config.type && (capitalise(config.type) as IField.IProps['type'])
+  const { addRow } = useContext(DataTableContext)
+
+  const handleTab = (e: any) => {
+    e.preventDefault()
+    if (e.key === 'Tab') {
+      addRow(null)
+    }
+  }
 
   return React.useMemo(
     () => (
-      <td className="datatable__cell" tabIndex={-1}>
+      <td className="datatable__cell" tabIndex={-1} onKeyDown={lastTabbableCell && lastRow ? handleTab : () => {}}>
         <DataTableCellPicker
           className="w--100 datatable__input"
           {...config}
@@ -65,7 +87,7 @@ const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType 
         />
       </td>
     ),
-    [value, config]
+    [value, config, lastRow]
   )
 }
 

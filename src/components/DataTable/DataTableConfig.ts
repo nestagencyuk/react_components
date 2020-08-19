@@ -21,7 +21,7 @@ const testConfig: IDataTable.IProps = {
       buttonAddRow: true
     },
     row: {
-      visible: true,
+      // visible: true,
       buttonCopyRow: true,
       buttonDeleteRow: true,
       buttonLockRow: true

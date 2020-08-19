@@ -37,6 +37,11 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
 }) => {
   const [columns, setColumns] = useState(header)
   const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination?.pageLimit || 100)
+  const [lastRow, setLastRow] = useState(data[data.length - 1])
+
+  React.useEffect(() => {
+    setLastRow(data[data.length - 1])
+  }, [data])
 
   /**
    * Set pagination
@@ -70,6 +75,8 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
             rows={rows}
             managedRows={pagination.currentSlice}
             tableType={controls.global.type || 'standard'}
+            lastRow={lastRow}
+            pagination={pagination}
           />
         </table>
       </div>

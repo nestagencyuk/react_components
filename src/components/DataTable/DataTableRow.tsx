@@ -21,10 +21,26 @@ import { GenericObject } from 'types'
 /**
  * Table row
  */
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType }) => {
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({
+  controls,
+  columns,
+  cells,
+  data,
+  tableType,
+  lastRow,
+  pagination
+}) => {
   const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const { addRow, editRow, deleteRow } = useContext(DataTableContext)
   const [, onFocus, onBlur] = useFocus()
+
+  const handleKeyDown = (e: any) => {
+    e.preventDefault()
+
+    if (e.key === 'Tab') {
+      addRow(null)
+    }
+  }
 
   /**
    * Lock a row
@@ -85,10 +101,25 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
             .map(
               (key, i) =>
                 columns.find((x: any) => x.id === key)?.visible && (
-                  <DataTableCell tableType={tableType} key={`cell-${key}-${i}`} id={key} config={row[i]} />
+                  <DataTableCell
+                    tableType={tableType}
+                    key={`cell-${key}-${i}`}
+                    id={key}
+                    lastTabbableCell={
+                      row[i].ignoreTab ? Object.keys(data).length - 2 === i + 1 : Object.keys(data).length - 1 === i + 1
+                    }
+                    config={row[i]}
+                    lastRow={lastRow}
+                    pagination={pagination}
+                  />
                 )
             )}
-          {controls.visible && <td className="datatable__cell text--center">{renderControls()}</td>}
+
+          {controls.visible && (
+            <td className="datatable__cell text--center" onKeyDown={lastRow ? handleKeyDown : () => {}}>
+              {renderControls()}
+            </td>
+          )}
         </tr>
       )}
     </FormV2>
