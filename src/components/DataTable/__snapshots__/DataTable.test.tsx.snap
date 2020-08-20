@@ -116,7 +116,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -145,7 +145,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -230,7 +230,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -259,7 +259,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -361,11 +361,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             tabindex="-1"
           >
             <div
-              style="position: relative; height: 3rem;"
+              style="position: relative;"
             >
               <input
                 autocomplete="off"
-                class="select__input"
+                class="select__input select__input--sm"
                 data-testid="pagination-page-limit-input"
                 id="pagination-page-limit"
                 name="pagination-page-limit"
