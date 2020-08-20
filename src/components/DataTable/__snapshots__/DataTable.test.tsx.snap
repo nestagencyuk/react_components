@@ -18,10 +18,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         >
           Filter Data
         </span>
-        <span
-          class="btn__icn btn__icn--end icn icn--md"
-          title="Filter"
-        />
       </button>
       <button
         class="m--r-md btn btn--secondary btn--sm"
@@ -44,7 +40,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         value=""
       />
       <button
-        class="m--l-auto btn btn--primary btn--sm"
+        class="m--l-auto btn btn--secondary btn--sm"
         type="button"
       >
         <span
@@ -52,10 +48,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         >
           Add Row
         </span>
-        <span
-          class="btn__icn btn__icn--end icn icn--md"
-          title="Plus"
-        />
       </button>
     </header>
     <div

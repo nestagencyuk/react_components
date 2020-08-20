@@ -2,7 +2,7 @@ import * as clone from 'rfdc'
 import { v4 as uid } from 'uuid'
 import { useState, useEffect } from 'react'
 import { IUseManageArray } from './types'
-import { GenericObject } from '../../types'
+import { IGenericObject } from '../../types'
 
 /**
  * Manage items in an array
@@ -12,10 +12,10 @@ import { GenericObject } from '../../types'
  */
 const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   array: IUseManageArray.IState
-  addItem: (value: string | GenericObject) => void
-  editItem: (value: string | (GenericObject & { _uid: string })) => void
+  addItem: (value: string | IGenericObject) => void
+  editItem: (value: string | (IGenericObject & { _uid: string })) => void
   deleteItem: (uid: string) => void
-  resetItems: (value: Array<string | GenericObject>) => void
+  resetItems: (value: Array<string | IGenericObject>) => void
 } => {
   const [array, setArray] = useState<IUseManageArray.IState>(
     initialArray ? initialArray.map((item) => (typeof item === 'string' ? item : { ...item, _uid: uid() })) : null
@@ -24,8 +24,8 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   /**
    * Add an item
    */
-  const addItem = (value: string | GenericObject) => {
-    let newValue: GenericObject & { _uid: string } = null
+  const addItem = (value: string | IGenericObject) => {
+    let newValue: IGenericObject & { _uid: string } = null
 
     if (typeof value === 'object') {
       newValue = { ...value, _uid: uid() }
@@ -42,7 +42,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   /**
    * Edit an item
    */
-  const editItem = (value: string | (GenericObject & { _uid: string }), i: number = null) => {
+  const editItem = (value: string | (IGenericObject & { _uid: string }), i: number = null) => {
     setArray((prev) => {
       const item = prev.find((x) =>
         typeof value === 'string' || typeof x === 'string' ? x === value : x._uid === value._uid
@@ -64,7 +64,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
   /**
    * Reset all items
    */
-  const resetItems = (value: Array<string | GenericObject>) => {
+  const resetItems = (value: Array<string | IGenericObject>) => {
     setArray(value)
   }
 

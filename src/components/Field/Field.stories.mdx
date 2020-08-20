@@ -191,6 +191,20 @@ Pass `Radio` to the `type` prop to render a Radio component
   </Story>
 </Preview>
 
+## Switch
+Pass `Switch` to the `type` prop to render a Radio component
+
+<Preview>
+  <Story name="Switch">
+    {() => {
+      const [value, setValue] = useState(false)
+      return (
+        <Field id="field-switch" label="Switch" type="Switch" value={value} onChange={setValue} />
+      )
+    }}
+  </Story>
+</Preview>
+
 ## DatePicker
 Pass `Date` to the `type` prop to render a Date Picker.
 

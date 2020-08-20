@@ -29,11 +29,9 @@ $dot-size: 1.25rem !default;
   align-items: center;
 
   &--dots {
-    
   }
 
   &--numbers {
-
   }
 }
 
@@ -53,6 +51,20 @@ $dot-size: 1.25rem !default;
 /// -------------------
 
 .pagination__btn {
+  .pagination--numbers & {
+    width: 40px;
+    height: 40px;
+    border: 1px solid colours.$ui-three;
+    border-radius: corners.$base;
+    background-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      border-color: colours.$brand-one;
+    }
+  }
+
   .pagination--dots & {
     font-size: 0;
     width: $dot-size;
@@ -63,17 +75,17 @@ $dot-size: 1.25rem !default;
     transform: scale(0.75);
     opacity: 0.5;
     cursor: pointer;
-    
+
     &--active {
       background-color: colours.$brand-one;
       transform: scale(1);
       opacity: 1;
     }
-    
+
     &:active,
     &:focus,
     &:hover {
-      outline: none; 
+      outline: none;
       background-color: colours.$brand-one;
     }
   }

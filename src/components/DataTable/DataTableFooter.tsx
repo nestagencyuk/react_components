@@ -19,6 +19,9 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
   const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip, pageLimit } = pagination
   const [paginationIndex, setPaginationIndex] = useState(currentIndex)
 
+  /**
+   * Update pagination if a valid number
+   */
   const updatePaginationIndex = (val: number) => {
     setPaginationIndex(val)
 
@@ -49,30 +52,12 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 id="pagination-page-limit"
                 size="Small"
                 options={[
-                  {
-                    label: '5',
-                    value: '5'
-                  },
-                  {
-                    label: '10',
-                    value: '10'
-                  },
-                  {
-                    label: '15',
-                    value: '15'
-                  },
-                  {
-                    label: '20',
-                    value: '20'
-                  },
-                  {
-                    label: '50',
-                    value: '50'
-                  },
-                  {
-                    label: '100',
-                    value: '100'
-                  }
+                  { label: '5', value: '5' },
+                  { label: '10', value: '10' },
+                  { label: '15', value: '15' },
+                  { label: '20', value: '20' },
+                  { label: '50', value: '50' },
+                  { label: '100', value: '100' }
                 ]}
                 value={pageLimit.toString()}
                 onChange={(e: string) => setPaginationPageLimit(parseInt(e))}

@@ -1,13 +1,6 @@
 import { IDataTable } from './types'
-import { v4 as uid } from 'uuid'
 import * as React from 'react'
-import { useContext, useEffect } from 'react'
-import { useToggleGroup } from '../../hooks/useToggleGroup'
-
-/**
- * Context
- */
-import { DataTableContext } from '../../context/DataTable'
+import { useState } from 'react'
 
 /**
  * Components
@@ -21,92 +14,107 @@ import { Button, RefButton } from '../Button'
 /**
  * Data table row
  */
-const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange }) => {
-  const [toggles, setToggled] = useToggleGroup({ multi: true })
-  const { addRow } = useContext(DataTableContext)
+const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange, onEvent = () => {} }) => {
+  const [searchValue, setSearchValue] = useState(null)
 
   /**
-   * On toggle change, set the visibility of the header
+   * Determin button alignment
    */
-  useEffect(() => {
-    header.forEach((x: any) => !x.visible && setToggled(`label-${x.id}`))
-  }, [])
+  const startButtons = controls.buttons.filter((x) => x.align === 'Start')
+  const endButtons = controls.buttons.filter((x) => x.align === 'End')
 
   /**
-   * On toggle change, set the visibility of the header
+   * Handle the customise action
    */
-  useEffect(() => {
-    onChange(header.map((x: any) => ({ ...x, visible: !toggles[`label-${x.id}`] })))
-  }, [toggles])
+  const handleCustomise = (id: string) => {
+    onChange((prev: IDataTable.IColumnConfig[]) =>
+      prev.map((x) => ({ ...x, visible: x.id === id ? !x.visible : x.visible }))
+    )
+  }
 
-  return (
-    <header className="datatable__controls" data-testid="datatable-global-controls">
-      {controls.buttonFilterData && (
-        <Button
+  /**
+   * Render the popover with the column controls
+   */
+  const renderControls = (button: any, i: number) => (
+    <Popover
+      key={`btn-${button.action}-${i}`}
+      align="Bottom"
+      render={
+        <div style={{ width: '250px' }}>
+          {header.map((x, i) => (
+            <Label key={`label-${x.id}-${i}`} className="p--sm w--100" for={`label-${x.id}-${i}`} interactive>
+              <Checkbox
+                className="m--r-xs"
+                id={`label-${x.id}-${i}`}
+                value={x.visible}
+                onChange={() => handleCustomise(x.id)}
+              />
+              {x.name}
+            </Label>
+          ))}
+        </div>
+      }
+    >
+      {({ ref, onFocus, onBlur }) => (
+        <RefButton
+          ref={ref}
           variant="Secondary"
           className="m--r-md"
           icon={{
-            name: 'Filter',
+            name: 'Table-columns',
             align: 'End'
           }}
           size="Small"
+          onClick={onFocus}
+          onBlur={onBlur}
         >
-          Filter Data
-        </Button>
+          {button.text}
+        </RefButton>
       )}
-      {controls.buttonCustomiseTable && (
-        <Popover
-          align="Bottom"
-          render={
-            <div style={{ width: '250px' }}>
-              {header.map((x: any, i: number) => (
-                <Label key={`label-${x.id}`} className="p--sm w--100" for={`label-${x.id}-${i}`} interactive>
-                  <Checkbox
-                    className="m--r-xs"
-                    id={`label-${x.id}-${i}`}
-                    value={x.visible}
-                    onChange={() => setToggled(`label-${x.id}`)}
-                  />
-                  {x.name}
-                </Label>
-              ))}
-            </div>
-          }
-        >
-          {({ ref, onFocus, onBlur }) => (
-            <RefButton
-              ref={ref}
-              variant="Secondary"
-              className="m--r-md"
-              icon={{
-                name: 'Table-columns',
-                align: 'End'
-              }}
-              size="Small"
-              onClick={onFocus}
-              onBlur={onBlur}
-            >
-              Customise Table
-            </RefButton>
-          )}
-        </Popover>
+    </Popover>
+  )
+
+  return (
+    <header className="datatable__controls" data-testid="datatable-global-controls">
+      {startButtons.map((button, i) =>
+        button.action === 'CUSTOMISE' ? (
+          renderControls(button, i)
+        ) : (
+          <Button
+            key={`btn-${button.action}-${i}`}
+            variant="Secondary"
+            className="m--r-md"
+            size="Small"
+            onClick={() => onEvent({ type: button.action })}
+          >
+            {button.text}
+          </Button>
+        )
       )}
       {controls.search && (
-        <Input id={null} type="Text" value={''} placeholder="Search Data" size="Small" onChange={() => {}} />
-      )}
-      {controls.buttonAddRow && (
-        <Button
-          className="m--l-auto"
-          icon={{
-            name: 'Plus',
-            align: 'End'
-          }}
+        <Input
+          id={null}
+          type="Text"
+          value={searchValue}
+          placeholder="Search Data"
           size="Small"
-          onClick={() => addRow(null)}
-        >
-          Add Row
-        </Button>
+          onChange={(val) => {
+            setSearchValue(val)
+            onEvent({ type: 'SEARCH', payload: val })
+          }}
+        />
       )}
+      {endButtons.map((button, i) => (
+        <Button
+          key={`btn-${button.action}-${i}`}
+          variant="Secondary"
+          className={i === 0 && 'm--l-auto'}
+          size="Small"
+          onClick={() => onEvent({ type: button.action })}
+        >
+          {button.text}
+        </Button>
+      ))}
     </header>
   )
 }

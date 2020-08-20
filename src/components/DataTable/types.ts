@@ -1,40 +1,34 @@
-import { GenericObject, LoadingState } from '../../types'
+import { IButton } from '../Button/types'
+import { IGenericObject, LoadingState } from '../../types'
 
 declare namespace IDataTable {
-  interface IProps {
-    className?: string
-    loadingState?: LoadingState
-    controls: {
-      global: IGlobalConfig
-      row: IRowControls
-      footer: IFooterControls
-    }
-    header: IColumnConfig[]
-    rows: ICellConfig[][]
-    data: GenericObject[]
-    onSubmit?: (data: GenericObject[]) => void
-  }
-
-  // Config types
-  interface IGlobalConfig {
-    type: 'standard' | 'form'
+  /**
+   * Config types
+   */
+  interface IGlobalControls {
     visible: boolean
     minHeight?: number
     maxHeight?: number
-    buttonCustomiseTable?: boolean
-    buttonFilterData?: boolean
-    buttonAddRow?: boolean
+    buttons?: Array<
+      IButton.IProps & {
+        align: 'Start' | 'End'
+        text: string
+        action: GlobalControlsEvent | RowControlsEvent
+      }
+    >
     search?: boolean
   }
 
   interface IRowControls {
     visible: boolean
-    sendToEndPoint?: string
+    sendToEndpoint?: string
     sendOnBlur?: boolean
-    buttonCopyRow?: boolean
-    buttonDeleteRow?: boolean
-    buttonLoadPage?: boolean
-    buttonLockRow?: boolean
+    buttons?: Array<
+      IButton.IProps & {
+        text: string
+        action: RowControlsEvent
+      }
+    >
   }
 
   interface IFooterControls {
@@ -63,10 +57,6 @@ declare namespace IDataTable {
     buttonLoadPage?: boolean
   }
 
-  interface IManagedRowConfig extends IRowConfig {
-    _uid: number
-  }
-
   interface ICellConfig {
     id: string
     type?: 'text' | 'number' | 'search' | 'select' | 'string'
@@ -79,6 +69,7 @@ declare namespace IDataTable {
     maxValue?: number
     step?: number
     pattern?: string
+    locked?: boolean
     disabled?: boolean
     ignoreTab?: boolean
     includeInObject?: boolean
@@ -88,45 +79,51 @@ declare namespace IDataTable {
     sendOnTrigger?: boolean
     sendMethod?: 'GET' | 'POST' | 'PUT' | 'PATCH'
     sendToEndpoint?: string
-    responseValue?: any
     triggerInputs?: boolean
-    responseLabel?: any
     triggerUpdate?: string[]
+    responseValue?: any
+    responseLabel?: any
     searchable?: boolean
-    options?: Array<{ [key: string]: any }>
-    items?: Array<{ [key: string]: any }>
     filterable?: boolean
+    options?: Array<{ [key: string]: any }>
   }
 
-  // Component types
+  /**
+   * Prop types
+   */
+  type GlobalEvent = GlobalControlsEvent | RowControlsEvent | RowEvent | CellEvent | 'COLUMN_CHANGE' | 'SUBMIT'
+  type GlobalControlsEvent = 'FILTER' | 'SEARCH' | 'CUSTOMISE'
+  type RowControlsEvent = 'ADD_ROW' | 'COPY_ROW' | 'DELETE_ROW' | 'LOCK_ROW' | 'LOAD_PAGE'
+  type RowEvent = 'ROW_CHANGE' | 'ROW_BLUR'
+  type CellEvent = 'CELL_BLUR' | 'CELL_CHANGE' | 'CELL_TRIGGER'
+
+  type EventDispatcher = (value: { type: GlobalEvent; payload?: any }) => void
+
+  interface IProps {
+    className?: string
+    type: 'standard' | 'form'
+    loadingState?: LoadingState
+    controls: {
+      global: IGlobalControls
+      row: IRowControls
+      footer: IFooterControls
+    }
+    header: IColumnConfig[]
+    rows: ICellConfig[][]
+    data: IGenericObject[]
+    onEvent?: EventDispatcher
+  }
+
   interface IControlsProps {
     header: IColumnConfig[]
-    controls: {
-      buttonCustomiseTable?: boolean
-      buttonFilterData?: boolean
-      buttonAddRow?: boolean
-      search?: boolean
-    }
+    controls: IGlobalControls
     onChange: any
+    onEvent?: EventDispatcher
   }
 
   interface IHeaderProps {
     columns: IColumnConfig[]
     showRowControls?: boolean
-  }
-
-  interface IBodyProps {
-    controls: {
-      visible: boolean
-      buttonCopyRow?: boolean
-      buttonDeleteRow?: boolean
-      buttonLockRow?: boolean
-      buttonLoadPage?: boolean
-    }
-    columns: IColumnConfig[]
-    rows: ICellConfig[][]
-    managedRows: IRowConfig[]
-    tableType: 'standard' | 'form'
   }
 
   interface IRowProps {
@@ -135,12 +132,15 @@ declare namespace IDataTable {
     cells: ICellConfig[]
     data: any
     tableType: 'standard' | 'form'
+    onEvent?: EventDispatcher
   }
 
   interface ICellProps {
     id: string
-    config: any
+    index?: number
+    config: ICellConfig
     tableType: 'standard' | 'form'
+    onEvent?: EventDispatcher
   }
 
   interface IFooterProps {

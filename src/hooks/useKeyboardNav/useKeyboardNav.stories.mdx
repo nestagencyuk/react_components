@@ -55,3 +55,46 @@ The hook in its simplest form.
   </Story>
 </Preview>
 
+## Async
+The hook accepts an async ref.
+
+<Preview>
+  <Story name="Async">
+    {() => {
+      const [open, setOpen] = useState(false)
+      const [root, setRoot] = useState(null)
+      const [cursor, tabbable, onKeyDown] = useKeyboardNav({ root })
+      return (
+        <RefSection className="p--md" style={{ border: 'solid 1px #f3f3f3'}}>
+          <Text variant="Intro">Normal tabindex</Text>
+          <Button className="m--r-md" onClick={() => console.log('Click!')}>Button</Button>
+          <Button className="m--r-md" onClick={() => console.log('Click!')}>Button</Button>
+          <Button className="m--r-md" onClick={() => setOpen(!open)}>Toggle me</Button>
+          {open && (
+            <RefDiv ref={setRoot} className="p--md bg--ui-one m--t-md m--b-md" tabIndex={0} onKeyDown={onKeyDown}>
+              <Text variant="Intro">Up/down</Text>
+              <List items={[{
+                href: '/',
+                text: 'Item 1'
+              }, {
+                href: '/',
+                text: 'Item 2'
+              }, {
+                href: '/',
+                icon: {
+                  align: 'Start',
+                  name: 'Download'
+                },
+                text: 'Item 3'
+              }]} />
+            </RefDiv>
+          )}
+          <Button className="m--r-md" onClick={() => console.log('Click!')}>Button</Button>
+          <Button className="m--r-md" onClick={() => console.log('Click!')}>Button</Button>
+          <Button onClick={() => console.log('Click!')}>Button</Button>
+        </RefSection>
+      )
+    }}
+  </Story>
+</Preview>
+

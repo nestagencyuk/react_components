@@ -1,6 +1,8 @@
 import { IField } from '../Field/types'
 import { IDataTable } from './types'
 import * as React from 'react'
+import { useEffect, useMemo } from 'react'
+import { useFocus } from '../../hooks/useFocus'
 import { capitalise } from '@nestagencyuk/typescript_lib-frontend'
 import { useField } from '@nestagencyuk/react_form-factory'
 
@@ -46,22 +48,53 @@ const DataTableCellPicker: React.FC<any> = (props) => {
 /**
  * Render a table cell
  */
-const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType }) => {
+const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType, onEvent = () => {} }) => {
   const { value, handleChange } = useField({ id })
+  const [, onFocus, onBlurCB] = useFocus()
   const castType = config.type && (capitalise(config.type) as IField.IProps['type'])
 
-  return React.useMemo(
+  /**
+   * Create payload
+   */
+  const payload = {
+    id,
+    sendOnBlur: config.sendOnBlur,
+    sendOnChange: config.sendOnChange,
+    sendOnWait: config.sendOnWait,
+    sendToEndpoint: config.sendToEndpoint,
+    sendMethod: config.sendMethod
+  }
+
+  /**
+   * Send on trigger
+   */
+  useEffect(() => {
+    if (config.sendOnTrigger) {
+      onEvent({ type: 'CELL_TRIGGER', payload: { ...payload, data: value } })
+    }
+  }, [])
+
+  return useMemo(
     () => (
-      <td className="datatable__cell" tabIndex={-1}>
+      <td
+        className="datatable__cell"
+        tabIndex={-1}
+        onFocus={onFocus}
+        onBlur={(e) => onBlurCB(e, () => onEvent({ type: 'CELL_BLUR', payload: { ...payload, data: value } }))}
+      >
         <DataTableCellPicker
           className="w--100 datatable__input"
           {...config}
+          id={`${id}`}
           value={value}
           type={castType}
           disabled={config.locked || config.disabled}
           tabIndex={config.ignoreTab ? -1 : 0}
-          onChange={handleChange}
           tableType={tableType}
+          onChange={(val: any) => {
+            handleChange(val)
+            onEvent({ type: 'CELL_CHANGE', payload: { ...payload, data: val } })
+          }}
         />
       </td>
     ),

@@ -5,7 +5,7 @@ import { Loader } from '../Loader'
 import { DataTable } from '.'
 import { useStateMachine } from '../../hooks/useStateMachine'
 import { loading } from '../../states'
-import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfigStandard, withoutControlsConfig } from './DataTableConfig.ts'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, configStandard, configNoControls } from './DataTableConfig.ts'
 
 <Meta title="Components|Data Table/Standard" component={DataTable} />
 
@@ -15,12 +15,77 @@ A table that accepts the same props as the [DataTable](/?path=/docs/components-d
 ## Base
 The component in its simplest form.
 
+## Events
+As with the form data table, the standard version still dispatches some events, with appropriate payloads for hooking up as you wish. Open your console to see the events and their respective payloads in action.
+
+| Type | Description | Payload |
+|-|-|-|
+| 'FILTER' | Fired when a filter is triggered | `{}` |
+| 'CUSTOMISE' | Fired when the column's have changed | `{}` |
+| 'COLUMN_CHANGE' | Fired when the column's config has changed | `{}` |
+| 'SEARCH' | Fired when the search input get a value | `{}` |
+| 'LOAD_PAGE' | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
+
+
+### Config object
+An example of a config object, that can be passed as props.
+
+```js
+{
+  type: 'standard',
+  controls: {
+    global: {
+      visible: true,
+      search: true,
+      minHeight: 500,
+      maxHeight: 750,
+      buttons: [
+        { align: 'Start', text: 'Filter Data', action: 'FILTER' },
+        { align: 'Start', text: 'Customise Table', action: 'CUSTOMISE' }
+      ]
+    },
+    row: {
+      visible: false
+    },
+    footer: {
+      visible: true,
+      rowCount: true,
+      pagination: {
+        pageLimit: 5
+      }
+    }
+  },
+  header: [
+    { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, defaultWidth: 200 },
+    { id: 'product_description', name: 'Product Description', visible: true, defaultWidth: 400, resizable: true },
+    { id: 'unit_of_measure', name: 'Unit of Measure', visible: true, defaultWidth: 200, resizable: true },
+    { id: 'quantity', name: 'Quantity', visible: true },
+    { id: 'batch', name: 'Batch', visible: true }
+  ],
+  rows: [
+    [{ id: 'product_sku' }, { id: 'product_description' }, { id: 'unit_of_measure' }, { id: 'quantity' }, { id: 'batch' }]
+  ],
+  data: [
+    {
+      product_sku: null,
+      product_description: null,
+      unit_of_measure: null,
+      quantity: null,
+      batch: null
+    }
+  ]
+}
+```
+
 <Preview>
   <Story name="Base">
     {() => {
-      const [data, setData] = useState(testConfigStandard.data)
+      const [data, setData] = useState(configStandard.data)
       const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
       const chance = new (require('chance'))()
+      const dispatch = ({ type, payload }) => {
+        console.log(`Type: ${type}`, `\nPayload: ${JSON.stringify(payload, null, 2)}`)
+      }
       useEffect(() => {
         const fakeData = Array.from(Array(1000).keys()).map(x => ({
           product_sku: chance.pickone(testSKUS),
@@ -37,11 +102,13 @@ The component in its simplest form.
       return (
         <Fragment>
           <DataTable
+            type={configStandard.type}
             loadingState={loadingState}
-            controls={testConfigStandard.controls}
-            header={testConfigStandard.header} 
-            rows={testConfigStandard.rows}
+            controls={configStandard.controls}
+            header={configStandard.header} 
+            rows={configStandard.rows}
             data={data}
+            onEvent={dispatch}
           />
           <div style={{ marginBottom: '50px' }} />
         </Fragment>
@@ -56,7 +123,7 @@ This table has no global, row or footer controls rendered, making it a basic tab
 <Preview>
   <Story name="Without Controls">
     {() => {
-      const [data, setData] = useState(testConfigStandard.data)
+      const [data, setData] = useState(configNoControls.data)
       const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
       const chance = new (require('chance'))()
       useEffect(() => {
@@ -76,9 +143,9 @@ This table has no global, row or footer controls rendered, making it a basic tab
         <Fragment>
           <DataTable
             loadingState={loadingState}
-            controls={withoutControlsConfig.controls}
-            header={withoutControlsConfig.header} 
-            rows={withoutControlsConfig.rows}
+            controls={configNoControls.controls}
+            header={configNoControls.header} 
+            rows={configNoControls.rows}
             data={data}
           />
           <div style={{ marginBottom: '50px' }} />

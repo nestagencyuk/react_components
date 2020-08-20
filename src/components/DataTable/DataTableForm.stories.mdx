@@ -4,8 +4,10 @@ import { Text } from '../Text'
 import { Loader } from '../Loader'
 import { DataTable } from '.'
 import { useStateMachine } from '../../hooks/useStateMachine'
+import { DataTable as DataTableContext } from '../../context/DataTable'
 import { loading } from '../../states'
-import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard } from './DataTableConfig.ts'
+import * as clone from 'rfdc'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, config } from './DataTableConfig.ts'
 
 <Meta title="Components|Data Table/Form" component={DataTable} />
 
@@ -14,41 +16,132 @@ import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testCo
 
 The Data Table component accepts JSON configuration to change the way various pieces of the table are rendered, how they behave and how the user can interact with them.
 
-The configuration is broken down into the following categories.
 
-## Controls 
-Configuration that is used to determine which controls or behaviours are available for a given area of the table.
+### Example config
 
-### Global
+```js
+{
+  type: 'form',
+  controls: {
+    global: {
+      visible: true,
+      search: true,
+      minHeight: 500,
+      maxHeight: 750,
+      buttons: [
+        { align: 'Start', text: 'Filter Data', action: 'FILTER' },
+        { align: 'Start', text: 'Customise Table', action: 'CUSTOMISE' },
+        { align: 'End', text: 'Add Row', action: 'ADD_ROW' }
+      ]
+    },
+    row: {
+      visible: true,
+      sendOnBlur: true,
+      sendToEndpoint: '/my-test-endpoint',
+      buttons: [
+        { text: 'Copy', action: 'COPY_ROW' },
+        { text: 'Lock', action: 'LOCK_ROW' },
+        { text: 'Delete', action: 'DELETE_ROW' },
+        { text: 'Load', action: 'LOAD_PAGE', href: '/' }
+      ]
+    },
+    footer: {
+      visible: true,
+      rowCount: true,
+      pagination: {
+        pageLimit: 5
+      }
+    }
+  },
+  header: [
+    { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, defaultWidth: 200 },
+    { id: 'product_description', name: 'Product Description', visible: true, defaultWidth: 400, resizable: true },
+    { id: 'unit_of_measure', name: 'Unit of Measure', visible: true, defaultWidth: 200, resizable: true },
+    { id: 'quantity', name: 'Quantity', visible: true },
+    { id: 'batch', name: 'Batch', visible: true }
+  ],
+  rows: [
+    [
+      {
+        id: 'product_sku',
+        type: 'search',
+        filterable: true,
+        sendOnBlur: true,
+        sendToEndpoint: '/my-test-endpoint',
+        sendMethod: 'PUT',
+        options: [
+          { label: testSKUS[0], value: testSKUS[0] },
+          { label: testSKUS[1], value: testSKUS[1] },
+          { label: testSKUS[2], value: testSKUS[2] },
+          { label: testSKUS[3], value: testSKUS[3] },
+          { label: testSKUS[4], value: testSKUS[4] },
+          { label: testSKUS[5], value: testSKUS[5] },
+          { label: testSKUS[6], value: testSKUS[6] },
+          { label: testSKUS[7], value: testSKUS[7] },
+          { label: testSKUS[8], value: testSKUS[8] },
+          { label: testSKUS[9], value: testSKUS[9] }
+        ]
+      },
+      { id: 'product_description', type: 'string' },
+      {
+        id: 'unit_of_measure',
+        type: 'select',
+        multi: true,
+        options: [
+          { label: testUOMs[0], value: testUOMs[0] },
+          { label: testUOMs[1], value: testUOMs[1] },
+          { label: testUOMs[2], value: testUOMs[2] },
+          { label: testUOMs[3], value: testUOMs[3] },
+          { label: testUOMs[4], value: testUOMs[4] },
+          { label: testUOMs[5], value: testUOMs[5] },
+          { label: testUOMs[6], value: testUOMs[6] },
+          { label: testUOMs[7], value: testUOMs[7] }
+        ]
+      },
+      { id: 'quantity', type: 'number', minValue: 5, maxValue: 10 },
+      { id: 'batch', type: 'text', maxLength: 5 }
+    ]
+  ],
+  data: [
+    {
+      product_sku: null,
+      product_description: null,
+      unit_of_measure: null,
+      quantity: null,
+      batch: null
+    }
+  ]
+}
+```
+
+The above configuration is broken down into the following categories:
+
+#### Global
 | Property | Description | Value |
 |-|-|-|
 | type | Makes the table editable/static, see [standard](/?path=/docs/components-data-table-standard--base) | `'form'` or `'standard'`|
 | visible | Show/hide all of the global controls | `boolean`|
-| buttonFilterData - *optional* | Show/hide the Filter Data button | `boolean`|
-| buttonCustomiseTable - *optional* | Show/hide the Customise Table button | `boolean`|
+| buttons - *optional* | Show/hide the global control buttons, pass an array of buttons | `[{ align: 'Start' or 'End', text: string, action: 'FILTER' or 'CUSTOMISE' or 'ADD' }]`|
 | search - *optional* | Show/hide the Search Data field | `boolean`|
-| buttonAddRow - *optional* | Show/hide the Add Row button | `boolean`|
 | minHeight - *optional* | Set the minimum height | `number` |
 | maxHeight - *optional* | Set the maximum height | `number` |
 
-### Row 
+#### Row 
 | Property | Description | Value |
 |-|-|-|
 | visible | Show/hide all of the row controls | `boolean`|
 | sendOnBlur - *optional* | Post row's data on blur | `boolean`|
 | sendToEndpoint - *optional* | API endpoint url | `string`|
-| buttonCopyRow - *optional* | Show/hide the copy button | `boolean`|
-| buttonDeleteRow - *optional* | Show/hide the delte button | `boolean`|
-| buttonLockRow - *optional* | Show/hide the lock/unlock button| `boolean`|
+| buttons - *optional* | Show/hide the row control buttons, pass an array of buttons | `[{ text: string, action: 'COPY' or 'DELETE' or 'LOCK' or 'LOAD' }]`|
 
-### Footer 
+#### Footer 
 | Property | Description | Value |
 |-|-|-|
 | visible | Show/hide all of the footer controls | `boolean`|
 | rowCount - *optional* | Show/hide the row count | `boolean`|
-| pagination - *optional* | Pagination controls | ```{ pageLimit: one of: 5, 10, 15, 20, 50 or 100 } ```|
+| pagination - *optional* | Pagination controls | `{ pageLimit: 5 or 10 or 15 or 20 or 50 or 100 }`|
 
-## Header
+#### Header
 Configuration that accepts an array of headings, each heading is an object that can use the following properties:
 
 | Property | Description | Value |
@@ -59,7 +152,7 @@ Configuration that accepts an array of headings, each heading is an object that 
 | visible | Sets column's visibility on initial load - hidden by default, so `visible: true` must be passed if the column is to be immediately visible  | `boolean` |
 | resizable | Sets resize handle and resizing for the given column  | `boolean` |
 
-## Rows
+#### Rows
 Configuration that accepts an array of arrays (rows) of objects (cells) ... confusing we know. 
 
 Each cell has the following shape:
@@ -87,12 +180,10 @@ Each cell has the following shape:
 | searchable - *optional* | Cell is included in server side search | `boolean` |
 | options - *optional* | Array of options to render when `select` is used | `[{ label: string, value: string }]` |
 
-## Data
-To make the data table as flexible as possible, and for seperation of concern, the data is passed in and stored separately to the configuration of the table.
+#### Data
+To make the data table as flexible as possible, and for seperation of concern, the data is passed in and stored separately to the configuration of the table. The data prop accepts an array of objects, where each object is a row and each property in the object is a cell's ID. The cell ID is used as a key to ensure that the correct piece of data is matched with the correct cell. 
 
-The data prop accepts an array of objects, where each object is a row and each property in the object is a cell's ID. 
-
-The cell ID is used as a key to ensure that the correct piece of data is matched with the correct cell.
+> **NOTE**: The cell ID **must** match the column & row ID.
 
 | Cell ID | Value |
 |-|-|
@@ -108,6 +199,25 @@ The above data example would render this row in the data table:
 |-|-|-|-|-|
 | 12345 | A nice tshirt | cm, mm | 123 | ABC123 |
 
+## Events
+The data table dispatches the following events, with appropriate payloads for hooking up as you wish. Open your console to see the events and their respective payloads in action.
+
+| Type | Description | Payload |
+|-|-|-|
+| 'FILTER' | Fired when a filter is triggered | `{}` |
+| 'CUSTOMISE' | Fired when the column's have changed | `{}` |
+| 'COLUMN_CHANGE' | Fired when the column's config has changed | `{}` |
+| 'SEARCH' | Fired when the search input get a value | `{}` |
+| 'LOAD_PAGE' | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
+| 'ADD_ROW' | Fired when a button with the action type "ADD_ROW" is clicked | `{}` |
+| 'COPY_ROW' | Fired when a button with the action type "COPY_ROW" is clicked | `{}` |
+| 'DELETE_ROW' | Fired when a button with the action type "DELETE_ROW" is clicked | `{}` |
+| 'ROW_BLUR' | Fired when a row is blurred | `{}` |
+| 'CELL_BLUR' | Fired when a cell is blurred | `{}` |
+| 'CELL_CHANGE' | Fired when a cell is blurred | `{}` |
+| 'CELL_TRIGGER' | Fired when a cell is blurred | `{}` |
+| 'CELL_WAIT' | Fired when a cell is blurred | `{}` |
+| 'SUBMIT' | Fired when the form is submitted (via enter key) | `{}` |
 
 ## Base
 A table with all default options and no initial data.
@@ -115,25 +225,69 @@ A table with all default options and no initial data.
 <Preview>
   <Story name="Base">
     {() => {
-      const [value, setValue] = useState(null)
       const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
+      const dispatch = ({ type, payload }) => {
+        console.log(`Type: ${type}`, `\nPayload: ${JSON.stringify(payload, null, 2)}`)
+        switch (type) {
+          case 'FILTER':
+            // Do something on filter
+            break
+          case 'CUSTOMISE':
+            // Do something on customise
+            break
+          case 'COLUMN_CHANGE':
+            // Do something on column config change
+            break
+          case 'SEARCH':
+            // Do something on search
+            break
+          case 'LOAD_PAGE':
+            // Do something on load page
+            break
+          case 'ADD_ROW':
+            // Do something on add row
+            break
+          case 'COPY_ROW':
+            // Do something on copy row
+            break
+          case 'DELETE_ROW':
+            // Do something on delete row
+            break
+          case 'ROW_BLUR':
+            // Do something on row blur
+            break
+          case 'CELL_BLUR':
+            // Do something on cell blur
+            break
+          case 'CELL_CHANGE':
+            // Do something on cell change
+            break
+          case 'CELL_TRIGGER':
+            // Do something on cell trigger
+            break
+          case 'CELL_WAIT':
+            // Do something on cell wait
+            break
+          case 'SUBMIT':
+            // Do something on submit
+            break
+          default:
+            throw new Error('No or invalid action type passed')
+        }
+      }
       useEffect(() => {
         dispatchEvent('SUCCESS')
       }, [])
       return (
-        <Fragment>
-          <Text>Value:</Text>
-          <pre className="p--md bg--ui-one text--sm" style={{ maxHeight: '450px', overflowY: 'scroll' }}>{JSON.stringify(value, null, 2)}</pre>
-          <DataTable 
-            loadingState={loadingState}
-            controls={testConfig.controls}
-            header={testConfig.header} 
-            rows={testConfig.rows}
-            data={testConfig.data}
-            onSubmit={setValue}
-          />
-          <div style={{ marginBottom: '50px' }} />
-        </Fragment>
+        <DataTable 
+          type={config.type}
+          loadingState={loadingState}
+          controls={config.controls}
+          header={config.header} 
+          rows={config.rows}
+          data={config.data}
+          onEvent={dispatch}
+        />
       )
     }}
   </Story>
@@ -145,9 +299,8 @@ A table with default options and test data.
 <Preview>
   <Story name="WithData">
     {() => {
-      const [value, setValue] = useState(null)
       const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
-      const [data, setData] = useState(testConfig.data)
+      const [data, setData] = useState(config.data)
       const chance = new (require('chance'))()
       useEffect(() => {
         const fakeData = Array.from(Array(1000).keys()).map(x => ({
@@ -163,19 +316,14 @@ A table with default options and test data.
         }, 3000)
       }, [])
       return (
-        <Fragment>
-          <Text>Value:</Text>
-          <pre className="p--md bg--ui-one text--sm" style={{ maxHeight: '450px', overflowY: 'scroll' }}>{JSON.stringify(value, null, 2)}</pre>
-          <DataTable
-            loadingState={loadingState}
-            controls={testConfig.controls}
-            header={testConfig.header} 
-            rows={testConfig.rows}
-            data={data}
-            onSubmit={setValue}
-          />
-          <div style={{ marginBottom: '50px' }} />
-        </Fragment>
+        <DataTable 
+          type={config.type}
+          loadingState={loadingState}
+          controls={config.controls}
+          header={config.header} 
+          rows={config.rows}
+          data={data}
+        />
       )
     }}
   </Story>

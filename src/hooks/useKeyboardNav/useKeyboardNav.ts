@@ -10,7 +10,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
   React.RefObject<Array<React.RefObject<HTMLElement>>>,
   (e?: React.KeyboardEvent, cb?: any) => void
 ] => {
-  const tabbableRefs = useRef<Array<React.RefObject<HTMLElement>>>()
+  const prevTabRefs = useRef<Array<React.RefObject<HTMLElement>>>()
+  const tabRefs = useRef<Array<React.RefObject<HTMLElement>>>()
   const [cursor, setCursor] = useState(-1)
 
   /**
@@ -18,8 +19,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
    */
   const prev = () => {
     document.body.style.overflow = 'hidden'
-    tabbableRefs.current.forEach((el) => (el.current.tabIndex = null))
-    setCursor((prev) => (prev <= 0 ? tabbableRefs.current.length - 1 : prev - 1))
+    tabRefs.current.forEach((el) => (el.current.tabIndex = null))
+    setCursor((prev) => (prev <= 0 ? tabRefs.current.length - 1 : prev - 1))
   }
 
   /**
@@ -27,8 +28,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
    */
   const next = () => {
     document.body.style.overflow = 'hidden'
-    tabbableRefs.current.forEach((el) => (el.current.tabIndex = null))
-    setCursor((prev) => (prev >= tabbableRefs.current.length - 1 ? 0 : prev + 1))
+    tabRefs.current.forEach((el) => (el.current.tabIndex = null))
+    setCursor((prev) => (prev >= tabRefs.current.length - 1 ? 0 : prev + 1))
   }
 
   /**
@@ -36,7 +37,8 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
    */
   const exit = () => {
     document.body.style.overflow = null
-    tabbableRefs.current.forEach((el) => (el.current.tabIndex = -1))
+    prevTabRefs.current = tabRefs.current
+    tabRefs.current.forEach((el) => (el.current.tabIndex = -1))
     setCursor(-1)
   }
 
@@ -47,9 +49,13 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
     (e: React.KeyboardEvent, cb?: any) => {
       if (!root) return
 
-      tabbableRefs.current = tabbable(root)
-        .map((el, i) => skip !== i && { current: el })
-        .filter((x) => !!x)
+      const tabEls = tabbable(root)
+
+      if (prevTabRefs.current && tabEls.length < prevTabRefs.current.length) {
+        tabRefs.current = prevTabRefs.current
+      } else {
+        tabRefs.current = tabEls.map((el, i) => skip !== i && { current: el }).filter((x) => !!x)
+      }
 
       switch (e.key) {
         case 'ArrowUp':
@@ -73,11 +79,11 @@ const useKeyboardNav = ({ trap = false, root, skip }: IUseFocus.IProps = {}): [
    * Listen to the cursor change and set focus on the element
    */
   useEffect(() => {
-    if (!tabbableRefs.current || (tabbableRefs.current && !tabbableRefs?.current[cursor])) return
-    tabbableRefs?.current[cursor]?.current.focus()
+    if (!tabRefs.current || (tabRefs.current && !tabRefs?.current[cursor])) return
+    tabRefs?.current[cursor]?.current.focus()
   }, [cursor])
 
-  return [cursor, tabbableRefs, onKeyDown]
+  return [cursor, tabRefs, onKeyDown]
 }
 
 export default useKeyboardNav

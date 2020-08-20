@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
+import { useFocus } from '../../hooks/useFocus'
 import { useKeyboardNav } from '../../hooks/useKeyboardNav'
 import cx from 'classnames'
 
@@ -51,8 +52,8 @@ const Select: React.FC<ISelect.IProps> = ({
   const [placeholder, setPlaceholder] = useState(initialPlaceholder)
   const [filterValue, setFilterValue] = useState<string>('')
   const [shownValue, setShownValue] = useState<string>('')
-  const [focused, setFocused] = useState<boolean>(false)
 
+  const [focused, onFocus, onBlur, setFocused] = useFocus()
   const [, , onKeyDown] = useKeyboardNav({ root: ref.current, skip: 0 })
   const { array: values, addItem, deleteItem, resetItems } = useManageArray({
     initialArray: Array.isArray(value) ? value : null
@@ -64,28 +65,6 @@ const Select: React.FC<ISelect.IProps> = ({
   const filtered = filterable
     ? options.filter((x) => x.label?.toLowerCase().includes(filterValue?.toLowerCase() || ''))
     : options
-
-  /**
-   * When we focus, open the options
-   */
-  const handleFocus = () => {
-    setFocused(true)
-  }
-
-  /**
-   * On blur
-   *
-   * @param {Event} e
-   * The event
-   */
-  const handleBlur = (e: React.FocusEvent<HTMLDivElement> & { relatedTarget: HTMLElement }) => {
-    const isOutside = !ref.current.contains(e.currentTarget) || !ref.current.contains(e.relatedTarget)
-    if (isOutside) {
-      setFocused(false)
-      setFilterValue(null)
-      document.body.style.overflow = null
-    }
-  }
 
   /**
    * Reset all items
@@ -200,8 +179,8 @@ const Select: React.FC<ISelect.IProps> = ({
       className={cx(className, 'select', { 'select--disabled': disabled })}
       data-testid={id}
       tabIndex={-1}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
+      onFocus={onFocus}
+      onBlur={onBlur}
       onKeyDown={onKeyDown}
     >
       <div style={{ position: 'relative' }}>

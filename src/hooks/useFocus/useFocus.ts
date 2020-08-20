@@ -7,7 +7,8 @@ import { IUseFocus } from './types'
 const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}): [
   boolean,
   (e?: React.FocusEvent) => void,
-  (e?: React.FocusEvent, cb?: (e: React.FormEvent<Element>) => void) => void
+  (e?: React.FocusEvent, cb?: (e: React.FormEvent<Element>) => void) => void,
+  (bool?: boolean) => void
 ] => {
   const [focused, setFocused] = useState(false)
 
@@ -50,7 +51,7 @@ const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}
     [target]
   )
 
-  return [focused, onFocus, onBlur]
+  return [focused, onFocus, onBlur, setFocused]
 }
 
 export default useFocus
