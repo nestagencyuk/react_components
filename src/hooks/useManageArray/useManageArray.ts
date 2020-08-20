@@ -25,6 +25,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
    * Add an item
    */
   const addItem = (value: string | IGenericObject) => {
+    if (!value) return
     let newValue: IGenericObject & { _uid: string } = null
 
     if (typeof value === 'object') {

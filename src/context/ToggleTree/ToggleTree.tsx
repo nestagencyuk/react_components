@@ -8,11 +8,18 @@ import { useToggleTree } from '../../hooks/useToggleTree'
 import { ToggleTreeContext } from '.'
 
 /**
- * Open and close many things
+ * Open and close many things in a tree
  */
 const ToggleTree: React.FC<IToggleTree.IProps | IToggleTree.IRenderProps> = ({ multi, children }) => {
   const [toggles, setToggled] = useToggleTree({ multi })
-  const value = { toggles, setToggled }
+
+  /**
+   * Context value
+   */
+  const value: IToggleTree.IValue = {
+    toggles,
+    setToggled
+  }
 
   return (
     <ToggleTreeContext.Provider value={value}>

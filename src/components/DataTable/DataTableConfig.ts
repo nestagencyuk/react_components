@@ -43,7 +43,14 @@ const config: IDataTable.IProps = {
   },
   header: [
     { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, defaultWidth: 200 },
-    { id: 'product_description', name: 'Product Description', visible: true, defaultWidth: 400, resizable: true },
+    {
+      id: 'product_description',
+      name: 'Product Description',
+      visible: true,
+      defaultWidth: 400,
+      sortable: true,
+      resizable: true
+    },
     { id: 'unit_of_measure', name: 'Unit of Measure', visible: true, defaultWidth: 200, resizable: true },
     { id: 'quantity', name: 'Quantity', visible: true },
     { id: 'batch', name: 'Batch', visible: true }

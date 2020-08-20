@@ -4,7 +4,6 @@ import { Text } from '../Text'
 import { Loader } from '../Loader'
 import { DataTable } from '.'
 import { useStateMachine } from '../../hooks/useStateMachine'
-import { DataTable as DataTableContext } from '../../context/DataTable'
 import { loading } from '../../states'
 import * as clone from 'rfdc'
 import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, config } from './DataTableConfig.ts'
@@ -14,8 +13,7 @@ import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, config
 # Data Table 🧙
 ** Where we're going we don't need roads... **
 
-The Data Table component accepts JSON configuration to change the way various pieces of the table are rendered, how they behave and how the user can interact with them.
-
+The data table component accepts JSON configuration to change the way various pieces of the table are rendered, how they behave and how the user can interact with them.
 
 ### Example config
 
@@ -204,20 +202,20 @@ The data table dispatches the following events, with appropriate payloads for ho
 
 | Type | Description | Payload |
 |-|-|-|
-| 'FILTER' | Fired when a filter is triggered | `{}` |
-| 'CUSTOMISE' | Fired when the column's have changed | `{}` |
-| 'COLUMN_CHANGE' | Fired when the column's config has changed | `{}` |
-| 'SEARCH' | Fired when the search input get a value | `{}` |
-| 'LOAD_PAGE' | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
-| 'ADD_ROW' | Fired when a button with the action type "ADD_ROW" is clicked | `{}` |
-| 'COPY_ROW' | Fired when a button with the action type "COPY_ROW" is clicked | `{}` |
-| 'DELETE_ROW' | Fired when a button with the action type "DELETE_ROW" is clicked | `{}` |
-| 'ROW_BLUR' | Fired when a row is blurred | `{}` |
-| 'CELL_BLUR' | Fired when a cell is blurred | `{}` |
-| 'CELL_CHANGE' | Fired when a cell is blurred | `{}` |
-| 'CELL_TRIGGER' | Fired when a cell is blurred | `{}` |
-| 'CELL_WAIT' | Fired when a cell is blurred | `{}` |
-| 'SUBMIT' | Fired when the form is submitted (via enter key) | `{}` |
+| `'FILTER'` | Fired when a filter is triggered | `{}` |
+| `'CUSTOMISE'` | Fired when the column's have changed | `{}` |
+| `'COLUMN_CHANGE'` | Fired when the column's config has changed | `{}` |
+| `'SEARCH'` | Fired when the search input get a value | `{}` |
+| `'LOAD_PAGE'` | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
+| `'ADD_ROW'` | Fired when a button with the action type "ADD_ROW" is clicked | `{}` |
+| `'COPY_ROW'` | Fired when a button with the action type "COPY_ROW" is clicked | `{}` |
+| `'DELETE_ROW'` | Fired when a button with the action type "DELETE_ROW" is clicked | `{}` |
+| `'ROW_BLUR'` | Fired when a row is blurred | `{}` |
+| `'CELL_BLUR'` | Fired when a cell is blurred | `{}` |
+| `'CELL_CHANGE'` | Fired when a cell is blurred | `{}` |
+| `'CELL_TRIGGER'` | Fired when a cell is blurred | `{}` |
+| `'CELL_WAIT'` | Fired when a cell is blurred | `{}` |
+| `'SUBMIT'` | Fired when the form is submitted (via enter key) | `{}` |
 
 ## Base
 A table with all default options and no initial data.

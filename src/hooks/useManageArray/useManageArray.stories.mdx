@@ -21,15 +21,21 @@ The hook in its simplest form. For a string array where all values must be uniqu
     {() => {
       const [editing, setEditing] = useState(false)
       const { array, addItem, editItem, deleteItem } = useManageArray()
+      const FormField = ({ id, placeholder, type, required, options }) => {
+        const { value, handleChange } = useField({ id, required })
+        return (
+          <Field id={id} placeholder={placeholder} type={type} options={options} value={value} onChange={handleChange} />
+        )
+      }
       return (
         <Fragment>
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(array, null, 2)}</pre>
           {array && array.map((x, i) => (
-            <Form key={`form-${i}`} savedData={{ name: x }} onSubmit={(formData) => { editItem(formData.name, i); setEditing(false) }}>
+            <FormV2 key={`form-${i}`} data={{ name: x }} onSubmit={(data) => { editItem(data.name, i); setEditing(false) }}>
               {({ handleSubmit }) => (
                 <form style={{ display: 'flex' }} onSubmit={(e) => e.preventDefault()}>
-                  <FieldState id="name">{(field) => <Field id={`name-${i}`} label="Name" disabled={!editing} {...field} />}</FieldState>
+                  <FormField id="name" placeholder="Name" />
                   {editing ? (
                     <Button variant="Tertiary" size="Small" type="submit" onClick={handleSubmit}>Save</Button>
                   ) : (
@@ -38,16 +44,16 @@ The hook in its simplest form. For a string array where all values must be uniqu
                   <Button className="m m--l-md" variant="Tertiary" size="Small" onClick={() => deleteItem(x)}>Delete</Button>
                 </form>
               )}
-            </Form>
+            </FormV2>
           ))}
-          <Form onSubmit={(formData) => addItem(formData.name)}>
-            {({ valid, handleSubmit }) => (
+          <FormV2 data={{ name: null }} onSubmit={(data) => addItem(data.name)}>
+            {({ handleSubmit }) => (
               <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
-                <FieldState id="name" required>{(field) => <Field id="name" label="Name" {...field} />}</FieldState>
-                <Button type="submit" disabled={!valid}>Add</Button>
+                <FormField id="name" placeholder="Name" />
+                <Button type="submit">Add</Button>
               </form>
             )}
-          </Form>
+          </FormV2>
         </Fragment>
       )
     }}
@@ -62,10 +68,10 @@ The hook also accepts an array of objects. It will add a `_uid` property to each
     {() => {
       const [editing, setEditing] = useState(false)
       const { array, addItem, editItem, deleteItem } = useManageArray()
-      const FormField = ({ id, label, type, required, options }) => {
+      const FormField = ({ id, placeholder, type, required, options }) => {
         const { value, handleChange } = useField({ id, required })
         return (
-          <Field id={id} label={label} type={type} options={options} value={value} onChange={handleChange} />
+          <Field id={id} placeholder={placeholder} type={type} options={options} value={value} onChange={handleChange} />
         )
       }
       return (
@@ -73,12 +79,12 @@ The hook also accepts an array of objects. It will add a `_uid` property to each
           <Text>Value:</Text>
           <pre className="p--md bg--ui-one text--sm">{JSON.stringify(array, null, 2)}</pre>
           {array && array.map((x, i) => (
-            <FormV2 key={`form-${x._uid}`} data={x} onSubmit={(newData) => { editItem(newData); setEditing(false) }}>
+            <FormV2 key={`form-${x._uid}`} data={x} onSubmit={(data) => { editItem(data); setEditing(false) }}>
               {({ handleSubmit }) => (
                 <form style={{ display: 'flex' }} onSubmit={(e) => e.preventDefault()}>
-                  <FormField id="name" label="Name" />
-                  <FormField id="age" label="Age" type="Number" />
-                  <FormField id="gender" label="Gender"type="Select" options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]} />
+                  <FormField id="name" placeholder="Name" />
+                  <FormField id="age" placeholder="Age" type="Number" />
+                  <FormField id="gender" placeholder="Gender"type="Select" options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]} />
                   {editing ? (
                     <Button variant="Tertiary" size="Small" type="submit" onClick={handleSubmit}>Save</Button>
                   ) : (
@@ -92,11 +98,11 @@ The hook also accepts an array of objects. It will add a `_uid` property to each
           <FormV2 data={{ name: null, age: null, gender: null }} onSubmit={(data) => addItem(data)}>
             {({ handleSubmit }) => (
               <form style={{ display: 'flex' }} onSubmit={handleSubmit}>
-                <FormField id="name" label="Name" />
-                <FormField id="age" label="Age" type="Number" />
+                <FormField id="name" placeholder="Name" />
+                <FormField id="age" placeholder="Age" type="Number" />
                 <FormField 
                   id="gender"
-                  label="Gender"
+                  placeholder="Gender"
                   type="Select" 
                   options={[{ value:'male', label: 'Male'}, { value:'female', label: 'Female'}]}
                 />
