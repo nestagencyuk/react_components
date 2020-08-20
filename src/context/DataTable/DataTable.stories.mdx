@@ -58,7 +58,7 @@ You can use `useContext` to access the toggle state. The table must be initiated
             ]}
             onSubmit={setValue}
             >
-            {({ rows, addRow, handleSubmit }) => (
+            {({ data, addRow, handleSubmit }) => (
               <Fragment>
                 <form onSubmit={handleSubmit}>
                   <table style={{ tableLayout: 'fixed', width: '100%' }}>
@@ -69,7 +69,7 @@ You can use `useContext` to access the toggle state. The table must be initiated
                       </tr>
                     </thead>
                     <tbody>
-                      {rows.map((data, i) => (
+                      {data.map((data, i) => (
                         <Row key={`row-${data._uid}`} data={data} />
                       ))}
                     </tbody>

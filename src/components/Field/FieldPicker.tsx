@@ -7,6 +7,7 @@ import * as React from 'react'
 import { Input } from '../Input'
 import { Checkbox } from '../Checkbox'
 import { Radio } from '../Radio'
+import { Switch } from '../Switch'
 import { Select } from '../Select'
 import { Textarea } from '../Textarea'
 import { DatePicker } from '../DatePicker'
@@ -23,6 +24,8 @@ const FieldPicker: React.FC<IField.IProps> = ({ type = 'Text', ...props }) => {
       return <Checkbox {...props} />
     case 'Radio':
       return <Radio {...props} />
+    case 'Switch':
+      return <Switch {...props} />
     case 'Textarea':
       return <Textarea {...props} />
     case 'DatePicker':

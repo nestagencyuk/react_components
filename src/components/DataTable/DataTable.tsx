@@ -1,6 +1,8 @@
-import * as React from 'react'
-import { useState } from 'react'
+import { IGenericObject } from '../../types'
 import { IDataTable } from './types'
+import * as React from 'react'
+import { v4 as uid } from 'uuid'
+import { useState, useEffect } from 'react'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import cx from 'classnames'
 
@@ -12,43 +14,51 @@ import './DataTable.scss'
 /**
  * Context
  */
-import { Box } from '../Box'
-import { Overlay } from '../Overlay'
-import { Loader } from '../Loader'
-import { DataTable as BaseDataTable } from '../../context/DataTable'
+import { DataTable as DataTableContext } from '../../context/DataTable'
 
 /**
  * Components
  */
-import { DataTableControls, DataTableHeader, DataTableBody, DataTableFooter } from '.'
-import { GenericObject } from 'types'
+import { Box } from '../Box'
+import { Overlay } from '../Overlay'
+import { Loader } from '../Loader'
+import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
 
 /**
  * A simple table component
  */
-const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: React.FormEvent) => void }> = ({
+const DataTable: React.FC<IDataTable.IProps> = ({
   className,
+  type = 'standard',
   loadingState = 'Idle',
   controls,
   header,
   rows,
   data,
-  onSubmit
+  onEvent = () => {}
 }) => {
-  const [columns, setColumns] = useState(header)
+  const [columns, setColumns] = useState<IDataTable.IColumnConfig[]>(header)
   const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination?.pageLimit || 100)
+  const pagination = usePaginationV2({ initialArray: data, pageLimit: paginationPageLimit })
+
+  console.log(loadingState)
 
   /**
-   * Set pagination
+   * Listen for changes to the column config and send these up
    */
-  const pagination = usePaginationV2({
-    array: data,
-    pageLimit: paginationPageLimit
-  })
+  useEffect(() => {
+    if (!columns) return
+    onEvent({ type: 'COLUMN_CHANGE', payload: columns })
+  }, [columns])
 
   return (
-    <form className={cx(className, 'datatable')} onBlur={onSubmit}>
-      {controls.global.visible && <DataTableControls header={columns} controls={controls.global} onChange={setColumns} />}
+    <form
+      className={cx(className, 'datatable')}
+      onKeyDown={(e) => e.key === 'Enter' && onEvent({ type: 'SUBMIT', payload: data })}
+    >
+      {controls.global.visible && (
+        <DataTableControls header={columns} controls={controls.global} onChange={setColumns} onEvent={onEvent} />
+      )}
 
       <div
         className="datatable__main"
@@ -64,13 +74,19 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
 
         <table className={cx(className, 'datatable__table')}>
           <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
-          <DataTableBody
-            controls={controls.row}
-            columns={columns}
-            rows={rows}
-            managedRows={pagination.currentSlice}
-            tableType={controls.global.type || 'standard'}
-          />
+          <tbody>
+            {pagination.currentSlice.map((row, i) => (
+              <DataTableRow
+                key={`row-${row._uid ? row._uid : uid()}`}
+                columns={columns}
+                cells={rows[i] || rows[0]}
+                data={row}
+                controls={controls.row}
+                tableType={type}
+                onEvent={onEvent}
+              />
+            ))}
+          </tbody>
         </table>
       </div>
 
@@ -89,12 +105,34 @@ const DataTable: React.FC<Omit<IDataTable.IProps, 'onSubmit'> & { onSubmit: (e: 
 /**
  * Wrap the table with the DT context
  */
-const ContextWrapper: React.FC<IDataTable.IProps> = ({ data, onSubmit, ...props }) => {
-  return (
-    <BaseDataTable data={data} onSubmit={onSubmit}>
-      {({ rows, handleSubmit }) => <DataTable {...props} data={rows as GenericObject[]} onSubmit={handleSubmit} />}
-    </BaseDataTable>
+const ContextWrapper: React.FC<IDataTable.IProps> = ({ onEvent = () => {}, ...props }) =>
+  props.type === 'standard' ? (
+    <DataTable data={props.data} {...props} />
+  ) : (
+    <DataTableContext data={props.data}>
+      {({ data, addRow, editRow, deleteRow }) => {
+        const _dispatch = ({ type, payload }: any) => {
+          onEvent({ type, payload })
+          switch (type) {
+            case 'ADD_ROW':
+              addRow(null)
+              break
+            case 'COPY_ROW':
+              addRow(payload.data)
+              break
+            case 'DELETE_ROW':
+              deleteRow(payload.data._uid)
+              break
+            case 'ROW_BLUR':
+              editRow(payload.data)
+              break
+            default:
+              break
+          }
+        }
+        return <DataTable {...props} data={data as IGenericObject[]} onEvent={_dispatch} />
+      }}
+    </DataTableContext>
   )
-}
 
 export default ContextWrapper

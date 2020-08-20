@@ -32,8 +32,9 @@ $remainder: (($size - $icon-size) / 2) !default;
   box-sizing: content-box;
   background-color: white;
   border-radius: corners.$round;
-  border: borders.$ui-three;
-  height: lib.fn-px($size) - (borders.$thin * 2);
+  background-color: colours.$ui-one;
+  border: solid 2px transparent;
+  height: lib.fn-px($size) - (borders.$mid * 2);
   width: lib.fn-px($size * 2);
   transition: all transitions.$ease;
 

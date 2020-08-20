@@ -8,23 +8,30 @@ const testUOMs = ['mm', 'cm', 'm', 'inch', 'feet', 'yard', 'ltr', 'gallon']
 const testQuantities = Array.from(Array(testLimit).keys()).map((x) => chance.integer({ min: 5, max: 10 }))
 const testBatch = Array.from(Array(testLimit).keys()).map((x) => chance.word())
 
-const testConfig: IDataTable.IProps = {
+const config: IDataTable.IProps = {
+  type: 'form',
   controls: {
     global: {
-      type: 'form',
       visible: true,
       search: true,
       minHeight: 500,
       maxHeight: 750,
-      buttonFilterData: true,
-      buttonCustomiseTable: true,
-      buttonAddRow: true
+      buttons: [
+        { align: 'Start', text: 'Filter Data', action: 'FILTER' },
+        { align: 'Start', text: 'Customise Table', action: 'CUSTOMISE' },
+        { align: 'End', text: 'Add Row', action: 'ADD_ROW' }
+      ]
     },
     row: {
       visible: true,
-      buttonCopyRow: true,
-      buttonDeleteRow: true,
-      buttonLockRow: true
+      sendOnBlur: true,
+      sendToEndpoint: '/my-test-endpoint',
+      buttons: [
+        { text: 'Copy', action: 'COPY_ROW' },
+        { text: 'Lock', action: 'LOCK_ROW' },
+        { text: 'Delete', action: 'DELETE_ROW' },
+        { text: 'Load', action: 'LOAD_PAGE', href: '/' }
+      ]
     },
     footer: {
       visible: true,
@@ -47,6 +54,9 @@ const testConfig: IDataTable.IProps = {
         id: 'product_sku',
         type: 'search',
         filterable: true,
+        sendOnBlur: true,
+        sendToEndpoint: '/my-test-endpoint',
+        sendMethod: 'PUT',
         options: [
           { label: testSKUS[0], value: testSKUS[0] },
           { label: testSKUS[1], value: testSKUS[1] },
@@ -91,24 +101,21 @@ const testConfig: IDataTable.IProps = {
   ]
 }
 
-const testConfigStandard: IDataTable.IProps = {
+const configStandard: IDataTable.IProps = {
+  type: 'standard',
   controls: {
     global: {
-      type: 'standard',
       visible: true,
       search: true,
       minHeight: 500,
       maxHeight: 750,
-      buttonFilterData: true,
-      buttonCustomiseTable: true,
-      buttonAddRow: false
+      buttons: [
+        { align: 'Start', text: 'Filter Data', action: 'FILTER' },
+        { align: 'Start', text: 'Customise Table', action: 'CUSTOMISE' }
+      ]
     },
     row: {
-      visible: false,
-      buttonCopyRow: true,
-      buttonDeleteRow: true,
-      buttonLockRow: true,
-      buttonLoadPage: true
+      visible: false
     },
     footer: {
       visible: true,
@@ -139,4 +146,4 @@ const testConfigStandard: IDataTable.IProps = {
   ]
 }
 
-export { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard }
+export { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, config, configStandard }

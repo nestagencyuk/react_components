@@ -80,7 +80,6 @@ $bg-colour: colours.$ui-one !default;
   @include lib.resets-list;
   display: block;
   position: absolute;
-  margin-top: 1px; // Must be same as input border
   background-color: $bg-colour;
   border-radius: corners.$base;
   max-height: 350px;

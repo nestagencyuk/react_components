@@ -5,11 +5,11 @@ import { IDataTable } from './types'
  * Context for displaying something that opens
  */
 const DataTableContext = createContext<IDataTable.IValue>({
-  rows: [],
+  data: [],
   addRow: () => {},
   editRow: () => {},
   deleteRow: () => {},
-  handleSubmit: () => {}
+  shapeData: () => []
 })
 
 export default DataTableContext

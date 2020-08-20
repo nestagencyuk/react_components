@@ -1,36 +1,32 @@
 import * as React from 'react'
-import { render, fireEvent, getByText, queryAllByTestId, act } from '@testing-library/react'
+import { render, fireEvent, act } from '@testing-library/react'
 import { DataTable } from '.'
 import { IDataTable } from './types'
-import { copy } from 'fs-extra'
-
-const chance = new (require('chance'))()
-
-const testLimit = 10
-const testSKUS = Array.from(Array(testLimit).keys()).map((x) => chance.word())
-const testDescriptions = Array.from(Array(testLimit).keys()).map((x) => chance.paragraph())
-const testUOMs = ['mm', 'cm', 'm', 'inch', 'feet', 'yard', 'ltr', 'gallon']
-const testQuantities = Array.from(Array(testLimit).keys()).map((x) => chance.integer({ min: 5, max: 10 }))
-const testBatch = Array.from(Array(testLimit).keys()).map((x) => chance.word())
 
 describe('----- DataTable Component -----', () => {
   jest.useFakeTimers()
   const testConfig: IDataTable.IProps = {
-    onSubmit: () => null,
+    type: 'form',
     controls: {
       global: {
-        type: 'form',
         visible: true,
         search: true,
-        buttonFilterData: true,
-        buttonCustomiseTable: true,
-        buttonAddRow: true
+        buttons: [
+          { align: 'Start', text: 'Filter Data', action: 'FILTER' },
+          { align: 'Start', text: 'Customise Table', action: 'CUSTOMISE' },
+          { align: 'End', text: 'Add Row', action: 'ADD_ROW' }
+        ]
       },
       row: {
         visible: true,
-        buttonCopyRow: true,
-        buttonLockRow: true,
-        buttonDeleteRow: true
+        sendOnBlur: true,
+        sendToEndpoint: '/my-test-endpoint',
+        buttons: [
+          { text: 'Copy', action: 'COPY_ROW' },
+          { text: 'Lock', action: 'LOCK_ROW' },
+          { text: 'Delete', action: 'DELETE_ROW' },
+          { text: 'Load', action: 'LOAD_PAGE', href: '/' }
+        ]
       },
       footer: {
         visible: true,
@@ -97,7 +93,8 @@ describe('----- DataTable Component -----', () => {
       unit_of_measure: 3,
       quantity: 11,
       batch: '123'
-    }))
+    })),
+    onEvent: jest.fn()
   }
 
   describe('DataTable Base', () => {

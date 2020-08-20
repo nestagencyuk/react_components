@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 /**
  * A hook for return a slice of an array, and paginating between slices
  */
-const usePaginationV2 = ({ array, pageLimit }: { array: any[]; pageLimit: number }) => {
+const usePaginationV2 = ({ initialArray, pageLimit }: { initialArray: any[]; pageLimit: number }) => {
   const [currentIndex, setCurrentPage] = useState(1)
   const [currentSlice, setCurrentData] = useState([])
-  const lastIndex = Math.ceil(array.length / pageLimit)
+  const lastIndex = Math.ceil(initialArray.length / pageLimit)
 
   /**
    * Return next page's slice
@@ -39,12 +39,12 @@ const usePaginationV2 = ({ array, pageLimit }: { array: any[]; pageLimit: number
   useEffect(() => {
     const begin = (currentIndex - 1) * pageLimit
     const end = begin + pageLimit
-    setCurrentData(array.slice(begin, end))
+    setCurrentData(initialArray.slice(begin, end))
 
     if (currentIndex > lastIndex) {
       handleSkip(lastIndex)
     }
-  }, [currentIndex, pageLimit, array])
+  }, [currentIndex, pageLimit, initialArray])
 
   return { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip, pageLimit }
 }

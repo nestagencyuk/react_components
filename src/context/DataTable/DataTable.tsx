@@ -1,9 +1,9 @@
+import { IGenericObject } from '../../types'
 import { IDataTable } from './types'
 import * as React from 'react'
 import { useMemo } from 'react'
 import * as clone from 'rfdc'
 import { useManageArray } from '../../hooks/useManageArray'
-import { GenericObject } from '../../types'
 
 /**
  * Context
@@ -13,15 +13,15 @@ import { DataTableContext } from '.'
 /**
  * Access datatable state
  */
-const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data: initialData, children, onSubmit }) => {
-  const { array: rows, addItem, editItem, deleteItem } = useManageArray({ initialArray: initialData })
+const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data: initialData, children }) => {
+  const { array: data, addItem, editItem, deleteItem } = useManageArray({ initialArray: initialData })
 
   /**
    * Create a blank row
    */
   const blankRow = useMemo(() => Object.keys(initialData[0]).reduce((acc, x: string) => ({ ...acc, [x]: null }), {}), [
     initialData,
-    rows
+    data
   ])
 
   /**
@@ -30,7 +30,7 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    * @param {Object} row
    * The row to add, for a blank row, pass null
    */
-  const addRow = (row: GenericObject | null) => {
+  const addRow = (row: IGenericObject | null) => {
     addItem(row !== null ? { ...row } : blankRow)
   }
 
@@ -41,28 +41,17 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    * The row's id to delete
    */
   const deleteRow = (uid: string) => {
-    if (rows.length === 1) return
+    if (data.length === 1) return
     deleteItem(uid)
   }
 
   /**
    * Shape the final row data
    */
-  const shapeData = (array: GenericObject & { _uid?: string }): GenericObject[] => {
-    const newArray = clone()(array) as GenericObject[]
+  const shapeData = (array: IGenericObject & { _uid?: string }): IGenericObject[] => {
+    const newArray = clone()(array) as IGenericObject[]
     newArray.map((x: any) => delete x._uid)
     return newArray
-  }
-
-  /**
-   * Handle the submission of the form
-   *
-   * @param {Event} e
-   * The default form submission event
-   */
-  const handleSubmit = (e: GenericObject) => {
-    e.preventDefault()
-    onSubmit(shapeData(rows))
   }
 
   /**
@@ -70,13 +59,13 @@ const DataTable: React.FC<IDataTable.IProps | IDataTable.IRenderProps> = ({ data
    */
   const value: IDataTable.IValue = useMemo(
     () => ({
-      rows,
+      data,
       addRow,
       editRow: editItem,
       deleteRow,
-      handleSubmit
+      shapeData
     }),
-    [rows]
+    [data]
   )
 
   return (

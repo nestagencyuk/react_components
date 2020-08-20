@@ -18,10 +18,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         >
           Filter Data
         </span>
-        <span
-          class="btn__icn btn__icn--end icn icn--md"
-          title="Filter"
-        />
       </button>
       <button
         class="m--r-md btn btn--secondary btn--sm"
@@ -44,7 +40,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         value=""
       />
       <button
-        class="m--l-auto btn btn--primary btn--sm"
+        class="m--l-auto btn btn--secondary btn--sm"
         type="button"
       >
         <span
@@ -52,10 +48,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         >
           Add Row
         </span>
-        <span
-          class="btn__icn btn__icn--end icn icn--md"
-          title="Plus"
-        />
       </button>
     </header>
     <div
@@ -116,7 +108,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -145,7 +137,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -230,7 +222,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -259,7 +251,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
                 tabindex="-1"
               >
                 <div
-                  style="position: relative; height: 3rem;"
+                  style="position: relative;"
                 >
                   <input
                     autocomplete="off"
@@ -361,11 +353,11 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             tabindex="-1"
           >
             <div
-              style="position: relative; height: 3rem;"
+              style="position: relative;"
             >
               <input
                 autocomplete="off"
-                class="select__input"
+                class="select__input select__input--sm"
                 data-testid="pagination-page-limit-input"
                 id="pagination-page-limit"
                 name="pagination-page-limit"

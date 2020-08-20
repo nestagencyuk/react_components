@@ -1,11 +1,10 @@
 import { IUseManageArray } from '../../hooks/useManageArray/types'
-import { GenericObject } from '../../types'
+import { IGenericObject } from '../../types'
 
 declare namespace IDataTable {
   interface IProps {
-    data: GenericObject[]
+    data: IGenericObject[]
     children: React.ReactNode
-    onSubmit: (data: GenericObject[]) => void
   }
 
   interface IRenderProps extends Omit<IProps, 'children'> {
@@ -13,11 +12,11 @@ declare namespace IDataTable {
   }
 
   interface IValue {
-    rows: IUseManageArray.IState
-    addRow: (value: GenericObject) => void
-    editRow: (value: GenericObject & { _uid: string }) => void
+    data: IUseManageArray.IState
+    addRow: (value: IGenericObject) => void
+    editRow: (value: IGenericObject & { _uid: string }) => void
     deleteRow: (uid: string) => void
-    handleSubmit: (e: React.FormEvent) => void
+    shapeData: (array: IGenericObject & { _uid?: string }) => IGenericObject[]
   }
 }
 
