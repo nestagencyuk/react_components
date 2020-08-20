@@ -41,8 +41,6 @@ const DataTable: React.FC<IDataTable.IProps> = ({
   const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination?.pageLimit || 100)
   const pagination = usePaginationV2({ initialArray: data, pageLimit: paginationPageLimit })
 
-  console.log(loadingState)
-
   /**
    * Listen for changes to the column config and send these up
    */

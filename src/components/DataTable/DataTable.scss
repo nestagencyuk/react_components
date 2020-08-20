@@ -10,6 +10,7 @@
 @use 'shadows';
 @use 'colours';
 @use 'z-index';
+@use 'breakpoints';
 
 /// -------------------
 /// Data Table config
@@ -38,6 +39,7 @@ $padding-y: spacing.$md !default;
   height: 100%;
   background-color: colours.$ui-two;
   overflow: auto;
+  border: borders.$ui-two;
 }
 
 /// -------------------
@@ -45,13 +47,24 @@ $padding-y: spacing.$md !default;
 /// -------------------
 
 .datatable__controls {
-  position: relative;
   display: flex;
-  box-sizing: border-box;
   background-color: white;
-  padding: spacing.$md 0;
-  border-bottom: borders.$ui-two;
-  z-index: z-index.$datatable;
+  padding: spacing.$md;
+  border-top: borders.$ui-two;
+  border-right: borders.$ui-two;
+  border-left: borders.$ui-two;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  @media only screen and (max-width: breakpoints.$xs) {
+    display: block;
+
+    .btn,
+    .input {
+      width: 100%;
+      margin-bottom: spacing.$sm;
+    }
+  }
 }
 
 /// -------------------
@@ -154,8 +167,11 @@ $padding-y: spacing.$md !default;
 .datatable__footer {
   box-sizing: border-box;
   width: 100%;
-  bottom: 0;
   background-color: white;
-  padding: spacing.$lg spacing.$sm;
-  border-top: borders.$ui-one;
+  padding: spacing.$md;
+  border-right: borders.$ui-two;
+  border-left: borders.$ui-two;
+  border-bottom: borders.$ui-two;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }

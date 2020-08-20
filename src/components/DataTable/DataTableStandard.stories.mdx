@@ -5,12 +5,12 @@ import { Loader } from '../Loader'
 import { DataTable } from '.'
 import { useStateMachine } from '../../hooks/useStateMachine'
 import { loading } from '../../states'
-import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, configStandard } from './DataTableConfig.ts'
+import { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, configStandard, configNoControls } from './DataTableConfig.ts'
 
 <Meta title="Components|Data Table/Standard" component={DataTable} />
 
 # Data Table
-A table that accepts the same props as the [datatable](/?path=/docs/components-data-table-form--base), but isn't editable.
+A table that accepts the same props as the [DataTable](/?path=/docs/components-data-table-form--base), but isn't editable.
 
 ## Base
 The component in its simplest form.
@@ -109,6 +109,44 @@ An example of a config object, that can be passed as props.
             rows={configStandard.rows}
             data={data}
             onEvent={dispatch}
+          />
+          <div style={{ marginBottom: '50px' }} />
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
+
+## Without controls
+This table has no global, row or footer controls rendered, making it a basic table.
+
+<Preview>
+  <Story name="Without Controls">
+    {() => {
+      const [data, setData] = useState(configNoControls.data)
+      const [loadingState, dispatchEvent] = useStateMachine({ machine: { ...loading, initial: 'Loading' } })
+      const chance = new (require('chance'))()
+      useEffect(() => {
+        const fakeData = Array.from(Array(1000).keys()).map(x => ({
+          product_sku: chance.pickone(testSKUS),
+          product_description: chance.pickone(testDescriptions),
+          unit_of_measure: chance.pickset(testUOMs, chance.integer({ min: 1, max: 5 })),
+          quantity: chance.pickone(testQuantities),
+          batch: chance.pickone(testBatch)
+        }))
+        setTimeout(() => {
+          setData(fakeData)
+          dispatchEvent('SUCCESS')
+        }, 3000)
+      }, [])
+      return (
+        <Fragment>
+          <DataTable
+            loadingState={loadingState}
+            controls={configNoControls.controls}
+            header={configNoControls.header} 
+            rows={configNoControls.rows}
+            data={data}
           />
           <div style={{ marginBottom: '50px' }} />
         </Fragment>
