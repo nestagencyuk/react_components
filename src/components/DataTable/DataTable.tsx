@@ -2,19 +2,15 @@ import { IGenericObject } from '../../types'
 import { IDataTable } from './types'
 import * as React from 'react'
 import { v4 as uid } from 'uuid'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
+import { useManageArray } from '../../hooks/useManageArray'
 import cx from 'classnames'
 
 /**
  * Styles
  */
 import './DataTable.scss'
-
-/**
- * Context
- */
-import { DataTable as DataTableContext } from '../../context/DataTable'
 
 /**
  * Components
@@ -25,7 +21,7 @@ import { Loader } from '../Loader'
 import { DataTableControls, DataTableHeader, DataTableRow, DataTableFooter } from '.'
 
 /**
- * A simple table component
+ * A data table component
  */
 const DataTable: React.FC<IDataTable.IProps> = ({
   className,
@@ -101,36 +97,46 @@ const DataTable: React.FC<IDataTable.IProps> = ({
 }
 
 /**
- * Wrap the table with the DT context
+ * Wrap the table with the data manager
  */
-const ContextWrapper: React.FC<IDataTable.IProps> = ({ onEvent = () => {}, ...props }) =>
-  props.type === 'standard' ? (
+const ContextWrapper: React.FC<IDataTable.IProps> = ({ onEvent = () => {}, ...props }) => {
+  const { array, addItem, editItem, deleteItem } = useManageArray({ initialArray: props.data })
+
+  /**
+   * Create a blank row
+   */
+  const blankRow = useMemo(() => Object.keys(props.data[0]).reduce((acc, x: string) => ({ ...acc, [x]: null }), {}), [array])
+
+  /**
+   * Dispatch events (create the final data obj)
+   */
+  const _dispatch = ({ type, payload }: any) => {
+    onEvent({ type, payload })
+
+    switch (type) {
+      case 'ADD_ROW':
+        addItem(blankRow)
+        break
+      case 'COPY_ROW':
+        addItem(payload.data)
+        break
+      case 'DELETE_ROW':
+        if (array.length === 1) return
+        deleteItem(payload.data._uid)
+        break
+      case 'ROW_BLUR':
+        editItem(payload.data)
+        break
+      default:
+        break
+    }
+  }
+
+  return props.type === 'standard' ? (
     <DataTable data={props.data} {...props} />
   ) : (
-    <DataTableContext data={props.data}>
-      {({ data, addRow, editRow, deleteRow }) => {
-        const _dispatch = ({ type, payload }: any) => {
-          onEvent({ type, payload })
-          switch (type) {
-            case 'ADD_ROW':
-              addRow(null)
-              break
-            case 'COPY_ROW':
-              addRow(payload.data)
-              break
-            case 'DELETE_ROW':
-              deleteRow(payload.data._uid)
-              break
-            case 'ROW_BLUR':
-              editRow(payload.data)
-              break
-            default:
-              break
-          }
-        }
-        return <DataTable {...props} data={data as IGenericObject[]} onEvent={_dispatch} />
-      }}
-    </DataTableContext>
+    <DataTable {...props} data={array as IGenericObject[]} onEvent={_dispatch} />
   )
+}
 
 export default ContextWrapper

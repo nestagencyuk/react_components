@@ -8,6 +8,7 @@
 @use 'spacing';
 @use 'typography';
 @use 'colours';
+@use 'states';
 @use 'corners';
 
 /// -------------------
@@ -35,6 +36,10 @@ $padding-x: spacing.$xs !default;
   background-color: colours.$ui-two;
   cursor: pointer;
   white-space: nowrap;
+
+  &:focus {
+    @include states.focus;
+  }
 }
 
 /// -------------------

@@ -198,7 +198,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Ellipsis"
+                  title="More"
                 />
                 <span
                   class="text--screen-reader"
@@ -312,7 +312,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Ellipsis"
+                  title="More"
                 />
                 <span
                   class="text--screen-reader"
@@ -376,7 +376,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           class="m--l-auto grid__item grid__item--6"
         >
           <button
-            class="m--r-xs btn btn--tertiary btn--sm btn--disabled"
+            class="m--r-sm btn btn--tertiary btn--sm btn--disabled"
             disabled=""
             type="button"
           >
@@ -396,7 +396,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             value="1"
           />
           <span
-            class="text--bold m--r-xs text text--p text--left"
+            class="text--bold m--r-sm text text--p text--left"
           >
             of 1
           </span>

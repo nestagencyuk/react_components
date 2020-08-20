@@ -26,7 +26,7 @@ The hook in its simplest form.
         "item 5"
       ])
       const pageLimit = 3
-      const { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = usePaginationV2({ array: data, pageLimit })
+      const { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip } = usePaginationV2({ initialArray: data, pageLimit })
       return (
         <Fragment>
           <div>Current Page: {currentIndex}</div>

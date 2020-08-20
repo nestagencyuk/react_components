@@ -69,7 +69,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
           {controls.pagination && (
             <Fragment>
               <Button
-                className="m--r-xs"
+                className="m--r-sm"
                 variant="Tertiary"
                 size="Small"
                 disabled={currentIndex === 1 || currentIndex === 0}
@@ -87,7 +87,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 maxValue={lastIndex}
                 onChange={(val: number) => updatePaginationIndex(val)}
               />
-              <Text tag="span" className="text--bold m--r-xs">
+              <Text tag="span" className="text--bold m--r-sm">
                 of {lastIndex}
               </Text>
               <Button
