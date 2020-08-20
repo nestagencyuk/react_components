@@ -24,14 +24,12 @@ const testConfig: IDataTable.IProps = {
       visible: true,
       buttonCopyRow: true,
       buttonDeleteRow: true,
-      buttonLockRow: true,
-      buttonLoadPage: true
+      buttonLockRow: true
     },
     footer: {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
         pageLimit: 5
       }
     }
@@ -99,24 +97,19 @@ const testConfigStandard: IDataTable.IProps = {
       type: 'standard',
       visible: true,
       search: true,
-      minHeight: 500,
-      maxHeight: 750,
+      minHeight: 200,
+      maxHeight: 500,
       buttonFilterData: true,
       buttonCustomiseTable: true,
       buttonAddRow: false
     },
     row: {
-      visible: false,
-      buttonCopyRow: true,
-      buttonDeleteRow: true,
-      buttonLockRow: true,
-      buttonLoadPage: true
+      visible: false
     },
     footer: {
       visible: true,
       rowCount: true,
       pagination: {
-        visible: true,
         pageLimit: 5
       }
     }
@@ -142,4 +135,49 @@ const testConfigStandard: IDataTable.IProps = {
   ]
 }
 
-export { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard }
+const withoutControlsConfig: IDataTable.IProps = {
+  controls: {
+    global: {
+      type: 'standard',
+      visible: false,
+      minHeight: 200,
+      maxHeight: 500
+    },
+    row: {
+      visible: false
+    },
+    footer: {
+      visible: false
+    }
+  },
+  header: [
+    { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, defaultWidth: 200 },
+    { id: 'product_description', name: 'Product Description', visible: true, defaultWidth: 400, resizable: true },
+    { id: 'unit_of_measure', name: 'Unit of Measure', visible: true, defaultWidth: 200, resizable: true },
+    { id: 'quantity', name: 'Quantity', visible: true },
+    { id: 'batch', name: 'Batch', visible: true }
+  ],
+  rows: [
+    [{ id: 'product_sku' }, { id: 'product_description' }, { id: 'unit_of_measure' }, { id: 'quantity' }, { id: 'batch' }]
+  ],
+  data: [
+    {
+      product_sku: null,
+      product_description: null,
+      unit_of_measure: null,
+      quantity: null,
+      batch: null
+    }
+  ]
+}
+
+export {
+  testSKUS,
+  testDescriptions,
+  testUOMs,
+  testQuantities,
+  testBatch,
+  testConfig,
+  testConfigStandard,
+  withoutControlsConfig
+}

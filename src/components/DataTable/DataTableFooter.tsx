@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { IDataTable } from './types'
-import { Fragment } from 'react'
 
 /**
  * Components
@@ -48,6 +47,7 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
               </Label>
               <Select
                 id="pagination-page-limit"
+                size="Small"
                 options={[
                   {
                     label: '5',

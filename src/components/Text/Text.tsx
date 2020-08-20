@@ -33,11 +33,20 @@ const alignments = {
 /**
  * A text component
  */
-const Text: React.FC<IText.IProps> = ({ className, variant = 'P', tag = 'p', align = 'Left', inverse, children }) => {
+const Text: React.FC<IText.IProps> = ({ className, variant = 'P', tag = 'p', align = 'Left', inverse, muted, children }) => {
   const Tag: React.ElementType = tag
 
   return children ? (
-    <Tag className={cx(className, 'text', variants[variant], alignments[align], { 'text--inverse': inverse })}>
+    <Tag
+      className={cx(
+        className,
+        'text',
+        variants[variant],
+        alignments[align],
+        { 'text--inverse': inverse },
+        { 'text--muted': muted }
+      )}
+    >
       {children}
     </Tag>
   ) : null

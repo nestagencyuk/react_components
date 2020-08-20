@@ -1,0 +1,87 @@
+/// ----------------------------------------------------------------------
+
+/// Switch
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'colours';
+@use 'corners';
+@use 'spacing';
+@use 'borders';
+@use 'transitions';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// Switch swatches
+/// -------------------
+
+$size: 1.5rem !default;
+$icon-size: 1rem !default;
+$remainder: (($size - $icon-size) / 2) !default;
+
+/// -------------------
+/// Switch selectors
+/// -------------------
+
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: content-box;
+  background-color: white;
+  border-radius: corners.$round;
+  border: borders.$ui-three;
+  height: lib.fn-px($size) - (borders.$thin * 2);
+  width: lib.fn-px($size * 2);
+  transition: all transitions.$ease;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &:checked,
+  &--checked {
+    background-color: colours.$brand-one;
+  }
+
+  &:focus-within {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// Hide default input
+/// -------------------
+
+.switch__input {
+  @include lib.utilities-center;
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: z-index.$default;
+}
+
+/// -------------------
+/// Switch icon
+/// -------------------
+
+.switch__icn {
+  @include lib.utilities-center-y;
+  left: 0 + $remainder;
+  background-color: colours.$ui-three;
+  width: $icon-size;
+  height: $icon-size;
+  border-radius: corners.$round;
+  transition: all 0.2s ease-in-out;
+
+  .switch:checked > &,
+  .switch--checked > & {
+    left: calc(50% + #{$remainder});
+    background-color: white;
+  }
+}

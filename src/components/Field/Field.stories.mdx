@@ -29,6 +29,22 @@ The base Field compoonent with all default props.
   </Story>
 </Preview>
 
+## Required
+By default, a field is optional, however a `required` prop can be passed in.
+
+<Preview>
+  <Story name="Required">
+    {() => {
+      const [value, setValue] = useState('')
+      return (
+        <Fragment>
+          <Field id="field-base" label="Name" value={value} required onChange={setValue} />
+          <Button onClick={() => alert(`Form data: ${value}`)}>Submit</Button>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Preview>
 
 ## Number
 Pass `Number` to the `type` prop to render a Number input. 

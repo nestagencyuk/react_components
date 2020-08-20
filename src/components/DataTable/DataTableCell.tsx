@@ -25,21 +25,21 @@ const DataTableCellPicker: React.FC<any> = (props) => {
           .substring(0, 80)}
       </Text>
     )
-  } else {
-    switch (props.type) {
-      case 'Select':
-      case 'Search':
-        return <Select multiVariant="Tags" {...props} />
-      case 'Text':
-      case 'Number':
-        return <Input {...props} />
-      default:
-        return (
-          <Text className="p--sm" variant="P">
-            {props.value?.length > 80 ? `${props.value.substring(0, 80)}...` : props.value}
-          </Text>
-        )
-    }
+  }
+
+  switch (props.type) {
+    case 'Select':
+    case 'Search':
+      return <Select multiVariant="Tags" {...props} />
+    case 'Text':
+    case 'Number':
+      return <Input {...props} />
+    default:
+      return (
+        <Text className="p--sm" variant="P" muted={props.disabled}>
+          {props.value?.length > 80 ? `${props.value.substring(0, 80)}...` : props.value}
+        </Text>
+      )
   }
 }
 
@@ -58,7 +58,7 @@ const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType 
           {...config}
           value={value}
           type={castType}
-          disabled={config.locked}
+          disabled={config.locked || config.disabled}
           tabIndex={config.ignoreTab ? -1 : 0}
           onChange={handleChange}
           tableType={tableType}

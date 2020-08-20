@@ -40,9 +40,8 @@ declare namespace IDataTable {
   interface IFooterControls {
     visible: boolean
     rowCount?: boolean | number
-    pagination: {
+    pagination?: {
       pageLimit?: 5 | 10 | 15 | 20 | 50 | 100
-      visible: boolean
     }
   }
 
@@ -82,7 +81,6 @@ declare namespace IDataTable {
     pattern?: string
     disabled?: boolean
     ignoreTab?: boolean
-    tabIndex?: number
     includeInObject?: boolean
     sendOnBlur?: boolean
     sendOnChange?: boolean
