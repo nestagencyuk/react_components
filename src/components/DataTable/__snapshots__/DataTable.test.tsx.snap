@@ -198,7 +198,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="More"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
@@ -312,7 +312,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="More"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
