@@ -1,24 +1,21 @@
-import { OpenState } from '../../types'
-
 declare namespace IUseStateMachine {
   interface IProps {
     delay?: number
     machine?: {
-      initial: OpenState
+      initial: string
       states: {
-        [key in OpenState]: {
-          next?: OpenState
+        [key: string]: {
+          next?: string
           on?: {
-            [key in Event]?: OpenState
+            [key: string]: string
           }
         }
       }
     }
-    timeout?: number
   }
 
-  type Event = 'OPEN' | 'CLOSE'
-  type IState = OpenState
+  type Event = string
+  type IState = string
 }
 
 export { IUseStateMachine }

@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
 import { useStateMachine } from '../../hooks/useStateMachine'
+import { opening } from '../../states'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { Float } from '../Float'
@@ -84,12 +85,12 @@ To create an alert popover, the base alert component can be combined with [Toggl
 <Preview>
   <Story name="Toggle">
     {() => {
-      const [state, dispatchEvent] = useStateMachine()
+      const [openState, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Alert</Button>
-          {state !== 'Closed' && <Float portal>
-            <Alert state={state} onClose={() => dispatchEvent('CLOSE')}>
+          {openState !== 'Closed' && <Float portal>
+            <Alert openState={openState} onClose={() => dispatchEvent('CLOSE')}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia turpis mattis justo pellentesque, ac vulputate felis dictum. Integer risus enim, posuere quis elementum non, commodo molestie odio.
             </Alert>
           </Float>}
@@ -105,12 +106,12 @@ Set a timeout so that the alert disappears after some time.
 <Preview>
   <Story name="Alert-Timeout">
     {() => {
-      const [state, dispatchEvent] = useStateMachine({ timeout: 3000 })
+      const [openState, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Success Alert</Button>
-          {state !== 'Closed' && <Float portal>
-            <Alert variant="Success" state={state}>
+          {openState !== 'Closed' && <Float portal>
+            <Alert variant="Success" openState={openState} onClose={() => dispatchEvent('CLOSE')}>
               Wow, it worked!
             </Alert>
           </Float>}
@@ -127,18 +128,18 @@ An alert can be used to determine an action.
   <Story name="Confirm">
     {() => {
       const [decision, setDecision] = useState(null)
-      const [state, dispatchEvent] = useStateMachine()
+      const [openState, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Do something mad!</Button>
           {decision !== null && <Text>{decision ? 'Living on the wild side!' : 'Oh, :( boring'}</Text>}
-          {state !== 'Closed' && <Float portal>
-            <Alert variant="Warning" state={state} footer={{
+          {openState !== 'Closed' && <Float portal>
+            <Alert variant="Warning" openState={openState} footer={{
               actions: [
                 { text: 'No', variant: 'Tertiary', size: 'Small', onClick: () => { setDecision(false); dispatchEvent('CLOSE') } },
                 { text: 'Yes', variant: 'Primary', size: 'Small', onClick: () => { setDecision(true); dispatchEvent('CLOSE') } },
               ]
-            }}>
+            }} onClose={() => dispatchEvent('CLOSE')}>
               Are you sure you want to do this?!
             </Alert>
           </Float>}
@@ -147,6 +148,3 @@ An alert can be used to determine an action.
     }}
   </Story>
 </Preview>
-
-## Prop Types
-<Props of={Alert} />

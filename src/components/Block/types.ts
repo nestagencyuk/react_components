@@ -10,7 +10,6 @@ declare namespace IBlock {
     header?: IHeader.IProps
     button?: IButtonProps
     children: string
-    testId?: string
   }
 
   interface IImageProps extends IImage.IProps {

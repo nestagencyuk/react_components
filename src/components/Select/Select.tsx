@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
 import { useManageArray } from '../../hooks/useManageArray'
+import { useKeyboardNav } from '../../hooks/useKeyboardNav'
 import cx from 'classnames'
 
 /**
@@ -14,7 +15,6 @@ import './Select.scss'
  * Components
  */
 import { SelectOptions } from '.'
-import { Button } from '../Button'
 import { Icon } from '../Icon'
 
 /**
@@ -41,9 +41,9 @@ const Select: React.FC<ISelect.IProps> = ({
   const [placeholder, setPlaceholder] = useState(initialPlaceholder)
   const [filterValue, setFilterValue] = useState<string>('')
   const [shownValue, setShownValue] = useState('')
-  const [cursor, setCursor] = useState<number>(-1)
   const [focused, setFocused] = useState<boolean>(false)
 
+  const [, , onKeyDown] = useKeyboardNav({ root: ref.current, skip: 0 })
   const { array: values, addItem, deleteItem, resetItems } = useManageArray({
     initialArray: Array.isArray(value) ? value : null
   })
@@ -54,8 +54,6 @@ const Select: React.FC<ISelect.IProps> = ({
   const filtered = filterable
     ? options.filter((x) => x.label?.toLowerCase().includes(filterValue?.toLowerCase() || ''))
     : options
-
-  // const filtered = multiVariant === 'Tags' ? prefiltered.filter((x) => !values?.includes(x.value)) : prefiltered
 
   /**
    * When we focus, open the options
@@ -75,28 +73,7 @@ const Select: React.FC<ISelect.IProps> = ({
     if (isOutside) {
       setFocused(false)
       setFilterValue(null)
-    }
-  }
-
-  /**
-   * When clicking an option
-   *
-   * @param {string} value
-   * The passed value
-   */
-  const handleClick = (value: string) => {
-    if (multi) {
-      if (multiVariant === 'Tags') ref.current.focus()
-      const index = values ? values.indexOf(value) : -1
-      if (index === -1) {
-        addItem(value)
-      } else {
-        deleteItem(value)
-      }
-    } else {
-      resetItems([value])
-      setFocused(false)
-      ref.current.parentElement.focus()
+      document.body.style.overflow = null
     }
   }
 
@@ -106,6 +83,7 @@ const Select: React.FC<ISelect.IProps> = ({
   const handleReset = () => {
     resetItems([])
     setFocused(false)
+    ref.current.parentElement.focus()
   }
 
   /**
@@ -149,18 +127,24 @@ const Select: React.FC<ISelect.IProps> = ({
   }
 
   /**
-   * Handle keyboard navigation
+   * When clicking an option
+   *
+   * @param {string} value
+   * The passed value
    */
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    switch (e.key) {
-      case 'ArrowUp':
-        cursor > 0 ? setCursor((prev) => prev - 1) : setCursor(filtered.length - 1)
-        break
-      case 'ArrowDown':
-        cursor < filtered.length - 1 ? setCursor((prev) => prev + 1) : setCursor(0)
-        break
-      default:
-        break
+  const handleClick = (value: string) => {
+    if (multi) {
+      if (multiVariant === 'Tags') ref.current.focus()
+      const index = values ? values.indexOf(value) : -1
+      if (index === -1) {
+        addItem(value)
+      } else {
+        deleteItem(value)
+      }
+    } else {
+      resetItems([value])
+      setFocused(false)
+      ref.current.parentElement.focus()
     }
   }
 
@@ -180,7 +164,6 @@ const Select: React.FC<ISelect.IProps> = ({
     } else {
       const foundValue = options.find((x) => x.value === value)
       setPlaceholder(foundValue?.label || initialPlaceholder)
-      setCursor(-1)
     }
   }, [value])
 
@@ -201,15 +184,15 @@ const Select: React.FC<ISelect.IProps> = ({
       tabIndex={-1}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      onKeyDown={handleKeyDown}
+      onKeyDown={onKeyDown}
     >
       <div style={{ position: 'relative', height: '3rem' }}>
         <input
           className="select__input"
           id={id}
           data-testid={`${id}-input`}
-          tabIndex={tabIndex}
           name={id}
+          tabIndex={tabIndex}
           value={shownValue || ''}
           readOnly={!filterable}
           placeholder={placeholder}
@@ -217,18 +200,6 @@ const Select: React.FC<ISelect.IProps> = ({
           autoComplete="off"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e.target.value)}
         />
-
-        {multi && values?.length > 0 && (
-          <Button
-            className="select__clear"
-            variant="Tertiary"
-            size="XSmall"
-            tabIndex={disabled ? -1 : 0}
-            onClick={handleReset}
-          >
-            Clear
-          </Button>
-        )}
 
         <Icon
           className="select__icn"
@@ -243,16 +214,15 @@ const Select: React.FC<ISelect.IProps> = ({
       {focused && (
         <SelectOptions
           id={id}
-          triggerRef={ref}
+          trigger={ref.current}
           open={focused}
           values={values as string[]}
-          cursor={cursor}
           options={options}
           filtered={filtered}
           optional={optional}
           multi={multi}
           multiVariant={multiVariant}
-          onClick={handleClick}
+          onClick={(val) => (multi && val === null ? handleReset() : handleClick(val))}
         />
       )}
     </div>

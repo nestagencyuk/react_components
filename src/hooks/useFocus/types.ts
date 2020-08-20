@@ -1,8 +1,8 @@
 declare namespace IUseFocus {
   interface IProps {
-    trigger?: 'Click' | 'Hover'
-    triggerRef?: React.RefObject<HTMLElement>
-    targetRef?: React.RefObject<HTMLElement>
+    toggleable?: boolean
+    trigger?: HTMLElement
+    target?: HTMLElement
   }
 }
 

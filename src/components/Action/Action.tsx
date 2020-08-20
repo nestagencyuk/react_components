@@ -38,6 +38,7 @@ const sizes = {
 const Action: React.FC<IAction.IProps> = (
   {
     className,
+    id,
     component,
     href,
     to,
@@ -49,8 +50,7 @@ const Action: React.FC<IAction.IProps> = (
     children,
     onFocus,
     onBlur,
-    onClick,
-    testId
+    onClick
   },
   ref?: React.Ref<HTMLDivElement>
 ) => {
@@ -63,6 +63,8 @@ const Action: React.FC<IAction.IProps> = (
       className={cx(className, 'action', variants[variant], sizes[size], {
         'action--disabled': disabled
       })}
+      id={id}
+      data-testid={id}
       title={children}
       type={type}
       href={href}
@@ -71,7 +73,6 @@ const Action: React.FC<IAction.IProps> = (
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      data-testid={testId}
     >
       <Icon className="action__icn" colour="Inherit" {...icon} />
       <span className="text--screen-reader">{children}</span>

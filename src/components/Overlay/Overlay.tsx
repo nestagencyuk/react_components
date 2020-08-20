@@ -18,7 +18,7 @@ const variants = {
 /**
  * States
  */
-const states = {
+const openStates = {
   Closed: '',
   Opening: 'animate--fade-in',
   Open: '',
@@ -28,14 +28,16 @@ const states = {
 /**
  * An overlay
  */
-const Overlay: React.FC<IOverlay.IProps> = ({ className, variant, state, portal, fixed, children, onClick }) => {
+const Overlay: React.FC<IOverlay.IProps> = ({ className, variant, openState, portal, fixed, children, onClick }) => {
   /**
    * Render the component
    */
   const renderOverlay = () =>
-    state !== 'Closed' ? (
+    openState !== 'Closed' ? (
       <div
-        className={cx(className, 'overlay', variants[variant], 'animate', states[state], { 'overlay--fixed': fixed })}
+        className={cx(className, 'overlay', variants[variant], 'animate', openStates[openState], {
+          'overlay--fixed': fixed
+        })}
         onClick={onClick}
         data-testid="overlay"
       >

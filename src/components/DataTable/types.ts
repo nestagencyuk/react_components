@@ -1,20 +1,23 @@
+import { GenericObject, LoadingState } from '../../types'
+
 declare namespace IDataTable {
   interface IProps {
+    className?: string
+    loadingState?: LoadingState
     controls: {
       global: IGlobalConfig
       row: IRowControls
       footer: IFooterControls
     }
     header: IColumnConfig[]
-    rows: Array<Array<ICellConfig>>
-    data: any
-    onSubmit: (data: any[]) => void
-    className?: string
-    loading?: boolean
+    rows: ICellConfig[][]
+    data: GenericObject[]
+    onSubmit?: (data: GenericObject[]) => void
   }
 
   // Config types
   interface IGlobalConfig {
+    type: 'standard' | 'form'
     visible: boolean
     minHeight?: number
     maxHeight?: number
@@ -38,16 +41,18 @@ declare namespace IDataTable {
     visible: boolean
     rowCount?: boolean | number
     pagination: {
-      pageLimit: number
+      pageLimit?: 5 | 10 | 15 | 20 | 50 | 100
+      visible: boolean
     }
   }
 
   interface IColumnConfig {
-    defaultWidth?: number
+    id: string
+    name: string
     resizable?: boolean
     visible: boolean
-    name: string
-    id: string
+    sortable?: boolean
+    defaultWidth?: number
   }
 
   interface IRowConfig {
@@ -65,8 +70,6 @@ declare namespace IDataTable {
 
   interface ICellConfig {
     id: string
-    name: string
-    value: any
     type?: 'text' | 'number' | 'search' | 'select' | 'string'
     placeholder?: string
     multi?: boolean
@@ -92,12 +95,12 @@ declare namespace IDataTable {
     responseLabel?: any
     triggerUpdate?: string[]
     searchable?: boolean
-    options?: { [key: string]: any }[]
-    items?: { [key: string]: any }[]
+    options?: Array<{ [key: string]: any }>
+    items?: Array<{ [key: string]: any }>
     filterable?: boolean
   }
 
-  // Datatable components
+  // Component types
   interface IControlsProps {
     header: IColumnConfig[]
     controls: {
@@ -123,8 +126,9 @@ declare namespace IDataTable {
       buttonLoadPage?: boolean
     }
     columns: IColumnConfig[]
-    rows: Array<Array<ICellConfig>>
+    rows: ICellConfig[][]
     managedRows: IRowConfig[]
+    tableType: 'standard' | 'form'
   }
 
   interface IRowProps {
@@ -132,11 +136,13 @@ declare namespace IDataTable {
     columns: IColumnConfig[]
     cells: ICellConfig[]
     data: any
+    tableType: 'standard' | 'form'
   }
 
   interface ICellProps {
     id: string
     config: any
+    tableType: 'standard' | 'form'
   }
 
   interface IFooterProps {

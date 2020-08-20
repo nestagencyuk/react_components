@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Fragment, useContext, useState } from 'react'
 import { useStateMachine } from '../../hooks/useStateMachine'
+import { opening } from '../../states'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { Overlay } from '../Overlay'
@@ -38,14 +39,14 @@ Use state to show/hide the modal as needed.
 <Preview>
   <Story name="Toggle">
     {() => {
-      const [state, dispatchEvent] = useStateMachine()
+      const [openState, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Modal</Button>
-          {state !== 'Closed' && <Float portal align={{ x: 'Center', y: 'Center' }}>
-            <Overlay state={state} portal fixed onClick={() => dispatchEvent('CLOSE')} /> 
+          {openState !== 'Closed' && <Float portal align={{ x: 'Center', y: 'Center' }}>
+            <Overlay openState={openState} portal fixed onClick={() => dispatchEvent('CLOSE')} /> 
             <Modal 
-              state={state}
+              openState={openState}
               header={{ heading: 'Heading', subheading: 'Subheading'}} 
               footer={{ 
                 actions: [
@@ -64,6 +65,3 @@ Use state to show/hide the modal as needed.
     }}
   </Story>
 </Preview>
-
-## Prop Types
-<Props of={Modal} />

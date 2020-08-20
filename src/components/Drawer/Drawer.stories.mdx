@@ -3,6 +3,7 @@ import { drawerDecorater, demoDecorator } from '../../../.storybook/decorators'
 import { Fragment, useContext, useState } from 'react'
 import { useToggle } from '../../hooks/useToggle'
 import { useStateMachine } from '../../hooks/useStateMachine'
+import { opening } from '../../states'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Drawer } from '.'
@@ -18,11 +19,11 @@ This is the drawer in its simplest form.
 <Preview>
   <Story name="Toggle">
     {() => {
-      const [state, dispatchEvent] = useStateMachine()
+      const [openState, dispatchEvent] = useStateMachine({ machine: opening })
       return (
         <Fragment>
           <Button onClick={() => dispatchEvent('OPEN')}>Open Drawer</Button>
-          <Drawer state={state} onClick={() => dispatchEvent('CLOSE')}>
+          <Drawer openState={openState} onClick={() => dispatchEvent('CLOSE')}>
             <Text>
               Item 1
             </Text>
@@ -35,6 +36,3 @@ This is the drawer in its simplest form.
     }}
   </Story>
 </Preview>
-
-## Prop Types
-<Props of={Drawer} />

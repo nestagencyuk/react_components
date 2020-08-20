@@ -9,7 +9,7 @@ describe('----- Field Component -----', () => {
   const baseProps: IField.IProps = {
     id: 'field',
     label: 'This is a test label',
-    state: 'Info',
+    uiState: 'Info',
     msg: 'This is my message',
     onChange: mockFn
   }

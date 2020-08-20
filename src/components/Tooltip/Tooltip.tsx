@@ -25,11 +25,11 @@ const alignments = {
  * A tooltip
  */
 const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', render, children }) => {
-  const [triggerRef, setTrigger] = useState(null)
-  const [targetRef, setTarget] = useState(null)
-  const [arrowRef, setArrow] = useState(null)
-  const [focused, onFocus, onBlur] = useFocus({ trigger, triggerRef, targetRef })
-  const [styles, attributes] = usePopper({ align, triggerRef, targetRef, arrowRef })
+  const [triggerEl, setTrigger] = useState(null)
+  const [target, setTarget] = useState(null)
+  const [arrow, setArrow] = useState(null)
+  const [focused, onFocus, onBlur] = useFocus({ trigger: triggerEl, target })
+  const [styles, attributes] = usePopper({ align, trigger: triggerEl, target, arrow })
 
   /**
    * Render the actual tooltip
@@ -58,10 +58,10 @@ const Tooltip: React.FC<ITooltip.IProps> = ({ align = 'Top', trigger = 'Hover', 
    */
   const events = useMemo(
     () => ({
-      onFocus: onFocus,
-      onBlur: onBlur
+      [trigger === 'Hover' ? 'onMouseEnter' : 'onFocus']: onFocus,
+      [trigger === 'Hover' ? 'onMouseLeave' : 'onBlur']: onBlur
     }),
-    []
+    [trigger]
   )
 
   return (

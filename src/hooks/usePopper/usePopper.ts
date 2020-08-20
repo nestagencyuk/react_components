@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { usePopper as usePopperBase } from 'react-popper'
 import { IUsePopper } from './types'
 
@@ -18,41 +17,19 @@ const alignments: { [key: string]: 'auto' | 'left' | 'top' | 'bottom' | 'right' 
  *
  * @param {Object} options
  */
-const usePopper = ({
-  align = 'Auto',
-  triggerRef: initialTriggerRef,
-  targetRef: initialTargetRef,
-  arrowRef: initialArrow
-}: IUsePopper.IProps = {}): [
+const usePopper = ({ align = 'Auto', trigger, target, arrow }: IUsePopper.IProps = {}): [
   { popper?: React.CSSProperties; arrow?: React.CSSProperties },
   { popper?: React.HTMLAttributes<any> }
 ] => {
-  const [triggerRef, setTrigger] = useState(null)
-  const [targetRef, setTarget] = useState(null)
-  const [arrowRef, setArrow] = useState(null)
-
   /**
    * Popper options
    */
   const options = {
     placement: alignments[align],
-    modifiers: [{ name: 'arrow', options: { element: initialArrow?.current || arrowRef } }]
+    modifiers: [{ name: 'arrow', options: { element: arrow } }]
   }
 
-  const { styles, attributes } = usePopperBase(
-    initialTriggerRef?.current || triggerRef,
-    initialTargetRef?.current || targetRef,
-    options
-  )
-
-  /**
-   * Set the ref elements if coming from state updates
-   */
-  useEffect(() => {
-    setTrigger(initialTriggerRef)
-    setTarget(initialTargetRef)
-    setArrow(initialArrow)
-  }, [initialTriggerRef, initialTargetRef])
+  const { styles, attributes } = usePopperBase(trigger, target, options)
 
   return [styles, attributes]
 }

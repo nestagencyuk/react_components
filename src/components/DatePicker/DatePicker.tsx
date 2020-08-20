@@ -11,10 +11,10 @@ import './DatePicker.scss'
 /**
  * A datepicker component
  */
-const DateTimePicker: React.FC<ReactDatePickerProps> = (props) => (
+const DateTimePicker: React.FC<ReactDatePickerProps> = ({ className, ...props }) => (
   <DatePicker
-    className={cx(props.className, 'input')}
-    wrapperClassName="datepicker"
+    className="input w--100"
+    wrapperClassName={cx(className, 'datepicker')}
     calendarClassName="datepicker-calendar"
     {...props}
   />

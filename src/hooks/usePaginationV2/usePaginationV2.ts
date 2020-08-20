@@ -44,9 +44,9 @@ const usePaginationV2 = ({ array, pageLimit }: { array: any[]; pageLimit: number
     if (currentIndex > lastIndex) {
       handleSkip(lastIndex)
     }
-  }, [currentIndex, array])
+  }, [currentIndex, pageLimit, array])
 
-  return { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip }
+  return { currentSlice, currentIndex, lastIndex, handleNext, handlePrev, handleSkip, pageLimit }
 }
 
 export default usePaginationV2

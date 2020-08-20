@@ -7,7 +7,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
   >
     <header
       class="datatable__controls"
-      data-testid="dataTableGlobalControls"
+      data-testid="datatable-global-controls"
     >
       <button
         class="m--r-md btn btn--secondary btn--sm"
@@ -19,8 +19,8 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Filter Data
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          class="btn__icn btn__icn--end icn icn--md"
+          title="Filter"
         />
       </button>
       <button
@@ -33,8 +33,8 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Customise Table
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          class="btn__icn btn__icn--end icn icn--md"
+          title="Table-columns"
         />
       </button>
       <input
@@ -53,8 +53,8 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           Add Row
         </span>
         <span
-          class="btn__icn btn__icn--end icn icn--sm"
-          title="Branch"
+          class="btn__icn btn__icn--end icn icn--md"
+          title="Plus"
         />
       </button>
     </header>
@@ -104,7 +104,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         <tbody>
           <tr
             class="datatable__row"
-            data-testid="dataTableRow"
+            data-testid="datatable-row"
           >
             <td
               class="datatable__cell"
@@ -171,10 +171,10 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="quantity"
                 id="quantity"
                 max="10"
                 min="5"
-                name="quantity"
                 tabindex="0"
                 type="Number"
                 value="11"
@@ -186,9 +186,9 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="batch"
                 id="batch"
                 maxlength="5"
-                name="batch"
                 tabindex="0"
                 type="Text"
                 value="123"
@@ -199,13 +199,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <button
                 class="action action--tertiary action--md"
-                data-testid="dataTableRowPopover"
+                data-testid="datatable-row-popover-btn"
+                id="datatable-row-popover-btn"
                 title="..."
                 type="button"
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Branch"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
@@ -217,7 +218,7 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           </tr>
           <tr
             class="datatable__row"
-            data-testid="dataTableRow"
+            data-testid="datatable-row"
           >
             <td
               class="datatable__cell"
@@ -284,10 +285,10 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="quantity"
                 id="quantity"
                 max="10"
                 min="5"
-                name="quantity"
                 tabindex="0"
                 type="Number"
                 value="11"
@@ -299,9 +300,9 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <input
                 class="w--100 datatable__input input--md input"
+                data-testid="batch"
                 id="batch"
                 maxlength="5"
-                name="batch"
                 tabindex="0"
                 type="Text"
                 value="123"
@@ -312,13 +313,14 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
             >
               <button
                 class="action action--tertiary action--md"
-                data-testid="dataTableRowPopover"
+                data-testid="datatable-row-popover-btn"
+                id="datatable-row-popover-btn"
                 title="..."
                 type="button"
               >
                 <span
                   class="action__icn icn icn--lg"
-                  title="Branch"
+                  title="Ellipsis"
                 />
                 <span
                   class="text--screen-reader"
@@ -339,16 +341,47 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         class="grid"
       >
         <div
-          class="grid__item grid__item--4"
+          class="grid__item grid__item--6"
         >
-          <p
-            class="text--bold text text--p text--left"
+          <span
+            class="text--bold m--r-md text text--p text--left"
           >
             2 Rows
-          </p>
+          </span>
+          <label
+            aria-label="pagination-page-limit"
+            class="m--r-sm label label--inline"
+            for="pagination-page-limit"
+          >
+            Show
+          </label>
+          <div
+            class="select"
+            data-testid="pagination-page-limit"
+            tabindex="-1"
+          >
+            <div
+              style="position: relative; height: 3rem;"
+            >
+              <input
+                autocomplete="off"
+                class="select__input"
+                data-testid="pagination-page-limit-input"
+                id="pagination-page-limit"
+                name="pagination-page-limit"
+                placeholder="10"
+                readonly=""
+                value=""
+              />
+              <span
+                class="select__icn icn icn--sm"
+                title="Chevron-down"
+              />
+            </div>
+          </div>
         </div>
         <div
-          class="m--l-auto grid__item grid__item--8"
+          class="m--l-auto grid__item grid__item--6"
         >
           <button
             class="m--r-xs btn btn--tertiary btn--sm btn--disabled"
@@ -363,7 +396,8 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
           </button>
           <input
             class="m--r-xs input--sm input"
-            data-testid="dataTablePagination"
+            data-testid="page-number"
+            id="page-number"
             max="1"
             min="1"
             type="Number"
@@ -388,16 +422,6 @@ exports[`----- DataTable Component ----- DataTable Base Renders without crashing
         </div>
       </div>
     </footer>
-    <button
-      class="btn btn--primary btn--md"
-      type="submit"
-    >
-      <span
-        class="w--100"
-      >
-        Submit
-      </span>
-    </button>
   </form>
 </DocumentFragment>
 `;

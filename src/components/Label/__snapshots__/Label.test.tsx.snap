@@ -4,7 +4,7 @@ exports[`----- Label Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <label
     aria-label="A test field"
-    class="label"
+    class="label label--stacked"
     for="A test field"
   >
     Test label text

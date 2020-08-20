@@ -12,7 +12,7 @@ import { DataTableContext } from '../../context/DataTable'
 /**
  * Components
  */
-import { Grid, GridItem } from '../Grid'
+import { Label } from '../Label'
 import { Popover } from '../Popover'
 import { Input } from '../Input'
 import { Checkbox } from '../Checkbox'
@@ -40,14 +40,13 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
   }, [toggles])
 
   return (
-    <header className="datatable__controls" data-testid="dataTableGlobalControls">
+    <header className="datatable__controls" data-testid="datatable-global-controls">
       {controls.buttonFilterData && (
         <Button
           variant="Secondary"
           className="m--r-md"
           icon={{
-            name: 'Branch',
-            size: 'Small',
+            name: 'Filter',
             align: 'End'
           }}
           size="Small"
@@ -57,29 +56,35 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
       )}
       {controls.buttonCustomiseTable && (
         <Popover
-          render={header.map((x: any, i: number) => (
-            <label key={`label-${x.id}`} className="label interactive p--sm w--100" htmlFor={`label-${x.id}-${i}`}>
-              <Checkbox
-                className="m--r-xs"
-                id={`label-${x.id}-${i}`}
-                value={x.visible}
-                onChange={() => setToggled(`label-${x.id}`)}
-              />
-              {x.name}
-            </label>
-          ))}
+          align="Bottom"
+          render={
+            <div style={{ width: '250px' }}>
+              {header.map((x: any, i: number) => (
+                <Label key={`label-${x.id}`} className="p--sm w--100" for={`label-${x.id}-${i}`} interactive>
+                  <Checkbox
+                    className="m--r-xs"
+                    id={`label-${x.id}-${i}`}
+                    value={x.visible}
+                    onChange={() => setToggled(`label-${x.id}`)}
+                  />
+                  {x.name}
+                </Label>
+              ))}
+            </div>
+          }
         >
-          {(value) => (
+          {({ ref, onFocus, onBlur }) => (
             <RefButton
+              ref={ref}
               variant="Secondary"
               className="m--r-md"
               icon={{
-                name: 'Branch',
-                size: 'Small',
+                name: 'Table-columns',
                 align: 'End'
               }}
               size="Small"
-              {...value}
+              onClick={onFocus}
+              onBlur={onBlur}
             >
               Customise Table
             </RefButton>
@@ -93,8 +98,7 @@ const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, contro
         <Button
           className="m--l-auto"
           icon={{
-            name: 'Branch',
-            size: 'Small',
+            name: 'Plus',
             align: 'End'
           }}
           size="Small"

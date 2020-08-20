@@ -1,3 +1,4 @@
+import { IDataTable } from './types'
 const chance = new (require('chance'))()
 
 const testLimit = 10
@@ -7,9 +8,10 @@ const testUOMs = ['mm', 'cm', 'm', 'inch', 'feet', 'yard', 'ltr', 'gallon']
 const testQuantities = Array.from(Array(testLimit).keys()).map((x) => chance.integer({ min: 5, max: 10 }))
 const testBatch = Array.from(Array(testLimit).keys()).map((x) => chance.word())
 
-const testConfig: any = {
+const testConfig: IDataTable.IProps = {
   controls: {
     global: {
+      type: 'form',
       visible: true,
       search: true,
       minHeight: 500,
@@ -30,7 +32,7 @@ const testConfig: any = {
       rowCount: true,
       pagination: {
         visible: true,
-        pageLimit: 20
+        pageLimit: 5
       }
     }
   },
@@ -45,9 +47,7 @@ const testConfig: any = {
     [
       {
         id: 'product_sku',
-        name: 'product_sku',
         type: 'search',
-        value: null,
         filterable: true,
         options: [
           { label: testSKUS[0], value: testSKUS[0] },
@@ -62,12 +62,10 @@ const testConfig: any = {
           { label: testSKUS[9], value: testSKUS[9] }
         ]
       },
-      { id: 'product_description', type: 'string', name: 'product_description' },
+      { id: 'product_description', type: 'string' },
       {
         id: 'unit_of_measure',
-        name: 'uom',
         type: 'select',
-        value: null,
         multi: true,
         options: [
           { label: testUOMs[0], value: testUOMs[0] },
@@ -80,8 +78,8 @@ const testConfig: any = {
           { label: testUOMs[7], value: testUOMs[7] }
         ]
       },
-      { id: 'quantity', name: 'quantity', type: 'number', value: null, minValue: 5, maxValue: 10 },
-      { id: 'batch', name: 'batch', type: 'text', value: null, maxLength: 5 }
+      { id: 'quantity', type: 'number', minValue: 5, maxValue: 10 },
+      { id: 'batch', type: 'text', maxLength: 5 }
     ]
   ],
   data: [
@@ -95,4 +93,53 @@ const testConfig: any = {
   ]
 }
 
-export { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig }
+const testConfigStandard: IDataTable.IProps = {
+  controls: {
+    global: {
+      type: 'standard',
+      visible: true,
+      search: true,
+      minHeight: 500,
+      maxHeight: 750,
+      buttonFilterData: true,
+      buttonCustomiseTable: true,
+      buttonAddRow: false
+    },
+    row: {
+      visible: false,
+      buttonCopyRow: true,
+      buttonDeleteRow: true,
+      buttonLockRow: true,
+      buttonLoadPage: true
+    },
+    footer: {
+      visible: true,
+      rowCount: true,
+      pagination: {
+        visible: true,
+        pageLimit: 5
+      }
+    }
+  },
+  header: [
+    { id: 'product_sku', name: 'Stock Keeping Unit (SKU)', visible: true, defaultWidth: 200 },
+    { id: 'product_description', name: 'Product Description', visible: true, defaultWidth: 400, resizable: true },
+    { id: 'unit_of_measure', name: 'Unit of Measure', visible: true, defaultWidth: 200, resizable: true },
+    { id: 'quantity', name: 'Quantity', visible: true },
+    { id: 'batch', name: 'Batch', visible: true }
+  ],
+  rows: [
+    [{ id: 'product_sku' }, { id: 'product_description' }, { id: 'unit_of_measure' }, { id: 'quantity' }, { id: 'batch' }]
+  ],
+  data: [
+    {
+      product_sku: null,
+      product_description: null,
+      unit_of_measure: null,
+      quantity: null,
+      batch: null
+    }
+  ]
+}
+
+export { testSKUS, testDescriptions, testUOMs, testQuantities, testBatch, testConfig, testConfigStandard }

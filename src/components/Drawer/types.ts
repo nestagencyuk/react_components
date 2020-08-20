@@ -3,7 +3,7 @@ import { OpenState } from '../../types'
 declare namespace IDrawer {
   interface IProps {
     className?: string
-    state?: OpenState
+    openState?: OpenState
     children: React.ReactNode
     onClick: (e?: React.SyntheticEvent) => void
   }

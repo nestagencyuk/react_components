@@ -58,20 +58,13 @@ $bg-colour: colours.$ui-one !default;
   transition: all transitions.$ease;
   appearance: none;
 
-  .field--error & {
-    border-color: colours.$state-error;
-  }
-
-  .field--warning & {
-    border-color: colours.$state-warning;
-  }
-
-  .field--success & {
-    border-color: colours.$state-success;
-  }
-
   &:read-only {
     cursor: pointer;
+  }
+
+  &::placeholder {
+    color: colours.$ui-five;
+    opacity: 1;
   }
 
   &:focus {
@@ -107,9 +100,9 @@ $bg-colour: colours.$ui-one !default;
     position: sticky;
     top: 0;
     background-color: colours.$ui-one;
-    padding-bottom: spacing.$xs;
     box-shadow: shadows.$one;
     z-index: z-index.$default;
+    padding-bottom: spacing.$xs;
   }
 }
 
@@ -139,16 +132,22 @@ $bg-colour: colours.$ui-one !default;
   &:disabled {
     @include states.disabled;
   }
-}
 
-/// -------------------
-/// Select button
-/// -------------------
+  &--clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.75;
+    font-size: map-get(typography.$small, 'font-size');
 
-.select__clear {
-  @include lib.utilities-center-y;
-  font-weight: typography.$font-regular;
-  right: ($padding-x * 2) + spacing.$xs;
+    &:only-child {
+      margin-bottom: -(spacing.$xs);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 /// -------------------
@@ -156,6 +155,7 @@ $bg-colour: colours.$ui-one !default;
 /// -------------------
 
 .select__tag.tag {
+  margin-right: spacing.$xs;
   margin-top: spacing.$xs;
   margin-left: spacing.$xs;
 }

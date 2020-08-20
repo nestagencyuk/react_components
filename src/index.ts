@@ -120,6 +120,9 @@ export { ITextarea } from './components/Textarea/types'
 export { Tooltip } from './components/Tooltip'
 export { ITooltip } from './components/Tooltip/types'
 
+export { Upload } from './components/Upload'
+export { IUpload } from './components/Upload/types'
+
 export { ToggleGroup } from './context/ToggleGroup'
 
 export { useImageColour } from './hooks/useImageColour'

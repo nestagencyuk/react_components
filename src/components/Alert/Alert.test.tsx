@@ -8,7 +8,6 @@ describe('----- Alert Component -----', () => {
 
   const baseProps: IAlert.IProps = {
     children: '',
-
     onClose: mockFn
   }
 
@@ -19,7 +18,7 @@ describe('----- Alert Component -----', () => {
 
   it('Renders optional props', () => {
     render(
-      <Alert {...baseProps} variant="Info" state="Closed">
+      <Alert {...baseProps} variant="Info" openState="Closed">
         Alert
       </Alert>
     )
