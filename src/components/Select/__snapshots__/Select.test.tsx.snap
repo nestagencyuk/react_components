@@ -8,7 +8,7 @@ exports[`----- Select Component ----- Base Renders without crashing 1`] = `
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -37,7 +37,7 @@ exports[`----- Select Component ----- Disabled Renders without crashing 1`] = `
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -67,7 +67,7 @@ exports[`----- Select Component ----- Filterable Renders without crashing 1`] = 
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -95,7 +95,7 @@ exports[`----- Select Component ----- Icon Renders without crashing 1`] = `
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -124,7 +124,7 @@ exports[`----- Select Component ----- Initial Value Multi Renders without crashi
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -153,7 +153,7 @@ exports[`----- Select Component ----- Initial value Renders without crashing 1`]
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -182,7 +182,7 @@ exports[`----- Select Component ----- Multi Filterable Renders without crashing 
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -210,7 +210,7 @@ exports[`----- Select Component ----- Multi Renders without crashing 1`] = `
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -239,7 +239,7 @@ exports[`----- Select Component ----- Multi Tags Renders without crashing 1`] = 
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -268,7 +268,7 @@ exports[`----- Select Component ----- Optional Renders without crashing 1`] = `
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -297,7 +297,7 @@ exports[`----- Select Component ----- Placeholder Renders without crashing 1`] =
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
@@ -326,7 +326,7 @@ exports[`----- Select Component ----- Searchable Renders without crashing 1`] = 
     tabindex="-1"
   >
     <div
-      style="position: relative; height: 3rem;"
+      style="position: relative;"
     >
       <input
         autocomplete="off"
