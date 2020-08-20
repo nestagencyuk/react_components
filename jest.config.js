@@ -7,5 +7,5 @@ module.exports = {
     '\\.(scss|css|jpg|svg|png)$': '<rootDir>/empty-module.js'
   },
   collectCoverage: true,
-  collectCoverageFrom: ['src/components/**/*.tsx', '!src/components/_Template']
+  collectCoverageFrom: ['src/components/**/*.tsx', '!src/components/_Template/*']
 }
