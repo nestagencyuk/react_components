@@ -40,7 +40,7 @@ The data table component accepts JSON configuration to change the way various pi
         { text: 'Copy', action: 'COPY_ROW' },
         { text: 'Lock', action: 'LOCK_ROW' },
         { text: 'Delete', action: 'DELETE_ROW' },
-        { text: 'Load', action: 'LINK', href: '/' }
+        { text: 'Load', action: 'LOAD_PAGE', href: '/' }
       ]
     },
     footer: {
@@ -164,8 +164,10 @@ Each cell has the following shape:
 | multi - *optional* | Rendering multiselect for `select` cell | `boolean` |
 | filterable - *optional* | Allows searching of a `select` cell | `boolean` |
 | required - *optional* | Make cell required | `boolean` |
-| minLength - *optional* | Minimum length of value accepted by a `text` cell | `boolean` |
-| maxValue - *optional* | Maximum length of value accepted by a `text` cell | `boolean` |
+| minLength - *optional* | Minimum length of value accepted by a `text` cell | `number` |
+| maxLength - *optional* | Maximum length of value accepted by a `text` cell | `number` |
+| minValue - *optional* | Minimum value accepted by a `number` cell | `number` |
+| maxValue - *optional* | Maximum value accepted by a `number` cell | `number` |
 | disabled - *optional* | Disable the cell | `boolean` |
 | ignoreTab - *optional* | Take the cell out of the browser's tab flow | `boolean` |
 | includeInObject - *optional* | Include the cell in the final payload | `boolean` |
@@ -200,24 +202,22 @@ The above data example would render this row in the data table:
 ## Events
 The data table dispatches the following events, with appropriate payloads for hooking up as you wish. Open your console to see the events and their respective payloads in action.
 
-| Type | Description |
-|-|-|
-| `'FILTER'` | Fired when a filter is triggered |
-| `'CUSTOMISE'` | Fired when the column's have changed |
-| `'SEARCH'` | Fired when the search input get a value |
-| `'SORT'` | Fired when the sort button is clicked |
-| `'LINK'` | Fired when a button with the action type "LINK" is clicked |
-| `'PREV_PAGE'` | Fired when the "prev page" button is clicked |
-| `'NEXT_PAGE'` | Fired when the "next page" button is clicked |
-| `'ADD_ROW'` | Fired when a button with the action type "ADD_ROW" is clicked |
-| `'COPY_ROW'` | Fired when a button with the action type "COPY_ROW" is clicked |
-| `'DELETE_ROW'` | Fired when a button with the action type "DELETE_ROW" is clicked |
-| `'ROW_BLUR'` | Fired when a row is blurred |
-| `'CELL_BLUR'` | Fired when a cell is blurred |
-| `'CELL_CHANGE'` | Fired when a cell is blurred |
-| `'CELL_TRIGGER'` | Fired when a cell is blurred |
-| `'CELL_WAIT'` | Fired when a cell is blurred |
-| `'SUBMIT'` | Fired when the form is submitted (via enter key) |
+| Type | Description | Payload |
+|-|-|-|
+| `'FILTER'` | Fired when a filter is triggered | `{}` |
+| `'CUSTOMISE'` | Fired when the column's have changed | `{}` |
+| `'COLUMN_CHANGE'` | Fired when the column's config has changed | `{}` |
+| `'SEARCH'` | Fired when the search input get a value | `{}` |
+| `'LOAD_PAGE'` | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
+| `'ADD_ROW'` | Fired when a button with the action type "ADD_ROW" is clicked | `{}` |
+| `'COPY_ROW'` | Fired when a button with the action type "COPY_ROW" is clicked | `{}` |
+| `'DELETE_ROW'` | Fired when a button with the action type "DELETE_ROW" is clicked | `{}` |
+| `'ROW_BLUR'` | Fired when a row is blurred | `{}` |
+| `'CELL_BLUR'` | Fired when a cell is blurred | `{}` |
+| `'CELL_CHANGE'` | Fired when a cell is blurred | `{}` |
+| `'CELL_TRIGGER'` | Fired when a cell is blurred | `{}` |
+| `'CELL_WAIT'` | Fired when a cell is blurred | `{}` |
+| `'SUBMIT'` | Fired when the form is submitted (via enter key) | `{}` |
 
 ## Base
 A table with all default options and no initial data.
@@ -235,20 +235,14 @@ A table with all default options and no initial data.
           case 'CUSTOMISE':
             // Do something on customise
             break
+          case 'COLUMN_CHANGE':
+            // Do something on column config change
+            break
           case 'SEARCH':
             // Do something on search
             break
-          case 'SORT':
-            // Do something on sort
-            break
-          case 'LINK':
-            // Do something on link
-            break
-          case 'PREV_PAGE':
-            // Do something on add row
-            break
-          case 'NEXT_PAGE':
-            // Do something on add row
+          case 'LOAD_PAGE':
+            // Do something on load page
             break
           case 'ADD_ROW':
             // Do something on add row
