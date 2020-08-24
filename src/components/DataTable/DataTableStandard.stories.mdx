@@ -18,13 +18,14 @@ The component in its simplest form.
 ## Events
 As with the form data table, the standard version still dispatches some events, with appropriate payloads for hooking up as you wish. Open your console to see the events and their respective payloads in action.
 
-| Type | Description | Payload |
-|-|-|-|
-| `'FILTER'` | Fired when a filter is triggered | `{}` |
-| `'CUSTOMISE'` | Fired when the column's have changed | `{}` |
-| `'COLUMN_CHANGE'` | Fired when the column's config has changed | `{}` |
-| `'SEARCH'` | Fired when the search input get a value | `{}` |
-| `'LOAD_PAGE'` | Fired when a button with the action type "LOAD_PAGE" is clicked | `{}` |
+| Type | Description |
+|-|-|
+| `'FILTER'` | Fired when a filter is triggered |
+| `'CUSTOMISE'` | Fired when the column's have changed |
+| `'SEARCH'` | Fired when the search input get a value |
+| `'SORT'` | Fired when the sort button is clicked |
+| `'PREV_PAGE'` | Fired when the "prev page" button is clicked |
+| `'NEXT_PAGE'` | Fired when the "next page" button is clicked |
 
 
 ### Config object

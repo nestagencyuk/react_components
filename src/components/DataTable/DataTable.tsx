@@ -2,7 +2,7 @@ import { IGenericObject } from '../../types'
 import { IDataTable } from './types'
 import * as React from 'react'
 import { v4 as uid } from 'uuid'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { usePaginationV2 } from '../../hooks/usePaginationV2'
 import { useManageArray } from '../../hooks/useManageArray'
 import cx from 'classnames'
@@ -37,14 +37,6 @@ const DataTable: React.FC<IDataTable.IProps> = ({
   const [paginationPageLimit, setPaginationPageLimit] = useState(controls.footer.pagination?.pageLimit || 100)
   const pagination = usePaginationV2({ initialArray: data, pageLimit: paginationPageLimit })
 
-  /**
-   * Listen for changes to the column config and send these up
-   */
-  useEffect(() => {
-    if (!columns) return
-    onEvent({ type: 'COLUMN_CHANGE', payload: columns })
-  }, [columns])
-
   return (
     <form
       className={cx(className, 'datatable')}
@@ -67,7 +59,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({
         )}
 
         <table className={cx(className, 'datatable__table')}>
-          <DataTableHeader showRowControls={controls.row.visible} columns={columns} />
+          <DataTableHeader showRowControls={controls.row.visible} columns={columns} onEvent={onEvent} />
           <tbody>
             {pagination.currentSlice.map((row, i) => (
               <DataTableRow
@@ -90,6 +82,7 @@ const DataTable: React.FC<IDataTable.IProps> = ({
           pagination={pagination}
           rowCount={data.length}
           setPaginationPageLimit={setPaginationPageLimit}
+          onEvent={onEvent}
         />
       )}
     </form>
@@ -108,26 +101,29 @@ const ContextWrapper: React.FC<IDataTable.IProps> = ({ onEvent = () => {}, ...pr
   const blankRow = useMemo(() => Object.keys(props.data[0]).reduce((acc, x: string) => ({ ...acc, [x]: null }), {}), [array])
 
   /**
-   * Dispatch events (create the final data obj)
+   * Dispatch private events (create the final data obj)
    */
   const _dispatch = ({ type, payload }: any) => {
-    onEvent({ type, payload })
-
     switch (type) {
       case 'ADD_ROW':
         addItem(blankRow)
+        onEvent({ type, payload: blankRow })
         break
       case 'COPY_ROW':
         addItem(payload.data)
+        onEvent({ type, payload })
         break
       case 'DELETE_ROW':
         if (array.length === 1) return
         deleteItem(payload.data._uid)
+        onEvent({ type, payload })
         break
       case 'ROW_BLUR':
         editItem(payload.data)
+        onEvent({ type, payload })
         break
       default:
+        onEvent({ type, payload })
         break
     }
   }

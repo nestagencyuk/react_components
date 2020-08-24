@@ -5,6 +5,7 @@ import { INavtree } from './types'
 
 describe('----- Navtree Component -----', () => {
   const baseProps: INavtree.IProps = {
+    variant: 'Expanded',
     items: [
       {
         href: '/',

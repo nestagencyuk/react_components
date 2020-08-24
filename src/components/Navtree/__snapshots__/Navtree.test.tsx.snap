@@ -3,88 +3,92 @@
 exports[`----- Navtree Component ----- Renders without crashing 1`] = `
 <DocumentFragment>
   <nav
-    class="navtree"
+    class="navtree navtree--expanded"
   >
     <ul
-      class="navtree__list navtree__list--active"
+      class="navtree__list navtree__list--active navtree__list--expand-y"
       data-depth="0"
     >
       <li
         class="navtree__item"
-        data-testid="navTreeItem"
+        data-testid="navtree-item"
       >
-        <span
-          tabindex="0"
+        <a
+          class="navtree__link navtree__link--primary"
+          href="/"
         >
-          <a
-            class="navtree__link"
-            href="/"
+          <span
+            class="navtree__icn icn icn--lg icn--dark"
+            title="Home"
+          />
+          <span
+            class="navtree__link-text"
           >
-            <span
-              class="icn icn--lg icn--dark"
-              title="Home"
-            />
-            <span />
-          </a>
-        </span>
+            Home
+          </span>
+        </a>
       </li>
       <li
         class="navtree__item"
-        data-testid="navTreeItem"
+        data-testid="navtree-item"
       >
-        <span
-          tabindex="0"
+        <a
+          class="navtree__link navtree__link--primary"
         >
-          <a
-            class="navtree__link"
+          <span
+            class="navtree__icn icn icn--lg icn--dark"
+            title="Home"
+          />
+          <span
+            class="navtree__link-text"
           >
-            <span
-              class="icn icn--lg icn--dark"
-              title="Home"
-            />
-            <span />
-          </a>
-        </span>
+            About
+          </span>
+        </a>
       </li>
       <li
         class="navtree__item"
-        data-testid="navTreeItem"
+        data-testid="navtree-item"
       >
-        <span
-          tabindex="0"
+        <button
+          class="navtree__link navtree__link--expand-y"
+          to="/test"
         >
-          <button
-            class="navtree__link"
-            to="/test"
+          <span
+            class="navtree__icn icn icn--lg icn--dark"
+            title="Home"
+          />
+          <span
+            class="navtree__link-text"
           >
-            <span
-              class="icn icn--lg icn--dark"
-              title="Home"
-            />
-            <span />
-          </button>
-        </span>
+            Test
+          </span>
+          <span
+            class="navtree__icn navtree__icn--expand icn icn--sm icn--dark"
+            title="Chevron-down"
+          />
+        </button>
         <ul
-          class="navtree__list"
+          class="navtree__list navtree__list--expand-y"
           data-depth="1"
         >
           <li
             class="navtree__item"
-            data-testid="navTreeItem"
+            data-testid="navtree-item"
           >
-            <span
-              tabindex="0"
+            <a
+              class="navtree__link navtree__link--primary"
             >
-              <a
-                class="navtree__link"
+              <span
+                class="navtree__icn icn icn--lg icn--dark"
+                title="Home"
+              />
+              <span
+                class="navtree__link-text"
               >
-                <span
-                  class="icn icn--lg icn--dark"
-                  title="Home"
-                />
-                <span />
-              </a>
-            </span>
+                A test child
+              </span>
+            </a>
           </li>
         </ul>
       </li>

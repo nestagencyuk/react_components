@@ -15,7 +15,13 @@ import { Label } from '../Label'
 /**
  * Render a table cell
  */
-const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, pagination, rowCount, setPaginationPageLimit }) => {
+const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({
+  controls,
+  pagination,
+  rowCount,
+  setPaginationPageLimit,
+  onEvent
+}) => {
   const { currentIndex, lastIndex, handleNext, handlePrev, handleSkip, pageLimit } = pagination
   const [paginationIndex, setPaginationIndex] = useState(currentIndex)
 
@@ -30,6 +36,9 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
     }
   }
 
+  /**
+   * Set index
+   */
   useEffect(() => {
     setPaginationIndex(currentIndex)
   }, [currentIndex])
@@ -73,7 +82,10 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 variant="Tertiary"
                 size="Small"
                 disabled={currentIndex === 1 || currentIndex === 0}
-                onClick={handlePrev}
+                onClick={() => {
+                  handlePrev()
+                  onEvent({ type: 'PREV_PAGE', payload: { currentIndex } })
+                }}
               >
                 Prev
               </Button>
@@ -94,7 +106,10 @@ const DataTableFooter: React.FC<IDataTable.IFooterProps> = ({ controls, paginati
                 variant="Tertiary"
                 size="Small"
                 disabled={rowCount === 0 ? true : currentIndex === lastIndex}
-                onClick={handleNext}
+                onClick={() => {
+                  handleNext()
+                  onEvent({ type: 'NEXT_PAGE', payload: { currentIndex } })
+                }}
               >
                 Next
               </Button>

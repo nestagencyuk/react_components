@@ -10,7 +10,7 @@ import { Action } from '../Action'
 /**
  * Render the table header
  */
-const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ showRowControls, columns }) => (
+const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ showRowControls, columns, onEvent }) => (
   <thead>
     <tr className="datatable__header">
       {columns.map(
@@ -23,7 +23,13 @@ const DataTableHeader: React.FC<IDataTable.IHeaderProps> = ({ showRowControls, c
             >
               {column.name}
               {column.sortable && (
-                <Action className="datatable__cell-btn" variant="Tertiary" icon={{ name: 'Caret' }} size="Small">
+                <Action
+                  className="datatable__cell-btn"
+                  variant="Tertiary"
+                  icon={{ name: 'Caret' }}
+                  size="Small"
+                  onClick={() => onEvent({ type: 'SORT', payload: { id: column.id } })}
+                >
                   Sort
                 </Action>
               )}

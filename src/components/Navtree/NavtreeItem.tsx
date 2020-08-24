@@ -13,21 +13,35 @@ import { Tooltip } from '../Tooltip'
 /**
  * The list item to render within the  navigation
  */
-const NavtreeItem: React.FC<INavtree.IItemProps> = (props) => {
+const NavtreeItem: React.FC<INavtree.IItemProps> = ({ className, items, text, depth, open, ...props }) => {
   const { toggles, setToggled } = useContext(ToggleTreeContext)
+  const expandX = items?.some((x) => x.items)
 
   return (
-    <li className={cx(props.className, 'navtree__item')} data-testid="navTreeItem">
-      {props.items ? (
+    <li className={cx(className, 'navtree__item')} data-testid="navtree-item">
+      {items ? (
         <Fragment>
-          <Tooltip render={props.text} align="Right">
-            <NavtreeLink {...props} onClick={() => setToggled(props.text, props.depth)} />
+          <Tooltip render={text} align="Right">
+            {(value: any) => (
+              <NavtreeLink
+                {...value}
+                {...props}
+                variant={expandX ? 'ExpandX' : 'ExpandY'}
+                onClick={() => setToggled(text, depth)}
+              >
+                {text}
+              </NavtreeLink>
+            )}
           </Tooltip>
-          <NavtreeList items={props.items} depth={props.depth + 1} open={toggles[props.text]?.open} />
+          <NavtreeList parent={{ text }} items={items} depth={depth + 1} open={toggles[text]?.open} />
         </Fragment>
       ) : (
-        <Tooltip render={props.text} align="Right">
-          <NavtreeLink {...props} />
+        <Tooltip render={text} align="Right">
+          {(value: any) => (
+            <NavtreeLink {...value} {...props}>
+              {text}
+            </NavtreeLink>
+          )}
         </Tooltip>
       )}
     </li>

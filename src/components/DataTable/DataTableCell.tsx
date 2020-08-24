@@ -48,7 +48,7 @@ const DataTableCellPicker: React.FC<any> = (props) => {
 /**
  * Render a table cell
  */
-const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType, onEvent = () => {} }) => {
+const DataTableCell: React.FC<IDataTable.ICellProps> = ({ id, config, tableType, onEvent }) => {
   const { value, handleChange } = useField({ id })
   const [, onFocus, onBlurCB] = useFocus()
   const castType = config.type && (capitalise(config.type) as IField.IProps['type'])

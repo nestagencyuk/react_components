@@ -91,11 +91,20 @@ declare namespace IDataTable {
   /**
    * Prop types
    */
-  type GlobalEvent = GlobalControlsEvent | RowControlsEvent | RowEvent | CellEvent | 'COLUMN_CHANGE' | 'SUBMIT'
+  type GlobalEvent =
+    | GlobalControlsEvent
+    | RowControlsEvent
+    | FooterControlsEvent
+    | HeaderEvent
+    | RowEvent
+    | CellEvent
+    | 'SUBMIT'
   type GlobalControlsEvent = 'FILTER' | 'SEARCH' | 'CUSTOMISE'
-  type RowControlsEvent = 'ADD_ROW' | 'COPY_ROW' | 'DELETE_ROW' | 'LOCK_ROW' | 'LOAD_PAGE'
+  type RowControlsEvent = 'ADD_ROW' | 'COPY_ROW' | 'DELETE_ROW' | 'LOCK_ROW' | 'LINK'
+  type FooterControlsEvent = 'PREV_PAGE' | 'NEXT_PAGE'
+  type HeaderEvent = 'SORT'
   type RowEvent = 'ROW_CHANGE' | 'ROW_BLUR'
-  type CellEvent = 'CELL_BLUR' | 'CELL_CHANGE' | 'CELL_TRIGGER'
+  type CellEvent = 'CELL_BLUR' | 'CELL_CHANGE' | 'CELL_TRIGGER' | 'CELL_WAIT'
 
   type EventDispatcher = (value: { type: GlobalEvent; payload?: any }) => void
 
@@ -124,6 +133,7 @@ declare namespace IDataTable {
   interface IHeaderProps {
     columns: IColumnConfig[]
     showRowControls?: boolean
+    onEvent?: EventDispatcher
   }
 
   interface IRowProps {
@@ -145,6 +155,7 @@ declare namespace IDataTable {
 
   interface IFooterProps {
     [key: string]: any
+    onEvent?: EventDispatcher
   }
 }
 

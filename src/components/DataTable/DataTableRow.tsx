@@ -16,7 +16,7 @@ import { DataTableCell } from '.'
 /**
  * Table row
  */
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType, onEvent = () => {} }) => {
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType, onEvent }) => {
   const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const [, onFocus, onBlurCB] = useFocus()
 
@@ -72,12 +72,12 @@ const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells
   const renderCells = () => {
     const noUID = Object.keys(data).filter((key) => key !== '_uid')
 
-    return noUID.map((key, i) => {
-      const isCellVisible = columns.find((x) => x.id === key)?.visible
+    return row.map((cell, i) => {
+      const isCellVisible = columns.find((x) => x.id === cell.id)?.visible
 
       return (
         isCellVisible && (
-          <DataTableCell key={`cell-${key}-${i}`} id={key} config={row[i]} tableType={tableType} onEvent={onEvent} />
+          <DataTableCell key={`cell-${cell.id}-${i}`} id={cell.id} config={cell} tableType={tableType} onEvent={onEvent} />
         )
       )
     })
