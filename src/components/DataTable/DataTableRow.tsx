@@ -16,7 +16,7 @@ import { DataTableCell } from '.'
 /**
  * Table row
  */
-const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType, onEvent = () => {} }) => {
+const DataTableRow: React.FC<IDataTable.IRowProps> = ({ controls, columns, cells, data, tableType, onEvent }) => {
   const [row, setRow] = useState<Array<IDataTable.ICellProps['config']>>(cells)
   const [, onFocus, onBlurCB] = useFocus()
 

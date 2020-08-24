@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { IUseFocus } from './types'
+import { type } from 'os'
 
 /**
  * Handles focus events for the target and its descendants.
@@ -29,6 +30,7 @@ const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}
    */
   const onBlur = useCallback(
     (e: React.FocusEvent & { relatedTarget: HTMLElement }, cb?: (e: React.FormEvent) => void) => {
+      e.stopPropagation()
       const isUnrelated = trigger || target
       let newFocused = true
 
@@ -39,8 +41,8 @@ const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}
           newFocused = false
         }
       } else {
-        const isInside = (e.currentTarget || e.target)?.contains(e.relatedTarget)
-        if (!isInside) {
+        const current = e?.currentTarget || e?.target
+        if (typeof current === 'object' && !current.contains(e.relatedTarget)) {
           newFocused = false
         }
       }

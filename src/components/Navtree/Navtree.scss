@@ -28,8 +28,11 @@ $nav-height: 70px;
   position: relative;
   z-index: z-index.$top;
   padding: 0;
-  max-width: max-content;
   background-color: colours.$ui-two;
+
+  &--compact {
+    max-width: 3.5rem;
+  }
 }
 
 /// -------------------
@@ -41,13 +44,19 @@ $nav-height: 70px;
   transform-origin: top;
   animation: fadeInTop 0.3s forwards ease;
   display: none;
-
-  &:not([data-depth='0']) {
-    background-color: rgba(colours.$ui-three, 0.25);
-  }
+  background-color: colours.$ui-two;
 
   &--active {
     display: block;
+  }
+
+  &--expand-x {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    animation: fadeInLeft 0.3s forwards ease;
+    height: 100%;
+    width: 100%;
   }
 }
 /// -------------------
@@ -55,6 +64,9 @@ $nav-height: 70px;
 /// -------------------
 
 .navtree__item {
+  & .navtree__list--expand-y & {
+    background-color: colours.$ui-three;
+  }
 }
 
 /// -------------------
@@ -63,7 +75,8 @@ $nav-height: 70px;
 
 .navtree__link {
   @include lib.resets-style;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: 100%;
   box-sizing: border-box;
   line-height: 1;
@@ -74,14 +87,48 @@ $nav-height: 70px;
   white-space: nowrap;
   color: map-get(colours.$ui, 'five');
   text-align: left;
-  cursor: pointer;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
+  &:focus,
   &:hover {
+    outline: none;
     color: map-get(colours.$brand, 'two');
   }
 
-  .navtree__item:nth-child(2n) & {
-    background-color: rgba(white, 0.025);
+  &--back {
+    background-color: rgba(white, 0.5);
+  }
+}
+
+/// -------------------
+/// Navtree link
+/// -------------------
+
+.navtree__link-text {
+  display: none;
+
+  .navtree--expanded & {
+    display: block;
+  }
+}
+
+/// -------------------
+/// Navtree icon
+/// -------------------
+
+.navtree__icn {
+  .navtree--expanded & {
+    margin-right: spacing.$md;
+  }
+
+  &--expand {
+    display: none;
+
+    .navtree--expanded & {
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+    }
   }
 }

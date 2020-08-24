@@ -30,7 +30,7 @@ const config: IDataTable.IProps = {
         { text: 'Copy', action: 'COPY_ROW' },
         { text: 'Lock', action: 'LOCK_ROW' },
         { text: 'Delete', action: 'DELETE_ROW' },
-        { text: 'Load', action: 'LOAD_PAGE', href: '/' }
+        { text: 'Load', action: 'LINK', href: '/' }
       ]
     },
     footer: {
