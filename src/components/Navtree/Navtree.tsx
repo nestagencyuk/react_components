@@ -14,13 +14,21 @@ import './Navtree.scss'
 import { NavtreeList } from '.'
 
 /**
+ * Variants
+ */
+const variants = {
+  Compact: 'navtree--compact',
+  Expanded: 'navtree--expanded'
+}
+
+/**
  * A navigation that supports nested levels
  */
-const Navtree: React.FC<INavtree.IProps> = ({ className, items }) => {
+const Navtree: React.FC<INavtree.IProps> = ({ className, variant = 'Expanded', items }) => {
   return (
-    <ToggleTree>
-      <nav className={cx(className, 'navtree')}>
-        <NavtreeList items={items} depth={0} open={true} />
+    <ToggleTree multi={true}>
+      <nav className={cx(className, 'navtree', variants[variant])}>
+        <NavtreeList parent={null} items={items} depth={0} open={true} />
       </nav>
     </ToggleTree>
   )

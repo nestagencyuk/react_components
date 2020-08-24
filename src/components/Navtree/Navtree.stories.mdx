@@ -1,4 +1,7 @@
 import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Fragment } from 'react'
+import { useToggle } from '../../hooks/useToggle'
+import { Button } from '../Button'
 import { Navtree } from '.'
 
 <Meta title="Components|Navigation/Navtree" component={Navtree} />
@@ -11,93 +14,118 @@ For use as a side navigation bar, accepts an array of link objects.
 
 <Preview>
   <Story name="Base">
-      <Navtree items={[
-        {
-          text: 'Home',
-          icon: {
-            name: 'Home'
-          }
-        },
-        {
-          text: 'About',
-          icon: {
-            name: 'Dashboard'
-          }
-        },
-        {
-          text: 'Mammals',
-          icon: {
-            name: 'Tools'
-          },
-          items: [
+    {() => {
+      const [toggled, setToggled] = useToggle()
+      return (
+        <Fragment>
+          <Button className="m--b-md" size="Small" onClick={() => setToggled(!toggled)}>{toggled ? 'Compact' : 'Expanded'}</Button>
+          <Navtree variant={toggled ? 'Expanded' : 'Compact'} items={[
             {
-              text: 'Cats',
+              text: 'Single Link',
+              href: '/',
               icon: {
-                name: 'Info'
+                name: 'Home'
               }
             },
             {
-              text: 'Dogs',
+              text: 'Nested Once',
               icon: {
-                name: 'Line'
+                name: 'Tools'
               },
               items: [
                 {
-                  text: 'Labrador',
+                  text: 'Single Link',
+                  href: '/',
                   icon: {
-                    name: 'Pie'
+                    name: 'Info'
                   }
                 },
                 {
-                  text: 'Terrier',
+                  text: 'Single Link Two',
+                  href: '/',
                   icon: {
-                    name: 'Edit'
-                  }
-                }
+                    name: 'Line'
+                  },
+                },
               ]
             },
             {
-              text: 'Horses',
+              text: 'Nested Once2',
               icon: {
-                name: 'Linkedin'
+                name: 'Tools'
               },
               items: [
                 {
-                  text: 'Thoroughbred',
+                  text: 'Single Link',
+                  href: '/',
                   icon: {
-                    name: 'Message'
+                    name: 'Info'
                   }
                 },
                 {
-                  text: 'Arabian',
+                  text: 'Single Link Two',
+                  href: '/',
                   icon: {
-                    name: 'Upload'
-                  }
-                }
+                    name: 'Line'
+                  },
+                },
               ]
-            }
-          ]
-        },
-        {
-          text: 'Reptiles',
-          icon: {
-            name: 'Success'
-          },
-          items: [
-            {
-              text: 'Iguana',
-              icon: {
-                name: 'Download'
-              }
             },
             {
-              text: 'Gecko',
+              text: 'Nested Twice',
               icon: {
-                name: 'Error'
-              }
+                name: 'Success'
+              },
+              items: [
+                {
+                  text: 'Nested Link',
+                  icon: {
+                    name: 'Error'
+                  },
+                  items: [
+                    {
+                      text: 'Nested Again',
+                      icon: {
+                        name: 'Edit'
+                      },
+                      items: [
+                        {
+                          text: 'Single Link',
+                          href: '/',
+                          icon: {
+                            name: 'Pie'
+                          }
+                        },
+                        {
+                          text: 'Single Link Two',
+                          href: '/',
+                          icon: {
+                            name: 'Pie'
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      text: 'Single Link',
+                      href: '/',
+                      icon: {
+                        name: 'Pie'
+                      }
+                    },
+                  ]
+                },
+                {
+                  text: 'Single Link',
+                  href: '/',
+                  icon: {
+                    name: 'Download'
+                  }
+                },
+              ]
             }
-          ]
-        }
-      ]} />
+          ]} />
+        </Fragment>
+      )
+    }}
   </Story>
 </Preview>

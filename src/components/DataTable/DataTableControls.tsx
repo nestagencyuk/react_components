@@ -14,7 +14,7 @@ import { Button, RefButton } from '../Button'
 /**
  * Data table row
  */
-const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange, onEvent = () => {} }) => {
+const DataTableControls: React.FC<IDataTable.IControlsProps> = ({ header, controls, onChange, onEvent }) => {
   const [searchValue, setSearchValue] = useState(null)
 
   /**
