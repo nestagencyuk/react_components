@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react'
+
+/**
+ * Types
+ */
 import { IUseFocus } from './types'
-import { type } from 'os'
 
 /**
  * Handles focus events for the target and its descendants.
@@ -8,19 +11,18 @@ import { type } from 'os'
 const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}): [
   boolean,
   (e?: React.FocusEvent) => void,
-  (e?: React.FocusEvent, cb?: (e: React.FormEvent<Element>) => void) => void,
-  (bool?: boolean) => void
+  (e?: React.FocusEvent, cb?: (e: React.FormEvent<Element>) => void) => void
 ] => {
   const [focused, setFocused] = useState(false)
 
   /**
    * Handle focusing
    */
-  const onFocus = (e?: React.FocusEvent) => {
+  const onFocus = () => {
     if (toggleable) {
       setFocused((prev) => !prev)
-    } else {
-      !focused && setFocused(true)
+    } else if (!focused) {
+      setFocused(true)
     }
   }
 
@@ -29,31 +31,30 @@ const useFocus = ({ toggleable = false, trigger, target }: IUseFocus.IProps = {}
    * just normal child nodes
    */
   const onBlur = useCallback(
-    (e: React.FocusEvent & { relatedTarget: HTMLElement }, cb?: (e: React.FormEvent) => void) => {
-      e.stopPropagation()
+    (e: React.FocusEvent, cb?: (e: React.FormEvent) => void) => {
       const isUnrelated = trigger || target
       let newFocused = true
-
       if (isUnrelated) {
-        const isInside = (target || trigger)?.contains(e?.relatedTarget)
-
+        const isInside = (target || trigger)?.contains(
+          (e as React.FocusEvent & { relatedTarget: HTMLElement })?.relatedTarget
+        )
         if (!isInside) {
           newFocused = false
         }
       } else {
-        const current = e?.currentTarget || e?.target
-        if (typeof current === 'object' && !current.contains(e.relatedTarget)) {
+        const isInside = (e.currentTarget || e.target)?.contains(
+          (e as React.FocusEvent & { relatedTarget: HTMLElement }).relatedTarget
+        )
+        if (!isInside) {
           newFocused = false
         }
       }
-
       setFocused(newFocused)
       if (cb && !newFocused) cb(e)
     },
-    [target]
+    [target, trigger]
   )
 
-  return [focused, onFocus, onBlur, setFocused]
+  return [focused, onFocus, onBlur]
 }
-
 export default useFocus

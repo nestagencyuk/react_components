@@ -29,6 +29,7 @@ $bg-colour: colours.$ui-one !default;
 /// -------------------
 
 .select {
+  position: relative;
   display: inline-block;
   background-color: $bg-colour;
   border-radius: corners.$base;
@@ -94,15 +95,6 @@ $bg-colour: colours.$ui-one !default;
 .select__option {
   @include lib.resets-style;
   position: relative;
-
-  &--sticky {
-    position: sticky;
-    top: 0;
-    background-color: colours.$ui-one;
-    box-shadow: shadows.$one;
-    z-index: z-index.$default;
-    padding-bottom: spacing.$xs;
-  }
 }
 
 /// -------------------
@@ -131,42 +123,6 @@ $bg-colour: colours.$ui-one !default;
   &:disabled {
     @include states.disabled;
   }
-
-  &--clear {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0.75;
-    font-size: map-get(typography.$small, 'font-size');
-
-    &:only-child {
-      margin-bottom: -(spacing.$xs);
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-/// -------------------
-/// Select button
-/// -------------------
-
-.select__tag.tag {
-  margin-right: spacing.$xs;
-  margin-top: spacing.$xs;
-  margin-left: spacing.$xs;
-}
-
-/// -------------------
-/// Select checkbox
-/// -------------------
-
-.select__checkbox {
-  @include lib.utilities-center-y;
-  left: $padding-x;
-  pointer-events: none;
 }
 
 /// -------------------

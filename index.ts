@@ -42,7 +42,7 @@ const iconFiles = async () => {
  * Generate icon stories
  */
 const iconStories = async () => {
-  const baseDir = path.resolve(__dirname, './src/assets/icons/')
+  const baseDir = path.resolve(__dirname, './src/assets/flags/')
   const files = await fs.readdir(baseDir)
   const fileToWrite = '.temp/Icon.stories.mdx'
 

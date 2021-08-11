@@ -73,7 +73,7 @@ const useManageArray = ({ initialArray = null }: IUseManageArray.IProps = {}): {
    * Update if necessary
    */
   useEffect(() => {
-    if (!initialArray || initialArray.length === array.length) return
+    if (!initialArray || initialArray?.length === array?.length) return
     setArray(initialArray.map((x) => (typeof x === 'string' ? x : { ...x, _uid: uid() })))
   }, [initialArray])
 

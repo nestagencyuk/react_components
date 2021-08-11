@@ -14,10 +14,11 @@ The hook in its simplest form.
 <Preview>
   <Story name="Base">
     {() => {
-      const [entry, ref] = useObserver()
+      const [target, setTarget] = useState(null)
+      const [entry, ref] = useObserver({ target })
       return (
         <Fragment>
-          <RefBox ref={ref}>
+          <RefBox ref={setTarget}>
             <div style={{ backgroundColor: entry?.intersectionRatio === 1 ? 'red' : 'blue', height: '500px' }}>
               If I am fully visible, I will be red! Scroll down to see the change.
             </div>

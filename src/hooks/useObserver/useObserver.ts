@@ -24,47 +24,80 @@ const buildThresholdList = (steps: number | number[]) => {
  * @param {Object} options
  * Options object for the intersection API
  */
-const useObserver = ({ root = null, rootMargin = '0px', threshold = [0, 1], unobserve = false }: IUseObserver.IProps = {}): [
-  IUseObserver.IState,
-  React.RefCallback<HTMLElement>
-] => {
-  const ref = useRef<HTMLElement>()
-  const observer = useRef<IntersectionObserver>()
+const useObserver = ({
+  target = null,
+  root = null,
+  rootMargin = '0px',
+  threshold = [0, 1],
+  unobserve = false
+}: IUseObserver.IProps = {}): any => {
+  // const ref = useRef<HTMLElement>()
+  // const observer = useRef<IntersectionObserver>()
 
-  const [entry, setEntry] = useState(null)
-  const options = {
-    root,
-    rootMargin,
-    threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
-  }
+  // const [entry, setEntry] = useState(null)
+  // const options = {
+  //   root,
+  //   rootMargin,
+  //   threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
+  // }
 
-  /**
-   * Set the ref node
-   */
-  const setRef = useCallback((node) => {
-    if (!node) return
+  // /**
+  //  * Set the ref node
+  //  */
+  // const setRef = useCallback((node) => {
+  //   if (!node) return
 
-    observer.current = new IntersectionObserver((entries, self) => {
-      entries.forEach((entry) => {
-        setEntry(entry)
-        if (unobserve && entry.isIntersecting) {
-          self.unobserve(entry.target)
-        }
-      })
-    }, options)
+  //   observer.current = new IntersectionObserver((entries, self) => {
+  //     entries.forEach((entry) => {
+  //       setEntry(entry)
+  //       if (unobserve && entry.isIntersecting) {
+  //         self.unobserve(entry.target)
+  //       }
+  //     })
+  //   }, options)
 
-    observer.current.observe(node)
-    ref.current = node
-  }, [])
+  //   observer.current.observe(node)
+  //   ref.current = node
+  // }, [])
 
-  /**
-   * Unsubscribe to observer on unmount
-   */
+  // /**
+  //  * Unsubscribe to observer on unmount
+  //  */
+  // useEffect(() => {
+  //   return () => observer?.current?.disconnect()
+  // }, [])
+
+  // return [entry, setRef]
+
+  // const [target, setNode] = useState(null)
+  const [entry, updateEntry] = useState({})
+
+  const observer = useRef(
+    new window.IntersectionObserver(
+      ([e]) => {
+        updateEntry(e)
+        // if (unobserve && e.isIntersecting) {
+        //   self.unobserve(e.target)
+        // }
+      },
+      {
+        root,
+        rootMargin,
+        threshold: threshold > 1 ? buildThresholdList(threshold) : threshold
+      }
+    )
+  )
+
   useEffect(() => {
-    return () => observer?.current?.disconnect()
-  }, [])
+    const { current: currentObserver } = observer
+    currentObserver.disconnect()
 
-  return [entry, setRef]
+    if (target) currentObserver.observe(target)
+
+    return () => currentObserver.disconnect()
+  }, [target])
+
+  return [entry]
 }
 
 export default useObserver

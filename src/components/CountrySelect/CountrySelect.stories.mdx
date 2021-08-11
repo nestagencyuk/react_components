@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, Preview, Props } from '@storybook/addon-docs/blocks'
+import { selectDecorator } from '../../../.storybook/decorators'
+import { useState, useEffect } from 'react'
+import { Text } from '../Text'
+import { CountrySelect } from '.'
+
+<Meta title="Components|Forms/CountrySelect" component={CountrySelect} />
+
+# CountrySelect
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Base
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<Preview>
+  <Story name="Base" decorators={[selectDecorator]}>
+    {() => {
+      const [value, setValue] = useState(null)
+      return (
+        <div>
+          <Text>Value: {`${value}`}</Text>
+          <CountrySelect
+            id="country-select-base"
+            value={value}
+            onChange={setValue}
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+ 

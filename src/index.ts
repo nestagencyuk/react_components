@@ -33,6 +33,9 @@ export { IDataTable } from './components/DataTable/types'
 export { Field } from './components/Field'
 export { IField } from './components/Field/types'
 
+export { Flag } from './components/Flag'
+export { IFlag } from './components/Flag/types'
+
 export { Float } from './components/Float'
 export { IFloat } from './components/Float/types'
 
@@ -71,6 +74,9 @@ export { ILoader } from './components/Loader/types'
 
 export { Modal } from './components/Modal'
 export { IModal } from './components/Modal/types'
+
+export { MultiSelect } from './components/MultiSelect'
+export { IMultiSelect } from './components/MultiSelect/types'
 
 export { Navbar } from './components/Navbar'
 export { INavbar } from './components/Navbar/types'

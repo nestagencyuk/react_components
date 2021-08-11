@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "start-storybook --port 3002 | webpack-dev-server",
+    "dev": "start-storybook --port 3002  --host 0.0.0.0 | webpack-dev-server",
     "icon:files": "ts-node --files ./index.ts iconFiles",
     "icon:stories": "ts-node --files ./index.ts iconStories",
     "scaffold": "ts-node --files ./index.ts scaffold --name=$NAME",
@@ -33,7 +33,7 @@
   "homepage": "https://github.com/nestagencyuk/react_components#readme",
   "dependencies": {
     "@lukeed/uuid": "^1.0.1",
-    "@nestagencyuk/react_form-factory": "^1.1.2",
+    "@nestagencyuk/react_form-factory": "^1.1.3",
     "@nestagencyuk/scss_lib": "^1.1.2",
     "@nestagencyuk/typescript_lib-frontend": "^1.0.9",
     "@popperjs/core": "^2.4.4",

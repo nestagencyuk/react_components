@@ -1,0 +1,187 @@
+/// ----------------------------------------------------------------------
+
+/// MultiSelect
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+@use 'corners';
+@use 'borders';
+@use 'shadows';
+@use 'gradients';
+@use 'colours';
+@use 'typography';
+@use 'animations';
+@use 'transitions';
+@use 'states';
+@use 'z-index';
+
+/// -------------------
+/// MultiSelect config
+/// -------------------
+
+$padding-x: spacing.$sm !default;
+$bg-colour: colours.$ui-one !default;
+
+/// -------------------
+/// MultiSelect wrapper
+/// -------------------
+
+.multiselect {
+  display: inline-block;
+  background-color: $bg-colour;
+  border-radius: corners.$base;
+
+  &--disabled,
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &:focus-within {
+    outline: none;
+  }
+}
+
+/// -------------------
+/// MultiSelect input
+/// -------------------
+
+.multiselect__input {
+  @include lib.resets-style;
+  @include lib.components-flow;
+  width: 100%;
+  padding-left: $padding-x;
+  padding-right: $padding-x * 2.5;
+  font-family: typography.$font-family;
+  font-weight: typography.$font-light;
+  transition: all transitions.$ease;
+  appearance: none;
+
+  &:read-only {
+    cursor: pointer;
+  }
+
+  &::placeholder {
+    color: colours.$ui-five;
+    opacity: 1;
+  }
+
+  &[multiple] {
+    min-width: 200px;
+  }
+
+  &:focus {
+    @include states.focus;
+  }
+}
+
+/// -------------------
+/// False options list
+/// -------------------
+
+.multiselect__options {
+  @include lib.resets-list;
+  display: block;
+  position: absolute;
+  background-color: $bg-colour;
+  border-radius: corners.$base;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: z-index.$select;
+}
+
+/// -------------------
+/// MultiSelect option
+/// -------------------
+
+.multiselect__option {
+  @include lib.resets-style;
+  position: relative;
+
+  &--hide {
+    display: none;
+  }
+
+  &--sticky {
+    position: sticky;
+    top: 0;
+    background-color: colours.$ui-one;
+    box-shadow: shadows.$one;
+    z-index: z-index.$default;
+    padding-bottom: spacing.$xs;
+  }
+}
+
+/// -------------------
+/// MultiSelect button (option)
+/// -------------------
+
+.multiselect__option-btn {
+  @include lib.resets-style;
+  width: 100%;
+  font-size: typography.$base-font-size;
+  font-family: typography.$font-family;
+  text-align: left;
+  padding: spacing.$md;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(white, 0.5);
+    font-weight: typography.$font-medium;
+    outline: none;
+  }
+
+  &:disabled {
+    @include states.disabled;
+  }
+
+  &--clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.75;
+    font-size: map-get(typography.$small, 'font-size');
+
+    &:only-child {
+      margin-bottom: -(spacing.$xs);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/// -------------------
+/// MultiSelect button
+/// -------------------
+
+.multiselect__tag.tag {
+  margin-right: spacing.$xs;
+  margin-top: spacing.$xs;
+  margin-left: spacing.$xs;
+}
+
+/// -------------------
+/// MultiSelect checkbox
+/// -------------------
+
+.multiselect__checkbox {
+  @include lib.utilities-center-y;
+  left: $padding-x;
+  pointer-events: none;
+}
+
+/// -------------------
+/// MultiSelect chevron icon
+/// -------------------
+
+.multiselect__icn {
+  @include lib.utilities-center-y;
+  right: $padding-x;
+}

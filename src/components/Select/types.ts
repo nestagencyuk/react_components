@@ -1,34 +1,30 @@
 import { IIcon } from '../Icon/types'
 import { Size } from '../../types'
+import { IFlag } from 'components/Flag/types'
 
 declare namespace ISelect {
   interface IProps {
     className?: string
+    variant?: 'Native' | 'Custom'
     id: string
-    multi?: boolean
-    multiVariant?: 'Checkbox' | 'Tags'
     size?: Size
     filterable?: boolean
     optional?: boolean
     placeholder?: string
     options?: IOption[]
-    value?: string | string[]
+    value?: string
     icon?: IIcon.IProps
     disabled?: boolean
     tabIndex?: number
-    onChange: (value: string | string[]) => void
-    onSearch?: (value: string | string[]) => void
+    onChange: (value: string) => void
+    onSearch?: (value: string) => void
   }
 
   interface IOptionsProps {
     id: string
     trigger: HTMLDivElement
-    open: boolean
-    values: string[]
     options: IOption[]
     filtered: IOption[]
-    multi: boolean
-    multiVariant?: 'Checkbox' | 'Tags'
     optional: boolean
     onClick: (value: string) => void
   }
@@ -37,6 +33,8 @@ declare namespace ISelect {
     value: string
     label: string
     disabled?: boolean
+    icon?: IIcon.IProps
+    flag?: IFlag.IProps
   }
 }
 

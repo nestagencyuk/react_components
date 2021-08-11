@@ -1,0 +1,38 @@
+/// ----------------------------------------------------------------------
+
+/// Flag
+
+/// ----------------------------------------------------------------------
+
+@use 'colours';
+
+/// -------------------
+/// Flag config
+/// -------------------
+
+$sizes: (
+  sm: 1rem,
+  md: 1.25rem,
+  lg: 1.75rem
+) !default;
+
+/// -------------------
+/// Flag selectors
+/// -------------------
+
+.flag {
+  display: inline-block;
+  border: 1px solid colours.$ui-two;
+
+  @each $size-name, $size-prop in $sizes {
+    &--#{$size-name} {
+      width: $size-prop;
+      height: auto;
+    }
+  }
+
+  & > svg {
+    display: block;
+    fill: inherit;
+  }
+}

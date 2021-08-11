@@ -4,7 +4,6 @@
 interface IGenericObject {
   [key: string]: any
 }
-
 interface IAction<T> {
   type: T
   payload?: any

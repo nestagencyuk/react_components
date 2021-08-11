@@ -1,0 +1,23 @@
+/// ----------------------------------------------------------------------
+
+/// CountrySelect
+
+/// ----------------------------------------------------------------------
+
+@use '@nestagencyuk/scss_lib' as lib;
+@use 'spacing';
+
+/// -------------------
+/// CountrySelect config
+/// -------------------
+
+$padding-x: spacing.$md !default;
+$padding-y: spacing.$md !default;
+
+/// -------------------
+/// CountrySelect selectors
+/// -------------------
+
+.countryselect {
+  display: block;
+}

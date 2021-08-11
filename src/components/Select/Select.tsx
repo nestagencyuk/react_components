@@ -1,8 +1,7 @@
 import { ISelect } from './types'
 import * as React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Fragment } from 'react'
 import { debounce } from '@nestagencyuk/typescript_lib-frontend'
-import { useManageArray } from '../../hooks/useManageArray'
 import { useFocus } from '../../hooks/useFocus'
 import { useKeyboardNav } from '../../hooks/useKeyboardNav'
 import cx from 'classnames'
@@ -33,9 +32,8 @@ const sizes = {
 const Select: React.FC<ISelect.IProps> = ({
   className,
   id,
+  variant = 'Native',
   tabIndex,
-  multi,
-  multiVariant = 'Checkbox',
   size,
   filterable,
   optional,
@@ -55,9 +53,6 @@ const Select: React.FC<ISelect.IProps> = ({
 
   const [focused, onFocus, onBlur, setFocused] = useFocus()
   const [, , onKeyDown] = useKeyboardNav({ root: ref.current, skip: 0 })
-  const { array: values, addItem, deleteItem, resetItems } = useManageArray({
-    initialArray: Array.isArray(value) ? value : null
-  })
 
   /**
    * Filter the options if a filter value has been entered
@@ -70,22 +65,9 @@ const Select: React.FC<ISelect.IProps> = ({
    * Reset all items
    */
   const handleReset = () => {
-    resetItems([])
+    onChange(null)
     setFocused(false)
     ref.current.parentElement.focus()
-  }
-
-  /**
-   * Set value and placeholders if multi-select
-   */
-  const handleMulti = () => {
-    const num = value ? (value.length < 10 ? value.length : '10+') : 0
-
-    if (filterable) {
-      setPlaceholder(`${num} Selected`)
-    } else {
-      setShownValue(`${num} Selected`)
-    }
   }
 
   /**
@@ -95,14 +77,6 @@ const Select: React.FC<ISelect.IProps> = ({
     setShownValue(filterValue)
     if (value === null) {
       setPlaceholder(initialPlaceholder)
-    }
-    if (!multi) {
-      const foundValue = options.find((x) => x.value === filterValue)
-      if (foundValue) {
-        setPlaceholder(foundValue.label || initialPlaceholder)
-        setFilterValue('')
-        setShownValue('')
-      }
     }
   }
 
@@ -122,20 +96,10 @@ const Select: React.FC<ISelect.IProps> = ({
    * The passed value
    */
   const handleClick = (value: string) => {
-    if (multi) {
-      if (multiVariant === 'Tags') ref.current.focus()
-      const index = values ? values.indexOf(value) : -1
-      if (index === -1) {
-        addItem(value)
-      } else {
-        deleteItem(value)
-      }
-    } else {
-      resetItems([value])
-      setFocused(false)
-      setShownValue('')
-      ref.current.parentElement.focus()
-    }
+    onChange(value)
+    setFocused(false)
+    setShownValue('')
+    ref.current.parentElement.focus()
   }
 
   /**
@@ -156,22 +120,10 @@ const Select: React.FC<ISelect.IProps> = ({
    * Listen to changes to actual value
    */
   useEffect(() => {
-    if (multi) {
-      handleMulti()
-    } else {
-      const foundValue = options.find((x) => x.value === value)
-      setPlaceholder(foundValue?.label || initialPlaceholder)
-    }
+    if (variant === 'Native') return
+    const foundValue = options.find((x) => x.value === value)
+    setPlaceholder(foundValue?.label || initialPlaceholder)
   }, [value])
-
-  /**
-   * Send the value to the parent onChange fn
-   */
-  useEffect(() => {
-    if (values !== null) {
-      onChange(multi ? (values.length === 0 ? null : (values as string[])) : (values[0] as string))
-    }
-  }, [values])
 
   return (
     <div
@@ -183,44 +135,83 @@ const Select: React.FC<ISelect.IProps> = ({
       onBlur={onBlur}
       onKeyDown={onKeyDown}
     >
-      <div style={{ position: 'relative' }}>
-        <input
-          className={cx('select__input', sizes[size])}
-          id={id}
-          data-testid={`${id}-input`}
-          name={id}
-          tabIndex={tabIndex}
-          value={shownValue || ''}
-          readOnly={!filterable}
-          placeholder={placeholder}
-          disabled={disabled}
-          autoComplete="off"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e.target.value)}
-        />
+      {variant === 'Native' ? (
+        <Fragment>
+          <select
+            className={cx('select__input', sizes[size])}
+            data-testid="select-input"
+            id={id}
+            defaultValue={value}
+            disabled={disabled}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}
+          >
+            {placeholder && (
+              <option className="multiselect__option" value="" disabled>
+                {placeholder || '-- Select --'}
+              </option>
+            )}
 
-        <Icon
-          className="select__icn"
-          colour="Inherit"
-          {...(icon || {
-            name: focused ? 'Chevron-up' : 'Chevron-down',
-            size: 'Small'
-          })}
-        />
-      </div>
+            {options.map((option, i) => (
+              <option
+                key={`option-${i}`}
+                className={cx('select__option', option.value, {
+                  disabled: option.disabled
+                })}
+                data-testid="option"
+                value={option.value}
+                disabled={option.disabled}
+              >
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <Icon
+            className="select__icn"
+            colour="Inherit"
+            {...(icon || {
+              name: 'Chevron-down',
+              size: 'Small'
+            })}
+          />
+        </Fragment>
+      ) : (
+        <Fragment>
+          <div style={{ position: 'relative' }}>
+            <input
+              className={cx('select__input', sizes[size])}
+              id={id}
+              data-testid={`${id}-input`}
+              name={id}
+              tabIndex={tabIndex}
+              value={shownValue || ''}
+              readOnly={!filterable}
+              placeholder={placeholder}
+              disabled={disabled}
+              autoComplete="off"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e.target.value)}
+            />
+          </div>
 
-      {focused && (
-        <SelectOptions
-          id={id}
-          trigger={ref.current}
-          open={focused}
-          values={values as string[]}
-          options={options}
-          filtered={filtered}
-          optional={optional}
-          multi={multi}
-          multiVariant={multiVariant}
-          onClick={(val) => (multi && val === null ? handleReset() : handleClick(val))}
-        />
+          <Icon
+            className="select__icn"
+            colour="Inherit"
+            {...(icon || {
+              name: focused ? 'Chevron-up' : 'Chevron-down',
+              size: 'Small'
+            })}
+          />
+
+          {focused && (
+            <SelectOptions
+              id={id}
+              trigger={ref.current}
+              options={options}
+              filtered={filtered}
+              optional={optional}
+              onClick={(val) => (val === null ? handleReset() : handleClick(val))}
+            />
+          )}
+        </Fragment>
       )}
     </div>
   )
